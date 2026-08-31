@@ -164,7 +164,12 @@ export function Session({ topicId }: { topicId?: string }) {
           {session.mode === "review" && (
             <span className="text-accent">{manifestTopic(item.topicId)?.title ?? item.topicId}</span>
           )}
-          <span>Difficulty {item.question.difficulty}/5</span>
+          {session.mode === "drill" && (
+            <span className="text-accent">
+              {item.drill?.direction === "meaning-to-term" ? "Meaning to term" : "Term to meaning"}
+            </span>
+          )}
+          {session.mode !== "drill" && <span>Difficulty {item.question.difficulty}/5</span>}
           {item.wasFlaggedForReteach && (
             <span className="text-unsure">· missed twice before</span>
           )}

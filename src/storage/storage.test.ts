@@ -320,3 +320,72 @@ describe("migration v2 -> v3", () => {
     expect(state.gamification).toEqual({ xp: 0, badges: [], frozenDays: [] });
   });
 });
+
+describe("migration v3 -> v4", () => {
+  const v3 = {
+    schemaVersion: 3,
+    settings: {
+      theme: "light",
+      sessionLength: 20,
+      dailyGoalMinutes: 15,
+      validateContentInProd: false,
+    },
+    gamification: { xp: 480, badges: [{ id: "groundwork", earnedAt: 1780000000000 }], frozenDays: ["2026-06-03"] },
+    questions: {},
+    topics: {},
+    events: [],
+    daily: {
+      "2026-06-04": {
+        answered: 8,
+        correct: 7,
+        seconds: 900,
+        reviews: 4,
+        xp: 95,
+        byConfidence: {
+          confident: { correct: 6, total: 6 },
+          unsure: { correct: 1, total: 2 },
+          guessing: { correct: 0, total: 0 },
+        },
+      },
+    },
+    meta: { createdAt: "2026-05-01T00:00:00.000Z", lastExportAt: null },
+  };
+
+  it("produces state that satisfies the current schema", () => {
+    const out = migrate(v3);
+    expect(out.status).toBe("ok");
+    if (out.status !== "ok") return;
+    expect(progressSchema.safeParse(out.state).success).toBe(true);
+  });
+
+  it("adds the glossary collections empty", () => {
+    const out = migrate(v3);
+    if (out.status !== "ok") throw new Error("expected ok");
+    expect(out.state["termsSeen"]).toEqual({});
+    expect(out.state["termDrills"]).toEqual({});
+  });
+
+  it("leaves XP, badges, freezes and daily history untouched", () => {
+    // The point of every migration: nothing the user earned is lost.
+    const out = migrate(v3);
+    if (out.status !== "ok") throw new Error("expected ok");
+    expect(out.state["gamification"]).toEqual(v3.gamification);
+    expect(out.state["daily"]).toEqual(v3.daily);
+  });
+
+  it("chains v1 all the way to v4", async () => {
+    const v1 = {
+      schemaVersion: 1,
+      settings: { theme: "dark", sessionLength: 45, dailyGoalMinutes: 30, validateContentInProd: false },
+      meta: { createdAt: "2026-01-01T00:00:00.000Z", lastExportAt: null },
+    };
+    await adapter.set(KEY, JSON.stringify(v1));
+
+    const { state, status } = await load();
+    expect(status).toEqual({ kind: "loaded", migratedFrom: 1 });
+    expect(state.schemaVersion).toBe(PROGRESS_SCHEMA_VERSION);
+    expect(state.settings.dailyGoalMinutes).toBe(30);
+    expect(state.termsSeen).toEqual({});
+    expect(state.termDrills).toEqual({});
+  });
+});

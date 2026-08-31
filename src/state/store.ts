@@ -12,7 +12,7 @@
 
 import { create } from "zustand";
 
-import { loadTopic, manifestTopic } from "../content/loader";
+import { glossary, loadTopic, manifestTopic } from "../content/loader";
 import type { LessonBlock, Question, Topic } from "../content/schema";
 import {
   gradeAnswer,
@@ -23,6 +23,14 @@ import {
 } from "../engine/grading";
 import type { EarnedBadge } from "../engine/badges";
 import { recordAnswer } from "../engine/record";
+import {
+  DRILL_DIFFICULTY,
+  buildDrill,
+  drillPool,
+  recordDrillAnswer,
+  type DrillDirection,
+  type DrillItem,
+} from "../engine/glossary";
 import { badgeContextFor, pendingFreezes } from "./selectors";
 import type { QuestionState } from "../engine/scheduler";
 import {
@@ -44,7 +52,7 @@ import type { SessionLength } from "../storage/progressSchema";
  */
 const MAX_SECONDS_PER_QUESTION = 300;
 
-export type SessionMode = "learn" | "review";
+export type SessionMode = "learn" | "review" | "drill";
 
 export interface QuizItem {
   question: Question;
@@ -63,6 +71,8 @@ export interface QuizItem {
   xpAwarded: number;
   /** Set when the award was suppressed, so the UI can say why it was zero. */
   xpSkipped: "incorrect" | "already-earned-today" | null;
+  /** Present on glossary drills; routes recording to the term store. */
+  drill: { slug: string; domain: string; direction: DrillDirection } | null;
 }
 
 export interface QuizSession {
@@ -84,7 +94,11 @@ export interface SessionSpec {
   mode: SessionMode;
   title: string;
   topicId: string | null;
-  items: { question: Question; topicId: string }[];
+  items: {
+    question: Question;
+    topicId: string;
+    drill?: { slug: string; domain: string; direction: DrillDirection };
+  }[];
   lessonBlocks: Record<string, LessonBlock[]>;
 }
 
@@ -106,6 +120,8 @@ interface AppState {
   beginSession: (spec: SessionSpec) => void;
   startTopicQuiz: (topic: Topic) => void;
   startReviewSession: (questionIds: string[]) => Promise<number>;
+  startDrillSession: (count: number) => number;
+  markTermsSeen: (slugs: string[]) => void;
   setResponse: (response: Response) => void;
   setConfidence: (confidence: Confidence) => void;
   reveal: () => void;
@@ -192,6 +208,7 @@ export const useApp = create<AppState>((set, get) => ({
           wasFlaggedForReteach: states[item.question.id]?.needsReteach ?? false,
           xpAwarded: 0,
           xpSkipped: null,
+          drill: item.drill ?? null,
         })),
         index: 0,
         startedAt: now,
@@ -256,6 +273,62 @@ export const useApp = create<AppState>((set, get) => ({
     return items.length;
   },
 
+  /**
+   * Build a glossary drill. Synchronous: the glossary is loaded eagerly, so no topic
+   * bodies are needed. Returns how many questions were assembled — 0 when nothing is
+   * eligible, which the caller turns into a message rather than an empty session.
+   */
+  startDrillSession(count) {
+    const progress = get().progress;
+    const now = Date.now();
+    const terms = [...glossary.values()];
+
+    const seen = new Set(Object.keys(progress.termsSeen));
+    let pool = drillPool(terms, { seen, drills: progress.termDrills, now });
+
+    // If the user has barely read anything yet, fall back to unseen terms rather
+    // than refusing to drill at all.
+    if (pool.length === 0) {
+      pool = drillPool(terms, { seen, drills: progress.termDrills, now, allowUnseen: true });
+    }
+
+    // Seeded on the day, so re-entering the same drill does not reshuffle mid-set.
+    const items = buildDrill(pool, terms, count, Math.floor(now / 60_000));
+    if (items.length === 0) return 0;
+
+    get().beginSession({
+      mode: "drill",
+      title: "Glossary drill",
+      topicId: null,
+      items: items.map((item) => ({
+        question: drillToQuestion(item),
+        topicId: item.term.domain,
+        drill: { slug: item.slug, domain: item.term.domain, direction: item.direction },
+      })),
+      lessonBlocks: {},
+    });
+    return items.length;
+  },
+
+  /** Mark terms as met. Only writes when something is genuinely new. */
+  markTermsSeen(slugs) {
+    const progress = get().progress;
+    const now = Date.now();
+
+    const additions: Record<string, number> = {};
+    for (const slug of slugs) {
+      if (progress.termsSeen[slug] === undefined) additions[slug] = now;
+    }
+    if (Object.keys(additions).length === 0) return;
+
+    const next = {
+      ...progress,
+      termsSeen: { ...progress.termsSeen, ...additions },
+    };
+    set({ progress: next });
+    save(next);
+  },
+
   setResponse(response) {
     set((s) => patchCurrent(s, (item) => ({ ...item, response })));
   },
@@ -285,6 +358,37 @@ export const useApp = create<AppState>((set, get) => ({
       MAX_SECONDS_PER_QUESTION,
       Math.max(0, (now - (item.shownAt ?? now)) / 1000),
     );
+
+    // Glossary drills schedule against termDrills, not questions, so they never
+    // enter the topic review queue. Same XP rules, same daily aggregate.
+    if (item.drill !== null) {
+      const result = recordDrillAnswer(
+        state.progress,
+        {
+          drillId: item.question.id,
+          slug: item.drill.slug,
+          domain: item.drill.domain,
+          correct: grade.correct,
+          confidence: item.confidence,
+          seconds,
+        },
+        now,
+      );
+
+      const drillItems = session.items.slice();
+      drillItems[session.index] = {
+        ...item,
+        grade,
+        revealed: true,
+        scheduled: result.state,
+        xpAwarded: result.xp.total,
+        xpSkipped: result.xp.skipped,
+      };
+
+      set({ progress: result.progress, session: { ...session, items: drillItems } });
+      save(result.progress);
+      return;
+    }
 
     // Everything persisted flows through one pure function, so the scheduling and
     // bookkeeping path is the same one the tests exercise.
@@ -379,3 +483,36 @@ export const selectXp = (s: AppState): number => s.progress.gamification.xp;
 
 export const selectSessionXp = (s: AppState): number =>
   s.session?.items.reduce((n, i) => n + i.xpAwarded, 0) ?? 0;
+
+/**
+ * Adapt a generated drill into the Question shape the session UI already renders.
+ *
+ * Deliberately not run through the content Zod schema: these are generated, not
+ * authored, and their ids are namespaced (`term:slug:t2m`) precisely so they can
+ * never be mistaken for content.
+ */
+function drillToQuestion(item: DrillItem): Question {
+  const isTermToMeaning = item.direction === "term-to-meaning";
+
+  return {
+    id: item.id,
+    type: "mcq",
+    difficulty: DRILL_DIFFICULTY,
+    tags: ["glossary", item.direction],
+    stem: isTermToMeaning
+      ? `What does **${item.term.term}** mean?`
+      : `Which term means this?
+
+"${item.term.plain}"`,
+    choices: item.choices,
+    answerIndex: item.answerIndex,
+    rationales: item.rationales,
+    explanation: isTermToMeaning
+      ? `**${item.term.term}** — ${item.term.plain}
+
+More formally: ${item.term.formal}`
+      : `That is **${item.term.term}**.
+
+More formally: ${item.term.formal}`,
+  };
+}

@@ -197,6 +197,7 @@ function Routes() {
     case "quiz":
       return param === undefined ? <NotFound /> : <Session topicId={param} />;
     case "review":
+    case "drill":
       return <Session />;
     case "progress":
       return <Progress />;

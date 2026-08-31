@@ -232,6 +232,24 @@ third**. `content:check` fails on: unresolved slug, duplicate slug across domain
 Rule of thumb: **the first time a specialist word appears in a topic, it is marked up.** The user has
 said to assume no jargon knowledge. Err toward over-marking.
 
+### Glossary drill — `engine/glossary.ts`
+
+Terms are drilled in both directions, because recognising a word and producing it are different
+skills: `term-to-meaning` and `meaning-to-term`, each on its own schedule under
+`term:{slug}:{t2m|m2t}`.
+
+- **Only terms already met in a lesson are drilled.** Opening a topic marks every `[[slug]]` in it as
+  seen. Drilling a word the user has never been shown is a trick question, not a test. The one
+  exception is a brand-new install, which falls back to unseen terms rather than refusing to drill.
+- **Distractors come from the same domain first.** Picking a definition out of three unrelated ones is
+  trivial; the useful discrimination is against neighbouring concepts, which is where the confusion
+  actually lives.
+- **Generation is seeded** (`src/lib/rng.ts`), never `Math.random`. A re-render that reshuffled the
+  options would move the answer index out from under the user.
+- Drills earn XP under the same rules as questions and count as reviews for the streak — a glossary
+  review is a real review. Only the scheduling state lives elsewhere.
+- "Known" on the glossary page means a drill interval has passed a week, not that it was right once.
+
 ### Inline markup — the complete list
 
 Content prose is data, not markdown and not HTML. `src/content/markup.ts` is the only parser, and
@@ -396,9 +414,11 @@ analytics. Writes debounce ~250ms and force-flush on `visibilitychange` and `pag
 
 ```
 {
-  schemaVersion: 3,
+  schemaVersion: 4,
   questions:    Record<questionId, QuestionState>,   // scheduling state — the real record
   topics:       Record<topicId, { attempts, lastStudiedAt }>,   // facts only
+  termsSeen:    Record<slug, timestamp>,             // terms met in a lesson
+  termDrills:   Record<"term:{slug}:{t2m|m2t}", QuestionState>,
   events:       AnswerEvent[],                       // bounded ring, 5000 / 18 months
   daily:        Record<isoDate, DailyAggregate>,     // permanent; carries reviews + xp
   gamification: { xp, badges: [{id, earnedAt}], frozenDays: [dayKey] },
@@ -406,6 +426,11 @@ analytics. Writes debounce ~250ms and force-flush on `visibilitychange` and `pag
   meta:         { createdAt, lastExportAt }
 }
 ```
+
+**`termDrills` is deliberately separate from `questions`.** A drill belongs to no topic,
+so mixing the two would inflate the topic review queue with items `startReviewSession`
+cannot build, and would muddle topic mastery. A test asserts drills never land in
+`questions`.
 
 Still to come: `activeSession` (M6), as a version bump with a tested migration.
 
@@ -502,7 +527,7 @@ Commit at the end of each milestone, then stop for review. Run `npm run verify` 
 | M1 | Content loader + validation, one lesson → quiz → result flow, three seeded topics: `quant-tvm-01`, `econ-curve-01`, `alts-lse-01` | done |
 | M2 | Scheduler + mastery engine, with tests | done |
 | M3 | XP, levels, streaks, badges, skill tree | done |
-| M4 | Glossary popovers, global page, drill mode | |
+| M4 | Glossary popovers, global page, drill mode | done |
 | M5 | Content build-out, one domain per batch, validated, pause between batches | |
 | M6 | Mock exams, analytics, export/import, session resume | |
 | M7 | Polish: mobile, keyboard, accessibility, empty states, error handling | |

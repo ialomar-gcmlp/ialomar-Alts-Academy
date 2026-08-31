@@ -7,6 +7,8 @@
 import { useEffect, useState } from "react";
 
 import { loadTopic } from "../content/loader";
+import { referencedSlugs } from "../content/markup";
+import { collectProse } from "../content/walk";
 import { DOMAIN_LABELS, type Topic as TopicData } from "../content/schema";
 import { navigate } from "../lib/hashRouter";
 import { useHotkeys } from "../lib/keyboard";
@@ -18,6 +20,7 @@ export function Topic({ id }: { id: string }) {
   const [topic, setTopic] = useState<TopicData | null>(null);
   const [error, setError] = useState<string | null>(null);
   const startTopicQuiz = useApp((s) => s.startTopicQuiz);
+  const markTermsSeen = useApp((s) => s.markTermsSeen);
 
   useEffect(() => {
     let cancelled = false;
@@ -26,7 +29,15 @@ export function Topic({ id }: { id: string }) {
 
     loadTopic(id)
       .then((loaded) => {
-        if (!cancelled) setTopic(loaded);
+        if (cancelled) return;
+        setTopic(loaded);
+
+        // Opening the lesson is what counts as meeting a term. This is what makes a
+        // drill fair — the glossary drill only draws on terms already encountered.
+        const slugs = new Set(
+          collectProse(loaded).flatMap((field) => referencedSlugs(field.text)),
+        );
+        markTermsSeen([...slugs]);
       })
       .catch((err: unknown) => {
         if (!cancelled) setError(err instanceof Error ? err.message : String(err));
@@ -35,7 +46,7 @@ export function Topic({ id }: { id: string }) {
     return () => {
       cancelled = true;
     };
-  }, [id]);
+  }, [id, markTermsSeen]);
 
   const begin = (): void => {
     if (!topic) return;

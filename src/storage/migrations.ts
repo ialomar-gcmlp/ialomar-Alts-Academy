@@ -58,6 +58,20 @@ export const migrations: Record<number, Migration> = {
       gamification: { xp: 0, badges: [], frozenDays: [] },
     };
   },
+
+  /**
+   * v3 -> v4: glossary tracking.
+   *
+   * Both collections start empty. "Seen" could in principle be back-filled from the
+   * topics the user has attempted, but that would mark terms as met on the strength
+   * of a topic having been opened once — and terms seen is used to decide what is
+   * fair to drill. Better to under-claim: the first lesson they open re-marks them.
+   */
+  3: (state) => ({
+    ...state,
+    termsSeen: {},
+    termDrills: {},
+  }),
 };
 
 function isRecord(value: unknown): value is Record<string, unknown> {

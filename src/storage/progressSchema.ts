@@ -8,6 +8,7 @@
  *   v2  per-question scheduling state, per-topic facts, a bounded answer log,
  *       and permanent daily aggregates
  *   v3  gamification (XP, badges, frozen days) and a per-day review count
+ *   v4  glossary: terms seen, and drill scheduling state per term/direction
  *
  * Mastery is deliberately NOT stored. It is derived from question state on demand,
  * so there is no cache to go stale — the entire class of "the number on screen
@@ -19,7 +20,7 @@ import { z } from "zod";
 import { CONFIDENCE_LEVELS } from "../engine/grading";
 import type { QuestionState } from "../engine/scheduler";
 
-export const PROGRESS_SCHEMA_VERSION = 3;
+export const PROGRESS_SCHEMA_VERSION = 4;
 
 export const themeSchema = z.enum(["light", "dark"]);
 export const confidenceSchema = z.enum(CONFIDENCE_LEVELS);
@@ -141,6 +142,14 @@ export const progressSchema = z.object({
   gamification: gamificationSchema,
   questions: z.record(z.string(), questionStateSchema),
   topics: z.record(z.string(), topicStateSchema),
+  /** slug -> when the term was first met in a lesson. */
+  termsSeen: z.record(z.string(), z.number()),
+  /**
+   * Glossary drill scheduling, keyed by "term:{slug}:{t2m|m2t}". Held apart from
+   * `questions` because a drill belongs to no topic: mixing them would inflate the
+   * topic review queue with items it cannot build.
+   */
+  termDrills: z.record(z.string(), questionStateSchema),
   events: z.array(answerEventSchema),
   daily: z.record(z.string(), dailyAggregateSchema),
   meta: z.object({
@@ -186,6 +195,8 @@ export function defaultProgress(now: Date = new Date()): ProgressState {
     gamification: { xp: 0, badges: [], frozenDays: [] },
     questions: {},
     topics: {},
+    termsSeen: {},
+    termDrills: {},
     events: [],
     daily: {},
     meta: { createdAt: now.toISOString(), lastExportAt: null },
