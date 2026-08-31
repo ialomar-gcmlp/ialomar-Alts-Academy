@@ -1,0 +1,219 @@
+{
+  "schemaVersion": 1,
+  "id": "ci-allocation-01",
+  "domain": "corporate-issuers",
+  "title": "Capital Allocation: The Five Choices and the Buyback Illusion",
+  "summary": "Every unit of cash has five destinations, and the one that raises earnings per share fastest changes nothing about the business.",
+  "level": "core",
+  "prereqs": ["ci-wacc-01"],
+  "estMinutes": 9,
+  "examRelevance": ["CFA-L1", "CAIA-L2", "practical"],
+  "lesson": [
+    {
+      "type": "concept",
+      "id": "what-it-is",
+      "body": "A company generating cash has exactly five things it can do with it. Every strategy document ever written is some combination of these:\n\n**Reinvest in the existing business** — capacity, equipment, systems, people.\n\n**Acquire** — buy growth or capability rather than build it.\n\n**Repay debt** — reduce the fixed claim and the risk.\n\n**Pay a dividend** — return cash to shareholders on a recurring, expected basis.\n\n**Buy back shares** — return cash by reducing the share count.\n\n**The test for all five is the same and it comes from the previous topic: does this use of a unit of capital earn more than the capital costs?** Reinvestment at 6% against a 7.8% cost of capital is worse than a dividend, however much it sounds like ambition.\n\nWhich makes capital allocation the most consequential thing a management team does and the least discussed. A team that runs the operations competently and allocates capital badly will underperform one that does the reverse, over a decade, by a wide margin."
+    },
+    {
+      "type": "concept",
+      "id": "buybacks",
+      "body": "**A buyback is a distribution of cash that happens to be delivered through the share count. It is not a return on anything.**\n\nThe arithmetic: a company with 100 shares at 10 each and 100 of earnings has earnings per share of 1.00. Spend 100 of cash buying 10 shares and 90 remain. Earnings per share becomes 100/90 = **1.11 — an 11% increase with nothing whatsoever changed about the business.**\n\nSo three things are true at once, and they routinely get argued past each other.\n\n**A buyback can create value.** If the shares are worth more than the price paid, the remaining holders gain. This is the only mechanism by which it creates value, and it depends entirely on price.\n\n**A buyback can destroy value.** Buying overvalued shares transfers value from the holders who stay to the ones who sell. Buybacks are, empirically, concentrated in good times when prices are high.\n\n**A buyback always raises earnings per share** — provided the cash was earning less than the earnings yield, which it usually is. So EPS growth from a buyback is not evidence of anything, and it is the metric most management incentives are struck on.\n\n**Which is why the honest question about any buyback is: what price, and against what estimate of value?** A programme with no reference to valuation is a distribution policy wearing a value-creation label."
+    },
+    {
+      "type": "intuition",
+      "id": "the-agency-problem",
+      "body": "**Managements systematically prefer to keep and deploy cash rather than return it, and the reason is structural rather than dishonest.**\n\nA larger company brings higher pay, more standing, more interesting work and more optionality. Returning cash shrinks the empire and admits that the best available use of the money is outside the company. Very few people volunteer for that.\n\nSo predictable distortions follow:\n\n**Acquisitions at prices that do not clear the hurdle.** Buying growth is faster than building it and easier to announce.\n\n**Reinvestment in declining businesses.** Defending an existing position feels like prudence and is often value destruction with a longer timeline.\n\n**Cash hoarding.** [[balance-sheet|Balance sheet]] cash earning below the cost of capital is a permanent, quiet drag that never appears as a loss.\n\n**This is exactly the gap [[private-equity|private equity]] exists to close.** Leverage removes the discretion — the interest must be paid — and concentrated ownership means someone with real money at stake decides where the cash goes. **The discipline is the product, not the leverage.**\n\nAnd the same logic explains activist campaigns in public markets: the demand is nearly always \"return the capital or explain why your reinvestment beats the hurdle\", which is a question rather than a strategy, and it is very hard to answer badly in public."
+    },
+    {
+      "type": "example",
+      "id": "worked-buyback",
+      "body": "A company has 100 shares trading at 10, earnings of 100 and 100 of surplus cash. Two options: a special dividend of 1.00 a share, or a buyback of 10 shares.",
+      "walkthrough": [
+        "**Dividend.** Each holder receives 1.00 in cash. Share count stays at 100. Earnings per share stays at **1.00**. Total shareholder value: 10 of share price plus 1 of cash.",
+        "**Buyback.** 100 of cash buys 10 shares at 10. 90 shares remain, earnings still 100, so earnings per share becomes 100/90 = **1.111**.",
+        "**Read that carefully: earnings per share rose 11.1% and not one thing about the business changed.** The same profit is divided among fewer claims.",
+        "Which is why the comparison has to be about price rather than about EPS. If the shares were genuinely worth 12, the company bought 10 of value for 10 — the remaining holders gained 2 per share bought, or **20 in total**.",
+        "If they were worth 8, the company paid 10 for 8 — **destroying 20**, transferring it to the holders who sold.",
+        "So: the dividend is value-neutral by construction. The buyback is value-positive or value-negative depending entirely on whether the price paid was below intrinsic value.",
+        "Sanity check worth reusing: **a buyback is an investment in one specific security, and it should meet the same test as any other investment.** If management cannot say why the shares are cheap, the programme is a distribution — which is fine, and should be called that."
+      ]
+    },
+    {
+      "type": "table",
+      "id": "allocation-table",
+      "caption": "When each use of cash is the right one",
+      "headers": ["Use of cash", "Right when", "Warning sign"],
+      "rows": [
+        [
+          "Reinvest",
+          "Incremental [[roic|ROIC]] comfortably above [[wacc|WACC]]",
+          "Reinvestment continuing while incremental returns fall below the hurdle."
+        ],
+        [
+          "Acquire",
+          "A capability that cannot be built, at a price that clears the hurdle after integration costs",
+          "Serial acquisitions justified by EPS accretion rather than by returns."
+        ],
+        [
+          "Repay debt",
+          "Leverage above the level the cash flow distribution supports",
+          "Repaying cheap long-dated debt while forgoing above-hurdle investment."
+        ],
+        [
+          "Dividend",
+          "Stable surplus cash and no above-hurdle uses",
+          "Maintaining the dividend by borrowing, or by cutting maintenance [[capex|capital expenditure]]."
+        ],
+        [
+          "Buy back shares",
+          "Shares below a defensible estimate of value",
+          "Buybacks concentrated at cycle highs, and struck to hit an EPS target."
+        ]
+      ]
+    },
+    {
+      "type": "concept",
+      "id": "how-it-goes-wrong",
+      "body": "**EPS targets driving the decision.** A buyback is the fastest way to hit an EPS number, and when incentives are struck on EPS the decision stops being about value. Check whether management's targets are EPS-based before reading their buyback rationale.\n\n**Borrowing to buy back.** Reasonable when leverage is below capacity and shares are cheap; a way of increasing risk to flatter a metric when neither is true.\n\n**Acquisitions justified by accretion.** A high-multiple acquirer buying a low-multiple target is arithmetically accretive whether or not the deal makes sense. Accretion is a function of the multiples, not of the merits.\n\n**Dividend as a promise.** A cut is read as a signal of distress, so companies defend dividends past the point of sense — by borrowing, by selling assets, or by deferring capital spending. The last of those is invisible for years.\n\n**Cash as safety without a number.** Some balance sheet cash is genuine insurance. Beyond that it earns below the cost of capital indefinitely. The question is what the buffer is for and how it was sized, and there is usually no answer."
+    },
+    {
+      "type": "pitfall",
+      "id": "accretion-is-arithmetic",
+      "body": "**Whether an acquisition is \"accretive\" to earnings per share is determined by the relative multiples, not by whether the deal is a good idea.**\n\nThe mechanism, with numbers. An acquirer trades at 20x earnings — earnings 100, 100 shares, price 20 each. It buys a target earning 40 at 15x, so 600 of value, paid in 30 new shares. Combined earnings 140 over 130 shares = **1.077 per share, up 7.7%.** Accretive.\n\nNow pay 25x for the same target: 1,000 of value, 50 new shares. Combined 140 over 150 shares = **0.933, down 6.7%.** Dilutive.\n\n**Same target, same business, same synergies. The accretion flipped because the price changed** — which is the useful part, since price is the one thing that determines whether the deal creates value.\n\nBut note the trap in the first case: **a high-multiple acquirer is accretive buying almost anything cheaper than itself**, including businesses that are cheaper for excellent reasons. Serial acquirers of low-multiple assets can report years of EPS growth while accumulating a portfolio of structurally declining businesses. The accretion was arithmetic throughout.\n\n**So accretion is not a test. The test is the return on the capital deployed against the cost of that capital, after integration costs and with the synergies discounted for the probability of arriving.**"
+    },
+    {
+      "type": "onTheJob",
+      "id": "on-the-job",
+      "body": "**Ask what management's incentive metric is before reading their capital allocation story.** EPS-based incentives predict buybacks and accretive acquisitions regardless of value.\n\n**For any buyback, ask what estimate of intrinsic value justified the price paid.** No answer means it is a distribution, which is legitimate and should be described accurately.\n\n**For any acquisition, ask for the expected return on invested capital including the price paid and integration costs.** Accretion is arithmetic; return is the test.\n\n**Ask what the cash buffer is for and how it was sized.** \"Prudence\" is not a number, and cash above a sized buffer is a permanent drag.\n\n**Track incremental ROIC over five years alongside the allocation decisions.** The two together tell you whether the team's judgement is any good, which is far more predictive than any single decision."
+    },
+    {
+      "type": "keyTakeaways",
+      "id": "takeaways",
+      "items": [
+        "Five uses of cash — reinvest, acquire, repay debt, dividend, buy back — and one test for all of them: does it earn more than the capital costs?",
+        "A buyback of 10 of 100 shares raised earnings per share 11.1% with nothing changed about the business. EPS growth from a buyback is not evidence of value.",
+        "A buyback creates value only if the price paid is below intrinsic value: 100 spent on shares worth 12 gains 20, and on shares worth 8 destroys 20.",
+        "Accretion is a function of relative multiples, not merit. The same target at 15x is accretive and at 25x dilutive — so the test is return on capital, not accretion."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "ci-allocation-01-q1",
+      "type": "numeric",
+      "difficulty": 2,
+      "tags": ["buyback", "eps", "arithmetic"],
+      "concept": "worked-buyback",
+      "stem": "100 shares, earnings 100, share price 10. The company spends 100 of cash on a buyback. What is the new earnings per share? Three decimal places.",
+      "answer": 1.111,
+      "tolerance": 0.01,
+      "toleranceType": "abs",
+      "inputHint": "How many shares does 100 of cash buy at 10 each?",
+      "explanation": "An 11.1% increase in EPS with no operational change. Worth remembering next time a results presentation leads with EPS growth: the first question is how much of it came from the share count."
+    },
+    {
+      "id": "ci-allocation-01-q2",
+      "type": "numeric",
+      "difficulty": 4,
+      "tags": ["ma", "accretion", "arithmetic"],
+      "concept": "accretion-is-arithmetic",
+      "stem": "Acquirer: earnings 100, 100 shares, trading at 20x. It buys a target earning 40 for 25x earnings, paying in shares. What is the combined earnings per share? Three decimal places.",
+      "answer": 0.933,
+      "tolerance": 0.01,
+      "toleranceType": "abs",
+      "inputHint": "Acquirer share price is 20. How many shares does the purchase price require?",
+      "explanation": "At 15x the same deal gives 1.077 — accretive by 7.7%. At 25x it is 0.933, dilutive by 6.7%. Nothing about the target changed, which is exactly why accretion is a statement about price rather than about quality."
+    },
+    {
+      "id": "ci-allocation-01-q3",
+      "type": "mcq",
+      "difficulty": 3,
+      "tags": ["buyback", "value"],
+      "concept": "buybacks",
+      "stem": "Under what condition does a buyback create value for the shareholders who remain?",
+      "choices": [
+        "Whenever it increases earnings per share",
+        "When the price paid is below the shares' intrinsic value",
+        "Whenever the company has surplus cash",
+        "When it is funded by debt rather than cash"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "EPS rises almost automatically, whatever the price. That is why it cannot be the test.",
+        "Correct. The remaining holders gain the difference between value and price on every share retired. Above value, the transfer runs the other way — to the sellers.",
+        "Surplus cash means a distribution is appropriate; it says nothing about whether shares or a dividend is the better vehicle.",
+        "The funding source changes the risk, not whether the purchase price was below value."
+      ],
+      "explanation": "It follows that a buyback is an investment decision in one particular security — the company's own. Held to that standard, most programmes would be paused at cycle highs, which is precisely when they are announced most often."
+    },
+    {
+      "id": "ci-allocation-01-q4",
+      "type": "tfj",
+      "difficulty": 4,
+      "tags": ["ma", "misconception"],
+      "concept": "accretion-is-arithmetic",
+      "stem": "\"The acquisition is accretive to earnings per share, so it creates value.\" True or false — and why?",
+      "isTrue": false,
+      "justifications": [
+        "False — accretion follows from the relative multiples, so a high-multiple acquirer is accretive buying almost anything cheaper than itself, including declining businesses",
+        "False — accretive acquisitions always destroy value because acquirers overpay",
+        "True — rising EPS increases the value of each share",
+        "False — because EPS is affected by the financing method"
+      ],
+      "justificationIndex": 0,
+      "rationales": [
+        "Correct. The arithmetic is driven by the multiple gap. It says nothing about the target's quality, the price relative to value, or whether the synergies exist.",
+        "Over-correction. Plenty of accretive acquisitions create genuine value; accretion just is not the evidence.",
+        "EPS rises and the value per share depends on the sustainability of those earnings and on what was paid for them.",
+        "True and secondary — the financing choice affects the arithmetic and is not why accretion fails as a test."
+      ],
+      "explanation": "The serial-acquirer pattern is worth recognising: a highly rated company buying lower-rated assets reports compounding EPS growth for years, and the underlying portfolio can be deteriorating throughout. Incremental ROIC catches it and EPS never will."
+    },
+    {
+      "id": "ci-allocation-01-q5",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["allocation", "agency", "on-the-job"],
+      "concept": "the-agency-problem",
+      "stem": "Why do management teams systematically prefer reinvesting or acquiring over returning cash?",
+      "choices": [
+        "Because reinvestment always earns more than the cost of capital",
+        "Because a larger company brings higher pay, standing and optionality, and returning cash concedes that the best use of the money is elsewhere",
+        "Because dividends are tax-inefficient for the company",
+        "Because shareholders prefer growth to distributions"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "It frequently does not, which is precisely why the preference is a problem rather than an alignment.",
+        "Correct. The incentives are structural and largely unconscious. It is why external discipline — leverage, concentrated ownership, an activist — changes behaviour so reliably.",
+        "Tax treatment varies by jurisdiction and is not the driver of the pattern.",
+        "Shareholder preferences differ, and the pattern persists across shareholder bases."
+      ],
+      "explanation": "Recognising this as structural rather than personal is what makes the private equity argument coherent: the model does not assume better managers, it assumes better constraints. Which also means a buyout that leaves the discretion intact has not applied the mechanism it is charging for."
+    },
+    {
+      "id": "ci-allocation-01-q6",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["allocation", "diligence", "on-the-job"],
+      "concept": "on-the-job",
+      "stem": "You are assessing whether a management team allocates capital well. Which single piece of evidence is most useful?",
+      "choices": [
+        "The company's revenue growth over five years",
+        "Incremental ROIC over five years, read alongside the allocation decisions actually taken",
+        "The dividend payout ratio",
+        "Total shareholder return relative to the index"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Revenue growth says nothing about the return earned on the capital that produced it.",
+        "Correct. Incremental ROIC measures the return on recent decisions, and pairing it with what they chose to do shows judgement rather than inheritance.",
+        "Payout ratio is an output of the policy, not evidence of whether the retained portion was well used.",
+        "TSR conflates allocation skill with market conditions and multiple changes, over a period the team did not choose."
+      ],
+      "explanation": "The pairing is what makes it work: a team with falling incremental returns that kept reinvesting has demonstrated poor judgement, and one that recognised the same fall and returned the capital has demonstrated good judgement — while both might show identical revenue growth."
+    }
+  ],
+  "needsReview": false,
+  "reviewNote": null
+}

@@ -1,0 +1,278 @@
+{
+  "schemaVersion": 1,
+  "id": "ci-ma-01",
+  "domain": "corporate-issuers",
+  "title": "Mergers and Acquisitions: Where the Value Goes",
+  "summary": "Why the target's shareholders capture most of the gain, what a synergy is worth after the probability of arriving, and the three questions that predict failure.",
+  "level": "advanced",
+  "prereqs": [
+    "ci-allocation-01",
+    "ci-wacc-01"
+  ],
+  "estMinutes": 9,
+  "examRelevance": [
+    "CFA-L2",
+    "CAIA-L2",
+    "practical"
+  ],
+  "lesson": [
+    {
+      "type": "concept",
+      "id": "what-it-is",
+      "body": "An acquisition transfers ownership of a business. The economics reduce to one comparison: **the price paid against the value received, including whatever the combination creates.**\n\nThat value has a name and a structure. The **[[control-premium|control premium]]** is what an acquirer pays above the standalone market value, and it is paid for two things: control itself, and the acquirer's expectation of [[synergy|synergies]].\n\nSynergies come in three kinds, in descending order of reliability:\n\n**Cost synergies.** Duplicated overhead, combined procurement, consolidated facilities. Most credible, because they are within the acquirer's control and can be counted.\n\n**Revenue synergies.** Cross-selling, distribution reach, pricing. Least credible, because they require customers to behave in a particular way.\n\n**Financial synergies.** Lower cost of capital, better tax position, debt capacity. Real, and often just a redistribution rather than a creation.\n\n**The uncomfortable finding from decades of evidence: on average the target's shareholders capture most of the value, because the premium is paid up front and the synergies arrive later, if at all.** That is not an argument against acquisitions. It is an argument for being specific about which synergies, when, and at what cost to achieve."
+    },
+    {
+      "type": "concept",
+      "id": "who-captures-it",
+      "body": "**The premium is certain and the synergies are a forecast. That asymmetry is the whole story of M&A value distribution.**\n\nWork through the structure. An acquirer pays a 30% premium to buy a target. That 30% goes to the target's shareholders on completion, in cash or in shares — irreversibly. In exchange the acquirer receives control and a plan.\n\nFor the acquirer's shareholders to gain, the synergies must be worth **more** than the premium, net of the cost of achieving them, discounted for the risk that they do not arrive.\n\nSo three questions decide the outcome, and all three are answerable before signing:\n\n**How much of the synergy value did we hand over in the premium?** If the premium equals the expected synergies, the acquirer has paid the target's shareholders for the acquirer's own future work.\n\n**What does it cost to achieve them?** Integration, redundancy, systems, management attention. Frequently a year or more of the annual synergy figure.\n\n**What probability applies?** Cost synergies land at high rates. Revenue synergies land far less often, and later, and smaller.\n\n**The practical discipline: take the announced synergy number, subtract the cost to achieve, apply a probability by category, and compare what is left with the premium.** If the answer is negative, the deal transfers value from the acquirer's shareholders to the target's — which may still be a defensible strategic decision, and should be described as the trade it is."
+    },
+    {
+      "type": "intuition",
+      "id": "why-deals-fail",
+      "body": "**Deals fail for a small number of recurring reasons, and every one of them is visible before completion.**\n\n**The premium consumed the synergies.** Competitive processes are designed to make this happen — an auction transfers the expected gains to the seller. Being the winner of an auction means having been willing to pay more than everyone else who examined the same asset.\n\n**Integration was underestimated.** Systems, cultures, incentive structures and customer relationships all take longer than the plan. Management attention is the scarcest resource and never appears in the cost line.\n\n**The revenue synergies were a hope.** Cross-selling assumes the customer wants both products from one supplier. Sometimes they emphatically do not, and procurement departments actively resist supplier concentration.\n\n**Key people left.** In a people business the assets can resign. Retention arrangements help and are expensive and expire.\n\n**The diligence found what it was looking for.** A process run by people whose bonus depends on the deal completing has a predictable bias, and the deal team's incentives are worth understanding before reading their report.\n\n**The most useful single question about any acquisition: what would have to be true for this to be a mistake, and who is checking?** A team that has written that down is a different proposition from one that has not."
+    },
+    {
+      "type": "example",
+      "id": "worked-synergy",
+      "body": "An acquirer buys a target with a standalone value of 1,000 for 1,300 — a 30% premium. It announces 60 a year of synergies: 40 cost, 20 revenue. Achieving them costs 70 one-off. Use a 10% [[discount-rate|discount rate]] for simplicity, so a perpetual annual saving is worth ten times its annual amount.",
+      "walkthrough": [
+        "**Premium paid: 300**, certain and immediate.",
+        "**Announced synergy value:** 60 a year, capitalised at ten times = **600**. Comfortably more than the premium, which is how the deal gets approved.",
+        "Now grade the components. Cost synergies of 40, at a high probability — say 80% — are worth 40 × 0.8 × 10 = **320**.",
+        "Revenue synergies of 20, at a much lower probability — say 30% — are worth 20 × 0.3 × 10 = **60**.",
+        "Probability-weighted synergy value = 320 + 60 = **380**. Subtract the 70 cost to achieve: **310**.",
+        "**Read that carefully: 310 of realistically achievable value against 300 of premium paid. The deal is roughly a coin flip, and the announced version showed 600 against 300.**",
+        "And note which assumption did the damage: the 30% probability on revenue synergies removed 140 of the announced value on its own.",
+        "Sanity check worth reusing: **capitalise the synergies, weight them by category, subtract the cost to achieve, and compare with the premium.** Four lines of arithmetic, and it turns an announcement into a decision. If the answer needs revenue synergies to work, the deal needs customers to cooperate."
+      ]
+    },
+    {
+      "type": "table",
+      "id": "synergy-table",
+      "caption": "Grading synergies before believing them",
+      "headers": [
+        "Type",
+        "Typical reliability",
+        "What makes it credible"
+      ],
+      "rows": [
+        [
+          "Duplicated overhead",
+          "High",
+          "Named roles and functions, with a timetable and a cost to remove."
+        ],
+        [
+          "Procurement",
+          "Medium-high",
+          "Identified contracts, current versus target pricing, renewal dates."
+        ],
+        [
+          "Facilities consolidation",
+          "Medium",
+          "Lease expiries, capacity analysis, and the cost of exit."
+        ],
+        [
+          "Cross-selling revenue",
+          "Low",
+          "Evidence customers buy both, and a pilot rather than a projection."
+        ],
+        [
+          "Pricing power from consolidation",
+          "Low and risky",
+          "Depends on competition and may attract regulatory attention."
+        ]
+      ]
+    },
+    {
+      "type": "concept",
+      "id": "how-it-goes-wrong",
+      "body": "**Auction dynamics.** A competitive process exists to transfer the surplus to the seller. Winning means paying more than every other informed bidder, which is worth pausing over rather than celebrating.\n\n**Stock as currency in an overvalued acquirer.** Paying with expensive shares is cheap financing, and the arithmetic is legitimate. It also means the deal's success depends on the acquirer's own rating holding up.\n\n**Serial acquisition masking organic decline.** Growth by acquisition can hide a shrinking core business for years. The check is organic growth reported separately, which acquirers do not volunteer.\n\n**Goodwill that never impairs.** A large goodwill balance that has never been written down, in a business whose returns have fallen, is an accounting statement rather than an economic one.\n\n**Retention that expires together.** Key-person arrangements struck at completion often vest on the same date. That date is a known risk and rarely planned for.\n\n**Cultural incompatibility treated as soft.** It is the mechanism through which most integration failures actually occur — decisions slow down, people leave, and customers notice."
+    },
+    {
+      "type": "pitfall",
+      "id": "buy-and-build",
+      "body": "**\"Buy and build\" is a real strategy and also the most flattering label available in [[private-equity|private equity]], so it is worth separating the two.**\n\nThe genuine version: a platform acquires smaller businesses at lower multiples, integrates them properly, and the enlarged group is worth a higher multiple because it is bigger, more diversified and more professional. Value comes from the multiple gap *and* from the integration.\n\nThe flattering version: a platform buys revenue at lower multiples, does not integrate, and reports rising [[ebitda|EBITDA]] and an implied uplift because the group is now larger. Value comes from arithmetic.\n\nThey look identical in a quarterly report and differ completely in what happens at exit, when a buyer examines the group rather than the spreadsheet.\n\n**Three questions separate them.** What is organic growth, excluding acquisitions, for each of the last three years? What integration has actually been completed — shared systems, single management, combined procurement? And has the group been sold at the higher multiple, or is the uplift still an assumption in the model?\n\n**The third question is the one that matters, because unrealised multiple expansion is the most common form of unrealised return in private markets.**"
+    },
+    {
+      "type": "onTheJob",
+      "id": "on-the-job",
+      "body": "**Capitalise the synergies, weight by category, subtract the cost to achieve, and compare with the premium.** Four lines, and it is the whole analysis in summary form.\n\n**Ask what proportion of the announced synergies is revenue rather than cost.** A synergy case resting on cross-selling is resting on customer behaviour nobody controls.\n\n**Ask for organic growth excluding acquisitions, by year.** For any acquisitive company this is the number that reveals whether the core is healthy.\n\n**Ask what integration has been completed, specifically, not planned.** Shared systems and single management, or separate businesses under one owner.\n\n**Ask who on the deal team is paid on completion, and who is responsible for the synergies eighteen months later.** When those are different people, the forecast and the accountability have been separated."
+    },
+    {
+      "type": "keyTakeaways",
+      "id": "takeaways",
+      "items": [
+        "The premium is certain and immediate; the synergies are a forecast. That asymmetry is why target shareholders capture most of the value on average.",
+        "In the worked example, 600 of announced synergies became 310 after probability-weighting and the cost to achieve — against 300 of premium paid.",
+        "Cost synergies are credible because they are within the acquirer's control; revenue synergies require customers to cooperate and land far less often.",
+        "For buy-and-build, ask for organic growth excluding acquisitions, what integration is complete rather than planned, and whether the multiple uplift has been realised or is still an assumption."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "ci-ma-01-q1",
+      "type": "mcq",
+      "difficulty": 2,
+      "tags": [
+        "ma",
+        "synergies",
+        "definition"
+      ],
+      "concept": "what-it-is",
+      "stem": "Which kind of synergy is generally the most reliable, and why?",
+      "choices": [
+        "Revenue synergies, because cross-selling adds new customers",
+        "Cost synergies, because removing duplicated overhead is within the acquirer's own control and can be counted",
+        "Financial synergies, because a lower cost of capital applies immediately",
+        "All three are equally reliable once the deal completes"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Revenue synergies are the least reliable: they require customers to buy differently, and procurement departments often resist supplier concentration.",
+        "Correct. A duplicated finance function can be named, costed and removed on a timetable the acquirer sets. Nobody outside the company has to agree to it.",
+        "Financial synergies are real and are often a redistribution between capital providers rather than value creation.",
+        "They differ substantially, which is why probability-weighting them separately changes the answer so much."
+      ],
+      "explanation": "The ordering matters because it tells you where to spend diligence time. Ask for named roles and a timetable on cost synergies; ask for a completed pilot on revenue synergies. The second request is the one that usually goes unanswered."
+    },
+    {
+      "id": "ci-ma-01-q2",
+      "type": "numeric",
+      "difficulty": 3,
+      "tags": [
+        "ma",
+        "synergies",
+        "arithmetic"
+      ],
+      "concept": "worked-synergy",
+      "stem": "Cost synergies of 40 a year at 80% probability, capitalised at ten times. What is their value?",
+      "answer": 320,
+      "tolerance": 3,
+      "toleranceType": "abs",
+      "inputHint": "40 × 0.8 × 10",
+      "explanation": "Capitalising at ten times is shorthand for a perpetual saving at a 10% discount rate. It is rough and it is the right order of magnitude, and it converts an annual figure into something comparable with the premium — which is the only comparison that matters."
+    },
+    {
+      "id": "ci-ma-01-q3",
+      "type": "numeric",
+      "difficulty": 4,
+      "tags": [
+        "ma",
+        "synergies",
+        "arithmetic"
+      ],
+      "concept": "worked-synergy",
+      "stem": "Add revenue synergies of 20 a year at 30% probability, also capitalised at ten times, then subtract 70 of cost to achieve. What is the total realistic synergy value?",
+      "answer": 310,
+      "tolerance": 5,
+      "toleranceType": "abs",
+      "explanation": "Against a premium of 300 this is a marginal deal, where the announced 600 of synergies suggested a comfortable one. The single largest adjustment was the probability applied to revenue synergies, which removed 140 on its own."
+    },
+    {
+      "id": "ci-ma-01-q4",
+      "type": "mcq",
+      "difficulty": 3,
+      "tags": [
+        "ma",
+        "value-distribution"
+      ],
+      "concept": "who-captures-it",
+      "stem": "Why do target shareholders capture most of the value in the average acquisition?",
+      "choices": [
+        "Because acquirers are usually incompetent",
+        "Because the premium is paid up front and certain, while the synergies are a forecast that may arrive late, smaller, or not at all",
+        "Because regulators require it",
+        "Because targets are usually better businesses"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "The pattern holds across competent acquirers. It is structural rather than a matter of skill.",
+        "Correct. One side of the exchange is cash today and the other is a plan. Competitive processes then push the premium up toward the full expected synergy value.",
+        "Regulators approve or block deals; they do not set the division of value.",
+        "Quality varies in both directions and is not what drives the pattern."
+      ],
+      "explanation": "The corollary is worth holding onto: the best acquisitions tend to be the ones made outside a competitive process, where the premium was not bid up. Which is also why proprietary deal flow is genuinely valuable in private markets rather than just a marketing phrase."
+    },
+    {
+      "id": "ci-ma-01-q5",
+      "type": "tfj",
+      "difficulty": 4,
+      "tags": [
+        "ma",
+        "misconception"
+      ],
+      "concept": "buy-and-build",
+      "stem": "\"Our buy-and-build has grown EBITDA from 20 to 60, so the strategy is working.\" True or false — and why?",
+      "isTrue": false,
+      "justifications": [
+        "False — EBITDA growth from acquisitions says nothing about organic health or whether integration happened; the test is organic growth, completed integration, and whether the multiple uplift has been realised",
+        "False — buy-and-build strategies never create value",
+        "True — tripling EBITDA is clear evidence of success",
+        "False — because EBITDA is the wrong measure for acquisitive companies"
+      ],
+      "justificationIndex": 0,
+      "rationales": [
+        "Correct. Buying revenue raises EBITDA arithmetically. Whether value was created depends on prices paid, integration achieved and whether a buyer will pay the higher multiple.",
+        "Over-correction. Well-executed platform strategies create real value, and the evidence for it is not the EBITDA line.",
+        "It is evidence of acquisitions, and the question is what they cost and what was done with them.",
+        "EBITDA has limitations and is not why this claim fails — the missing evidence is organic growth and integration."
+      ],
+      "explanation": "The exit is where the two versions separate. A genuinely integrated group is examined and rated as one business; a collection of separately run companies is examined as a collection, and the assumed multiple uplift does not appear. That is the risk carried in most buy-and-build models."
+    },
+    {
+      "id": "ci-ma-01-q6",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": [
+        "ma",
+        "diligence",
+        "on-the-job"
+      ],
+      "concept": "how-it-goes-wrong",
+      "stem": "An acquirer wins a competitive auction. What does winning tell you?",
+      "choices": [
+        "The acquirer has the best understanding of the asset",
+        "The acquirer was willing to pay more than every other informed bidder who examined the same asset",
+        "The asset was undervalued by the market",
+        "Nothing at all about the price"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "It may, and superior insight and simple over-optimism produce the same bid.",
+        "Correct. In an auction the winner is by definition the most optimistic participant, which is worth examining rather than celebrating. The mechanism is designed to transfer the surplus to the seller.",
+        "The competitive process is evidence that others valued it too — undervaluation is a harder claim after an auction, not an easier one.",
+        "It says something quite specific about the price: it was the highest one offered."
+      ],
+      "explanation": "This is not an argument against ever winning an auction — synergies genuinely differ between bidders, and the highest bid can be rational. It is an argument for being able to say *why* your synergies exceed the next bidder's, in specifics, before signing."
+    },
+    {
+      "id": "ci-ma-01-q7",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": [
+        "ma",
+        "accountability",
+        "on-the-job"
+      ],
+      "concept": "on-the-job",
+      "stem": "Which question best tests whether a synergy forecast is accountable?",
+      "choices": [
+        "What is the total synergy number?",
+        "Who owns delivery of these synergies eighteen months from now, and are they the same people who forecast them?",
+        "How was the discount rate chosen?",
+        "Which adviser prepared the analysis?"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "The total is the least reliable part of the pack and the part most likely to be a negotiating position.",
+        "Correct. When the forecasters are paid on completion and someone else inherits delivery, the forecast has been separated from the accountability — which reliably makes forecasts more optimistic.",
+        "A reasonable technical question with far less predictive power.",
+        "Useful context, and advisers are paid on completion almost universally, so it is not discriminating."
+      ],
+      "explanation": "The best answer to hear is a named executive with the synergy target in their own objectives and a reporting line that survives the deal. It is a structural fix rather than an analytical one, and it changes delivery rates more than any amount of diligence."
+    }
+  ],
+  "needsReview": false,
+  "reviewNote": null
+}

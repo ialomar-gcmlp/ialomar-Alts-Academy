@@ -607,7 +607,7 @@ One domain per batch, validated, pause between batches. Keep this current.
 | economics | 8 | **DONE** — curve-01 (seeded in M1) + gdp, inflation, monetary, fiscal, cycle, fx, indicators |
 | alternatives | 19 | **DONE** — 11 hedge fund strategies (lse, emn, merger, macro, cta, event, distressed, convert, firv, statarb, multistrat) + 8 private markets (pe-01 buyout, pe-02 growth, vc, pc, re, infra, realassets, fof) |
 | financial-statement-analysis | 7 | **DONE** — statements, cashflow, ebitda, workingcapital, ratios, debt, earningsquality (one worked company throughout) |
-| corporate-issuers | 0 | not started |
+| corporate-issuers | 6 | **DONE** — capitalstructure, wacc, allocation, governance, ma, issuance |
 | equity-valuation | 0 | not started — EV/EBITDA term defined |
 | fixed-income | 0 | not started |
 | derivatives | 0 | not started — delta, gamma, implied volatility, vega defined |

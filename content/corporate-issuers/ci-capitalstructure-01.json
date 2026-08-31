@@ -1,0 +1,218 @@
+{
+  "schemaVersion": 1,
+  "id": "ci-capitalstructure-01",
+  "domain": "corporate-issuers",
+  "title": "Capital Structure: Why Debt Is Cheaper and Where It Stops Being Free",
+  "summary": "The tax shield, the cost of distress, and why the optimal mix depends on how predictable the cash flow is.",
+  "level": "core",
+  "prereqs": ["fsa-ratios-01"],
+  "estMinutes": 9,
+  "examRelevance": ["CFA-L1", "CAIA-L1", "practical"],
+  "lesson": [
+    {
+      "type": "concept",
+      "id": "what-it-is",
+      "body": "[[capital-structure|Capital structure]] is the mix of debt and equity funding a business. The choice matters because the two claims are fundamentally different instruments.\n\n**Debt** is a contract. Fixed payments, a maturity date, [[seniority|priority]] in a wind-up, no ownership. The lender's upside is the coupon and nothing more.\n\n**Equity** is a residual. Paid last, entitled to everything left over, with control rights and no repayment date.\n\nThree consequences follow directly, and they explain almost everything about how the two behave:\n\n**Debt is cheaper.** Lower risk to the holder means a lower [[required-return|required return]], and interest is usually tax deductible while dividends are not.\n\n**Debt is inflexible.** The payments fall due whatever happens to trading. That inflexibility is the entire risk.\n\n**Debt is disciplining.** A fixed obligation constrains management's freedom to spend cash on marginal projects. That is genuinely a benefit, and it is the argument [[leveraged-buyout|leveraged buyouts]] have always rested on."
+    },
+    {
+      "type": "concept",
+      "id": "the-tradeoff",
+      "body": "**The trade-off theory: debt adds value through the tax shield and subtracts it through the expected cost of financial distress. The optimum is where the next unit of debt costs more in distress risk than it saves in tax.**\n\nThe tax shield is arithmetic. Interest reduces taxable profit, so a company paying 20 of interest at a 25% tax rate saves 5 of tax a year. Real money, and the reason the after-tax cost of debt is what appears in a cost of capital calculation.\n\nDistress costs are less visible and larger than most models allow, and they begin well before insolvency:\n\n**Direct costs** — advisers, refinancing fees, the fees of a restructuring.\n\n**Indirect costs** — customers who will not sign long contracts with a company they think may fail, suppliers who tighten terms, staff who leave, competitors who exploit the constraint.\n\n**Opportunity costs** — the acquisition that could not be made, the capital spending deferred, the price cut that could not be matched.\n\n**Which is why the honest way to state the trade-off is not \"how much debt can we service?\" but \"how much debt can we service in a bad year while still competing normally?\"**"
+    },
+    {
+      "type": "intuition",
+      "id": "predictability-decides",
+      "body": "**The single best predictor of how much debt a business can carry is not its margin or its growth. It is the predictability of its cash flow.**\n\nA regulated water utility with inflation-linked revenue can carry leverage that would destroy a fashion retailer with the same margins. Not because it is more profitable, but because the range of possible outcomes is narrower — and debt only fails in the bad tail.\n\nThis reframes leverage as a question about a distribution rather than a level. Two questions do most of the work:\n\n**How far can revenue fall before the interest cannot be paid?** In the worked company from the financial statements domain, [[ebitda|EBITDA]] of 80 against interest of 20 means EBITDA can fall 75% before interest is uncovered — which sounds comfortable until you note that capital spending and tax also have to be paid.\n\n**How correlated is the bad case with the credit market being closed?** A business whose revenue falls in a recession needs to refinance in a recession. That correlation is the mechanism behind most credit failures, and it is invisible in any single-scenario model.\n\n**So the useful sentence is: leverage is a bet that the cash flow distribution is narrower than the lender's [[covenant]] assumes.** Sometimes an excellent bet. Never a free one."
+    },
+    {
+      "type": "example",
+      "id": "worked-shield",
+      "body": "A company earns EBIT of 50. Compare it funded entirely by equity with the same business carrying 400 of debt at 5% interest, tax at 25%.",
+      "walkthrough": [
+        "**All equity.** Taxable profit = 50. Tax at 25% = 12.5. Profit after tax = **37.5**. Total paid to capital providers = 37.5.",
+        "**With 400 of debt at 5%.** Interest = 20. Taxable profit = 30. Tax = 7.5. Profit after tax = **22.5**.",
+        "Now add up what the capital providers receive: 20 of interest to lenders plus 22.5 to shareholders = **42.5**.",
+        "**Read that carefully: 42.5 versus 37.5. The same operating profit supported 5 more of payments to capital providers, and the difference came entirely from the tax authority.** That 5 is the tax shield — exactly the interest of 20 times the tax rate of 25%.",
+        "So debt genuinely creates value in a tax system that deducts interest, and that value is available at any level of leverage in this arithmetic.",
+        "Which is why the arithmetic alone cannot find an optimum: **taken literally, it recommends 100% debt.** What stops it is the distress cost, which does not appear in the calculation and is not linear — it is near zero for a long stretch and then very large.",
+        "Sanity check worth reusing: **the annual tax shield is interest times the tax rate.** At 20 of interest and 25% tax it is 5 a year. Compare it with the extra spread the company pays for being levered: if the debt costs 200bp more than an unlevered peer's would, that is 8 a year on 400 — and the shield has already been consumed."
+      ]
+    },
+    {
+      "type": "table",
+      "id": "capacity",
+      "caption": "What determines debt capacity",
+      "headers": ["Factor", "Supports more debt", "Supports less"],
+      "rows": [
+        [
+          "Cash flow predictability",
+          "Contracted, regulated, subscription revenue",
+          "Cyclical, project-based, fashion-dependent."
+        ],
+        [
+          "Asset backing",
+          "Tangible, re-saleable assets a lender can secure against",
+          "Intangible value that walks out of the door with the staff."
+        ],
+        [
+          "Growth needs",
+          "Mature business with modest capex",
+          "High-growth business needing cash for [[working-capital|working capital]] and capacity."
+        ],
+        [
+          "Customer sensitivity",
+          "Customers indifferent to supplier solvency",
+          "Long-term contracts, warranties, or safety-critical supply."
+        ],
+        [
+          "Tax position",
+          "Fully taxpaying, so the shield is worth its face value",
+          "Loss-making or with existing shelters — no shield to gain."
+        ]
+      ]
+    },
+    {
+      "type": "concept",
+      "id": "how-it-goes-wrong",
+      "body": "**Valuing the tax shield at a company that pays no tax.** A business with carried-forward losses gets no benefit from deductibility. The shield is worth the tax rate only if the tax is actually being paid.\n\n**Ignoring interest deductibility caps.** Many jurisdictions now cap deductible interest as a share of EBITDA. Beyond the cap the shield stops, and highly levered structures are precisely the ones that hit it.\n\n**Assuming the mix is a free choice.** A business with no tangible assets and volatile revenue cannot borrow at attractive terms regardless of what a model recommends. Capacity is set by lenders, not by theory.\n\n**Treating distress as insolvency only.** The costs start when customers, suppliers and staff begin to price in the possibility. That is long before any default and rarely modelled at all.\n\n**Forgetting who benefits from leverage.** More debt raises expected equity returns and raises the chance of losing everything. For a diversified fund that trade may be sensible; for a founder with one asset it is a different decision, and the two parties often sit on opposite sides of the same table."
+    },
+    {
+      "type": "pitfall",
+      "id": "leverage-is-not-value",
+      "body": "**Leverage changes how the pie is divided far more than it changes the size of the pie.**\n\nThe classic result — that in a world without taxes, distress costs or information asymmetry the capital structure does not affect firm value — is not a description of reality. It is a statement of where value creation *cannot* come from, and that makes it useful: if a transaction claims to create value, the value has to come from the tax shield, from reduced agency costs, from better operations, or from buying the asset cheaply. **It cannot come from the financing arithmetic itself.**\n\nWhich is worth remembering when a model shows a higher equity return purely because the debt assumption went up. That is not a better investment; it is the same investment with a narrower equity slice and a wider outcome distribution.\n\nThe test to apply: **at the same leverage, is this deal still attractive?** If the answer depends on the debt, the thesis is a financing thesis. Those exist and can work, and they should be labelled — because they depend on credit market conditions that have nothing to do with the company."
+    },
+    {
+      "type": "onTheJob",
+      "id": "on-the-job",
+      "body": "**Ask how far EBITDA can fall before interest is uncovered, and how far before the covenant trips.** Two numbers, expressed as percentages. They are the real measure of a capital structure's safety.\n\n**Ask whether the company is a full taxpayer.** If not, the tax shield in the model is worth less than face value, sometimes nothing.\n\n**Ask whether interest deductibility is capped in the relevant jurisdiction.** Above the cap, additional debt costs its coupon and saves no tax.\n\n**For a buyout thesis, ask what the return looks like at two turns less leverage.** If most of the return disappears, the thesis is about financing rather than about the business.\n\n**Ask what customers and suppliers would do if the company were visibly stressed.** In safety-critical or long-contract industries this is the largest distress cost and it never appears in a model."
+    },
+    {
+      "type": "keyTakeaways",
+      "id": "takeaways",
+      "items": [
+        "Debt is cheaper, inflexible and disciplining. The trade-off is the tax shield against the expected cost of distress, and distress costs start long before insolvency.",
+        "In the worked example, 400 of debt at 5% let the same 50 of EBIT support 42.5 of payments to capital providers rather than 37.5 — a 5 tax shield, exactly interest times the tax rate.",
+        "The arithmetic alone recommends 100% debt, which is why the real constraint is distress cost: near zero for a long stretch, then very large.",
+        "Cash flow predictability, not margin, determines debt capacity — and the danger is that the bad case for the business coincides with the credit market being closed."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "ci-capitalstructure-01-q1",
+      "type": "numeric",
+      "difficulty": 2,
+      "tags": ["capital-structure", "tax-shield", "arithmetic"],
+      "concept": "worked-shield",
+      "stem": "A company pays 20 of interest and the tax rate is 25%. What is the annual tax shield?",
+      "answer": 5,
+      "tolerance": 0.2,
+      "toleranceType": "abs",
+      "inputHint": "interest × tax rate",
+      "explanation": "Worth comparing with what the leverage costs: if being levered means paying 200bp more on 400 of debt, that is 8 a year against a 5 shield. The shield is real and it is not automatically the larger number."
+    },
+    {
+      "id": "ci-capitalstructure-01-q2",
+      "type": "numeric",
+      "difficulty": 3,
+      "tags": ["capital-structure", "arithmetic"],
+      "concept": "worked-shield",
+      "stem": "EBIT is 50, interest 20, tax 25%. What is the total paid to all capital providers — interest plus after-tax profit?",
+      "answer": 42.5,
+      "tolerance": 0.3,
+      "toleranceType": "abs",
+      "explanation": "The all-equity version of the same company pays 37.5. Seeing the two side by side is what makes the tax shield concrete rather than theoretical: the extra 5 came from the tax bill, not from the business."
+    },
+    {
+      "id": "ci-capitalstructure-01-q3",
+      "type": "mcq",
+      "difficulty": 3,
+      "tags": ["capital-structure", "capacity"],
+      "concept": "predictability-decides",
+      "stem": "Two companies have identical margins and growth. One sells regulated water services; the other sells fashion apparel. Which can carry more debt, and why?",
+      "choices": [
+        "The apparel business, because it has higher growth potential",
+        "The water utility, because the narrower range of possible cash flow outcomes means the bad tail is less bad",
+        "Both equally, since the margins match",
+        "Neither can carry debt safely"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Growth potential does not help pay interest in a bad year, and growth consumes cash rather than providing it.",
+        "Correct. Debt only fails in the downside, so what matters is the shape of the distribution rather than its middle. Regulated revenue narrows the distribution dramatically.",
+        "Margins describe the central case. Debt capacity is about the tail, which is why identical margins can support very different leverage.",
+        "Both can carry debt; the sustainable amounts differ by a wide margin."
+      ],
+      "explanation": "This is why infrastructure funds run leverage that would be reckless in a consumer business, and it is a legitimate structural difference rather than a difference in risk appetite. It also explains why regulatory change is the central risk in infrastructure: it widens the distribution the whole capital structure was built on."
+    },
+    {
+      "id": "ci-capitalstructure-01-q4",
+      "type": "tfj",
+      "difficulty": 3,
+      "tags": ["capital-structure", "misconception"],
+      "concept": "leverage-is-not-value",
+      "stem": "\"Our model shows a higher equity IRR with more debt, so the deal is better.\" True or false — and why?",
+      "isTrue": false,
+      "justifications": [
+        "False — more debt raises expected equity return and widens the outcome distribution; it is the same investment divided differently, not a better one",
+        "False — more debt always reduces returns because of the interest cost",
+        "True — a higher IRR at the same price is a better deal",
+        "False — because IRR is not a valid measure for levered investments"
+      ],
+      "justificationIndex": 0,
+      "rationales": [
+        "Correct. The financing arithmetic redistributes the outcomes rather than improving the asset. The expected return rises and so does the probability of losing the equity entirely.",
+        "The interest cost is real and the expected equity return still rises when the asset earns more than the debt costs. The objection is about risk, not arithmetic.",
+        "The IRR is higher and it is not risk-adjusted, which is exactly the trap.",
+        "IRR has real limitations and is used routinely and legitimately for levered equity."
+      ],
+      "explanation": "The habit worth building: whenever a return improves in a model, find the line that changed. If it was a financing assumption, the risk changed too, and the comparison has to be made at constant risk — usually by asking what the return looks like at two turns less leverage."
+    },
+    {
+      "id": "ci-capitalstructure-01-q5",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["capital-structure", "tax", "on-the-job"],
+      "concept": "how-it-goes-wrong",
+      "stem": "A model values the tax shield at the full statutory rate. What would make that overstated?",
+      "choices": [
+        "The company has carried-forward losses, or interest deductibility is capped as a share of EBITDA",
+        "The company is growing quickly",
+        "Interest rates are expected to fall",
+        "The debt is floating rather than fixed"
+      ],
+      "answerIndex": 0,
+      "rationales": [
+        "Correct. A shield only has value against tax actually payable. Losses mean no tax to shelter, and a deductibility cap means the shield stops at a threshold that levered structures are the most likely to exceed.",
+        "Growth affects the amount of tax over time and not the principle that the shield needs taxable profit to shelter.",
+        "The rate path changes the size of the interest and the shield proportionally, not the validity of the calculation.",
+        "Fixed or floating changes the certainty of the amount, not whether the deduction is available."
+      ],
+      "explanation": "Both of these are common and specific enough to check in an afternoon: the tax note discloses carried-forward losses, and the deductibility cap is a matter of jurisdiction. It is one of the quickest ways to find a material error in someone else's model."
+    },
+    {
+      "id": "ci-capitalstructure-01-q6",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["capital-structure", "distress", "on-the-job"],
+      "concept": "the-tradeoff",
+      "stem": "Which distress cost is largest and least often modelled?",
+      "choices": [
+        "Restructuring adviser fees",
+        "Indirect costs — customers, suppliers and staff acting on the perceived possibility of failure, long before any default",
+        "The increase in the coupon on refinancing",
+        "Court costs in an insolvency"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Direct fees are visible, painful and small relative to the business.",
+        "Correct. A customer who will not sign a three-year contract, a supplier who shortens terms, an engineer who leaves — these compound and start while the company is still paying everything on time.",
+        "A real cost, quantifiable, and it appears in most models.",
+        "Only relevant if insolvency actually occurs, and small next to the operating damage that precedes it."
+      ],
+      "explanation": "This is why capital structure decisions in customer-facing and safety-critical businesses are more conservative than the arithmetic requires: the balance sheet is part of the product. Ask what a large customer's procurement team would say about the post-deal leverage — sometimes they have already said it."
+    }
+  ],
+  "needsReview": false,
+  "reviewNote": null
+}

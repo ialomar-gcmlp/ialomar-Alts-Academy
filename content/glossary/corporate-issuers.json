@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "domain": "corporate-issuers",
+  "terms": [
+    {
+      "slug": "agency-problem",
+      "term": "agency problem",
+      "plain": "The people running a company are usually not the people who own it, so their interests overlap without coinciding. Structural rather than dishonest.",
+      "formal": "The conflict of interest arising where an agent makes decisions affecting a principal's wealth while bearing different costs and receiving different benefits.",
+      "seeAlso": [
+        "corporate-governance",
+        "carried-interest",
+        "roic"
+      ]
+    },
+    {
+      "slug": "control-premium",
+      "term": "control premium",
+      "plain": "The amount an acquirer pays above a target's standalone value, buying control and the expectation of synergies. Certain and immediate, where the synergies are a forecast.",
+      "formal": "The excess of an acquisition price over the standalone market value of the target, reflecting the value of control and of anticipated synergies.",
+      "seeAlso": [
+        "synergy",
+        "corporate-governance"
+      ]
+    },
+    {
+      "slug": "corporate-governance",
+      "term": "corporate governance",
+      "plain": "The system determining who makes decisions in a company and on whose behalf. In public markets largely law and disclosure; in private markets, contract.",
+      "formal": "The structures, rights and processes through which a company is directed and controlled, and through which providers of capital exercise oversight.",
+      "seeAlso": [
+        "agency-problem",
+        "tag-along",
+        "limited-partnership-agreement"
+      ]
+    },
+    {
+      "slug": "drag-along",
+      "term": "drag-along right",
+      "plain": "The majority's right to force minority holders to sell alongside it. Makes a clean sale possible, and removes your ability to stay.",
+      "formal": "A contractual right permitting a controlling holder to compel minority holders to sell on the same terms, subject to specified thresholds.",
+      "seeAlso": [
+        "tag-along",
+        "corporate-governance"
+      ]
+    },
+    {
+      "slug": "roic",
+      "term": "return on invested capital (ROIC)",
+      "plain": "After-tax operating profit divided by the capital invested to produce it. Above the cost of capital the business creates value; below it, growth destroys value.",
+      "formal": "Net operating profit after tax divided by invested capital, comparable directly with WACC because both are after-tax measures.",
+      "seeAlso": [
+        "wacc",
+        "free-cash-flow",
+        "capital-structure"
+      ]
+    },
+    {
+      "slug": "synergy",
+      "term": "synergy",
+      "plain": "Value that exists only because two businesses are combined. Cost synergies are within the acquirer's control; revenue synergies need customers to cooperate.",
+      "formal": "The incremental value from a combination, comprising cost, revenue and financial effects not available to either business standalone.",
+      "seeAlso": [
+        "control-premium",
+        "roic"
+      ]
+    },
+    {
+      "slug": "tag-along",
+      "term": "tag-along right",
+      "plain": "A minority investor's right to sell on the same terms when the majority sells. Protects you from being left behind with a new controlling partner you did not choose.",
+      "formal": "A contractual right entitling minority holders to participate pro rata in a sale by a controlling holder on equivalent terms.",
+      "seeAlso": [
+        "drag-along",
+        "corporate-governance"
+      ]
+    },
+    {
+      "slug": "wacc",
+      "term": "weighted average cost of capital (WACC)",
+      "plain": "The blended return a business must earn to satisfy everyone who funded it — the hurdle rate, and the discount rate in most valuations. Part market price, part estimate.",
+      "formal": "The cost of equity and after-tax cost of debt weighted by their market values, used as the discount rate for cash flows available to all capital providers.",
+      "seeAlso": [
+        "roic",
+        "discount-rate",
+        "capital-structure"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,210 @@
+{
+  "schemaVersion": 1,
+  "id": "ci-wacc-01",
+  "domain": "corporate-issuers",
+  "title": "Cost of Capital and the ROIC Test",
+  "summary": "The hurdle every investment has to clear, and the single comparison that separates growth that creates value from growth that destroys it.",
+  "level": "core",
+  "prereqs": ["ci-capitalstructure-01", "quant-npv-01"],
+  "estMinutes": 10,
+  "examRelevance": ["CFA-L1", "CFA-L2", "practical"],
+  "lesson": [
+    {
+      "type": "concept",
+      "id": "what-it-is",
+      "body": "The [[wacc|weighted average cost of capital]] is the blended return a business must earn to satisfy everyone who funded it. It is the hurdle, and it is the [[discount-rate|discount rate]] in almost every valuation.\n\nThree inputs, each with a different degree of reliability:\n\n**Cost of debt.** The most observable — roughly the yield the company pays on its borrowings, after tax, because interest is deductible.\n\n**Cost of equity.** Not observable at all. It is the return shareholders require, estimated with a model: typically the [[risk-free-rate|risk-free rate]] plus [[beta]] times an equity risk premium.\n\n**The weights.** Market values of debt and equity, not book values. Book equity reflects historical accounting; the cost of capital is about what investors require on what they own today.\n\n**Which sets up the central honesty problem with WACC: one input is a market price, one is an estimate with a plausible range of several percentage points, and the answer is usually quoted to one decimal place.**"
+    },
+    {
+      "type": "concept",
+      "id": "the-roic-test",
+      "body": "**A business creates value when its [[roic|return on invested capital]] exceeds its cost of capital, and destroys value when it does not. Everything else in corporate finance is detail on top of that sentence.**\n\nROIC is after-tax operating profit divided by the capital invested to produce it. It answers: what does this business earn on the money put into it? WACC answers: what does that money cost?\n\nThe spread between them, multiplied by invested capital, is economic profit. A company earning 9% ROIC on 1,000 of capital against a 7.8% WACC creates 12 a year of value beyond its cost of capital.\n\n**The consequence that catches people out is what this says about growth.** Growth is only good if the new capital earns more than it costs:\n\n- Invest 200 more at 9% ROIC against a 7.8% WACC: **+2.4 of value.**\n- Invest the same 200 at 6% ROIC: **−3.6 of value.**\n\nSecond case: revenue grows, profit grows, earnings per share may well grow — **and the company is worth less than before it invested.** Growth is not a strategy; growth above the cost of capital is."
+    },
+    {
+      "type": "intuition",
+      "id": "wacc-is-a-range",
+      "body": "**WACC is an estimate with error bars, and the honest way to use it is as a range rather than a point.**\n\nThe cost of equity is the problem. Beta is measured over a chosen window against a chosen index; the equity risk premium is argued over by serious people across a two-point range; the risk-free rate depends on which maturity you pick. Reasonable choices routinely produce cost of equity estimates two or three points apart, and a two-point move in WACC can change a valuation by a third for a long-duration asset.\n\nSo three practical habits:\n\n**Quote a range and check whether the decision changes across it.** A project attractive at 7% and unattractive at 9% is a project whose answer is \"we do not know\".\n\n**Distrust precision.** \"Our WACC is 8.4%\" implies a measurement. It is a construction, and the two-decimal version is the surest sign that nobody has tested the inputs.\n\n**Use the same WACC consistently or justify the difference.** A single company-wide rate applied to businesses of very different risk quietly subsidises the risky division and starves the safe one. That is a real capital allocation error and it is entirely invisible in the model.\n\n**And in private markets, note that a fund's own return target is not the company's cost of capital.** A 20% target IRR is a statement about the fund's economics and its investors' expectations. Using it to discount a company's cash flow answers a different question."
+    },
+    {
+      "type": "formula",
+      "id": "wacc-formula",
+      "latex": "\\text{WACC} = \\frac{E}{V} \\times k_e + \\frac{D}{V} \\times k_d \\times (1 - t)",
+      "plainReading": "Weight the cost of equity by equity's share of total capital, add the cost of debt weighted by debt's share and reduced for the tax deduction, and the result is the blended [[hurdle-rate|hurdle rate]].",
+      "variables": [
+        { "symbol": "E, D, V", "meaning": "market values of equity, debt, and their total" },
+        { "symbol": "k_e", "meaning": "cost of equity — estimated, not observed" },
+        { "symbol": "k_d", "meaning": "pre-tax cost of debt, roughly the yield on the company's borrowings" },
+        { "symbol": "t", "meaning": "marginal tax rate, and only worth its face value if tax is actually paid" }
+      ]
+    },
+    {
+      "type": "example",
+      "id": "worked-wacc",
+      "body": "Equity market value 600, debt 400. Cost of equity 10%, cost of debt 6%, tax rate 25%. Invested capital is 1,000 and EBIT is 120.",
+      "walkthrough": [
+        "Weights: equity 600/1,000 = **60%**, debt **40%**.",
+        "After-tax cost of debt = 6% × (1 − 0.25) = **4.5%**.",
+        "WACC = 0.60 × 10% + 0.40 × 4.5% = 6.0% + 1.8% = **7.8%**.",
+        "Now the ROIC side. After-tax operating profit = 120 × (1 − 0.25) = **90**. ROIC = 90 / 1,000 = **9.0%**.",
+        "Spread = 9.0% − 7.8% = **1.2 percentage points**. Economic profit = 1.2% × 1,000 = **12 a year**.",
+        "**Read that carefully: a business earning 9% on its capital is creating 12 a year of value, and a business earning 7% on the same capital would be destroying 8 a year — while both report a profit.** Accounting profit and value creation are different tests.",
+        "Now stress the leverage. Take debt to 600 and equity to 400. Both costs rise with risk — say equity to 12% and debt to 7.5%. WACC = 0.40 × 12% + 0.60 × 5.625% = **8.18%**, higher than before.",
+        "**More debt did not reduce the cost of capital, because the risk that was added to both claims outweighed the extra tax shield.** This is the trade-off from the previous topic, appearing as a number.",
+        "Sanity check worth reusing: **compute ROIC and WACC to the nearest half point and compare the spread with the width of your own uncertainty.** A 1.2-point spread against a 2-point uncertainty in the cost of equity means the honest answer is that you cannot tell."
+      ]
+    },
+    {
+      "type": "table",
+      "id": "value-table",
+      "caption": "The four combinations of growth and returns",
+      "headers": ["ROIC vs WACC", "Growing", "Not growing"],
+      "rows": [
+        [
+          "ROIC above WACC",
+          "The best case — growth compounds value. Reinvest everything possible.",
+          "Solid. Return the cash rather than reinvest it below the hurdle."
+        ],
+        [
+          "ROIC below WACC",
+          "The worst case — every unit of growth destroys value while flattering revenue and earnings.",
+          "Shrink, return capital, or sell to an owner who can raise the returns."
+        ]
+      ]
+    },
+    {
+      "type": "concept",
+      "id": "how-it-goes-wrong",
+      "body": "**Using book weights.** Book equity is an accounting residue. A company whose shares trade at three times book has a very different equity weight in market terms, and the WACC changes accordingly.\n\n**One rate for every division.** A conglomerate applying a single hurdle to a utility and a software venture will systematically over-invest in the risky one. The correction — a divisional cost of capital — is standard practice and frequently skipped.\n\n**Circularity ignored.** The weights depend on the market value of equity, which depends on the valuation, which depends on the WACC. In practice this is resolved by iteration or by target weights, and it should be stated rather than hidden.\n\n**A stale rate.** A WACC set when the risk-free rate was near zero is not a WACC. Rate regimes change and the number needs revisiting, and dated assumptions live for years inside spreadsheets.\n\n**Confusing the hurdle with the target.** A fund's target return, a management incentive threshold and the company's cost of capital are three different numbers. Using one where another belongs is a common and expensive substitution."
+    },
+    {
+      "type": "pitfall",
+      "id": "growth-without-returns",
+      "body": "**The most common way a well-run company destroys value is by growing profitably at a return below its cost of capital.**\n\nEvery signal looks positive. Revenue rises. Absolute profit rises. Earnings per share may rise, especially if the growth is debt-funded. Management is rewarded on all three. Nothing in the reported figures says anything is wrong.\n\nAnd the enterprise is worth less each year, because capital is being converted into assets earning less than the capital costs.\n\nThe detection is unglamorous: **compute ROIC on incremental capital, not on the whole base.** Take the change in after-tax operating profit and divide by the change in invested capital over the same period. That is the return on what management actually decided to do recently, and it is often far below the blended figure that includes a legacy business earning well.\n\n**Incremental ROIC below WACC while revenue grows is the clearest quantitative case for a change of strategy or of owner** — and it is precisely the situation an activist or a [[private-equity|private equity]] buyer looks for, because the fix is a decision rather than an invention."
+    },
+    {
+      "type": "onTheJob",
+      "id": "on-the-job",
+      "body": "**Ask for ROIC and WACC together, and for the spread.** Either alone is decoration. The spread is the value creation, and its sign is the whole question.\n\n**Ask for incremental ROIC over the last three years.** Change in after-tax operating profit over change in invested capital. It measures the decisions, not the inheritance.\n\n**Ask what the answer looks like at WACC plus and minus two points.** If the decision flips, the honest conclusion is uncertainty, and that should be said out loud.\n\n**Check whether divisions share one hurdle rate.** A single rate across different risks misallocates capital in a direction that is entirely predictable.\n\n**Never accept a fund's target IRR as a company's cost of capital.** They answer different questions and substituting one for the other systematically distorts the valuation."
+    },
+    {
+      "type": "keyTakeaways",
+      "id": "takeaways",
+      "items": [
+        "WACC is one observable input, one estimate with a multi-point range, and market-value weights — then quoted to one decimal place.",
+        "Value is created when ROIC exceeds WACC. In the worked example, 9.0% against 7.8% on 1,000 of capital is 12 a year of economic profit.",
+        "Growth only creates value above the hurdle: 200 invested at 9% adds 2.4, and the same 200 at 6% destroys 3.6 while revenue and profit both rise.",
+        "Compute incremental ROIC — change in operating profit over change in invested capital. It measures recent decisions rather than a legacy business, and it is where value destruction hides."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "ci-wacc-01-q1",
+      "type": "numeric",
+      "difficulty": 2,
+      "tags": ["wacc", "arithmetic"],
+      "concept": "worked-wacc",
+      "stem": "Equity 600 at a 10% cost, debt 400 at 6% pre-tax, tax 25%. What is WACC, in percent?",
+      "answer": 7.8,
+      "tolerance": 0.15,
+      "toleranceType": "abs",
+      "unit": "%",
+      "inputHint": "Weight each cost by its share of total capital; use the after-tax cost of debt.",
+      "explanation": "The tax adjustment applies only to debt, which is the whole reason debt appears cheap in this calculation. Forgetting it gives 8.4% — a difference that would change a long-duration valuation by roughly a tenth."
+    },
+    {
+      "id": "ci-wacc-01-q2",
+      "type": "numeric",
+      "difficulty": 3,
+      "tags": ["roic", "arithmetic"],
+      "concept": "worked-wacc",
+      "stem": "EBIT is 120, tax 25%, invested capital 1,000. What is ROIC, in percent?",
+      "answer": 9.0,
+      "tolerance": 0.15,
+      "toleranceType": "abs",
+      "unit": "%",
+      "inputHint": "Use after-tax operating profit.",
+      "explanation": "ROIC uses after-tax operating profit because it must be comparable with WACC, which is an after-tax cost. Mixing a pre-tax return with an after-tax cost overstates the spread by the tax rate — here it would suggest 12% against 7.8%, a spread nearly four times the real one."
+    },
+    {
+      "id": "ci-wacc-01-q3",
+      "type": "numeric",
+      "difficulty": 3,
+      "tags": ["roic", "value-creation", "arithmetic"],
+      "concept": "the-roic-test",
+      "stem": "ROIC is 9.0%, WACC is 7.8%, invested capital is 1,000. What is annual economic profit?",
+      "answer": 12,
+      "tolerance": 0.5,
+      "toleranceType": "abs",
+      "explanation": "Set against a reported after-tax operating profit of 90, the economic profit of 12 is what remains after paying for the capital employed. It is the honest measure of whether the business is worth running as constituted."
+    },
+    {
+      "id": "ci-wacc-01-q4",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["roic", "growth"],
+      "concept": "growth-without-returns",
+      "stem": "A company grows revenue 8% a year and earns 6% on new capital against a 7.8% WACC. What is happening?",
+      "choices": [
+        "Value is being created, since the business is growing and profitable",
+        "Value is being destroyed at 1.8% of every unit of new capital, while revenue, profit and possibly EPS all rise",
+        "Nothing — growth is neutral to value",
+        "The WACC must be wrong"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Growth and profit are both present, and the new capital earns less than it costs, so each increment reduces enterprise value.",
+        "Correct. This is the most common way a competent company destroys value, and every headline metric points the other way.",
+        "Growth is value-neutral only when the incremental return exactly equals the cost of capital.",
+        "It might be, and 6% against any plausible WACC for a levered company is a low incremental return."
+      ],
+      "explanation": "This is what an activist or a buyout firm is looking for: a business where stopping the low-return investment and returning the capital instantly creates value, with no operational genius required. It is also why incremental ROIC is a more revealing metric than growth in almost every strategic discussion."
+    },
+    {
+      "id": "ci-wacc-01-q5",
+      "type": "tfj",
+      "difficulty": 4,
+      "tags": ["wacc", "misconception"],
+      "concept": "wacc-is-a-range",
+      "stem": "\"Our WACC is 8.4%, so we accept projects returning above 8.4%.\" True or false as a decision rule — and why?",
+      "isTrue": false,
+      "justifications": [
+        "False — the cost of equity is an estimate with a range of several points, so a project at 8.6% is inside the error bars and the rule implies precision the inputs cannot support",
+        "False — projects should be judged on payback period rather than return",
+        "True — that is exactly what a hurdle rate is for",
+        "False — because WACC should never be used as a hurdle rate"
+      ],
+      "justificationIndex": 0,
+      "rationales": [
+        "Correct. Beta window, index choice and the equity risk premium each move the answer by a point or more. A rule to two decimal places on that input is false precision, and it will approve marginal projects on noise.",
+        "Payback ignores the cost of capital entirely and is a worse rule, not a better one.",
+        "It is what a hurdle is for, and the hurdle needs a range and a margin for the risk of the specific project.",
+        "WACC is the right basis for a hurdle. The problem is the implied precision, not the concept."
+      ],
+      "explanation": "The practical fix is a stated margin: accept comfortably above the range, reject comfortably below, and treat the middle as requiring a strategic argument rather than an arithmetic one. That is how the estimate's uncertainty gets handled honestly instead of being hidden by a decimal point."
+    },
+    {
+      "id": "ci-wacc-01-q6",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["wacc", "allocation", "on-the-job"],
+      "concept": "how-it-goes-wrong",
+      "stem": "A group applies one company-wide WACC to both a regulated utility division and a software venture. What is the consequence?",
+      "choices": [
+        "Consistent capital allocation across the group",
+        "Systematic over-investment in the risky division and under-investment in the safe one, because the single rate is too low for one and too high for the other",
+        "The group's overall WACC will be wrong",
+        "No consequence, provided the rate is recalculated annually"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "It is consistent and consistently wrong — the same rate applied to different risks is not the same hurdle.",
+        "Correct. The venture clears a hurdle set too low for its risk, and the utility fails one set too high, so capital drifts toward the riskier division regardless of merit.",
+        "The group-level rate can be perfectly correct on average and still misallocate at the divisional level.",
+        "Annual recalculation of the wrong structure does not fix the structure."
+      ],
+      "explanation": "The fix is a divisional cost of capital using peer betas for each business. It is standard technique and it is skipped often, because a single rate is administratively easier and its cost is invisible — it shows up years later as a portfolio of low-return growth investments."
+    }
+  ],
+  "needsReview": false,
+  "reviewNote": null
+}
