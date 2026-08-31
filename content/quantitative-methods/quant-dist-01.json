@@ -1,0 +1,233 @@
+{
+  "schemaVersion": 1,
+  "id": "quant-dist-01",
+  "domain": "quantitative-methods",
+  "title": "Distributions, the Normal Curve and Fat Tails",
+  "summary": "The bell curve, why finance keeps assuming it, and what goes wrong when returns refuse to cooperate.",
+  "level": "core",
+  "prereqs": ["quant-stat-01"],
+  "estMinutes": 10,
+  "examRelevance": ["CFA-L1", "CAIA-L1", "practical"],
+  "lesson": [
+    {
+      "type": "concept",
+      "id": "the-normal",
+      "body": "A distribution describes how likely each outcome is. The [[normal-distribution]] — the bell curve — is the one finance reaches for by default, because it needs only two numbers to specify completely: a mean and a [[standard-deviation]].\n\nThat economy is its appeal and its danger. Two parameters give you every probability you could ask for:\n\n- about **68%** of observations fall within one standard deviation of the mean\n- about **95%** within two\n- about **99.7%** within three\n\nA [[z-score]] converts any observation into standard deviations from the mean, which lets you read those probabilities off directly. It is the bridge between a specific return and a general statement about likelihood."
+    },
+    {
+      "type": "formula",
+      "id": "z-formula",
+      "latex": "z = \\frac{x - \\mu}{\\sigma}",
+      "plainReading": "The z-score is the observation minus the mean, divided by the standard deviation. It answers: how many standard deviations from typical is this?",
+      "variables": [
+        { "symbol": "\\mu", "meaning": "the mean of the distribution" },
+        { "symbol": "\\sigma", "meaning": "the standard deviation — [[volatility]], for returns" }
+      ]
+    },
+    {
+      "type": "example",
+      "id": "worked-z",
+      "body": "A strategy has an expected annual return of 8% with a volatility of 12%. How unusual would a -16% year be?",
+      "walkthrough": [
+        "**Compute the z-score.** (-16 - 8) / 12 = **-2.0**. The outcome is two standard deviations below the mean.",
+        "**Read off the probability.** Under a normal distribution, about 2.3% of outcomes fall more than two standard deviations below the mean.",
+        "So roughly a **1-in-44** year. Unpleasant but unremarkable — you should expect one over a long career.",
+        "**Now go further out.** A -28% year is z = -3.0, which a normal distribution puts at 0.135% — about **one year in 740**, or one in 62 careers.",
+        "Hold on to that last number, because the next section is about why it is wrong."
+      ]
+    },
+    {
+      "type": "intuition",
+      "id": "fat-tails",
+      "body": "Financial returns are not normally distributed, and the way they deviate is the single most consequential fact in this topic.\n\nReturns exhibit [[fat-tails]] — formally, excess [[kurtosis]]. Extreme outcomes happen far more often than a bell curve predicts. Markets have delivered multiple daily moves that a normal distribution would price at less than once in the age of the universe. Those moves happened anyway.\n\nThey are also usually negatively [[skewness|skewed]]: the big surprises are disproportionately bad ones. Gains tend to arrive gradually and losses suddenly.\n\nThe practical consequence is not \"the model is a bit off\". It is that **the normal distribution is most wrong precisely where the stakes are highest.** It is a reasonable description of an ordinary month and a dangerous description of a crisis. Every risk measure built on it — including [[value-at-risk]] in its standard form — inherits that flaw, and inherits it in the direction of false comfort."
+    },
+    {
+      "type": "chart",
+      "id": "tails-chart",
+      "caption": "Normal versus fat-tailed, same mean and scale (illustrative densities)",
+      "spec": {
+        "kind": "line",
+        "xLabels": ["-4σ", "-3σ", "-2σ", "-1σ", "mean", "+1σ", "+2σ", "+3σ", "+4σ"],
+        "series": [
+          { "name": "Normal", "values": [0.0001, 0.0044, 0.054, 0.242, 0.3989, 0.242, 0.054, 0.0044, 0.0001] },
+          { "name": "Fat-tailed", "values": [0.0067, 0.0197, 0.0663, 0.2147, 0.375, 0.2147, 0.0663, 0.0197, 0.0067] }
+        ],
+        "yLabel": "Relative likelihood",
+        "yUnit": ""
+      },
+      "annotation": "The two look almost identical in the middle, which is the problem. At -4σ the fat-tailed curve is roughly sixty times higher than the normal. If you fit a model to the ordinary months, it will agree with reality nearly all the time and fail exactly when failing is expensive."
+    },
+    {
+      "type": "concept",
+      "id": "skew-kurt",
+      "body": "Two numbers describe how a distribution departs from normal.\n\n**[[skewness]]** measures lopsidedness. Negative skew means a long left tail: mostly modest gains, occasionally a severe loss. Selling options, writing insurance, [[merger-arbitrage]] and carry trades all produce negatively skewed returns — steady until they are not. Positive skew is the opposite shape: many small losses and rare large gains, which is what trend-following and long volatility strategies look like.\n\n**[[kurtosis]]** measures tail weight. A normal distribution has kurtosis of 3, so \"excess kurtosis\" is the amount above 3. Positive excess kurtosis means fat tails — more extreme outcomes than a bell curve allows, in both directions.\n\nBoth matter for the same reason: two strategies with identical mean and volatility can have completely different risk profiles, and skew and kurtosis are where that difference shows up."
+    },
+    {
+      "type": "pitfall",
+      "id": "smooth-not-safe",
+      "body": "**A long run of small positive returns is not evidence of low risk.** It is the *signature* of negative skew — the shape looks best just before it looks worst.\n\nA strategy that has produced 40 consecutive small gains might be genuinely low risk, or might be one that has not yet met the event it is exposed to. Volatility and drawdown history cannot distinguish these, because neither has anything to work with until the event happens. The only way through is to understand the exposure structurally: what would have to happen for this to lose a lot, and how likely is that?"
+    },
+    {
+      "type": "onTheJob",
+      "id": "on-the-job",
+      "body": "**Ask about skew before volatility.** A manager reporting 4% volatility and no down months has told you the shape of their return distribution, and it is not a reassuring one until you know what they are exposed to.\n\n**Correlations are not stable either.** The normal-distribution framework assumes a fixed correlation structure. In stress, correlations across risky assets tend to converge toward one, so diversification thins out exactly when it is needed. This is a tail property, not an average one, and it will not appear in a long-run correlation matrix.\n\n**Treat standard VaR as a floor, not a limit.** \"We do not expect to lose more than X with 99% confidence\" says nothing at all about the other 1%, and under fat tails that 1% is worse than the model implies. The number is useful; the sentence people build around it usually is not."
+    },
+    {
+      "type": "keyTakeaways",
+      "id": "takeaways",
+      "items": [
+        "The normal distribution needs only a mean and a standard deviation, which is why it is used and why it is trusted too far.",
+        "Real returns have fat tails and usually negative skew: extremes are more frequent than the bell curve says, and the big surprises are bad ones.",
+        "Two strategies with identical mean and volatility can differ completely in risk. Skew and kurtosis are where that shows.",
+        "A long unbroken run of small gains is the signature of negative skew, not proof of safety."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "quant-dist-01-q1",
+      "type": "numeric",
+      "difficulty": 2,
+      "tags": ["z-score", "normal-distribution"],
+      "concept": "z-formula",
+      "stem": "A strategy has an expected return of 8% and volatility of 12%. What is the z-score of a -16% annual return?",
+      "answer": -2,
+      "tolerance": 0.05,
+      "toleranceType": "abs",
+      "inputHint": "Answer as a number, with a minus sign if below the mean.",
+      "explanation": "z = (-16 - 8)/12 = -2.0. Two standard deviations below the mean, which under a normal distribution sits at about the 2.3rd percentile — roughly a 1-in-44 year."
+    },
+    {
+      "id": "quant-dist-01-q2",
+      "type": "mcq",
+      "difficulty": 2,
+      "tags": ["normal-distribution", "probability"],
+      "concept": "the-normal",
+      "stem": "Under a normal distribution, roughly what proportion of outcomes fall within two standard deviations of the mean?",
+      "choices": ["68%", "95%", "99.7%", "50%"],
+      "answerIndex": 1,
+      "rationales": [
+        "68% is the one-standard-deviation figure.",
+        "Correct — about 95.4%, which is why two standard deviations is the conventional boundary for a 95% interval.",
+        "99.7% is the three-standard-deviation figure.",
+        "50% is what falls on either side of the mean, not within a band around it."
+      ],
+      "explanation": "The 68 / 95 / 99.7 sequence for one, two and three standard deviations is worth memorising — it converts a volatility figure into a rough probability statement without a table."
+    },
+    {
+      "id": "quant-dist-01-q3",
+      "type": "chartRead",
+      "difficulty": 3,
+      "tags": ["fat-tails", "chart-reading", "kurtosis"],
+      "concept": "tails-chart",
+      "spec": {
+        "kind": "line",
+        "xLabels": ["-4σ", "-3σ", "-2σ", "-1σ", "mean", "+1σ", "+2σ", "+3σ", "+4σ"],
+        "series": [
+          { "name": "Curve A", "values": [0.0001, 0.0044, 0.054, 0.242, 0.3989, 0.242, 0.054, 0.0044, 0.0001] },
+          { "name": "Curve B", "values": [0.0067, 0.0197, 0.0663, 0.2147, 0.375, 0.2147, 0.0663, 0.0197, 0.0067] }
+        ],
+        "yLabel": "Relative likelihood",
+        "yUnit": ""
+      },
+      "stem": "Which statement about the two curves above is correct?",
+      "choices": [
+        "Curve B is riskier because it has a higher peak at the mean",
+        "Curve B has fatter tails: far-from-mean outcomes are much more likely than under Curve A",
+        "Curve A has more extreme outcomes, since it is taller in the centre",
+        "The curves are equivalent, since both are symmetric about the mean"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "The peak is a detail. Read the ends: at -4σ, B sits at 0.0067 against A's 0.0001 — roughly sixty times more likely.",
+        "Correct. Both are symmetric, but B assigns dramatically more probability to extremes. That is excess kurtosis, and it is the shape real return series actually have.",
+        "A is taller in the centre, which means it concentrates *more* probability near the mean and therefore less in the tails — the opposite of extreme.",
+        "Symmetry is about skew, and both are indeed unskewed. But they differ enormously in tail weight, which symmetry says nothing about."
+      ],
+      "explanation": "The two curves are near-indistinguishable through the middle and differ by more than an order of magnitude at the edges. A model calibrated on ordinary months will match reality almost all the time and be badly wrong in a crisis — which is when the answer matters most."
+    },
+    {
+      "id": "quant-dist-01-q4",
+      "type": "strategyId",
+      "difficulty": 4,
+      "tags": ["skewness", "strategy-identification"],
+      "concept": "skew-kurt",
+      "description": "A strategy has produced 46 positive months out of 52, with a modest average monthly gain and very low reported volatility. The six negative months include one that lost more than the previous eighteen months of gains combined. Returns show negative skew and high excess kurtosis.",
+      "choices": [
+        "A strategy that collects a steady premium for bearing an occasional large loss — selling optionality",
+        "A trend-following managed futures programme",
+        "A long volatility strategy",
+        "An equity market neutral book with tight factor controls"
+      ],
+      "answerIndex": 0,
+      "rationales": [
+        "Correct. Frequent small gains punctuated by rare severe losses is the signature of being paid a premium to absorb a risk that has not often materialised — option selling, some carry trades, certain credit and arbitrage strategies.",
+        "Trend following typically shows the *opposite* shape: many small losses in choppy markets and rare large gains in sustained trends, so positive skew.",
+        "Long volatility is the most positively skewed profile there is — it bleeds steadily and pays off sharply. The reverse of what is described.",
+        "Market neutral aims for low volatility, but it does not systematically produce this asymmetry. The single loss wiping out eighteen months of gains is the giveaway that this is a premium-selling shape."
+      ],
+      "explanation": "The pattern to recognise is the asymmetry, not the win rate. A 88% hit rate sounds excellent and is entirely compatible with a strategy whose expected value depends on how bad the rare loss is. This is why skew is worth asking about before volatility."
+    },
+    {
+      "id": "quant-dist-01-q5",
+      "type": "tfj",
+      "difficulty": 3,
+      "tags": ["fat-tails", "risk-models", "misconception"],
+      "concept": "fat-tails",
+      "stem": "\"Our model says a loss this large should occur once every 500 years, so the model must have been correct and we were simply unlucky.\" True or false — and why?",
+      "isTrue": false,
+      "justifications": [
+        "False — an extremely low modelled probability for an event that occurred is evidence against the model's tail assumptions, not evidence of bad luck",
+        "False — because 500-year events are actually quite common",
+        "True — rare events do happen, and a single occurrence cannot invalidate a model",
+        "False — because the model should have used a longer historical sample"
+      ],
+      "justificationIndex": 0,
+      "rationales": [
+        "Correct. If a model assigns near-zero probability to something that then happens, the most economical explanation is that the model's tails were too thin — which is the known, systematic failing of normal-distribution risk models.",
+        "Loosely gestures at the right conclusion but is self-contradictory: if they are common, they are not 500-year events, and the sentence does not identify the modelling flaw.",
+        "It is true in isolation that rare events happen. But invoking that to protect a model whose tail assumptions are known to be too thin is exactly the reasoning error being tested.",
+        "A longer sample helps a little, but the deeper problem is the assumed *shape*. No length of history rescues a distribution that structurally cannot produce the observed extremes."
+      ],
+      "explanation": "The tell-tale phrase is any risk statement expressed as a once-in-many-centuries event. Such claims are almost always artefacts of assuming normality, and treating an occurrence as bad luck rather than as evidence is how the same mistake gets made twice."
+    },
+    {
+      "id": "quant-dist-01-q6",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["correlation", "stress", "on-the-job"],
+      "concept": "on-the-job",
+      "stem": "A multi-strategy portfolio is built assuming low correlations between its underlying strategies, measured over ten years. Why might it perform far worse than modelled in a crisis?",
+      "choices": [
+        "Long-run average correlations understate how much correlations rise in stress",
+        "Ten years is too short a window for correlations to be meaningful",
+        "Correlations are always exactly zero in normal conditions and one in stress",
+        "The model should have used covariance rather than correlation"
+      ],
+      "answerIndex": 0,
+      "rationales": [
+        "Correct. Correlation is not a constant. Across risky assets it tends to rise sharply toward one in stressed markets, so diversification measured on average conditions thins out precisely when it is needed.",
+        "Ten years is a reasonable window. The problem is not the length of the sample but that an average conceals a state-dependent relationship.",
+        "Far too absolute. Correlations are neither zero normally nor exactly one in stress — they simply rise, often a great deal.",
+        "Covariance and correlation carry the same information up to scaling. Switching between them changes nothing about the stability problem."
+      ],
+      "explanation": "Correlation in stress is a tail property and averages hide it. The useful diligence question is not \"what is the correlation?\" but \"what was the correlation in the worst months?\" — and that is usually a much less comfortable number."
+    },
+    {
+      "id": "quant-dist-01-q7",
+      "type": "numeric",
+      "difficulty": 3,
+      "tags": ["z-score", "normal-distribution"],
+      "concept": "worked-z",
+      "stem": "A strategy has an expected return of 8% and volatility of 12%. What annual return sits exactly 1.5 standard deviations below the mean, in percent?",
+      "answer": -10,
+      "tolerance": 0.2,
+      "toleranceType": "abs",
+      "unit": "%",
+      "inputHint": "Answer in percent, with a minus sign if negative.",
+      "explanation": "8 - (1.5 x 12) = -10%. Converting in this direction — from a number of standard deviations back to a return — is how volatility figures get turned into loss scenarios, and it is worth being fluent in both directions."
+    }
+  ],
+  "needsReview": false,
+  "reviewNote": null
+}

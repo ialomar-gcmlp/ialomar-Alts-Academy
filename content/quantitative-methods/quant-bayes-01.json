@@ -1,0 +1,190 @@
+{
+  "schemaVersion": 1,
+  "id": "quant-bayes-01",
+  "domain": "quantitative-methods",
+  "title": "Bayes' Rule and Base Rates",
+  "summary": "How to update a belief when new evidence arrives — and why ignoring the starting odds produces confidently wrong conclusions.",
+  "level": "core",
+  "prereqs": ["quant-prob-01"],
+  "estMinutes": 10,
+  "examRelevance": ["CFA-L1", "CAIA-L1", "practical"],
+  "lesson": [
+    {
+      "type": "concept",
+      "id": "what-bayes-does",
+      "body": "You believe something with some confidence. Evidence arrives. What should you believe now?\n\n[[bayes-rule|Bayes' rule]] answers that precisely. It takes your [[prior-probability]] — what you believed before — combines it with how diagnostic the new evidence is, and returns a [[posterior-probability]]: what you should believe after.\n\nThe reason it matters is that human intuition is systematically bad at this in one specific way. **We attend to how impressive the evidence is and neglect how rare the thing was to begin with.** The rarity of the thing is its [[base-rate]], and it turns out to dominate the answer far more often than the strength of the evidence does."
+    },
+    {
+      "type": "formula",
+      "id": "bayes-formula",
+      "latex": "P(A|B) = \\frac{P(B|A) \\, P(A)}{P(B)}",
+      "plainReading": "The probability of A given the evidence B equals the probability of seeing that evidence if A were true, times the prior probability of A, divided by the overall probability of seeing that evidence at all.",
+      "variables": [
+        { "symbol": "P(A)", "meaning": "the [[prior-probability]] — the [[base-rate]], before the evidence" },
+        { "symbol": "P(B|A)", "meaning": "how likely this evidence is when A is true — the test's sensitivity" },
+        { "symbol": "P(B)", "meaning": "how likely the evidence is overall, across both A being true and false" }
+      ]
+    },
+    {
+      "type": "example",
+      "id": "worked-manager",
+      "body": "Suppose 20% of managers in a universe possess genuine, persistent skill. You have a screen that flags 80% of genuinely skilled managers — and also flags 30% of unskilled ones. A manager comes through flagged. What is the probability they are genuinely skilled?",
+      "walkthrough": [
+        "Most people answer somewhere near 80%, because that is the number the screen advertises. Work it through instead.",
+        "**Imagine 1,000 managers.** 200 are skilled; 800 are not.",
+        "**Of the 200 skilled**, the screen flags 80% = **160**.",
+        "**Of the 800 unskilled**, the screen flags 30% = **240**.",
+        "**Total flagged** = 160 + 240 = 400. Of those, 160 are genuinely skilled.",
+        "**So P(skilled | flagged) = 160 / 400 = 40%.**",
+        "Forty percent, not eighty. The screen is genuinely informative — it has doubled your belief from the 20% base rate — but a flagged manager is still more likely unskilled than skilled.",
+        "**Why?** Because the unskilled group is four times larger, so even a modest 30% false positive rate on that group produces more flags in absolute terms than the 80% true positive rate on the small skilled group. The base rate does the damage."
+      ]
+    },
+    {
+      "type": "intuition",
+      "id": "why-base-rates-win",
+      "body": "The trick that makes this reliable is the one used above: **stop thinking in percentages and count actual people.** Take a round population, split it by the base rate, apply the test rates to each group, then compare the boxes you care about. It is almost impossible to get wrong that way, and almost impossible to get right by intuition.\n\nThe general lesson is worth stating plainly: **when the thing you are looking for is rare, even a good test produces mostly false positives.** That is not a flaw in the test; it is arithmetic. A screen can be highly accurate and still leave you with a pool where the majority do not have the quality you screened for.\n\nWhich implies something useful and slightly deflating: the way to improve your hit rate is often not a better test, but a better starting pool. Raising the base rate — by narrowing the universe before screening — does more for the posterior than sharpening the screen."
+    },
+    {
+      "type": "pitfall",
+      "id": "ignoring-the-prior",
+      "body": "**The neglected number is almost always the base rate.** When someone presents evidence for a conclusion, the question that most often improves the analysis is not \"how strong is this evidence?\" but \"how common is the thing you are claiming, before the evidence?\"\n\nA manager with three consecutive strong years is real evidence of skill. But if you screened a thousand managers, you would expect a good number of three-year runs by chance alone, whatever the base rate of skill. The evidence has to be weighed against how often it would show up anyway — and that is exactly what the denominator P(B) in Bayes' rule is."
+    },
+    {
+      "type": "onTheJob",
+      "id": "on-the-job",
+      "body": "Manager selection is a base-rate problem wearing a track-record costume.\n\n**Genuine, persistent skill is uncommon.** Whatever your view of the exact figure, the prior is well below half. So a strong track record — impressive evidence — still leaves you closer to a coin flip than to certainty, and that is the honest starting point for a diligence conversation rather than a cynical one.\n\n**This is what makes qualitative diligence valuable.** Understanding *why* a manager makes money adds independent evidence, which shifts the posterior in a way that another year of returns barely does. A single strong performance number is weak evidence; a coherent, verifiable explanation of the edge is much stronger.\n\n**And it is why the pool matters more than the screen.** If you can narrow the universe on structural grounds first — strategy, capacity, alignment — you raise the base rate going in, and every subsequent piece of evidence works harder."
+    },
+    {
+      "type": "keyTakeaways",
+      "id": "takeaways",
+      "items": [
+        "Bayes' rule combines what you believed before with how diagnostic the evidence is. Both halves are required.",
+        "Count people in a round population rather than juggling percentages — it makes the answer almost impossible to get wrong.",
+        "When the thing you seek is rare, even an accurate test yields mostly false positives. That is arithmetic, not a bad test.",
+        "Improving the starting pool often beats improving the screen: raising the base rate lifts every subsequent inference."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "quant-bayes-01-q1",
+      "type": "numeric",
+      "difficulty": 3,
+      "tags": ["bayes", "base-rate"],
+      "concept": "worked-manager",
+      "stem": "20% of managers have genuine skill. A screen flags 80% of skilled managers and 30% of unskilled ones. A manager is flagged. What is the probability they are skilled? Answer in percent.",
+      "answer": 40,
+      "tolerance": 1,
+      "toleranceType": "abs",
+      "unit": "%",
+      "inputHint": "Answer in percent.",
+      "explanation": "Out of 1,000 managers: 200 skilled, of whom 160 are flagged; 800 unskilled, of whom 240 are flagged. Total flagged = 400, of whom 160 are skilled, so 40%. The intuitive answer of 80% ignores that the unskilled group is four times larger."
+    },
+    {
+      "id": "quant-bayes-01-q2",
+      "type": "mcq",
+      "difficulty": 2,
+      "tags": ["bayes", "intuition"],
+      "concept": "why-base-rates-win",
+      "stem": "In the example above, why is the answer so much lower than the screen's 80% detection rate?",
+      "choices": [
+        "Because the screen is poorly designed",
+        "Because the unskilled group is much larger, so its false positives outnumber the skilled group's true positives",
+        "Because 80% detection means 20% of skilled managers are missed",
+        "Because the base rate of 20% should be subtracted from the 80%"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "The screen is genuinely informative — it doubles your belief from 20% to 40%. The low posterior is about population sizes, not screen quality.",
+        "Correct. 30% of 800 is 240 false positives, against 80% of 200 = 160 true positives. The larger group dominates the flagged pool even with a much lower flag rate.",
+        "True but irrelevant to this calculation: missed skilled managers never enter the flagged pool, so they do not affect P(skilled | flagged).",
+        "There is no such subtraction rule. The base rate enters multiplicatively through Bayes' rule, not as a deduction."
+      ],
+      "explanation": "This is the core insight: with a rare condition, absolute counts matter more than rates. A modest false positive rate applied to a big group beats a high true positive rate applied to a small one."
+    },
+    {
+      "id": "quant-bayes-01-q3",
+      "type": "numeric",
+      "difficulty": 4,
+      "tags": ["bayes", "base-rate"],
+      "concept": "bayes-formula",
+      "stem": "Now the base rate is 10%, the screen flags 90% of skilled managers, and it flags 20% of unskilled ones. What is the probability a flagged manager is skilled? Answer in percent.",
+      "answer": 33.33,
+      "tolerance": 1,
+      "toleranceType": "abs",
+      "unit": "%",
+      "inputHint": "Answer in percent, to 1 or 2 decimal places.",
+      "explanation": "Per 1,000: 100 skilled, 90 flagged; 900 unskilled, 180 flagged. Total 270 flagged, of whom 90 are skilled = 33.3%. Note the screen here is *better* than the previous one on both measures, yet the posterior is lower — because the base rate halved. The base rate is doing more work than the test quality."
+    },
+    {
+      "id": "quant-bayes-01-q4",
+      "type": "tfj",
+      "difficulty": 4,
+      "tags": ["bayes", "track-record", "on-the-job"],
+      "concept": "ignoring-the-prior",
+      "stem": "\"This manager has beaten their benchmark for five consecutive years, so they are almost certainly skilled.\" True or false — and why?",
+      "isTrue": false,
+      "justifications": [
+        "False — the evidence must be weighed against how often such a run occurs by chance across the whole universe of managers screened",
+        "False — past performance is entirely uninformative about skill",
+        "True — five years is a long enough sample to establish skill",
+        "False — because five annual observations is too small a sample to compute any statistic"
+      ],
+      "justificationIndex": 0,
+      "rationales": [
+        "Correct. Search across a large universe and multi-year runs appear by chance. The right question is how many five-year runs you would expect anyway, which is the denominator in Bayes' rule.",
+        "Too strong. Track records carry real information — just far less than they appear to, once selection across a large universe is accounted for.",
+        "Five annual observations is a small sample against the noise in returns, and it becomes weaker still if the manager was selected *because* of that run.",
+        "You can compute statistics from five observations; they simply have wide confidence intervals. The deeper issue is selection, not arithmetic feasibility."
+      ],
+      "explanation": "The formal name is selection bias, and Bayes' rule is how you price it. When a manager is found *by* their track record, the record is much weaker evidence than the same record would be if you had picked the manager first and looked afterwards."
+    },
+    {
+      "id": "quant-bayes-01-q5",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["bayes", "diligence", "on-the-job"],
+      "concept": "on-the-job",
+      "stem": "You want to raise the probability that a manager you select is genuinely skilled. Which does most for the posterior?",
+      "choices": [
+        "Extending the performance track record you require from three years to five",
+        "Narrowing the starting universe on structural grounds before any performance screening",
+        "Requiring a higher information ratio threshold in the screen",
+        "Screening a larger universe of managers"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "More history helps, but returns are noisy and two extra years shift the evidence far less than most people expect.",
+        "Correct. Narrowing the universe first raises the base rate going in, and the posterior is more sensitive to the base rate than to the sharpness of the screen — exactly as the two worked examples showed.",
+        "A tighter threshold raises the bar for evidence but does nothing about the prior, and it may simply select for luckier outliers.",
+        "Screening more managers *lowers* the quality of inference: a larger search finds more chance runs, which is the selection bias problem made worse."
+      ],
+      "explanation": "The two worked examples make this concrete: a better test with a halved base rate produced a *worse* posterior. That is the practical case for structural, qualitative work before performance screening rather than after it."
+    },
+    {
+      "id": "quant-bayes-01-q6",
+      "type": "mcq",
+      "difficulty": 3,
+      "tags": ["bayes", "evidence"],
+      "concept": "on-the-job",
+      "stem": "Two pieces of evidence about a manager: (a) another year of good returns, (b) a coherent, verifiable explanation of where the edge comes from. Which shifts your posterior more, and why?",
+      "choices": [
+        "(a), because returns are objective and quantifiable",
+        "(b), because it is largely independent of the return history and so adds new information",
+        "They shift it equally, since both are evidence",
+        "Neither, because only the base rate determines the posterior"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Objectivity is not the same as diagnosticity. One more year of returns is highly correlated with the years already counted, so it adds little that the existing record has not already contributed.",
+        "Correct. Bayesian updating rewards *independent* evidence. An explanation of the edge is a different kind of observation, so it moves the posterior far more than another correlated data point.",
+        "They are not equal. The value of evidence depends on how much new information it carries, not on it being evidence at all.",
+        "The base rate matters enormously but is not the only input — the whole point of the rule is that evidence updates it."
+      ],
+      "explanation": "This is the Bayesian case for qualitative diligence. Understanding *why* a manager makes money is not a soft supplement to the numbers; it is the evidence that is least correlated with what you already have, and therefore the evidence that moves the answer most."
+    }
+  ],
+  "needsReview": false,
+  "reviewNote": null
+}

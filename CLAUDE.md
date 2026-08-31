@@ -528,11 +528,46 @@ Commit at the end of each milestone, then stop for review. Run `npm run verify` 
 | M2 | Scheduler + mastery engine, with tests | done |
 | M3 | XP, levels, streaks, badges, skill tree | done |
 | M4 | Glossary popovers, global page, drill mode | done |
-| M5 | Content build-out, one domain per batch, validated, pause between batches | |
+| M5 | Content build-out, one domain per batch, validated, pause between batches | **in progress** — see inventory below |
 | M6 | Mock exams, analytics, export/import, session resume | |
 | M7 | Polish: mobile, keyboard, accessibility, empty states, error handling | |
 
 Working software over completeness at every milestone. A great app with 20 topics beats a broken one
 with 200. Keep this table's Status column current.
+
+
+### M5 content inventory
+
+One domain per batch, validated, pause between batches. Keep this current.
+
+| Domain | Topics | Status |
+|---|---|---|
+| quantitative-methods | 10 | **done** — tvm-01/02, npv-01, ret-01, stat-01, dist-01, prob-01, bayes-01, hyp-01, reg-01 |
+| economics | 1 | seeded only (econ-curve-01) |
+| alternatives | 1 | seeded only (alts-lse-01) — the deepest domain, one topic per HF strategy |
+| financial-statement-analysis | 0 | not started |
+| corporate-issuers | 0 | not started |
+| equity-valuation | 0 | not started |
+| fixed-income | 0 | not started |
+| derivatives | 0 | not started |
+| fund-structures | 0 | not started |
+| portfolio-risk | 0 | not started |
+| ethics | 0 | not started |
+
+### Authoring a batch — two hard-won rules
+
+**Verify the arithmetic before writing it.** Every numeric answer in the quant batch was computed in
+Python first and the result pasted into the content, never typed from memory. Two figures were wrong
+on first attempt and would otherwise have shipped.
+
+**Run a structural audit after each batch, on top of `content:check`.** The schema cannot catch a
+misaligned `answerIndex`, because every index in range is structurally valid. This does:
+
+```bash
+npm run content:audit
+```
+
+It checks that the rationale at `answerIndex` actually reads as the correct one. That class of bug
+shipped once in M1 and is invisible to both the schema and a casual read.
 
 Commit messages: `M{n}: {what}`.

@@ -1,0 +1,281 @@
+{
+  "schemaVersion": 1,
+  "id": "quant-ret-01",
+  "domain": "quantitative-methods",
+  "title": "Returns Math: Arithmetic, Geometric, TWR and IRR",
+  "summary": "Four ways to average a return series, why they differ, and which one answers the question you are actually asking.",
+  "level": "core",
+  "prereqs": ["quant-tvm-01"],
+  "estMinutes": 11,
+  "examRelevance": ["CFA-L1", "CAIA-L1", "practical"],
+  "lesson": [
+    {
+      "type": "concept",
+      "id": "two-averages",
+      "body": "A fund returned +50% one year and -50% the next. What was its average annual return?\n\nThe [[arithmetic-mean]] says zero: (50 - 50) / 2. The [[geometric-mean]] says about **-13.4%** a year. Only one of these describes what happened to your money, and it is not the zero.\n\nStart with $100. After +50% you have $150. After -50% you have $75. You lost a quarter of your capital, so an \"average return of zero\" is not a description of your experience — it is a description of the two numbers, averaged as if they were unrelated measurements rather than a sequence applied to a shrinking balance.\n\nThe geometric mean fixes this by asking a different question: what single constant rate, compounded, would have produced the same ending value? That is the number that describes your money."
+    },
+    {
+      "type": "intuition",
+      "id": "why-they-diverge",
+      "body": "Two facts do all the work here.\n\n**First: the geometric mean is always less than or equal to the arithmetic mean**, and they are equal only when every period's return is identical. This is not a convention — it falls out of the mathematics.\n\n**Second: the gap grows with [[volatility]].** A steady 5% a year and a series that alternates +30% and -20% both have an arithmetic mean of 5%. Over four years the steady one turns $100 into $121.55; the volatile one turns it into $108.16. Same average, thirteen dollars of difference, created entirely by the swings.\n\nThis is why volatility is not merely uncomfortable, it is expensive. A loss requires a larger percentage gain to recover from than the percentage you lost: down 50% needs +100% to get back, not +50%. Every drawdown quietly raises the bar for everything that follows, and the geometric mean is the measure that notices."
+    },
+    {
+      "type": "formula",
+      "id": "geometric-formula",
+      "latex": "R_g = \\left( \\prod_{t=1}^{n} (1 + R_t) \\right)^{1/n} - 1",
+      "plainReading": "Multiply one-plus-each-return together, take the nth root, then subtract one. In words: find the total growth over the whole period, then ask what constant annual rate would have produced it.",
+      "variables": [
+        { "symbol": "R_t", "meaning": "the return in period t, as a decimal" },
+        { "symbol": "n", "meaning": "the number of periods" }
+      ]
+    },
+    {
+      "type": "example",
+      "id": "worked-geometric",
+      "body": "A fund returns +10%, then -5%, then +8%.",
+      "walkthrough": [
+        "**Chain the growth factors.** 1.10 x 0.95 x 1.08 = 1.1286. So the [[cumulative-return]] over the three years is **+12.86%**.",
+        "**Take the cube root.** 1.1286^(1/3) = 1.04115, so the [[geometric-mean]] is **4.115% a year**.",
+        "**Compare with the arithmetic mean:** (10 - 5 + 8) / 3 = **4.333%**.",
+        "The gap is only 0.22 percentage points, because these returns are not very volatile. Run the same exercise on a series with 30% swings and the gap becomes several points a year.",
+        "**Check it the other way round.** 1.04115^3 = 1.1286, which recovers the cumulative return exactly. That reversibility is the definition: the geometric mean is the constant rate that reproduces the actual ending value."
+      ]
+    },
+    {
+      "type": "chart",
+      "id": "divergence-chart",
+      "caption": "Same arithmetic mean of 5%, very different outcomes (illustrative)",
+      "spec": {
+        "kind": "line",
+        "xLabels": ["Year 0", "Year 1", "Year 2", "Year 3", "Year 4"],
+        "series": [
+          { "name": "Steady +5%", "values": [100, 105, 110.25, 115.76, 121.55] },
+          { "name": "+30% / -20%", "values": [100, 130, 104, 135.2, 108.16] }
+        ],
+        "yLabel": "Value of $100",
+        "yUnit": ""
+      },
+      "annotation": "Both series have an arithmetic mean return of exactly 5% a year. The volatile one ends $13 lower. Nothing was mismeasured — this is the cost of [[volatility]], and it is why the [[geometric-mean]] is the only honest way to describe a multi-period record."
+    },
+    {
+      "type": "concept",
+      "id": "twr-vs-irr",
+      "body": "The arithmetic/geometric distinction is about averaging returns. A second, separate distinction is about **whose decisions you want to measure**.\n\n**[[time-weighted-return]] (TWR)** strips out the effect of money moving in and out. It measures the return on a dollar that stayed invested throughout, which isolates the *manager's* performance from the *investor's* timing. It is the geometric chain of period returns, and it is the standard for reporting liquid fund performance.\n\n**[[money-weighted-return]]** — in practice usually an [[internal-rate-of-return]] — does the opposite. It weights each period by how much capital was actually at risk, so it captures the combined effect of manager skill and the timing of contributions and withdrawals.\n\nNeither is more correct. They answer different questions:\n\n- *How good is this manager?* Time-weighted.\n- *How did I actually do?* Money-weighted.\n\nAnd the reason private markets report IRR is not conventional preference: the manager controls the timing of capital calls and distributions, so timing IS part of what they are being judged on. In a hedge fund, where the investor decides when to subscribe and redeem, time-weighted is the fair measure."
+    },
+    {
+      "type": "table",
+      "id": "which-measure",
+      "caption": "Which measure answers which question",
+      "headers": ["Measure", "Answers", "Where you meet it"],
+      "rows": [
+        [
+          "Arithmetic mean",
+          "What is the expected return of a single period, drawn at random?",
+          "Forward-looking estimates, one-period models like [[beta]] estimation"
+        ],
+        [
+          "[[geometric-mean|Geometric mean]]",
+          "What constant rate would have produced the actual ending value?",
+          "Any historical track record. The honest headline number."
+        ],
+        [
+          "[[time-weighted-return|Time-weighted]]",
+          "How did the manager do, ignoring when money moved in and out?",
+          "Hedge funds, mutual funds, any liquid vehicle"
+        ],
+        [
+          "[[money-weighted-return|Money-weighted]] / IRR",
+          "How did this investor's capital actually do, timing included?",
+          "Private equity, private credit, real assets"
+        ]
+      ]
+    },
+    {
+      "type": "pitfall",
+      "id": "which-to-use",
+      "body": "**Do not use an arithmetic mean to describe a track record.** It overstates, always, and it overstates most for the most volatile managers — which is exactly the wrong direction for the error to run.\n\nBut the reverse mistake is real too: **the arithmetic mean is the right input for forward-looking single-period work.** If you are estimating next month's expected return, or running a one-period regression, the arithmetic mean is what the mathematics calls for. The rule is not \"geometric is better\"; it is *describe the past geometrically, estimate a single future period arithmetically.*"
+    },
+    {
+      "type": "onTheJob",
+      "id": "on-the-job",
+      "body": "This distinction shows up in nearly every performance conversation you will have.\n\n**Tearsheets are geometric.** When a manager reports \"annualised return since inception\", that is a geometric mean, correctly. If a figure looks suspiciously high relative to the cumulative return shown beside it, check which average you are being given.\n\n**Comparing across structures is a trap.** A hedge fund's time-weighted return and a private equity fund's IRR are not comparable numbers, however similar they look printed side by side. One deliberately removes timing effects and the other deliberately includes them.\n\n**Volatility drag is a real cost, not a presentational one.** Two managers with the same arithmetic mean and different volatilities did not deliver the same thing. This is the arithmetic underneath why risk-adjusted measures like the [[sharpe-ratio]] exist at all.\n\n**Averaging averages is almost always wrong.** Given monthly returns, chain them; do not average the monthly figures and multiply by twelve."
+    },
+    {
+      "type": "keyTakeaways",
+      "id": "takeaways",
+      "items": [
+        "Geometric mean ≤ arithmetic mean, always, with equality only if every period is identical. The gap widens with volatility.",
+        "Describe the past with a geometric mean; estimate a single future period with an arithmetic mean.",
+        "Time-weighted measures the manager, money-weighted (IRR) measures the investor's actual capital. Private markets use IRR because the manager controls the timing.",
+        "A time-weighted return and an IRR are not comparable numbers, however alike they look on a page."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "quant-ret-01-q1",
+      "type": "numeric",
+      "difficulty": 2,
+      "tags": ["geometric-mean", "returns"],
+      "concept": "geometric-formula",
+      "stem": "A fund returns +50% in year 1 and -50% in year 2. What is its geometric mean annual return, in percent?",
+      "answer": -13.4,
+      "tolerance": 0.2,
+      "toleranceType": "abs",
+      "unit": "%",
+      "inputHint": "Answer in percent, to 1 decimal place. Use a minus sign.",
+      "explanation": "1.50 x 0.50 = 0.75, so $100 became $75. The square root of 0.75 is 0.866, giving -13.4% a year. The arithmetic mean of zero describes the two numbers; -13.4% describes your money."
+    },
+    {
+      "id": "quant-ret-01-q2",
+      "type": "numeric",
+      "difficulty": 3,
+      "tags": ["geometric-mean", "returns"],
+      "concept": "worked-geometric",
+      "stem": "A fund returns +10%, then -5%, then +8%. What is its geometric mean annual return, in percent?",
+      "answer": 4.115,
+      "tolerance": 0.1,
+      "toleranceType": "abs",
+      "unit": "%",
+      "inputHint": "Answer in percent, to 2 decimal places.",
+      "explanation": "1.10 x 0.95 x 1.08 = 1.1286, and 1.1286^(1/3) = 1.04115, so 4.115% a year. The arithmetic mean is 4.333% — higher, as it always is, but only slightly here because the series is not very volatile."
+    },
+    {
+      "id": "quant-ret-01-q3",
+      "type": "mcq",
+      "difficulty": 2,
+      "tags": ["geometric-mean", "arithmetic-mean", "intuition"],
+      "concept": "why-they-diverge",
+      "stem": "Under what condition are the arithmetic and geometric means of a return series equal?",
+      "choices": [
+        "When every period's return is identical",
+        "When the returns sum to zero",
+        "When the series contains no negative returns",
+        "They are never exactly equal"
+      ],
+      "answerIndex": 0,
+      "rationales": [
+        "Correct. With zero variation there is no volatility drag, so the two coincide. Any dispersion at all makes the geometric mean strictly lower.",
+        "Returns summing to zero is the +50/-50 case, where the two are as far apart as anywhere — arithmetic 0%, geometric -13.4%.",
+        "Sign is not the issue; dispersion is. A series of +2%, +20%, +2% has no negatives and still shows a gap.",
+        "They are equal in the constant-return case. It is a degenerate case, but a real one, and it is the boundary that makes the inequality make sense."
+      ],
+      "explanation": "The gap between the two means is driven entirely by dispersion. Zero dispersion, zero gap; more volatility, wider gap. That relationship is the whole reason volatility drag exists."
+    },
+    {
+      "id": "quant-ret-01-q4",
+      "type": "chartRead",
+      "difficulty": 3,
+      "tags": ["volatility-drag", "chart-reading"],
+      "concept": "divergence-chart",
+      "spec": {
+        "kind": "line",
+        "xLabels": ["Year 0", "Year 1", "Year 2", "Year 3", "Year 4"],
+        "series": [
+          { "name": "Fund A", "values": [100, 105, 110.25, 115.76, 121.55] },
+          { "name": "Fund B", "values": [100, 130, 104, 135.2, 108.16] }
+        ],
+        "yLabel": "Value of $100",
+        "yUnit": ""
+      },
+      "stem": "Both funds above have an arithmetic mean annual return of exactly 5%. What explains Fund B ending $13 lower?",
+      "choices": [
+        "Fund B must have charged higher fees",
+        "Volatility drag — B's larger swings mean its geometric return is materially below its arithmetic mean",
+        "Fund A must have had a higher arithmetic mean than stated",
+        "The chart is inconsistent, since equal average returns must produce equal ending values"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "No fees are involved. The gap is created purely by the path of the returns, which is what makes the example worth studying.",
+        "Correct. A's returns are constant, so its geometric mean equals its arithmetic mean of 5%. B alternates +30% and -20%, giving the same arithmetic mean but a geometric mean of about 1.98% — the drag is over three points a year.",
+        "Both are exactly 5% arithmetic: A is 5% every year, B averages (30 - 20 + 30 - 20)/4 = 5%. The stated premise holds.",
+        "This is the intuition the chart is designed to break. Equal *arithmetic* means do not imply equal ending values; only equal *geometric* means do."
+      ],
+      "explanation": "Equal arithmetic means with unequal volatility produce unequal outcomes, and the more volatile path always ends lower. This is why comparing managers on average return alone is not a comparison at all."
+    },
+    {
+      "id": "quant-ret-01-q5",
+      "type": "mcq",
+      "difficulty": 3,
+      "tags": ["twr", "irr", "measurement"],
+      "concept": "twr-vs-irr",
+      "stem": "An investor put money into a fund just before a bad quarter and added more just before a good one. Compared with the fund's time-weighted return, their money-weighted return will be:",
+      "choices": [
+        "Higher, because more capital was at risk during the good quarter",
+        "Lower, because the first investment lost money",
+        "Identical, since the underlying fund returns are the same",
+        "Impossible to determine without knowing the fund's benchmark"
+      ],
+      "answerIndex": 0,
+      "rationales": [
+        "Correct. Money-weighted returns weight each period by capital at risk. Having more invested during the strong quarter lifts the investor's own return above the fund's time-weighted figure.",
+        "The first investment did lose money, but the second was larger and gained — and weighting by capital is exactly what money-weighted measurement does.",
+        "The fund's returns are the same, which is why its *time-weighted* figure is unchanged. The investor's experience differs because their capital was not constant.",
+        "No benchmark is needed. The two measures differ purely because of the size and timing of the investor's own cash flows."
+      ],
+      "explanation": "This is the whole distinction in one example: the fund's time-weighted return is a statement about the manager, and the investor's money-weighted return is a statement about the investor — including a timing decision that happened to go well."
+    },
+    {
+      "id": "quant-ret-01-q6",
+      "type": "tfj",
+      "difficulty": 4,
+      "tags": ["arithmetic-mean", "geometric-mean", "nuance"],
+      "concept": "which-to-use",
+      "stem": "\"The geometric mean is always the right average to use for returns.\" True or false — and why?",
+      "isTrue": false,
+      "justifications": [
+        "False — describe the past geometrically, but estimate a single future period with an arithmetic mean",
+        "False — the arithmetic mean is correct whenever returns are positive",
+        "True — the geometric mean is the only one that reflects compounding",
+        "False — the geometric mean cannot be computed when any return is negative"
+      ],
+      "justificationIndex": 0,
+      "rationales": [
+        "Correct, and this is the nuance most summaries skip. For a realised track record, geometric. For the expected return of one future period — a regression input, an expected-return estimate — the arithmetic mean is what the mathematics calls for.",
+        "The sign of the returns is irrelevant to which average is appropriate. The question is whether you are describing a sequence or estimating one period.",
+        "The geometric mean does reflect compounding, and that is exactly why it is right for describing the past — but \"always\" overreaches, which is what the question is testing.",
+        "Factually wrong: the geometric mean handles negative returns fine. It only breaks if a return is -100% or worse, which would make the growth factor zero or negative."
+      ],
+      "explanation": "The reliable rule is directional, not absolute: geometric to describe what happened, arithmetic to estimate what one future period might bring. Reaching for geometric everywhere is a better default than reaching for arithmetic everywhere, but it is still a default rather than a law."
+    },
+    {
+      "id": "quant-ret-01-q7",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["twr", "irr", "on-the-job", "alternatives"],
+      "concept": "on-the-job",
+      "stem": "A colleague puts a hedge fund's 11% annualised time-weighted return next to a buyout fund's 11% net IRR and concludes they performed identically. What is wrong with that?",
+      "choices": [
+        "Nothing — both are annualised percentage returns over the same period",
+        "The two measures answer different questions, so equal numbers do not imply equal performance",
+        "IRR is always overstated, so the buyout fund actually did worse",
+        "Time-weighted returns cannot be annualised, so the hedge fund figure is invalid"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Both are annualised percentages, which is precisely what makes the comparison so tempting and so wrong. Sharing a unit is not the same as measuring the same thing.",
+        "Correct. The TWR deliberately strips out cash flow timing to isolate the manager; the IRR deliberately includes it, because the GP controls calls and distributions. They are not on the same scale.",
+        "IRR embeds a reinvestment assumption that can flatter it, but \"always overstated\" is too strong, and it is not the core objection here.",
+        "Time-weighted returns annualise perfectly well — that is the standard way they are reported."
+      ],
+      "explanation": "This comparison gets made constantly and it is worth being the person who flags it. The honest version needs either a common measure — a public market equivalent, say — or an explicit acknowledgement that the two figures are answering different questions."
+    },
+    {
+      "id": "quant-ret-01-q8",
+      "type": "numeric",
+      "difficulty": 4,
+      "tags": ["recovery", "volatility-drag"],
+      "concept": "why-they-diverge",
+      "stem": "A fund falls 40%. What percentage gain is required to get back to the starting value?",
+      "answer": 66.67,
+      "tolerance": 0.5,
+      "toleranceType": "abs",
+      "unit": "%",
+      "inputHint": "Answer in percent, to 1 or 2 decimal places.",
+      "explanation": "$100 falls to $60. To return to $100 you need a gain of 40/60 = 66.67%. Losses and gains are not symmetric in percentage terms, which is the mechanism behind volatility drag — and the reason drawdown control matters more than it first appears."
+    }
+  ],
+  "needsReview": false,
+  "reviewNote": null
+}

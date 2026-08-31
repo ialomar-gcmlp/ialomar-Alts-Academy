@@ -1,0 +1,204 @@
+{
+  "schemaVersion": 1,
+  "id": "quant-reg-01",
+  "domain": "quantitative-methods",
+  "title": "Correlation and Simple Regression",
+  "summary": "Measuring how two series move together, fitting a line through them, and where beta and alpha actually come from.",
+  "level": "advanced",
+  "prereqs": ["quant-stat-01"],
+  "estMinutes": 11,
+  "examRelevance": ["CFA-L1", "CAIA-L1", "practical"],
+  "lesson": [
+    {
+      "type": "concept",
+      "id": "covariance-correlation",
+      "body": "[[covariance]] measures whether two series tend to move in the same direction. Positive means they rise and fall together; negative means they offset. Its problem is the units: covariance is expressed in the product of the two variables' units, so its magnitude means nothing on its own.\n\n[[correlation]] fixes that by dividing covariance by the two standard deviations. The result is bounded between -1 and +1, which makes it comparable across any pair of series. -1 is perfect opposition, 0 is no linear relationship, +1 is perfect lockstep.\n\nOne word in that last sentence does a great deal of work: **linear**. Correlation measures the strength of a *straight-line* relationship, and it can be near zero for two variables that are tightly related in a non-linear way."
+    },
+    {
+      "type": "concept",
+      "id": "the-regression",
+      "body": "A simple [[regression]] fits the best straight line through a scatter of two variables. In finance the canonical version regresses a fund's returns on the market's:\n\n**fund return = α + β × (market return) + ε**\n\nEach term has a name you already know:\n\n- **[[beta]]** is the slope: how much the fund moves for a 1% market move. It is the sensitivity, and it comes straight out of the regression.\n- **[[alpha]]** is the intercept: the average return when the market returned zero. This is where alpha as a *number* comes from — it is a regression intercept, not a vague claim of skill.\n- **ε** is the [[residual]]: what the line failed to explain, observation by observation.\n\n[[r-squared]] tells you what fraction of the fund's variance the line explains. An R² of 0.56 means 56% of the fund's movement is attributable to the market and 44% is something else."
+    },
+    {
+      "type": "formula",
+      "id": "beta-formula",
+      "latex": "\\beta = \\frac{\\text{Cov}(r_i, r_m)}{\\text{Var}(r_m)} = \\rho_{i,m} \\times \\frac{\\sigma_i}{\\sigma_m}",
+      "plainReading": "Beta is the covariance of the fund with the market divided by the variance of the market. Equivalently, it is the correlation multiplied by the ratio of the two volatilities — which shows that beta combines how closely they move with how much more volatile the fund is.",
+      "variables": [
+        { "symbol": "\\rho_{i,m}", "meaning": "the [[correlation]] between fund and market" },
+        { "symbol": "\\sigma_i / \\sigma_m", "meaning": "the ratio of volatilities. A fund can have high correlation and low beta if it is much less volatile than the market." }
+      ]
+    },
+    {
+      "type": "example",
+      "id": "worked-beta",
+      "body": "A fund's returns have a covariance with the market of 0.0108. The market's return variance is 0.0144 (a volatility of 12%).",
+      "walkthrough": [
+        "**Beta** = 0.0108 / 0.0144 = **0.75**. The fund tends to move 0.75% for every 1% the market moves.",
+        "**Check via the other route.** If the fund's volatility is 18% and the correlation is 0.75, then beta = 0.75 x (0.18/0.12) = **1.125**. Different answer — because these are different funds. The point of showing both is that beta is not the same thing as correlation.",
+        "**That second fund is instructive.** Correlation 0.75 with beta 1.125: it moves *with* the market only moderately closely, but when it does move it amplifies. Correlation and beta are answering different questions.",
+        "**R² for a correlation of 0.75** is 0.75² = **0.5625**. So 56% of that fund's variance is explained by the market and 44% is not.",
+        "**And that 44% is where alpha could live** — but only *could*. Unexplained variance is not skill; it is merely everything the single-factor model omitted, which includes sector bets, style tilts, leverage changes and luck."
+      ]
+    },
+    {
+      "type": "intuition",
+      "id": "r-squared-warning",
+      "body": "A high R² feels like a good model and a low R² feels like a bad one. For risk work, that intuition is close to backwards.\n\nIf you regress a long/short equity fund on the market and get an R² of 0.85, you have learned something uncomfortable: the fund is mostly an expensive market tracker. A *low* R² is what you would hope to see from a manager charging for stock selection — it means their returns are not just market movement in disguise.\n\nSo R² measures how much the model explains, and whether that is good news depends entirely on what you were hoping to find. **When you are looking for evidence of independent skill, unexplained variance is the point rather than the problem.**\n\nThe genuine risk in a low R² is different: it means the single factor you chose is not the driver, so you have not yet found out what is. That is an invitation to add factors, not a conclusion about skill."
+    },
+    {
+      "type": "pitfall",
+      "id": "correlation-causation",
+      "body": "**Correlation is not causation**, which everyone knows, and **correlation is not the only kind of relationship**, which fewer people act on.\n\nCorrelation measures linear association only. A strategy whose returns are flat in normal markets and sharply negative in crashes — selling tail protection — can show a correlation near zero with equities across a full sample, while being catastrophically exposed to them in exactly the states that matter. The relationship is real and strong; it is simply not a straight line.\n\nTwo defences. First, look at correlation *conditionally* — in the worst decile of market months, not on average. Second, understand the exposure structurally rather than statistically: what would have to happen for this to lose money?"
+    },
+    {
+      "type": "onTheJob",
+      "id": "on-the-job",
+      "body": "This regression is the workhorse of manager evaluation, so its limitations are worth knowing precisely.\n\n**Rolling beta is more informative than average beta.** A single number over five years hides everything. A fund whose beta swung between 0.2 and 1.1 is making market timing calls, and should be evaluated on that skill too — whether or not the manager describes themselves as doing it.\n\n**Alpha is model-dependent, always.** \"Alpha\" from a single-factor regression is just the return not explained by *that one factor*. Add size, value and momentum and much of it typically disappears into factor exposures. When someone quotes an alpha figure, the useful question is: against which model?\n\n**Illiquid marks distort everything here.** Smoothed valuations depress measured covariance with public markets, which understates beta and inflates apparent alpha. A private book showing near-zero equity beta is often telling you about marking frequency, not about market exposure.\n\n**Check the residuals, not just the R².** If the residuals are large in exactly the months the market fell hardest, the linear fit is hiding the risk that matters most."
+    },
+    {
+      "type": "keyTakeaways",
+      "id": "takeaways",
+      "items": [
+        "Correlation is covariance made comparable, bounded -1 to +1 — and it measures LINEAR association only.",
+        "Beta is the regression slope; alpha is the intercept. Both are outputs of a specific model, not properties of the fund.",
+        "For risk work, a high R² against the market is bad news for a manager charging for selection skill.",
+        "Correlation near zero does not mean no exposure. Look at the worst months, and understand the exposure structurally."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "quant-reg-01-q1",
+      "type": "numeric",
+      "difficulty": 2,
+      "tags": ["beta", "regression"],
+      "concept": "beta-formula",
+      "stem": "A fund's covariance with the market is 0.0108. The market's return variance is 0.0144. What is the fund's beta?",
+      "answer": 0.75,
+      "tolerance": 0.02,
+      "toleranceType": "abs",
+      "inputHint": "Answer as a number, to 2 decimal places.",
+      "explanation": "Beta = Cov / Var(market) = 0.0108 / 0.0144 = 0.75. The fund moves about 0.75% for each 1% market move."
+    },
+    {
+      "id": "quant-reg-01-q2",
+      "type": "numeric",
+      "difficulty": 3,
+      "tags": ["beta", "correlation", "volatility"],
+      "concept": "worked-beta",
+      "stem": "A fund has a correlation of 0.75 with the market. Its volatility is 18% and the market's is 12%. What is its beta?",
+      "answer": 1.125,
+      "tolerance": 0.02,
+      "toleranceType": "abs",
+      "inputHint": "Answer as a number, to 2 or 3 decimal places.",
+      "explanation": "Beta = correlation x (fund vol / market vol) = 0.75 x (0.18/0.12) = 1.125. Note the correlation of 0.75 and the beta of 1.125 are quite different numbers: the fund tracks the market only moderately, but amplifies when it does move."
+    },
+    {
+      "id": "quant-reg-01-q3",
+      "type": "numeric",
+      "difficulty": 2,
+      "tags": ["r-squared", "correlation"],
+      "concept": "the-regression",
+      "stem": "A regression of a fund on the market gives a correlation of 0.75. What is the R-squared?",
+      "answer": 0.5625,
+      "tolerance": 0.01,
+      "toleranceType": "abs",
+      "inputHint": "Answer as a decimal between 0 and 1.",
+      "explanation": "R-squared is the square of the correlation: 0.75^2 = 0.5625. So about 56% of the fund's variance is explained by the market, leaving 44% unexplained."
+    },
+    {
+      "id": "quant-reg-01-q4",
+      "type": "mcq",
+      "difficulty": 3,
+      "tags": ["r-squared", "interpretation", "manager-evaluation"],
+      "concept": "r-squared-warning",
+      "stem": "A long/short equity manager charging performance fees for stock selection shows an R-squared of 0.88 against the equity market. What does that suggest?",
+      "choices": [
+        "The model fits well, which supports confidence in the manager's reported beta and alpha",
+        "Most of the fund's return variation is market movement, so relatively little is attributable to selection",
+        "The manager has strong stock selection skill, since the regression explains their returns",
+        "The R-squared is too high to be statistically valid"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "The model does fit well, and that is the problem rather than the reassurance. A good fit against the market means the market is doing the explaining.",
+        "Correct. 88% of variance explained by the market leaves only 12% for everything else, including selection. For a fund charging for selection, that is an awkward finding.",
+        "Backwards. The regression explaining the returns means the *market* explains them. Selection skill would show up as variance the market cannot account for.",
+        "There is no upper limit on a valid R-squared. A high value is a substantive finding, not a technical error."
+      ],
+      "explanation": "This is the counterintuitive bit: in risk work, a well-fitting market regression is unwelcome news about a manager selling idiosyncratic skill. Judge R-squared against what you were hoping to find, not against a notion of good model fit."
+    },
+    {
+      "id": "quant-reg-01-q5",
+      "type": "tfj",
+      "difficulty": 4,
+      "tags": ["correlation", "tail-risk", "misconception"],
+      "concept": "correlation-causation",
+      "stem": "\"This strategy has a correlation of 0.05 with equities over ten years, so it provides genuine diversification against an equity selloff.\" True or false — and why?",
+      "isTrue": false,
+      "justifications": [
+        "False — a full-sample correlation can be near zero while the strategy is heavily exposed in the worst market months",
+        "False — a correlation of 0.05 is not statistically distinguishable from a correlation of 1",
+        "True — near-zero correlation is the definition of diversification",
+        "False — because correlations computed over ten years are always unreliable"
+      ],
+      "justificationIndex": 0,
+      "rationales": [
+        "Correct. Correlation measures average linear association. A strategy that is flat in normal markets and sharply negative in crashes shows almost no full-sample correlation while carrying exactly the exposure you were trying to avoid.",
+        "Nonsense as stated — with ten years of data, 0.05 and 1 are enormously far apart statistically.",
+        "This is the misconception. Near-zero *average* correlation is not the same as independence in the states you care about, and diversification is a claim about the bad states.",
+        "Ten years is a reasonable sample. The flaw is that a single average conceals a state-dependent relationship, not that the estimate is noisy."
+      ],
+      "explanation": "The right test is conditional: what was the correlation in the worst decile of equity months? Strategies that sell tail protection look uncorrelated on average and highly correlated exactly when it counts — and no full-sample number will reveal that."
+    },
+    {
+      "id": "quant-reg-01-q6",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["alpha", "factor-models", "on-the-job"],
+      "concept": "on-the-job",
+      "stem": "A manager reports 4% annual alpha from a regression on the equity market alone. After adding size, value and momentum factors, the alpha falls to 0.5%. What is the best interpretation?",
+      "choices": [
+        "The second regression is wrong, since alpha cannot change when the returns have not",
+        "Most of the apparent alpha was exposure to well-known factors rather than manager-specific skill",
+        "The manager's skill declined over the period",
+        "Adding factors always reduces alpha, so the comparison is uninformative"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Alpha is defined relative to a model. Change the model and the alpha changes — that is not an error, it is the definition.",
+        "Correct. Roughly 3.5 points of the original figure was compensation for bearing factor risks that are cheaply available. What survives a fuller model is the part plausibly attributable to the manager.",
+        "Nothing here speaks to change over time. Both regressions cover the same period; only the model differs.",
+        "Adding factors usually reduces alpha, but not always, and the size of the reduction is precisely the informative part."
+      ],
+      "explanation": "Alpha is a residual, and residuals depend on what was subtracted. \"Against which model?\" is the single most useful question to ask about any alpha figure — and the drop from 4% to 0.5% is a quantified answer to it."
+    },
+    {
+      "id": "quant-reg-01-q7",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["beta", "illiquidity", "on-the-job"],
+      "concept": "on-the-job",
+      "stem": "A private equity fund's returns regressed against public equities show a beta of 0.4. Why should you be sceptical?",
+      "choices": [
+        "Private equity is unlevered, so a beta below 1 is implausible",
+        "Infrequent, model-based marks smooth reported returns, depressing measured covariance and understating true beta",
+        "Beta cannot be computed for funds that report quarterly",
+        "A beta of 0.4 is too precise to be meaningful for private assets"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Backwards on the facts: buyout equity is typically *more* levered than public equity, which is part of why a low measured beta is suspicious.",
+        "Correct. Quarterly, model-driven valuations lag public markets, so the covariance with a contemporaneous public index comes out low. The measured beta is an artefact of the marking process as much as a property of the assets.",
+        "It can be computed from quarterly data. The problem is what those quarterly marks represent, not the frequency itself.",
+        "The precision is not the issue. The bias in the estimate is."
+      ],
+      "explanation": "Smoothed marks systematically understate beta and correspondingly inflate apparent alpha, which flatters illiquid strategies on both measures at once. Lagged-beta approaches exist to correct for it, and the direction of the bias is always worth stating even when you cannot quantify it.",
+      "needsReview": true,
+      "reviewNote": "I refer to lagged-beta corrections for smoothed private marks without naming a specific method. Verify which correction approach you would want taught before this becomes a topic in its own right under portfolio-risk."
+    }
+  ],
+  "needsReview": false,
+  "reviewNote": null
+}

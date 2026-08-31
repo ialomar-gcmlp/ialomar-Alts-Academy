@@ -1,3 +1,5 @@
+import { resolve } from "node:path";
+
 import { defineConfig, type Plugin } from "vitest/config";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
@@ -34,6 +36,11 @@ function contentManifest(): Plugin {
       const contentDir = /[\\/]content[\\/]/;
       const isManifest = /[\\/]content[\\/]manifest\.json$/;
 
+      // Absolute path. A relative "content" is silently ignored by the watcher —
+      // which broke the headline promise that dropping in a JSON file is enough,
+      // and did so invisibly: no error, the new topic simply never appeared.
+      const watchRoot = resolve(server.config.root, "content");
+
       regenerate = (reason: string) => {
         const { manifest, loaded } = writeManifest();
         if (loaded.problems.length > 0) {
@@ -49,14 +56,17 @@ function contentManifest(): Plugin {
         server.ws.send({ type: "full-reload" });
       };
 
-      server.watcher.add("content");
-      for (const event of ["add", "change", "unlink"] as const) {
+      server.watcher.add(watchRoot);
+      // "addDir" matters too: a whole new domain folder can arrive at once.
+      for (const event of ["add", "change", "unlink", "addDir", "unlinkDir"] as const) {
         server.watcher.on(event, (file: string) => {
           // Ignore our own write, or the watcher loops forever.
           if (!contentDir.test(file) || isManifest.test(file)) return;
-          regenerate(`${event} ${file.split(/[\\/]/).pop()}`);
+          regenerate(`${event} ${file.split(/[\/]/).pop() ?? ""}`);
         });
       }
+
+      server.config.logger.info(`content: watching ${watchRoot}`);
     },
   };
 }

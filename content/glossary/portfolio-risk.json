@@ -7,35 +7,88 @@
       "term": "alpha",
       "plain": "The part of a return that cannot be explained by simply carrying market risk. It is the bit you are actually paying a manager for, and it is much rarer than marketing material suggests.",
       "formal": "The component of return in excess of that predicted by an asset pricing model given the portfolio's systematic risk exposures.",
-      "seeAlso": ["beta", "factor-exposure", "performance-attribution"]
+      "seeAlso": [
+        "beta",
+        "factor-exposure",
+        "performance-attribution"
+      ]
     },
     {
       "slug": "beta",
       "term": "beta",
       "plain": "How much a portfolio moves when the market moves. A beta of 0.7 means it tends to move about 70% as much as the market, up or down.",
       "formal": "A measure of an asset's sensitivity to movements in a reference market, equal to the covariance of asset and market returns divided by the variance of market returns.",
-      "seeAlso": ["alpha", "net-exposure", "factor-exposure"]
-    },
-    {
-      "slug": "factor-exposure",
-      "term": "factor exposure",
-      "plain": "A portfolio's tilt toward a broad characteristic — small companies, cheap companies, fast-growing companies, recent winners. Often unintentional, and dangerous precisely because it is invisible until it reverses.",
-      "formal": "The sensitivity of a portfolio's returns to a systematic risk factor, measured as the coefficient on that factor in a multi-factor return model.",
-      "seeAlso": ["beta", "alpha", "crowded-trade"]
+      "seeAlso": [
+        "alpha",
+        "net-exposure",
+        "factor-exposure"
+      ]
     },
     {
       "slug": "drawdown",
       "term": "drawdown",
       "plain": "How far an investment has fallen from its highest previous value. A 20% drawdown means you are 20% below the best it has ever been.",
       "formal": "The peak-to-trough decline in cumulative value over a specified period, expressed as a percentage of the prior peak.",
-      "seeAlso": ["deleveraging", "beta"]
+      "seeAlso": [
+        "deleveraging",
+        "beta"
+      ]
+    },
+    {
+      "slug": "factor-exposure",
+      "term": "factor exposure",
+      "plain": "A portfolio's tilt toward a broad characteristic — small companies, cheap companies, fast-growing companies, recent winners. Often unintentional, and dangerous precisely because it is invisible until it reverses.",
+      "formal": "The sensitivity of a portfolio's returns to a systematic risk factor, measured as the coefficient on that factor in a multi-factor return model.",
+      "seeAlso": [
+        "beta",
+        "alpha",
+        "crowded-trade"
+      ]
     },
     {
       "slug": "performance-attribution",
       "term": "performance attribution",
       "plain": "Breaking a return apart to see where it actually came from — which positions, which side of the book, how much was just the market rising.",
       "formal": "The decomposition of portfolio return into contributions from identifiable sources such as allocation, selection, systematic factor exposures and residual effects.",
-      "seeAlso": ["alpha", "beta", "factor-exposure"]
+      "seeAlso": [
+        "alpha",
+        "beta",
+        "factor-exposure"
+      ]
+    },
+    {
+      "slug": "sharpe-ratio",
+      "term": "Sharpe ratio",
+      "plain": "Return above the risk-free rate, divided by volatility. It asks how much return you got for each unit of bounce you had to endure.",
+      "formal": "Excess return over the risk-free rate divided by the standard deviation of excess returns. Penalises volatility symmetrically, so it treats upside and downside variation alike.",
+      "seeAlso": [
+        "volatility",
+        "risk-free-rate",
+        "alpha"
+      ]
+    },
+    {
+      "slug": "value-at-risk",
+      "term": "value at risk (VaR)",
+      "plain": "A loss level you would not expect to exceed, at some stated confidence. Its weakness is that it says nothing at all about how bad things get beyond that point.",
+      "formal": "The loss threshold not expected to be exceeded over a given horizon at a stated confidence level. Silent about the severity of losses in the excluded tail, and understated when returns have fat tails.",
+      "seeAlso": [
+        "fat-tails",
+        "volatility",
+        "drawdown"
+      ]
+    },
+    {
+      "slug": "volatility",
+      "term": "volatility",
+      "plain": "How much a return series bounces around. It is just the standard deviation of returns, usually quoted per year.",
+      "formal": "The annualised standard deviation of returns. Monthly figures scale by the square root of twelve, since variances rather than standard deviations are additive over time.",
+      "seeAlso": [
+        "standard-deviation",
+        "variance",
+        "geometric-mean",
+        "drawdown"
+      ]
     }
   ]
 }

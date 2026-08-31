@@ -42,7 +42,7 @@
       "term": "compounding",
       "plain": "Earning returns on your returns. The interest you made last year starts earning interest of its own, which is why growth speeds up over long periods.",
       "formal": "The process by which investment earnings are reinvested to generate additional earnings, producing exponential rather than linear growth over time.",
-      "seeAlso": ["future-value", "time-value-of-money"]
+      "seeAlso": ["future-value", "time-value-of-money", "geometric-mean"]
     },
     {
       "slug": "required-return",
@@ -63,9 +63,287 @@
       "term": "internal rate of return (IRR)",
       "plain": "A single percentage summarising the return on an investment whose cash flows arrive at irregular times. It is the discount rate that would make the investment exactly break even.",
       "formal": "The discount rate at which the net present value of a series of cash flows equals zero. Sensitive to the timing of cash flows, which is why early distributions raise it.",
-      "seeAlso": ["present-value", "discount-rate", "j-curve"],
-      "needsReview": true,
-      "reviewNote": "Definition is standard, but note IRR has known edge cases I have not covered here: multiple roots when cash flows change sign more than once, and no real solution in some patterns. Worth a dedicated topic later."
+      "seeAlso": ["net-present-value", "money-weighted-return", "j-curve"]
+    },
+    {
+      "slug": "net-present-value",
+      "term": "net present value (NPV)",
+      "plain": "Everything an investment will pay you, discounted to today's money, minus what it costs. Positive means it is worth doing.",
+      "formal": "The sum of all cash flows associated with an investment, each discounted to the present at the required rate of return, with outflows entered as negative.",
+      "seeAlso": ["present-value", "internal-rate-of-return", "required-return"]
+    },
+    {
+      "slug": "annuity",
+      "term": "annuity",
+      "plain": "A stream of identical payments at regular intervals — a lease, a bond's coupons, a pension. Because the payments are all the same, there is a one-line formula for its value.",
+      "formal": "A finite series of equal cash flows occurring at equal intervals. An ordinary annuity pays at the end of each period; the present value is PMT x (1-(1+r)^-n)/r.",
+      "seeAlso": ["annuity-due", "perpetuity", "present-value"]
+    },
+    {
+      "slug": "annuity-due",
+      "term": "annuity due",
+      "plain": "An annuity whose payments arrive at the start of each period rather than the end — rent, insurance premiums. Every payment is one period closer, so it is worth (1+r) times an ordinary annuity.",
+      "formal": "An annuity in which cash flows occur at the beginning of each period. Its present value equals that of an otherwise identical ordinary annuity multiplied by (1+r).",
+      "seeAlso": ["annuity", "present-value"]
+    },
+    {
+      "slug": "perpetuity",
+      "term": "perpetuity",
+      "plain": "A payment stream that never ends. Surprisingly, it is worth a finite amount: the payment divided by the rate. At 5%, a dollar forever is worth twenty dollars.",
+      "formal": "An infinite series of equal cash flows at equal intervals, with present value PMT/r. The growing form, PMT/(r-g), underpins most terminal value calculations.",
+      "seeAlso": ["annuity", "present-value", "discount-rate"]
+    },
+    {
+      "slug": "arithmetic-mean",
+      "term": "arithmetic mean",
+      "plain": "The ordinary average: add everything up and divide by how many there are. Simple, and easily distorted by one extreme value.",
+      "formal": "The sum of observations divided by their count. For returns it estimates the expected return of a single randomly drawn period, and always equals or exceeds the geometric mean.",
+      "seeAlso": ["geometric-mean", "median", "standard-deviation"]
+    },
+    {
+      "slug": "geometric-mean",
+      "term": "geometric mean",
+      "plain": "The average return that actually describes what happened to your money: the constant rate that, compounded, would have produced the same ending value.",
+      "formal": "The nth root of the product of (1+R) across n periods, less one. Always less than or equal to the arithmetic mean, with the gap widening as volatility rises.",
+      "seeAlso": ["arithmetic-mean", "compounding", "cumulative-return", "volatility"]
+    },
+    {
+      "slug": "cumulative-return",
+      "term": "cumulative return",
+      "plain": "The total growth over a whole period, not per year. Up 12.9% over three years is a cumulative return; about 4.1% a year is the annual equivalent.",
+      "formal": "The total percentage change in value over a multi-period horizon, computed by chaining growth factors: (1+R1)(1+R2)...(1+Rn) - 1.",
+      "seeAlso": ["geometric-mean", "compounding"]
+    },
+    {
+      "slug": "time-weighted-return",
+      "term": "time-weighted return (TWR)",
+      "plain": "A return that ignores when money moved in and out, so it measures the manager rather than the investor's timing. The standard for reporting liquid fund performance.",
+      "formal": "The geometric chaining of sub-period returns, each computed between cash flows, which removes the effect of contribution and withdrawal timing.",
+      "seeAlso": ["money-weighted-return", "geometric-mean"]
+    },
+    {
+      "slug": "money-weighted-return",
+      "term": "money-weighted return",
+      "plain": "A return that weights each period by how much money was actually invested, so it captures both the manager's results and the timing of cash flows. In practice, usually an IRR.",
+      "formal": "The internal rate of return on an investor's actual cash flows, reflecting the size and timing of contributions and withdrawals as well as underlying performance.",
+      "seeAlso": ["time-weighted-return", "internal-rate-of-return"]
+    },
+    {
+      "slug": "median",
+      "term": "median",
+      "plain": "The middle value when you sort the data. Unlike the average, it barely moves when one observation is extreme.",
+      "formal": "The value separating the higher half of a data set from the lower half. A robust measure of central tendency, insensitive to the magnitude of outliers.",
+      "seeAlso": ["arithmetic-mean", "mode", "skewness"]
+    },
+    {
+      "slug": "mode",
+      "term": "mode",
+      "plain": "The most frequently occurring value. Useful for categories, rarely useful for returns, which almost never repeat exactly.",
+      "formal": "The most frequent observation in a data set. A distribution may have more than one mode, or none meaningfully.",
+      "seeAlso": ["median", "arithmetic-mean"]
+    },
+    {
+      "slug": "variance",
+      "term": "variance",
+      "plain": "The average of the squared distances from the mean. Squaring stops positive and negative gaps cancelling, but it also makes big gaps count for much more.",
+      "formal": "The expected squared deviation from the mean. Its square root is the standard deviation; variances are additive over independent periods, which is why volatility scales with the square root of time.",
+      "seeAlso": ["standard-deviation", "covariance", "volatility"]
+    },
+    {
+      "slug": "standard-deviation",
+      "term": "standard deviation",
+      "plain": "The typical distance of an observation from the average, in the same units as the data. For returns it is called volatility.",
+      "formal": "The square root of the variance. For a sample, computed with n-1 in the denominator to correct for the mean having been estimated from the same data.",
+      "seeAlso": ["variance", "volatility", "z-score", "sample"]
+    },
+    {
+      "slug": "sample",
+      "term": "sample",
+      "plain": "The data you actually have, as opposed to all the data that could exist. Five years of a fund's returns is a sample; every month it will ever produce is the population.",
+      "formal": "A subset of observations drawn from a population, used to estimate population parameters. Sample statistics carry estimation error measured by the standard error.",
+      "seeAlso": ["population", "standard-error", "standard-deviation"]
+    },
+    {
+      "slug": "population",
+      "term": "population",
+      "plain": "The complete set of everything you would want to measure, most of which you never get to see.",
+      "formal": "The entire collection of possible observations about which inference is sought. Population parameters are estimated from samples rather than observed directly.",
+      "seeAlso": ["sample", "standard-error"]
+    },
+    {
+      "slug": "survivorship-bias",
+      "term": "survivorship bias",
+      "plain": "When the failures drop out of your data, so what is left looks better than reality. Fund indices suffer badly from this: the funds that closed stop reporting.",
+      "formal": "A selection bias arising when entities that ceased to exist are excluded from a data set, systematically overstating the historical performance of the category.",
+      "seeAlso": ["sample", "base-rate", "arithmetic-mean"]
+    },
+    {
+      "slug": "normal-distribution",
+      "term": "normal distribution",
+      "plain": "The bell curve. Needs only a mean and a standard deviation to describe completely, which makes it convenient — and makes it badly wrong about extreme events.",
+      "formal": "A symmetric, two-parameter continuous distribution in which about 68%, 95% and 99.7% of observations fall within one, two and three standard deviations of the mean.",
+      "seeAlso": ["z-score", "standard-deviation", "fat-tails", "kurtosis"]
+    },
+    {
+      "slug": "z-score",
+      "term": "z-score",
+      "plain": "How many standard deviations an observation sits from the average. A z-score of -2 means unusually bad; about 2.3% of outcomes are worse, if the bell curve applies.",
+      "formal": "The standardised value (x - mean)/standard deviation, expressing an observation in units of standard deviation from the mean.",
+      "seeAlso": ["normal-distribution", "standard-deviation"]
+    },
+    {
+      "slug": "skewness",
+      "term": "skewness",
+      "plain": "Whether a distribution is lopsided. Negative skew means mostly small gains with occasional severe losses — the shape of selling insurance.",
+      "formal": "The third standardised moment of a distribution, measuring asymmetry. Negative skew indicates a longer left tail; positive skew a longer right tail.",
+      "seeAlso": ["kurtosis", "fat-tails", "median", "normal-distribution"]
+    },
+    {
+      "slug": "kurtosis",
+      "term": "kurtosis",
+      "plain": "How much of the action is in the extremes. High kurtosis means more very large moves, in both directions, than a bell curve would produce.",
+      "formal": "The fourth standardised moment, measuring tail weight. A normal distribution has kurtosis 3; excess kurtosis is the amount above that.",
+      "seeAlso": ["fat-tails", "skewness", "normal-distribution"]
+    },
+    {
+      "slug": "fat-tails",
+      "term": "fat tails",
+      "plain": "Extreme outcomes happening far more often than a bell curve predicts. Markets do this reliably, which is why models built on the normal distribution fail exactly when it matters.",
+      "formal": "A distributional property, equivalent to positive excess kurtosis, in which extreme observations carry materially more probability than under a normal distribution of the same variance.",
+      "seeAlso": ["kurtosis", "normal-distribution", "value-at-risk", "skewness"]
+    },
+    {
+      "slug": "conditional-probability",
+      "term": "conditional probability",
+      "plain": "The chance of one thing given that another has already happened. Written P(A|B) and read \"probability of A given B\".",
+      "formal": "P(A|B) = P(A and B)/P(B), the probability of A restricted to outcomes in which B occurs. Not generally equal to P(B|A).",
+      "seeAlso": ["joint-probability", "independent-events", "bayes-rule"]
+    },
+    {
+      "slug": "joint-probability",
+      "term": "joint probability",
+      "plain": "The chance of two things both happening. Only equal to multiplying the two individual chances when the events are genuinely unrelated.",
+      "formal": "P(A and B), the probability of the intersection of two events. Equals P(A) x P(B) if and only if the events are independent.",
+      "seeAlso": ["conditional-probability", "independent-events", "mutually-exclusive"]
+    },
+    {
+      "slug": "independent-events",
+      "term": "independent events",
+      "plain": "Two things where knowing one happened tells you nothing about the other. In finance this is usually assumed and usually false.",
+      "formal": "Events for which P(A|B) = P(A), equivalently P(A and B) = P(A) x P(B). Independence is an empirical claim, not a modelling convenience.",
+      "seeAlso": ["joint-probability", "mutually-exclusive", "correlation"]
+    },
+    {
+      "slug": "mutually-exclusive",
+      "term": "mutually exclusive",
+      "plain": "Two things that cannot both happen. Often confused with independent, which is nearly the opposite — mutually exclusive events are highly informative about each other.",
+      "formal": "Events with zero joint probability, so that the occurrence of one precludes the other. For such events P(A or B) = P(A) + P(B).",
+      "seeAlso": ["independent-events", "joint-probability"]
+    },
+    {
+      "slug": "base-rate",
+      "term": "base rate",
+      "plain": "How common something is before you look at any evidence. The number people most often forget, and the one that usually decides the answer.",
+      "formal": "The unconditional prior probability of an event or characteristic in a population, prior to conditioning on any evidence.",
+      "seeAlso": ["bayes-rule", "prior-probability", "posterior-probability", "survivorship-bias"]
+    },
+    {
+      "slug": "bayes-rule",
+      "term": "Bayes' rule",
+      "plain": "The formula for updating a belief when evidence arrives. It combines how likely the evidence was with how likely the thing was to begin with.",
+      "formal": "P(A|B) = P(B|A) x P(A) / P(B), giving the posterior probability of a hypothesis given evidence, from the likelihood and the prior.",
+      "seeAlso": ["prior-probability", "posterior-probability", "base-rate", "conditional-probability"]
+    },
+    {
+      "slug": "prior-probability",
+      "term": "prior probability",
+      "plain": "What you believed before seeing the new evidence.",
+      "formal": "The probability assigned to a hypothesis before conditioning on new data. Usually the base rate in the relevant population.",
+      "seeAlso": ["posterior-probability", "bayes-rule", "base-rate"]
+    },
+    {
+      "slug": "posterior-probability",
+      "term": "posterior probability",
+      "plain": "What you should believe after seeing the evidence, having properly accounted for how rare the thing was to start with.",
+      "formal": "The updated probability of a hypothesis after conditioning on observed data, obtained via Bayes' rule from the prior and the likelihood.",
+      "seeAlso": ["prior-probability", "bayes-rule", "base-rate"]
+    },
+    {
+      "slug": "standard-error",
+      "term": "standard error",
+      "plain": "How much your estimate would wobble if you had drawn a different sample. It shrinks with the square root of the sample size, so precision is expensive.",
+      "formal": "The standard deviation of a sample statistic's sampling distribution. For a sample mean it is s/sqrt(n), falling only with the square root of observations.",
+      "seeAlso": ["sample", "confidence-interval", "t-statistic"]
+    },
+    {
+      "slug": "confidence-interval",
+      "term": "confidence interval",
+      "plain": "A range around your estimate that reflects how uncertain it is. A wide interval containing zero means the data has not settled the question.",
+      "formal": "An interval constructed so that, over repeated sampling, a stated proportion of such intervals would contain the true parameter. Not a probability statement about the parameter itself.",
+      "seeAlso": ["standard-error", "statistical-significance", "sample"]
+    },
+    {
+      "slug": "null-hypothesis",
+      "term": "null hypothesis",
+      "plain": "The boring explanation you try to rule out — usually \"the true value is zero\" or \"nothing is going on here\".",
+      "formal": "The default hypothesis in a statistical test, typically of no effect, which the data may lead you to reject but can never confirm.",
+      "seeAlso": ["p-value", "t-statistic", "statistical-significance"]
+    },
+    {
+      "slug": "p-value",
+      "term": "p-value",
+      "plain": "How often you would see a result this extreme if nothing were really going on. A small p-value means the boring explanation looks strained.",
+      "formal": "The probability, under the null hypothesis, of observing a test statistic at least as extreme as the one obtained. Not the probability that the null is true.",
+      "seeAlso": ["null-hypothesis", "statistical-significance", "t-statistic"]
+    },
+    {
+      "slug": "statistical-significance",
+      "term": "statistical significance",
+      "plain": "A result unlikely to have happened by chance. It says nothing about whether the effect is large enough to matter.",
+      "formal": "A finding whose p-value falls below a pre-specified threshold, conventionally 5%. Distinct from economic significance, and inflated by testing many hypotheses.",
+      "seeAlso": ["p-value", "null-hypothesis", "confidence-interval"]
+    },
+    {
+      "slug": "t-statistic",
+      "term": "t-statistic",
+      "plain": "How many standard errors your estimate sits from zero. Above about 2 is the conventional bar for taking a result seriously.",
+      "formal": "The ratio of an estimate to its standard error, used to test whether the estimate differs from a hypothesised value. Roughly 1.96 corresponds to 5% significance in large samples.",
+      "seeAlso": ["standard-error", "p-value", "null-hypothesis"]
+    },
+    {
+      "slug": "correlation",
+      "term": "correlation",
+      "plain": "How closely two things move together, on a scale from -1 to +1. Measures straight-line relationships only, which is why it can miss real exposures.",
+      "formal": "Covariance normalised by the product of the two standard deviations, bounded [-1, 1]. Captures linear association only, and is not stable across market regimes.",
+      "seeAlso": ["covariance", "beta", "r-squared", "regression"]
+    },
+    {
+      "slug": "covariance",
+      "term": "covariance",
+      "plain": "Whether two things tend to move in the same direction. The sign is meaningful; the size is not, because it depends on the units.",
+      "formal": "The expected product of two variables' deviations from their means. Scale-dependent, and normalised into correlation for comparability.",
+      "seeAlso": ["correlation", "variance", "beta"]
+    },
+    {
+      "slug": "regression",
+      "term": "regression",
+      "plain": "Fitting the best straight line through a scatter of two variables. In finance, regressing a fund on the market is where beta and alpha come from.",
+      "formal": "A model estimating the linear relationship between a dependent variable and one or more explanatory variables, typically by minimising the sum of squared residuals.",
+      "seeAlso": ["beta", "alpha", "r-squared", "residual", "correlation"]
+    },
+    {
+      "slug": "r-squared",
+      "term": "R-squared",
+      "plain": "The share of one variable's movement that the model explains. For a fund regressed on the market, a high figure means the fund is mostly market movement.",
+      "formal": "The proportion of variance in the dependent variable explained by the regression. In a single-variable regression it equals the squared correlation.",
+      "seeAlso": ["regression", "correlation", "residual"]
+    },
+    {
+      "slug": "residual",
+      "term": "residual",
+      "plain": "The part of an observation the model failed to explain. Worth inspecting: if the residuals are largest in the worst months, the model is hiding the risk that matters.",
+      "formal": "The difference between an observed value and the value fitted by the model. In a market regression, the residual is the return not attributable to the market factor.",
+      "seeAlso": ["regression", "r-squared", "alpha"]
     }
   ]
 }

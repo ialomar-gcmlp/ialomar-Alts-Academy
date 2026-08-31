@@ -1,0 +1,210 @@
+{
+  "schemaVersion": 1,
+  "id": "quant-hyp-01",
+  "domain": "quantitative-methods",
+  "title": "Samples, Confidence Intervals and Hypothesis Testing",
+  "summary": "How much a track record can actually prove, and why proving skill takes far more data than people expect.",
+  "level": "advanced",
+  "prereqs": ["quant-dist-01"],
+  "estMinutes": 11,
+  "examRelevance": ["CFA-L1", "CAIA-L1", "practical"],
+  "lesson": [
+    {
+      "type": "concept",
+      "id": "sample-vs-population",
+      "body": "You never have all the data. You have a [[sample]] — five years of monthly returns, say — and you want to say something about the underlying [[population]], meaning the manager's true long-run behaviour.\n\nThe gap between the two is measured by the [[standard-error]]: how much a sample average would bounce around if you drew a different sample. It falls with the square root of the sample size, which is the most important and most disappointing fact in this topic.\n\n**Square root, not linear.** To halve your uncertainty you need four times the data. To cut it to a tenth, a hundred times. Precision gets expensive very quickly, and there is no way around it."
+    },
+    {
+      "type": "formula",
+      "id": "se-formula",
+      "latex": "SE = \\frac{s}{\\sqrt{n}}",
+      "plainReading": "The standard error of a mean is the sample standard deviation divided by the square root of the number of observations.",
+      "variables": [
+        { "symbol": "s", "meaning": "the sample [[standard-deviation]] — how volatile the individual observations are" },
+        { "symbol": "n", "meaning": "the number of observations. Note it enters under a square root." }
+      ]
+    },
+    {
+      "type": "concept",
+      "id": "confidence-intervals",
+      "body": "A [[confidence-interval]] turns a point estimate into an honest range. For a 95% interval you take the estimate and go roughly two standard errors either side.\n\nWhat it means is narrower than people assume. A 95% confidence interval means: **if you repeated this sampling process many times, about 95% of the intervals constructed this way would contain the true value.** It is a statement about the reliability of the procedure, not a probability distribution over the truth.\n\nWhat it is genuinely good for is discipline. Reporting \"the manager's alpha was 0.8% a month\" invites a confidence the data does not support. Reporting \"0.8% a month, 95% interval from -0.2% to +1.8%\" says the same thing while making clear that zero has not been ruled out."
+    },
+    {
+      "type": "concept",
+      "id": "hypothesis-testing",
+      "body": "A hypothesis test asks a deliberately narrow question: **could this result plausibly have arisen by chance?**\n\nThe structure is always the same. State a [[null-hypothesis]] — the boring explanation, usually \"the true value is zero\". Compute how far the observed result sits from that null, measured in standard errors: the [[t-statistic]]. Then ask how often you would see a result that extreme if the null were true — the [[p-value]].\n\nA small p-value means the data would be surprising under the null, so you reject it. The conventional threshold is 5%, corresponding to a t-statistic of about 2.\n\nTwo things this framework cannot do, and both are routinely claimed of it:\n\n- **Failing to reject is not proving the null.** \"We cannot show this manager has skill\" is not \"this manager has no skill\". Usually it means the sample is too small to tell.\n- **[[statistical-significance]] is not importance.** With enough data, a trivially small effect becomes significant. With little data, a large effect may not be."
+    },
+    {
+      "type": "example",
+      "id": "worked-alpha",
+      "body": "A manager has delivered an average excess return of 0.8% a month over three years, with a monthly standard deviation of 3.0%. Is that skill?",
+      "walkthrough": [
+        "**Sample size.** Three years of monthly data is n = 36.",
+        "**Standard error.** 3.0 / sqrt(36) = 3.0 / 6 = **0.5% a month**.",
+        "**t-statistic.** 0.8 / 0.5 = **1.6**.",
+        "**Verdict.** 1.6 is below the conventional threshold of about 2, so at the 5% level you cannot reject the null that the true excess return is zero.",
+        "**The confidence interval says the same thing more usefully.** 0.8 ± (1.96 x 0.5) gives an interval from **-0.18% to +1.78%** a month. It contains zero, so zero remains a live possibility — but note that it also contains +1.7%, which would be an outstanding manager. The data is simply not decisive either way.",
+        "**How much more data would settle it?** Holding the mean and volatility fixed, you would need n of about **54 months** — four and a half years — to reach significance. And that assumes the manager's edge is stable throughout, which is a strong assumption over that horizon."
+      ]
+    },
+    {
+      "type": "intuition",
+      "id": "why-skill-is-hard",
+      "body": "Work through the previous example again and notice what it implies. A manager beating their benchmark by 0.8% a month — nearly 10% a year, a genuinely excellent record — cannot be statistically distinguished from luck after three years.\n\nThat is not a quirk of the numbers chosen. It is the general situation, and it follows from the ratio of signal to noise in returns: monthly volatility of 3% against a monthly edge of 0.8% means the noise is roughly four times the signal in any single observation. Averaging reduces the noise, but only by the square root of n.\n\nSo the honest conclusion is uncomfortable: **for most managers, over most realistic horizons, performance data alone cannot establish skill.** This is not a reason to ignore performance. It is the reason that understanding the *mechanism* of a manager's edge carries so much weight — the statistics will not settle it for you within the time you have to make the decision."
+    },
+    {
+      "type": "pitfall",
+      "id": "multiple-testing",
+      "body": "**Testing many hypotheses inflates false positives.** At a 5% threshold, one test in twenty produces a significant result by chance. Screen a hundred managers and you should expect around five to look significantly skilled when none of them are.\n\nThis is the same selection problem as in the Bayes topic, seen from the frequentist side. A p-value is only meaningful for a hypothesis specified *before* looking at the data. A significant result found by searching is not evidence of the same strength as a significant result found by prediction — and \"we screened the universe and these five stood out\" is searching."
+    },
+    {
+      "type": "onTheJob",
+      "id": "on-the-job",
+      "body": "**Ask what the t-statistic is on the alpha.** Most track records presented as evidence of skill have a t-statistic between 1 and 2 — suggestive, not conclusive. Asking for it is not pedantry; it converts an impression into a magnitude.\n\n**Short track records deserve wide intervals, and saying so is a service.** \"Two years is not enough to distinguish this from noise\" is a legitimate and useful diligence conclusion, not a failure to reach one.\n\n**Beware the strategy that was selected for its backtest.** A backtested strategy has, by construction, been chosen from a large space of alternatives on the basis of performance. Its in-sample statistics are close to meaningless, and its out-of-sample record is the only one that carries information.\n\n**Note the interaction with fat tails.** These tests assume a well-behaved distribution. If returns have fat tails, the standard error is understated and the true uncertainty is even wider than the interval suggests — so the honest reading is always at least as cautious as the arithmetic."
+    },
+    {
+      "type": "keyTakeaways",
+      "id": "takeaways",
+      "items": [
+        "Standard error falls with the square root of n: four times the data to halve the uncertainty.",
+        "Failing to reject the null is not proving it. It usually means the sample is too small to tell.",
+        "A genuinely excellent manager can be statistically indistinguishable from luck after three years. That is normal, not a measurement failure.",
+        "A p-value only means something for a hypothesis chosen before seeing the data. Screening many candidates manufactures significance."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "quant-hyp-01-q1",
+      "type": "numeric",
+      "difficulty": 2,
+      "tags": ["standard-error", "sampling"],
+      "concept": "se-formula",
+      "stem": "A manager's monthly excess returns have a standard deviation of 3.0% over 36 months. What is the standard error of the mean, in percent?",
+      "answer": 0.5,
+      "tolerance": 0.02,
+      "toleranceType": "abs",
+      "unit": "%",
+      "inputHint": "Answer in percent, to 2 decimal places.",
+      "explanation": "SE = 3.0 / sqrt(36) = 3.0 / 6 = 0.5%. Note that n enters under a square root: getting this down to 0.25% would require 144 months, not 72."
+    },
+    {
+      "id": "quant-hyp-01-q2",
+      "type": "numeric",
+      "difficulty": 3,
+      "tags": ["t-statistic", "hypothesis-testing"],
+      "concept": "worked-alpha",
+      "stem": "The same manager averaged 0.8% monthly excess return, with a standard error of 0.5%. What is the t-statistic against a null of zero?",
+      "answer": 1.6,
+      "tolerance": 0.05,
+      "toleranceType": "abs",
+      "inputHint": "Answer as a number, to 1 or 2 decimal places.",
+      "explanation": "t = 0.8 / 0.5 = 1.6. Below the conventional threshold of about 2, so at the 5% level the null of zero excess return cannot be rejected — despite an annualised excess return of nearly 10%."
+    },
+    {
+      "id": "quant-hyp-01-q3",
+      "type": "mcq",
+      "difficulty": 3,
+      "tags": ["hypothesis-testing", "interpretation"],
+      "concept": "hypothesis-testing",
+      "stem": "A test of a manager's alpha fails to reject the null hypothesis of zero. What does that establish?",
+      "choices": [
+        "The manager has no skill",
+        "The data is insufficient to distinguish this manager's returns from chance",
+        "The manager's alpha is exactly zero",
+        "The test was conducted incorrectly, since a conclusion should always be reachable"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "This is the most common misreading. Absence of evidence for skill is not evidence of its absence — particularly with the small samples typical of track records.",
+        "Correct. A failure to reject is a statement about the power of the data, not a verdict on the manager. Very often it means only that n is too small.",
+        "The test never establishes an exact value. The point estimate was 0.8%, not zero; the test only says zero cannot be ruled out.",
+        "Failing to reach a conclusion is a legitimate and informative outcome. Insisting on a verdict the data cannot support is the actual error."
+      ],
+      "explanation": "The asymmetry is built into the framework: you can reject a null, but you can never confirm one. Reporting \"we cannot distinguish this from noise\" is an honest finding, and often the most useful one available."
+    },
+    {
+      "id": "quant-hyp-01-q4",
+      "type": "mcq",
+      "difficulty": 3,
+      "tags": ["confidence-interval", "interpretation"],
+      "concept": "confidence-intervals",
+      "stem": "A manager's monthly alpha has a 95% confidence interval of -0.18% to +1.78%. What is the most useful reading?",
+      "choices": [
+        "There is a 95% probability the true alpha lies in that range",
+        "The estimate is consistent with anything from slightly negative to outstanding, so the data is not decisive",
+        "The manager has no alpha, since the interval includes zero",
+        "The manager's alpha is 0.8%, the midpoint of the interval"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "A common gloss, and strictly wrong: the confidence level describes the reliability of the procedure across repeated samples, not a probability distribution over the true value.",
+        "Correct, and it is the reading that actually helps. The interval spans a slightly negative alpha and a genuinely excellent one, which is a precise way of saying the evidence does not settle the question.",
+        "Including zero means zero is not ruled out — not that it is the answer. The interval also fails to rule out +1.7%.",
+        "The midpoint is the point estimate, but quoting it alone discards exactly the information the interval was constructed to convey."
+      ],
+      "explanation": "The value of an interval is that it makes the range of live possibilities explicit. Collapsing it to either \"no alpha\" or \"0.8% alpha\" throws away the honest answer, which is that both remain plausible."
+    },
+    {
+      "id": "quant-hyp-01-q5",
+      "type": "numeric",
+      "difficulty": 4,
+      "tags": ["sampling", "power"],
+      "concept": "sample-vs-population",
+      "stem": "A manager's monthly excess return averages 0.8% with a monthly standard deviation of 3.0%. Holding both fixed, how many months of data are needed for the t-statistic to reach 1.96?",
+      "answer": 54,
+      "tolerance": 2,
+      "toleranceType": "abs",
+      "unit": "months",
+      "inputHint": "Answer as a whole number of months.",
+      "explanation": "Set 0.8 / (3.0/sqrt(n)) = 1.96, so sqrt(n) = 1.96 x 3.0 / 0.8 = 7.35 and n = 54 months. Four and a half years — and that assumes the edge is stable throughout, which over that horizon is a strong assumption in its own right."
+    },
+    {
+      "id": "quant-hyp-01-q6",
+      "type": "tfj",
+      "difficulty": 4,
+      "tags": ["multiple-testing", "selection-bias"],
+      "concept": "multiple-testing",
+      "stem": "\"We screened 100 managers and five showed statistically significant alpha at the 5% level. That is five managers worth pursuing.\" True or false — and why?",
+      "isTrue": false,
+      "justifications": [
+        "False — at a 5% threshold you expect about five false positives from 100 tests even if no manager has skill",
+        "False — statistical significance is never relevant to manager selection",
+        "True — significance at the 5% level is the accepted standard",
+        "False — because 100 managers is too small a universe to screen"
+      ],
+      "justificationIndex": 0,
+      "rationales": [
+        "Correct. Five out of a hundred is precisely what pure chance produces at a 5% threshold. The result is exactly what you would see in a universe with no skill in it at all, so it carries almost no information.",
+        "Too strong. Significance is a useful discipline; the flaw here is applying a single-test threshold to a hundred tests.",
+        "The 5% convention applies to one pre-specified hypothesis. Repeated across a hundred, it stops being a 5% error rate for the set.",
+        "The universe size is not the problem. In fact a larger screen makes this worse, producing more chance findings."
+      ],
+      "explanation": "This is the multiple comparisons problem, and it is the frequentist face of the selection bias in the Bayes topic. Screening manufactures significance. A finding is only worth its stated confidence if the hypothesis was specified before the data was examined."
+    },
+    {
+      "id": "quant-hyp-01-q7",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["hypothesis-testing", "on-the-job", "backtest"],
+      "concept": "on-the-job",
+      "stem": "A quantitative manager presents a backtest with a t-statistic of 4.2 on its alpha over twenty years. What is the appropriate reaction?",
+      "choices": [
+        "Strong evidence of skill — a t-statistic above 4 is very hard to achieve by chance",
+        "The in-sample statistic says little, because the strategy was selected from many candidates on the basis of results like this one",
+        "The t-statistic is meaningless because backtests use simulated rather than real returns",
+        "Twenty years is too short a period for a t-statistic to be reliable"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "A t-statistic above 4 is hard to achieve by chance *in a single pre-specified test*. In a backtest it is the outcome of a search, and searches find extremes.",
+        "Correct. A backtested strategy is, by construction, the survivor of many variants tried and discarded. Its in-sample statistics reflect that selection, so the out-of-sample record is the only part carrying real information.",
+        "Simulated returns have real limitations — transaction costs, liquidity, feasibility — but they are not what makes the t-statistic uninformative. Selection is.",
+        "Twenty years is a long sample. Length is not the weakness here; the search process is."
+      ],
+      "explanation": "The right question is never \"how strong is the backtest?\" but \"how many variants were tried, and what has happened since it was fixed?\" Live track record after the strategy was locked down is worth far more than any amount of in-sample history."
+    }
+  ],
+  "needsReview": false,
+  "reviewNote": null
+}
