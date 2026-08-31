@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "domain": "financial-statement-analysis",
+  "terms": [
+    {
+      "slug": "ebitda",
+      "term": "EBITDA",
+      "plain": "Earnings before interest, tax, depreciation and amortisation. A rough proxy for the cash a business generates before financing and accounting choices.",
+      "formal": "Operating earnings before interest, taxes, depreciation and amortisation. Widely used in leveraged transactions as a comparable earnings measure, though it excludes real cash costs including capital expenditure.",
+      "seeAlso": [
+        "ev-ebitda",
+        "buyout",
+        "capital-structure"
+      ]
+    }
+  ]
+}

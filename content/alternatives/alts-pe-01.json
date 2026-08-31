@@ -1,0 +1,244 @@
+{
+  "schemaVersion": 1,
+  "id": "alts-pe-01",
+  "domain": "alternatives",
+  "title": "Private Equity: Buyout",
+  "summary": "Buying whole companies with borrowed money, improving them, and selling them — and where the returns actually come from.",
+  "level": "core",
+  "prereqs": ["quant-npv-01"],
+  "estMinutes": 12,
+  "examRelevance": ["CAIA-L1", "CAIA-L2", "practical"],
+  "lesson": [
+    {
+      "type": "concept",
+      "id": "what-it-is",
+      "body": "A [[buyout]] fund acquires a controlling stake in an established, cash-generative company, funds much of the purchase with debt, holds it for three to seven years, and sells.\n\nThe mechanics differ from public investing in three ways that matter.\n\n**Control.** The fund owns the company outright and appoints the board. It can change management, sell divisions, alter strategy — none of which a minority public shareholder can do.\n\n**Leverage.** A large share of the purchase price is debt secured against the company's own cash flows. This is the [[leveraged-buyout]] structure, and it is what converts a modest business return into a large equity return.\n\n**Illiquidity.** There is no exit until the fund sells. Investors make a [[commitment]] of ten years or more, and the fund draws it down through [[capital-call|capital calls]] as deals are done rather than taking it all up front."
+    },
+    {
+      "type": "concept",
+      "id": "value-creation",
+      "body": "Buyout returns decompose into exactly three sources, and knowing which one drove a manager's track record is the single most useful thing you can establish about them.\n\n**1. Operational improvement.** Growing [[ebitda]] — more revenue, better margins, bolt-on acquisitions. This is the source managers most want to claim, because it is the one that requires skill and does not depend on markets.\n\n**2. Multiple expansion.** Selling at a higher [[ev-ebitda|EV/EBITDA multiple]] than you paid. Sometimes earned by making the business genuinely better or larger; often just a rising market. This is the source most likely to be luck dressed as skill.\n\n**3. Debt paydown.** The company's cash flow repays borrowings during the hold, so the equity's share of a constant enterprise value grows. Mechanical, and entirely dependent on the leverage having been available.\n\nA manager whose historical returns came mostly from multiple expansion during a period of falling interest rates has demonstrated good timing rather than repeatable capability. **Ask for the attribution across these three, deal by deal.** It is a standard request and a revealing one."
+    },
+    {
+      "type": "example",
+      "id": "worked-lbo",
+      "body": "A fund buys a company with $50m of [[ebitda]] at a 10x multiple. It funds $300m with debt and $200m with equity. Five years later EBITDA is $70m, the exit multiple is still 10x, and debt has been paid down to $200m.",
+      "walkthrough": [
+        "**Entry.** Enterprise value = $50m x 10 = **$500m**. Less $300m debt, so equity in = **$200m**.",
+        "**Exit.** Enterprise value = $70m x 10 = **$700m**. Less $200m debt, so equity out = **$500m**.",
+        "**[[moic|Multiple of invested capital]]** = $500m / $200m = **2.5x**. Over five years that is an [[internal-rate-of-return]] of **20.1%**.",
+        "**Now decompose the $300m equity gain.** EBITDA growth of $20m at the entry multiple = $200m. Multiple expansion = $0, since the multiple did not change. Debt paydown = $100m. Total $300m — the three sources account for all of it exactly.",
+        "**And here is the leverage effect.** Unlevered, the same deal would be $500m in and $700m out: 1.4x over five years, an IRR of **7.0%**. The debt turned a 7% return into a 20% return.",
+        "**Which cuts both ways.** Hold everything else and assume the exit multiple falls to 8x. Equity out = $560m - $200m = $360m, so 1.8x and an IRR of 12.5%. At 7x it is 1.45x and 7.7%. The business performed exactly as planned in all three cases; the return was decided by the exit multiple."
+      ]
+    },
+    {
+      "type": "intuition",
+      "id": "leverage-and-multiples",
+      "body": "The worked example contains the whole risk profile of the strategy, and it is worth sitting with.\n\n**Leverage magnifies whatever happens.** It turned 7% into 20%. It would equally turn a modest disappointment into a wipeout: if the enterprise value had fallen to $200m — below the debt — the equity would be worth nothing while the business was still operating and generating cash.\n\n**The exit multiple is largely outside the manager's control.** It depends on what buyers will pay years from now, which depends on interest rates, credit availability and sentiment. A manager can execute an operating plan perfectly and still deliver a poor return because the market repriced.\n\nSo two uncomfortable conclusions follow. A long stretch of falling rates and rising multiples flatters the entire asset class, regardless of skill — and the reverse period punishes it regardless of skill. **Distinguishing manager skill from vintage luck requires comparing against funds of the same [[vintage-year]]**, not against an absolute return target, and even then it is hard."
+    },
+    {
+      "type": "concept",
+      "id": "measuring-it",
+      "body": "Private fund performance uses its own vocabulary, and the terms answer different questions.\n\n**[[moic]] or gross multiple.** Total value divided by capital invested. Blind to time.\n\n**[[internal-rate-of-return|IRR]].** Annualised, and acutely sensitive to timing — which is why it can be flattered by early distributions and by [[subscription-line|subscription lines]].\n\n**[[dpi]] — distributions to paid-in.** Cash actually returned, divided by cash actually called. **This is the only one that cannot be argued with**, because it is realised money rather than a valuation.\n\n**[[rvpi]] — residual value to paid-in.** The remaining unrealised holdings, at the manager's own valuation.\n\n**[[tvpi]] — total value to paid-in.** DPI plus RVPI. The headline number.\n\nA fund reporting TVPI of 1.35x made up of 0.65x DPI and 0.70x RVPI has returned two thirds of its capital and is telling you the rest is worth 0.70x **on its own marks**. Early in a fund's life almost all of TVPI is RVPI, which is to say almost all of it is an opinion."
+    },
+    {
+      "type": "table",
+      "id": "environments",
+      "caption": "What helps and what hurts",
+      "headers": ["Environment", "Effect", "Why"],
+      "rows": [
+        [
+          "Falling interest rates",
+          "Helps",
+          "Cheaper debt and rising exit multiples. Flatters the whole asset class regardless of skill."
+        ],
+        [
+          "Available leverage on loose terms",
+          "Helps",
+          "More debt per dollar of equity raises returns and allows higher entry prices."
+        ],
+        [
+          "Strong exit markets — IPO and strategic buyers",
+          "Helps",
+          "Exits at good multiples are how the return is realised. No exit, no return."
+        ],
+        [
+          "Rising rates",
+          "Hurts",
+          "Financing costs rise on floating-rate debt while exit multiples compress. Both legs at once."
+        ],
+        [
+          "Closed exit markets",
+          "Hurts",
+          "Holding periods extend, IRRs decay, and capital cannot be returned or recycled."
+        ],
+        [
+          "High entry multiples",
+          "Hurts",
+          "Paying more requires either more operational improvement or multiple expansion from an already high base. High industry [[dry-powder]] is usually what causes it."
+        ]
+      ]
+    },
+    {
+      "type": "concept",
+      "id": "how-it-blows-up",
+      "body": "**Leverage plus a downturn.** The core risk. Debt service is fixed and cash flow is not. A business that misses its plan can breach a [[covenant]], which hands negotiating power to lenders and can wipe the equity out entirely while the company continues to trade.\n\n**Multiple compression at exit.** As shown: perfect execution and a lower exit multiple still produces a poor return. The manager cannot hedge this.\n\n**Paying too much at entry.** The most common cause of poor vintages. Competitive auctions in a strong market lead to entry multiples requiring heroic assumptions to work.\n\n**Extended holding periods.** When exits close, funds hold assets years longer than planned. That decays IRR, delays distributions, and ties up investor capital.\n\n**Refinancing risk.** Buyout debt matures and needs replacing. A company that must refinance into a hostile credit market faces sharply higher costs or a forced restructuring, regardless of how it is performing.\n\n**Valuation opacity in the interim.** Unrealised holdings are marked by the manager. Reported TVPI can look healthy for years while the eventual realised outcome is materially worse — and there is no market price to contradict it until an exit happens."
+    },
+    {
+      "type": "pitfall",
+      "id": "marks-are-opinions",
+      "body": "**An unrealised private mark is an opinion, and reported volatility for private equity is close to meaningless.** Quarterly valuations are model-based and lag public markets, so measured [[volatility]] is low and measured correlation to equities is low. Neither reflects the underlying economic risk.\n\nThe correct reading of a low private equity beta is that the marking process is slow, not that the assets are insulated. Comparing a private fund's reported volatility with a public equity fund's is not a comparison — it is a category error, and it flatters the private fund on both risk and, through the same mechanism, apparent alpha."
+    },
+    {
+      "type": "onTheJob",
+      "id": "on-the-job",
+      "body": "**Ask for value creation attribution, deal by deal.** Operational improvement, multiple expansion, debt paydown. A manager whose returns are mostly the second and third has been well positioned rather than skilful, and that distinction predicts the next decade better than the headline IRR does.\n\n**Look at DPI, not TVPI.** Particularly for funds more than five years old. A fund with a 1.8x TVPI and a 0.3x DPI at year seven is telling you something, and it is not good news.\n\n**Compare within vintage year.** Absolute returns across vintages mostly measure the credit and equity cycle. Quartile ranking against the same vintage is the only comparison that isolates the manager.\n\n**Ask about entry multiples over time.** A manager whose average entry multiple has risen steadily is either moving up in quality or paying more for the same thing, and it is worth knowing which.\n\n**Ask what happened to the deals that did not work.** Every buyout manager has them. How they were handled — the restructuring, the negotiation with lenders, whether more equity was put in — tells you more about the firm than the successes do."
+    },
+    {
+      "type": "keyTakeaways",
+      "id": "takeaways",
+      "items": [
+        "Returns come from exactly three sources: operational improvement, multiple expansion and debt paydown. Only the first is clearly skill.",
+        "Leverage magnifies everything. The worked example turned a 7% unlevered return into 20% — and the same mechanism destroys equity in a downturn.",
+        "The exit multiple is largely outside the manager's control, so perfect execution can still produce a poor return.",
+        "DPI is realised cash and cannot be argued with. TVPI early in a fund's life is mostly the manager's own opinion."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "alts-pe-01-q1",
+      "type": "numeric",
+      "difficulty": 2,
+      "tags": ["buyout", "moic", "lbo"],
+      "concept": "worked-lbo",
+      "stem": "A fund invests $200m of equity. At exit the equity is worth $500m. What is the multiple of invested capital (MOIC)?",
+      "answer": 2.5,
+      "tolerance": 0.05,
+      "toleranceType": "abs",
+      "unit": "x",
+      "inputHint": "Answer as a multiple, e.g. 2.5 for 2.5x.",
+      "explanation": "$500m / $200m = 2.5x. MOIC ignores time entirely — the same 2.5x over three years or ten years is a very different investment, which is why IRR is always quoted alongside it."
+    },
+    {
+      "id": "alts-pe-01-q2",
+      "type": "numeric",
+      "difficulty": 3,
+      "tags": ["buyout", "irr", "lbo"],
+      "concept": "worked-lbo",
+      "stem": "That 2.5x was achieved over exactly 5 years, with no interim distributions. What is the IRR, in percent?",
+      "answer": 20.11,
+      "tolerance": 0.5,
+      "toleranceType": "abs",
+      "unit": "%",
+      "inputHint": "Answer in percent, to 1 decimal place.",
+      "explanation": "2.5^(1/5) - 1 = 20.11%. With a single cash flow in and a single one out, IRR is simply the geometric mean return — the same calculation as annualising any multi-period return."
+    },
+    {
+      "id": "alts-pe-01-q3",
+      "type": "mcq",
+      "difficulty": 3,
+      "tags": ["buyout", "value-creation", "attribution"],
+      "concept": "value-creation",
+      "stem": "A buyout manager's historical returns came predominantly from multiple expansion during a decade of falling interest rates. What does that suggest?",
+      "choices": [
+        "Strong operational skill, since they selected businesses the market came to value more highly",
+        "The returns reflect favourable market conditions more than repeatable capability",
+        "Nothing — all three value creation sources are equally attributable to the manager",
+        "The manager used too little leverage"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Rising multiples across a whole asset class during falling rates is a market phenomenon. Attributing it to selection requires evidence that their multiples rose more than peers', which is not what is stated.",
+        "Correct. Multiple expansion during falling rates lifted essentially every buyout portfolio. It is the source least attributable to skill and the least likely to repeat when rates are not falling.",
+        "They are not equally attributable. Operational improvement requires action by the manager; multiple expansion largely does not.",
+        "Leverage is a separate question, and more of it would have magnified the market-driven return rather than demonstrated skill."
+      ],
+      "explanation": "This is why attribution across the three sources matters so much. A track record built on multiple expansion tells you about the manager's vintage, not their capability — and vintages do not repeat on request."
+    },
+    {
+      "id": "alts-pe-01-q4",
+      "type": "numeric",
+      "difficulty": 4,
+      "tags": ["buyout", "exit-multiple", "risk"],
+      "concept": "worked-lbo",
+      "stem": "Same deal: $70m EBITDA at exit, debt paid down to $200m, equity in was $200m. But the exit multiple is 8x rather than 10x. What is the MOIC?",
+      "answer": 1.8,
+      "tolerance": 0.05,
+      "toleranceType": "abs",
+      "unit": "x",
+      "inputHint": "Answer as a multiple, e.g. 1.8 for 1.8x.",
+      "explanation": "EV = $70m x 8 = $560m. Less $200m debt = $360m equity. $360m / $200m = 1.8x, an IRR of 12.5% over five years rather than 20.1%. The business hit its plan exactly; two turns of multiple cost roughly eight points of annual return."
+    },
+    {
+      "id": "alts-pe-01-q5",
+      "type": "mcq",
+      "difficulty": 3,
+      "tags": ["buyout", "dpi", "tvpi", "measurement"],
+      "concept": "measuring-it",
+      "stem": "A seven-year-old fund reports TVPI of 1.8x and DPI of 0.3x. What is the most useful observation?",
+      "choices": [
+        "The fund is performing well, since 1.8x is a strong total value multiple",
+        "Most of the reported value is unrealised at the manager's own marks, and very little cash has come back",
+        "The fund must have used excessive leverage",
+        "DPI and TVPI cannot be compared to each other"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "1.8x looks strong, but 1.5x of it is RVPI — the manager's valuation of what they still hold. At year seven, that gap is the finding.",
+        "Correct. DPI of 0.3x means less than a third of capital has actually come back after seven years. The remaining 1.5x is an opinion until it is realised, and exits are what convert opinions into returns.",
+        "Leverage is not indicated by these figures. The issue is realisation, not capital structure.",
+        "They are directly comparable and designed to be: TVPI = DPI + RVPI, so the split between them is exactly the point."
+      ],
+      "explanation": "The gap between TVPI and DPI is one of the most informative numbers in private markets. Late in a fund's life it should be narrowing sharply — a wide gap at year seven means the value is still theoretical."
+    },
+    {
+      "id": "alts-pe-01-q6",
+      "type": "tfj",
+      "difficulty": 4,
+      "tags": ["buyout", "volatility", "misconception"],
+      "concept": "marks-are-opinions",
+      "stem": "\"This buyout fund's reported volatility is 9%, well below public equities at 16%, so it carries less risk.\" True or false — and why?",
+      "isTrue": false,
+      "justifications": [
+        "False — quarterly model-based marks smooth reported returns, so measured volatility describes the valuation process rather than the underlying risk",
+        "False — buyout funds are always riskier than public equities",
+        "True — volatility is the standard risk measure, so a lower figure means lower risk",
+        "False — because volatility cannot be computed from quarterly data"
+      ],
+      "justificationIndex": 0,
+      "rationales": [
+        "Correct. Private holdings are valued quarterly by model, lagging public markets. Low measured volatility is a property of infrequent, judgement-based marking — and these are levered equity stakes in single companies, which is not low risk.",
+        "Too absolute. A conservatively levered buyout of a stable business may genuinely be less risky than a volatile small-cap. The flaw is the measurement, not a blanket ranking.",
+        "This is the misconception. Volatility measures variation in reported values, and for private assets those values are opinions rendered four times a year.",
+        "It can be computed from quarterly data. The problem is what those quarterly figures represent."
+      ],
+      "explanation": "The same smoothing that suppresses volatility also suppresses measured correlation and beta, and correspondingly inflates apparent alpha. Private funds are flattered on every risk-adjusted measure at once, by one mechanism."
+    },
+    {
+      "id": "alts-pe-01-q7",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["buyout", "vintage", "on-the-job"],
+      "concept": "leverage-and-multiples",
+      "stem": "Why is comparing buyout funds within the same vintage year more informative than comparing absolute returns?",
+      "choices": [
+        "Because funds of the same vintage hold the same companies",
+        "Because absolute returns across vintages largely reflect the credit and equity cycle rather than manager skill",
+        "Because vintage year determines the fee structure",
+        "Because IRR cannot be computed across different time periods"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Same-vintage funds hold entirely different companies. What they share is the environment in which they bought and sold.",
+        "Correct. Entry multiples, debt availability and exit conditions are set by the cycle. Comparing a 2009 vintage with a 2007 vintage mostly measures when they deployed, not who was better at it.",
+        "Fee structures vary by manager and negotiation, not by vintage.",
+        "IRR is computable across any period. The issue is comparability, not calculability."
+      ],
+      "explanation": "Vintage-year quartile ranking is the standard because it holds the environment roughly constant. It is still imperfect — deployment pace differs within a vintage — but it is the only comparison that gets close to isolating the manager."
+    }
+  ],
+  "needsReview": false,
+  "reviewNote": null
+}

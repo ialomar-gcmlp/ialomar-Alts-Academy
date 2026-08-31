@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "domain": "equity-valuation",
+  "terms": [
+    {
+      "slug": "ev-ebitda",
+      "term": "EV/EBITDA multiple",
+      "plain": "A company's total value (equity plus debt) divided by its EBITDA. The standard shorthand for how expensive a business is.",
+      "formal": "Enterprise value divided by EBITDA, a capital-structure-neutral valuation multiple permitting comparison across companies with different leverage.",
+      "seeAlso": [
+        "ebitda",
+        "buyout",
+        "growth-equity"
+      ]
+    }
+  ]
+}

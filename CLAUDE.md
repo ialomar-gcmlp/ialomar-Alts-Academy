@@ -544,13 +544,13 @@ One domain per batch, validated, pause between batches. Keep this current.
 |---|---|---|
 | quantitative-methods | 10 | **done** — tvm-01/02, npv-01, ret-01, stat-01, dist-01, prob-01, bayes-01, hyp-01, reg-01 |
 | economics | 1 | seeded only (econ-curve-01) |
-| alternatives | 11 | **hedge fund strategies done** — lse, emn, merger, macro, cta, event, distressed, convert, firv, statarb, multistrat. Private markets (PE, credit, real assets, fund-of-funds) still to do. |
-| financial-statement-analysis | 0 | not started |
+| alternatives | 19 | **DONE** — 11 hedge fund strategies (lse, emn, merger, macro, cta, event, distressed, convert, firv, statarb, multistrat) + 8 private markets (pe-01 buyout, pe-02 growth, vc, pc, re, infra, realassets, fof) |
+| financial-statement-analysis | 0 | not started — EBITDA term defined |
 | corporate-issuers | 0 | not started |
-| equity-valuation | 0 | not started |
+| equity-valuation | 0 | not started — EV/EBITDA term defined |
 | fixed-income | 0 | not started |
-| derivatives | 0 | not started |
-| fund-structures | 0 | not started |
+| derivatives | 0 | not started — delta, gamma, implied volatility, vega defined |
+| fund-structures | 0 | not started — but 16 glossary terms already defined (capital call, commitment, TVPI/DPI/RVPI, MOIC, vintage, secondaries, subscription line, lock-up, gate, side pocket, carried interest, dry powder, J-curve, NAV) |
 | portfolio-risk | 0 | not started |
 | ethics | 0 | not started |
 
@@ -577,6 +577,11 @@ no markup to resolve.
 **Watch for duplicate JSON keys.** Two topics shipped a lesson block with `"id"` written twice.
 `json.load` silently keeps the last and Zod parses it happily. Scan with
 `json.load(..., object_pairs_hook=...)` after each batch.
+
+**Define AND mark up in the same pass.** A term defined but never referenced fails `content:check`
+as an orphan; a term used but never defined is invisible to it. Batch 3 hit both directions in one
+sitting — 29 undefined slugs, then two orphans from terms defined without a corresponding markup edit.
+Do the glossary additions and the markup edits together, then run `content:check` before anything else.
 
 **Run a structural audit after each batch, on top of `content:check`.** The schema cannot catch a
 misaligned `answerIndex`, because every index in range is structurally valid. This does:

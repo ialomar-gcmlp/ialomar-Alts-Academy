@@ -1,0 +1,220 @@
+{
+  "schemaVersion": 1,
+  "id": "alts-pc-01",
+  "domain": "alternatives",
+  "title": "Private Credit",
+  "summary": "Lending directly to companies instead of buying their bonds — floating rate, illiquid, and paid for both.",
+  "level": "core",
+  "prereqs": ["econ-curve-01"],
+  "estMinutes": 10,
+  "examRelevance": ["CAIA-L1", "CAIA-L2", "practical"],
+  "lesson": [
+    {
+      "type": "concept",
+      "id": "what-it-is",
+      "body": "[[private-credit]] means lending directly to companies through negotiated loans, rather than buying tradeable bonds. The fund originates the loan, negotiates its terms, and usually holds it to maturity.\n\nThe dominant form is **[[direct-lending]]** to mid-sized companies, very often those owned by [[buyout]] funds. A single lender or small group provides the whole facility — frequently a [[unitranche]], which merges what would traditionally be senior and subordinated tranches into one loan at a blended rate.\n\nThree features define the asset:\n\n**[[floating-rate]].** The coupon resets off a short-term reference rate plus a fixed spread. So income rises when the front end of the [[yield-curve]] rises, and the loan's price is relatively insensitive to rate moves.\n\n**Negotiated terms.** The lender writes the [[covenant|covenants]], sets the security, and controls amendments. That is the compensation for illiquidity — control over the documents.\n\n**Held to maturity.** There is little [[secondaries|secondary market]], so the loan is not marked by trading. Valuation is model-based."
+    },
+    {
+      "type": "concept",
+      "id": "return-driver",
+      "body": "**The return driver is contractual interest income, plus fees, minus credit losses.**\n\nUnusually for this domain, that makes the return relatively predictable. It is not a capital gain that may or may not arrive; it is a coupon.\n\nA typical unitranche might pay a reference rate plus 550 [[basis-point|basis points]]. With the reference rate at 5%, that is **10.5%** contractual. Add origination fees and any [[original-issue-discount|discount to par]] and the all-in yield is higher still.\n\nBut note what that sensitivity means in both directions. If the reference rate falls to 3%, the same loan pays **8.5%** — the spread is fixed, the base is not. A private credit fund's return is therefore substantially a function of where short rates sit, which is a macro exposure rather than a credit skill.\n\nThe genuine sources of excess return are narrower than the headline yield suggests: an **illiquidity premium** for holding an unsaleable asset, a **complexity premium** for doing the origination and documentation work, and a **structuring premium** for negotiating better protections than a bond buyer receives. Credit selection sits on top of all three."
+    },
+    {
+      "type": "intuition",
+      "id": "the-two-sided-effect",
+      "body": "Rising rates do two opposite things to a private credit portfolio, and holding both in mind at once is the whole insight.\n\n**Good: income rises immediately.** Floating-rate coupons reset upward within a quarter. The fund's yield increases with no action taken and no reinvestment required.\n\n**Bad: borrowers' interest costs rise by the same amount.** These are typically levered companies whose debt service was sized against a lower rate. As rates rise, more of their cash flow goes to interest and less is available as cushion. **Interest coverage deteriorates precisely as the lender's income improves.**\n\nSo the fund reports a better yield while its underlying credit quality is quietly weakening. The improvement shows up immediately in the income statement; the deterioration shows up later, as amendments, covenant relief and eventually defaults.\n\nThis is the single most useful thing to understand about the asset class in a rising-rate environment: **the reported number and the underlying risk move in opposite directions**, and the reported number moves first."
+    },
+    {
+      "type": "table",
+      "id": "environments",
+      "caption": "What helps and what hurts",
+      "headers": ["Environment", "Effect", "Why"],
+      "rows": [
+        [
+          "High short-term rates with healthy borrowers",
+          "Helps most",
+          "Floating coupons reset upward while coverage remains adequate. The ideal combination."
+        ],
+        [
+          "Banks retreating from mid-market lending",
+          "Helps",
+          "Less competition means better spreads and better terms for the same credit risk."
+        ],
+        [
+          "Strong buyout activity",
+          "Helps",
+          "Sponsor-backed deals are the main source of origination volume."
+        ],
+        [
+          "High rates with stretched borrowers",
+          "Hurts",
+          "The same rate rise that lifts income erodes interest coverage. Defaults follow with a lag."
+        ],
+        [
+          "Heavy competition among lenders",
+          "Hurts",
+          "Spreads compress and covenants weaken — you are paid less for worse protection."
+        ],
+        [
+          "Recession",
+          "Hurts badly",
+          "Credit losses arrive in an illiquid book that cannot be sold, and recoveries on mid-market loans can be poor."
+        ]
+      ]
+    },
+    {
+      "type": "concept",
+      "id": "how-it-blows-up",
+      "body": "**Credit losses in an unsaleable book.** The fundamental risk. A deteriorating loan cannot be sold; the fund must work it out. Recovery depends on the security and the documentation the lender negotiated at origination — which is why terms matter more here than in liquid credit.\n\n**Covenant erosion during competitive periods.** When capital is plentiful, lenders compete on terms as well as price. Loans written in those periods have weaker protections, and the weakness only becomes visible when a borrower struggles — years later.\n\n**Coverage deterioration from rising rates.** As above: the mechanism is arithmetic and affects the whole book simultaneously, which makes it a correlated risk rather than an idiosyncratic one.\n\n**Marking optimism.** With no market price, loans are typically held near par until something clearly goes wrong. A book of loans to stressed borrowers can be carried at close to full value for a long time. This is the same smoothing effect as elsewhere in private markets, and here it also suppresses reported [[volatility]] to implausibly low levels.\n\n**Amendment as concealment.** A borrower unable to meet terms may be granted relief — a waiver, a payment deferral, an interest payment made in kind rather than cash. Each is defensible individually and each also postpones recognition. A rising proportion of non-cash interest across a portfolio is one of the clearest warning signs available.\n\n**Fund-level leverage.** Many private credit funds borrow to enhance returns on a loan book. That converts a moderate-return asset into a higher-return one and introduces margin risk against illiquid collateral."
+    },
+    {
+      "type": "pitfall",
+      "id": "yield-is-not-return",
+      "body": "**A stated yield is not a return.** A portfolio yielding 11% delivers 11% only if nothing defaults. Return equals yield minus credit losses minus fees, and the loss term is unknown until the cycle turns.\n\nThis matters because private credit's reported track records are heavily concentrated in benign credit periods. A fund that has never operated through a genuine default cycle has a track record that mostly demonstrates that the coupons arrived. **The relevant question is not what the portfolio yields but what it would recover** — which requires looking at security, seniority and documentation rather than at the income statement."
+    },
+    {
+      "type": "onTheJob",
+      "id": "on-the-job",
+      "body": "**Ask for the proportion of interest being paid in cash rather than in kind.** Rising non-cash interest is the earliest reliable signal that borrowers are struggling, and it appears well before marks move.\n\n**Ask about interest coverage across the portfolio, and its trend.** One number, and it captures the rate-transmission risk directly. A weighted-average coverage drifting toward 1.5x is a portfolio with little room.\n\n**Ask what proportion of loans have been amended, and why.** Amendments are normal; a rising rate of them is a leading indicator.\n\n**Ask when the loans were originated.** [[vintage-year|Vintage]] matters as much as in [[buyout]]. Loans written during periods of intense lender competition carry weaker covenants, and that is a permanent property of those loans.\n\n**Establish whether there is fund-level leverage, and on what terms.** A levered loan fund is a different risk from an unlevered one, and the financing terms determine what happens when marks fall.\n\n**Discount the reported volatility entirely.** For a held-to-maturity book marked by model, volatility measures the marking policy. Judge the risk from the borrowers and the documents."
+    },
+    {
+      "type": "keyTakeaways",
+      "id": "takeaways",
+      "items": [
+        "Return is contractual interest plus fees minus credit losses — predictable income, with the loss term unknown until the cycle turns.",
+        "Floating rate means income tracks short rates, so a large part of the return is a macro exposure rather than credit skill.",
+        "Rising rates lift reported income immediately and erode borrower coverage with a lag. The reported number and the risk move in opposite directions.",
+        "Reported volatility measures the marking policy. Judge risk from covenants, security and interest coverage instead."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "alts-pc-01-q1",
+      "type": "numeric",
+      "difficulty": 2,
+      "tags": ["private-credit", "floating-rate", "yield"],
+      "concept": "return-driver",
+      "stem": "A unitranche loan pays the reference rate plus 550 basis points. The reference rate is 5.00%. What is the contractual coupon, in percent?",
+      "answer": 10.5,
+      "tolerance": 0.1,
+      "toleranceType": "abs",
+      "unit": "%",
+      "inputHint": "Answer in percent.",
+      "explanation": "5.00% + 5.50% = 10.50%. The spread is fixed and the base floats, so if the reference rate fell to 3% the same loan would pay 8.50% — a large part of the headline yield is simply where short rates happen to be."
+    },
+    {
+      "id": "alts-pc-01-q2",
+      "type": "tfj",
+      "difficulty": 3,
+      "tags": ["private-credit", "rates", "coverage"],
+      "concept": "the-two-sided-effect",
+      "stem": "\"Rising rates are unambiguously good for a private credit fund, since its floating-rate coupons reset upward.\" True or false — and why?",
+      "isTrue": false,
+      "justifications": [
+        "False — the same rate rise increases borrowers' interest costs, eroding coverage across the whole portfolio at once",
+        "False — floating-rate loans do not actually reset with rates",
+        "True — higher coupons mean higher returns with no offsetting effect",
+        "False — because rising rates reduce the loans' market value"
+      ],
+      "justificationIndex": 0,
+      "rationales": [
+        "Correct. Income rises immediately and borrower interest coverage deteriorates with it. Reported yield improves while underlying credit quality weakens, and the two effects are separated in time.",
+        "Factually wrong — resetting off a reference rate is the defining feature of the instrument.",
+        "This is the half-truth under test. The income effect is real and it is not the whole picture.",
+        "Floating-rate loans have low price sensitivity to rates, which is one of their attractions. The risk is credit, not duration."
+      ],
+      "explanation": "This is the most important asymmetry in the asset class: the good news is immediate and visible, the bad news is delayed and arrives as amendments and defaults. A fund reporting improving yields in a rising-rate environment may be reporting deteriorating credit."
+    },
+    {
+      "id": "alts-pc-01-q3",
+      "type": "mcq",
+      "difficulty": 3,
+      "tags": ["private-credit", "return-driver", "premia"],
+      "concept": "return-driver",
+      "stem": "A private credit fund yields 11% while comparable liquid high yield bonds yield 8%. What best explains the 3-point gap?",
+      "choices": [
+        "Superior credit selection by the private lender",
+        "Compensation for illiquidity, for origination and documentation work, and for the structuring the lender performs",
+        "Private loans have no default risk",
+        "Private credit funds use more leverage"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Selection may add something, but a persistent structural gap across the asset class is better explained by structural premia than by every private lender being better at selection.",
+        "Correct. The lender is paid for accepting an unsaleable asset, for doing work a bond buyer does not do, and for negotiating protections. Those are real services with real compensation.",
+        "Private loans carry substantial default risk — arguably more than large-cap high yield, since borrowers are typically smaller and more levered.",
+        "Some funds do use leverage, and that would raise the fund's return rather than the loan's yield. The gap here is at the asset level."
+      ],
+      "explanation": "Separating the structural premia from claimed selection skill matters, because the premia are reasonably durable while selection claims need evidence. It also identifies what you are actually giving up: liquidity, and the ability to change your mind."
+    },
+    {
+      "id": "alts-pc-01-q4",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["private-credit", "warning-signs", "on-the-job"],
+      "concept": "how-it-blows-up",
+      "stem": "Across a private credit portfolio, the share of interest being paid in kind rather than in cash has risen from 4% to 19% over two years. What does that indicate?",
+      "choices": [
+        "Improved tax efficiency for borrowers",
+        "Borrowers are struggling to service debt in cash, and losses are being deferred rather than avoided",
+        "The fund has shifted toward higher-quality borrowers",
+        "Nothing — payment form is a matter of preference"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Non-cash interest is not primarily a tax strategy, and a fivefold rise across a portfolio is not explained by tax planning.",
+        "Correct. Interest paid in kind accrues onto the principal instead of being paid. It keeps a loan technically performing while cash flow does not support it — deferring recognition, not solving anything.",
+        "The opposite. Higher-quality borrowers pay cash. A rising non-cash share indicates weakening credit.",
+        "Payment form is negotiated, and a sharp shift toward non-cash across a portfolio is a signal rather than a preference."
+      ],
+      "explanation": "This is among the most useful early indicators in private credit, because it moves well before marks do. The loan still looks performing, the fund still books the income, and the cash is not arriving — which is exactly the gap a valuation based on model rather than market will not show you."
+    },
+    {
+      "id": "alts-pc-01-q5",
+      "type": "mcq",
+      "difficulty": 3,
+      "tags": ["private-credit", "vintage", "covenants"],
+      "concept": "on-the-job",
+      "stem": "Why does the year a private loan was originated matter as much as the borrower's quality?",
+      "choices": [
+        "Because interest rates were different in different years",
+        "Because loans written during intense lender competition carry permanently weaker covenants and security",
+        "Because older loans are always closer to maturity",
+        "Because origination year determines the fund's fee structure"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Rate levels matter for the coupon, but floating-rate loans reset — so the rate at origination is not a permanent property in the way the documentation is.",
+        "Correct. Covenants and security are fixed at origination and last the life of the loan. A vintage written when lenders were competing hard is permanently less protected, whatever happens to the borrower afterwards.",
+        "True and trivial. Proximity to maturity is not the risk being described.",
+        "Fee structures are set at fund level, not by loan vintage."
+      ],
+      "explanation": "Documentation is set once and governs for years. This is why \"when was this book written?\" is as substantive a question in private credit as \"who did you lend to?\" — and why a manager who was disciplined during a competitive period is showing you something valuable."
+    },
+    {
+      "id": "alts-pc-01-q6",
+      "type": "strategyId",
+      "difficulty": 4,
+      "tags": ["private-credit", "strategy-identification"],
+      "concept": "what-it-is",
+      "description": "A fund holds around 60 negotiated loans to mid-sized, sponsor-owned companies. Coupons reset quarterly off a short-term reference rate plus roughly 500-600 basis points. There is no secondary market and positions are held to maturity. Reported volatility is 2.1% annualised, and the fund has never sold a position.",
+      "choices": [
+        "A direct lending private credit fund",
+        "A distressed debt fund",
+        "A fixed income relative value fund",
+        "A high yield bond fund"
+      ],
+      "answerIndex": 0,
+      "rationales": [
+        "Correct. Negotiated loans, sponsor-backed mid-market borrowers, floating coupons at a wide spread, held to maturity with no secondary market — direct lending exactly. The 2.1% volatility is the marking policy, not the risk.",
+        "Distressed buys existing impaired debt at a discount in the secondary market. These are newly originated performing loans.",
+        "Relative value trades liquid instruments against each other for convergence, with heavy leverage and no origination.",
+        "High yield bond funds hold tradeable securities with observable prices and can and do sell them."
+      ],
+      "explanation": "The give-away is origination plus hold-to-maturity plus no secondary market. And note the 2.1% volatility: sixty levered mid-market credits cannot genuinely be a 2% volatility asset — that figure describes how the book is valued, not what it holds."
+    }
+  ],
+  "needsReview": false,
+  "reviewNote": null
+}

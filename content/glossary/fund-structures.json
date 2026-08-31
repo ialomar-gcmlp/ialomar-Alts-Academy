@@ -3,18 +3,176 @@
   "domain": "fund-structures",
   "terms": [
     {
-      "slug": "net-asset-value",
-      "term": "net asset value (NAV)",
-      "plain": "What a fund is worth: everything it owns minus everything it owes. Exposures are quoted as a percentage of it, so 130% long means long positions worth 1.3 times the fund's capital.",
-      "formal": "Total fund assets less total liabilities, the denominator against which exposures, leverage and per-unit values are expressed.",
-      "seeAlso": ["gross-exposure", "net-exposure", "hedge-fund"]
+      "slug": "capital-call",
+      "term": "capital call",
+      "plain": "A demand from a fund for investors to send in some of the money they committed. Private funds draw capital down as deals happen rather than taking it all up front.",
+      "formal": "A notice requiring limited partners to transfer a portion of their committed capital, typically to fund an investment or expenses, within a short specified period.",
+      "seeAlso": [
+        "commitment",
+        "dry-powder",
+        "j-curve"
+      ]
+    },
+    {
+      "slug": "carried-interest",
+      "term": "carried interest",
+      "plain": "The manager's share of the profits, usually around 20%, paid only above a minimum return. It is the main way private fund managers get paid.",
+      "formal": "The general partner's share of fund profits, typically 20% above a preferred return, distributed according to the fund's waterfall provisions.",
+      "seeAlso": [
+        "fund-of-funds",
+        "commitment",
+        "tvpi"
+      ]
+    },
+    {
+      "slug": "commitment",
+      "term": "commitment",
+      "plain": "The total amount you promise to a private fund. Only part of it is called at any time, so the money must stay available for years.",
+      "formal": "The aggregate capital an investor contractually agrees to provide to a fund over its investment period, drawn down through capital calls rather than funded at closing.",
+      "seeAlso": [
+        "capital-call",
+        "dry-powder",
+        "vintage-year"
+      ]
+    },
+    {
+      "slug": "dpi",
+      "term": "distributions to paid-in (DPI)",
+      "plain": "Cash actually returned divided by cash actually called. The one private markets figure that cannot be argued with, because it is realised money.",
+      "formal": "Cumulative distributions divided by paid-in capital, measuring realised return without reliance on unrealised valuations.",
+      "seeAlso": [
+        "tvpi",
+        "rvpi",
+        "moic"
+      ]
+    },
+    {
+      "slug": "dry-powder",
+      "term": "dry powder",
+      "plain": "Committed capital a fund has not yet called or invested. High industry dry powder means more competition for deals and usually higher entry prices.",
+      "formal": "Undrawn committed capital available for investment, whose aggregate level across a strategy is an indicator of competitive pressure on entry valuations.",
+      "seeAlso": [
+        "commitment",
+        "capital-call",
+        "vintage-year"
+      ]
+    },
+    {
+      "slug": "gate",
+      "term": "gate",
+      "plain": "A limit on how much can be redeemed from a fund in one period. It protects remaining investors from a rush for the exit, and traps you if you wanted out.",
+      "formal": "A provision capping aggregate or per-investor redemptions in a given period, designed to prevent forced liquidation of illiquid assets at the expense of remaining holders.",
+      "seeAlso": [
+        "lockup",
+        "side-pocket"
+      ]
     },
     {
       "slug": "j-curve",
       "term": "J-curve",
       "plain": "The shape a private fund's returns trace over its life: negative early on, because fees are charged and investments have not matured, then rising as investments are sold. Plotted over time it looks like the letter J.",
       "formal": "The characteristic trajectory of a closed-end private fund's cumulative net return, initially negative due to fees and unrealised early-stage holdings, then improving as value is realised.",
-      "seeAlso": ["internal-rate-of-return", "leveraged-buyout"]
+      "seeAlso": [
+        "internal-rate-of-return",
+        "leveraged-buyout"
+      ]
+    },
+    {
+      "slug": "lockup",
+      "term": "lock-up",
+      "plain": "A period during which you cannot get your money out of a fund at all.",
+      "formal": "A contractual period following investment during which redemption is prohibited, used to match investor liquidity to the underlying strategy's horizon.",
+      "seeAlso": [
+        "gate",
+        "side-pocket",
+        "commitment"
+      ]
+    },
+    {
+      "slug": "moic",
+      "term": "multiple of invested capital (MOIC)",
+      "plain": "Total value divided by money invested. A 2.5x MOIC means you got two and a half times your money back — but it says nothing about how long that took.",
+      "formal": "The ratio of total realised and unrealised value to invested capital, insensitive to timing and therefore quoted alongside IRR.",
+      "seeAlso": [
+        "tvpi",
+        "internal-rate-of-return",
+        "vintage-year"
+      ]
+    },
+    {
+      "slug": "net-asset-value",
+      "term": "net asset value (NAV)",
+      "plain": "What a fund is worth: everything it owns minus everything it owes. Exposures are quoted as a percentage of it, so 130% long means long positions worth 1.3 times the fund's capital.",
+      "formal": "Total fund assets less total liabilities, the denominator against which exposures, leverage and per-unit values are expressed.",
+      "seeAlso": [
+        "gross-exposure",
+        "net-exposure",
+        "hedge-fund"
+      ]
+    },
+    {
+      "slug": "rvpi",
+      "term": "residual value to paid-in (RVPI)",
+      "plain": "What the fund still holds, at the manager's own valuation, divided by cash called. It is an estimate, not a result.",
+      "formal": "Unrealised net asset value divided by paid-in capital, representing the portion of reported performance dependent on the manager's valuations.",
+      "seeAlso": [
+        "tvpi",
+        "dpi"
+      ]
+    },
+    {
+      "slug": "secondaries",
+      "term": "secondaries",
+      "plain": "Buying an existing investor's stake in a private fund, or a portfolio of assets, from them rather than committing to a new fund. Usually at a discount.",
+      "formal": "Transactions in existing private fund interests or asset portfolios, providing liquidity to sellers and typically transacted at a discount to reported net asset value.",
+      "seeAlso": [
+        "commitment",
+        "j-curve",
+        "tvpi"
+      ]
+    },
+    {
+      "slug": "side-pocket",
+      "term": "side pocket",
+      "plain": "A part of a fund holding assets that cannot be valued or sold normally, carved out so the rest of the fund can still be redeemed.",
+      "formal": "A segregated portion of a fund containing illiquid or hard-to-value positions, excluded from ordinary redemption and realised separately.",
+      "seeAlso": [
+        "gate",
+        "lockup"
+      ]
+    },
+    {
+      "slug": "subscription-line",
+      "term": "subscription line",
+      "plain": "A credit facility a fund uses to pay for deals before calling investor money. It shortens the period investor capital is outstanding, which raises the reported IRR.",
+      "formal": "A revolving credit facility secured against limited partner commitments, used to defer capital calls and thereby compress the measurement period over which IRR is calculated.",
+      "seeAlso": [
+        "capital-call",
+        "internal-rate-of-return",
+        "commitment"
+      ]
+    },
+    {
+      "slug": "tvpi",
+      "term": "total value to paid-in (TVPI)",
+      "plain": "Everything the fund is worth — cash returned plus what it still holds — divided by cash called. Early in a fund's life it is mostly the manager's own opinion.",
+      "formal": "The sum of distributions and residual value divided by paid-in capital. Equals DPI plus RVPI, and is dominated by unrealised marks in a fund's early years.",
+      "seeAlso": [
+        "dpi",
+        "rvpi",
+        "moic"
+      ]
+    },
+    {
+      "slug": "vintage-year",
+      "term": "vintage year",
+      "plain": "The year a private fund started investing. It largely determines the prices it paid and the conditions it exited into, which is why funds are compared within vintages.",
+      "formal": "The year in which a fund makes its first investment, used as the primary basis for peer comparison because entry pricing, credit availability and exit conditions are cycle-dependent.",
+      "seeAlso": [
+        "commitment",
+        "moic",
+        "tvpi"
+      ]
     }
   ]
 }

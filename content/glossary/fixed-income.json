@@ -14,6 +14,17 @@
       ]
     },
     {
+      "slug": "covenant",
+      "term": "covenant",
+      "plain": "A promise in a loan agreement about what the borrower will and will not do. Breaching one hands negotiating power to the lender.",
+      "formal": "A contractual undertaking in a debt agreement restricting borrower actions or requiring maintenance of financial ratios, breach of which typically constitutes an event of default.",
+      "seeAlso": [
+        "indenture",
+        "direct-lending",
+        "seniority"
+      ]
+    },
+    {
       "slug": "duration",
       "term": "duration",
       "plain": "A measure of how much an investment's price moves when interest rates change. Higher duration means more rate sensitivity — driven mainly by how far in the future the cash flows arrive.",
@@ -77,6 +88,16 @@
         "fixed-income-relative-value",
         "maturity",
         "flight-to-quality"
+      ]
+    },
+    {
+      "slug": "original-issue-discount",
+      "term": "original issue discount (OID)",
+      "plain": "When a loan is issued below its face value, so the lender earns the difference on top of the interest. It raises the effective yield.",
+      "formal": "The difference between a debt instrument's issue price and its par value, accreting to the holder over the instrument's life and increasing the effective yield.",
+      "seeAlso": [
+        "direct-lending",
+        "yield-to-maturity"
       ]
     },
     {

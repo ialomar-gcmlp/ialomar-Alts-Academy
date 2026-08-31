@@ -3,6 +3,38 @@
   "domain": "alternatives",
   "terms": [
     {
+      "slug": "backwardation",
+      "term": "backwardation",
+      "plain": "When a futures contract further out costs less than the nearer one. Rolling forward then adds return rather than subtracting it.",
+      "formal": "A downward-sloping futures curve in which deferred contracts trade below nearer ones, producing positive roll yield for a long position maintained by rolling.",
+      "seeAlso": [
+        "contango",
+        "roll-yield"
+      ]
+    },
+    {
+      "slug": "buyout",
+      "term": "buyout",
+      "plain": "Acquiring control of an established, cash-generative company using a large amount of borrowed money, improving it, and selling it in three to seven years.",
+      "formal": "The acquisition of a controlling equity stake in a mature company, substantially debt-financed against the target's own cash flows, with value created through operational improvement, multiple expansion and debt repayment.",
+      "seeAlso": [
+        "leveraged-buyout",
+        "growth-equity",
+        "moic"
+      ]
+    },
+    {
+      "slug": "cap-rate",
+      "term": "capitalisation rate (cap rate)",
+      "plain": "A property's net income divided by its value — the yield the market requires. Rearranged, value equals income divided by the cap rate.",
+      "formal": "The ratio of net operating income to asset value, functioning as the required yield in a perpetuity valuation of a property's income stream.",
+      "seeAlso": [
+        "noi",
+        "perpetuity",
+        "discount-rate"
+      ]
+    },
+    {
       "slug": "carry",
       "term": "carry",
       "plain": "What a position earns or costs simply for being held, before any price move: coupons received, interest paid on borrowings, financing costs.",
@@ -11,6 +43,27 @@
         "short-rebate",
         "repo",
         "convertible-arbitrage"
+      ]
+    },
+    {
+      "slug": "concession",
+      "term": "concession",
+      "plain": "A long-term right, granted by a public authority, to operate an asset and collect revenue from it — often for decades, after which it reverts.",
+      "formal": "A contractual grant of the right to operate an asset and receive its revenues for a defined period, subject to specified obligations, after which control typically returns to the grantor.",
+      "seeAlso": [
+        "infrastructure",
+        "real-assets"
+      ]
+    },
+    {
+      "slug": "contango",
+      "term": "contango",
+      "plain": "When a futures contract further out costs more than the nearer one. Rolling a position forward then means selling cheap and buying expensive, which bleeds return.",
+      "formal": "An upward-sloping futures curve in which deferred contracts trade above nearer ones, producing negative roll yield for a long position maintained by rolling.",
+      "seeAlso": [
+        "backwardation",
+        "roll-yield",
+        "real-assets"
       ]
     },
     {
@@ -56,6 +109,17 @@
         "margin-call",
         "gross-exposure",
         "crowded-trade"
+      ]
+    },
+    {
+      "slug": "direct-lending",
+      "term": "direct lending",
+      "plain": "Lending straight to mid-sized companies through negotiated loans, instead of buying their traded bonds. Usually held to maturity.",
+      "formal": "Origination of privately negotiated loans to primarily mid-market borrowers, typically floating rate, held to maturity with no active secondary market.",
+      "seeAlso": [
+        "private-credit",
+        "unitranche",
+        "covenant"
       ]
     },
     {
@@ -115,6 +179,17 @@
       ]
     },
     {
+      "slug": "fund-of-funds",
+      "term": "fund-of-funds",
+      "plain": "A fund that invests in other funds. You are buying manager selection, access and monitoring — and paying a second layer of fees for it.",
+      "formal": "A vehicle allocating capital to underlying funds rather than to securities directly, providing access, diversification and operational due diligence at the cost of an additional fee layer.",
+      "seeAlso": [
+        "multi-strategy",
+        "carried-interest",
+        "j-curve"
+      ]
+    },
+    {
       "slug": "global-macro",
       "term": "global macro",
       "plain": "Taking views on big-picture variables — interest rates, currencies, policy — and expressing them wherever the trade is cleanest. Few positions, large sizes.",
@@ -134,6 +209,17 @@
         "net-exposure",
         "deleveraging",
         "margin-call"
+      ]
+    },
+    {
+      "slug": "growth-equity",
+      "term": "growth equity",
+      "plain": "Minority stakes in companies that already work but are not yet large, with little or no borrowing. The return comes almost entirely from the company growing.",
+      "formal": "Minority investment in businesses with proven commercial models seeking expansion capital, typically unlevered, with returns driven by revenue growth and exit multiple rather than financial structuring.",
+      "seeAlso": [
+        "buyout",
+        "venture-capital",
+        "secondaries"
       ]
     },
     {
@@ -159,6 +245,17 @@
       ]
     },
     {
+      "slug": "infrastructure",
+      "term": "infrastructure",
+      "plain": "The long-lived physical assets an economy needs — roads, airports, water and power networks — usually with contracted or regulated income.",
+      "formal": "Essential, long-duration physical assets with contracted, regulated or demand-based revenue, frequently inflation-linked and financed with substantial long-dated debt.",
+      "seeAlso": [
+        "real-assets",
+        "concession",
+        "perpetuity"
+      ]
+    },
+    {
       "slug": "leveraged-buyout",
       "term": "leveraged buyout (LBO)",
       "plain": "Buying a company using a large amount of borrowed money, with the company's own cash flows expected to service the debt.",
@@ -178,6 +275,17 @@
         "indenture",
         "seniority",
         "distressed-debt"
+      ]
+    },
+    {
+      "slug": "loan-to-value",
+      "term": "loan-to-value (LTV)",
+      "plain": "The debt on an asset as a share of its value. At 60% LTV, a 25% fall in value wipes out more than 60% of the equity.",
+      "formal": "The ratio of outstanding debt to asset value, determining both borrowing capacity and the sensitivity of equity value to changes in asset value.",
+      "seeAlso": [
+        "noi",
+        "cap-rate",
+        "margin-call"
       ]
     },
     {
@@ -259,6 +367,16 @@
       ]
     },
     {
+      "slug": "noi",
+      "term": "net operating income (NOI)",
+      "plain": "A building's rent less the costs of operating it, before any financing costs or capital spending. The numerator in a property valuation.",
+      "formal": "Property revenue less operating expenses, excluding debt service, capital expenditure and taxes, used as the income measure in capitalisation-based valuation.",
+      "seeAlso": [
+        "cap-rate",
+        "loan-to-value"
+      ]
+    },
+    {
       "slug": "pod",
       "term": "pod",
       "plain": "A semi-autonomous trading team inside a larger fund, running its own book with its own risk limits and its own share of the profits it makes.",
@@ -289,6 +407,28 @@
         "floating-rate",
         "leveraged-buyout",
         "hedge-fund"
+      ]
+    },
+    {
+      "slug": "real-assets",
+      "term": "real assets",
+      "plain": "Physical assets held mainly for inflation protection and diversification rather than for income — commodities, resources, timber and farmland.",
+      "formal": "Tangible assets whose value derives from physical characteristics and whose prices tend to co-move with measured inflation, including commodities, natural resources and productive land.",
+      "seeAlso": [
+        "infrastructure",
+        "contango",
+        "roll-yield"
+      ]
+    },
+    {
+      "slug": "roll-yield",
+      "term": "roll yield",
+      "plain": "The gain or loss from moving a futures position from an expiring contract into the next one. Over years it can matter more than the commodity's own price move.",
+      "formal": "The return component arising from replacing an expiring futures contract with a later-dated one, determined by the slope of the futures curve.",
+      "seeAlso": [
+        "contango",
+        "backwardation",
+        "real-assets"
       ]
     },
     {
@@ -356,6 +496,28 @@
         "managed-futures",
         "skewness",
         "merger-arbitrage"
+      ]
+    },
+    {
+      "slug": "unitranche",
+      "term": "unitranche",
+      "plain": "A single loan that merges what would traditionally be senior and junior debt into one facility at one blended rate, from one lender or a small group.",
+      "formal": "A combined senior and subordinated facility provided as a single instrument at a blended margin, simplifying the capital structure and concentrating lender control.",
+      "seeAlso": [
+        "direct-lending",
+        "private-credit",
+        "seniority"
+      ]
+    },
+    {
+      "slug": "venture-capital",
+      "term": "venture capital",
+      "plain": "Funding early-stage companies most of which will fail, on the expectation that one or two return the whole fund.",
+      "formal": "Equity investment in early-stage companies, characterised by power-law return distributions in which portfolio outcomes are dominated by a small number of extreme successes.",
+      "seeAlso": [
+        "growth-equity",
+        "skewness",
+        "fat-tails"
       ]
     }
   ]
