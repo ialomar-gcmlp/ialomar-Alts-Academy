@@ -72,6 +72,22 @@ export const migrations: Record<number, Migration> = {
     termsSeen: {},
     termDrills: {},
   }),
+
+  /**
+   * v4 -> v5: the `effects` setting.
+   *
+   * Existing users get "full", which is the new default and a visible change to an
+   * app they have already been using. That is the right way round: the setting is
+   * reversible in one click, and defaulting them to "calm" would hide a feature
+   * they never asked to opt out of. A missing or malformed settings object is
+   * replaced rather than patched, since the schema validates it immediately after.
+   */
+  4: (state) => ({
+    ...state,
+    settings: isRecord(state["settings"])
+      ? { ...state["settings"], effects: "full" }
+      : { effects: "full" },
+  }),
 };
 
 function isRecord(value: unknown): value is Record<string, unknown> {

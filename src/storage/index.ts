@@ -15,6 +15,7 @@ import {
   PROGRESS_SCHEMA_VERSION,
   defaultProgress,
   progressSchema,
+  type Effects,
   type ProgressState,
   type Theme,
 } from "./progressSchema";
@@ -185,5 +186,14 @@ export function applyTheme(theme: Theme): void {
   root.classList.add(theme);
 }
 
+/**
+ * Calm mode is a class on <html> rather than a prop threaded through the tree: the
+ * animations it switches off live in CSS, so the switch belongs in CSS too. One
+ * class, and every keyframe in index.css stops.
+ */
+export function applyEffects(effects: Effects): void {
+  document.documentElement.classList.toggle("calm", effects === "calm");
+}
+
 export { PROGRESS_SCHEMA_VERSION, defaultProgress };
-export type { ProgressState, Theme };
+export type { Effects, ProgressState, Theme };

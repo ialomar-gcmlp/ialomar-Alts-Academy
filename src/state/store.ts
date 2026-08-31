@@ -34,11 +34,13 @@ import {
 import { badgeContextFor, pendingFreezes } from "./selectors";
 import type { QuestionState } from "../engine/scheduler";
 import {
+  applyEffects,
   applyTheme,
   defaultProgress,
   flush,
   load,
   save,
+  type Effects,
   type LoadStatus,
   type ProgressState,
   type Theme,
@@ -111,6 +113,8 @@ interface AppState {
   hydrate: () => Promise<void>;
   setTheme: (theme: Theme) => void;
   toggleTheme: () => void;
+  setEffects: (effects: Effects) => void;
+  toggleEffects: () => void;
   setSessionLength: (minutes: SessionLength) => void;
   setDailyGoal: (minutes: number) => void;
 
@@ -138,6 +142,7 @@ export const useApp = create<AppState>((set, get) => ({
   async hydrate() {
     const { state, status } = await load();
     applyTheme(state.settings.theme);
+    applyEffects(state.settings.effects);
 
     // Spend freeze days on boot, so a streak survives a gap the user was away for.
     // freezesToApply only returns days when the allowance covers the whole gap.
@@ -166,6 +171,17 @@ export const useApp = create<AppState>((set, get) => ({
 
   toggleTheme() {
     get().setTheme(get().progress.settings.theme === "dark" ? "light" : "dark");
+  },
+
+  setEffects(effects) {
+    const progress = { ...get().progress, settings: { ...get().progress.settings, effects } };
+    applyEffects(effects);
+    set({ progress });
+    save(progress);
+  },
+
+  toggleEffects() {
+    get().setEffects(get().progress.settings.effects === "calm" ? "full" : "calm");
   },
 
   setSessionLength(sessionLength) {

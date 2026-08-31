@@ -22,7 +22,8 @@ import {
 import { navigate } from "../lib/hashRouter";
 import { useHotkeys } from "../lib/keyboard";
 import { useApp } from "../state/store";
-import { Badge, Button, Card, EmptyState, Kbd, PageTitle } from "../ui/primitives";
+import { DOMAIN_MONOGRAM, domainStyle } from "../ui/domain";
+import { Badge, Button, Card, EmptyState, Kbd, PageTitle, Monogram } from "../ui/primitives";
 
 const STATUS_TONE: Record<TermStatus, "neutral" | "accent" | "correct" | "flag"> = {
   unseen: "neutral",
@@ -189,15 +190,18 @@ export function GlossaryPage() {
           the label.
         </EmptyState>
       ) : (
-        <div className="space-y-10">
+        <div className="space-y-9">
           {[...byDomain.entries()].map(([domain, list]) => (
-            <section key={domain}>
-              <h2 className="mb-3 text-[13px] font-semibold uppercase tracking-wider text-fg-subtle">
-                {DOMAIN_LABELS[domain as Domain] ?? domain}
-              </h2>
+            <section key={domain} style={domainStyle(domain as Domain)}>
+              <div className="mb-3 flex items-center gap-2.5">
+                <Monogram code={DOMAIN_MONOGRAM[domain as Domain] ?? "··"} size={26} />
+                <h2 className="d-text text-[13.5px] font-bold uppercase tracking-wider">
+                  {DOMAIN_LABELS[domain as Domain] ?? domain}
+                </h2>
+              </div>
               <div className="space-y-3">
                 {list.map(({ term, status }) => (
-                  <Card key={term.slug} className="p-4">
+                  <Card key={term.slug} className="d-border overflow-hidden p-4">
                     <div className="mb-1.5 flex flex-wrap items-baseline gap-2">
                       <h3 className="font-semibold text-fg">{term.term}</h3>
                       <Badge tone={STATUS_TONE[status.status]}>

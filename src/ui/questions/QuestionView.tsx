@@ -11,6 +11,7 @@ import { useEffect, useRef } from "react";
 import type { Question } from "../../content/schema";
 import { parseNumericInput, type Grade, type Response } from "../../engine/grading";
 import { Chart } from "../charts/Chart";
+import { Icon } from "../icons";
 import { Inline, Prose } from "../Prose";
 
 export interface QuestionProps {
@@ -38,18 +39,18 @@ function choiceState(
 }
 
 const CHOICE_STYLES = {
-  idle: "border-border-base bg-surface hover:border-border-strong hover:bg-surface-2",
-  selected: "border-accent bg-accent-soft",
-  correct: "border-correct bg-correct-soft",
-  wrong: "border-incorrect bg-incorrect-soft",
-  muted: "border-border-base bg-surface opacity-55",
+  idle: "border-border-base bg-surface hover:border-accent/50 hover:bg-accent-soft/40",
+  selected: "border-accent bg-accent-soft ring-2 ring-accent/25",
+  correct: "border-correct bg-correct-soft anim-pop",
+  wrong: "border-incorrect bg-incorrect-soft anim-pop",
+  muted: "border-border-base bg-surface opacity-50",
 } as const;
 
 const MARKER_STYLES = {
-  idle: "border-border-strong text-fg-subtle",
+  idle: "border-border-strong text-fg-muted",
   selected: "border-accent bg-accent text-accent-fg",
-  correct: "border-correct bg-correct text-accent-fg",
-  wrong: "border-incorrect bg-incorrect text-accent-fg",
+  correct: "border-correct bg-correct text-white",
+  wrong: "border-incorrect bg-incorrect text-white",
   muted: "border-border-strong text-fg-subtle",
 } as const;
 
@@ -94,9 +95,15 @@ function ChoiceList({
             >
               <span
                 aria-hidden
-                className={`mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-md border text-[12px] font-semibold tnum ${MARKER_STYLES[state]}`}
+                className={`mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border-2 text-[12.5px] font-bold tnum ${MARKER_STYLES[state]}`}
               >
-                {state === "correct" ? "✓" : state === "wrong" ? "✕" : `${labelPrefix}${i + 1}`}
+                {state === "correct" ? (
+                  <Icon name="check" size={14} />
+                ) : state === "wrong" ? (
+                  <Icon name="cross" size={13} />
+                ) : (
+                  `${labelPrefix}${i + 1}`
+                )}
               </span>
               {/* Non-interactive terms: a glossary popover trigger is a <button>, and
                   nesting one inside this button would be invalid HTML and swallow
@@ -109,7 +116,7 @@ function ChoiceList({
 
             {rationale !== undefined && (
               <div
-                className={`px-3.5 pb-3 pl-[3.4rem] text-[13.5px] leading-relaxed ${state === "correct" ? "text-correct" : "text-incorrect"}`}
+                className={`px-3.5 pb-3 pl-[3.7rem] text-[13.5px] leading-relaxed ${state === "correct" ? "font-medium text-correct" : "text-incorrect"}`}
               >
                 <Inline text={rationale} />
               </div>
@@ -204,12 +211,12 @@ function NumericEntry({ question, response, grade, onRespond, onSubmit }: Questi
               onSubmit();
             }
           }}
-          className={`w-44 rounded-md border bg-surface px-3 py-2 text-lg tnum outline-none disabled:opacity-70 ${
+          className={`w-48 rounded-xl border-2 bg-surface px-3.5 py-2.5 text-[22px] font-bold tnum outline-none disabled:opacity-80 ${
             locked
               ? grade.correct
                 ? "border-correct text-correct"
                 : "border-incorrect text-incorrect"
-              : "border-border-strong focus:border-accent"
+              : "border-border-strong focus:border-accent focus:ring-4 focus:ring-accent/15"
           }`}
           aria-label="Your answer"
         />
@@ -275,7 +282,7 @@ function TrueFalseJustified({ question, response, grade, onRespond }: QuestionPr
               type="button"
               disabled={locked}
               onClick={() => setVerdict(value)}
-              className={`rounded-lg border px-5 py-2 font-medium ${verdictStyle(value)} ${locked ? "cursor-default" : ""}`}
+              className={`press rounded-xl border-2 px-7 py-2.5 text-[15px] font-bold ${verdictStyle(value)} ${locked ? "cursor-default" : ""}`}
             >
               {value ? "True" : "False"}
             </button>

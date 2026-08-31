@@ -60,6 +60,28 @@
   --p-grid: #e5e2dd;
   --p-axis: #948f88;
 
+
+  /* Domain identity — see the provenance note at the bottom of this file. */
+  --d-quantitative-methods: #75980a;
+  --d-economics: #7059d0;
+  --d-financial-statement-analysis: #ad8700;
+  --d-corporate-issuers: #2273d2;
+  --d-equity-valuation: #d36d00;
+  --d-fixed-income: #0090bc;
+  --d-derivatives: #cd443e;
+  --d-alternatives: #00a49e;
+  --d-fund-structures: #a52368;
+  --d-portfolio-risk: #009d5e;
+  --d-ethics: #a34fb3;
+
+  /* Reward colours. Deliberately the two warmest things on the page: XP and the
+     streak are the only elements allowed to compete with the content for attention. */
+  --p-xp: #8f6a00;
+  --p-xp-bright: #e3a81f;
+  --p-streak: #c2500b;
+  --p-streak-bright: #f0872c;
+  --p-accent-bright: #0a7079;
+
   --p-shadow: 0 1px 2px 0 #1c191710, 0 1px 3px 0 #1c191708;
 }
 
@@ -106,6 +128,27 @@
   --p-grid: #33322a;
   --p-axis: #77726a;
 
+
+  /* Domain identity — chosen for the dark surface, not lightened from the light set. */
+  --d-quantitative-methods: #7ea126;
+  --d-economics: #8472df;
+  --d-financial-statement-analysis: #b28e00;
+  --d-corporate-issuers: #448ae1;
+  --d-equity-valuation: #d67605;
+  --d-fixed-income: #009dc7;
+  --d-derivatives: #d95b53;
+  --d-alternatives: #00aaa3;
+  --d-fund-structures: #b83b79;
+  --d-portfolio-risk: #21a96b;
+  --d-ethics: #b061c0;
+
+  /* Reward colours */
+  --p-xp: #e8b93c;
+  --p-xp-bright: #ffd166;
+  --p-streak: #ff8a3d;
+  --p-streak-bright: #ffb066;
+  --p-accent-bright: #7fd3d9;
+
   --p-shadow: 0 1px 2px 0 #00000040, 0 1px 3px 0 #00000030;
 }
 
@@ -142,6 +185,12 @@
   --color-unsure: var(--p-conf-unsure);
   --color-guessing: var(--p-conf-guessing);
 
+  --color-accent-bright: var(--p-accent-bright);
+  --color-xp: var(--p-xp);
+  --color-xp-bright: var(--p-xp-bright);
+  --color-streak: var(--p-streak);
+  --color-streak-bright: var(--p-streak-bright);
+
   --color-series-1: var(--p-series-1);
   --color-series-2: var(--p-series-2);
   --color-series-3: var(--p-series-3);
@@ -177,6 +226,30 @@
  * Rules that go with them: assign series 1→4 in fixed order and never cycle; a fifth
  * series folds into "Other" or becomes small multiples. Identity is never carried by
  * colour alone — charts also ship a legend, direct labels, and a table view.
+ *
+ * Re-run before changing any of these values:
+ *   node scripts/validate_palette.js "<hex,...>" --mode light|dark
+ */
+
+/*
+ * Domain palette provenance
+ *
+ * Eleven domains, eleven identity hues, used on topic cards, section headers, the
+ * skill tree and every progress bar. Generated in OKLCH rather than picked by eye:
+ * hues sit 360/11 degrees apart and are ASSIGNED so that consecutive domains land
+ * about 163 degrees apart, which is what makes neighbouring sections separable for a
+ * dichromat reader. Lightness is tuned per hue — a single L across the wheel turns
+ * the yellows to mud while leaving the blues washed out.
+ *
+ * Both sets pass all six dataviz checks against their own surface:
+ *
+ *   light  worst adjacent pair ΔE 12.7 deutan · 11.0 tritan · all >= 3:1 contrast
+ *   dark   worst adjacent pair ΔE 10.7 deutan ·  7.4 tritan · all >= 3:1 contrast
+ *
+ * The dark tritan figure is in the 6-8 band, which is only legal with secondary
+ * encoding. That holds here: a domain colour never appears without its name beside
+ * it, and every topic card carries a title and a two-letter monogram. Colour is
+ * always the second signal, never the only one.
  *
  * Re-run before changing any of these values:
  *   node scripts/validate_palette.js "<hex,...>" --mode light|dark

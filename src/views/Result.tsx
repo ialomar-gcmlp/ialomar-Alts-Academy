@@ -8,13 +8,16 @@
  * interesting number — being wrong while sure is the thing worth acting on.
  */
 
+import { useEffect, useMemo, useState } from "react";
+
 import { badgeById } from "../engine/badges";
 import { CONFIDENCE_LABELS, type Confidence } from "../engine/grading";
 import { navigate } from "../lib/hashRouter";
 import { useHotkeys } from "../lib/keyboard";
 import { formatDueIn } from "../lib/time";
 import { useApp, type QuizItem } from "../state/store";
-import { Badge, Button, Card, Kbd, PageTitle } from "../ui/primitives";
+import { Icon } from "../ui/icons";
+import { Badge, Button, Card, Kbd, Meter, Ring, StatTile } from "../ui/primitives";
 import { Inline } from "../ui/Prose";
 
 /** Static, because Tailwind cannot see a class name built at runtime. */
@@ -22,6 +25,13 @@ const CONFIDENCE_TEXT: Record<Confidence, string> = {
   confident: "text-confident",
   unsure: "text-unsure",
   guessing: "text-guessing",
+};
+
+/** The same three colours as CSS vars, for the SVG and canvas-free bars. */
+const CONFIDENCE_VAR: Record<Confidence, string> = {
+  confident: "var(--p-conf-confident)",
+  unsure: "var(--p-conf-unsure)",
+  guessing: "var(--p-conf-guessing)",
 };
 
 interface Tally {
@@ -82,6 +92,81 @@ function focusSentence(t: Tally): string {
   return "Clean sweep, and you were sure throughout. Intervals have stretched accordingly; move on to a harder topic rather than re-reading this one.";
 }
 
+/**
+ * A number that arrives rather than appears.
+ *
+ * Sixteen frames over ~600ms, then the exact value — never an approximation left on
+ * screen. Calm mode and reduced-motion are handled by skipping straight to the end,
+ * because a count-up cannot be "shortened" by CSS.
+ */
+function CountUp({ to, animate }: { to: number; animate: boolean }) {
+  const [shown, setShown] = useState(animate ? 0 : to);
+
+  useEffect(() => {
+    if (!animate) {
+      setShown(to);
+      return;
+    }
+    let frame = 0;
+    const steps = 16;
+    const id = setInterval(() => {
+      frame += 1;
+      if (frame >= steps) {
+        setShown(to);
+        clearInterval(id);
+        return;
+      }
+      // Ease-out, so it slows into the final figure.
+      setShown(Math.round(to * (1 - Math.pow(1 - frame / steps, 3))));
+    }, 38);
+    return () => clearInterval(id);
+  }, [to, animate]);
+
+  return <>{shown.toLocaleString()}</>;
+}
+
+/** Eight bits of colour for a clean sweep. Pure decoration, aria-hidden, one shot. */
+function Confetti() {
+  const bits = useMemo(
+    () =>
+      Array.from({ length: 14 }, (_, i) => ({
+        colour: [
+          "var(--d-alternatives)",
+          "var(--p-xp-bright)",
+          "var(--d-fund-structures)",
+          "var(--d-corporate-issuers)",
+          "var(--d-portfolio-risk)",
+        ][i % 5],
+        left: `${8 + (i * 6.4) % 84}%`,
+        dx: `${-40 + ((i * 37) % 80)}px`,
+        dy: `${40 + ((i * 23) % 60)}px`,
+        dr: `${-180 + ((i * 71) % 360)}deg`,
+        delay: `${(i % 5) * 45}ms`,
+      })),
+    [],
+  );
+
+  return (
+    <span aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+      {bits.map((bit, i) => (
+        <span
+          key={i}
+          className="confetti-bit"
+          style={{
+            left: bit.left,
+            top: "18%",
+            background: bit.colour,
+            animationDelay: bit.delay,
+            ["--dx" as string]: bit.dx,
+            ["--dy" as string]: bit.dy,
+            ["--dr" as string]: bit.dr,
+          }}
+        />
+      ))}
+    </span>
+  );
+}
+
 function ItemLine({ item, now }: { item: QuizItem; now: number }) {
   const q = item.question;
   const stem = q.type === "strategyId" ? q.description : "stem" in q ? q.stem : "Question";
@@ -125,78 +210,136 @@ export function Result() {
   const pct = t.total === 0 ? 0 : Math.round((t.correct / t.total) * 100);
   const minutes = Math.max(1, Math.round((now - session.startedAt) / 60000));
 
+  const effects = useApp((st) => st.progress.settings.effects);
+  const animate = effects === "full";
+  const perfect = t.total > 0 && t.correct === t.total;
+
   return (
     <div>
-      <PageTitle eyebrow={session.title} title="Set complete" />
+      {/* The headline is the outcome, not the word "results". A clean sweep gets to
+          say so; anything else names the thing worth fixing. */}
+      <Card className="relative mb-6 overflow-hidden">
+        {perfect && animate && <Confetti />}
+        <span
+          aria-hidden
+          className={`block h-1.5 w-full ${perfect ? "bg-correct" : t.confidentWrong.length > 0 ? "bg-incorrect" : "bg-accent"}`}
+        />
+
+        <div className="flex flex-wrap items-center gap-6 p-5 sm:p-6">
+          <Ring
+            value={t.total === 0 ? 0 : t.correct / t.total}
+            size={104}
+            thickness={9}
+            color={perfect ? "var(--p-correct)" : "var(--p-accent)"}
+          >
+            <span className="flex flex-col items-center leading-none">
+              <span className="text-[26px] font-bold text-fg tnum">
+                <CountUp to={pct} animate={animate} />%
+              </span>
+              <span className="mt-0.5 text-[11px] font-bold uppercase tracking-wider text-fg-subtle tnum">
+                {t.correct}/{t.total}
+              </span>
+            </span>
+          </Ring>
+
+          <div className="min-w-0 flex-1">
+            <div className="text-[11px] font-bold uppercase tracking-widest text-accent">
+              {session.title}
+            </div>
+            <h1 className="mt-1 text-[24px] font-bold leading-tight tracking-tight text-fg sm:text-[28px]">
+              {perfect
+                ? "Clean sweep."
+                : t.confidentWrong.length > 0
+                  ? `${t.confidentWrong.length} sure and wrong`
+                  : t.wrong.length === 0
+                    ? "All correct."
+                    : `${t.correct} of ${t.total}`}
+            </h1>
+
+            <div className="mt-3 flex flex-wrap items-center gap-4">
+              <span className="flex items-center gap-1.5 text-[19px] font-bold text-xp tnum">
+                <Icon name="bolt" size={17} />+<CountUp to={sessionXp} animate={animate} /> XP
+              </span>
+              <span className="flex items-center gap-1.5 text-[13px] text-fg-muted tnum">
+                <Icon name="clock" size={13} />
+                {minutes} min{minutes === 1 ? "" : "s"}
+              </span>
+              {t.returningSoon.length > 0 && (
+                <span className="flex items-center gap-1.5 text-[13px] text-fg-muted tnum">
+                  <Icon name="target" size={13} />
+                  {t.returningSoon.length} back within 2 days
+                </span>
+              )}
+            </div>
+
+            {sessionXp === 0 && t.total > 0 && (
+              <p className="mt-2 text-[12.5px] leading-relaxed text-fg-subtle">
+                {repeatedToday > 0
+                  ? "No XP: these questions had already paid out today. Come back tomorrow."
+                  : "No XP — it only comes from correct answers."}
+              </p>
+            )}
+          </div>
+        </div>
+      </Card>
 
       {/* New badges lead, because they are the only thing here the user has not
           already seen question by question. */}
       {session.badgesEarned.length > 0 && (
-        <Card className="mb-6 border-accent/50 p-5">
-          <div className="mb-2 text-[11px] font-semibold uppercase tracking-wider text-accent">
-            {session.badgesEarned.length === 1 ? "New badge" : "New badges"}
-          </div>
-          <ul className="space-y-2">
-            {session.badgesEarned.map((earned) => {
-              const badge = badgeById.get(earned.id);
-              if (!badge) return null;
-              return (
-                <li key={earned.id}>
-                  <Badge tone="accent">earned</Badge>
-                  <span className="ml-2 font-medium text-fg">{badge.name}</span>
-                  <span className="ml-2 text-[13.5px] text-fg-muted">{badge.description}</span>
-                </li>
-              );
-            })}
-          </ul>
-        </Card>
+        <div className="mb-6 grid gap-3 sm:grid-cols-2">
+          {session.badgesEarned.map((earned, i) => {
+            const badge = badgeById.get(earned.id);
+            if (!badge) return null;
+            return (
+              <Card
+                key={earned.id}
+                className="anim-pop flex items-start gap-3 border-xp/40 bg-xp/8 p-4"
+                style={{ animationDelay: `${i * 90}ms` }}
+              >
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-xp/15 text-xp">
+                  <Icon name="trophy" size={20} />
+                </span>
+                <div className="min-w-0">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[15px] font-bold text-fg">{badge.name}</span>
+                    <Badge tone="xp">new</Badge>
+                  </div>
+                  <p className="mt-0.5 text-[13px] leading-relaxed text-fg-muted">
+                    {badge.description}
+                  </p>
+                </div>
+              </Card>
+            );
+          })}
+        </div>
       )}
 
-      {/* Score and calibration side by side — calibration is the more useful half */}
-      <div className="mb-6 grid gap-4 sm:grid-cols-2">
-        <Card className="p-5">
-          <div className="text-[13px] text-fg-muted">Score</div>
-          <div className="mt-1 text-3xl font-semibold text-fg tnum">
-            {t.correct}
-            <span className="text-fg-subtle">/{t.total}</span>
-            <span className="ml-2 text-lg font-normal text-fg-muted">{pct}%</span>
-          </div>
-          <div className="mt-1 text-[13px] text-fg-subtle tnum">
-            {minutes} min{minutes === 1 ? "" : "s"}
-            {sessionXp > 0 && ` · +${sessionXp} XP`}
-          </div>
-          {sessionXp === 0 && t.total > 0 && (
-            <p className="mt-2 text-[12.5px] leading-relaxed text-fg-subtle">
-              {repeatedToday > 0
-                ? "No XP: these questions had already paid out today. Come back tomorrow."
-                : "No XP — it only comes from correct answers."}
-            </p>
-          )}
-        </Card>
-
-        <Card className="p-5">
-          <div className="mb-2 text-[13px] text-fg-muted">Calibration</div>
-          <dl className="space-y-1 text-[14px]">
-            {(["confident", "unsure", "guessing"] as const).map((level) => {
-              const b = t.byConfidence[level];
-              if (b.total === 0) return null;
-              return (
-                <div key={level} className="flex items-baseline justify-between gap-3">
-                  <dt className={CONFIDENCE_TEXT[level]}>{CONFIDENCE_LABELS[level]}</dt>
-                  <dd className="text-fg-muted tnum">
-                    {b.correct}/{b.total} right
-                  </dd>
-                </div>
-              );
-            })}
-          </dl>
-          {t.confidentWrong.length > 0 && (
-            <p className="mt-3 text-[13px] leading-relaxed text-incorrect">
-              {t.confidentWrong.length} confident{" "}
-              {t.confidentWrong.length === 1 ? "answer was" : "answers were"} wrong.
-            </p>
-          )}
-        </Card>
+      {/* Calibration. The more useful half of the page: being wrong while sure is
+          the thing worth acting on, so it gets bars rather than a line of text. */}
+      <div className="mb-6 grid gap-4 sm:grid-cols-3">
+        {(["confident", "unsure", "guessing"] as const).map((lvl) => {
+          const b = t.byConfidence[lvl];
+          if (b.total === 0) return null;
+          const rate = b.correct / b.total;
+          return (
+            <StatTile
+              key={lvl}
+              label={CONFIDENCE_LABELS[lvl]}
+              color={CONFIDENCE_VAR[lvl]}
+              value={
+                <span className={CONFIDENCE_TEXT[lvl]}>
+                  {b.correct}
+                  <span className="text-fg-subtle">/{b.total}</span>
+                </span>
+              }
+              sub={
+                <span className="mt-1.5 block">
+                  <Meter value={rate} color={CONFIDENCE_VAR[lvl]} height={5} />
+                </span>
+              }
+            />
+          );
+        })}
       </div>
 
       {/* What to focus on next */}

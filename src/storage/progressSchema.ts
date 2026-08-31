@@ -9,6 +9,7 @@
  *       and permanent daily aggregates
  *   v3  gamification (XP, badges, frozen days) and a per-day review count
  *   v4  glossary: terms seen, and drill scheduling state per term/direction
+ *   v5  the `effects` setting (full vs calm motion)
  *
  * Mastery is deliberately NOT stored. It is derived from question state on demand,
  * so there is no cache to go stale — the entire class of "the number on screen
@@ -20,7 +21,7 @@ import { z } from "zod";
 import { CONFIDENCE_LEVELS } from "../engine/grading";
 import type { QuestionState } from "../engine/scheduler";
 
-export const PROGRESS_SCHEMA_VERSION = 4;
+export const PROGRESS_SCHEMA_VERSION = 5;
 
 export const themeSchema = z.enum(["light", "dark"]);
 export const confidenceSchema = z.enum(CONFIDENCE_LEVELS);
@@ -31,6 +32,8 @@ export const sessionLengthSchema = z.union([
   z.literal(45),
 ]);
 
+export const effectsSchema = z.enum(["full", "calm"]);
+
 export const settingsSchema = z.object({
   theme: themeSchema,
   /** Default session length in minutes. */
@@ -38,6 +41,13 @@ export const settingsSchema = z.object({
   dailyGoalMinutes: z.number().int().min(1).max(240),
   /** Force content schema validation in a production build. Off by default. */
   validateContentInProd: z.boolean(),
+  /**
+   * Motion and celebration. "calm" keeps every colour and every number and drops
+   * the movement — for a desk where a bar sweeping across the screen is the wrong
+   * thing to have happen in a meeting. The OS reduced-motion preference does the
+   * same job; this exists because the OS setting is global and this one is not.
+   */
+  effects: effectsSchema,
 });
 
 /* ------------------------------------------------------------------ *
@@ -159,6 +169,7 @@ export const progressSchema = z.object({
 });
 
 export type Theme = z.infer<typeof themeSchema>;
+export type Effects = z.infer<typeof effectsSchema>;
 export type SessionLength = z.infer<typeof sessionLengthSchema>;
 export type Settings = z.infer<typeof settingsSchema>;
 export type TopicState = z.infer<typeof topicStateSchema>;
@@ -191,6 +202,7 @@ export function defaultProgress(now: Date = new Date()): ProgressState {
       sessionLength: 10,
       dailyGoalMinutes: 10,
       validateContentInProd: false,
+      effects: "full",
     },
     gamification: { xp: 0, badges: [], frozenDays: [] },
     questions: {},

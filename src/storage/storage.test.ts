@@ -389,3 +389,55 @@ describe("migration v3 -> v4", () => {
     expect(state.termDrills).toEqual({});
   });
 });
+
+describe("migration v4 -> v5", () => {
+  const v4 = {
+    schemaVersion: 4,
+    settings: {
+      theme: "dark",
+      sessionLength: 20,
+      dailyGoalMinutes: 15,
+      validateContentInProd: false,
+    },
+    gamification: { xp: 1200, badges: [], frozenDays: [] },
+    questions: {},
+    topics: {},
+    termsSeen: { "capital-call": 1780000000000 },
+    termDrills: {},
+    events: [],
+    daily: {},
+    meta: { createdAt: "2026-05-01T00:00:00.000Z", lastExportAt: null },
+  };
+
+  it("produces state that satisfies the current schema", () => {
+    const out = migrate(v4);
+    expect(out.status).toBe("ok");
+    if (out.status !== "ok") return;
+    expect(progressSchema.safeParse(out.state).success).toBe(true);
+  });
+
+  it("defaults an existing user to full effects, not calm", () => {
+    // Opting a user out of a new feature they never asked to opt out of is worse
+    // than showing it to them once with a one-click switch.
+    const out = migrate(v4);
+    if (out.status !== "ok") throw new Error("expected ok");
+    const settings = out.state["settings"] as Record<string, unknown>;
+    expect(settings["effects"]).toBe("full");
+  });
+
+  it("keeps every other setting and all earned progress", () => {
+    const out = migrate(v4);
+    if (out.status !== "ok") throw new Error("expected ok");
+    const settings = out.state["settings"] as Record<string, unknown>;
+    expect(settings["theme"]).toBe("dark");
+    expect(settings["dailyGoalMinutes"]).toBe(15);
+    expect(out.state["gamification"]).toEqual(v4.gamification);
+    expect(out.state["termsSeen"]).toEqual(v4.termsSeen);
+  });
+
+  it("survives a settings object that is missing entirely", () => {
+    const out = migrate({ ...v4, settings: undefined });
+    if (out.status !== "ok") throw new Error("expected ok");
+    expect((out.state["settings"] as Record<string, unknown>)["effects"]).toBe("full");
+  });
+});

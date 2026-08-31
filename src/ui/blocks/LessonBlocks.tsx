@@ -4,12 +4,15 @@
  * Adding a block type means adding a case here and a variant in the Zod schema.
  * Nothing else in the app needs to know about it.
  *
- * Visual restraint is deliberate (CLAUDE.md §8): only the blocks that genuinely
- * change the reader's mode get a label and a rule. Concept prose is just prose.
+ * Each block type that changes the reader's mode gets its own colour and its own
+ * icon, so a long lesson has visible structure and you can find the worked example
+ * again by shape rather than by re-reading. Concept prose is still just prose —
+ * if everything were highlighted, nothing would be.
  */
 
 import type { LessonBlock } from "../../content/schema";
 import { Callout } from "../primitives";
+import { Icon } from "../icons";
 import { Chart } from "../charts/Chart";
 import { Formula } from "../Formula";
 import { Inline, Prose } from "../Prose";
@@ -21,35 +24,35 @@ export function LessonBlockView({ block }: { block: LessonBlock }) {
 
     case "intuition":
       return (
-        <Callout label="Why this is true" tone="accent">
+        <Callout label="Why this is true" tone="accent" icon="bulb">
           <Prose text={block.body} />
         </Callout>
       );
 
     case "pitfall":
       return (
-        <Callout label="Common mistake" tone="flag">
+        <Callout label="Common mistake" tone="incorrect" icon="alert">
           <Prose text={block.body} />
         </Callout>
       );
 
     case "onTheJob":
       return (
-        <Callout label="On the job" tone="neutral">
+        <Callout label="On the job" tone="flag" icon="case">
           <Prose text={block.body} />
         </Callout>
       );
 
     case "analogy":
       return (
-        <Callout label="Another way to see it" tone="neutral">
+        <Callout label="Another way to see it" tone="neutral" icon="spark">
           <Prose text={block.body} />
         </Callout>
       );
 
     case "formula":
       return (
-        <div className="my-6 rounded-lg border border-border-base bg-surface-2 p-4">
+        <div className="my-6 rounded-lg border border-border-base border-l-[3px] border-l-accent bg-surface-2 p-4">
           <Formula latex={block.latex} className="mb-3 overflow-x-auto" />
           <p className="max-w-measure text-[15px] leading-relaxed text-fg-muted">
             <Inline text={block.plainReading} />
@@ -73,15 +76,16 @@ export function LessonBlockView({ block }: { block: LessonBlock }) {
 
     case "example":
       return (
-        <div className="my-6">
-          <div className="mb-1 text-[11px] font-semibold uppercase tracking-wider text-fg-subtle">
+        <div className="my-6 rounded-lg border border-accent/25 bg-accent-soft/25 p-4">
+          <div className="mb-1.5 flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-accent">
+            <Icon name="target" size={13} />
             Worked example
           </div>
           <Prose text={block.body} />
           <ol className="mt-3 max-w-measure space-y-2.5">
             {block.walkthrough.map((step, i) => (
               <li key={i} className="flex gap-3">
-                <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-surface-2 text-[11px] font-medium text-fg-muted tnum">
+                <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-accent text-[11px] font-bold text-accent-fg tnum">
                   {i + 1}
                 </span>
                 <span className="leading-relaxed">
@@ -101,7 +105,7 @@ export function LessonBlockView({ block }: { block: LessonBlock }) {
               {block.caption}
             </caption>
             <thead>
-              <tr className="border-b border-border-strong text-left">
+              <tr className="border-b-2 border-accent/40 text-left">
                 {block.headers.map((h) => (
                   <th key={h} scope="col" className="py-2 pr-4 align-bottom font-medium text-fg">
                     {h}
@@ -111,7 +115,7 @@ export function LessonBlockView({ block }: { block: LessonBlock }) {
             </thead>
             <tbody>
               {block.rows.map((row, i) => (
-                <tr key={i} className="border-b border-border-base align-top">
+                <tr key={i} className="border-b border-border-base align-top odd:bg-surface-2/40">
                   {row.map((cell, j) => (
                     <td
                       key={j}
@@ -142,14 +146,15 @@ export function LessonBlockView({ block }: { block: LessonBlock }) {
 
     case "keyTakeaways":
       return (
-        <div className="my-6 rounded-lg border border-border-base bg-surface-2 p-5">
-          <div className="mb-3 text-[11px] font-semibold uppercase tracking-wider text-accent">
+        <div className="my-6 overflow-hidden rounded-xl border border-correct/30 bg-correct-soft/40">
+          <div className="flex items-center gap-1.5 border-b border-correct/20 px-5 py-2.5 text-[11px] font-bold uppercase tracking-wider text-correct">
+            <Icon name="trophy" size={13} />
             Worth remembering
           </div>
-          <ul className="max-w-measure space-y-2">
+          <ul className="max-w-measure space-y-2.5 p-5">
             {block.items.map((item, i) => (
               <li key={i} className="flex gap-2.5 leading-relaxed">
-                <span aria-hidden className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" />
+                <Icon name="check" size={14} className="mt-1 text-correct" />
                 <span>
                   <Inline text={item} />
                 </span>

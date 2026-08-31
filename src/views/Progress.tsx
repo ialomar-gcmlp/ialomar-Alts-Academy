@@ -9,11 +9,14 @@
 import { useMemo } from "react";
 
 import { BADGES, badgeById } from "../engine/badges";
+import { DOMAIN_LABELS, type Domain } from "../content/schema";
 import { navigate } from "../lib/hashRouter";
 import { formatMinutes } from "../lib/time";
-import { level, streak, topicProgress } from "../state/selectors";
+import { domainProgress, level, streak, topicProgress } from "../state/selectors";
 import { useApp } from "../state/store";
-import { Badge, Card, PageTitle } from "../ui/primitives";
+import { DOMAIN_MONOGRAM, domainStyle } from "../ui/domain";
+import { Icon } from "../ui/icons";
+import { Badge, Card, Meter, Monogram, PageTitle, Ring } from "../ui/primitives";
 import { SkillTree, SkillTreeLegend } from "../ui/SkillTree";
 
 function LevelCard() {
@@ -23,26 +26,25 @@ function LevelCard() {
 
   return (
     <Card className="p-5">
-      <div className="flex items-baseline justify-between gap-3">
-        <div>
-          <div className="text-[11px] font-semibold uppercase tracking-wider text-fg-subtle">
+      <div className="flex items-center gap-4">
+        <Ring value={info.progress} size={64} thickness={7} color="var(--p-accent)">
+          <span className="text-[19px] font-bold text-fg tnum">{info.level}</span>
+        </Ring>
+
+        <div className="min-w-0 flex-1">
+          <div className="text-[11px] font-bold uppercase tracking-wider text-fg-subtle">
             Level {info.level}
           </div>
-          <div className="mt-0.5 text-lg font-semibold text-fg">{info.title}</div>
-        </div>
-        <div className="shrink-0 text-right">
-          <div className="text-2xl font-semibold text-fg tnum">{xp.toLocaleString()}</div>
-          <div className="text-[12px] text-fg-subtle">XP</div>
+          <div className="text-[18px] font-bold leading-tight text-fg">{info.title}</div>
+          <div className="mt-1 flex items-center gap-1.5 text-[15px] font-bold text-xp tnum">
+            <Icon name="bolt" size={14} />
+            {xp.toLocaleString()} XP
+          </div>
         </div>
       </div>
 
       <div className="mt-4">
-        <div className="h-1.5 overflow-hidden rounded-full bg-surface-2">
-          <div
-            className="h-full rounded-full bg-accent"
-            style={{ width: `${Math.round(info.progress * 100)}%` }}
-          />
-        </div>
+        <Meter value={info.progress} color="var(--p-accent)" height={7} />
         <p className="mt-2 text-[12.5px] text-fg-subtle tnum">
           {info.next === null
             ? "Top level reached."
@@ -67,27 +69,34 @@ function StreakCard() {
 
   return (
     <Card className="p-5">
-      <div className="flex items-baseline justify-between gap-3">
-        <div>
-          <div className="text-[11px] font-semibold uppercase tracking-wider text-fg-subtle">
+      <div className="flex items-center gap-4">
+        <Ring value={pct / 100} size={64} thickness={7} color="var(--p-streak)">
+          <Icon
+            name="flame"
+            size={22}
+            className={`text-streak ${info.todayQualified ? "flame-live" : ""}`}
+          />
+        </Ring>
+
+        <div className="min-w-0 flex-1">
+          <div className="text-[11px] font-bold uppercase tracking-wider text-fg-subtle">
             Streak
           </div>
-          <div className="mt-0.5 text-lg font-semibold text-fg tnum">
+          <div className="text-[18px] font-bold leading-tight text-fg tnum">
             {info.current} day{info.current === 1 ? "" : "s"}
           </div>
-        </div>
-        <div className="shrink-0 text-right text-[12px] text-fg-subtle tnum">
-          longest {info.longest}
+          <div className="mt-1 text-[12.5px] text-fg-subtle tnum">
+            longest {info.longest}
+          </div>
         </div>
       </div>
 
       <div className="mt-4">
-        <div className="h-1.5 overflow-hidden rounded-full bg-surface-2">
-          <div
-            className={`h-full rounded-full ${info.todayQualified ? "bg-correct" : "bg-accent"}`}
-            style={{ width: `${pct}%` }}
-          />
-        </div>
+        <Meter
+          value={pct / 100}
+          color={info.todayQualified ? "var(--p-correct)" : "var(--p-streak)"}
+          height={7}
+        />
         <p className="mt-2 text-[12.5px] text-fg-subtle tnum">
           {info.todayQualified
             ? "Today counts."
@@ -141,14 +150,26 @@ function Badges() {
           const has = earnedIds.has(badge.id);
           const definition = badgeById.get(badge.id);
           return (
-            <Card key={badge.id} className={`p-4 ${has ? "" : "opacity-60"}`}>
-              <div className="mb-1.5 flex items-center justify-between gap-2">
-                <span className="text-[14px] font-semibold text-fg">{badge.name}</span>
-                {has ? <Badge tone="accent">earned</Badge> : <Badge tone="neutral">locked</Badge>}
+            <Card
+              key={badge.id}
+              className={`flex items-start gap-3 p-4 ${has ? "border-xp/40 bg-xp/8" : "opacity-65"}`}
+            >
+              <span
+                className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl ${
+                  has ? "bg-xp/15 text-xp" : "bg-surface-2 text-fg-subtle"
+                }`}
+              >
+                <Icon name={has ? "trophy" : "lock"} size={17} />
+              </span>
+              <div className="min-w-0">
+                <div className="mb-0.5 flex flex-wrap items-center gap-2">
+                  <span className="text-[14px] font-bold text-fg">{badge.name}</span>
+                  {has ? <Badge tone="xp">earned</Badge> : <Badge tone="neutral">locked</Badge>}
+                </div>
+                <p className="text-[13px] leading-relaxed text-fg-muted">
+                  {has ? badge.description : (definition?.requirement ?? badge.requirement)}
+                </p>
               </div>
-              <p className="text-[13px] leading-relaxed text-fg-muted">
-                {has ? badge.description : (definition?.requirement ?? badge.requirement)}
-              </p>
             </Card>
           );
         })}
@@ -159,6 +180,91 @@ function Badges() {
         spending time or answering volume.
       </p>
     </section>
+  );
+}
+
+/**
+ * Mastery per domain, in each domain's own colour.
+ *
+ * Eleven bars is the fastest read on this page: where you are strong, where you have
+ * not started, and — since mastery decays — where something you did know is fading.
+ */
+function DomainBoard() {
+  const progress = useApp((s) => s.progress);
+  const now = useMemo(() => Date.now(), [progress]);
+  const domains = useMemo(
+    () => domainProgress(topicProgress(progress, now)),
+    [progress, now],
+  );
+
+  return (
+    <section className="mb-10">
+      <h2 className="mb-3 text-[13px] font-bold uppercase tracking-wider text-fg-subtle">
+        Mastery by domain
+      </h2>
+
+      <Card className="divide-y divide-border-base">
+        {domains.map((entry) => {
+          const d = entry.domain as Domain;
+          const started = entry.topics.filter((t) => t.started).length;
+          return (
+            <div
+              key={entry.domain}
+              style={domainStyle(d)}
+              className="flex items-center gap-3 px-4 py-2.5"
+            >
+              <Monogram code={DOMAIN_MONOGRAM[d]} size={26} />
+              <span className="w-40 shrink-0 truncate text-[13.5px] font-semibold text-fg">
+                {DOMAIN_LABELS[d]}
+              </span>
+              <span className="flex-1">
+                <Meter value={entry.mastery} color="var(--d)" height={7} />
+              </span>
+              <span className="w-10 shrink-0 text-right text-[12.5px] font-bold text-fg-muted tnum">
+                {Math.round(entry.mastery * 100)}%
+              </span>
+              <span className="w-20 shrink-0 text-right text-[11.5px] text-fg-subtle tnum">
+                {started}/{entry.topics.length} started
+              </span>
+            </div>
+          );
+        })}
+      </Card>
+    </section>
+  );
+}
+
+/** Motion, in one place, next to the numbers it decorates. */
+function EffectsSwitch() {
+  const effects = useApp((s) => s.progress.settings.effects);
+  const toggleEffects = useApp((s) => s.toggleEffects);
+
+  return (
+    <Card className="mb-10 flex flex-wrap items-center justify-between gap-4 p-4">
+      <div className="min-w-0">
+        <div className="flex items-center gap-1.5 text-[14px] font-bold text-fg">
+          <Icon name="spark" size={14} className={effects === "full" ? "text-xp" : ""} />
+          Celebration and movement
+        </div>
+        <p className="mt-0.5 max-w-measure text-[13px] leading-relaxed text-fg-muted">
+          {effects === "full"
+            ? "XP bursts, streak flicker and score animations are on. Colours and numbers are unaffected either way."
+            : "Calm mode: every colour and number stays, nothing moves. Your operating system's reduced-motion setting does this too."}
+        </p>
+      </div>
+      <button
+        type="button"
+        onClick={toggleEffects}
+        aria-pressed={effects === "full"}
+        className={`press shrink-0 rounded-lg border-2 px-4 py-2 text-[13.5px] font-bold ${
+          effects === "full"
+            ? "border-xp/50 bg-xp/10 text-xp"
+            : "border-border-strong text-fg-muted hover:bg-surface-2"
+        }`}
+      >
+        {effects === "full" ? "On" : "Calm"}
+      </button>
+    </Card>
   );
 }
 
@@ -179,9 +285,11 @@ export function Progress() {
         <StreakCard />
       </div>
 
+      <DomainBoard />
+
       <section className="mb-10">
         <div className="mb-3 flex flex-wrap items-baseline justify-between gap-4">
-          <h2 className="text-[13px] font-semibold uppercase tracking-wider text-fg-subtle">
+          <h2 className="text-[13px] font-bold uppercase tracking-wider text-fg-subtle">
             Skill tree
           </h2>
           <SkillTreeLegend />
@@ -195,6 +303,10 @@ export function Progress() {
       </section>
 
       <Badges />
+
+      <div className="mt-10">
+        <EffectsSwitch />
+      </div>
     </div>
   );
 }

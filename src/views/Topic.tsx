@@ -14,7 +14,17 @@ import { navigate } from "../lib/hashRouter";
 import { useHotkeys } from "../lib/keyboard";
 import { useApp } from "../state/store";
 import { Lesson } from "../ui/blocks/LessonBlocks";
-import { Badge, Button, Card, EmptyState, Kbd, PageTitle } from "../ui/primitives";
+import { DOMAIN_MONOGRAM, domainStyle } from "../ui/domain";
+import { Icon } from "../ui/icons";
+import {
+  Badge,
+  Button,
+  Card,
+  EmptyState,
+  Kbd,
+  Monogram,
+  PageTitle,
+} from "../ui/primitives";
 
 export function Topic({ id }: { id: string }) {
   const [topic, setTopic] = useState<TopicData | null>(null);
@@ -76,18 +86,25 @@ export function Topic({ id }: { id: string }) {
   );
 
   return (
-    <article>
-      <PageTitle eyebrow={DOMAIN_LABELS[topic.domain]} title={topic.title}>
-        {topic.summary}
-      </PageTitle>
+    <article style={domainStyle(topic.domain)}>
+      <div className="mb-4 flex items-center gap-2.5">
+        <Monogram code={DOMAIN_MONOGRAM[topic.domain]} size={30} />
+        <span className="d-text text-[12px] font-bold uppercase tracking-widest">
+          {DOMAIN_LABELS[topic.domain]}
+        </span>
+      </div>
+
+      <PageTitle title={topic.title}>{topic.summary}</PageTitle>
 
       <div className="mb-8 flex flex-wrap items-center gap-2 text-[13px] text-fg-subtle">
         {topic.examRelevance.map((exam) => (
-          <Badge key={exam} tone={exam === "practical" ? "accent" : "neutral"}>
+          <Badge key={exam} tone={exam === "practical" ? "domain" : "neutral"}>
             {exam === "practical" ? "on the job" : exam}
           </Badge>
         ))}
-        <span className="tnum">~{topic.estMinutes} min read</span>
+        <span className="flex items-center gap-1 tnum">
+          <Icon name="clock" size={12} />~{topic.estMinutes} min read
+        </span>
         <span aria-hidden>·</span>
         <span className="tnum">
           {topic.questions.length} questions, ~{questionMinutes} min
@@ -96,15 +113,16 @@ export function Topic({ id }: { id: string }) {
 
       <Lesson blocks={topic.lesson} />
 
-      <Card className="mt-10 flex flex-wrap items-center justify-between gap-4 p-5">
+      <Card className="d-border mt-10 flex flex-wrap items-center justify-between gap-4 p-5">
         <div>
-          <p className="font-medium text-fg">Ready to test it?</p>
+          <p className="text-[16px] font-bold text-fg">Ready to test it?</p>
           <p className="mt-0.5 text-[14px] text-fg-muted">
             {topic.questions.length} questions. You will tag how confident you are on each
             one — that matters more than the score.
           </p>
         </div>
-        <Button size="lg" onClick={begin}>
+        <Button variant="vivid" size="xl" onClick={begin}>
+          <Icon name="bolt" size={17} />
           Start questions <Kbd>Enter</Kbd>
         </Button>
       </Card>

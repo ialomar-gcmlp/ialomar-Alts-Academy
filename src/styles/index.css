@@ -35,11 +35,16 @@
     border-radius: 3px;
   }
 
-  /* Discreet by default: nothing moves for long, and nothing moves at all if
-     the OS says not to. (CLAUDE.md §8) */
+  /*
+   * Motion. Interface transitions stay short; the reward layer (XP, streaks, level
+   * ups, correct answers) is allowed to move, because momentum you can see is the
+   * point of it. Two independent off switches, and either one wins:
+   *   - the OS reduced-motion preference
+   *   - Calm mode in Settings, which puts .calm on <html>
+   */
   * {
-    transition-duration: 120ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 140ms;
+    transition-timing-function: cubic-bezier(0.34, 1.3, 0.64, 1);
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -52,6 +57,122 @@
       scroll-behavior: auto !important;
     }
   }
+
+  .calm *,
+  .calm *::before,
+  .calm *::after {
+    animation: none !important;
+    transition-duration: 80ms !important;
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ * Reward layer
+ *
+ * Everything here is decoration over a state change that has already happened in
+ * the store. Nothing in this file is load-bearing: switch it all off and the app
+ * still tells you the same things, just quietly.
+ * ------------------------------------------------------------------ */
+
+@keyframes pop-in {
+  0% { opacity: 0; transform: scale(0.82); }
+  60% { opacity: 1; transform: scale(1.04); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes rise-in {
+  0% { opacity: 0; transform: translateY(8px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float-up {
+  0% { opacity: 0; transform: translateY(6px) scale(0.9); }
+  25% { opacity: 1; transform: translateY(-2px) scale(1.06); }
+  75% { opacity: 1; transform: translateY(-18px) scale(1); }
+  100% { opacity: 0; transform: translateY(-30px) scale(0.96); }
+}
+
+@keyframes flare {
+  0% { box-shadow: 0 0 0 0 currentColor; opacity: 0.55; }
+  100% { box-shadow: 0 0 0 14px currentColor; opacity: 0; }
+}
+
+@keyframes flicker {
+  0%, 100% { transform: scale(1) rotate(-1deg); }
+  50% { transform: scale(1.09) rotate(2deg); }
+}
+
+@keyframes sweep {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(220%); }
+}
+
+@keyframes drift {
+  0% { opacity: 1; transform: translate(0, 0) rotate(0deg); }
+  100% { opacity: 0; transform: translate(var(--dx), var(--dy)) rotate(var(--dr)); }
+}
+
+@layer components {
+  .anim-pop { animation: pop-in 260ms cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+  .anim-rise { animation: rise-in 300ms ease-out both; }
+
+  /* "+12 XP" leaving the answer it was earned on. */
+  .xp-burst {
+    animation: float-up 1100ms ease-out forwards;
+    pointer-events: none;
+  }
+
+  /* One ring pulse out of a correct answer or a level up. */
+  .flare::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    animation: flare 620ms ease-out forwards;
+  }
+
+  .flame-live { animation: flicker 2.4s ease-in-out infinite; transform-origin: 50% 85%; }
+
+  /* Light travelling across a bar that just advanced. */
+  .bar-sweep {
+    position: relative;
+    overflow: hidden;
+  }
+  .bar-sweep::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 45%;
+    background: linear-gradient(90deg, transparent, #ffffff70, transparent);
+    animation: sweep 1.4s ease-in-out 1;
+  }
+
+  .confetti-bit {
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 2px;
+    animation: drift 900ms ease-out forwards;
+  }
+
+  /* A domain's colour arrives as --d on the element; these read it so no Tailwind
+     class name is ever built at runtime (CLAUDE.md §8). */
+  .d-rail { background: var(--d); }
+  .d-text { color: var(--d); }
+  .d-fill { background: var(--d); }
+  .d-tint { background: color-mix(in oklab, var(--d) 12%, var(--p-surface)); }
+  .d-tint-strong { background: color-mix(in oklab, var(--d) 20%, var(--p-surface)); }
+  .d-border { border-color: color-mix(in oklab, var(--d) 45%, var(--p-border)); }
+  .d-ring { box-shadow: 0 0 0 3px color-mix(in oklab, var(--d) 22%, transparent); }
+
+  .lift {
+    transition-property: transform, box-shadow, border-color;
+  }
+  .lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px -4px color-mix(in oklab, var(--p-fg) 18%, transparent);
+  }
+  .press:active { transform: scale(0.97); }
 }
 
 /* ------------------------------------------------------------------ *

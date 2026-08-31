@@ -18,7 +18,17 @@ import { navigate } from "../lib/hashRouter";
 import { useHotkeys } from "../lib/keyboard";
 import { selectCurrentItem, useApp } from "../state/store";
 import { LessonBlockView } from "../ui/blocks/LessonBlocks";
-import { Button, Card, EmptyState, Kbd } from "../ui/primitives";
+import { DOMAIN_MONOGRAM, domainStyle } from "../ui/domain";
+import { Icon } from "../ui/icons";
+import {
+  Button,
+  Card,
+  EmptyState,
+  Kbd,
+  Monogram,
+  Pips,
+  type PipState,
+} from "../ui/primitives";
 import { Prose } from "../ui/Prose";
 import { QuestionView, choiceCount } from "../ui/questions/QuestionView";
 import { Result } from "./Result";
@@ -31,18 +41,35 @@ const CONFIDENCE_KEYS: Record<Confidence, string> = {
 
 const CONFIDENCE_STYLES: Record<Confidence, { on: string; off: string }> = {
   confident: {
-    on: "border-confident bg-confident text-accent-fg",
-    off: "border-border-strong text-confident hover:bg-surface-2",
+    on: "border-confident bg-confident text-accent-fg shadow-sm scale-105",
+    off: "border-confident/40 text-confident hover:bg-confident/10",
   },
   unsure: {
-    on: "border-unsure bg-unsure text-accent-fg",
-    off: "border-border-strong text-unsure hover:bg-surface-2",
+    on: "border-unsure bg-unsure text-accent-fg shadow-sm scale-105",
+    off: "border-unsure/40 text-unsure hover:bg-unsure/10",
   },
   guessing: {
-    on: "border-guessing bg-guessing text-accent-fg",
-    off: "border-border-strong text-guessing hover:bg-surface-2",
+    on: "border-guessing bg-guessing text-accent-fg shadow-sm scale-105",
+    off: "border-guessing/40 text-guessing hover:bg-guessing/10",
   },
 };
+
+/**
+ * How many correct in a row, right now, in this session.
+ *
+ * Not persisted and not worth XP — a combo is feedback, not currency. It exists
+ * because "four in a row" is a reason to answer a fifth, and the honest version of
+ * that motivation is a counter that resets the moment you miss one.
+ */
+function comboAt(items: { grade: { correct: boolean } | null }[], index: number): number {
+  let run = 0;
+  for (let i = index; i >= 0; i--) {
+    const grade = items[i]?.grade;
+    if (grade === null || grade === undefined || !grade.correct) break;
+    run += 1;
+  }
+  return run;
+}
 
 export function Session({ topicId }: { topicId?: string }) {
   const session = useApp((s) => s.session);
@@ -133,6 +160,12 @@ export function Session({ topicId }: { topicId?: string }) {
 
   const total = session.items.length;
   const position = session.index + 1;
+  const combo = comboAt(session.items, session.index);
+  const pips: PipState[] = session.items.map((entry, i) => {
+    if (entry.grade !== null) return entry.grade.correct ? "correct" : "wrong";
+    return i === session.index ? "current" : "todo";
+  });
+  const topicMeta = manifestTopic(item.topicId);
   const conceptBlock =
     item.question.concept === undefined
       ? undefined
@@ -143,33 +176,62 @@ export function Session({ topicId }: { topicId?: string }) {
 
   return (
     <div>
-      {/* Progress */}
-      <div className="mb-6">
-        <div className="mb-2 flex items-baseline justify-between text-[13px] text-fg-muted">
-          <span className="font-medium text-fg">{session.title}</span>
-          <span className="tnum">
-            {position} of {total}
+      {/* Progress. Dots rather than a bar: how many are left is a countable number,
+          and each one carries how that question went. */}
+      <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
+        <div className="flex items-center gap-3">
+          <span className="text-[14px] font-bold text-fg">{session.title}</span>
+          <span className="text-[13px] text-fg-subtle tnum">
+            {position}/{total}
           </span>
         </div>
-        <div className="h-1 overflow-hidden rounded-full bg-surface-2">
-          <div
-            className="h-full rounded-full bg-accent"
-            style={{ width: `${(session.index / total) * 100}%` }}
-          />
+
+        <div className="flex items-center gap-3">
+          {combo >= 2 && (
+            <span
+              key={combo}
+              className="anim-pop flex items-center gap-1 rounded-full bg-streak/15 px-2.5 py-1 text-[12.5px] font-bold text-streak tnum"
+            >
+              <Icon name="flame" size={13} className="flame-live" />
+              {combo} in a row
+            </span>
+          )}
+          <Pips states={pips} />
         </div>
       </div>
 
-      <Card className="p-5 sm:p-7">
-        <div className="mb-1 flex flex-wrap items-center gap-2 text-[11px] font-semibold uppercase tracking-wider text-fg-subtle">
-          {session.mode === "review" && (
-            <span className="text-accent">{manifestTopic(item.topicId)?.title ?? item.topicId}</span>
+      <Card
+        className="d-border overflow-hidden p-0"
+        style={topicMeta === undefined ? undefined : domainStyle(topicMeta.domain)}
+      >
+        <span className="d-rail block h-1 w-full" aria-hidden />
+
+        <div className="p-5 sm:p-7">
+        <div className="mb-3 flex flex-wrap items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-fg-subtle">
+          {topicMeta !== undefined && (
+            <Monogram code={DOMAIN_MONOGRAM[topicMeta.domain]} size={22} />
+          )}
+          {session.mode === "review" && topicMeta !== undefined && (
+            <span className="d-text">{topicMeta.title}</span>
           )}
           {session.mode === "drill" && (
             <span className="text-accent">
               {item.drill?.direction === "meaning-to-term" ? "Meaning to term" : "Term to meaning"}
             </span>
           )}
-          {session.mode !== "drill" && <span>Difficulty {item.question.difficulty}/5</span>}
+          {session.mode !== "drill" && (
+            <span className="flex items-center gap-1">
+              {/* Difficulty as pips, so it registers without being read. */}
+              {[1, 2, 3, 4, 5].map((n) => (
+                <span
+                  key={n}
+                  aria-hidden
+                  className={`h-1.5 w-1.5 rounded-full ${n <= item.question.difficulty ? "d-fill" : "bg-border-strong/50"}`}
+                />
+              ))}
+              <span className="ml-1">difficulty {item.question.difficulty}/5</span>
+            </span>
+          )}
           {item.wasFlaggedForReteach && (
             <span className="text-unsure">· missed twice before</span>
           )}
@@ -219,15 +281,37 @@ export function Session({ topicId }: { topicId?: string }) {
         {/* Verdict + explanation */}
         {graded !== null && (
           <div className="mt-7 border-t border-border-base pt-5">
-            <div className="mb-3 flex flex-wrap items-center gap-2">
+            <div
+              key={item.question.id}
+              className={`anim-pop relative mb-4 flex flex-wrap items-center gap-2.5 overflow-visible rounded-lg px-3.5 py-2.5 ${
+                graded.correct
+                  ? "bg-correct-soft text-correct"
+                  : "bg-incorrect-soft text-incorrect"
+              }`}
+            >
               <span
-                className={`text-[15px] font-semibold ${graded.correct ? "text-correct" : "text-incorrect"}`}
+                className={`flex h-7 w-7 items-center justify-center rounded-full text-white ${
+                  graded.correct ? "bg-correct flare" : "bg-incorrect"
+                }`}
               >
+                <Icon name={graded.correct ? "check" : "cross"} size={16} />
+              </span>
+              <span className="text-[16px] font-bold">
                 {graded.correct ? "Correct" : "Not quite"}
               </span>
               {item.confidence !== null && (
-                <span className="text-[13px] text-fg-subtle">
-                  · you said {CONFIDENCE_LABELS[item.confidence].toLowerCase()}
+                <span className="text-[13px] opacity-75">
+                  you said {CONFIDENCE_LABELS[item.confidence].toLowerCase()}
+                </span>
+              )}
+
+              {/* XP earned, leaving the answer it came from. Absence is information
+                  too — a repeat question pays nothing and says so on the Result page. */}
+              {item.xpAwarded > 0 && (
+                <span className="ml-auto flex items-center gap-1 text-[15px] font-bold text-xp tnum">
+                  <span className="xp-burst flex items-center gap-1">
+                    <Icon name="bolt" size={14} />+{item.xpAwarded} XP
+                  </span>
                 </span>
               )}
             </div>
@@ -281,6 +365,7 @@ export function Session({ topicId }: { topicId?: string }) {
             )}
           </div>
         )}
+        </div>
       </Card>
 
       {/* Controls */}

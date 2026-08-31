@@ -414,7 +414,7 @@ analytics. Writes debounce ~250ms and force-flush on `visibilitychange` and `pag
 
 ```
 {
-  schemaVersion: 4,
+  schemaVersion: 5,
   questions:    Record<questionId, QuestionState>,   // scheduling state — the real record
   topics:       Record<topicId, { attempts, lastStudiedAt }>,   // facts only
   termsSeen:    Record<slug, timestamp>,             // terms met in a lesson
@@ -422,7 +422,7 @@ analytics. Writes debounce ~250ms and force-flush on `visibilitychange` and `pag
   events:       AnswerEvent[],                       // bounded ring, 5000 / 18 months
   daily:        Record<isoDate, DailyAggregate>,     // permanent; carries reviews + xp
   gamification: { xp, badges: [{id, earnedAt}], frozenDays: [dayKey] },
-  settings:     { theme, sessionLength, dailyGoalMinutes, validateContentInProd },
+  settings:     { theme, sessionLength, dailyGoalMinutes, validateContentInProd, effects },
   meta:         { createdAt, lastExportAt }
 }
 ```
@@ -461,14 +461,34 @@ lunch does not burn the session budget.
 
 ## 8. UI conventions
 
-Calm and adult. Neutral slate scale plus one restrained accent. **No purple gradients, no glow, no
-generic-AI-app look.** Correct/incorrect colors are desaturated enough not to shout across an
-open-plan desk.
+**Colourful and adult — REVISED 2026-08-31 at the user's request.** The original brief asked for a
+restrained palette and no animation. After using the app the user asked for the opposite: *"I have
+ADHD, so adding more color or attention grabbing elements that make the experience more fun."* That
+instruction supersedes the earlier one. What did NOT change: no purple-gradient generic-AI-app look,
+no sound ever, and nothing childish.
 
-- All color, spacing and type tokens in `src/styles/tokens.css`. Light and dark come from **one**
+The colour system has two layers, and the distinction is the whole design:
+
+1. **Reading surfaces stay quiet.** Warm stone neutrals, one teal accent, lesson prose on plain
+   surface. A wall of colour behind body text is harder to read, not easier.
+2. **Structure and reward are loud.** Every domain owns a validated hue that appears on its cards,
+   headings, skill-tree nodes and progress bars; every lesson block type has its own colour and
+   icon; XP is gold, streaks are flame orange, and both animate when they move.
+
+- All colour, spacing and type tokens in `src/styles/tokens.css`. Light and dark come from **one**
   token set (`class` strategy). No hard-coded hex values in components.
+- **Domain colours flow through `--d`,** set once per element by `domainStyle(domain)` and read by
+  the `.d-*` classes. Never build a class or var name at runtime: `text-${domain}` compiles to
+  nothing and `var(--d-${domain})` is ungreppable. `src/ui/domain.ts` writes all eleven out longhand.
+- **Colour is never the only signal.** Every domain colour appears next to that domain's name and
+  its two-letter monogram; correct/incorrect carry an icon as well as a hue. The palette passes the
+  dataviz CVD checks, and the provenance note in `tokens.css` records the numbers.
 - Figures use `font-variant-numeric: tabular-nums` so columns of numbers line up.
-- Transitions ≤120ms, opacity/transform only. `prefers-reduced-motion` honored. No sound, ever.
+- **Motion:** interface transitions ≤140ms. The reward layer (XP bursts, streak flicker, score
+  count-up, confetti on a clean sweep) may move for up to ~1.1s. Two independent off switches, both
+  honoured: `prefers-reduced-motion`, and Calm mode in Settings which puts `.calm` on `<html>`.
+  Calm mode keeps every colour and every number and stops all movement. No sound, ever.
+- Nothing in the reward layer is load-bearing. Switch it all off and the app states the same facts.
 - Keyboard is a first-class input, not an add-on: `1–9` select, `Enter` submit/advance, `Space`
   reveal explanation, `C`/`U`/`G` confidence, `/` glossary search, `Esc` pause, `?` shortcuts overlay.
   One `useHotkeys` hook with a scope stack — views must not register competing global listeners.

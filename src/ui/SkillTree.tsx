@@ -13,8 +13,11 @@
 
 import { useMemo } from "react";
 
-import { DOMAIN_LABELS } from "../content/schema";
+import { type Domain } from "../content/schema";
 import type { TopicProgress } from "../state/selectors";
+import { DOMAIN_MONOGRAM, DOMAIN_SHORT, domainStyle } from "./domain";
+import { Icon } from "./icons";
+import { Meter, Monogram } from "./primitives";
 
 const NODE_W = 208;
 const NODE_H = 92;
@@ -31,9 +34,11 @@ function nodeState(t: TopicProgress): NodeState {
 }
 
 const NODE_STYLES: Record<NodeState, string> = {
-  mastered: "border-accent bg-accent-soft",
-  strong: "border-accent/60 bg-surface",
-  "in-progress": "border-border-strong bg-surface",
+  // Mastered nodes are filled with their domain's own colour, so a finished branch
+  // of the tree is visible from across the page.
+  mastered: "d-border d-tint-strong",
+  strong: "d-border d-tint",
+  "in-progress": "d-border bg-surface",
   available: "border-border-base bg-surface",
   locked: "border-border-base border-dashed bg-surface-2",
 };
@@ -188,33 +193,39 @@ export function SkillTree({
               type="button"
               onClick={() => onSelect(topic.id)}
               title={`${topic.title} — ${STATE_LABELS[node.state]}`}
-              className={`absolute flex flex-col justify-between rounded-lg border p-3 text-left ${NODE_STYLES[node.state]} hover:border-accent`}
-              style={{ left: node.x, top: node.y, width: NODE_W, height: NODE_H }}
+              className={`press absolute flex flex-col justify-between rounded-lg border-2 p-2.5 text-left ${NODE_STYLES[node.state]}`}
+              style={domainStyle(topic.domain, {
+                left: node.x,
+                top: node.y,
+                width: NODE_W,
+                height: NODE_H,
+              })}
             >
-              <div>
-                <div className="mb-1 flex items-center justify-between gap-2">
-                  <span className="truncate text-[10px] font-semibold uppercase tracking-wider text-fg-subtle">
-                    {DOMAIN_LABELS[topic.domain]}
+              <div className="min-w-0">
+                <div className="mb-1 flex items-center gap-1.5">
+                  <Monogram code={DOMAIN_MONOGRAM[topic.domain]} size={18} />
+                  <span className="d-text truncate text-[10px] font-bold uppercase tracking-wider">
+                    {DOMAIN_SHORT[topic.domain]}
                   </span>
+                  {node.state === "mastered" && (
+                    <Icon name="trophy" size={11} className="d-text ml-auto" />
+                  )}
                   {dueCount > 0 && (
-                    <span className="shrink-0 text-[10px] font-semibold text-flag tnum">
+                    <span className="ml-auto shrink-0 text-[10px] font-bold text-flag tnum">
                       {dueCount} due
                     </span>
                   )}
                 </div>
-                <span className="line-clamp-2 text-[13px] font-medium leading-snug text-fg">
+                <span className="line-clamp-2 text-[12.5px] font-semibold leading-snug text-fg">
                   {topic.title}
                 </span>
               </div>
 
               <div className="flex items-center gap-2">
-                <div className="h-1 flex-1 overflow-hidden rounded-full bg-surface-2">
-                  <div
-                    className="h-full rounded-full bg-accent"
-                    style={{ width: `${Math.round(mastery * 100)}%` }}
-                  />
-                </div>
-                <span className="shrink-0 text-[10px] text-fg-subtle tnum">
+                <span className="flex-1">
+                  <Meter value={mastery} color="var(--d)" height={4} />
+                </span>
+                <span className="shrink-0 text-[10px] font-semibold text-fg-muted tnum">
                   {Math.round(mastery * 100)}%
                 </span>
               </div>
@@ -226,6 +237,12 @@ export function SkillTree({
   );
 }
 
+/**
+ * One domain stands in for all eleven in the legend: the legend is about node STATE,
+ * and picking a colour there would imply the state and the colour were related.
+ */
+const LEGEND_DOMAIN: Domain = "alternatives";
+
 /** Legend, so the node states are not a guessing game. */
 export function SkillTreeLegend() {
   const states: NodeState[] = ["mastered", "strong", "in-progress", "available", "locked"];
@@ -235,7 +252,8 @@ export function SkillTreeLegend() {
         <li key={state} className="flex items-center gap-1.5">
           <span
             aria-hidden
-            className={`inline-block h-3 w-3 rounded border ${NODE_STYLES[state]}`}
+            style={domainStyle(LEGEND_DOMAIN)}
+            className={`inline-block h-3 w-3 rounded border-2 ${NODE_STYLES[state]}`}
           />
           {STATE_LABELS[state]}
         </li>

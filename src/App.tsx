@@ -17,7 +17,8 @@ import { ReviewQueue } from "./views/ReviewQueue";
 import { Session } from "./views/Session";
 import { Progress } from "./views/Progress";
 import { Topic } from "./views/Topic";
-import { EmptyState } from "./ui/primitives";
+import { EmptyState, Ring } from "./ui/primitives";
+import { Icon } from "./ui/icons";
 
 const NAV = [
   { path: "", label: "Topics" },
@@ -29,29 +30,37 @@ const NAV = [
 function Header() {
   const route = useRoute();
   const theme = useApp((s) => s.progress.settings.theme);
+  const effects = useApp((s) => s.progress.settings.effects);
   const toggleTheme = useApp((s) => s.toggleTheme);
+  const toggleEffects = useApp((s) => s.toggleEffects);
   const active = route.segments[0] ?? "";
 
   return (
-    <header className="border-b border-border-base bg-surface">
-      <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-5 py-3">
+    <header className="sticky top-0 z-30 border-b border-border-base bg-surface/95 backdrop-blur">
+      {/* Wraps to two rows on a phone — brand and status first, nav underneath.
+          At 375px the single-row version had the level ring sitting on top of the
+          nav pills. */}
+      <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-x-3 gap-y-1.5 px-4 py-2 sm:px-5 sm:py-2.5">
         <div className="flex min-w-0 items-center gap-3">
-        <a
-          href="#/"
-          className="shrink-0 whitespace-nowrap text-[15px] font-semibold tracking-tight text-fg"
-          onClick={(e) => {
-            e.preventDefault();
-            navigate("");
-          }}
-        >
-          Alts Academy
-        </a>
-        <StatusChip />
+          <a
+            href="#/"
+            className="flex shrink-0 items-center gap-2 whitespace-nowrap text-[15px] font-bold tracking-tight text-fg"
+            onClick={(e) => {
+              e.preventDefault();
+              navigate("");
+            }}
+          >
+            <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-[linear-gradient(135deg,var(--p-accent),var(--p-accent-bright))] text-accent-fg">
+              <Icon name="layers" size={16} />
+            </span>
+            Alts Academy
+          </a>
+          <StatusBar />
         </div>
 
         {/* Scrolls rather than wraps on a narrow phone, so the brand and the nav
             never collapse into each other. */}
-        <nav className="-mx-1 flex items-center gap-1 overflow-x-auto px-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <nav className="-mx-1 order-last flex w-full items-center gap-1 overflow-x-auto px-1 pb-0.5 [scrollbar-width:none] sm:order-none sm:w-auto sm:pb-0 [&::-webkit-scrollbar]:hidden">
           {NAV.map((entry) => {
             const isActive = active === entry.path;
             return (
@@ -60,9 +69,9 @@ function Header() {
                 type="button"
                 onClick={() => navigate(entry.path)}
                 aria-current={isActive ? "page" : undefined}
-                className={`shrink-0 whitespace-nowrap rounded-md px-2.5 py-1.5 text-[13px] ${
+                className={`shrink-0 whitespace-nowrap rounded-lg px-2.5 py-1.5 text-[13px] font-medium ${
                   isActive
-                    ? "bg-accent-soft font-medium text-accent"
+                    ? "bg-accent text-accent-fg shadow-sm"
                     : "text-fg-muted hover:bg-surface-2 hover:text-fg"
                 }`}
               >
@@ -73,8 +82,18 @@ function Header() {
 
           <button
             type="button"
+            onClick={toggleEffects}
+            className={`ml-1 shrink-0 rounded-lg px-2 py-1.5 ${effects === "calm" ? "text-fg-subtle hover:bg-surface-2" : "text-xp hover:bg-surface-2"}`}
+            aria-label={effects === "calm" ? "Turn animations on" : "Calm mode: turn animations off"}
+            title={effects === "calm" ? "Calm mode is on — click for animations" : "Animations on — click for calm mode"}
+          >
+            <Icon name="spark" size={15} />
+          </button>
+
+          <button
+            type="button"
             onClick={toggleTheme}
-            className="ml-1 shrink-0 rounded-md px-2.5 py-1.5 text-[13px] text-fg-muted hover:bg-surface-2 hover:text-fg"
+            className="shrink-0 rounded-lg px-2.5 py-1.5 text-[13px] text-fg-muted hover:bg-surface-2 hover:text-fg"
             aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
             title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
           >
@@ -86,32 +105,47 @@ function Header() {
   );
 }
 
-/** Level and streak, at a glance. Clicking goes to the full picture. */
-function StatusChip() {
+/**
+ * Level, XP and streak, always on screen.
+ *
+ * These used to be hidden below the `sm` breakpoint and behind a zero check. They
+ * are the running total of everything the app is for, so now they are visible from
+ * the first answer and on a phone: momentum you cannot see does not motivate anyone.
+ */
+function StatusBar() {
   const progress = useApp((s) => s.progress);
   const info = level(progress);
   const streakInfo = streak(progress, Date.now());
-
-  if (progress.gamification.xp === 0 && streakInfo.current === 0) return null;
+  const xp = progress.gamification.xp;
 
   return (
     <button
       type="button"
       onClick={() => navigate("progress")}
       title={`Level ${info.level} — ${info.title}`}
-      className="hidden shrink-0 items-center gap-2 rounded-md px-2 py-1 text-[12px] text-fg-muted hover:bg-surface-2 hover:text-fg sm:flex"
+      className="flex shrink-0 items-center gap-2.5 rounded-lg px-1.5 py-1 hover:bg-surface-2"
     >
-      <span className="tnum">Lv {info.level}</span>
-      <span aria-hidden className="text-fg-subtle">·</span>
-      <span className="tnum">{progress.gamification.xp.toLocaleString()} XP</span>
-      {streakInfo.current > 0 && (
-        <>
-          <span aria-hidden className="text-fg-subtle">·</span>
-          <span className={`tnum ${streakInfo.todayQualified ? "text-correct" : ""}`}>
-            {streakInfo.current}d
-          </span>
-        </>
-      )}
+      <Ring value={info.progress} size={26} thickness={3} color="var(--p-accent)">
+        <span className="text-[10px] font-bold text-fg tnum">{info.level}</span>
+      </Ring>
+
+      <span className="flex items-center gap-1 text-[12.5px] font-semibold text-xp tnum">
+        <Icon name="bolt" size={12} />
+        {xp.toLocaleString()}
+      </span>
+
+      <span
+        className={`flex items-center gap-1 text-[12.5px] font-semibold tnum ${
+          streakInfo.current > 0 ? "text-streak" : "text-fg-subtle"
+        }`}
+      >
+        <Icon
+          name="flame"
+          size={13}
+          className={streakInfo.todayQualified ? "flame-live" : ""}
+        />
+        {streakInfo.current}
+      </span>
     </button>
   );
 }
