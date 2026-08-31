@@ -1,0 +1,233 @@
+{
+  "schemaVersion": 1,
+  "id": "fsa-debt-01",
+  "domain": "financial-statement-analysis",
+  "title": "Net Debt, Leases and the Obligations Outside the Debt Line",
+  "summary": "What counts as debt, what looks like debt without being called it, and why capitalising the rent moved leverage by 0.7 turns.",
+  "level": "advanced",
+  "prereqs": ["fsa-ebitda-01"],
+  "estMinutes": 9,
+  "examRelevance": ["CFA-L2", "CAIA-L2", "practical"],
+  "lesson": [
+    {
+      "type": "concept",
+      "id": "what-it-is",
+      "body": "**[[net-debt|Net debt]] is gross borrowings less cash.** The logic is that cash on the [[balance-sheet|balance sheet]] could repay debt tomorrow, so the economic obligation is the difference.\n\nSensible, with two qualifications that get skipped.\n\n**Not all cash is available.** Cash held in a subsidiary in a country with capital controls, cash required for daily operations, cash inside a joint venture you do not control — none of it can repay group debt on demand. \"Restricted\" and \"trapped\" cash are ordinary features of a group balance sheet, and netting them is optimistic.\n\n**Not all obligations sit in the debt line.** Leases, pension deficits, deferred consideration, factored receivables and supplier financing all commit the company to future payments. Whether accounting calls them debt varies; the payments are equally compulsory.\n\n**So the working definition is behavioural rather than accounting: anything the company must pay regardless of how trading goes is debt for analytical purposes.** The label follows the standard; the cash flow does not care."
+    },
+    {
+      "type": "concept",
+      "id": "leases",
+      "body": "**A long lease is a financing arrangement wearing an operating costume.**\n\nA company that signs a fifteen-year lease on a distribution centre has committed to a stream of payments as surely as if it had borrowed to buy the building. Under current standards most such leases appear on the balance sheet as a right-of-use asset and a lease liability, which is a considerable improvement on the era when they sat only in the notes.\n\nBut it produces an effect worth understanding, because it moves [[ebitda|EBITDA]]. **Rent used to be an operating cost, deducted before EBITDA. A capitalised lease splits into [[depreciation]] and interest, both below the EBITDA line.** So the same business reports higher EBITDA under lease capitalisation, with identical cash payments.\n\nThe consequences:\n\n**Leverage multiples fall mechanically** unless the lease liability is added to debt — which is why comparisons across the transition, or across standards, need care.\n\n**Lease-heavy sectors are most affected.** Retail, restaurants, logistics, healthcare facilities. In these, the lease liability can rival or exceed the borrowings.\n\n**And the old rule of thumb survives for a reason.** Capitalising rent at a multiple — commonly 8x — gives a quick debt-equivalent when the disclosure is thin or non-comparable, and it is close enough to be useful in a first pass."
+    },
+    {
+      "type": "intuition",
+      "id": "maturity-is-the-risk",
+      "body": "**The amount of debt determines the interest bill. The maturity profile determines whether the company survives.**\n\nThis distinction does more work than any leverage multiple. A company at 6x with no maturity for six years and a fixed rate has time to grow into its balance sheet. A company at 3x with everything due in fourteen months is dependent on the credit market being open on a specific date — and it may not be.\n\nSo the questions that actually matter about a debt stack:\n\n**When does it mature, and how much at once?** A concentrated maturity is a single point of failure with a date attached.\n\n**Fixed or floating?** Floating passes rate rises straight into the interest bill; fixed defers them to refinancing.\n\n**Secured or unsecured, and where does it sit?** [[seniority|Seniority]] decides who gets paid in a restructuring, which decides who controls it.\n\n**What has to be true for the refinancing to happen?** A [[covenant]] that must be met, a rating that must hold, an asset sale that must complete.\n\n**The honest summary: a debt stack is a schedule of dates, and the analysis is about the dates rather than the total.** Leverage tells you how heavy the load is; maturity tells you when you have to carry it up the stairs."
+    },
+    {
+      "type": "example",
+      "id": "worked-leases",
+      "body": "The worked company: EBITDA 80, debt 400, so reported leverage is 5.0x. It also pays 24 a year in property rent under leases with a long remaining term.",
+      "walkthrough": [
+        "Reported leverage = 400 / 80 = **5.00x**.",
+        "Capitalise the rent at 8x: 24 × 8 = **192** of debt-equivalent obligation.",
+        "Add the rent back to EBITDA, since the obligation is now being treated as financing rather than as an operating cost: 80 + 24 = **104**.",
+        "Adjusted leverage = (400 + 192) / 104 = **5.69x**.",
+        "**Read that carefully. The same company, the same payments, and 0.69 of a turn more leverage — because a commitment that was invisible in the debt line was made visible.**",
+        "And check the direction of the effect on coverage. Interest plus rent is 20 + 24 = 44 against EBITDA of 104, so fixed-charge cover is 104 / 44 = **2.36x**, against reported EBITDA/interest of 4.00x.",
+        "**That is the number a landlord and a lender both effectively rely on, and it is nearly half the headline figure.**",
+        "Sanity check worth reusing: **in any lease-heavy business, compute fixed-charge cover including rent before believing an [[interest-coverage|interest coverage]] ratio.** Rent is as compulsory as interest and is far easier to overlook, because it never appears in a debt schedule."
+      ]
+    },
+    {
+      "type": "table",
+      "id": "debt-like",
+      "caption": "Obligations that behave like debt",
+      "headers": ["Item", "Why it is debt-like", "How to size it quickly"],
+      "rows": [
+        [
+          "Operating leases",
+          "Compulsory payments for years, whatever trading does",
+          "Capitalise annual rent at roughly 8x, or use the disclosed lease liability."
+        ],
+        [
+          "Pension deficit",
+          "A legal obligation to fund a shortfall",
+          "Take the disclosed deficit; ask about the agreed recovery plan and its timing."
+        ],
+        [
+          "Deferred consideration and earnouts",
+          "Cash owed on past acquisitions",
+          "Read the notes; the maximum is usually disclosed separately from the accrued amount."
+        ],
+        [
+          "[[factoring|Factored]] receivables and supplier finance",
+          "Cash received early, repayable in substance",
+          "Ask for the drawn amount — often disclosed only in the notes, if at all."
+        ],
+        [
+          "Restricted or trapped cash",
+          "Reduces the cash that can offset debt",
+          "Ask what proportion of cash is available to the borrowing entity within thirty days."
+        ]
+      ]
+    },
+    {
+      "type": "concept",
+      "id": "how-it-goes-wrong",
+      "body": "**Netting cash that cannot travel.** Group net debt looks lower when subsidiary cash is subtracted, and the debt sits at a different entity. In a stress event the cash and the obligation are in separate places.\n\n**Missing supplier finance.** Programmes that pay suppliers early through a bank, with the company settling later, sit in payables rather than in debt. Economically they are borrowing, and they have been at the centre of several notable failures.\n\n**Ignoring the pension.** A deficit is a real claim with a funding agreement attached, and the recovery payments compete directly with debt service.\n\n**Reading only the total.** A single maturity wall matters more than half a turn of leverage. Ask for the schedule by year.\n\n**Assuming a refinancing.** Every levered structure assumes access to credit at a future date. That is a legitimate plan and it is a dependency, and it should be stated as one rather than embedded silently in a model's terminal assumptions."
+    },
+    {
+      "type": "pitfall",
+      "id": "covenant-mechanics",
+      "body": "**A covenant breach is not a default on a payment — it is a transfer of control.**\n\nWhen a maintenance covenant is breached, the lender gains rights: to charge more, to demand information, to block distributions, to force a sale, or to require an equity injection. In practice the outcome is usually a negotiation, and the negotiation happens with the borrower in a weak position at a moment of its own choosing — which is to say, not of its choosing at all.\n\nSo three questions matter more than the covenant level itself:\n\n**How much headroom is there, in percentage terms?** A covenant at 6.0x with leverage at 5.7x is a 5% cushion on EBITDA.\n\n**What is the definition of the ratio?** Adjusted EBITDA with generous add-backs makes the test easier and less informative.\n\n**Is it maintenance or incurrence?** A maintenance covenant is tested every quarter. An incurrence covenant only binds when the company wants to do something — which means a covenant-lite structure gives no early warning at all, by design.\n\n**Which is the honest reading of covenant-lite lending: the lender has traded early warning for volume.** Worth knowing which side of that trade a credit fund in your portfolio has been on."
+    },
+    {
+      "type": "onTheJob",
+      "id": "on-the-job",
+      "body": "**Ask for the debt maturity schedule by year, and the fixed-floating split.** Two tables, and they tell you more about survival than any multiple.\n\n**Ask what proportion of cash is available to the borrowing entity within thirty days.** Net debt assumes all of it; reality frequently does not.\n\n**Capitalise the rent and recompute leverage and fixed-charge cover.** In lease-heavy sectors this is the difference between 5.0x and 5.7x, and between 4.0x and 2.4x of cover.\n\n**Ask about supplier finance programmes and factored receivables explicitly.** They are the most commonly omitted debt-like item and the disclosure is often thin.\n\n**For each covenant, ask for the headroom in percent and whether it is maintenance or incurrence.** A covenant-lite structure has no early warning, and that should be a known feature rather than a surprise."
+    },
+    {
+      "type": "keyTakeaways",
+      "id": "takeaways",
+      "items": [
+        "For analysis, debt is anything the company must pay regardless of trading — leases, pension deficits, deferred consideration and supplier finance included.",
+        "Capitalising 24 of annual rent at 8x added 192 of obligation and moved leverage from 5.00x to 5.69x on identical cash payments.",
+        "Fixed-charge cover including rent was 2.36x against a reported interest coverage of 4.00x. In lease-heavy businesses, compute the first before believing the second.",
+        "The maturity schedule matters more than the total: 6x with no maturity for six years is safer than 3x due in fourteen months."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "fsa-debt-01-q1",
+      "type": "numeric",
+      "difficulty": 2,
+      "tags": ["debt", "leases", "arithmetic"],
+      "concept": "worked-leases",
+      "stem": "Annual rent is 24. Capitalised at 8x, what debt-equivalent obligation does this represent?",
+      "answer": 192,
+      "tolerance": 1,
+      "toleranceType": "abs",
+      "explanation": "The 8x multiple is a convention rather than a calculation — it approximates the present value of a long lease stream at typical rates. Where the disclosed lease liability exists, use it; the rule of thumb is for thin or non-comparable disclosure."
+    },
+    {
+      "id": "fsa-debt-01-q2",
+      "type": "numeric",
+      "difficulty": 3,
+      "tags": ["debt", "leverage", "arithmetic"],
+      "concept": "worked-leases",
+      "stem": "Debt 400, capitalised leases 192, EBITDA 80 before rent of 24. What is lease-adjusted leverage, in turns? Two decimal places.",
+      "answer": 5.69,
+      "tolerance": 0.08,
+      "toleranceType": "abs",
+      "unit": "x",
+      "inputHint": "Add the leases to debt and add the rent back to EBITDA.",
+      "explanation": "Both sides of the ratio must be adjusted together. Adding leases to debt while leaving rent in the cost base double-counts the obligation and gives 7.4x — a number that overstates the problem as badly as ignoring the leases understates it."
+    },
+    {
+      "id": "fsa-debt-01-q3",
+      "type": "numeric",
+      "difficulty": 3,
+      "tags": ["debt", "coverage", "arithmetic"],
+      "concept": "worked-leases",
+      "stem": "EBITDA before rent is 104, interest is 20 and rent is 24. What is fixed-charge coverage, in turns? Two decimal places.",
+      "answer": 2.36,
+      "tolerance": 0.06,
+      "toleranceType": "abs",
+      "unit": "x",
+      "explanation": "Against a reported EBITDA-to-interest figure of 4.00x, this is a very different picture of the same company. The rent does not appear in any debt schedule and is exactly as compulsory as the interest — which is what fixed-charge cover exists to capture."
+    },
+    {
+      "id": "fsa-debt-01-q4",
+      "type": "mcq",
+      "difficulty": 3,
+      "tags": ["debt", "net-debt"],
+      "concept": "what-it-is",
+      "stem": "A group reports net debt of 350 after netting 50 of cash. Half that cash sits in a subsidiary subject to capital controls. What is the analytical consequence?",
+      "choices": [
+        "None — cash is cash",
+        "Effective net debt is closer to 375, because 25 of the cash cannot be used to repay group borrowings",
+        "The debt should be reduced by the trapped cash twice",
+        "Net debt should be replaced by gross debt in all cases"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Cash that cannot move cannot repay debt at the borrowing entity, which is the entire premise of netting.",
+        "Correct. Only accessible cash should be netted. The trapped 25 is an asset of the group and not a repayment source, so the economic obligation is higher than reported.",
+        "Nothing is deducted twice; the adjustment is to stop netting the portion that cannot travel.",
+        "Gross debt overcorrects by ignoring genuinely available cash. The right answer is to net only what can move."
+      ],
+      "explanation": "The question to ask is deliberately narrow: how much cash is available to the borrowing entity within thirty days? It converts a vague concern about trapped cash into a number that can be netted honestly."
+    },
+    {
+      "id": "fsa-debt-01-q5",
+      "type": "tfj",
+      "difficulty": 4,
+      "tags": ["debt", "maturity", "misconception"],
+      "concept": "maturity-is-the-risk",
+      "stem": "\"Company A at 3x leverage is safer than Company B at 6x.\" True or false — and why?",
+      "isTrue": false,
+      "justifications": [
+        "False — not without the maturity profile: 3x due in fourteen months depends on credit markets being open on a date, while 6x with no maturity for six years has time",
+        "False — leverage multiples are meaningless",
+        "True — lower leverage is always safer",
+        "False — because the two companies may use different EBITDA definitions"
+      ],
+      "justificationIndex": 0,
+      "rationales": [
+        "Correct. Leverage measures the size of the load; maturity determines when it must be carried. A near-term wall in a closed credit market is what actually causes failures.",
+        "Over-correction. Leverage is informative — it just is not sufficient on its own.",
+        "The intuitive answer, and it holds only when the maturity profiles and rate structures are comparable.",
+        "A genuine and separate problem — definitional differences matter, and they are not what makes this comparison incomplete."
+      ],
+      "explanation": "Two documents answer this properly: the maturity schedule and the fixed-floating split. Both are ordinary requests, and together they turn a leverage number into a timeline — which is the form in which credit risk actually arrives."
+    },
+    {
+      "id": "fsa-debt-01-q6",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["debt", "covenants", "on-the-job"],
+      "concept": "covenant-mechanics",
+      "stem": "What is the practical consequence of a covenant-lite loan for a lender?",
+      "choices": [
+        "The lender has no legal claim on the borrower",
+        "There is no maintenance test, so the lender gets no early warning — problems appear at a payment default or a refinancing rather than in a quarterly ratio",
+        "The interest rate is fixed rather than floating",
+        "The borrower cannot incur additional debt"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "The claim on payment is intact; what is absent is the periodic test that would surface deterioration early.",
+        "Correct. Incurrence-only covenants bind when the borrower wants to act. Without a quarterly maintenance test, the lender loses the seat at the table that a breach would have provided.",
+        "Covenant structure is unrelated to whether the coupon floats.",
+        "Incurrence covenants restrict specific actions and are considerably weaker than a maintenance test at surfacing trouble."
+      ],
+      "explanation": "The trade is explicit: covenant-lite terms were the price of deploying capital in a competitive market. Worth asking a credit manager what proportion of their book is covenant-lite and how they monitor deterioration without a quarterly test — the second half of that question is the one that separates processes."
+    },
+    {
+      "id": "fsa-debt-01-q7",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["debt", "hidden-obligations", "on-the-job"],
+      "concept": "how-it-goes-wrong",
+      "stem": "Which debt-like obligation is most often omitted from a leverage calculation?",
+      "choices": [
+        "Bank term loans",
+        "Supplier finance programmes, which sit in payables rather than in the debt line",
+        "Convertible bonds",
+        "Overdraft facilities"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Term loans are the debt line itself and are never missed.",
+        "Correct. A bank pays suppliers early and the company settles later, so the borrowing is recorded within trade payables. It has been central to several high-profile failures precisely because it was invisible in the debt figure.",
+        "Convertibles are disclosed as debt, though the dilution treatment is sometimes disputed.",
+        "Overdrafts appear in short-term borrowings."
+      ],
+      "explanation": "The general habit worth building: ask what the company owes that is not in the debt note. Leases, pensions, earnouts, factoring and supplier finance are the standard list, and asking for each by name works better than asking the general question."
+    }
+  ],
+  "needsReview": false,
+  "reviewNote": null
+}

@@ -1,0 +1,240 @@
+{
+  "schemaVersion": 1,
+  "id": "fsa-ratios-01",
+  "domain": "financial-statement-analysis",
+  "title": "Ratio Analysis and the DuPont Decomposition",
+  "summary": "Four families of ratio, and the identity that splits a return on equity into margin, efficiency and leverage.",
+  "level": "core",
+  "prereqs": ["fsa-statements-01"],
+  "estMinutes": 9,
+  "examRelevance": ["CFA-L1", "CAIA-L1", "practical"],
+  "lesson": [
+    {
+      "type": "concept",
+      "id": "what-it-is",
+      "body": "A ratio turns two numbers into a comparison. On its own it says almost nothing; against the same company's history, or against a genuine peer, it can say a great deal.\n\nFour families cover most of the work:\n\n**Profitability.** Gross, EBITDA, operating and net margin; return on equity and return on capital. *Is the business earning enough on what it does?*\n\n**Efficiency.** Asset turnover, inventory turns, receivable days. *How hard is the asset base working?*\n\n**Leverage.** Debt to EBITDA, debt to equity, [[net-debt|net debt]] to capital. *How much of this is borrowed?*\n\n**Coverage and liquidity.** [[interest-coverage|Interest coverage]], the [[current-ratio|current ratio]], fixed charge cover. *Can it pay what falls due?*\n\n**The families answer different questions and a business can be excellent in one and fatal in another.** High margins with no coverage is the classic profile of a company about to have a very bad conversation with its lenders."
+    },
+    {
+      "type": "concept",
+      "id": "coverage-first",
+      "body": "**If you only have time for one ratio on a levered business, take interest coverage.**\n\nCoverage is operating earnings divided by the interest bill. It answers the only question that has a deadline: can this company pay its lenders out of what it earns?\n\nThere are two common versions and the difference is not cosmetic. **EBITDA / interest** is the lender's headline. **EBIT / interest** is stricter, because it takes account of the assets being consumed. In the worked company these are 4.0x and 2.5x — the same business, and one of those numbers would pass a [[covenant]] test the other would fail.\n\nWhy coverage beats leverage as a first read: a leverage multiple compares a stock of debt with a flow of earnings, so it implies a repayment period that usually is not the plan. Coverage compares a flow with a flow, and it maps directly onto a payment that must be made this quarter.\n\n**And it degrades fast.** In the worked company, a 20% fall in EBITDA takes coverage from 4.0x to 3.2x; a 200bp rise in the cost of floating-rate debt takes it lower again. Both at once is how covenant breaches happen, and both were foreseeable arithmetic."
+    },
+    {
+      "type": "intuition",
+      "id": "dupont",
+      "body": "**Return on equity is one number hiding three, and the DuPont identity separates them.**\n\nROE = net margin × asset turnover × equity multiplier.\n\n- **Net margin** — profit per unit of revenue. Pricing power and cost control.\n- **Asset turnover** — revenue per unit of assets. How hard the asset base works.\n- **Equity multiplier** — assets per unit of equity. Leverage.\n\nThe identity holds by construction: the revenues and assets cancel algebraically, leaving profit over equity. Which is exactly what makes it useful — **two companies can report the same ROE for completely different reasons, and only one of them is a good business.**\n\nA specialist manufacturer might reach 15% ROE on high margins and low turnover. A distributor reaches the same 15% on thin margins and rapid turnover. A third gets there on ordinary margins and three times the leverage.\n\n**The third one's ROE will fall apart in a downturn and the other two will not.** So the practical rule is that ROE without its decomposition is not evidence of quality — it is evidence that somebody multiplied three numbers together. Ask which of the three did the work."
+    },
+    {
+      "type": "formula",
+      "id": "dupont-formula",
+      "latex": "\\text{ROE} = \\frac{\\text{Net income}}{\\text{Revenue}} \\times \\frac{\\text{Revenue}}{\\text{Assets}} \\times \\frac{\\text{Assets}}{\\text{Equity}}",
+      "plainReading": "Return on equity equals net margin, times how much revenue each unit of assets produces, times how many units of assets each unit of equity supports. Revenue and assets cancel, so the whole thing reduces to net income over equity.",
+      "variables": [
+        { "symbol": "\\frac{\\text{Net income}}{\\text{Revenue}}", "meaning": "net margin — pricing power and cost discipline" },
+        { "symbol": "\\frac{\\text{Revenue}}{\\text{Assets}}", "meaning": "asset turnover — how hard the [[balance-sheet|balance sheet]] works" },
+        { "symbol": "\\frac{\\text{Assets}}{\\text{Equity}}", "meaning": "equity multiplier — leverage, and the term that flatters without improving" }
+      ]
+    },
+    {
+      "type": "example",
+      "id": "worked-ratios",
+      "body": "The worked company: revenue 500, EBITDA 80, EBIT 50, interest 20, net income 22.5, total assets 600, equity 200, debt 400.",
+      "walkthrough": [
+        "Net margin = 22.5 / 500 = **4.50%**.",
+        "Asset turnover = 500 / 600 = **0.833**.",
+        "Equity multiplier = 600 / 200 = **3.0**.",
+        "ROE = 4.50% × 0.833 × 3.0 = **11.25%**. Check directly: 22.5 / 200 = 11.25%. The identity holds.",
+        "**Now read the decomposition rather than the total. An 11.25% ROE on a 4.5% net margin was produced mainly by the 3.0x equity multiplier.** Strip the leverage — same operations, funded entirely by equity — and the return on assets is 22.5 / 600 = 3.75%.",
+        "Coverage: EBITDA / interest = 80 / 20 = **4.0x**; EBIT / interest = 50 / 20 = **2.5x**.",
+        "**Read that carefully: the ROE looks respectable and the coverage says the business has limited room.** Both are true, and they are the same three numbers arranged differently.",
+        "Sanity check worth reusing: **multiply the three DuPont terms and confirm they reproduce net income over equity.** If they do not, an inconsistent set of figures has been mixed — average versus year-end balances is the usual culprit."
+      ]
+    },
+    {
+      "type": "table",
+      "id": "ratio-table",
+      "caption": "What each family is for, and how each is gamed",
+      "headers": ["Family", "Best used for", "Common distortion"],
+      "rows": [
+        [
+          "Profitability",
+          "Comparing pricing power within an industry",
+          "Adjusted margins, capitalised costs, and one-off gains in the operating line."
+        ],
+        [
+          "Efficiency",
+          "Spotting balance sheet deterioration early",
+          "Year-end timing; a receivable collected on 31 December flatters everything."
+        ],
+        [
+          "Leverage",
+          "Sizing the risk in the [[capital-structure|capital structure]]",
+          "The denominator: adjusted, pro forma or run-rate [[ebitda]]."
+        ],
+        [
+          "Coverage",
+          "Whether it can pay what falls due",
+          "EBITDA rather than EBIT, and excluding capitalised interest or lease costs."
+        ]
+      ]
+    },
+    {
+      "type": "concept",
+      "id": "how-it-goes-wrong",
+      "body": "**Peer groups chosen to flatter.** \"Comparable\" is a judgement, and a peer set assembled after the ratio is calculated will show whatever is wanted. Ask how the peer set was constructed, and by whom.\n\n**Mixing stocks and flows inconsistently.** A ratio using a year's profit over a year-end balance is comparing a flow with a snapshot. Average balances are more honest and less common.\n\n**Ratios without their own history.** A 4.5% net margin means nothing until you know it was 7% three years ago. The trend usually carries more information than the level.\n\n**Ignoring the business model.** Software and supermarkets have utterly different natural ranges for every ratio here. Cross-sector comparison of asset turnover is meaningless.\n\n**Averaging ratios.** The average of two companies' margins is not the margin of the two combined. Aggregate the numerators and denominators separately, then divide — the shortcut is wrong whenever the companies differ in size."
+    },
+    {
+      "type": "pitfall",
+      "id": "leverage-flatters",
+      "body": "**Leverage improves ROE in good times by construction, which makes ROE a poor measure of quality on its own.**\n\nThe mechanism is not subtle: borrow to fund assets, earn more on the assets than the debt costs, and the surplus belongs to a smaller equity base. Higher ROE, same operations.\n\nThe uncomfortable part is that it works in reverse with equal force. In the worked company, equity is 200 against assets of 600. A 10% fall in asset value is 60 — **30% of the equity, from a 10% move.**\n\nSo when comparing two businesses on ROE, the question is which one would still be standing after a bad year. Return on assets, or return on invested capital, strips the financing out and asks about the operations alone. **A manager who quotes ROE and cannot immediately give you ROA has not separated the two, and the difference is the entire risk discussion.**\n\nThis is not an argument against leverage — it is the whole basis of [[private-equity|private equity]]. It is an argument against reading a levered return as evidence of an unlevered skill."
+    },
+    {
+      "type": "onTheJob",
+      "id": "on-the-job",
+      "body": "**Ask for interest coverage on EBIT as well as EBITDA.** The gap is the capital intensity, and the covenant is usually struck on the flattering one.\n\n**Decompose any ROE claim into the three DuPont terms.** If the leverage term did the work, the return is a financing decision rather than a business quality.\n\n**Ask how the peer group was constructed, and request the full list.** Selection is where most benchmarking arguments are actually won and lost.\n\n**Look at five years of every ratio, not the current level.** Direction and stability are the information; the level is context.\n\n**Recompute coverage at EBITDA down 20% and rates up 200bp.** Two lines of arithmetic, and it is the scenario in which covenant breaches actually occur — both at once, both foreseeable."
+    },
+    {
+      "type": "keyTakeaways",
+      "id": "takeaways",
+      "items": [
+        "Coverage is the first ratio to compute on a levered business, because it is the only one with a deadline. In the worked company it is 4.0x on EBITDA and 2.5x on EBIT — the same business, two covenant outcomes.",
+        "DuPont splits ROE into margin, asset turnover and leverage. The worked company's 11.25% came mainly from a 3.0x equity multiplier on a 4.5% net margin.",
+        "Leverage raises ROE by construction and works in reverse with equal force: with equity at 200 of 600 of assets, a 10% asset fall removes 30% of the equity.",
+        "A ratio needs its own history and a peer group you can inspect. The trend usually carries more information than the level, and the peer set is where benchmarking is won."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "fsa-ratios-01-q1",
+      "type": "numeric",
+      "difficulty": 2,
+      "tags": ["ratios", "coverage", "arithmetic"],
+      "concept": "worked-ratios",
+      "stem": "EBIT is 50 and interest is 20. What is EBIT interest coverage, in turns?",
+      "answer": 2.5,
+      "tolerance": 0.1,
+      "toleranceType": "abs",
+      "unit": "x",
+      "explanation": "On EBITDA the same company covers interest 4.0x. Which version a covenant uses is worth checking before relying on the headroom, because 2.5x and 4.0x sit on opposite sides of most covenant thresholds."
+    },
+    {
+      "id": "fsa-ratios-01-q2",
+      "type": "numeric",
+      "difficulty": 3,
+      "tags": ["ratios", "dupont", "arithmetic"],
+      "concept": "worked-ratios",
+      "stem": "Net income 22.5, revenue 500, assets 600, equity 200. What is ROE, in percent?",
+      "answer": 11.25,
+      "tolerance": 0.2,
+      "toleranceType": "abs",
+      "unit": "%",
+      "inputHint": "Either net income ÷ equity, or the three DuPont terms multiplied.",
+      "explanation": "Both routes give the same answer, which is the point of the identity. The decomposition is 4.50% × 0.833 × 3.0, and noticing that the third term is the largest contributor is the whole reason to decompose at all."
+    },
+    {
+      "id": "fsa-ratios-01-q3",
+      "type": "numeric",
+      "difficulty": 3,
+      "tags": ["ratios", "return-on-assets", "arithmetic"],
+      "concept": "leverage-flatters",
+      "stem": "Same company. What is return on assets — net income over total assets — in percent?",
+      "answer": 3.75,
+      "tolerance": 0.15,
+      "toleranceType": "abs",
+      "unit": "%",
+      "explanation": "The gap between 11.25% ROE and 3.75% ROA is entirely financing. Neither number is wrong and they describe different things: one is what the operations earn, the other is what the equity earns after leverage has amplified it in whichever direction the year went."
+    },
+    {
+      "id": "fsa-ratios-01-q4",
+      "type": "mcq",
+      "difficulty": 3,
+      "tags": ["ratios", "dupont"],
+      "concept": "dupont",
+      "stem": "Two companies both report 15% ROE. One has a 12% net margin and 1.2x leverage; the other a 3% net margin and 4x leverage. What does this tell you?",
+      "choices": [
+        "They are equally good businesses, since the returns match",
+        "The first earns its return from operations; the second from financing, and only the second's return collapses in a downturn",
+        "The second is better because it uses capital efficiently",
+        "Nothing without knowing their industries"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "The identical ROE is exactly what makes the comparison misleading — it is three different numbers multiplied to the same product.",
+        "Correct. High margin with low leverage survives a revenue fall; thin margin with high leverage does not, because the interest bill is fixed and the margin is what absorbs the shock.",
+        "Leverage is not capital efficiency. Asset turnover is, and it is a separate term in the identity.",
+        "Industry context matters and does not prevent this conclusion — the leverage difference dominates in any industry."
+      ],
+      "explanation": "The follow-up question that settles quality: what does each company's ROE look like at 10% lower revenue? The high-margin business keeps most of its return; the levered one loses most of it. That is the sensitivity ROE alone conceals."
+    },
+    {
+      "id": "fsa-ratios-01-q5",
+      "type": "tfj",
+      "difficulty": 4,
+      "tags": ["ratios", "misconception"],
+      "concept": "how-it-goes-wrong",
+      "stem": "\"Our portfolio's average net margin is 8%, which is above the sector's 6%.\" True or false as a valid comparison — and why?",
+      "isTrue": false,
+      "justifications": [
+        "False — averaging ratios across companies of different sizes is invalid; aggregate the numerators and denominators separately, then divide",
+        "False — margins can never be compared between companies",
+        "True — averaging margins is standard practice",
+        "False — because sector margins are not published reliably"
+      ],
+      "justificationIndex": 0,
+      "rationales": [
+        "Correct. A simple average gives a tiny company the same weight as a large one. The portfolio's actual margin is total profit over total revenue, which can sit either side of the unweighted average.",
+        "Over-correction. Margins compare well within an industry — the error is the averaging method, not the comparison.",
+        "It is common and it is still wrong whenever the companies differ materially in size.",
+        "Sector data quality is a separate issue and does not rescue the arithmetic."
+      ],
+      "explanation": "This generalises to every ratio in a portfolio report: leverage, coverage, growth. Aggregate the components, then divide. The unweighted average of ratios is one of the most widespread errors in institutional reporting, and it is invisible unless you ask for the underlying totals."
+    },
+    {
+      "id": "fsa-ratios-01-q6",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["ratios", "stress", "on-the-job"],
+      "concept": "coverage-first",
+      "stem": "EBITDA falls 20% to 64 and floating-rate interest rises from 20 to 28. What happens to EBITDA interest coverage?",
+      "choices": [
+        "It falls from 4.0x to about 2.3x",
+        "It falls from 4.0x to about 3.2x",
+        "It is unchanged, since both moved",
+        "It rises, because interest is tax deductible"
+      ],
+      "answerIndex": 0,
+      "rationales": [
+        "Correct. 64 / 28 = 2.29x. Both terms moved against the company, so the effects compound rather than offsetting.",
+        "This is the EBITDA fall alone, holding interest constant — the half of the scenario that gets modelled.",
+        "They moved in opposite directions for the ratio: numerator down, denominator up.",
+        "Deductibility affects tax, not the coverage ratio, and it cannot help a company that cannot pay the interest."
+      ],
+      "explanation": "This two-line calculation is worth running on every levered holding, because a downturn and higher rates are the same event more often than not. Modelling either alone understates the damage, and covenant thresholds are typically set where the combined scenario lands."
+    },
+    {
+      "id": "fsa-ratios-01-q7",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["ratios", "benchmarking", "on-the-job"],
+      "concept": "how-it-goes-wrong",
+      "stem": "A manager shows portfolio companies outperforming a peer set on every ratio. What should you ask first?",
+      "choices": [
+        "For a longer time series",
+        "How the peer set was constructed, and for the full list of members",
+        "For the calculations to be independently audited",
+        "For sector-adjusted figures"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "A longer series of a favourable comparison is still a favourable comparison.",
+        "Correct. Outperformance on every single ratio is unusual enough to suggest the comparison set was assembled after the fact. The membership list settles it in minutes.",
+        "Audit confirms arithmetic, not relevance, and the arithmetic is rarely where the problem is.",
+        "Useful refinement, and it presumes the peer set is legitimate to begin with."
+      ],
+      "explanation": "Uniform outperformance is itself the signal. Real portfolios beat peers on some measures and lose on others; a clean sweep usually means either an unrepresentative peer group or metrics chosen to match the portfolio's strengths. Both are answerable questions."
+    }
+  ],
+  "needsReview": false,
+  "reviewNote": null
+}

@@ -3,6 +3,126 @@
   "domain": "financial-statement-analysis",
   "terms": [
     {
+      "slug": "accrual-accounting",
+      "term": "accrual accounting",
+      "plain": "Recording revenue when it is earned and costs when they are incurred, rather than when cash moves. Gives a truer picture of a period, at the price of judgement.",
+      "formal": "The recognition of economic events in the period in which they occur, independent of the timing of associated cash flows.",
+      "seeAlso": [
+        "income-statement",
+        "quality-of-earnings",
+        "cash-flow-statement"
+      ]
+    },
+    {
+      "slug": "balance-sheet",
+      "term": "balance sheet",
+      "plain": "A snapshot of what a company owns and owes at one instant. Assets equal liabilities plus equity, always, by construction.",
+      "formal": "A statement of financial position at a point in time, presenting assets, liabilities and equity such that assets equal the sum of the other two.",
+      "seeAlso": [
+        "income-statement",
+        "cash-flow-statement",
+        "retained-earnings"
+      ]
+    },
+    {
+      "slug": "capex",
+      "term": "capital expenditure (capex)",
+      "plain": "Cash spent on long-lived assets. Maintenance capex replaces what wore out and cannot be stopped for long; growth capex adds capacity and can.",
+      "formal": "Cash outflows for the acquisition or improvement of property, plant, equipment and other long-lived assets, reported within investing activities.",
+      "seeAlso": [
+        "free-cash-flow",
+        "depreciation",
+        "cash-flow-statement"
+      ]
+    },
+    {
+      "slug": "cash-conversion-cycle",
+      "term": "cash conversion cycle",
+      "plain": "How many days a company's cash is tied up between paying for something and being paid for it. Days sales outstanding plus days inventory, minus days payable.",
+      "formal": "DSO + DIO − DPO, expressed in days; a negative cycle indicates the business is financed by its customers and suppliers.",
+      "seeAlso": [
+        "working-capital",
+        "dso",
+        "dio"
+      ]
+    },
+    {
+      "slug": "cash-flow-statement",
+      "term": "cash flow statement",
+      "plain": "The statement showing where cash actually came from and went, split into operating, investing and financing. The one to read first.",
+      "formal": "A statement reconciling opening and closing cash balances through operating, investing and financing activities over a period.",
+      "seeAlso": [
+        "free-cash-flow",
+        "income-statement",
+        "capex"
+      ]
+    },
+    {
+      "slug": "current-ratio",
+      "term": "current ratio",
+      "plain": "Current assets divided by current liabilities — a rough test of whether short-term obligations are covered by short-term resources.",
+      "formal": "Current assets divided by current liabilities; the quick ratio excludes inventory from the numerator.",
+      "seeAlso": [
+        "working-capital",
+        "interest-coverage"
+      ]
+    },
+    {
+      "slug": "depreciation",
+      "term": "depreciation",
+      "plain": "The accountant's estimate of how much of a long-lived asset was used up this period. Not a cash payment now, and a real cost — the asset needs replacing.",
+      "formal": "The systematic allocation of the cost of a tangible asset over its estimated useful life; amortisation is the equivalent for intangibles.",
+      "seeAlso": [
+        "ebitda",
+        "ebit",
+        "capex"
+      ]
+    },
+    {
+      "slug": "dio",
+      "term": "days inventory outstanding (DIO)",
+      "plain": "How long stock sits before it is sold, in days. Measured against cost of goods sold rather than revenue, because inventory is carried at cost.",
+      "formal": "Inventory divided by cost of goods sold, multiplied by the number of days in the period.",
+      "seeAlso": [
+        "cash-conversion-cycle",
+        "dso",
+        "working-capital"
+      ]
+    },
+    {
+      "slug": "dpo",
+      "term": "days payables outstanding (DPO)",
+      "plain": "How long the company takes to pay its own suppliers, in days. Effectively free financing — and stretching it has a relationship cost.",
+      "formal": "Accounts payable divided by cost of goods sold, multiplied by the number of days in the period.",
+      "seeAlso": [
+        "cash-conversion-cycle",
+        "dso",
+        "working-capital"
+      ]
+    },
+    {
+      "slug": "dso",
+      "term": "days sales outstanding (DSO)",
+      "plain": "How long customers take to pay, in days. Receivables divided by revenue, times 365. Rising DSO with flat revenue is an early warning.",
+      "formal": "Accounts receivable divided by revenue, multiplied by the number of days in the period.",
+      "seeAlso": [
+        "cash-conversion-cycle",
+        "dpo",
+        "working-capital"
+      ]
+    },
+    {
+      "slug": "ebit",
+      "term": "EBIT",
+      "plain": "Earnings before interest and taxes — operating profit after the cost of assets wearing out, but before financing and tax. Stricter than EBITDA.",
+      "formal": "Operating profit after depreciation and amortisation and before interest expense and income taxes.",
+      "seeAlso": [
+        "ebitda",
+        "interest-coverage",
+        "income-statement"
+      ]
+    },
+    {
       "slug": "ebitda",
       "term": "EBITDA",
       "plain": "Earnings before interest, tax, depreciation and amortisation. A rough proxy for the cash a business generates before financing and accounting choices.",
@@ -11,6 +131,93 @@
         "ev-ebitda",
         "buyout",
         "capital-structure"
+      ]
+    },
+    {
+      "slug": "factoring",
+      "term": "factoring",
+      "plain": "Selling receivables to a third party for cash now, at a discount. Improves reported collection days and operating cash flow, and is financing rather than efficiency.",
+      "formal": "The sale or assignment of trade receivables to a financier at a discount, transferring collection and sometimes credit risk.",
+      "seeAlso": [
+        "working-capital",
+        "dso",
+        "net-debt"
+      ]
+    },
+    {
+      "slug": "free-cash-flow",
+      "term": "free cash flow",
+      "plain": "The cash left after running the business and maintaining its assets — the money actually available to service debt or reach an owner.",
+      "formal": "Operating cash flow less capital expenditure; variants differ in whether interest has been deducted, so specify whether the measure is to the firm or to equity.",
+      "seeAlso": [
+        "cash-flow-statement",
+        "capex",
+        "ebitda"
+      ]
+    },
+    {
+      "slug": "income-statement",
+      "term": "income statement",
+      "plain": "The statement showing revenue down to profit for a period. Built on accruals, so it records revenue when earned rather than when the cash arrives.",
+      "formal": "A statement of financial performance over a reporting period, presenting revenue, expenses and resulting profit or loss on an accrual basis.",
+      "seeAlso": [
+        "balance-sheet",
+        "cash-flow-statement",
+        "ebitda"
+      ]
+    },
+    {
+      "slug": "interest-coverage",
+      "term": "interest coverage",
+      "plain": "Operating earnings divided by the interest bill. The ratio with a deadline attached: can the company pay its lenders out of what it earns?",
+      "formal": "EBIT or EBITDA divided by interest expense; the EBIT version is stricter because it accounts for the consumption of assets.",
+      "seeAlso": [
+        "ebit",
+        "ebitda",
+        "net-debt"
+      ]
+    },
+    {
+      "slug": "net-debt",
+      "term": "net debt",
+      "plain": "Gross borrowings less cash, on the logic that cash could repay debt tomorrow. Only net the cash that can actually reach the borrowing entity.",
+      "formal": "Total interest-bearing liabilities less cash and cash equivalents; analytically, restricted or trapped cash should be excluded from the offset.",
+      "seeAlso": [
+        "interest-coverage",
+        "ebitda",
+        "seniority"
+      ]
+    },
+    {
+      "slug": "quality-of-earnings",
+      "term": "quality of earnings",
+      "plain": "How much of reported profit is recurring, cash-backed and genuinely attributable to the business. In private deals, a separate diligence workstream.",
+      "formal": "An assessment of the sustainability, cash conversion and attribution of reported earnings, including the basis of any presented adjustments.",
+      "seeAlso": [
+        "accrual-accounting",
+        "ebitda",
+        "free-cash-flow"
+      ]
+    },
+    {
+      "slug": "retained-earnings",
+      "term": "retained earnings",
+      "plain": "Accumulated profits that have not been paid out as dividends. This is where each year's net income lands on the balance sheet.",
+      "formal": "The cumulative net income of an entity less cumulative distributions to owners, reported within equity.",
+      "seeAlso": [
+        "balance-sheet",
+        "income-statement"
+      ]
+    },
+    {
+      "slug": "working-capital",
+      "term": "working capital",
+      "plain": "The cash tied up in day-to-day operations: receivables plus inventory less payables. Remember the direction — working capital going up means cash going out.",
+      "formal": "Current operating assets less current operating liabilities; the change in the balance is a cash flow item within operating activities.",
+      "seeAlso": [
+        "cash-conversion-cycle",
+        "dso",
+        "dpo"
       ]
     }
   ]

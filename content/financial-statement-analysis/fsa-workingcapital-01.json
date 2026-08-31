@@ -1,0 +1,228 @@
+{
+  "schemaVersion": 1,
+  "id": "fsa-workingcapital-01",
+  "domain": "financial-statement-analysis",
+  "title": "Working Capital and the Cash Conversion Cycle",
+  "summary": "How many days a company waits between paying for something and being paid for it — and why that number is negotiated at every deal close.",
+  "level": "core",
+  "prereqs": ["fsa-cashflow-01"],
+  "estMinutes": 9,
+  "examRelevance": ["CFA-L1", "CAIA-L2", "practical"],
+  "lesson": [
+    {
+      "type": "concept",
+      "id": "what-it-is",
+      "body": "[[working-capital|Working capital]] is the money tied up in running the business day to day. In the form that matters for cash, three lines:\n\n**Receivables** — sales delivered but not yet paid for. Cash the company is owed.\n\n**Inventory** — goods bought or made but not yet sold. Cash sitting on shelves.\n\n**Payables** — purchases received but not yet paid for. Cash the company is holding onto, effectively free supplier financing.\n\nReceivables and inventory are uses of cash; payables are a source. So the operating working capital position is roughly **receivables + inventory − payables**, and the *change* in it is what appears in the [[cash-flow-statement|cash flow statement]].\n\n**The direction confuses people constantly, so it is worth fixing once: working capital going up is cash going out.** More receivables means more cash owed to you and less in the bank. It feels like an asset increasing and it is, and the cash left to pay for it."
+    },
+    {
+      "type": "concept",
+      "id": "the-cycle",
+      "body": "**The [[cash-conversion-cycle|cash conversion cycle]] turns those three balances into one number: how many days the company's cash is tied up.**\n\nThree components, each a balance converted into days:\n\n**[[dso|Days sales outstanding]]** — how long customers take to pay. Receivables ÷ revenue × 365.\n\n**[[dio|Days inventory outstanding]]** — how long stock sits before being sold. Inventory ÷ cost of goods sold × 365.\n\n**[[dpo|Days payables outstanding]]** — how long the company takes to pay suppliers. Payables ÷ cost of goods sold × 365.\n\nThe cycle is **DSO + DIO − DPO**. Positive means the company funds a gap; negative means suppliers and customers fund the business.\n\n**A negative cycle is a genuinely powerful position.** A retailer that sells stock in three weeks, collects at the till instantly and pays suppliers in sixty days is financed by its own suppliers — and it generates cash faster as it grows, which is the opposite of the usual pattern. That is a structural advantage, not an operational one, and it survives management changes."
+    },
+    {
+      "type": "intuition",
+      "id": "days-are-money",
+      "body": "**Every day of the cycle has a price, and the conversion is one line of arithmetic: one day of revenue.**\n\nIn the worked company, revenue of 500 means one day is 500 ÷ 365 = 1.37 of cash. So a ten-day improvement in collection releases about 13.7 of cash — permanently, and without selling anything extra.\n\nThat reframing is what makes working capital a value creation lever rather than an accounting topic:\n\n**It is often the cheapest cash available.** No capital spending, no acquisition, no price increase. Just collecting faster or holding less stock.\n\n**It is the first thing a [[private-equity|private equity]] owner attacks**, precisely because it converts operational change into cash within one cycle rather than over years.\n\n**And it has a floor.** Pushing DSO down by refusing credit loses customers; stretching payables damages supplier relationships and eventually pricing; cutting inventory too far causes stockouts. **Every working capital improvement is a trade, and the honest question is what was given up to get it.**\n\nWhich leads to the diligence version: a business showing a sudden working capital improvement in the year before a sale has either found genuine efficiency or borrowed cash from its own future. The two look identical for about two quarters."
+    },
+    {
+      "type": "example",
+      "id": "worked-cycle",
+      "body": "The worked company: revenue 500, cost of goods sold 300, receivables 75, inventory 60, payables 45.",
+      "walkthrough": [
+        "DSO = 75 / 500 × 365 = **54.8 days**. Customers take about eight weeks to pay.",
+        "DIO = 60 / 300 × 365 = **73.0 days**. Note the denominator is cost of goods sold, not revenue — inventory is carried at cost.",
+        "DPO = 45 / 300 × 365 = **54.8 days**. The company takes the same eight weeks to pay its own suppliers.",
+        "Cash conversion cycle = 54.8 + 73.0 − 54.8 = **73.0 days**.",
+        "So the company funds roughly 73 days of its own operations. At 1.37 of revenue per day, that is about **100 of cash permanently tied up in the [[balance-sheet|balance sheet]]**.",
+        "**Read that carefully: 100 of cash is invested in the business without appearing as an asset anyone would describe as an investment.** It is the same order of magnitude as a year's [[ebitda|EBITDA]] at 80.",
+        "Now the improvement case: cut DSO by 10 days and the business releases 10 × 1.37 = **13.7 of cash**, roughly 17% of EBITDA, from nothing but collecting faster.",
+        "Sanity check worth reusing: **compute one day of revenue first, before looking at any working capital figure.** Every subsequent day-count converts into money instantly, and the conversation moves from days to cash — which is where decisions get made."
+      ]
+    },
+    {
+      "type": "table",
+      "id": "cycle-table",
+      "caption": "What each lever costs",
+      "headers": ["Lever", "Cash effect", "What you give up"],
+      "rows": [
+        [
+          "Collect faster (lower DSO)",
+          "Cash in now, permanently",
+          "Customer goodwill, and possibly volume if credit terms were part of the offer."
+        ],
+        [
+          "Hold less stock (lower DIO)",
+          "Cash released once",
+          "Service levels, and stockout risk when demand surprises."
+        ],
+        [
+          "Pay later (higher DPO)",
+          "Cash retained",
+          "Supplier relationships, early payment discounts, and eventually pricing."
+        ],
+        [
+          "Grow revenue",
+          "Cash out, in proportion to the cycle",
+          "Nothing — this is the cost of growth, not a mistake."
+        ]
+      ]
+    },
+    {
+      "type": "concept",
+      "id": "how-it-goes-wrong",
+      "body": "**Seasonality read as a trend.** Working capital swings within a year for perfectly ordinary reasons. A single balance sheet date can be the peak or trough, which is why deals use average or normalised working capital rather than the closing figure.\n\n**Window dressing before a sale.** Delaying supplier payments and pushing collections in the final quarter improves the closing position and reverses immediately afterwards. Visible in the quarterly pattern, invisible in the annual accounts.\n\n**Confusing the definition.** \"Working capital\" sometimes includes cash and short-term debt and sometimes does not. In a purchase agreement the definition is negotiated in detail, and the definition is worth more than most of the diligence findings.\n\n**Ignoring the growth-funding link.** A business with a 73-day cycle growing 30% a year needs funding for the working capital that growth creates. Plenty of profitable businesses fail here, and the failure is entirely predictable from these three numbers.\n\n**Treating [[factoring|factoring]] as an operational improvement.** Selling receivables improves DSO and operating cash flow while adding a financing cost. Legitimate financing, presented as efficiency more often than it should be."
+    },
+    {
+      "type": "pitfall",
+      "id": "completion-mechanism",
+      "body": "**Working capital is settled at every deal close, and it is where a surprising amount of money changes hands after the price is agreed.**\n\nThe mechanism: the parties agree a *normalised* level of working capital, usually a twelve-month average. At completion the actual level is measured. If it is below the target, the buyer pays less; above, the buyer pays more. The logic is that the buyer is entitled to receive the business with its usual amount of operating cash inside it.\n\nSo two things become worth real money. **The target level**, which is negotiated on historical data that the seller has prepared. And **the definition** of which items count — is accrued bonus working capital or debt? Is deferred revenue a liability that reduces the price or a normal operating item?\n\n**A 5 disagreement over the definition is 5 of cash on completion day**, and it is argued about long after the headline multiple has been signed off in a committee paper. This is why deal lawyers spend more time on the completion mechanism than on the price, and it is one of the most reliable places for an analyst to add value early."
+    },
+    {
+      "type": "onTheJob",
+      "id": "on-the-job",
+      "body": "**Compute one day of revenue before anything else.** Every day-count then converts into cash, and the discussion becomes about money rather than about metrics.\n\n**Ask for monthly working capital across two years, not the year-end figure.** Seasonality and window dressing are both invisible annually and obvious monthly.\n\n**Ask how the completion working capital target was set, and on whose data.** The target is negotiated, prepared by the seller, and worth material cash.\n\n**Check the quarterly pattern of payable days before a sale.** A jump in the final quarter is cash borrowed from the next owner's first quarter.\n\n**For a growth thesis, model the working capital that growth consumes.** A 73-day cycle means every unit of new revenue takes about a fifth of a unit of cash before it pays. Plans that show revenue doubling without a funding line have not done this."
+    },
+    {
+      "type": "keyTakeaways",
+      "id": "takeaways",
+      "items": [
+        "Working capital rising is cash going out. Receivables and inventory consume cash; payables supply it.",
+        "The cash conversion cycle is DSO + DIO − DPO. The worked company's 73 days tie up about 100 of cash — comparable to a full year's EBITDA of 80.",
+        "One day of revenue is the conversion rate: at 500 of revenue it is 1.37, so a ten-day collection improvement releases 13.7 of cash from nothing but faster collection.",
+        "Every improvement is a trade — customer goodwill, service levels or supplier relationships. Ask what was given up, especially in the year before a sale."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "fsa-workingcapital-01-q1",
+      "type": "numeric",
+      "difficulty": 2,
+      "tags": ["working-capital", "dso", "arithmetic"],
+      "concept": "worked-cycle",
+      "stem": "Receivables are 75 and revenue is 500. What is days sales outstanding? Give one decimal place.",
+      "answer": 54.8,
+      "tolerance": 0.5,
+      "toleranceType": "abs",
+      "unit": "days",
+      "inputHint": "receivables ÷ revenue × 365",
+      "explanation": "Receivables are measured against revenue because they are recorded at selling price. Inventory uses cost of goods sold instead, because it is carried at cost — mixing the two denominators is the standard error in this calculation."
+    },
+    {
+      "id": "fsa-workingcapital-01-q2",
+      "type": "numeric",
+      "difficulty": 3,
+      "tags": ["working-capital", "cash-conversion-cycle", "arithmetic"],
+      "concept": "worked-cycle",
+      "stem": "DSO is 54.8 days, DIO is 73.0 days and DPO is 54.8 days. What is the cash conversion cycle, in days?",
+      "answer": 73.0,
+      "tolerance": 0.6,
+      "toleranceType": "abs",
+      "unit": "days",
+      "explanation": "The DSO and DPO cancelling here is a coincidence of these figures, and a useful one: it makes clear that the whole cycle in this business is inventory. Any working capital programme should start with the 73 days of stock, not with collections."
+    },
+    {
+      "id": "fsa-workingcapital-01-q3",
+      "type": "numeric",
+      "difficulty": 3,
+      "tags": ["working-capital", "cash", "arithmetic"],
+      "concept": "days-are-money",
+      "stem": "Revenue is 500. How much cash is released by a 10-day reduction in DSO? Give one decimal place.",
+      "answer": 13.7,
+      "tolerance": 0.3,
+      "toleranceType": "abs",
+      "explanation": "Set against EBITDA of 80, that is 17% of a year's operating earnings, released once and permanently, with no capital spending and no acquisition. It is why working capital is the first place an operationally minded owner looks."
+    },
+    {
+      "id": "fsa-workingcapital-01-q4",
+      "type": "mcq",
+      "difficulty": 3,
+      "tags": ["working-capital", "direction"],
+      "concept": "what-it-is",
+      "stem": "A company's receivables rise by 20 with revenue flat. What is the effect on cash flow?",
+      "choices": [
+        "Cash flow improves by 20, since receivables are an asset",
+        "Cash flow is reduced by 20 — sales were made without being collected",
+        "No effect, since receivables are not cash",
+        "Cash flow improves by 20 less any bad debt provision"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "The asset rose and the cash did not. An increase in an operating asset is a use of cash, which is the sign convention that trips people up most.",
+        "Correct. Revenue was flat, so the same sales are now sitting uncollected. That is 20 of cash the company earned and does not have.",
+        "It has a direct effect: the change in receivables is a line in operating cash flow.",
+        "Direction is wrong, and the bad debt point is a second-order refinement of an incorrect sign."
+      ],
+      "explanation": "Rising receivables with flat revenue is one of the clearest early warnings available — either customers are struggling to pay or credit terms were loosened to hold volume. Both matter, and both show up here before they show up in profit."
+    },
+    {
+      "id": "fsa-workingcapital-01-q5",
+      "type": "tfj",
+      "difficulty": 4,
+      "tags": ["working-capital", "misconception"],
+      "concept": "how-it-goes-wrong",
+      "stem": "\"Working capital improved sharply in the year before the sale, which shows the management team is capable.\" True or false — and why?",
+      "isTrue": false,
+      "justifications": [
+        "False — a pre-sale improvement can be genuine efficiency or cash borrowed from the next owner by stretching payables and pushing collections, and the two look identical for about two quarters",
+        "False — working capital improvements are never sustainable",
+        "True — improving working capital requires operational discipline",
+        "False — because working capital is irrelevant to a sale price"
+      ],
+      "justificationIndex": 0,
+      "rationales": [
+        "Correct. Timing is the tell. The test is the monthly pattern and what happens in the first quarter after the year end, not the annual figure.",
+        "Over-correction. Real improvements happen and persist — the point is that this evidence cannot distinguish them.",
+        "It can, and the year in which the improvement appeared is what makes it unverifiable from the annual accounts alone.",
+        "It is directly relevant: the completion mechanism settles working capital in cash on the day."
+      ],
+      "explanation": "The general principle applies to every metric that improves in a diligence year: ask whether the improvement is a change in behaviour or a change in timing. Monthly data usually answers it in ten minutes, and the request is entirely routine."
+    },
+    {
+      "id": "fsa-workingcapital-01-q6",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["working-capital", "deal-mechanics", "on-the-job"],
+      "concept": "completion-mechanism",
+      "stem": "Why does the definition of working capital in a purchase agreement matter so much?",
+      "choices": [
+        "It determines the headline purchase multiple",
+        "The completion adjustment settles in cash against a negotiated target, so a disagreement over which items count is a disagreement over money on the day",
+        "It sets the covenant package",
+        "It determines the accounting standard used afterwards"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "The multiple is agreed separately, and the completion adjustment happens afterwards against it.",
+        "Correct. Whether an accrued bonus, deferred revenue or a supplier rebate counts as working capital or as debt changes the cash the buyer pays at completion, item by item.",
+        "Covenants relate to the financing documents, not the completion mechanism.",
+        "Post-completion accounting policy is a separate matter entirely."
+      ],
+      "explanation": "This is where an analyst adds value early and cheaply: list the disputed items, price each one, and total them. It is often a larger number than anything else produced in diligence that week, and it is entirely arithmetic once the list exists."
+    },
+    {
+      "id": "fsa-workingcapital-01-q7",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["working-capital", "growth", "on-the-job"],
+      "concept": "days-are-money",
+      "stem": "A business with a 73-day cash conversion cycle plans to double revenue from 500 to 1,000. What must the plan include?",
+      "choices": [
+        "Nothing extra — growth funds itself out of profit",
+        "Funding for roughly another 100 of working capital, since the cycle scales with revenue",
+        "A reduction in gross margin",
+        "An increase in depreciation"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Growth consumes cash before it produces it. Profit arrives after the receivable is collected, and the receivable has to be funded first.",
+        "Correct. A 73-day cycle at 500 of revenue ties up about 100. At 1,000 it ties up about 200, so the plan needs roughly another 100 of funding for working capital alone, before any capital expenditure.",
+        "Margins may or may not change with scale; it is a separate question from the cash the growth absorbs.",
+        "Depreciation follows capital spending, which is an additional requirement rather than this one."
+      ],
+      "explanation": "This is the single most common omission in a growth plan, and it is arithmetic rather than judgement. Any doubling plan should show the working capital line growing in proportion — if it does not, the model is assuming customers pay faster as the business scales, which needs an argument."
+    }
+  ],
+  "needsReview": false,
+  "reviewNote": null
+}

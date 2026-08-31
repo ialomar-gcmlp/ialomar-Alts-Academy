@@ -1,0 +1,227 @@
+{
+  "schemaVersion": 1,
+  "id": "fsa-earningsquality-01",
+  "domain": "financial-statement-analysis",
+  "title": "Accruals, Revenue Recognition and Earnings Quality",
+  "summary": "Where judgement enters the accounts, which judgements flatter profit, and the handful of checks that find them.",
+  "level": "advanced",
+  "prereqs": ["fsa-cashflow-01", "fsa-ratios-01"],
+  "estMinutes": 10,
+  "examRelevance": ["CFA-L1", "CFA-L2", "practical"],
+  "lesson": [
+    {
+      "type": "concept",
+      "id": "what-it-is",
+      "body": "[[accrual-accounting|Accrual accounting]] records revenue when it is earned and costs when they are incurred, rather than when cash moves. This is a feature, not a flaw: a business that delivers in December and is paid in February genuinely earned that revenue in December, and matching the cost of delivery to it gives a truer picture of the period.\n\nThe price of that truer picture is judgement. Four judgements do most of the work:\n\n**When is revenue earned?** On shipment, on delivery, on installation, over the life of a contract, on achieving a milestone.\n\n**What is an asset rather than a cost?** Development spending, software, customer acquisition costs — capitalise and they sit on the [[balance-sheet|balance sheet]]; expense and they hit profit now.\n\n**How fast do assets wear out?** [[depreciation|Depreciation]] lives depend on estimates of useful life.\n\n**What will not be collected or will be returned?** Provisions against receivables, warranties, returns and litigation.\n\n**Every one of those is a legitimate estimate with a defensible range, and every one moves profit.** Earnings quality is the question of where in that range a company chooses to sit, and whether it stays there."
+    },
+    {
+      "type": "concept",
+      "id": "accruals-mean-revert",
+      "body": "**The central finding of the earnings quality literature, stated plainly: profit that is not backed by cash tends not to persist.**\n\nThe reason is mechanical. An accrual is a timing difference, and timing differences reverse. Revenue recognised before collection either becomes cash or becomes a bad debt. Costs deferred to the balance sheet either prove to be assets or get written off later.\n\nSo a company reporting profit well above its operating cash flow is not necessarily doing anything wrong — but it is reporting profit whose confirmation lies in the future. **On average, and across large samples, high-accrual profits are followed by weaker profits.**\n\nThis gives the most useful single measure in the field: **the accrual ratio, roughly net income less operating cash flow, scaled by total assets.** High and rising is a flag. It is not evidence of anything improper; it is a reason to read the revenue recognition note and the receivables trend.\n\nAnd the reverse case is worth knowing too. **A company whose cash flow persistently exceeds its profit is often conservatively accounted, and conservative accounting is a quiet indicator of a management team that is not managing the number.**"
+    },
+    {
+      "type": "intuition",
+      "id": "why-in-private-markets",
+      "body": "This all sounds like a listed-equity concern. It matters more in private markets, for three reasons that compound.\n\n**Fewer eyes.** No analysts, no short sellers, no quarterly market reaction. In private companies the accounts are read by a handful of people who mostly want the deal to happen.\n\n**Management often prepares the numbers.** Unaudited management accounts circulate widely in diligence, and the person preparing them frequently has equity in the outcome.\n\n**The incentive arrives on a date.** A sale process, an earnout measurement, a [[covenant]] test, a valuation for a continuation fund. **Judgement gets exercised hardest in the period before something is measured**, which is exactly when the least verification is possible.\n\nSo the sequence to apply is short and unglamorous:\n\n**Compare cumulative profit and cumulative operating cash flow.** Five years defeats most timing games.\n\n**Look at receivable days and inventory days by quarter.** Deterioration shows up here before it shows up in profit.\n\n**Read the revenue recognition policy and ask if it changed.** A policy change in a diligence year deserves a specific explanation.\n\n**Ask what proportion of revenue is recurring, contracted and cash-collected.** These are three different claims and they are routinely conflated in one sentence."
+    },
+    {
+      "type": "example",
+      "id": "worked-accrual",
+      "body": "A company delivers a system in December for 120, having spent 90 in cash on delivery. The customer pays 80 in December and the remaining 40 in March.",
+      "walkthrough": [
+        "**Accrual view.** Revenue 120 is earned on delivery. Cost 90 is matched against it. Profit = **30**.",
+        "**Cash view.** Received 80, paid 90. Cash flow = **−10**.",
+        "So the same transaction is +30 of profit and −10 of cash. A receivable of 40 sits on the balance sheet as the bridge between them.",
+        "Both views are correct. **The accrual view is the better description of what happened economically; the cash view is the better description of what the company can spend.**",
+        "Now scale it up. If the company does this on a growing basis, profit will exceed cash flow every single year — not because anything is wrong, but because the receivable balance keeps rising.",
+        "**Read that carefully: a permanent gap between profit and cash can be a completely healthy growing business.** Which is why the diagnostic is not the gap itself, it is whether the gap is *widening relative to revenue*.",
+        "Sanity check worth reusing: **express the profit-to-cash gap as a percentage of revenue and track it over five years.** A stable percentage is a business model. A rising percentage is a question — and receivable days will usually answer it."
+      ]
+    },
+    {
+      "type": "table",
+      "id": "flags",
+      "caption": "Flags, and what each actually means",
+      "headers": ["Observation", "Innocent explanation", "What to check"],
+      "rows": [
+        [
+          "Profit rising, operating cash flow flat",
+          "Growth absorbing [[working-capital|working capital]]",
+          "Receivable days by quarter; is revenue being collected at the same speed?"
+        ],
+        [
+          "Receivable days rising",
+          "A shift in customer mix or geography",
+          "Ageing of receivables and the bad debt provision as a share of the balance."
+        ],
+        [
+          "Revenue recognition policy changed",
+          "A genuine change in contract structure or an accounting standard",
+          "Restated prior periods, and whether the change raised or lowered current profit."
+        ],
+        [
+          "Costs newly capitalised",
+          "A genuinely long-lived asset created",
+          "The capitalised amount as a share of profit, and the amortisation period chosen."
+        ],
+        [
+          "Provisions released into profit",
+          "An earlier estimate proved conservative",
+          "Whether releases recur, and whether the release was disclosed separately."
+        ]
+      ]
+    },
+    {
+      "type": "concept",
+      "id": "how-it-goes-wrong",
+      "body": "**Channel stuffing.** Shipping more to distributors than they can sell, recognising revenue on shipment. Revenue arrives early and returns arrive later.\n\n**Pulling forward.** Offering discounts or extended terms at the period end to close sales that belonged to next quarter. Revenue is real and the timing was bought, usually at the cost of margin.\n\n**Capitalising aggressively.** Moving costs to the balance sheet raises profit and operating cash flow simultaneously, because the spending is reclassified as investing. Two flattered metrics from one choice.\n\n**Cookie-jar provisions.** Over-providing in a good year, releasing in a bad one. It smooths reported earnings and it obscures the [[volatility]] a reader needs to see.\n\n**Changing depreciation lives.** Extending useful lives lowers the annual charge and raises profit with no operational change. Disclosed in the notes, rarely highlighted.\n\n**Related-party revenue.** Sales to entities connected to the owner. May be genuine and needs to be identified, because it may not survive a change of ownership."
+    },
+    {
+      "type": "pitfall",
+      "id": "recurring-revenue",
+      "body": "**\"Recurring revenue\" is three separate claims presented as one, and the differences decide what it is worth.**\n\n*Contracted* — a signed agreement with a remaining term. Verifiable: ask for the weighted average remaining contract length.\n\n*Repeating* — customers habitually come back, without a contract. Real and softer, and it should be evidenced by retention and churn data rather than asserted.\n\n*Recognised over time* — an accounting treatment. It says how revenue is spread across periods, and nothing whatsoever about whether the customer will return.\n\nThe third gets conflated with the first two constantly, because subscription accounting makes revenue *look* recurring in the [[income-statement|income statement]] whether or not the customer renews.\n\n**The question that separates them: what percentage of last year's revenue came from customers who were also customers the year before?** One number, hard to game, and it settles the argument. A business claiming 90% recurring revenue with 60% customer overlap has an accounting pattern rather than a franchise."
+    },
+    {
+      "type": "onTheJob",
+      "id": "on-the-job",
+      "body": "**Compare cumulative net income with cumulative operating cash flow over five years, then express the gap as a percentage of revenue.** Stable is a business model; rising is a question.\n\n**Ask for receivable days by quarter for three years.** Deterioration and window dressing both appear here first, and both are invisible in annual figures.\n\n**Ask whether any accounting policy changed in the last three years, and what the effect was.** A change in a diligence year needs a specific, checkable reason.\n\n**Ask what percentage of this year's revenue came from customers who bought last year.** This is the recurring revenue test that cannot be dressed up.\n\n**Ask for related-party transactions by counterparty and amount.** Not because they are improper, but because they may not survive the transaction that you are underwriting."
+    },
+    {
+      "type": "keyTakeaways",
+      "id": "takeaways",
+      "items": [
+        "Accrual accounting requires judgement on revenue timing, capitalisation, asset lives and provisions. Each is a legitimate range, and each moves profit.",
+        "Profit not backed by cash tends not to persist, because accruals are timing differences and timing differences reverse.",
+        "The 120 sale with 90 of cost delivered +30 of profit and −10 of cash in the same month. A permanent gap can be healthy growth — a gap widening relative to revenue is the flag.",
+        "\"Recurring revenue\" conflates contracted, repeating and recognised-over-time. Ask what share of revenue came from last year's customers."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "fsa-earningsquality-01-q1",
+      "type": "numeric",
+      "difficulty": 2,
+      "tags": ["accruals", "arithmetic"],
+      "concept": "worked-accrual",
+      "stem": "A company delivers a system for 120, incurring 90 of cash cost, and collects 80 in the period. What is the cash flow from the transaction? Give the sign.",
+      "answer": -10,
+      "tolerance": 0.5,
+      "toleranceType": "abs",
+      "explanation": "Profit on the same transaction was +30. The 40 receivable is the entire difference, and it is why a business can be simultaneously profitable and short of cash without anything being wrong."
+    },
+    {
+      "id": "fsa-earningsquality-01-q2",
+      "type": "mcq",
+      "difficulty": 3,
+      "tags": ["accruals", "persistence"],
+      "concept": "accruals-mean-revert",
+      "stem": "Why does profit that is not backed by cash tend not to persist?",
+      "choices": [
+        "Because companies reporting such profits are usually committing fraud",
+        "Because accruals are timing differences, and timing differences reverse — the revenue is either collected or written off",
+        "Because auditors force restatements",
+        "Because cash flow is a more accurate measure of profit"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Fraud is rare; the effect is a statistical regularity across large samples of ordinary companies.",
+        "Correct. An accrual moves recognition across periods rather than creating value. What was recognised early must eventually be confirmed by cash or reversed as a write-off.",
+        "Restatements are rare and would be a symptom, not the mechanism.",
+        "Cash flow is not a measure of profit at all — it answers a different question. The point is about persistence, not accuracy."
+      ],
+      "explanation": "The practical use is as a screen rather than an accusation: a high accrual ratio identifies where to read the notes, and most of the time there is a perfectly sound explanation. The value is in knowing which twenty companies to look at rather than which one to avoid."
+    },
+    {
+      "id": "fsa-earningsquality-01-q3",
+      "type": "mcq",
+      "difficulty": 3,
+      "tags": ["accruals", "capitalisation"],
+      "concept": "how-it-goes-wrong",
+      "stem": "A company begins capitalising costs it previously expensed. What is the effect on its reported figures?",
+      "choices": [
+        "Profit rises and operating cash flow falls",
+        "Both profit and operating cash flow rise, because the spending moves from operating to investing",
+        "Only the balance sheet changes",
+        "Profit falls and cash flow rises"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Operating cash flow rises rather than falls: the payment is reclassified as investing, so it leaves the operating section.",
+        "Correct. One decision flatters both headline numbers, which is why the capitalisation policy is worth reading and why free cash flow — after capex — is the measure that is immune to it.",
+        "The income statement and cash flow statement both change; only free cash flow is unaffected.",
+        "The direction is reversed on both counts."
+      ],
+      "explanation": "This is why free cash flow is the harder number to manage: capitalisation moves spending between operating and investing, and free cash flow spans both. It is also why an analyst who only ever looks at operating cash flow can be misled by an entirely disclosed policy choice."
+    },
+    {
+      "id": "fsa-earningsquality-01-q4",
+      "type": "tfj",
+      "difficulty": 4,
+      "tags": ["accruals", "misconception"],
+      "concept": "worked-accrual",
+      "stem": "\"Profit exceeded operating cash flow again this year, so the accounts are being managed.\" True or false — and why?",
+      "isTrue": false,
+      "justifications": [
+        "False — a growing business with credit terms will show profit above cash flow every year as receivables build; the flag is the gap widening relative to revenue, not the gap existing",
+        "False — profit always exceeds cash flow in every company",
+        "True — a persistent gap can only mean aggressive recognition",
+        "False — because operating cash flow is easier to manipulate than profit"
+      ],
+      "justificationIndex": 0,
+      "rationales": [
+        "Correct. The receivable balance rises with revenue, so the gap is structural in a growing business. What matters is whether it is growing faster than revenue, which is a different measurement.",
+        "Not so — heavy depreciation of older assets makes cash flow exceed profit routinely.",
+        "This is the over-reading under test. The existence of a gap is uninformative without scaling and a trend.",
+        "Both can be managed, and the claim reverses the usual difficulty."
+      ],
+      "explanation": "The correct version of the check has two steps: scale the gap by revenue, and look at its trend. That converts a suspicion that fits half the healthy companies in existence into a test that identifies the ones actually worth investigating."
+    },
+    {
+      "id": "fsa-earningsquality-01-q5",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["accruals", "recurring-revenue", "on-the-job"],
+      "concept": "recurring-revenue",
+      "stem": "A software business claims 90% recurring revenue. Which single question best tests it?",
+      "choices": [
+        "What is the annual price increase?",
+        "What percentage of this year's revenue came from customers who were also customers last year?",
+        "What is the gross margin on the subscription base?",
+        "How many customers are there in total?"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Pricing power is a separate and useful question that does not test whether the revenue repeats.",
+        "Correct. It distinguishes a genuine franchise from a subscription accounting treatment, and it is very hard to dress up because it comes from the customer ledger rather than from a policy.",
+        "Margin tells you about profitability, not durability.",
+        "Customer count without retention says nothing about whether the same customers stayed."
+      ],
+      "explanation": "The answer is also actionable: overlap well below the claimed recurring percentage means new customers are replacing departing ones, which is a sales-driven business wearing subscription clothing. The cost of that treadmill shows up in sales and marketing spend, which is the next thing to look at."
+    },
+    {
+      "id": "fsa-earningsquality-01-q6",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["accruals", "private-markets", "on-the-job"],
+      "concept": "why-in-private-markets",
+      "stem": "Why does earnings quality analysis matter more for a private company than a listed one?",
+      "choices": [
+        "Private companies use different accounting standards",
+        "Fewer parties scrutinise the numbers, management often prepares them, and the incentive peaks exactly when a sale or earnout is being measured",
+        "Private companies are not audited",
+        "Private company profits are inherently lower quality"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Standards are broadly the same; disclosure requirements and scrutiny are what differ.",
+        "Correct. The combination is what matters: less external checking, preparer with equity in the outcome, and a measurement date that creates the incentive.",
+        "Many are audited, though the scope and the auditor vary more than in listed markets.",
+        "There is no inherent difference in the underlying economics — the difference is in verification."
+      ],
+      "explanation": "Which is exactly why a quality of earnings review is a standard workstream in private transactions rather than an unusual precaution. Worth knowing whose scope it covers: a QofE that examines EBITDA adjustments but not revenue recognition has done half the job."
+    }
+  ],
+  "needsReview": false,
+  "reviewNote": null
+}

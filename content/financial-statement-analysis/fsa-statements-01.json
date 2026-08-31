@@ -1,0 +1,235 @@
+{
+  "schemaVersion": 1,
+  "id": "fsa-statements-01",
+  "domain": "financial-statement-analysis",
+  "title": "The Three Statements and How They Connect",
+  "summary": "Profit, position and cash — three views of one business, joined by two links that must always hold.",
+  "level": "core",
+  "prereqs": [],
+  "estMinutes": 9,
+  "examRelevance": ["CFA-L1", "CAIA-L1", "practical"],
+  "lesson": [
+    {
+      "type": "concept",
+      "id": "what-it-is",
+      "body": "A company reports three statements. They are not three subjects — they are three views of the same business, and each answers a different question.\n\n**The [[income-statement|income statement]]** asks *did it make money over the period?* Revenue down to profit, on an accrual basis, so it records revenue when earned rather than when the cash arrives.\n\n**The [[balance-sheet|balance sheet]]** asks *what does it own and owe at one instant?* Assets on one side, liabilities and equity on the other, always equal by construction.\n\n**The [[cash-flow-statement|cash flow statement]]** asks *where did the cash actually go?* Split into operating, investing and financing.\n\nThe income statement and cash flow statement are flows over a period. The balance sheet is a stock at a point in time. **Almost every confusion in financial analysis comes from mixing a flow with a stock** — comparing a year's profit with a balance sheet figure, or reading a debt balance as though it were an expense."
+    },
+    {
+      "type": "concept",
+      "id": "the-two-links",
+      "body": "**Two links join the statements, and they are what makes the set a system rather than three reports.**\n\n**Link one: profit flows into equity.** Net income for the period increases [[retained-earnings|retained earnings]] on the balance sheet, less any dividend paid. So the balance sheet at the end of the year is the balance sheet at the start plus everything that happened in between.\n\n**Link two: the cash flow statement explains the change in the cash balance.** Opening cash plus operating plus investing plus financing equals closing cash. That closing figure appears on the balance sheet.\n\nThose two links let you check any set of statements for internal consistency, and — much more usefully — they let you *build* the statements forward. Every financial model in existence is these two links applied repeatedly.\n\nThe practical version: **if someone shows you a projection where profit rises and the balance sheet does not change, the model is not joined up.** Growth consumes [[working-capital|working capital]] and assets. Profit has to land somewhere."
+    },
+    {
+      "type": "intuition",
+      "id": "profit-is-an-opinion",
+      "body": "**Profit is an opinion; cash is a fact.** The most useful sentence in financial analysis, and it is not cynicism — it is a description of how [[accrual-accounting|accrual accounting]] works.\n\nProfit requires judgements: when revenue is earned, how quickly an asset wears out, which costs are capitalised rather than expensed, how much of a receivable will never be collected. Reasonable people make these differently, and the same underlying business can report materially different profits under different but defensible assumptions.\n\nCash movements are recorded, not judged. The bank statement is what it is.\n\n**This is why the cash flow statement is the one to read first**, and why the gap between profit and operating cash flow over several years is the single most informative diagnostic in a set of accounts. If profit consistently exceeds cash generation, something is being recognised earlier than it is being collected — which may be perfectly legitimate, and needs an explanation.\n\nThe reverse also matters. A business with heavy [[depreciation]] of assets bought years ago can generate far more cash than profit, which is exactly why lenders to capital-intensive businesses look at [[ebitda]] rather than at net income."
+    },
+    {
+      "type": "example",
+      "id": "worked-statements",
+      "body": "One company, used throughout this domain. Revenue 500, cost of goods sold 300, selling and administrative costs 120, depreciation and amortisation 30, interest 20, tax at 25%.",
+      "walkthrough": [
+        "Gross profit = 500 − 300 = **200**, a 40% gross margin.",
+        "[[ebitda|EBITDA]] = 200 − 120 = **80**, a 16% margin. Note that depreciation has not been deducted yet — that is what the D and A in the name mean.",
+        "[[ebit|EBIT]] = 80 − 30 = **50**. This is operating profit: after the cost of using up assets, before financing.",
+        "Pre-tax profit = 50 − 20 interest = **30**. The interest bill consumed 40% of operating profit.",
+        "Tax at 25% = 7.5, so **net income = 22.5** — a 4.5% net margin on 500 of revenue.",
+        "**Read that carefully. The same company is 16% profitable at the EBITDA line and 4.5% profitable at the bottom. Neither figure is wrong; they answer different questions.** EBITDA describes the operations, net income describes what is left for shareholders after the lenders and the tax authority.",
+        "Sanity check worth reusing: **work out what proportion of EBITDA is consumed by depreciation and interest.** Here it is 30 + 20 = 50 of 80, or 62%. A business handing over most of its operating cash flow to its assets and its lenders has very little margin for a bad year, and that ratio makes it visible in one line."
+      ]
+    },
+    {
+      "type": "table",
+      "id": "statement-table",
+      "caption": "Which statement answers which question",
+      "headers": ["Statement", "Question", "Main limitation"],
+      "rows": [
+        [
+          "[[income-statement|Income statement]]",
+          "Did it make a profit this period?",
+          "Depends on accrual judgements — revenue timing, depreciation, provisions."
+        ],
+        [
+          "[[balance-sheet|Balance sheet]]",
+          "What does it own and owe right now?",
+          "Historical cost for many assets, and intangible value often absent entirely."
+        ],
+        [
+          "[[cash-flow-statement|Cash flow statement]]",
+          "Where did the cash go?",
+          "Says nothing about whether the period was profitable, and is easily flattered for one period by delaying payments."
+        ],
+        [
+          "All three together",
+          "Is this business creating value and can it survive?",
+          "None individually answers it — which is the reason there are three."
+        ]
+      ]
+    },
+    {
+      "type": "concept",
+      "id": "how-it-goes-wrong",
+      "body": "**Reading one statement alone.** Profitable companies fail from running out of cash, and cash-generative companies destroy value by earning less than their cost of capital. Either statement read alone will mislead.\n\n**Ignoring the notes.** The statements are a summary; the notes hold the contingent liabilities, the lease [[commitment|commitments]], the debt maturity profile, the revenue recognition policy and the related-party transactions. In a diligence pack the notes are where the work is.\n\n**Comparing across accounting standards.** Treatment of leases, development costs, goodwill and revenue timing differ between IFRS and US GAAP. Cross-border comparisons need adjustment before they mean anything.\n\n**Trusting a single period.** One year can be flattered by a delayed payment, a released provision or a pulled-forward sale. Three to five years of the same statements, side by side, is the minimum honest unit of analysis.\n\n**Treating a management-prepared statement as audited.** In private markets much of what circulates is unaudited management accounts. Not necessarily wrong, and a different evidentiary standard — and the difference is rarely labelled."
+    },
+    {
+      "type": "pitfall",
+      "id": "quality-of-earnings",
+      "body": "**In private markets the statements you receive are usually adjusted, and the adjustments are the negotiation.**\n\nA seller presents \"adjusted EBITDA\" including run-rate synergies, normalised owner compensation, one-off costs added back and pro forma effects of acquisitions. Some adjustments are legitimate — an owner paying themselves above market rate genuinely overstates the cost base for a new owner. Others are aspiration recorded as history.\n\nThis is why a [[quality-of-earnings|quality of earnings]] review exists as a distinct exercise: an independent look at how much of the reported profit is recurring, cash-generating and attributable to the business rather than to its presentation.\n\n**The single most useful question: show me the reported audited figure, then walk me from there to your adjusted number, line by line.** Each step is then arguable on its merits. A pitch that starts at the adjusted figure has skipped the argument, and the bridge is usually available on request — which tells you something either way."
+    },
+    {
+      "type": "onTheJob",
+      "id": "on-the-job",
+      "body": "**Ask for the bridge from audited net income to adjusted EBITDA, line by line.** Every adjustment then has to defend itself. This one request does more work than any ratio.\n\n**Ask for three to five years of all three statements, not a summary.** Trends and consistency are the information. A single year with commentary is a presentation.\n\n**Compare cumulative profit with cumulative operating cash flow over the period.** A persistent gap in either direction has an explanation, and the explanation is worth hearing before the investment thesis is.\n\n**Ask whether the figures are audited, reviewed or management-prepared, and by whom.** In private markets this varies more than people expect, and it changes how much weight the numbers can bear.\n\n**Read the notes on debt maturities and lease commitments before the income statement.** They tell you what the business must pay and when — which is what determines survival, not the margin."
+    },
+    {
+      "type": "keyTakeaways",
+      "id": "takeaways",
+      "items": [
+        "Two links make the statements one system: net income flows into retained earnings, and the cash flow statement explains the change in the cash balance.",
+        "Profit is an opinion built on accrual judgements; cash is recorded. The multi-year gap between the two is the most informative single diagnostic in a set of accounts.",
+        "The same company was 16% profitable at EBITDA and 4.5% at net income. Depreciation and interest consumed 62% of EBITDA, which is what a thin margin for error looks like.",
+        "In private markets, ask for the bridge from audited net income to adjusted EBITDA. The adjustments are the negotiation, and each one should defend itself."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "fsa-statements-01-q1",
+      "type": "numeric",
+      "difficulty": 2,
+      "tags": ["income-statement", "arithmetic"],
+      "concept": "worked-statements",
+      "stem": "Revenue 500, cost of goods sold 300, selling and administrative costs 120, D&A 30. What is EBITDA?",
+      "answer": 80,
+      "tolerance": 0.5,
+      "toleranceType": "abs",
+      "inputHint": "EBITDA is before depreciation and amortisation.",
+      "explanation": "The commonest slip is subtracting the 30 of D&A as well, which gives EBIT of 50 rather than EBITDA of 80. The name is the instruction: earnings BEFORE interest, taxes, depreciation and amortisation."
+    },
+    {
+      "id": "fsa-statements-01-q2",
+      "type": "numeric",
+      "difficulty": 2,
+      "tags": ["income-statement", "arithmetic"],
+      "concept": "worked-statements",
+      "stem": "Same company. EBIT is 50, interest is 20 and tax is 25% of pre-tax profit. What is net income?",
+      "answer": 22.5,
+      "tolerance": 0.3,
+      "toleranceType": "abs",
+      "explanation": "Note the order: interest is deducted before tax, which is why debt has a tax shield. The same company financed entirely with equity would pay tax on 50 rather than on 30 — 12.5 rather than 7.5."
+    },
+    {
+      "id": "fsa-statements-01-q3",
+      "type": "mcq",
+      "difficulty": 2,
+      "tags": ["statements", "links"],
+      "concept": "the-two-links",
+      "stem": "Where does net income appear on the balance sheet?",
+      "choices": [
+        "As an asset, since it is money earned",
+        "It increases retained earnings within equity, less any dividend paid",
+        "It does not appear — the statements are independent",
+        "As a reduction in liabilities"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Profit is not an asset. The cash or receivable it produced is the asset; the profit itself accrues to the owners.",
+        "Correct. This is the first of the two links: the period's profit less dividends is added to retained earnings, which is why the closing balance sheet reflects everything that happened during the year.",
+        "They are joined by exactly this link, which is what makes a three-statement model possible.",
+        "Profit does not reduce liabilities. Repaying debt with cash does, and that is a financing cash flow."
+      ],
+      "explanation": "Worth remembering because it explains why a company can be profitable with no cash: the profit went into retained earnings, but the corresponding asset may be a receivable or inventory rather than money in the bank."
+    },
+    {
+      "id": "fsa-statements-01-q4",
+      "type": "tfj",
+      "difficulty": 3,
+      "tags": ["statements", "misconception"],
+      "concept": "profit-is-an-opinion",
+      "stem": "\"A profitable company cannot run out of cash.\" True or false — and why?",
+      "isTrue": false,
+      "justifications": [
+        "False — profit is recognised when earned, so a growing profitable company can consume more cash in receivables, inventory and capital spending than it collects",
+        "False — profitable companies can run out of cash only if they are committing fraud",
+        "True — profits eventually become cash",
+        "False — because profit is always lower than cash flow"
+      ],
+      "justificationIndex": 0,
+      "rationales": [
+        "Correct. This is the classic failure of a fast-growing business: sales are booked, cash is tied up in working capital and capex, and the company fails while reporting record profits.",
+        "Over-correction. It happens routinely to honest, well-run companies — growth itself consumes cash.",
+        "Eventually, if the customers pay and the business survives long enough to collect. Both are assumptions, and the second one is what fails.",
+        "The relationship runs both ways: heavy depreciation makes cash exceed profit, working capital growth does the reverse."
+      ],
+      "explanation": "This is why lenders covenant on cash flow and coverage rather than on profit, and why a diligence process that stops at the income statement has skipped the part that determines whether the borrower survives the next twelve months."
+    },
+    {
+      "id": "fsa-statements-01-q5",
+      "type": "mcq",
+      "difficulty": 3,
+      "tags": ["statements", "analysis"],
+      "concept": "worked-statements",
+      "stem": "In the worked company, depreciation and interest together consume 50 of the 80 of EBITDA. What does that tell you?",
+      "choices": [
+        "The company is unprofitable",
+        "Little of the operating cash flow is discretionary — most is committed to replacing assets and paying lenders, leaving a thin margin for a bad year",
+        "The company has too much equity",
+        "Depreciation should be added back because it is not a real cost"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "It is profitable — net income is 22.5. The point is how little room there is between operating cash flow and the claims on it.",
+        "Correct. 62% of EBITDA is pre-committed. A 20% fall in EBITDA takes it to 64 against 50 of depreciation and interest, and the equity return effectively disappears.",
+        "Nothing here speaks to the equity level, and more equity would reduce the interest half of the problem.",
+        "Depreciation is not a cash cost this period, and it is a real cost: those assets need replacing, and the replacement is cash."
+      ],
+      "explanation": "This ratio — how much of EBITDA is spoken for — is a faster read on fragility than a leverage multiple, because it captures both the financing and the capital intensity in one number. It is worth computing before anything else in a levered business."
+    },
+    {
+      "id": "fsa-statements-01-q6",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["statements", "diligence", "on-the-job"],
+      "concept": "quality-of-earnings",
+      "stem": "A seller presents adjusted EBITDA of 95 against reported EBITDA of 80. What is the most useful single request?",
+      "choices": [
+        "A comparison with industry peers",
+        "The bridge from the audited figure to the adjusted one, line by line",
+        "A longer forecast period",
+        "The auditor's engagement letter"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Peer comparison is useful later, and comparing your peer set with an unexplained adjusted figure compares two different things.",
+        "Correct. The bridge forces each adjustment to be named and defended. Some will be legitimate normalisations and some will be forecast presented as history, and you cannot tell which without the line items.",
+        "A longer forecast built on the same adjusted base compounds the problem rather than testing it.",
+        "Relevant to how much reliance the audit supports, and it does not tell you what the 15 of adjustments consists of."
+      ],
+      "explanation": "The 15 matters more than it looks: at 5x, that adjustment moves leverage from 5.0x to 4.2x on identical debt, and it moves the purchase price by 75 at the same multiple. Adjustments are not presentational — they are money."
+    },
+    {
+      "id": "fsa-statements-01-q7",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["statements", "diligence", "on-the-job"],
+      "concept": "how-it-goes-wrong",
+      "stem": "You receive a single year of statements with management commentary. What is the most important missing item?",
+      "choices": [
+        "A peer benchmarking analysis",
+        "Three to five years of the same statements, plus the notes",
+        "A discounted cash flow valuation",
+        "The management team's biographies"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Benchmarking without a trend tells you where the company sits in one year, which may be its best or worst.",
+        "Correct. One year can be flattered by delayed payments, released provisions or pulled-forward revenue. The trend and the notes are where the information is, and both are ordinary requests.",
+        "A valuation built on one year of data inherits every distortion in that year.",
+        "Useful for a different judgement entirely."
+      ],
+      "explanation": "A practical habit: put the same line items for five years in one table before reading any commentary. Distortions show up as a step change in one year, and the commentary you read afterwards then has to explain something specific rather than setting the frame."
+    }
+  ],
+  "needsReview": false,
+  "reviewNote": null
+}
