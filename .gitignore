@@ -1,0 +1,21 @@
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Generated content index — rebuilt by npm run content:build
+content/manifest.json
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# Test / build output
+coverage/
+*.tsbuildinfo
+
+# Local progress exports (may contain personal study history)
+*.progress.json
