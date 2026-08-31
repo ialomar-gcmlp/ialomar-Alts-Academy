@@ -1,0 +1,222 @@
+{
+  "schemaVersion": 1,
+  "id": "econ-indicators-01",
+  "domain": "economics",
+  "title": "Reading Economic Data: Leads, Lags and Revisions",
+  "summary": "Which releases carry information, which are already priced, and why the first print of a number is the one nobody should trust.",
+  "level": "core",
+  "prereqs": ["econ-gdp-01"],
+  "estMinutes": 8,
+  "examRelevance": ["CFA-L1", "practical"],
+  "lesson": [
+    {
+      "type": "concept",
+      "id": "what-it-is",
+      "body": "Economic data comes in three kinds, and mixing them up is the most common way to reach a confident wrong conclusion.\n\n**[[leading-indicator|Leading indicators]]** move before the economy does: new orders, building permits, the [[yield-curve|yield curve]], credit spreads, consumer expectations. Noisier, and the only ones with any forecasting value.\n\n**Coincident indicators** move with the economy: industrial production, retail sales, employment.\n\n**[[lagging-indicator|Lagging indicators]]** move after: unemployment duration, default rates, unit labour costs. These confirm; they never anticipate.\n\nA fourth category matters most in practice. **Market prices are the fastest leading indicators available**, because they aggregate everyone's forecast continuously. Which is precisely why a data release rarely moves markets in the direction the data points — the level was expected, and only the surprise is new."
+    },
+    {
+      "type": "concept",
+      "id": "surprise-not-level",
+      "body": "**Markets trade the difference between the release and the expectation, not the release.**\n\nUnemployment falling to a five-year low sounds unambiguously good. If the consensus was for a bigger fall, bonds may rally and equities may drop on a strong-sounding number, because the *surprise* was weak.\n\nThis has a practical consequence for anyone reading commentary: **a headline describing the data is describing something markets already knew.** The useful facts are the consensus expectation, the surprise, and the revision to the previous month — none of which usually make it into the headline.\n\nA [[purchasing-managers-index|purchasing managers' index]] is the clearest example of the genre. It is a diffusion index: above 50 means more firms reporting expansion than contraction. It says nothing about magnitude, so a PMI at 52 is not \"twice as good\" as 51, and a fall from 58 to 53 is still expansion. Diffusion indices measure breadth, and breadth turns before magnitude — which is exactly what makes them lead."
+    },
+    {
+      "type": "intuition",
+      "id": "revisions",
+      "body": "**The first print of most series is an estimate built from incomplete returns, and it gets revised for years.**\n\nA payroll figure of +2.8% growth becomes +2.1% at the second estimate and +1.6% at the third. Nothing was falsified; the sample filled in. Quarterly GDP is revised repeatedly and rebenchmarked years later.\n\nTwo consequences that matter far more than they sound.\n\n**Any backtest using final data is cheating, invisibly.** The model saw numbers nobody had. This is why real-time data vintages exist, and why results usually get worse when you use them — which is the honest version.\n\n**Revisions cluster at turning points.** Statistical models embedded in the first estimates assume the recent past continues, so the first prints are systematically too optimistic going into a downturn and too pessimistic coming out. **The data is least reliable exactly when the decision matters most.**\n\nSo the discipline is simple and rarely followed: **treat a first print as one noisy observation, look at the revision to the previous month as carefully as the new number, and never build a signal that could only have been computed afterwards.**"
+    },
+    {
+      "type": "example",
+      "id": "worked-revision",
+      "body": "A growth figure is first published at 2.8%, revised to 2.1% a month later, and to 1.6% at the third estimate.",
+      "walkthrough": [
+        "Total revision: 1.6 − 2.8 = **−1.2 percentage points**, which is a 43% reduction in the original figure.",
+        "A rule calibrated on final data would have used 1.6%. A decision taken on the day of release used 2.8%.",
+        "**Read that carefully: the difference between those two is larger than the difference between a strong economy and a weak one in most policy discussions.**",
+        "And the direction was consistent — both revisions went the same way. Serial one-directional revisions are the signature of a turning point the initial models had not registered.",
+        "Now the check worth reusing: **before reacting to any print, ask what happened to last month's figure in the same release.** A strong new number alongside a large downward revision to the previous month is a weak release wearing a strong headline.",
+        "Applied to a backtest, the same check becomes: what would this signal have been on the day, using the numbers then available? If that question cannot be answered, the backtest is describing a strategy nobody could have run."
+      ]
+    },
+    {
+      "type": "table",
+      "id": "indicator-table",
+      "caption": "What each kind of indicator is good for",
+      "headers": ["Kind", "Examples", "Use and limitation"],
+      "rows": [
+        [
+          "Market prices",
+          "Curve shape, credit spreads, breakevens",
+          "Fastest and already reflects consensus — informative about what others think, not an edge."
+        ],
+        [
+          "Leading",
+          "New orders, permits, expectations surveys",
+          "Some forecasting value, high noise. Direction over three months beats any single month."
+        ],
+        [
+          "Coincident",
+          "Production, retail sales, payrolls",
+          "Tells you where you are, revised heavily."
+        ],
+        [
+          "Lagging",
+          "Default rates, unemployment duration",
+          "Confirms a turn that markets priced months ago. Useful for verification, useless for timing."
+        ]
+      ]
+    },
+    {
+      "type": "concept",
+      "id": "how-it-goes-wrong",
+      "body": "**Over-fitting an indicator to past recessions.** Every downturn has an indicator that called it, selected afterwards from a large field. With enough candidates, some will have called all four of the last four.\n\n**Reading levels off a diffusion index.** PMIs measure breadth, not magnitude. A move from 58 to 53 is a slowdown in an expansion, not a contraction, and that distinction gets lost routinely.\n\n**[[seasonal-adjustment|Seasonal adjustment]] artefacts.** Adjustment factors are estimated from history. When behaviour changes — a shifted holiday, a pandemic, an unusual weather year — the adjusted series can move for entirely mechanical reasons.\n\n**Confusing a survey with a measurement.** A confidence index measures reported sentiment. It correlates with spending loosely and imperfectly, and people's stated expectations are not their behaviour.\n\n**Ignoring the release calendar in [[performance-attribution|performance attribution]].** A month's return in a macro strategy can be dominated by two or three release days. Attribution that ignores when the money was made or lost misses where the risk actually sat."
+    },
+    {
+      "type": "pitfall",
+      "id": "single-number-narrative",
+      "body": "**One data point is never a story, and yet a story is what gets built.**\n\nThe pattern is recognisable once you look for it. A monthly figure comes in strong; commentary explains why the economy has turned; the following month reverses it and a new explanation appears with the same confidence. Both explanations are constructed after the number, and neither would have predicted it.\n\nThe defence is procedural rather than clever: **look at three-month averages, look at the revision, and look at whether related series agree.** A strong retail sales figure alongside falling credit card volumes and weak consumer sentiment is a strong figure that probably will not survive.\n\nAnd for a portfolio the honest position is usually that **a single release should not change a position at all.** If it can, the position was sized for a level of conviction the evidence never supported."
+    },
+    {
+      "type": "onTheJob",
+      "id": "on-the-job",
+      "body": "**Ask whether any backtest used real-time or revised data.** This one question invalidates or validates more macro research than any other. \"Revised\" is not fatal, but it must be disclosed and discounted.\n\n**When a manager cites an indicator, ask how many they considered.** An indicator that called the last four recessions, chosen from forty candidates, is a survivor rather than a signal.\n\n**Ask which release days produced the month's return.** If a macro month came from two hours around two prints, the strategy is an event strategy and should be described as one.\n\n**For any data-driven private-market thesis, ask what the same series says now versus at underwriting.** Deal theses are built on data that has since been revised, and nobody goes back to check.\n\n**Insist on the consensus expectation alongside any cited figure.** A number without its expectation cannot be interpreted, because markets already held the expectation."
+    },
+    {
+      "type": "keyTakeaways",
+      "id": "takeaways",
+      "items": [
+        "Markets trade the surprise, not the level — so a strong-sounding release can move prices the other way, and a headline describing the data describes what was already priced.",
+        "First prints are estimates: a figure can go 2.8% to 2.1% to 1.6%, and revisions cluster at turning points, when the decision matters most.",
+        "A backtest on revised data used numbers nobody had. Ask whether it was run on real-time vintages, always.",
+        "Diffusion indices like PMIs measure breadth, not magnitude: 58 to 53 is a slowing expansion, not a contraction."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "econ-indicators-01-q1",
+      "type": "numeric",
+      "difficulty": 2,
+      "tags": ["indicators", "revisions", "arithmetic"],
+      "concept": "worked-revision",
+      "stem": "A growth figure is first published at 2.8% and finally revised to 1.6%. What is the total revision, in percentage points? Give the sign.",
+      "answer": -1.2,
+      "tolerance": 0.05,
+      "toleranceType": "abs",
+      "unit": "pp",
+      "explanation": "Expressed as a proportion it is starker: the original figure was 75% higher than the final one. Any decision, model or narrative built on the first print was built on a number that turned out to be nearly double the truth."
+    },
+    {
+      "id": "econ-indicators-01-q2",
+      "type": "mcq",
+      "difficulty": 2,
+      "tags": ["indicators", "leading-lagging"],
+      "concept": "what-it-is",
+      "stem": "Which of these is a LEADING indicator?",
+      "choices": [
+        "Corporate default rates",
+        "Building permits",
+        "Unemployment duration",
+        "Unit labour costs"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Defaults are the classic lagging indicator — a firm fails after its revenue has already gone.",
+        "Correct. A permit is a decision to build in the future, so it reflects intent rather than activity, which is what makes it lead.",
+        "How long people stay unemployed rises well after a downturn has begun.",
+        "Labour costs per unit of output are computed from past production and wages."
+      ],
+      "explanation": "The general test is whether the series records a decision or an outcome. Decisions — orders, permits, hiring plans, credit applications — lead. Outcomes — production, defaults, unemployment duration — follow. That question is faster than memorising lists."
+    },
+    {
+      "id": "econ-indicators-01-q3",
+      "type": "mcq",
+      "difficulty": 3,
+      "tags": ["indicators", "pmi"],
+      "concept": "surprise-not-level",
+      "stem": "A PMI falls from 58 to 53. What does this indicate?",
+      "choices": [
+        "The economy is contracting",
+        "Expansion continuing, but with fewer firms reporting improvement than before",
+        "A 5% fall in output",
+        "Nothing, since only the 50 line matters"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Above 50 still means more firms expanding than contracting. Falling but above 50 is a slowing expansion.",
+        "Correct. A diffusion index counts the breadth of improvement. Fewer firms improving is a genuine deceleration and not a contraction.",
+        "The index has no magnitude interpretation at all — it cannot be converted to a percentage of output.",
+        "The level and the direction both carry information; the 50 line is one landmark, not the only one."
+      ],
+      "explanation": "Worth keeping because breadth genuinely does turn before magnitude: fewer firms improving usually precedes output falling. That is what makes a diffusion index a leading indicator, and it is also why over-interpreting its level is so common."
+    },
+    {
+      "id": "econ-indicators-01-q4",
+      "type": "tfj",
+      "difficulty": 3,
+      "tags": ["indicators", "misconception"],
+      "concept": "surprise-not-level",
+      "stem": "\"Unemployment fell to a five-year low, so equities should rally on the news.\" True or false — and why?",
+      "isTrue": false,
+      "justifications": [
+        "False — markets move on the difference from expectations, and a fall smaller than consensus is a negative surprise despite the strong-sounding level",
+        "False — falling unemployment is bad for equities because it raises wage costs",
+        "True — strong employment data supports equity prices",
+        "False — because employment data is always revised"
+      ],
+      "justificationIndex": 0,
+      "rationales": [
+        "Correct. The expected level is already in the price. Only the gap between release and expectation is new information, and it can point the opposite way to the headline.",
+        "Wage pressure is a real channel and a secondary one — the primary reason the claim fails is that it ignores expectations entirely.",
+        "The plausible reading, and the one that leaves you confused by the actual price move.",
+        "True and not the mechanism at issue here."
+      ],
+      "explanation": "There is a second layer worth knowing: the same surprise can be read through a growth lens or a policy lens. Strong employment is good for earnings and bad for the rate path, and which one dominates depends on the phase of the cycle. That is why the same surprise moves markets differently in different years."
+    },
+    {
+      "id": "econ-indicators-01-q5",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["indicators", "diligence", "on-the-job"],
+      "concept": "revisions",
+      "stem": "A manager presents an indicator that has signalled every recession since 1980 with no false positives. What is the strongest reservation?",
+      "choices": [
+        "Six recessions is too small a sample to distinguish a real signal from one selected out of many candidates that were tried",
+        "The indicator may not be published any more",
+        "Recessions since 1980 were unusual",
+        "It probably uses monthly rather than weekly data"
+      ],
+      "answerIndex": 0,
+      "rationales": [
+        "Correct. With a handful of events and a large search space, a perfect record is what you would expect from selection rather than from insight. The right question is how many candidates were examined and what they would have said.",
+        "A practical concern and easily checked — not the fundamental problem.",
+        "Every set of recessions is unusual in its own way; this does not explain the record.",
+        "Data frequency changes the noise, not the selection problem."
+      ],
+      "explanation": "Ask for the out-of-sample record and the false-positive rate on a different period or a different country. An indicator that survives being taken somewhere it was not designed for is worth something. This is the same discipline as asking a quant strategy how many specifications were tested before this one."
+    },
+    {
+      "id": "econ-indicators-01-q6",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["indicators", "attribution", "on-the-job"],
+      "concept": "on-the-job",
+      "stem": "A global macro fund made almost all of one month's return in the hours around two data releases. What does this tell you?",
+      "choices": [
+        "The manager has excellent forecasting skill",
+        "The strategy is event-driven in practice, so its risk is concentrated in scheduled moments and should be described and sized that way",
+        "The returns are unsustainable and the fund should be redeemed",
+        "The manager is trading illegally on advance information"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "It might be, and one month cannot distinguish skill from a fortunate pair of positions.",
+        "Correct. Where the return came from tells you where the risk sits. Concentration in scheduled events is a legitimate strategy with a specific risk profile — the problem is only when it is presented as diversified macro.",
+        "Far too strong a conclusion from a single month of attribution.",
+        "Nothing here suggests that; positioning ahead of a scheduled release is ordinary macro trading."
+      ],
+      "explanation": "Attribution by time is underused and revealing. It answers a question the strategy description usually does not: is this a continuous process or a series of scheduled bets? Both can work, and they need completely different position sizing and risk limits."
+    }
+  ],
+  "needsReview": false,
+  "reviewNote": null
+}

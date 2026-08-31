@@ -1,0 +1,243 @@
+{
+  "schemaVersion": 1,
+  "id": "econ-monetary-01",
+  "domain": "economics",
+  "title": "Central Banks: The Policy Rate and the Transmission Lag",
+  "summary": "One interest rate, several channels, and a delay long enough that the last hike lands after the damage it was meant to prevent.",
+  "level": "core",
+  "prereqs": ["econ-inflation-01", "econ-curve-01"],
+  "estMinutes": 10,
+  "examRelevance": ["CFA-L1", "CAIA-L1", "practical"],
+  "lesson": [
+    {
+      "type": "concept",
+      "id": "what-it-is",
+      "body": "A [[central-bank|central bank]] has one main instrument: the [[policy-rate|policy rate]] at which banks lend to and borrow from it overnight. In the United States that rate is the [[federal-funds-rate|federal funds rate]].\n\nOne overnight rate is a peculiar lever for an economy full of thirty-year mortgages and ten-year corporate bonds. It works because everything else is priced off it:\n\n**Expectations.** A ten-year yield is roughly the average expected short rate over ten years, plus a [[term-premium|term premium]]. Change the expected path of the overnight rate and you change the whole [[yield-curve|curve]].\n\n**Bank funding.** Banks fund at rates anchored to the policy rate and lend at a spread over their funding cost.\n\n**Discount rates.** Every valuation is a discounted cash flow, so the [[discount-rate|discount rate]] moves and long-duration assets — growth equities, venture, long-dated [[infrastructure]] — move most.\n\n**Currency.** Higher rates relative to elsewhere attract capital and tend to lift the currency, which imports disinflation.\n\nThe usual mandate is price stability, in practice a stated inflation target, sometimes paired with an employment objective."
+    },
+    {
+      "type": "concept",
+      "id": "the-toolkit",
+      "body": "**The policy rate is the main tool. Three others matter, and each was invented because the main one ran out.**\n\n**Forward guidance.** Saying what the rate will be, because the ten-year responds to the expected path rather than to today's level. Talk is a genuine instrument here, and its power comes entirely from being believed.\n\n**[[quantitative-easing|Quantitative easing]].** Buying long-dated bonds with newly created reserves to push long yields down when the short rate is already at zero. It works on the term premium rather than on expectations.\n\n**Reserve and regulatory requirements.** Changing what banks must hold, which changes what they can lend.\n\nAnd the constraint behind all of it: **once the policy rate is at zero, the conventional tool is exhausted.** Everything invented after 2008 exists to answer \"what do you do when you cannot cut?\" — which is also why the return of positive rates was, for central banks, a restoration of capability rather than merely a tightening."
+    },
+    {
+      "type": "intuition",
+      "id": "the-lag",
+      "body": "**[[monetary-policy|Monetary policy]] affects the economy with a lag of roughly a year or more, and the lag is the single most important fact about it.**\n\nA rate rise today does not slow spending today. It slows the next mortgage refinancing, the next capital expenditure decision, the next hiring plan. Existing fixed-rate borrowers feel nothing until they refinance. The full effect arrives when the tightening cycle is already over.\n\nThree consequences, all of them uncomfortable:\n\n**A central bank must act on a forecast, not on data.** By the time inflation is visibly falling, the policy that caused it was set a year ago. Waiting for confirmation guarantees being late.\n\n**Overtightening is the normal failure mode.** Rates keep rising while inflation stays high, because the earlier rises have not landed yet — and then all of it lands at once.\n\n**The last hike of a cycle is usually a mistake, and it is unknowable which one it was.** This is not a criticism of central bankers; it is a structural feature of acting through a delay.\n\n**For an investor the practical version is: the risk is not the level of rates, it is the moment the accumulated tightening arrives.** Credit stress, deal volumes and default rates turn well after the last hike, which is exactly when the narrative has moved on to cuts."
+    },
+    {
+      "type": "example",
+      "id": "worked-reaction",
+      "body": "An illustrative reaction function — not any institution's actual rule, but the shape of how a rate path is reasoned about. Suppose a central bank behaves as if: policy rate = neutral real rate + inflation + 0.5 × (inflation − target) + 0.5 × [[output-gap|output gap]]. Take a 0.5% neutral real rate, a 2% target, inflation at 4% and an output gap of +1%.",
+      "walkthrough": [
+        "Start from neutral: 0.5% real + 4% inflation = **4.5%**. This is the rate that neither stimulates nor restrains, given current inflation.",
+        "Inflation is 2pp above target, so add 0.5 × 2 = **1.0pp**.",
+        "The economy is 1% above capacity, so add 0.5 × 1 = **0.5pp**.",
+        "Implied policy rate = 4.5 + 1.0 + 0.5 = **6.0%**.",
+        "Now the part that matters. If inflation falls to 2% and the gap closes to zero, the same rule gives 0.5 + 2 + 0 + 0 = **2.5%** — a 350bp fall in the implied rate from two variables normalising.",
+        "**Read that carefully: the entire cutting cycle was already implied by the rule before it happened.** A rates view is a view on inflation and the gap, dressed up as a view on the central bank.",
+        "Sanity check worth reusing: **any implied policy rate below current inflation is a negative real rate, which is stimulus.** If a forecast has the bank cutting to 3% while inflation runs at 4%, it is forecasting deliberate stimulus — that needs a reason, not just an assumption."
+      ]
+    },
+    {
+      "type": "table",
+      "id": "channels",
+      "caption": "How one overnight rate reaches the real economy",
+      "headers": ["Channel", "Mechanism", "Roughly how long"],
+      "rows": [
+        [
+          "Market rates",
+          "Curve reprices on the expected path",
+          "Immediate — often before the decision itself."
+        ],
+        [
+          "Asset prices",
+          "[[discount-rate|Discount rates]] rise, long-duration assets fall hardest",
+          "Days to weeks, and last in private markets where marks lag."
+        ],
+        [
+          "Currency",
+          "Rate differentials attract capital",
+          "Weeks; feeds import prices over months."
+        ],
+        [
+          "Bank lending",
+          "Funding costs rise, credit standards tighten",
+          "One to three quarters."
+        ],
+        [
+          "Spending and hiring",
+          "Borrowing costs bite on real decisions",
+          "Three to six quarters — the long lag that does the actual work."
+        ]
+      ]
+    },
+    {
+      "type": "concept",
+      "id": "how-it-goes-wrong",
+      "body": "**Fighting the last cycle.** A bank burned by inflation will tighten too long; one burned by a bust will ease too long. Institutional memory is an input to policy.\n\n**Cost-push shocks.** When inflation comes from an energy shock rather than demand, raising rates cannot fix the cause. The bank tightens anyway to stop second-round effects — accepting weaker output as the price of protecting expectations. It is the least popular thing central banks do and the most defensible.\n\n**Losing the anchor.** If people stop believing in the target, wage and price setting shifts, and getting the anchor back historically costs a recession. This is why credibility gets defended so aggressively over apparently small deviations.\n\n**Fiscal offset.** Large deficits can add demand while the bank subtracts it. The two arms of policy pulling in opposite directions means rates have to go higher than they otherwise would.\n\n**Financial stability collisions.** Rate rises can crack something — a bank's bond portfolio, a leveraged fund, a currency peg. The bank then chooses between its inflation mandate and stability, and the market's assumption is always that stability wins."
+    },
+    {
+      "type": "pitfall",
+      "id": "priced-in",
+      "body": "**A rate cut that everyone expects is already in the price. What moves markets is the surprise, not the event.**\n\nThis is why an apparently dovish cut can be followed by yields rising: the cut was expected, and the accompanying language implied fewer cuts to come than the market had assumed. The decision was the announced part; the path was the news.\n\nThe practical form for a portfolio: **do not read your positioning off the expected policy path, read it off where you differ from that path.** If your view matches the forward curve, you have no view — you have a carry position. And the question to ask of any macro manager positioned for cuts is not \"why do you expect cuts?\" but \"why do you expect more cuts than the curve does, and what would prove you wrong?\""
+    },
+    {
+      "type": "onTheJob",
+      "id": "on-the-job",
+      "body": "**Ask a macro manager where they differ from the forward curve, in [[basis-point|basis points]].** A position that agrees with the curve is not a macro view. A specific disagreement is testable and can be wrong, which is what makes it a view.\n\n**For any levered strategy, ask what a 200bp rise does to interest coverage, not to valuation.** Valuation is an opinion until an exit; coverage is a covenant with a date on it.\n\n**Ask when the portfolio's debt reprices or matures.** The transmission lag operates through refinancing, so a portfolio with no maturities for four years has largely opted out of the current cycle — and one with a 2026 wall has not.\n\n**Ask what happens if the cuts arrive because something broke.** Most levered strategies are positioned for cuts. Cuts driven by a recession come with defaults attached, which is the opposite of the outcome being assumed.\n\n**Be sceptical of dated policy assumptions in a model.** A capital markets assumption written at zero rates and never revisited is a fossil, and it is usually still in the spreadsheet."
+    },
+    {
+      "type": "keyTakeaways",
+      "id": "takeaways",
+      "items": [
+        "One overnight rate reaches the whole economy through expectations, bank funding, discount rates and the currency — which is why the expected path matters more than today's level.",
+        "Policy acts with a lag of roughly a year, so banks must act on forecasts, overtightening is the normal failure mode, and the last hike of a cycle is usually a mistake nobody can identify at the time.",
+        "A rates view is really a view on inflation and the output gap: in the worked reaction function, those two normalising imply a 350bp fall with no change of doctrine.",
+        "Expected policy is already priced. The only position worth holding is where you differ from the forward curve, stated in basis points."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "econ-monetary-01-q1",
+      "type": "numeric",
+      "difficulty": 2,
+      "tags": ["monetary-policy", "arithmetic"],
+      "concept": "worked-reaction",
+      "stem": "Using the lesson's illustrative rule — neutral real rate 0.5%, target 2%, weights 0.5 on both terms — what policy rate is implied by inflation of 4% and an output gap of +1%? Answer in percent.",
+      "answer": 6.0,
+      "tolerance": 0.15,
+      "toleranceType": "abs",
+      "unit": "%",
+      "inputHint": "0.5 + inflation + 0.5×(inflation − 2) + 0.5×gap",
+      "explanation": "Note how much of the answer is just \"neutral plus inflation\": 4.5 of the 6.0. The activist part of the rule — responding to the inflation overshoot and the gap — contributes only 1.5pp. Most of a policy rate is not a policy choice at all."
+    },
+    {
+      "id": "econ-monetary-01-q2",
+      "type": "numeric",
+      "difficulty": 3,
+      "tags": ["monetary-policy", "real-rate", "arithmetic"],
+      "concept": "worked-reaction",
+      "stem": "Same rule. Inflation falls to 2% and the output gap closes to zero. What policy rate is implied, in percent?",
+      "answer": 2.5,
+      "tolerance": 0.15,
+      "toleranceType": "abs",
+      "unit": "%",
+      "inputHint": "Both the overshoot and the gap terms go to zero.",
+      "explanation": "The 350bp of cuts between this answer and the last one required no change in the central bank's doctrine — only the two inputs normalising. This is why arguing about a central bank's intentions is usually less productive than arguing about the inflation path."
+    },
+    {
+      "id": "econ-monetary-01-q3",
+      "type": "mcq",
+      "difficulty": 3,
+      "tags": ["monetary-policy", "transmission"],
+      "concept": "the-lag",
+      "stem": "Why is overtightening the normal failure mode of a hiking cycle?",
+      "choices": [
+        "Central banks prefer higher rates because they earn more on reserves",
+        "Because policy acts with a lag of about a year, rates keep rising while earlier increases have not yet landed",
+        "Because inflation data is published with a long delay",
+        "Because markets demand higher rates than the economy can bear"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Not a motive that appears in any mandate, and reserve remuneration is a mechanical consequence of the rate, not a reason for it.",
+        "Correct. The bank sees inflation still high, so it raises again — and the effect of everything it did over the previous year is still in transit. The accumulated tightening then arrives together.",
+        "Inflation data lags by weeks, not the year that matters here. The transmission lag, not the data lag, causes the problem.",
+        "Market pricing responds to expected policy rather than dictating it."
+      ],
+      "explanation": "This is why the phrase \"long and variable lags\" appears in every central bank speech. The practical version for a portfolio: the peak of danger is not the peak of rates, it is six to twelve months after it, when the narrative has already moved on."
+    },
+    {
+      "id": "econ-monetary-01-q4",
+      "type": "mcq",
+      "difficulty": 3,
+      "tags": ["monetary-policy", "qe"],
+      "concept": "the-toolkit",
+      "stem": "Why was quantitative easing introduced when policy rates reached zero?",
+      "choices": [
+        "To increase the money supply so that inflation would rise mechanically",
+        "To push down long-term yields directly, since the short rate could no longer be cut",
+        "To lend money directly to companies",
+        "To weaken the currency"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "The mechanical money-supply-to-inflation link did not appear in practice: reserves expanded enormously with little inflation for a decade, because the reserves stayed in the banking system.",
+        "Correct. With the short rate at its floor, the bank moved along the curve — buying long bonds to compress the term premium and lower long yields directly.",
+        "That is credit policy, and some programmes did it, but it is not what QE is.",
+        "Currency weakness was a side effect that policymakers were careful not to state as the objective."
+      ],
+      "explanation": "The distinction between the two channels is worth holding: forward guidance works on expected short rates, QE works on the term premium. They are different parts of the same yield and can be used together, which is exactly what happened."
+    },
+    {
+      "id": "econ-monetary-01-q5",
+      "type": "tfj",
+      "difficulty": 4,
+      "tags": ["monetary-policy", "misconception", "positioning"],
+      "concept": "priced-in",
+      "stem": "\"The central bank will cut rates next year, so long-duration assets will rally.\" True or false — and why?",
+      "isTrue": false,
+      "justifications": [
+        "False — expected cuts are already in the forward curve, so the rally only comes if cuts are deeper or sooner than currently priced",
+        "False — long-duration assets fall when rates are cut",
+        "True — rate cuts raise the value of long-duration assets",
+        "False — because central bank forecasts are unreliable"
+      ],
+      "justificationIndex": 0,
+      "rationales": [
+        "Correct. Prices reflect the expected path. Being right about the direction while agreeing with the consensus earns nothing; the return comes from the difference between your path and the priced path.",
+        "The mechanism is backwards — lower discount rates do raise long-duration values. The claim fails on pricing, not on direction.",
+        "True in isolation and useless as a position, which is precisely the trap this question is built on.",
+        "True and beside the point: unreliability is a reason to size carefully, not the reason the trade has no edge."
+      ],
+      "explanation": "The general rule this teaches: any statement about the future that the whole market already believes cannot be a source of return. It is why \"what do you know that the curve does not?\" is the only useful opening question for a macro manager."
+    },
+    {
+      "id": "econ-monetary-01-q6",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["monetary-policy", "diligence", "on-the-job"],
+      "concept": "on-the-job",
+      "stem": "A buyout fund's portfolio companies carry floating-rate debt. Rates rise 200bp. What is the most useful question to ask the GP?",
+      "choices": [
+        "How much has the portfolio's valuation fallen?",
+        "What does 200bp do to interest coverage, and which companies breach covenants at that level?",
+        "What is the fund's remaining dry powder?",
+        "What was the average entry multiple?"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Valuation is an opinion until an exit and is the GP's own mark. Coverage is arithmetic against a covenant with a date attached.",
+        "Correct. Rate rises reach private equity through the interest bill first. A covenant breach forces a negotiation, an equity cheque or a restructuring — long before any valuation is tested by a sale.",
+        "Relevant to future deployment and not to what the existing portfolio can service.",
+        "Entry multiple explains how the fund got here, not whether the companies survive the next twelve months."
+      ],
+      "explanation": "This is the private-market form of the transmission lag: the rate rise hits the operating company through cash interest well before it hits the fund through marks. Coverage ratios lead valuations, which is why they belong at the top of a monitoring pack rather than in an appendix."
+    },
+    {
+      "id": "econ-monetary-01-q7",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["monetary-policy", "risk", "on-the-job"],
+      "concept": "on-the-job",
+      "stem": "Most levered strategies in a portfolio are positioned for rate cuts. What is the flaw in treating that as diversified?",
+      "choices": [
+        "Cuts are unlikely to happen",
+        "Cuts often arrive because the economy is deteriorating, so the same event brings defaults with it — the positions share one outcome, not two",
+        "Rate cuts affect all assets identically",
+        "Levered strategies do not benefit from cuts"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "The likelihood is not the issue. The issue is the state of the world that produces them.",
+        "Correct. There are two very different cut scenarios — inflation normalising benignly, and a recession forcing the bank's hand. Positions sized for the first are exposed to the second, and the correlation between them shows up exactly when it matters.",
+        "They do not, and the differences are why the positions look diversified in normal conditions.",
+        "They do benefit through lower financing costs, which is precisely why so many of them are positioned the same way."
+      ],
+      "explanation": "The general habit worth building: for every macro outcome your portfolio wants, write down the two paths that produce it and check whether you survive both. Most portfolios are implicitly betting on the benign version of an outcome they claim only to need the direction of."
+    }
+  ],
+  "needsReview": false,
+  "reviewNote": null
+}

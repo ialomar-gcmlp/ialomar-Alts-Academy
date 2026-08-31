@@ -3,12 +3,122 @@
   "domain": "economics",
   "terms": [
     {
+      "slug": "annualised-rate",
+      "term": "annualised rate",
+      "plain": "A short-period change scaled up as though it continued for a whole year. It makes monthly and quarterly figures look bigger, in both directions.",
+      "formal": "The rate of change over a sub-annual period compounded to its yearly equivalent.",
+      "seeAlso": [
+        "seasonal-adjustment",
+        "base-effect",
+        "compounding"
+      ]
+    },
+    {
+      "slug": "automatic-stabilisers",
+      "term": "automatic stabilisers",
+      "plain": "The parts of a budget that cushion the cycle without anyone deciding anything — unemployment benefits rise and tax receipts fall in a downturn. Why deficits widen in recessions with no new policy.",
+      "formal": "Elements of government revenue and expenditure that vary counter-cyclically with output by construction, dampening the cycle without discretionary action.",
+      "seeAlso": [
+        "fiscal-policy",
+        "business-cycle",
+        "recession"
+      ]
+    },
+    {
+      "slug": "base-effect",
+      "term": "base effect",
+      "plain": "When an annual inflation rate jumps or drops only because the month a year ago was unusual. It is arithmetic, not news, and it is predictable in advance.",
+      "formal": "The contribution to a year-on-year rate arising from the level of the comparison period rather than from current price changes.",
+      "seeAlso": [
+        "cpi",
+        "inflation",
+        "annualised-rate"
+      ]
+    },
+    {
       "slug": "basis-point",
       "term": "basis point (bp)",
       "plain": "One hundredth of a percentage point. 100 basis points is 1%. Used because saying \"the yield rose 0.08 percentage points\" is clumsy and easy to mishear.",
       "formal": "A unit equal to 1/100th of one percent (0.0001), used to express changes in interest rates, yields and fees precisely.",
       "seeAlso": [
         "yield-spread"
+      ]
+    },
+    {
+      "slug": "business-cycle",
+      "term": "business cycle",
+      "plain": "The repeated pattern of expansion and contraction in economic activity around trend. Irregular in length — post-war expansions have run from one year to more than ten.",
+      "formal": "Recurrent fluctuations in aggregate output, employment and income around a long-run trend, conventionally divided into expansion, peak, contraction and trough.",
+      "seeAlso": [
+        "recession",
+        "output-gap",
+        "leading-indicator"
+      ]
+    },
+    {
+      "slug": "carry-trade",
+      "term": "carry trade",
+      "plain": "Borrowing in a low-rate currency to invest in a high-rate one without hedging. Earns the rate gap for long stretches and gives years of it back in a fortnight.",
+      "formal": "A position funded in a low-yielding currency and invested in a higher-yielding one with the exchange rate left unhedged, earning the differential and bearing depreciation risk.",
+      "seeAlso": [
+        "covered-interest-parity",
+        "exchange-rate",
+        "carry"
+      ]
+    },
+    {
+      "slug": "central-bank",
+      "term": "central bank",
+      "plain": "The institution that sets a country's short-term interest rate and is usually charged with keeping inflation stable.",
+      "formal": "The public authority responsible for monetary policy, currency issuance and typically financial stability, operating under a legislated mandate.",
+      "seeAlso": [
+        "monetary-policy",
+        "policy-rate",
+        "quantitative-easing"
+      ]
+    },
+    {
+      "slug": "covered-interest-parity",
+      "term": "covered interest parity",
+      "plain": "The rule tying the forward exchange rate to the two currencies' interest rates, because otherwise there would be free money on the table. It is why hedging a foreign yield gives you back your own rate.",
+      "formal": "The no-arbitrage condition equating the forward premium or discount to the interest rate differential between two currencies.",
+      "seeAlso": [
+        "fx-forward-rate",
+        "carry-trade",
+        "exchange-rate"
+      ]
+    },
+    {
+      "slug": "cpi",
+      "term": "consumer price index (CPI)",
+      "plain": "The cost of a fixed basket of what households buy, weighted by how much they spend on each item. The usual headline inflation measure, and an average nobody experiences exactly.",
+      "formal": "A weighted index of consumer goods and services prices, with weights derived from household expenditure surveys and periodically rebased.",
+      "seeAlso": [
+        "inflation",
+        "gdp-deflator",
+        "base-effect"
+      ]
+    },
+    {
+      "slug": "deflation",
+      "term": "deflation",
+      "plain": "Falling prices. It sounds like good news and generally is not: debts get heavier in real terms and buyers postpone spending because things will be cheaper later.",
+      "formal": "A sustained decrease in the aggregate price level, raising the real burden of nominal debt and creating incentives to defer consumption.",
+      "seeAlso": [
+        "inflation",
+        "cpi",
+        "real-interest-rate"
+      ]
+    },
+    {
+      "slug": "exchange-rate",
+      "term": "exchange rate",
+      "plain": "The price of one currency in another. Always write down which currency is on top before doing any arithmetic — inverted quotes cause more errors than bad economics.",
+      "formal": "The rate at which one currency may be exchanged for another, quoted as units of a quote currency per unit of a base currency.",
+      "seeAlso": [
+        "fx-spot-rate",
+        "fx-forward-rate",
+        "covered-interest-parity"
       ]
     },
     {
@@ -23,6 +133,17 @@
       ]
     },
     {
+      "slug": "fiscal-policy",
+      "term": "fiscal policy",
+      "plain": "Government taxation and spending. Where monetary policy changes the price of money, this adds or subtracts demand directly.",
+      "formal": "The use of government expenditure and revenue measures to influence aggregate demand, output and the distribution of income.",
+      "seeAlso": [
+        "primary-balance",
+        "automatic-stabilisers",
+        "monetary-policy"
+      ]
+    },
+    {
       "slug": "flight-to-quality",
       "term": "flight to quality",
       "plain": "When investors rush into the safest, most liquid assets and abandon everything else. It widens exactly the spreads that relative value strategies are short.",
@@ -34,6 +155,82 @@
       ]
     },
     {
+      "slug": "fx-forward-rate",
+      "term": "forward exchange rate",
+      "plain": "The exchange rate agreed today for swapping currency on a future date. Set by the two countries' interest rates, not by anyone's forecast.",
+      "formal": "The contractually agreed rate for a currency exchange at a specified future date, determined by covered interest parity from spot and the interest rate differential.",
+      "seeAlso": [
+        "covered-interest-parity",
+        "fx-spot-rate",
+        "exchange-rate"
+      ]
+    },
+    {
+      "slug": "fx-spot-rate",
+      "term": "spot exchange rate",
+      "plain": "The exchange rate for swapping currency now rather than at a future date.",
+      "formal": "The rate for immediate settlement of a currency exchange, conventionally two business days forward.",
+      "seeAlso": [
+        "exchange-rate",
+        "fx-forward-rate"
+      ]
+    },
+    {
+      "slug": "gdp",
+      "term": "gross domestic product (GDP)",
+      "plain": "The total value of everything a country produces in a period. The standard measure of the size of an economy, and a flow rather than a stock of wealth.",
+      "formal": "The market value of all final goods and services produced within a country's borders over a period, measurable equivalently by production, expenditure or income.",
+      "seeAlso": [
+        "real-gdp",
+        "nominal-gdp",
+        "potential-output"
+      ]
+    },
+    {
+      "slug": "gdp-deflator",
+      "term": "GDP deflator",
+      "plain": "The price index used to turn nominal GDP into real GDP. Broader than a consumer price index, because it covers everything the economy produces rather than what households buy.",
+      "formal": "The ratio of nominal to real GDP expressed as an index; an economy-wide price measure whose weights shift with the composition of output.",
+      "seeAlso": [
+        "real-gdp",
+        "cpi",
+        "inflation"
+      ]
+    },
+    {
+      "slug": "inflation",
+      "term": "inflation",
+      "plain": "A sustained rise in the general level of prices, so that a unit of currency buys less than it did. Not one price rising — the whole level.",
+      "formal": "A sustained increase in the aggregate price level, measured as the change in a price index over a period.",
+      "seeAlso": [
+        "cpi",
+        "deflation",
+        "real-interest-rate"
+      ]
+    },
+    {
+      "slug": "lagging-indicator",
+      "term": "lagging indicator",
+      "plain": "Data that moves after the economy has turned — default rates, how long people stay unemployed. It confirms a turn; it never anticipates one.",
+      "formal": "A series that changes direction after aggregate activity has turned, useful for confirmation rather than for timing.",
+      "seeAlso": [
+        "leading-indicator",
+        "business-cycle",
+        "recession"
+      ]
+    },
+    {
+      "slug": "leading-indicator",
+      "term": "leading indicator",
+      "plain": "Data that moves before the economy does — new orders, building permits, the yield curve. Noisier than the rest, and the only kind with any forecasting value.",
+      "formal": "A series that historically changes direction in advance of aggregate activity, typically because it records decisions rather than outcomes.",
+      "seeAlso": [
+        "lagging-indicator",
+        "purchasing-managers-index",
+        "business-cycle"
+      ]
+    },
+    {
       "slug": "monetary-policy",
       "term": "monetary policy",
       "plain": "What a central bank does to influence borrowing costs and the amount of money circulating — mainly by moving its policy interest rate up or down.",
@@ -42,6 +239,92 @@
         "federal-funds-rate",
         "yield-curve",
         "real-interest-rate"
+      ]
+    },
+    {
+      "slug": "nominal-gdp",
+      "term": "nominal GDP",
+      "plain": "GDP at current prices, which mixes producing more with charging more. Growth of 5% here can be 2% more output and 3% higher prices.",
+      "formal": "Gross domestic product measured at prevailing prices, incorporating both volume and price changes.",
+      "seeAlso": [
+        "gdp",
+        "real-gdp",
+        "gdp-deflator"
+      ]
+    },
+    {
+      "slug": "output-gap",
+      "term": "output gap",
+      "plain": "How far actual output sits above or below what the economy can sustainably produce. Negative means spare capacity; positive means it is running hot. This, not the growth rate, is what central banks respond to.",
+      "formal": "The difference between actual and potential output expressed as a percentage of potential; the principal cyclical input to monetary policy decisions.",
+      "seeAlso": [
+        "potential-output",
+        "monetary-policy",
+        "inflation"
+      ]
+    },
+    {
+      "slug": "policy-rate",
+      "term": "policy rate",
+      "plain": "The short-term interest rate a central bank sets. Everything else in fixed income is priced off it, which is how one overnight rate reaches a thirty-year mortgage.",
+      "formal": "The administered overnight or short-term rate at which a central bank lends to, or absorbs deposits from, the banking system.",
+      "seeAlso": [
+        "central-bank",
+        "federal-funds-rate",
+        "monetary-policy"
+      ]
+    },
+    {
+      "slug": "potential-output",
+      "term": "potential output",
+      "plain": "What an economy could produce with its people and equipment fully but sustainably employed. Not a maximum, and never actually measured — it is estimated and revised.",
+      "formal": "The level of output consistent with sustainable utilisation of labour and capital without generating accelerating inflation; an unobservable quantity inferred from models.",
+      "seeAlso": [
+        "output-gap",
+        "gdp",
+        "inflation"
+      ]
+    },
+    {
+      "slug": "primary-balance",
+      "term": "primary balance",
+      "plain": "The government's deficit or surplus before interest payments. It separates what the government is doing now from what it owes for what it did before.",
+      "formal": "Government revenue less non-interest expenditure; the fiscal measure used in debt sustainability analysis.",
+      "seeAlso": [
+        "fiscal-policy",
+        "gdp"
+      ]
+    },
+    {
+      "slug": "purchasing-managers-index",
+      "term": "purchasing managers' index (PMI)",
+      "plain": "A survey asking firms whether conditions improved or worsened. Above 50 means more firms improving than not, so it measures how widespread a change is rather than how big.",
+      "formal": "A diffusion index built from business surveys where readings above 50 indicate more respondents reporting expansion than contraction; it measures breadth of change, not magnitude.",
+      "seeAlso": [
+        "leading-indicator",
+        "business-cycle"
+      ]
+    },
+    {
+      "slug": "quantitative-easing",
+      "term": "quantitative easing (QE)",
+      "plain": "A central bank buying long-dated bonds with newly created reserves, to push long-term rates down when the short rate is already at zero and cannot be cut further.",
+      "formal": "Large-scale purchases of longer-maturity securities financed by reserve creation, intended to compress term premia when the policy rate is at its effective lower bound.",
+      "seeAlso": [
+        "central-bank",
+        "term-premium",
+        "policy-rate"
+      ]
+    },
+    {
+      "slug": "real-gdp",
+      "term": "real GDP",
+      "plain": "GDP with the effect of price changes stripped out, so it measures actual output rather than higher prices. This is the version that matters.",
+      "formal": "Gross domestic product measured at constant prices, deflated by a price index so that changes reflect volume rather than price.",
+      "seeAlso": [
+        "gdp",
+        "nominal-gdp",
+        "gdp-deflator"
       ]
     },
     {
@@ -66,6 +349,16 @@
       ],
       "needsReview": true,
       "reviewNote": "I have deliberately avoided the popular 'two consecutive quarters of negative GDP' shorthand, which is not how the US dating body defines it. Verify the definition you want to standardise on."
+    },
+    {
+      "slug": "seasonal-adjustment",
+      "term": "seasonal adjustment",
+      "plain": "Removing the regular calendar pattern from data so that one month can be compared with another. The adjustment factors come from history, so they misfire when behaviour changes.",
+      "formal": "Statistical removal of recurring intra-year variation from a time series, using factors estimated from historical patterns.",
+      "seeAlso": [
+        "annualised-rate",
+        "leading-indicator"
+      ]
     },
     {
       "slug": "term-premium",

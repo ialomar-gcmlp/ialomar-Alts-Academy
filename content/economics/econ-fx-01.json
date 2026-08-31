@@ -1,0 +1,298 @@
+{
+  "schemaVersion": 1,
+  "id": "econ-fx-01",
+  "domain": "economics",
+  "title": "Exchange Rates, Parity and the Cost of Hedging",
+  "summary": "Why a forward rate is arithmetic rather than a forecast, and why hedging a foreign investment converts its yield back to your own.",
+  "level": "advanced",
+  "prereqs": [
+    "econ-monetary-01",
+    "quant-tvm-01"
+  ],
+  "estMinutes": 10,
+  "examRelevance": [
+    "CFA-L1",
+    "CAIA-L2",
+    "practical"
+  ],
+  "lesson": [
+    {
+      "type": "concept",
+      "id": "what-it-is",
+      "body": "An [[exchange-rate|exchange rate]] is the price of one currency in another. Two versions matter and they are constantly confused:\n\n**The [[fx-spot-rate|spot rate]]** — the price for immediate exchange.\n\n**The [[fx-forward-rate|forward rate]]** — the price agreed today for an exchange at a future date.\n\nThe critical point, and the one that surprises people: **the forward rate is not a forecast.** It is determined by the two currencies' interest rates through arbitrage. If it were anything else, a riskless profit would exist.\n\nQuoting conventions cause more errors than the concepts. Throughout this topic the rate is written as **USD per EUR**: 1.10 means one euro buys 1.10 dollars. \"The euro rises\" means that number goes up. Before doing any FX arithmetic, write down which currency is on top — most mistakes in practice are inverted quotes rather than bad economics."
+    },
+    {
+      "type": "concept",
+      "id": "the-arbitrage",
+      "body": "**[[covered-interest-parity|Covered interest parity]] is the mechanism, and it is a no-arbitrage identity rather than a theory.**\n\nTwo ways to hold euros for a year and end up with dollars:\n\n1. Convert to dollars today at spot, deposit at the dollar rate.\n2. Deposit in euros at the euro rate, and sell the proceeds forward into dollars today at the forward rate.\n\nBoth are riskless and both start with the same euros, so they must end with the same dollars. That equality *defines* the forward rate:\n\n**The currency with the higher interest rate trades at a forward discount.** Exactly enough discount to cancel its rate advantage.\n\nThis is why the phrase \"pick up yield in a higher-rate currency\" is either an unhedged position — you are taking currency risk — or it is nothing at all. Hedged, the rate advantage is precisely offset. There is no third option, and treating a hedged foreign yield as a free pickup is one of the most common analytical errors in cross-border investing."
+    },
+    {
+      "type": "intuition",
+      "id": "hedging-is-conversion",
+      "body": "**Hedging a foreign investment does not remove a risk and leave the return intact. It converts the return into your own currency's interest rate environment.**\n\nWork it through. A euro investor buys a dollar asset yielding the dollar rate and hedges the currency forward. Covered interest parity says the hedged return equals the euro rate — exactly, not approximately. The dollar yield advantage is handed over in the hedge.\n\nSo what is left? **Only the excess return of the asset over its own currency's [[risk-free-rate|risk-free rate]].** That spread — a credit spread, an equity risk premium, an illiquidity premium — travels across the hedge intact. The risk-free component does not.\n\nThree consequences worth carrying:\n\n**The hedge cost is not a fee, it is the rate differential.** When your currency's rates are lower than the asset's, hedging costs you the gap, every year, and no amount of shopping around changes it.\n\n**Currency-hedged share classes with different rates have different returns from the same portfolio.** Nothing is wrong; the differential is showing up.\n\n**Whether to hedge is therefore a question about [[volatility]] and cash flows, not about return.** The expected return effect is arithmetic and known in advance."
+    },
+    {
+      "type": "formula",
+      "id": "cip",
+      "latex": "F = S \\times \\frac{1 + i_{\\text{quote}}}{1 + i_{\\text{base}}}",
+      "plainReading": "The forward rate equals the spot rate times one plus the quote-currency interest rate, divided by one plus the base-currency rate. With USD per EUR, the dollar is the quote currency and the euro is the base.",
+      "variables": [
+        {
+          "symbol": "S",
+          "meaning": "spot rate, quote currency per unit of base currency"
+        },
+        {
+          "symbol": "i_{\\text{quote}}",
+          "meaning": "interest rate on the currency being quoted — dollars here"
+        },
+        {
+          "symbol": "i_{\\text{base}}",
+          "meaning": "interest rate on the base currency — euros here"
+        },
+        {
+          "symbol": "F",
+          "meaning": "the forward rate implied with no arbitrage available"
+        }
+      ]
+    },
+    {
+      "type": "example",
+      "id": "worked-cip",
+      "body": "Spot is 1.1000 USD per EUR. One-year rates: dollars 5.25%, euros 3.25%. A euro-based investor is considering $50m of a US asset.",
+      "walkthrough": [
+        "Forward = 1.1000 × (1.0525 / 1.0325) = **1.1213 USD per EUR**.",
+        "So the euro is worth *more* dollars forward than spot — a forward premium of 1.1213/1.1000 − 1 = **1.94%**. The higher-rate currency, the dollar, trades at a forward discount, exactly as the identity requires.",
+        "Now the hedged return. Take €1: convert to $1.10, earn 5.25% to get $1.1578, sell forward at 1.1213 → €1.0325.",
+        "**That is a 3.25% return — precisely the euro rate.** Not approximately. The identity guarantees it.",
+        "**Read that carefully: the 200bp dollar yield advantage was handed over entirely in the hedge.** Anything the euro investor earns above 3.25% must come from the asset's spread over the dollar risk-free rate, never from the currency.",
+        "On $50m of exposure, the annual cost of hedging is the differential: 50 × (5.25% − 3.25%) = **$1.0m a year**. That is the number to put in front of a committee, not a percentage.",
+        "Sanity check worth reusing: **compute the hedged return and confirm it equals your own currency's rate.** If it does not, you have inverted a quote — which is the error, essentially every time."
+      ]
+    },
+    {
+      "type": "table",
+      "id": "hedge-table",
+      "caption": "Hedged, unhedged, and what you are actually holding",
+      "headers": [
+        "Choice",
+        "You keep",
+        "You are exposed to"
+      ],
+      "rows": [
+        [
+          "Unhedged",
+          "The asset's local return plus any currency move",
+          "The currency, which for developed pairs can swamp several years of asset return."
+        ],
+        [
+          "Fully hedged",
+          "The asset's spread over its own risk-free rate, expressed in your currency",
+          "The rate differential as an ongoing cost or gain, plus rollover and [[margin-call|margin calls]]."
+        ],
+        [
+          "Partially hedged",
+          "A chosen blend",
+          "Both, in proportion — and a decision that needs a stated rationale."
+        ],
+        [
+          "Hedged with a mismatch",
+          "Less than you think",
+          "Basis risk: the hedge notional drifts from the asset value, especially in private markets where the value is a quarterly estimate."
+        ]
+      ]
+    },
+    {
+      "type": "concept",
+      "id": "how-it-goes-wrong",
+      "body": "**Margin calls on a winning hedge.** If the foreign currency strengthens, the hedge loses cash while the asset gains unrealised value. That is cash out the door against a gain you cannot access — and in private markets, against a gain that is only a mark. Hedging programmes fail on liquidity, not on logic.\n\n**Notional drift.** A private asset's value moves and its hedge notional does not. Over-hedging turns the overlay into a currency position; under-hedging leaves exposure. This needs a rebalancing policy written down in advance.\n\n**Assuming the forward rate predicts the spot rate.** It does not; it prices the interest differential. Historically the higher-rate currency has not depreciated as much as forwards implied, which is exactly why the [[carry-trade|carry trade]] has a long-run positive return — and why it periodically loses years of that return in a fortnight.\n\n**Hedging a currency you are not exposed to.** A US-listed company earning revenue in Asia gives you Asian exposure through a dollar-denominated share. The listing currency is not the risk.\n\n**Ignoring the emerging-market case.** Where capital controls or thin forward markets exist, parity can break, hedges are expensive or unavailable, and the residual risk is the real position."
+    },
+    {
+      "type": "pitfall",
+      "id": "hedged-yield-illusion",
+      "body": "**The single most common error in cross-border allocation: treating a higher foreign yield as available after hedging.**\n\nIt appears in a specific and plausible form. \"US [[private-credit|private credit]] yields 11%; European [[direct-lending|direct lending]] yields 9%; we will take the US and hedge the currency.\" Both numbers are real. But for a euro investor the hedge removes the 200bp rate differential, so the comparison becomes 9% against 9% — and the decision has to be made on underwriting quality, covenant packages and default experience instead.\n\nWhich is the point: **once the currency is hedged, the only thing left to compare is the spread over each market's own risk-free rate.** That comparison is harder, slower and the one that actually determines the outcome.\n\nThe tell to listen for: a pitch quoting an unhedged foreign yield to a domestic investor without stating the hedged equivalent. Sometimes it is an oversight; either way, it makes a like-for-like decision impossible, and asking for the hedged number takes one sentence."
+    },
+    {
+      "type": "onTheJob",
+      "id": "on-the-job",
+      "body": "**Ask for the yield hedged into your own currency, not the local yield.** One sentence, and it makes two opportunities comparable for the first time.\n\n**Ask who funds the margin calls if the hedge moves against you, and from where.** A hedged private portfolio needs a liquidity source for exactly the scenario in which its assets look best on paper.\n\n**Ask how often the hedge notional is rebalanced to the asset's value, and against which valuation.** Quarterly marks and daily currency moves do not rebalance themselves.\n\n**Ask what the hedging cost was last year, in money.** The differential is public information; the manager's actual cost includes execution and rollovers, and the gap between the two is worth seeing.\n\n**For an unhedged allocation, ask for the return decomposed into asset and currency.** A great local return can be a poor result for you, and a manager should be able to show both halves without being asked twice."
+    },
+    {
+      "type": "keyTakeaways",
+      "id": "takeaways",
+      "items": [
+        "A forward rate is arithmetic, not a forecast: it is set by the two interest rates so no riskless profit exists, which puts the higher-rate currency at a forward discount.",
+        "Hedging converts a foreign return into your own rate environment. Only the asset's spread over its local risk-free rate survives the hedge — the yield advantage does not.",
+        "In the worked example a euro investor hedging $50m paid the 200bp differential, which is $1.0m a year, and ended with exactly the 3.25% euro rate.",
+        "Hedging programmes fail on liquidity, not logic: a winning currency means cash out for margin while the gain is unrealised, and in private markets the gain is only a mark."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "econ-fx-01-q1",
+      "type": "mcq",
+      "difficulty": 2,
+      "tags": [
+        "fx",
+        "definition"
+      ],
+      "concept": "what-it-is",
+      "stem": "A forward exchange rate is best described as which of the following?",
+      "choices": [
+        "The market's forecast of where the spot rate will be",
+        "The rate implied by the two currencies' interest rates, set so that no riskless profit is available",
+        "The rate a central bank commits to defend",
+        "An average of recent spot rates"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "The most common misreading. Forwards and expectations can differ for long periods — the persistence of the carry trade's returns is evidence that they do.",
+        "Correct. It is arithmetic from spot and the two interest rates. Any other level would let someone borrow in one currency, lend in the other and lock a profit with no risk.",
+        "Central banks defend spot levels under a peg, which is a different arrangement entirely.",
+        "No averaging is involved; only today's spot and the two rates."
+      ],
+      "explanation": "Getting this straight early prevents a whole family of errors, because the same principle governs implied forward interest rates and commodity futures curves. All three are no-arbitrage prices that people habitually read as predictions."
+    },
+    {
+      "id": "econ-fx-01-q2",
+      "type": "numeric",
+      "difficulty": 3,
+      "tags": [
+        "fx",
+        "parity",
+        "arithmetic"
+      ],
+      "concept": "worked-cip",
+      "stem": "Spot is 1.1000 USD per EUR. One-year rates are 5.25% on dollars and 3.25% on euros. What is the one-year forward rate, in USD per EUR? Give four decimal places.",
+      "answer": 1.1213,
+      "tolerance": 0.0015,
+      "toleranceType": "abs",
+      "inputHint": "F = S × (1 + i_USD) / (1 + i_EUR)",
+      "explanation": "The direction is the part worth internalising: the higher-rate currency is worth LESS forward. If your answer came out below 1.1000 you inverted the ratio, which is the standard error and the reason the sanity check in the lesson exists."
+    },
+    {
+      "id": "econ-fx-01-q3",
+      "type": "numeric",
+      "difficulty": 3,
+      "tags": [
+        "fx",
+        "hedging",
+        "arithmetic"
+      ],
+      "concept": "hedging-is-conversion",
+      "stem": "Using those same rates, what annual cost in millions does a euro investor bear to hedge $50m of dollar exposure?",
+      "answer": 1.0,
+      "tolerance": 0.06,
+      "toleranceType": "abs",
+      "unit": "$m",
+      "inputHint": "The cost is the rate differential applied to the notional.",
+      "explanation": "Presenting this as $1.0m rather than 2% changes committee conversations, because a percentage of a notional feels like a technicality and a million dollars a year does not. It is also the honest framing: the money genuinely leaves."
+    },
+    {
+      "id": "econ-fx-01-q4",
+      "type": "mcq",
+      "difficulty": 3,
+      "tags": [
+        "fx",
+        "parity"
+      ],
+      "concept": "the-arbitrage",
+      "stem": "Why does the currency with the higher interest rate trade at a forward discount?",
+      "choices": [
+        "Because markets expect high-rate currencies to weaken",
+        "Because otherwise a riskless profit would exist from borrowing in the low-rate currency and lending in the high-rate one with the currency sold forward",
+        "Because central banks set forward rates",
+        "Because higher rates signal higher inflation"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "This is the plausible-sounding answer and it is a different proposition. The forward is set by arbitrage; expectations may or may not agree with it, and historically they have not.",
+        "Correct. The forward discount is exactly the size that eliminates the arbitrage. It is an identity enforced by trading, not a view about the future.",
+        "Central banks set policy rates. Forwards follow from those rates and the spot price through the market.",
+        "There is an economic story linking rates and inflation, but the forward is pinned by arbitrage regardless of the reason rates differ."
+      ],
+      "explanation": "The distinction between an arbitrage identity and a forecast matters far beyond FX. The forward curve in commodities, the implied forward rates in a yield curve, and this all share the property: they are prices consistent with no free lunch, and reading them as predictions is a category error."
+    },
+    {
+      "id": "econ-fx-01-q5",
+      "type": "tfj",
+      "difficulty": 4,
+      "tags": [
+        "fx",
+        "hedging",
+        "misconception"
+      ],
+      "concept": "hedged-yield-illusion",
+      "stem": "\"US private credit yields 11% and European direct lending 9%, so a euro investor should take the US and hedge the currency.\" True or false — and why?",
+      "isTrue": false,
+      "justifications": [
+        "False — hedging removes the rate differential, so after hedging the comparison is roughly 9% against 9% and must be decided on underwriting quality instead",
+        "False — hedging is too expensive to be worthwhile for credit",
+        "True — hedging locks in the higher yield",
+        "False — because US private credit is riskier than European"
+      ],
+      "justificationIndex": 0,
+      "rationales": [
+        "Correct. Covered interest parity converts the return to the euro rate environment, so most of the apparent 200bp advantage is handed over in the hedge. What is left to compare is each market's spread over its own risk-free rate.",
+        "Cost is exactly the differential — sometimes worth paying, sometimes not. Calling it \"too expensive\" skips the arithmetic that decides.",
+        "This is the illusion under test. The hedge locks in the exchange rate, not the yield advantage.",
+        "It may or may not be. That is a credit judgement, and the point is that the credit judgement is the whole decision once the currency is hedged."
+      ],
+      "explanation": "This is worth recognising in the wild because it is usually offered in good faith. The fix is a single question — what is the yield hedged into euros — and it turns an incomparable pair of numbers into a comparable one."
+    },
+    {
+      "id": "econ-fx-01-q6",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": [
+        "fx",
+        "liquidity",
+        "risk"
+      ],
+      "concept": "how-it-goes-wrong",
+      "stem": "A euro investor hedges a US private equity portfolio. The dollar strengthens sharply. What is the immediate practical problem?",
+      "choices": [
+        "The portfolio's dollar value falls",
+        "The hedge loses money and requires cash margin, while the offsetting gain on the assets is unrealised and only a quarterly mark",
+        "The hedge automatically closes",
+        "The hedge stops working once the currency moves more than 10%"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "The portfolio's euro value rises when the dollar strengthens — that is the gain the hedge is offsetting.",
+        "Correct. The hedge settles in cash and the assets do not. Cash goes out now against a gain that is an estimate and cannot be sold. This is how well-designed hedging programmes get unwound at the worst moment.",
+        "Forwards and futures are rolled and margined, not self-closing.",
+        "There is no such threshold; the relationship is linear in the currency move."
+      ],
+      "explanation": "The general principle is a cash-flow-matching one: never hedge an illiquid asset with an instrument that settles in cash unless you have written down where the cash comes from. The hedge is economically right and operationally lethal without a funding plan."
+    },
+    {
+      "id": "econ-fx-01-q7",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": [
+        "fx",
+        "diligence",
+        "on-the-job"
+      ],
+      "concept": "on-the-job",
+      "stem": "A manager reports a 14% return on an unhedged Japanese equity strategy for a euro investor. What is the first thing to establish?",
+      "choices": [
+        "Whether the benchmark was appropriate",
+        "How much of the 14% came from the equities and how much from the yen",
+        "Whether the fund uses leverage",
+        "What the management fee was"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Benchmark choice matters for attribution and cannot be assessed before the currency contribution is separated out.",
+        "Correct. In an unhedged foreign allocation the currency can be most of the result, in either direction. Until it is decomposed, the figure says nothing about the manager's stock selection.",
+        "Relevant to risk and not to what produced this particular number.",
+        "Fees affect the net figure and not the split between asset and currency."
+      ],
+      "explanation": "The habit generalises: any return earned in a currency other than your own is two returns reported as one. Ask for both halves as a matter of routine — and note that a manager who cannot separate them is being paid for one thing and measured on another."
+    }
+  ],
+  "needsReview": false,
+  "reviewNote": null
+}

@@ -1,0 +1,249 @@
+{
+  "schemaVersion": 1,
+  "id": "econ-fiscal-01",
+  "domain": "economics",
+  "title": "Fiscal Policy, Deficits and Debt Sustainability",
+  "summary": "Why a government debt ratio depends on one subtraction — the interest rate minus the growth rate — and what that does to long-dated assets.",
+  "level": "core",
+  "prereqs": ["econ-gdp-01"],
+  "estMinutes": 10,
+  "examRelevance": ["CFA-L1", "CAIA-L2", "practical"],
+  "lesson": [
+    {
+      "type": "concept",
+      "id": "what-it-is",
+      "body": "[[fiscal-policy|Fiscal policy]] is government spending and taxation. Where [[monetary-policy]] works through the price of money, fiscal policy adds or subtracts demand directly.\n\nThree terms do most of the work:\n\n**The deficit** is spending minus revenue in a year — a flow.\n\n**The debt** is the accumulated stock of past deficits.\n\nThe **[[primary-balance|primary balance]]** is the deficit *excluding* interest payments. This is the one to know, because it separates what the government is doing now from what it owes for what it did before. A country can run a primary surplus and still see its debt grow, purely on interest.\n\nA useful distinction on top: **[[automatic-stabilisers|automatic stabilisers]]** are the parts of the budget that move with the cycle without anyone deciding anything — unemployment benefits rise and tax receipts fall in a downturn. They cushion the cycle automatically, which is why deficits widen in recessions even with no new policy at all."
+    },
+    {
+      "type": "concept",
+      "id": "the-driver",
+      "body": "**The debt-to-GDP ratio is a fraction, and both parts move.**\n\nDebt grows at roughly the interest rate on it. GDP grows at the nominal growth rate. So the ratio drifts up or down depending on which is larger — the famous **r − g**.\n\n- **r > g**: debt compounds faster than the economy. The ratio rises unless the government runs a primary surplus large enough to offset it.\n- **r < g**: the economy outgrows its debt. The ratio falls even while the government runs modest primary deficits.\n\nThis single subtraction explains most of post-war fiscal history. Debt ratios fell for decades after 1945 with growth above rates and inflation eroding the real value of fixed-rate debt — not through austerity. They rose after 2008 with weak growth, and the 2010s were survivable at very high debt levels only because r was close to zero.\n\n**Which is why the return of positive real rates is a fiscal event, not just a market one.** Nothing about the debt changed; the sign of r − g did."
+    },
+    {
+      "type": "intuition",
+      "id": "why-it-matters-to-you",
+      "body": "This can look like a macro parlour game. It reaches a portfolio through four specific routes.\n\n**Long yields.** More issuance means more bonds to absorb; a rising [[term-premium|term premium]] raises the [[discount-rate|discount rate]] on every long-dated asset you own. [[infrastructure|Infrastructure]] and long-lease real estate are the most exposed things in an alternatives portfolio to exactly this.\n\n**Policy conflict.** Large deficits add demand while a [[central-bank|central bank]] subtracts it. Rates have to go higher than they otherwise would, for longer.\n\n**Tax risk.** Debt eventually gets addressed, and [[carried-interest|carried interest]], capital gains treatment and fund structures are recurring candidates. This is a live business risk in alternatives rather than an abstraction.\n\n**The government as counterparty.** Infrastructure with regulated or subsidised revenue, defence suppliers, healthcare — a great deal of the private markets universe is paid by a government whose fiscal position has just deteriorated. **A contract with a stressed sovereign is a contract with a renegotiation risk**, and it is rarely priced as one.\n\n**The honest summary: fiscal sustainability is not a moral question about prudence, it is an interest rate question with a subtraction in it.**"
+    },
+    {
+      "type": "formula",
+      "id": "debt-dynamics",
+      "latex": "\\Delta d \\approx d \\times (r - g) - pb",
+      "plainReading": "The change in the debt-to-GDP ratio is roughly the existing ratio times the gap between the interest rate and the growth rate, minus the primary balance as a share of GDP.",
+      "variables": [
+        { "symbol": "d", "meaning": "debt as a share of GDP, expressed as a decimal or in percentage points consistently" },
+        { "symbol": "r", "meaning": "the effective nominal interest rate on the debt — the average across all outstanding issues, not today's yield" },
+        { "symbol": "g", "meaning": "[[nominal-gdp|nominal GDP]] growth" },
+        { "symbol": "pb", "meaning": "primary balance as a share of GDP; positive means surplus" }
+      ]
+    },
+    {
+      "type": "example",
+      "id": "worked-dynamics",
+      "body": "A country has debt at 100% of GDP, an effective interest rate of 4%, nominal growth of 2% and a balanced primary budget.",
+      "walkthrough": [
+        "Δd = 100 × (4% − 2%) − 0 = **+2.0 percentage points a year**. Debt rises from 100% to 102% with the government spending exactly what it collects, before interest.",
+        "To hold the ratio flat, it needs a primary surplus of **2.0% of GDP** — every year, permanently, just to stand still.",
+        "Now flip the subtraction: growth of 4% against a rate of 2%. Δd = 100 × (−2%) = **−2.0pp a year**. The same country now deleverages with no austerity whatsoever.",
+        "**Read that carefully. The difference between a debt spiral and a painless [[deleveraging]] was 4 percentage points of r − g, and the government's own behaviour was identical in both cases.**",
+        "This is why inflation is fiscally convenient. Inflation raises nominal g immediately and raises r only as debt matures and is refinanced — so a country with long-dated fixed-rate debt gets a window where r − g is sharply negative.",
+        "Sanity check worth reusing: **the required primary surplus is just d × (r − g).** At 100% debt and a 2pp gap you need 2% of GDP; at 250% debt and the same gap you need 5%. Debt levels do not cause crises on their own — they multiply the cost of an adverse r − g."
+      ]
+    },
+    {
+      "type": "table",
+      "id": "regimes",
+      "caption": "The same debt level in four different worlds",
+      "headers": ["Regime", "Debt ratio drifts", "What it typically means for markets"],
+      "rows": [
+        [
+          "r < g, low inflation",
+          "Down, quietly",
+          "The 2010s. High debt tolerated, long yields anchored, long-duration assets bid up."
+        ],
+        [
+          "r < g via high inflation",
+          "Down in nominal terms",
+          "Bondholders bear the cost through negative real returns. [[real-assets|Real assets]] outperform financial claims."
+        ],
+        [
+          "r > g, credible government",
+          "Up, slowly, with consolidation debated",
+          "Term premium rises, fiscal risk premium appears in long yields."
+        ],
+        [
+          "r > g, credibility questioned",
+          "Up, fast",
+          "Currency and long-end selloff together — the signature of a fiscal, not monetary, problem."
+        ]
+      ]
+    },
+    {
+      "type": "concept",
+      "id": "how-it-goes-wrong",
+      "body": "**Assuming today's yield is r.** The effective rate is the average across all outstanding debt. A country with long-dated debt refinances slowly, so a yield spike takes years to become an interest bill. The maturity profile is the shock absorber, and it is the first thing to check.\n\n**Ignoring who holds the debt.** Domestically held, own-currency debt is a different problem from foreign-currency debt held abroad. The second can produce a genuine default; the first is usually resolved through inflation and financial repression.\n\n**Treating debt levels as thresholds.** There is no line above which a crisis follows. Japan has sustained far higher ratios than countries that had crises at half the level. What differs is currency, ownership, credibility and r − g.\n\n**Forgetting contingent liabilities.** Pensions, healthcare commitments and guarantees to state entities are obligations that do not appear in the headline debt figure.\n\n**Assuming consolidation is self-defeating or costless.** Cutting spending reduces demand, which reduces g, which worsens the very ratio being defended — but the opposite claim, that deficits pay for themselves, has an equally poor record. Both arguments get made with more confidence than the evidence supports."
+    },
+    {
+      "type": "pitfall",
+      "id": "fiscal-dominance",
+      "body": "**The scenario worth naming is fiscal dominance: when the debt burden constrains what the central bank can do.**\n\nThe mechanism is simple. Raise rates, and the interest bill on a large debt stock rises. Raise them enough and the fiscal position deteriorates enough that the bank faces a choice between its inflation target and the government's solvency. The market's expectation of how that choice is resolved becomes the inflation expectation.\n\nThe signature is distinctive and worth being able to recognise: **long yields and the currency selling off together while the central bank is still tightening.** In an ordinary tightening cycle, higher rates support the currency. When both fall as rates rise, the market has stopped reading the rate as a policy signal and started reading it as a solvency signal.\n\nThis is a tail, not a forecast. But it is the tail in which a portfolio's inflation hedges are most needed and its long-duration assets do worst, so it is worth having thought about before it is topical."
+    },
+    {
+      "type": "onTheJob",
+      "id": "on-the-job",
+      "body": "**For infrastructure with government-linked revenue, ask what happens to the concession in a fiscal consolidation.** Regulated returns get reviewed, subsidies get cut and availability payments get renegotiated. A twenty-year contract with a counterparty facing a twenty-year fiscal problem is not the same as a twenty-year contract.\n\n**Ask what a 200bp rise in long yields does to the exit assumption, not the entry.** Long-dated assets were bought at discount rates that assumed the r < g world. If the exit yield in a model equals the entry yield, that is an assumption, and it should be argued for.\n\n**Ask how any tax-driven part of a return survives a tax change.** If a strategy's return depends materially on a specific treatment, the fiscal outlook is a business risk. Ask what the return looks like without it.\n\n**Check whether a sovereign risk assessment distinguishes currency of issuance.** Own-currency debt and foreign-currency debt are different instruments with different failure modes, and lumping them together is a common shortcut.\n\n**When someone quotes a debt-to-GDP figure as alarming, ask for r − g and the maturity profile.** Those two determine whether the level matters at all."
+    },
+    {
+      "type": "keyTakeaways",
+      "id": "takeaways",
+      "items": [
+        "The primary balance excludes interest, which is what separates what a government is doing now from what it owes for the past.",
+        "The debt ratio drifts by roughly d × (r − g) − primary balance: at 100% debt and a 2pp gap, holding steady needs a 2% of GDP surplus every year, permanently.",
+        "Debt levels are not thresholds. Currency of issuance, who holds it, credibility and the maturity profile decide whether a level is a problem.",
+        "Fiscal stress reaches an alternatives portfolio through long yields, tax treatment and government-linked revenue — a contract with a stressed sovereign carries renegotiation risk that is rarely priced."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "econ-fiscal-01-q1",
+      "type": "numeric",
+      "difficulty": 2,
+      "tags": ["fiscal-policy", "debt-dynamics", "arithmetic"],
+      "concept": "worked-dynamics",
+      "stem": "Debt is 100% of GDP, the effective interest rate is 4%, nominal growth is 2%, and the primary balance is zero. By how many percentage points does the debt ratio rise in a year?",
+      "answer": 2.0,
+      "tolerance": 0.15,
+      "toleranceType": "abs",
+      "unit": "pp",
+      "inputHint": "d × (r − g) − primary balance",
+      "explanation": "Note what the government did to deserve this: nothing. It collected exactly what it spent before interest. The entire deterioration came from the gap between the rate on its debt and the growth of its economy, neither of which it directly controls."
+    },
+    {
+      "id": "econ-fiscal-01-q2",
+      "type": "numeric",
+      "difficulty": 3,
+      "tags": ["fiscal-policy", "debt-dynamics", "arithmetic"],
+      "concept": "worked-dynamics",
+      "stem": "Same country, same 100% debt and 2pp gap between r and g. What primary surplus, as a percentage of GDP, holds the debt ratio exactly flat?",
+      "answer": 2.0,
+      "tolerance": 0.15,
+      "toleranceType": "abs",
+      "unit": "%",
+      "inputHint": "Set the change to zero and solve for the primary balance.",
+      "explanation": "The formula d × (r − g) makes the scaling explicit and slightly alarming: at 250% debt with the same 2pp gap, the required surplus is 5% of GDP. Very few governments have sustained surpluses of that size for long, which is what makes high debt fragile rather than fatal."
+    },
+    {
+      "id": "econ-fiscal-01-q3",
+      "type": "mcq",
+      "difficulty": 3,
+      "tags": ["fiscal-policy", "inflation"],
+      "concept": "worked-dynamics",
+      "stem": "Why does unexpected inflation improve a government's debt ratio, at least temporarily?",
+      "choices": [
+        "Because tax revenue is indexed to inflation but spending is not",
+        "Because nominal GDP rises immediately while the interest cost on existing fixed-rate debt is locked in until it matures",
+        "Because central banks cancel government debt during inflationary periods",
+        "Because inflation reduces the amount of debt outstanding"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Some revenue does rise with prices, and much spending is indexed too. The dominant effect is on the denominator and on the real value of existing debt, not on the budget composition.",
+        "Correct. g jumps, r on outstanding debt does not, so r − g turns sharply negative until the debt refinances. The bondholder pays for the improvement through a negative real return.",
+        "Not a mechanism that exists. Central bank holdings still represent claims, and the profits or losses flow back to the treasury.",
+        "The face value is unchanged. What falls is its value in real terms."
+      ],
+      "explanation": "This is the most important asymmetry in the whole topic: inflation is a transfer from existing bondholders to the issuer, and its size depends on the maturity profile. A country with mostly short-dated or index-linked debt gets almost none of this benefit, which is why the maturity profile is a policy variable, not an accident."
+    },
+    {
+      "id": "econ-fiscal-01-q4",
+      "type": "mcq",
+      "difficulty": 3,
+      "tags": ["fiscal-policy", "sovereign-risk"],
+      "concept": "how-it-goes-wrong",
+      "stem": "Two countries both have debt at 130% of GDP. One issues in its own currency to domestic holders; the other issues in foreign currency to overseas holders. What is the key difference?",
+      "choices": [
+        "The first cannot default in nominal terms, so its adjustment tends to come through inflation and repression rather than default",
+        "The second is safer because foreign investors enforce discipline",
+        "There is no material difference at the same debt level",
+        "The first will have a higher credit rating automatically"
+      ],
+      "answerIndex": 0,
+      "rationales": [
+        "Correct. A government that owes its own currency can always create it, so the failure mode is a loss of purchasing power rather than a missed payment. Foreign-currency debt has to be earned or bought, which makes genuine default possible.",
+        "External discipline is real and cuts the other way: it removes the option that makes the first case survivable.",
+        "The historical record is emphatic that it matters — most sovereign defaults involve foreign-currency obligations.",
+        "Ratings do generally distinguish local and foreign currency, but it is the mechanism that matters, not the label."
+      ],
+      "explanation": "For an investor the practical consequence is which hedge to hold. Against own-currency debt problems, you want real assets and inflation linkage. Against foreign-currency sovereign risk, you want to avoid the credit and the currency together, since they fail at the same moment."
+    },
+    {
+      "id": "econ-fiscal-01-q5",
+      "type": "tfj",
+      "difficulty": 4,
+      "tags": ["fiscal-policy", "misconception"],
+      "concept": "how-it-goes-wrong",
+      "stem": "\"Debt above 100% of GDP means a crisis is coming.\" True or false — and why?",
+      "isTrue": false,
+      "justifications": [
+        "False — there is no threshold; currency of issuance, ownership, credibility and r − g determine whether a level is sustainable",
+        "False — because governments can always print money, so debt never matters",
+        "True — 100% is the level at which interest costs become unmanageable",
+        "False — because debt-to-GDP is measured inconsistently across countries"
+      ],
+      "justificationIndex": 0,
+      "rationales": [
+        "Correct. Japan has sustained far higher ratios for decades while other countries had crises below half that level. The level multiplies the cost of an adverse r − g; it does not set a trigger.",
+        "Over-correction that skips the cost. Creating money to service debt shows up as inflation and currency weakness, which is a real cost borne by real people — just not a missed payment.",
+        "This is the threshold intuition under test. Interest cost depends on the effective rate and the maturity profile, not on the ratio crossing a round number.",
+        "Measurement differences are real — gross versus net, what counts as an entity — but they are not why the threshold claim fails."
+      ],
+      "explanation": "The pattern is the same one that makes leverage analysis work in credit: a level is only dangerous relative to the cost of carrying it and the ability to refinance. A company at 6x with long-dated fixed debt and stable cash flow is safer than one at 3x with a maturity next year, and sovereigns are no different."
+    },
+    {
+      "id": "econ-fiscal-01-q6",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["fiscal-policy", "infrastructure", "on-the-job"],
+      "concept": "on-the-job",
+      "stem": "You are reviewing an infrastructure fund whose assets earn availability payments from regional governments. Deficits are widening. What is the sharpest diligence question?",
+      "choices": [
+        "What is the fund's target IRR?",
+        "What happens to those payments in a consolidation — have they been reviewed, cut or renegotiated before, and by whom?",
+        "How long are the concessions?",
+        "What discount rate is used for valuation?"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "The target says nothing about the durability of the revenue that is supposed to produce it.",
+        "Correct. The revenue's security is the whole investment case, and the counterparty's capacity to pay has just deteriorated. Precedent — has this government reopened such contracts before — is the most informative single fact available.",
+        "Length matters, and a longer contract with a stressed counterparty is more exposure, not less.",
+        "Relevant to the mark and secondary to whether the cash flow survives."
+      ],
+      "explanation": "The general point: contracted revenue is only as good as the contracting party, and a long contract with a weakening counterparty is a longer exposure rather than a safer one. Infrastructure is sold on contractual certainty, which makes counterparty fiscal capacity the risk most often left out of the pitch."
+    },
+    {
+      "id": "econ-fiscal-01-q7",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["fiscal-policy", "fiscal-dominance", "risk"],
+      "concept": "fiscal-dominance",
+      "stem": "Long yields rise sharply and the currency falls at the same time, while the central bank is still tightening. What does this pattern suggest?",
+      "choices": [
+        "A standard tightening cycle working as designed",
+        "The market is pricing a fiscal or credibility problem rather than reading the rate rise as a policy signal",
+        "An imminent recession",
+        "A technical shortage of government bonds"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "In a standard cycle, higher rates support the currency by attracting capital. The two moving together the wrong way is the anomaly worth noticing.",
+        "Correct. Yields up and currency down together says investors want more compensation to hold both the debt and the currency — the signature of a solvency or credibility concern rather than a monetary one.",
+        "Recession fears usually pull long yields down as growth expectations fall, not up.",
+        "A shortage would push prices up and yields down, the opposite of what is described."
+      ],
+      "explanation": "Worth memorising as a two-variable test, because it is one of the few macro patterns that identifies its own cause. Rates and currency moving together in the same direction as policy is monetary; moving apart is fiscal. It also tells you which of your hedges is about to be tested."
+    }
+  ],
+  "needsReview": false,
+  "reviewNote": null
+}
