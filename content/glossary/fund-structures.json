@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "domain": "fund-structures",
+  "terms": [
+    {
+      "slug": "net-asset-value",
+      "term": "net asset value (NAV)",
+      "plain": "What a fund is worth: everything it owns minus everything it owes. Exposures are quoted as a percentage of it, so 130% long means long positions worth 1.3 times the fund's capital.",
+      "formal": "Total fund assets less total liabilities, the denominator against which exposures, leverage and per-unit values are expressed.",
+      "seeAlso": ["gross-exposure", "net-exposure", "hedge-fund"]
+    },
+    {
+      "slug": "j-curve",
+      "term": "J-curve",
+      "plain": "The shape a private fund's returns trace over its life: negative early on, because fees are charged and investments have not matured, then rising as investments are sold. Plotted over time it looks like the letter J.",
+      "formal": "The characteristic trajectory of a closed-end private fund's cumulative net return, initially negative due to fees and unrealised early-stage holdings, then improving as value is realised.",
+      "seeAlso": ["internal-rate-of-return", "leveraged-buyout"]
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "domain": "alternatives",
+  "terms": [
+    {
+      "slug": "hedge-fund",
+      "term": "hedge fund",
+      "plain": "A privately offered investment fund that can use a much wider toolkit than a mutual fund — shorting, leverage, derivatives — and is usually paid both a management fee and a share of profits.",
+      "formal": "A pooled private investment vehicle, typically offered to institutional and qualified investors, characterised by broad investment flexibility, performance-based compensation and limited redemption terms.",
+      "seeAlso": ["long-short-equity", "prime-broker", "net-asset-value"]
+    },
+    {
+      "slug": "long-short-equity",
+      "term": "long/short equity",
+      "plain": "A strategy that buys stocks it expects to rise and sells borrowed stocks it expects to fall, aiming to make money on both sides while carrying less market risk than a long-only fund.",
+      "formal": "An equity strategy combining long and short positions, seeking returns from security selection on both legs while controlling net market exposure. Most managers maintain a persistent net long bias.",
+      "seeAlso": ["long-position", "short-selling", "net-exposure", "equity-market-neutral"]
+    },
+    {
+      "slug": "long-position",
+      "term": "long position",
+      "plain": "Owning something, so you profit if its price rises. The ordinary way of investing.",
+      "formal": "A position in which the holder owns an asset and benefits from price appreciation, with loss limited to the capital invested.",
+      "seeAlso": ["short-selling", "gross-exposure"]
+    },
+    {
+      "slug": "short-selling",
+      "term": "short selling",
+      "plain": "Borrowing a share, selling it, and hoping to buy it back cheaper later before returning it. You profit if the price falls — but your loss has no ceiling if it rises.",
+      "formal": "The sale of a borrowed security with the obligation to repurchase and return it, producing gains when the price falls and theoretically unlimited losses when it rises.",
+      "seeAlso": ["stock-borrow", "short-squeeze", "short-rebate", "long-position"]
+    },
+    {
+      "slug": "net-exposure",
+      "term": "net exposure",
+      "plain": "Long positions minus short positions, as a percentage of the fund's capital. It tells you how much market risk the fund is actually carrying.",
+      "formal": "Long market value less short market value, expressed as a percentage of net asset value. The primary measure of a fund's directional market exposure.",
+      "seeAlso": ["gross-exposure", "beta", "equity-market-neutral", "net-asset-value"]
+    },
+    {
+      "slug": "gross-exposure",
+      "term": "gross exposure",
+      "plain": "Long positions plus short positions, as a percentage of the fund's capital. It tells you how much total position the fund is running — and therefore how much leverage is in it.",
+      "formal": "Long market value plus the absolute value of short market value, expressed as a percentage of net asset value. A measure of total position size and effective leverage.",
+      "seeAlso": ["net-exposure", "deleveraging", "margin-call"]
+    },
+    {
+      "slug": "equity-market-neutral",
+      "term": "equity market neutral",
+      "plain": "A strategy that deliberately keeps long and short positions roughly balanced, so returns come from stock selection rather than from the market going up or down.",
+      "formal": "An equity strategy constructed to hold net market exposure near zero, targeting returns from relative security selection with minimal systematic market beta.",
+      "seeAlso": ["long-short-equity", "net-exposure", "alpha", "beta"]
+    },
+    {
+      "slug": "stock-borrow",
+      "term": "stock borrow",
+      "plain": "Renting a share from someone who owns it so you can short sell it. You pay a fee, and the lender can usually demand the share back at any time.",
+      "formal": "The securities lending arrangement that enables short selling, under which the borrower pays a fee and posts collateral, and the lender generally retains the right to recall the security.",
+      "seeAlso": ["short-selling", "short-rebate", "prime-broker"]
+    },
+    {
+      "slug": "short-rebate",
+      "term": "short rebate",
+      "plain": "The interest a short seller earns on the cash raised by selling the borrowed share, less the borrowing fee. When short-term rates are high, this can be a real source of return.",
+      "formal": "The interest credited to a short seller on short sale proceeds held as collateral, net of the securities borrowing fee. Varies with short-term rates and the scarcity of the borrowed security.",
+      "seeAlso": ["short-selling", "stock-borrow", "federal-funds-rate"]
+    },
+    {
+      "slug": "short-squeeze",
+      "term": "short squeeze",
+      "plain": "A heavily shorted stock rises, forcing short sellers to buy it back to limit losses, which pushes the price up further and forces more buying. A self-feeding spiral.",
+      "formal": "A sharp price rise in a heavily shorted security amplified by short sellers covering positions, generating reflexive buying pressure and non-linear losses for remaining shorts.",
+      "seeAlso": ["short-selling", "crowded-trade", "deleveraging"]
+    },
+    {
+      "slug": "crowded-trade",
+      "term": "crowded trade",
+      "plain": "A position that lots of managers hold at the same time. It feels like your own idea but behaves like everyone else's, so when one large holder sells, everybody's position moves against them at once.",
+      "formal": "A position with concentrated ownership across similar managers, creating correlated exposure and heightened risk of disorderly price moves when any large holder unwinds.",
+      "seeAlso": ["short-squeeze", "deleveraging", "factor-exposure"]
+    },
+    {
+      "slug": "prime-broker",
+      "term": "prime broker",
+      "plain": "The bank that provides a hedge fund its plumbing — lending it money and shares, holding its assets, clearing its trades. It also sets the margin terms, so it has real power over the fund in a crisis.",
+      "formal": "A broker-dealer providing hedge funds with financing, securities lending, custody, clearing and reporting services, and which sets applicable margin requirements.",
+      "seeAlso": ["margin-call", "stock-borrow", "gross-exposure"]
+    },
+    {
+      "slug": "margin-call",
+      "term": "margin call",
+      "plain": "A demand from your broker to post more cash or cut positions, because the collateral backing your borrowing is no longer enough. It usually arrives at the worst possible moment.",
+      "formal": "A demand by a lender or prime broker for additional collateral when the value of posted collateral falls below required levels, satisfied by posting assets or reducing positions.",
+      "seeAlso": ["prime-broker", "deleveraging", "gross-exposure"]
+    },
+    {
+      "slug": "deleveraging",
+      "term": "deleveraging",
+      "plain": "Cutting positions to reduce borrowing — selling longs and buying back shorts. Painful when forced, because you are trading in exactly the direction that is already hurting you.",
+      "formal": "The reduction of gross exposure and borrowed capital, which when involuntary tends to occur at adverse prices and can amplify losses across similarly positioned managers.",
+      "seeAlso": ["margin-call", "gross-exposure", "crowded-trade"]
+    },
+    {
+      "slug": "private-credit",
+      "term": "private credit",
+      "plain": "Lending money directly to companies outside the public bond market, usually by a fund rather than a bank. Loans are typically floating rate and held to maturity rather than traded.",
+      "formal": "Non-bank lending to primarily privately held borrowers via negotiated, generally illiquid instruments, commonly floating rate and originated or held by dedicated funds.",
+      "seeAlso": ["floating-rate", "leveraged-buyout", "hedge-fund"]
+    },
+    {
+      "slug": "leveraged-buyout",
+      "term": "leveraged buyout (LBO)",
+      "plain": "Buying a company using a large amount of borrowed money, with the company's own cash flows expected to service the debt.",
+      "formal": "The acquisition of a company financed substantially with debt secured against the target's assets and cash flows, with equity contributed by the acquiring fund.",
+      "seeAlso": ["private-credit", "floating-rate", "j-curve"]
+    }
+  ]
+}

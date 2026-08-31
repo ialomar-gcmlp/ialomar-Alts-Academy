@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "domain": "portfolio-risk",
+  "terms": [
+    {
+      "slug": "alpha",
+      "term": "alpha",
+      "plain": "The part of a return that cannot be explained by simply carrying market risk. It is the bit you are actually paying a manager for, and it is much rarer than marketing material suggests.",
+      "formal": "The component of return in excess of that predicted by an asset pricing model given the portfolio's systematic risk exposures.",
+      "seeAlso": ["beta", "factor-exposure", "performance-attribution"]
+    },
+    {
+      "slug": "beta",
+      "term": "beta",
+      "plain": "How much a portfolio moves when the market moves. A beta of 0.7 means it tends to move about 70% as much as the market, up or down.",
+      "formal": "A measure of an asset's sensitivity to movements in a reference market, equal to the covariance of asset and market returns divided by the variance of market returns.",
+      "seeAlso": ["alpha", "net-exposure", "factor-exposure"]
+    },
+    {
+      "slug": "factor-exposure",
+      "term": "factor exposure",
+      "plain": "A portfolio's tilt toward a broad characteristic — small companies, cheap companies, fast-growing companies, recent winners. Often unintentional, and dangerous precisely because it is invisible until it reverses.",
+      "formal": "The sensitivity of a portfolio's returns to a systematic risk factor, measured as the coefficient on that factor in a multi-factor return model.",
+      "seeAlso": ["beta", "alpha", "crowded-trade"]
+    },
+    {
+      "slug": "drawdown",
+      "term": "drawdown",
+      "plain": "How far an investment has fallen from its highest previous value. A 20% drawdown means you are 20% below the best it has ever been.",
+      "formal": "The peak-to-trough decline in cumulative value over a specified period, expressed as a percentage of the prior peak.",
+      "seeAlso": ["deleveraging", "beta"]
+    },
+    {
+      "slug": "performance-attribution",
+      "term": "performance attribution",
+      "plain": "Breaking a return apart to see where it actually came from — which positions, which side of the book, how much was just the market rising.",
+      "formal": "The decomposition of portfolio return into contributions from identifiable sources such as allocation, selection, systematic factor exposures and residual effects.",
+      "seeAlso": ["alpha", "beta", "factor-exposure"]
+    }
+  ]
+}

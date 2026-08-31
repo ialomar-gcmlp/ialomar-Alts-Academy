@@ -1,0 +1,99 @@
+@import "tailwindcss";
+@import "./tokens.css";
+
+/* ------------------------------------------------------------------ *
+ * Base layer
+ * ------------------------------------------------------------------ */
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--p-bg);
+    color: var(--p-fg);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Columns of figures must line up — this app is full of numbers. */
+  .tnum,
+  table,
+  input[type="number"],
+  input[inputmode="decimal"] {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* A single visible focus treatment everywhere, since the app is keyboard-first. */
+  :focus-visible {
+    outline: 2px solid var(--p-accent);
+    outline-offset: 2px;
+    border-radius: 3px;
+  }
+
+  /* Discreet by default: nothing moves for long, and nothing moves at all if
+     the OS says not to. (CLAUDE.md §8) */
+  * {
+    transition-duration: 120ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ * Lesson prose
+ *
+ * Lesson bodies are plain text with [[glossary-slug]] markup, rendered by
+ * src/ui/blocks — not raw HTML. These rules style that output.
+ * ------------------------------------------------------------------ */
+
+@layer components {
+  .prose-lesson {
+    max-width: var(--spacing-measure);
+    line-height: 1.7;
+  }
+
+  .prose-lesson p + p {
+    margin-top: 0.85em;
+  }
+
+  /* Glossary term trigger: underlined, not coloured like a link, so a paragraph
+     with six terms in it does not turn into a wall of teal. */
+  .term-trigger {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-decoration-color: var(--p-accent);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    cursor: help;
+  }
+
+  .term-trigger:hover,
+  .term-trigger[aria-expanded="true"] {
+    background-color: var(--p-accent-soft);
+    text-decoration-style: solid;
+  }
+}
+
+/* KaTeX is lazy-loaded with its stylesheet; keep its display blocks from
+   inheriting the prose measure so wide formulas can scroll instead of wrap. */
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.25rem 0;
+}

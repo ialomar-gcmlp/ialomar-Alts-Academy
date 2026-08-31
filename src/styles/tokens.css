@@ -1,0 +1,183 @@
+/*
+ * Design tokens — the single source of colour, type and spacing for the app.
+ *
+ * Rules (see CLAUDE.md §8):
+ *  - No hard-coded hex values in components. Ever. Use the utilities these generate.
+ *  - Light and dark come from ONE token set: the raw palette below flips on .light/.dark,
+ *    and @theme inline points the Tailwind utilities at those vars, so `bg-surface`
+ *    is correct in both themes with no `dark:` variant needed.
+ *  - Palette intent: warm stone neutrals + one muted teal accent. Calm and adult.
+ *    Correct/incorrect are desaturated on purpose — this gets used at an office desk
+ *    and should not flash bright green or red across the room.
+ */
+
+/* ------------------------------------------------------------------ *
+ * Raw palette
+ * ------------------------------------------------------------------ */
+
+:root,
+.light {
+  /* surfaces */
+  --p-bg: #faf9f7; /* page — warm off-white, not a cool grey */
+  --p-surface: #ffffff; /* cards, panels */
+  --p-surface-2: #f4f2ef; /* subtle fills, table stripes, code */
+  --p-border: #e5e2dd;
+  --p-border-strong: #d2cdc5;
+
+  /* text */
+  --p-fg: #1c1917; /* primary */
+  --p-fg-muted: #6b6560; /* secondary, captions */
+  --p-fg-subtle: #948f88; /* tertiary, disabled */
+  --p-fg-inverse: #faf9f7;
+
+  /* accent — muted teal */
+  --p-accent: #0d6068;
+  --p-accent-hover: #0a4d54;
+  --p-accent-fg: #ffffff;
+  --p-accent-soft: #e3efef; /* tinted background */
+  --p-accent-ring: #0d606840;
+
+  /* semantic */
+  --p-correct: #2f6b4f;
+  --p-correct-soft: #e6efe9;
+  --p-incorrect: #9a3f36;
+  --p-incorrect-soft: #f5e7e5;
+  --p-flag: #8a6a24; /* needs-review / caution */
+  --p-flag-soft: #f5eede;
+
+  /* confidence tags */
+  --p-conf-confident: #0d6068;
+  --p-conf-unsure: #8a6a24;
+  --p-conf-guessing: #6b6560;
+
+  /* Chart series — fixed order, never cycled. Validated against the light surface
+     for lightness band, chroma floor, CVD separation and contrast; see the note at
+     the bottom of this file. */
+  --p-series-1: #009298;
+  --p-series-2: #c0851f;
+  --p-series-3: #3568b2;
+  --p-series-4: #bc504c;
+  --p-grid: #e5e2dd;
+  --p-axis: #948f88;
+
+  --p-shadow: 0 1px 2px 0 #1c191710, 0 1px 3px 0 #1c191708;
+}
+
+.dark {
+  /* surfaces */
+  --p-bg: #16150f;
+  --p-surface: #1e1d17;
+  --p-surface-2: #272620;
+  --p-border: #33322a;
+  --p-border-strong: #474539;
+
+  /* text */
+  --p-fg: #ede9e2;
+  --p-fg-muted: #a5a096;
+  --p-fg-subtle: #77726a;
+  --p-fg-inverse: #16150f;
+
+  /* accent */
+  --p-accent: #5eb8bf;
+  --p-accent-hover: #7ac9cf;
+  --p-accent-fg: #0c2427;
+  --p-accent-soft: #1b3436;
+  --p-accent-ring: #5eb8bf40;
+
+  /* semantic */
+  --p-correct: #7fb896;
+  --p-correct-soft: #1c2c22;
+  --p-incorrect: #d99289;
+  --p-incorrect-soft: #2e201e;
+  --p-flag: #cfa856;
+  --p-flag-soft: #2c2517;
+
+  /* confidence tags */
+  --p-conf-confident: #5eb8bf;
+  --p-conf-unsure: #cfa856;
+  --p-conf-guessing: #a5a096;
+
+  /* Chart series — separately chosen and validated for the dark surface, not an
+     automatic lightening of the light-mode steps. */
+  --p-series-1: #069fa6;
+  --p-series-2: #ba871e;
+  --p-series-3: #5286d3;
+  --p-series-4: #d0635d;
+  --p-grid: #33322a;
+  --p-axis: #77726a;
+
+  --p-shadow: 0 1px 2px 0 #00000040, 0 1px 3px 0 #00000030;
+}
+
+/* ------------------------------------------------------------------ *
+ * Tailwind theme — `inline` so the utilities resolve the vars at the
+ * use site and therefore follow the .light/.dark cascade.
+ * ------------------------------------------------------------------ */
+
+@theme inline {
+  --color-bg: var(--p-bg);
+  --color-surface: var(--p-surface);
+  --color-surface-2: var(--p-surface-2);
+  --color-border-base: var(--p-border);
+  --color-border-strong: var(--p-border-strong);
+
+  --color-fg: var(--p-fg);
+  --color-fg-muted: var(--p-fg-muted);
+  --color-fg-subtle: var(--p-fg-subtle);
+  --color-fg-inverse: var(--p-fg-inverse);
+
+  --color-accent: var(--p-accent);
+  --color-accent-hover: var(--p-accent-hover);
+  --color-accent-fg: var(--p-accent-fg);
+  --color-accent-soft: var(--p-accent-soft);
+
+  --color-correct: var(--p-correct);
+  --color-correct-soft: var(--p-correct-soft);
+  --color-incorrect: var(--p-incorrect);
+  --color-incorrect-soft: var(--p-incorrect-soft);
+  --color-flag: var(--p-flag);
+  --color-flag-soft: var(--p-flag-soft);
+
+  --color-confident: var(--p-conf-confident);
+  --color-unsure: var(--p-conf-unsure);
+  --color-guessing: var(--p-conf-guessing);
+
+  --color-series-1: var(--p-series-1);
+  --color-series-2: var(--p-series-2);
+  --color-series-3: var(--p-series-3);
+  --color-series-4: var(--p-series-4);
+  --color-grid: var(--p-grid);
+  --color-axis: var(--p-axis);
+
+  --font-sans:
+    ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    sans-serif;
+  --font-mono: ui-monospace, "Cascadia Code", "Segoe UI Mono", Menlo, Consolas, monospace;
+
+  /* Reading measure for lesson prose — long lines are the enemy of retention. */
+  --spacing-measure: 68ch;
+
+  --shadow-card: var(--p-shadow);
+}
+
+/* Dark variant, driven by a class on <html> rather than the OS query, so the
+   Settings toggle can override the OS preference. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+ * Chart palette provenance
+ *
+ * Both series palettes were checked with the dataviz skill's validator rather than
+ * chosen by eye. Both pass all six checks — lightness band, chroma floor, adjacent
+ * CVD separation, normal-vision floor, and contrast against their own surface:
+ *
+ *   light  #009298,#c0851f,#3568b2,#bc504c   worst adjacent pair ΔE 15.0 protan
+ *   dark   #069fa6,#ba871e,#5286d3,#d0635d   worst adjacent pair ΔE 16.2 protan
+ *
+ * Rules that go with them: assign series 1→4 in fixed order and never cycle; a fifth
+ * series folds into "Other" or becomes small multiples. Identity is never carried by
+ * colour alone — charts also ship a legend, direct labels, and a table view.
+ *
+ * Re-run before changing any of these values:
+ *   node scripts/validate_palette.js "<hex,...>" --mode light|dark
+ */

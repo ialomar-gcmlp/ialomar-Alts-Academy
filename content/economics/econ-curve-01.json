@@ -1,0 +1,314 @@
+{
+  "schemaVersion": 1,
+  "id": "econ-curve-01",
+  "domain": "economics",
+  "title": "The Yield Curve: Shapes and What They Signal",
+  "summary": "What the curve actually plots, why it usually slopes up, and what a flat or inverted curve is really telling you.",
+  "level": "core",
+  "prereqs": ["quant-tvm-01"],
+  "estMinutes": 9,
+  "examRelevance": ["CFA-L1", "CAIA-L1", "practical"],
+  "lesson": [
+    {
+      "type": "concept",
+      "id": "what-it-is",
+      "body": "A [[yield-curve]] is a snapshot. Take one issuer — almost always the US Treasury, because its bonds are the most liquid and closest to risk-free — and plot the [[yield-to-maturity]] of its bonds against their [[maturity]]. Three months on the left, thirty years on the right. Join the dots.\n\nThat is the whole construction. One issuer, one moment in time, many maturities. The reason it earns so much attention is that it is the cleanest available picture of the price of time and, indirectly, of what the market thinks is coming.\n\nMoves in the curve are quoted in [[basis-point|basis points]] — hundredths of a percentage point. When someone says \"the ten-year is up eight basis points\", they mean its yield rose by 0.08 percentage points."
+    },
+    {
+      "type": "intuition",
+      "id": "why-it-slopes",
+      "body": "Why should a thirty-year bond normally yield more than a three-month bill? Two forces, and it is worth keeping them separate because they behave differently.\n\n**Expectations.** A long bond's yield has to be broadly consistent with the path of short rates investors expect over its life. If the market thinks the central bank will be raising rates for years, long yields must sit above today's short yield or nobody would bother buying long.\n\n**Term premium.** Even with no expected change in short rates, lending for thirty years is more uncomfortable than lending for three months. Inflation could surprise; you might need the money; the price will swing far more in the meantime. The extra yield demanded for that discomfort is the [[term-premium]], and it is normally positive.\n\nSo the usual upward slope is not a forecast of anything dramatic. It is mostly just the term premium doing its job. The interesting information is in the *changes*, and above all in the moments the slope disappears or reverses."
+    },
+    {
+      "type": "chart",
+      "id": "shapes-chart",
+      "caption": "Three curve shapes (illustrative, not market data)",
+      "spec": {
+        "kind": "line",
+        "xLabels": ["3m", "2y", "5y", "10y", "30y"],
+        "series": [
+          { "name": "Normal", "values": [3.0, 3.6, 4.0, 4.3, 4.6] },
+          { "name": "Flat", "values": [4.2, 4.25, 4.3, 4.3, 4.35] },
+          { "name": "Inverted", "values": [5.2, 4.7, 4.3, 4.1, 4.15] }
+        ],
+        "yLabel": "Yield",
+        "yUnit": "%"
+      },
+      "annotation": "The shapes matter more than the levels. Note that the inverted curve is not uniformly lower — its short end is the highest point on the chart. That is the signature: the front end has been pushed up, usually by [[monetary-policy]], while the long end reflects expectations of rates coming back down."
+    },
+    {
+      "type": "table",
+      "id": "shapes-table",
+      "caption": "Reading the four shapes",
+      "headers": ["Shape", "What it looks like", "What it usually reflects"],
+      "rows": [
+        [
+          "Normal / upward",
+          "Short yields below long yields",
+          "The default state. Positive [[term-premium]], no strong expectation of cuts."
+        ],
+        [
+          "Steepening",
+          "The gap between long and short widening",
+          "Either expected rate rises and growth ahead, or expected cuts pulling the front end down faster than the long end."
+        ],
+        [
+          "Flat",
+          "Similar yields across maturities",
+          "A transition. The market is unsure, or policy is near the end of a cycle."
+        ],
+        [
+          "Inverted",
+          "Short yields above long yields",
+          "Policy is tight now and the market expects it to be loosened later — usually because growth is expected to weaken."
+        ]
+      ]
+    },
+    {
+      "type": "concept",
+      "id": "the-two-ends",
+      "body": "It helps enormously to treat the curve as two ends with different owners.\n\nThe **short end** is effectively administered. The central bank sets the [[federal-funds-rate]], and bills maturing in weeks or months cannot stray far from it. If you want to know why the front end moved, look at [[monetary-policy]].\n\nThe **long end** is a market. It reflects the average of expected future short rates plus the [[term-premium]], and it is pushed around by inflation expectations, growth expectations, government bond supply, and demand from investors who need long-dated assets. Central banks influence it; they do not set it.\n\nThis is why the same policy decision can steepen or flatten the curve depending on what it does to expectations. A rate rise lifts the front end mechanically. Whether the long end follows depends entirely on whether the market believes the rise will need to be undone later."
+    },
+    {
+      "type": "example",
+      "id": "spread-example",
+      "body": "The slope is usually quoted as a single spread. The most watched is 2s10s: the 10-year yield minus the 2-year yield.",
+      "walkthrough": [
+        "Suppose the 2-year yields 4.55% and the 10-year yields 4.18%.",
+        "The [[yield-spread]] is 4.18% - 4.55% = -0.37%.",
+        "Convert to [[basis-point|basis points]] by multiplying by 100: **-37 bps**. The curve is inverted by 37 basis points.",
+        "Note the convention: long minus short. A negative number means inversion. Getting the subtraction backwards is a common slip, and it inverts your conclusion along with your sign.",
+        "If the 2-year then fell to 4.05% while the 10-year held at 4.18%, the spread becomes +13 bps — the curve has *disinverted*, and it did so through the front end falling rather than the long end rising. Which end moved is often more informative than the spread itself."
+      ]
+    },
+    {
+      "type": "pitfall",
+      "id": "not-a-timer",
+      "body": "**An inversion is a signal, not a stopwatch.** The historical association between [[yield-curve-inversion|inversions]] and subsequent recessions is one of the better-known regularities in macro, and it is genuinely worth respecting. But the lag has been long and highly variable, and the curve has inverted without a recession promptly following.\n\nSo \"the curve inverted\" does not license \"a [[recession]] starts next quarter\". What it does tell you reliably is what the market currently expects: that policy is tight now and will need to be looser later. Treat it as a read on expectations, which it certainly is, rather than a forecast with a date attached."
+    },
+    {
+      "type": "pitfall",
+      "id": "nominal-vs-real",
+      "body": "Treasury yields are **nominal** — they include expected inflation. A 4.5% nominal yield with 3% expected inflation is a very different proposition from 4.5% with 1% expected inflation, because the [[real-interest-rate]] is roughly 1.5% in the first case and 3.5% in the second.\n\nWhen a curve steepens, always ask which component moved. Steepening driven by rising inflation expectations means something quite different from steepening driven by rising real rates — the first is a story about prices, the second about growth or the supply of savings."
+    },
+    {
+      "type": "onTheJob",
+      "id": "on-the-job",
+      "body": "At an alternatives firm the curve turns up in more conversations than you would expect.\n\n**Financing costs.** Much of [[private-credit]] and most [[leveraged-buyout]] debt is [[floating-rate|floating rate]], priced off a short-term reference rate. When the front end rises, borrowers' interest costs rise almost immediately — which compresses the cash flow available to equity holders and lifts the yield credit funds earn. The front end, not the ten-year, is the number that matters there.\n\n**Discount rates.** A rise in long yields lowers the present value of far-dated cash flows most, exactly as the discount-factor table in the present value topic shows. That is felt hardest by long-[[duration]] assets: growth equity, venture, infrastructure with distant cash flows.\n\n**Manager positioning.** Global macro and fixed income relative value managers express views directly on curve shape — steepeners, flatteners, and trades on specific segments. When a macro manager tells you they are \"long the front end\", the curve is the language of the conversation, and you need to follow it without asking."
+    },
+    {
+      "type": "keyTakeaways",
+      "id": "takeaways",
+      "items": [
+        "The curve plots one issuer's yields across maturities at one moment. Its usual upward slope is mostly term premium, not a dramatic forecast.",
+        "Treat it as two ends: the short end follows the central bank, the long end is a market for expectations plus term premium.",
+        "Inversion says policy is tight now and expected to be loosened later. It is a read on expectations, not a dated recession forecast.",
+        "Always ask which end moved and whether the move was real or inflation-driven. The composition carries more information than the spread."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "econ-curve-01-q1",
+      "type": "mcq",
+      "difficulty": 1,
+      "tags": ["yield-curve", "definition"],
+      "concept": "what-it-is",
+      "stem": "What does a yield curve plot?",
+      "choices": [
+        "The yields of bonds from many different issuers, plotted against their credit ratings",
+        "The yields of one issuer's bonds at a single moment, plotted against their maturities",
+        "The historical path of a single bond's yield over time",
+        "The expected total return of bonds of different maturities over the next year"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "This describes a credit curve or a ratings scatter. A yield curve deliberately holds the issuer constant so that maturity is the only thing varying.",
+        "Correct. One issuer, one point in time, many maturities. Holding the issuer fixed is what makes the shape interpretable.",
+        "That is a time series of one bond's yield — useful, but a different chart. The yield curve is a cross-section, not a history.",
+        "Expected return and yield are related but not the same, and the curve makes no forward-return claim. It plots yields observable in the market right now."
+      ],
+      "explanation": "The curve is a cross-section at a moment in time. Its power comes from holding the issuer constant so that differences across the curve reflect maturity — the price of time — rather than differences in credit quality."
+    },
+    {
+      "id": "econ-curve-01-q2",
+      "type": "mcq",
+      "difficulty": 2,
+      "tags": ["yield-curve", "term-premium"],
+      "concept": "why-it-slopes",
+      "stem": "A yield curve is upward sloping, with no expectation of central bank rate changes priced in. What best explains the slope?",
+      "choices": [
+        "A positive term premium — compensation for the added risk of lending for longer",
+        "The market expects a recession",
+        "Long bonds always have worse credit quality than short bonds from the same issuer",
+        "The slope must be an arbitrage opportunity, since expectations are flat"
+      ],
+      "answerIndex": 0,
+      "rationales": [
+        "Correct. With expectations flat, the residual slope is the [[term-premium]]: investors demand extra yield for inflation uncertainty, price volatility and the loss of flexibility over a long horizon.",
+        "Recession expectations typically flatten or invert a curve, because they imply future rate cuts. They do not produce an upward slope.",
+        "Credit quality is a property of the issuer, not the maturity. A 30-year Treasury and a 3-month bill carry the same sovereign credit.",
+        "A positive term premium is a risk premium, not a mispricing. Earning it requires bearing genuine interest rate risk, which is the opposite of arbitrage."
+      ],
+      "explanation": "Decomposing the curve into expectations plus term premium is the single most useful habit in this topic. When expectations are flat, whatever slope remains is the premium for bearing duration risk."
+    },
+    {
+      "id": "econ-curve-01-q3",
+      "type": "numeric",
+      "difficulty": 2,
+      "tags": ["yield-curve", "spread", "basis-points"],
+      "concept": "spread-example",
+      "stem": "The 2-year Treasury yields 4.55% and the 10-year yields 4.18%. What is the 2s10s spread, in basis points?",
+      "answer": -37,
+      "tolerance": 0.5,
+      "toleranceType": "abs",
+      "unit": "bps",
+      "inputHint": "Answer in basis points. Use a minus sign if the curve is inverted.",
+      "explanation": "By convention the spread is long minus short: 4.18% - 4.55% = -0.37%, which is -37 [[basis-point|basis points]]. The negative sign means the curve is inverted. Reversing the subtraction is a common error and it flips your conclusion as well as your sign."
+    },
+    {
+      "id": "econ-curve-01-q4",
+      "type": "chartRead",
+      "difficulty": 3,
+      "tags": ["yield-curve", "chart-reading", "inversion"],
+      "concept": "shapes-chart",
+      "spec": {
+        "kind": "line",
+        "xLabels": ["3m", "2y", "5y", "10y", "30y"],
+        "series": [{ "name": "Curve A", "values": [5.3, 4.8, 4.35, 4.15, 4.2] }],
+        "yLabel": "Yield",
+        "yUnit": "%"
+      },
+      "stem": "Read Curve A above. Which description fits best?",
+      "choices": [
+        "A normal curve, since the 30-year yield is above the 10-year yield",
+        "An inverted curve, with the front end well above the long end",
+        "A flat curve, since all yields lie between 4% and 5.5%",
+        "A steepening curve, since the line rises at the far right"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "The small uptick from 10y to 30y is real but it is a local detail. The dominant feature is a 3-month yield of 5.3% against a 10-year of 4.15% — over a hundred basis points of inversion.",
+        "Correct. The 3-month yield sits well above every longer maturity. This is the classic inverted signature: a front end pushed up by tight [[monetary-policy]], with the long end pricing rates coming back down.",
+        "A range of 115 basis points from high to low is not flat. Compare the genuinely flat curve in the lesson chart, where the whole curve spans about 15 basis points.",
+        "Steepening describes a *change* between two points in time. A single curve cannot be steepening — you would need a second snapshot to compare it against."
+      ],
+      "explanation": "Judge shape by the front end against the long end, not by whichever segment happens to tick up at the right-hand edge. And note the vocabulary distinction: normal, flat and inverted describe one snapshot, while steepening and flattening describe movement between snapshots."
+    },
+    {
+      "id": "econ-curve-01-q5",
+      "type": "tfj",
+      "difficulty": 3,
+      "tags": ["yield-curve", "inversion", "misconception"],
+      "concept": "not-a-timer",
+      "stem": "\"The curve has inverted, so a recession will begin within the next twelve months.\" True or false — and why?",
+      "isTrue": false,
+      "justifications": [
+        "False — inversion reflects current market expectations about policy, and any historical association with recessions has come with long and variable lags",
+        "False — inversions have no relationship with recessions at all",
+        "True — an inverted curve is a reliable twelve-month recession indicator",
+        "False — inversion actually signals expected economic strength, since short rates are high"
+      ],
+      "justificationIndex": 0,
+      "rationales": [
+        "Correct. The curve is telling you what the market expects: policy is tight now and is expected to be loosened later. That is genuine information, but it carries no timetable.",
+        "Too strong in the opposite direction. The association is well documented and worth respecting — it is the precision of the timing claim that fails, not the existence of a relationship.",
+        "This is the trap. It over-reads a real regularity into a dated forecast, which the variable historical lag does not support.",
+        "High short rates are a symptom of tight policy, not a signal of strength. And the long end sitting *below* the front end is precisely the market pricing future weakness."
+      ],
+      "needsReview": true,
+      "reviewNote": "I have deliberately kept the empirical claim qualitative (a well-documented association, long and variable lags) rather than citing a hit rate or average lead time. Verify against a primary source before quoting any specific figure on inversion-to-recession lags.",
+      "explanation": "Inversion is best read as a statement about expectations rather than a forecast with a date. The useful conclusion is \"the market thinks policy is tight and will need to ease\", which is actionable without pretending to a precision the signal does not have."
+    },
+    {
+      "id": "econ-curve-01-q6",
+      "type": "mcq",
+      "difficulty": 3,
+      "tags": ["yield-curve", "monetary-policy", "curve-mechanics"],
+      "concept": "the-two-ends",
+      "stem": "A central bank raises its policy rate by 25 basis points. The 3-month yield rises by roughly 25 bps but the 10-year yield falls by 10 bps. What is the most reasonable reading?",
+      "choices": [
+        "The bond market has made an error that will correct once the rise is fully priced",
+        "The market expects the tighter policy to slow the economy enough that rates will have to be cut later",
+        "The long end does not respond to policy, so its move must be unrelated noise",
+        "Inflation expectations must have risen, pushing long yields down"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "There is no error here. The two ends answer to different things — the front end tracks the policy rate, the long end prices the expected path plus [[term-premium]] — so they can move in opposite directions coherently.",
+        "Correct. The front end followed policy mechanically. The long end fell because the market lowered its expected path for future short rates, which is what \"tightening into a slowdown\" looks like in prices.",
+        "The long end does respond to policy — just indirectly, through expectations rather than mechanically. Dismissing a 10 bp move as noise discards the most informative part of the reaction.",
+        "This has the sign backwards. Higher inflation expectations would push long nominal yields *up*, since nominal yields embed expected inflation."
+      ],
+      "explanation": "This flattening is one of the most common curve reactions and it is worth being able to read instantly: the front end did what it was told, and the long end delivered a verdict on the consequences."
+    },
+    {
+      "id": "econ-curve-01-q7",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["yield-curve", "private-credit", "on-the-job", "floating-rate"],
+      "concept": "on-the-job",
+      "stem": "A private credit fund holds floating-rate loans priced at a spread over a short-term reference rate. The front end of the curve rises 100 bps while the 10-year is unchanged. What happens, and to whom?",
+      "choices": [
+        "Nothing changes, because the loans were priced at origination and the spread is fixed",
+        "Borrowers' interest costs rise and the fund's coupon income rises, tightening borrowers' cash flow cover",
+        "The fund's coupon income falls, because floating-rate assets lose value when rates rise",
+        "Only the 10-year matters for loan pricing, so the move is irrelevant to this fund"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "The *spread* is fixed; the reference rate is not. That is what floating rate means — the coupon resets as the reference rate moves.",
+        "Correct. The lender earns more and the borrower pays more, which are the same fact seen from two sides. The second-order point matters most in diligence: the borrower's interest cover deteriorates, so credit risk quietly rises even as income improves.",
+        "This confuses floating-rate with fixed-rate assets. A fixed-rate bond falls in price when rates rise; a floating-rate loan's coupon resets upwards instead, which is much of its appeal.",
+        "Backwards. Floating-rate loans reference short-term rates, so the front end is precisely the part of the curve that matters here."
+      ],
+      "explanation": "This is the everyday reason an alts analyst watches the front end rather than the ten-year. And note the two-sided effect: rising rates improve a credit fund's income while weakening its borrowers, which is exactly the tension you are looking for when reviewing a portfolio."
+    },
+    {
+      "id": "econ-curve-01-q8",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["yield-curve", "real-rates", "inflation"],
+      "concept": "nominal-vs-real",
+      "stem": "The 10-year nominal yield rises from 4.0% to 4.6%. Over the same period, 10-year expected inflation rises from 2.2% to 2.9%. What has happened to the real 10-year rate?",
+      "choices": [
+        "It has risen by 60 basis points, in line with the nominal yield",
+        "It has fallen by roughly 10 basis points",
+        "It has risen by roughly 70 basis points",
+        "It cannot be determined without knowing the term premium"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "This ignores the inflation component entirely. The nominal yield rose 60 bps, but more than all of that was accounted for by higher expected inflation.",
+        "Correct. Approximately, real equals nominal minus expected inflation: 4.0 - 2.2 = 1.8%, and 4.6 - 2.9 = 1.7%. The [[real-interest-rate]] fell by about 10 bps even as the nominal yield rose sharply.",
+        "This is the change in expected inflation, not the change in the real rate — and it has the sign of the real move backwards.",
+        "The term premium is embedded in both figures and does not need to be isolated to compute the approximate real rate from a nominal yield and an inflation expectation."
+      ],
+      "explanation": "A rising nominal yield driven entirely by inflation expectations is a very different event from one driven by real rates — the first is a story about prices, the second about growth or the supply of savings. Long-duration assets care most about the real component. Note this uses the simple subtraction; the precise Fisher relation is multiplicative, and the difference is negligible at these levels."
+    },
+    {
+      "id": "econ-curve-01-q9",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["yield-curve", "duration", "valuation", "on-the-job"],
+      "concept": "on-the-job",
+      "stem": "Long-end yields rise sharply. Across a diversified alternatives portfolio, which holding should you expect to reprice downward the most, all else equal?",
+      "choices": [
+        "A portfolio of floating-rate senior loans maturing in 3 years",
+        "A late-stage venture position whose expected exit and cash flows sit 8 to 10 years out",
+        "A short-dated merger arbitrage position expected to close in 4 months",
+        "A fund holding 3-month Treasury bills"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Floating-rate loans reset their coupons as rates move, which is precisely what limits their price sensitivity. The short maturity limits it further.",
+        "Correct. The cash flows are the furthest away, so they carry the largest exponent in the discounting and take the biggest proportional hit. This is the discount-factor table from present value applied to a real portfolio.",
+        "A four-month horizon means almost no [[duration]]. Merger arb returns hinge on deal completion, not on the discount rate.",
+        "Three-month bills are about as close to zero duration as an asset gets — they mature and are reinvested at the new higher rate almost immediately."
+      ],
+      "explanation": "Rate sensitivity is fundamentally about *when* the cash flows arrive. The longest-dated, most uncertain cash flows reprice hardest — which is why a rate move that barely touches a credit book can badly damage a venture mark."
+    }
+  ],
+  "needsReview": false,
+  "reviewNote": null
+}

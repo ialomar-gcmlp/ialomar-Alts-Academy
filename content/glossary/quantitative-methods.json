@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "domain": "quantitative-methods",
+  "terms": [
+    {
+      "slug": "time-value-of-money",
+      "term": "time value of money",
+      "plain": "The idea that a dollar today is worth more than the same dollar later, so you cannot compare amounts of money without knowing when each one arrives.",
+      "formal": "The principle that money available now is worth more than an identical sum in the future, because of its earning capacity, the risk that the future payment fails, and expected inflation.",
+      "seeAlso": ["present-value", "future-value", "discount-rate"]
+    },
+    {
+      "slug": "present-value",
+      "term": "present value",
+      "plain": "What a future payment is worth to you today, after shrinking it to account for the wait.",
+      "formal": "The current value of a future cash flow or series of cash flows, obtained by discounting them at an appropriate required rate of return.",
+      "seeAlso": ["future-value", "discount-rate", "discount-factor"]
+    },
+    {
+      "slug": "future-value",
+      "term": "future value",
+      "plain": "What an amount of money today will have grown to by some later date, if it earns a return along the way.",
+      "formal": "The value of a present sum at a specified future date, given an assumed rate of return and compounding frequency.",
+      "seeAlso": ["present-value", "compounding"]
+    },
+    {
+      "slug": "discount-rate",
+      "term": "discount rate",
+      "plain": "The rate you use to shrink a future dollar down to what it is worth today. A higher rate means you value the future payment less.",
+      "formal": "The required rate of return used to convert future cash flows to present value, reflecting the time value of money and the risk of the cash flows.",
+      "seeAlso": ["present-value", "required-return", "risk-free-rate"]
+    },
+    {
+      "slug": "discount-factor",
+      "term": "discount factor",
+      "plain": "A single number between 0 and 1 that you multiply a future payment by to get its value today. A factor of 0.75 means a future dollar is worth 75 cents now.",
+      "formal": "The quantity 1/(1+r)^n, which converts a cash flow received n periods from now into its present value at periodic discount rate r.",
+      "seeAlso": ["discount-rate", "present-value"]
+    },
+    {
+      "slug": "compounding",
+      "term": "compounding",
+      "plain": "Earning returns on your returns. The interest you made last year starts earning interest of its own, which is why growth speeds up over long periods.",
+      "formal": "The process by which investment earnings are reinvested to generate additional earnings, producing exponential rather than linear growth over time.",
+      "seeAlso": ["future-value", "time-value-of-money"]
+    },
+    {
+      "slug": "required-return",
+      "term": "required return",
+      "plain": "The return you insist on before you would agree to make an investment, given how risky it is.",
+      "formal": "The minimum rate of return an investor demands to accept a given investment's risk, used as the discount rate when valuing its cash flows.",
+      "seeAlso": ["discount-rate", "risk-free-rate"]
+    },
+    {
+      "slug": "risk-free-rate",
+      "term": "risk-free rate",
+      "plain": "The return you can get with essentially no chance of losing your money — in practice, the yield on short-term government debt. It is the floor every other return is measured against.",
+      "formal": "The theoretical rate of return on an investment with zero default risk, commonly proxied by the yield on short-dated sovereign debt of a highly rated issuer.",
+      "seeAlso": ["required-return", "discount-rate", "federal-funds-rate"]
+    },
+    {
+      "slug": "internal-rate-of-return",
+      "term": "internal rate of return (IRR)",
+      "plain": "A single percentage summarising the return on an investment whose cash flows arrive at irregular times. It is the discount rate that would make the investment exactly break even.",
+      "formal": "The discount rate at which the net present value of a series of cash flows equals zero. Sensitive to the timing of cash flows, which is why early distributions raise it.",
+      "seeAlso": ["present-value", "discount-rate", "j-curve"],
+      "needsReview": true,
+      "reviewNote": "Definition is standard, but note IRR has known edge cases I have not covered here: multiple roots when cash flows change sign more than once, and no real solution in some patterns. Worth a dedicated topic later."
+    }
+  ]
+}

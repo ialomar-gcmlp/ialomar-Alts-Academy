@@ -66,14 +66,25 @@ Runtime dependencies are limited to five. Adding a sixth requires a written just
 | Build | Vite + React 19 + TypeScript | Fast dev, static output, hostable anywhere. |
 | Styling | Tailwind v4 via `@tailwindcss/vite` | CSS-first config, no `tailwind.config.js`. All tokens in `src/styles/tokens.css`. |
 | Validation | Zod v4 | Single source of truth for content shape. TS types derived via `z.infer` — never hand-write a type Zod already describes. |
-| State | Zustand | Progress writes fire on every answer; Context would re-render the whole tree each time. Selector subscriptions prevent that. Persistence is **our** storage module, not Zustand `persist`, so we own versioning. |
+| State | Zustand | Progress writes fire on every answer; Context would re-render the whole tree each time. Selector subscriptions prevent that. Persistence is **our** storage module, not Zustand `persist`, so we own versioning. **v5 has no default equality check: never return a fresh object from a selector.** Select one value or one action at a time. |
 | Formulas | KaTeX, lazy `import()` | Only credible LaTeX renderer. Bundled, so it stays offline. Code-split so formula-free pages don't pay for it. |
 | Routing | **none** — `src/lib/hashRouter.ts` | ~40 lines. Hash routing means the build works from `file://` and any static host with zero rewrite rules. react-router is 10KB and a large API for 8 views. |
 | Charts | **none** — `src/ui/charts/` | Hand-rolled SVG. Chart-read questions need full control of the series anyway. Colors follow the `dataviz` skill palette rules. |
 | Tests | Vitest | Shares the Vite config. Targets pure logic, not components. |
 | Fonts | System UI stack, `tabular-nums` for figures | Zero downloads, native feel, offline. |
 
+Dev-only additions: **tsx**, so `scripts/*.ts` can import the exact same Zod schema the app
+uses. Without it the validator would need a duplicate schema, which defeats the point of having
+one source of truth.
+
 No GCM branding. This is a personal study tool; firm brand assets are firm property.
+
+### Known non-issue
+
+Vite's native config loader warns that `vite.config.ts` and `scripts/*` import without file
+extensions. It is a forward-compatibility notice about a future Vite default, not a fault. Adding
+`.ts` to those imports only (leaving `src/` extensionless) would be worse — inconsistent import
+style across the codebase. Revisit when that default actually lands.
 
 ---
 
@@ -134,6 +145,7 @@ mirror; if they disagree, the Zod schema wins and this section gets fixed.
   "id": "quant-tvm-01",
   "domain": "quantitative-methods",
   "title": "Present Value and Future Value",
+  "summary": "One plain-English line for cards and the skill tree. No jargon.",
   "level": "foundation",
   "prereqs": [],
   "estMinutes": 6,
@@ -219,6 +231,23 @@ third**. `content:check` fails on: unresolved slug, duplicate slug across domain
 
 Rule of thumb: **the first time a specialist word appears in a topic, it is marked up.** The user has
 said to assume no jargon knowledge. Err toward over-marking.
+
+### Inline markup — the complete list
+
+Content prose is data, not markdown and not HTML. `src/content/markup.ts` is the only parser, and
+it supports exactly three constructs, plus blank-line paragraph breaks:
+
+| Markup | Renders as |
+|---|---|
+| `[[term-slug]]` / `[[term-slug\|words]]` | glossary popover trigger |
+| `**bold**` | the load-bearing phrase in a paragraph |
+| `*italic*` | light emphasis |
+
+Nothing else is interpreted, so content can never inject markup into the app. Emphasis and terms do
+not nest — a term inside `**bold**` renders as plain bold text, and content is authored to avoid it.
+
+**Do not use `[[...]]` for a topic id.** It is glossary-term markup only; a topic id in it fails
+`content:check` as an unresolved slug. Cross-topic links are not a feature yet.
 
 ---
 
@@ -350,6 +379,22 @@ open-plan desk.
   One `useHotkeys` hook with a scope stack — views must not register competing global listeners.
 - Real `<button>` elements, `aria-live` for answer feedback, focus moved deliberately on advance.
 - Responsive down to 360px.
+
+### Two rules the glossary popover imposes on everything else
+
+Both of these were bugs found by running the app, not by reading it. They will recur if forgotten.
+
+1. **A glossary trigger is a `<button>`, so prose containing terms must never be rendered inside
+   another control.** A `<button>` inside a `<button>` is invalid HTML and swallows the click. Use
+   `<Inline text={...} interactive={false} />` inside a control — it keeps the underline and adds a
+   native tooltip. This is why answer rationales render as a sibling *below* the choice button
+   rather than inside it, which also means their terms stay fully interactive.
+2. **The popover panel renders through a portal to `document.body`.** Prose is wrapped in `<p>`, and
+   a panel of `<div>`/`<p>` nested inside a `<p>` is invalid HTML that browsers silently reflow.
+
+Related: decide popover placement from *available space* in one pass. The obvious
+measure-the-panel-then-reposition approach feeds its own state back into its own effect and trips
+React's "Maximum update depth exceeded".
 - Every page footer: unofficial personal study tool, no affiliation with CFA Institute or CAIA
   Association.
 
@@ -384,7 +429,7 @@ Commit at the end of each milestone, then stop for review. Run `npm run verify` 
 | # | Deliverable | Status |
 |---|---|---|
 | M0 | Plan, `CLAUDE.md`, repo initialized. No app code. | done |
-| M1 | Content loader + validation, one lesson → quiz → result flow, three seeded topics: `quant-tvm-01`, `econ-curve-01`, `alts-lse-01` | |
+| M1 | Content loader + validation, one lesson → quiz → result flow, three seeded topics: `quant-tvm-01`, `econ-curve-01`, `alts-lse-01` | done |
 | M2 | Scheduler + mastery engine, with tests | |
 | M3 | XP, levels, streaks, badges, skill tree | |
 | M4 | Glossary popovers, global page, drill mode | |

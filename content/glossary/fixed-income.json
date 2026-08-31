@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "domain": "fixed-income",
+  "terms": [
+    {
+      "slug": "maturity",
+      "term": "maturity",
+      "plain": "The date a loan or bond ends and the borrower must repay the principal. \"A ten-year bond\" means ten years until that date.",
+      "formal": "The date on which a debt instrument's principal becomes due and payable, and the length of time remaining until that date.",
+      "seeAlso": ["yield-curve", "duration", "yield-to-maturity"]
+    },
+    {
+      "slug": "duration",
+      "term": "duration",
+      "plain": "A measure of how much an investment's price moves when interest rates change. Higher duration means more rate sensitivity — driven mainly by how far in the future the cash flows arrive.",
+      "formal": "The sensitivity of an instrument's price to a change in yield, expressed in years (Macaulay) or as an approximate percentage price change per 1% yield change (modified).",
+      "seeAlso": ["maturity", "term-premium", "discount-factor"]
+    },
+    {
+      "slug": "floating-rate",
+      "term": "floating rate",
+      "plain": "A loan whose interest rate resets periodically in line with a short-term reference rate, instead of being fixed for the whole life of the loan. When short rates rise, the borrower pays more almost immediately.",
+      "formal": "A debt instrument whose coupon periodically resets at a specified spread over a short-term reference rate, giving it low price sensitivity to rate changes but variable interest income.",
+      "seeAlso": ["federal-funds-rate", "private-credit", "duration"]
+    }
+  ]
+}
