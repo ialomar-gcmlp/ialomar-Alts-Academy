@@ -34,7 +34,35 @@ export const migrations: Record<number, Migration> = {
     events: [],
     daily: {},
   }),
+
+  /**
+   * v2 -> v3: add gamification, plus `reviews` and `xp` to each daily aggregate.
+   *
+   * Existing days get zeros rather than a guess. The review count could in principle
+   * be reconstructed from the answer log, but the log is trimmed and the scheduling
+   * state that would say whether each answer was a review has since moved on — so a
+   * reconstruction would be a fabrication. A v2 user starts their streak fresh,
+   * which is honest, and keeps every answer and every interval.
+   */
+  2: (state) => {
+    const daily = isRecord(state["daily"]) ? state["daily"] : {};
+    const upgraded: Record<string, unknown> = {};
+
+    for (const [key, value] of Object.entries(daily)) {
+      upgraded[key] = isRecord(value) ? { ...value, reviews: 0, xp: 0 } : value;
+    }
+
+    return {
+      ...state,
+      daily: upgraded,
+      gamification: { xp: 0, badges: [], frozenDays: [] },
+    };
+  },
 };
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === "object" && value !== null && !Array.isArray(value);
+}
 
 export type MigrationOutcome =
   | { status: "ok"; state: UnknownState; from: number; to: number; migrated: boolean }

@@ -8,12 +8,13 @@
  * interesting number — being wrong while sure is the thing worth acting on.
  */
 
+import { badgeById } from "../engine/badges";
 import { CONFIDENCE_LABELS, type Confidence } from "../engine/grading";
 import { navigate } from "../lib/hashRouter";
 import { useHotkeys } from "../lib/keyboard";
 import { formatDueIn } from "../lib/time";
 import { useApp, type QuizItem } from "../state/store";
-import { Button, Card, Kbd, PageTitle } from "../ui/primitives";
+import { Badge, Button, Card, Kbd, PageTitle } from "../ui/primitives";
 import { Inline } from "../ui/Prose";
 
 /** Static, because Tailwind cannot see a class name built at runtime. */
@@ -119,12 +120,37 @@ export function Result() {
 
   const now = session.finishedAt ?? Date.now();
   const t = tally(session.items, now);
+  const sessionXp = session.items.reduce((n, i) => n + i.xpAwarded, 0);
+  const repeatedToday = session.items.filter((i) => i.xpSkipped === "already-earned-today").length;
   const pct = t.total === 0 ? 0 : Math.round((t.correct / t.total) * 100);
   const minutes = Math.max(1, Math.round((now - session.startedAt) / 60000));
 
   return (
     <div>
       <PageTitle eyebrow={session.title} title="Set complete" />
+
+      {/* New badges lead, because they are the only thing here the user has not
+          already seen question by question. */}
+      {session.badgesEarned.length > 0 && (
+        <Card className="mb-6 border-accent/50 p-5">
+          <div className="mb-2 text-[11px] font-semibold uppercase tracking-wider text-accent">
+            {session.badgesEarned.length === 1 ? "New badge" : "New badges"}
+          </div>
+          <ul className="space-y-2">
+            {session.badgesEarned.map((earned) => {
+              const badge = badgeById.get(earned.id);
+              if (!badge) return null;
+              return (
+                <li key={earned.id}>
+                  <Badge tone="accent">earned</Badge>
+                  <span className="ml-2 font-medium text-fg">{badge.name}</span>
+                  <span className="ml-2 text-[13.5px] text-fg-muted">{badge.description}</span>
+                </li>
+              );
+            })}
+          </ul>
+        </Card>
+      )}
 
       {/* Score and calibration side by side — calibration is the more useful half */}
       <div className="mb-6 grid gap-4 sm:grid-cols-2">
@@ -137,7 +163,15 @@ export function Result() {
           </div>
           <div className="mt-1 text-[13px] text-fg-subtle tnum">
             {minutes} min{minutes === 1 ? "" : "s"}
+            {sessionXp > 0 && ` · +${sessionXp} XP`}
           </div>
+          {sessionXp === 0 && t.total > 0 && (
+            <p className="mt-2 text-[12.5px] leading-relaxed text-fg-subtle">
+              {repeatedToday > 0
+                ? "No XP: these questions had already paid out today. Come back tomorrow."
+                : "No XP — it only comes from correct answers."}
+            </p>
+          )}
         </Card>
 
         <Card className="p-5">

@@ -9,16 +9,19 @@ import { useEffect } from "react";
 
 import { useRoute, navigate } from "./lib/hashRouter";
 import { installFlushHandlers } from "./storage";
+import { level, streak } from "./state/selectors";
 import { useApp } from "./state/store";
 import { GlossaryPage } from "./views/GlossaryPage";
 import { Home } from "./views/Home";
 import { ReviewQueue } from "./views/ReviewQueue";
 import { Session } from "./views/Session";
+import { Progress } from "./views/Progress";
 import { Topic } from "./views/Topic";
 import { EmptyState } from "./ui/primitives";
 
 const NAV = [
   { path: "", label: "Topics" },
+  { path: "progress", label: "Progress" },
   { path: "glossary", label: "Glossary" },
   { path: "review-queue", label: "Review queue" },
 ] as const;
@@ -32,6 +35,7 @@ function Header() {
   return (
     <header className="border-b border-border-base bg-surface">
       <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-5 py-3">
+        <div className="flex min-w-0 items-center gap-3">
         <a
           href="#/"
           className="shrink-0 whitespace-nowrap text-[15px] font-semibold tracking-tight text-fg"
@@ -42,6 +46,8 @@ function Header() {
         >
           Alts Academy
         </a>
+        <StatusChip />
+        </div>
 
         {/* Scrolls rather than wraps on a narrow phone, so the brand and the nav
             never collapse into each other. */}
@@ -77,6 +83,36 @@ function Header() {
         </nav>
       </div>
     </header>
+  );
+}
+
+/** Level and streak, at a glance. Clicking goes to the full picture. */
+function StatusChip() {
+  const progress = useApp((s) => s.progress);
+  const info = level(progress);
+  const streakInfo = streak(progress, Date.now());
+
+  if (progress.gamification.xp === 0 && streakInfo.current === 0) return null;
+
+  return (
+    <button
+      type="button"
+      onClick={() => navigate("progress")}
+      title={`Level ${info.level} — ${info.title}`}
+      className="hidden shrink-0 items-center gap-2 rounded-md px-2 py-1 text-[12px] text-fg-muted hover:bg-surface-2 hover:text-fg sm:flex"
+    >
+      <span className="tnum">Lv {info.level}</span>
+      <span aria-hidden className="text-fg-subtle">·</span>
+      <span className="tnum">{progress.gamification.xp.toLocaleString()} XP</span>
+      {streakInfo.current > 0 && (
+        <>
+          <span aria-hidden className="text-fg-subtle">·</span>
+          <span className={`tnum ${streakInfo.todayQualified ? "text-correct" : ""}`}>
+            {streakInfo.current}d
+          </span>
+        </>
+      )}
+    </button>
   );
 }
 
@@ -162,6 +198,8 @@ function Routes() {
       return param === undefined ? <NotFound /> : <Session topicId={param} />;
     case "review":
       return <Session />;
+    case "progress":
+      return <Progress />;
     case "glossary":
       return <GlossaryPage />;
     case "review-queue":

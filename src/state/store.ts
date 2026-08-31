@@ -21,7 +21,9 @@ import {
   type Grade,
   type Response,
 } from "../engine/grading";
+import type { EarnedBadge } from "../engine/badges";
 import { recordAnswer } from "../engine/record";
+import { badgeContextFor, pendingFreezes } from "./selectors";
 import type { QuestionState } from "../engine/scheduler";
 import {
   applyTheme,
@@ -57,6 +59,10 @@ export interface QuizItem {
   scheduled: QuestionState | null;
   /** True when the scheduler had flagged this for re-teaching before we asked it. */
   wasFlaggedForReteach: boolean;
+  /** XP this answer earned. 0 is a real outcome, not a missing value. */
+  xpAwarded: number;
+  /** Set when the award was suppressed, so the UI can say why it was zero. */
+  xpSkipped: "incorrect" | "already-earned-today" | null;
 }
 
 export interface QuizSession {
@@ -70,6 +76,8 @@ export interface QuizSession {
   index: number;
   startedAt: number;
   finishedAt: number | null;
+  /** Badges earned during this session, to announce at the end. */
+  badgesEarned: EarnedBadge[];
 }
 
 export interface SessionSpec {
@@ -114,8 +122,23 @@ export const useApp = create<AppState>((set, get) => ({
   async hydrate() {
     const { state, status } = await load();
     applyTheme(state.settings.theme);
-    set({ progress: state, storageStatus: status, hydrated: true });
-    if (status.kind === "fresh") save(state);
+
+    // Spend freeze days on boot, so a streak survives a gap the user was away for.
+    // freezesToApply only returns days when the allowance covers the whole gap.
+    const freezes = pendingFreezes(state, Date.now());
+    const progress =
+      freezes.length === 0
+        ? state
+        : {
+            ...state,
+            gamification: {
+              ...state.gamification,
+              frozenDays: [...state.gamification.frozenDays, ...freezes],
+            },
+          };
+
+    set({ progress, storageStatus: status, hydrated: true });
+    if (status.kind === "fresh" || freezes.length > 0) save(progress);
   },
 
   setTheme(theme) {
@@ -167,10 +190,13 @@ export const useApp = create<AppState>((set, get) => ({
           shownAt: i === 0 ? now : null,
           scheduled: null,
           wasFlaggedForReteach: states[item.question.id]?.needsReteach ?? false,
+          xpAwarded: 0,
+          xpSkipped: null,
         })),
         index: 0,
         startedAt: now,
         finishedAt: null,
+        badgesEarned: [],
       },
     });
   },
@@ -262,7 +288,12 @@ export const useApp = create<AppState>((set, get) => ({
 
     // Everything persisted flows through one pure function, so the scheduling and
     // bookkeeping path is the same one the tests exercise.
-    const { progress, state: scheduled } = recordAnswer(
+    const {
+      progress,
+      state: scheduled,
+      xp,
+      badges,
+    } = recordAnswer(
       state.progress,
       {
         questionId: item.question.id,
@@ -273,12 +304,27 @@ export const useApp = create<AppState>((set, get) => ({
         seconds,
       },
       now,
+      { badgeContext: (p) => badgeContextFor(p, now) },
     );
 
     const items = session.items.slice();
-    items[session.index] = { ...item, grade, revealed: true, scheduled };
+    items[session.index] = {
+      ...item,
+      grade,
+      revealed: true,
+      scheduled,
+      xpAwarded: xp.total,
+      xpSkipped: xp.skipped,
+    };
 
-    set({ progress, session: { ...session, items } });
+    set({
+      progress,
+      session: {
+        ...session,
+        items,
+        badgesEarned: [...session.badgesEarned, ...badges],
+      },
+    });
     save(progress);
   },
 
@@ -328,3 +374,8 @@ export const selectAnsweredCount = (s: AppState): number =>
   s.session?.items.filter((i) => i.grade !== null).length ?? 0;
 
 export const selectTotalCount = (s: AppState): number => s.session?.items.length ?? 0;
+
+export const selectXp = (s: AppState): number => s.progress.gamification.xp;
+
+export const selectSessionXp = (s: AppState): number =>
+  s.session?.items.reduce((n, i) => n + i.xpAwarded, 0) ?? 0;

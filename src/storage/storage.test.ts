@@ -209,3 +209,114 @@ describe("save", () => {
     expect(raw).not.toContain('"dailyGoalMinutes":10');
   });
 });
+
+describe("migration v2 -> v3", () => {
+  /** A v2 install: scheduling state and daily aggregates, no gamification. */
+  const v2 = {
+    schemaVersion: 2,
+    settings: {
+      theme: "light",
+      sessionLength: 10,
+      dailyGoalMinutes: 10,
+      validateContentInProd: false,
+    },
+    questions: {
+      "quant-tvm-01-q1": {
+        id: "quant-tvm-01-q1",
+        topicId: "quant-tvm-01",
+        difficulty: 3,
+        ease: 2.6,
+        intervalDays: 3,
+        dueAt: 1780000000000,
+        reps: 2,
+        lapses: 1,
+        consecutiveMisses: 0,
+        lastGrade: 5,
+        lastAnsweredAt: 1779000000000,
+        lastConfidence: "confident",
+        correctCount: 2,
+        totalCount: 3,
+        everCorrect: true,
+        needsReteach: false,
+      },
+    },
+    topics: { "quant-tvm-01": { attempts: 3, lastStudiedAt: 1779000000000 } },
+    events: [
+      { q: "quant-tvm-01-q1", t: "quant-tvm-01", at: 1779000000000, ok: true, c: "confident", d: 3, g: 5, s: 25 },
+    ],
+    daily: {
+      "2026-06-01": {
+        answered: 3,
+        correct: 2,
+        seconds: 400,
+        byConfidence: {
+          confident: { correct: 2, total: 2 },
+          unsure: { correct: 0, total: 1 },
+          guessing: { correct: 0, total: 0 },
+        },
+      },
+    },
+    meta: { createdAt: "2026-05-01T00:00:00.000Z", lastExportAt: null },
+  };
+
+  it("produces state that satisfies the current schema", () => {
+    const out = migrate(v2);
+    expect(out.status).toBe("ok");
+    if (out.status !== "ok") return;
+    expect(progressSchema.safeParse(out.state).success).toBe(true);
+  });
+
+  it("keeps every scheduling interval and every answer intact", () => {
+    // The point of the exercise: an update must not cost the user their history.
+    const out = migrate(v2);
+    if (out.status !== "ok") throw new Error("expected ok");
+
+    expect(out.state).toMatchObject({
+      questions: { "quant-tvm-01-q1": { ease: 2.6, intervalDays: 3, lapses: 1 } },
+      topics: { "quant-tvm-01": { attempts: 3 } },
+      meta: { createdAt: "2026-05-01T00:00:00.000Z" },
+    });
+    expect((out.state["events"] as unknown[]).length).toBe(1);
+  });
+
+  it("adds gamification at zero rather than inventing a total", () => {
+    const out = migrate(v2);
+    if (out.status !== "ok") throw new Error("expected ok");
+    expect(out.state["gamification"]).toEqual({ xp: 0, badges: [], frozenDays: [] });
+  });
+
+  it("backfills reviews and xp on existing days without touching their other fields", () => {
+    const out = migrate(v2);
+    if (out.status !== "ok") throw new Error("expected ok");
+
+    const day = (out.state["daily"] as Record<string, Record<string, unknown>>)["2026-06-01"];
+    expect(day).toMatchObject({ answered: 3, correct: 2, seconds: 400, reviews: 0, xp: 0 });
+  });
+
+  it("runs end to end through load(), keeping a v2 backup", async () => {
+    await adapter.set(KEY, JSON.stringify(v2));
+
+    const { state, status } = await load();
+    expect(status).toEqual({ kind: "loaded", migratedFrom: 2 });
+    expect(state.gamification.xp).toBe(0);
+    expect(state.questions["quant-tvm-01-q1"]?.intervalDays).toBe(3);
+
+    expect(await adapter.get("alts-academy:progress.backup.v2")).toBe(JSON.stringify(v2));
+  });
+
+  it("chains v1 all the way to the current version", async () => {
+    // A user who skipped a release must still land somewhere valid.
+    const v1 = {
+      schemaVersion: 1,
+      settings: { theme: "dark", sessionLength: 5, dailyGoalMinutes: 20, validateContentInProd: false },
+      meta: { createdAt: "2026-01-01T00:00:00.000Z", lastExportAt: null },
+    };
+    await adapter.set(KEY, JSON.stringify(v1));
+
+    const { state, status } = await load();
+    expect(status).toEqual({ kind: "loaded", migratedFrom: 1 });
+    expect(state.schemaVersion).toBe(PROGRESS_SCHEMA_VERSION);
+    expect(state.settings.dailyGoalMinutes).toBe(20);
+    expect(state.gamification).toEqual({ xp: 0, badges: [], frozenDays: [] });
+  });
+});

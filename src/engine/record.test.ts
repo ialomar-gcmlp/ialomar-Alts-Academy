@@ -180,3 +180,102 @@ describe("trimEvents", () => {
     expect(progress.events.length).toBeLessThanOrEqual(HISTORY.MAX_EVENTS);
   });
 });
+
+describe("recordAnswer — XP", () => {
+  it("awards XP for a correct answer and adds it to the running total", () => {
+    const { progress, xp } = recordAnswer(defaultProgress(), answer(), T0);
+    expect(xp.total).toBeGreaterThan(0);
+    expect(progress.gamification.xp).toBe(xp.total);
+    expect(progress.daily[dayKey(T0)]?.xp).toBe(xp.total);
+  });
+
+  it("awards nothing for a wrong answer", () => {
+    const { progress, xp } = recordAnswer(defaultProgress(), answer({ correct: false }), T0);
+    expect(xp.total).toBe(0);
+    expect(xp.skipped).toBe("incorrect");
+    expect(progress.gamification.xp).toBe(0);
+  });
+
+  it("does not pay the same question twice in one day", () => {
+    // The anti-farming rule, end to end through the real recording path.
+    const first = recordAnswer(defaultProgress(), answer(), T0);
+    const second = recordAnswer(first.progress, answer(), T0 + 60_000);
+
+    expect(second.xp.total).toBe(0);
+    expect(second.xp.skipped).toBe("already-earned-today");
+    expect(second.progress.gamification.xp).toBe(first.xp.total);
+  });
+
+  it("pays the same question again the following day", () => {
+    const first = recordAnswer(defaultProgress(), answer(), T0);
+    const second = recordAnswer(first.progress, answer(), T0 + DAY_MS);
+    expect(second.xp.total).toBeGreaterThan(0);
+  });
+
+  it("pays a revival bonus for getting a previously missed question right", () => {
+    const missed = recordAnswer(
+      defaultProgress(),
+      answer({ correct: false, confidence: "confident" }),
+      T0,
+    );
+    const revived = recordAnswer(missed.progress, answer(), T0 + DAY_MS);
+    expect(revived.xp.revivalBonus).toBeGreaterThan(0);
+  });
+});
+
+describe("recordAnswer — review counting", () => {
+  it("does not count a first encounter as a review", () => {
+    // New material must not qualify a streak day on its own.
+    const { wasReview, progress } = recordAnswer(defaultProgress(), answer(), T0);
+    expect(wasReview).toBe(false);
+    expect(progress.daily[dayKey(T0)]?.reviews).toBe(0);
+  });
+
+  it("counts an answer to a question that had come due", () => {
+    const first = recordAnswer(defaultProgress(), answer(), T0);
+    // First answer scheduled it a day out; answer it once it is due.
+    const due = first.progress.questions["quant-tvm-01-q1"]?.dueAt ?? T0;
+    const second = recordAnswer(first.progress, answer(), due + 1000);
+
+    expect(second.wasReview).toBe(true);
+    expect(second.progress.daily[dayKey(due + 1000)]?.reviews).toBe(1);
+  });
+
+  it("does not count a same-session repeat as a review", () => {
+    const first = recordAnswer(defaultProgress(), answer(), T0);
+    const second = recordAnswer(first.progress, answer(), T0 + 30_000);
+    expect(second.wasReview).toBe(false);
+  });
+});
+
+describe("recordAnswer — badges", () => {
+  const badgeContext = () => ({
+    topics: [
+      { topicId: "quant-tvm-01", domain: "quantitative-methods" as const, mastery: 0.9, started: true },
+    ],
+    domains: [{ domain: "quantitative-methods" as const, mastery: 0.9, topicCount: 3 }],
+  });
+
+  it("awards nothing when no context is supplied", () => {
+    const { badges } = recordAnswer(defaultProgress(), answer(), T0);
+    expect(badges).toEqual([]);
+  });
+
+  it("earns and persists badges the answer qualified for", () => {
+    const { progress, badges } = recordAnswer(defaultProgress(), answer(), T0, { badgeContext });
+    expect(badges.length).toBeGreaterThan(0);
+    expect(progress.gamification.badges.map((b) => b.id)).toEqual(badges.map((b) => b.id));
+  });
+
+  it("does not re-award a badge already held", () => {
+    const first = recordAnswer(defaultProgress(), answer(), T0, { badgeContext });
+    const second = recordAnswer(first.progress, answer({ questionId: "quant-tvm-01-q2" }), T0, {
+      badgeContext,
+    });
+
+    expect(second.badges).toEqual([]);
+    expect(second.progress.gamification.badges).toHaveLength(
+      first.progress.gamification.badges.length,
+    );
+  });
+});

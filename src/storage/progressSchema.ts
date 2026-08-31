@@ -7,6 +7,7 @@
  *   v1  settings + meta only
  *   v2  per-question scheduling state, per-topic facts, a bounded answer log,
  *       and permanent daily aggregates
+ *   v3  gamification (XP, badges, frozen days) and a per-day review count
  *
  * Mastery is deliberately NOT stored. It is derived from question state on demand,
  * so there is no cache to go stale — the entire class of "the number on screen
@@ -18,7 +19,7 @@ import { z } from "zod";
 import { CONFIDENCE_LEVELS } from "../engine/grading";
 import type { QuestionState } from "../engine/scheduler";
 
-export const PROGRESS_SCHEMA_VERSION = 2;
+export const PROGRESS_SCHEMA_VERSION = 3;
 
 export const themeSchema = z.enum(["light", "dark"]);
 export const confidenceSchema = z.enum(CONFIDENCE_LEVELS);
@@ -106,6 +107,10 @@ export const dailyAggregateSchema = z.object({
   answered: z.number().int().min(0),
   correct: z.number().int().min(0),
   seconds: z.number().min(0),
+  /** Answers to questions that were already due — what makes a day count for the
+   *  streak. Without it, a streak could be kept by only ever reading new material. */
+  reviews: z.number().int().min(0),
+  xp: z.number().min(0),
   byConfidence: z.object({
     confident: confidenceTallySchema,
     unsure: confidenceTallySchema,
@@ -113,9 +118,27 @@ export const dailyAggregateSchema = z.object({
   }),
 });
 
+export const earnedBadgeSchema = z.object({
+  id: z.string(),
+  earnedAt: z.number(),
+});
+
+/**
+ * Facts that cannot be recomputed. XP has to be accumulated rather than derived,
+ * because the answer log it would be derived from is deliberately trimmed — deriving
+ * it would mean the user's total quietly falling as old answers aged out.
+ */
+export const gamificationSchema = z.object({
+  xp: z.number().min(0),
+  badges: z.array(earnedBadgeSchema),
+  /** Day keys covered by a freeze, so the streak is reproducible across reloads. */
+  frozenDays: z.array(z.string()),
+});
+
 export const progressSchema = z.object({
   schemaVersion: z.number().int().positive(),
   settings: settingsSchema,
+  gamification: gamificationSchema,
   questions: z.record(z.string(), questionStateSchema),
   topics: z.record(z.string(), topicStateSchema),
   events: z.array(answerEventSchema),
@@ -132,6 +155,8 @@ export type Settings = z.infer<typeof settingsSchema>;
 export type TopicState = z.infer<typeof topicStateSchema>;
 export type AnswerEvent = z.infer<typeof answerEventSchema>;
 export type DailyAggregate = z.infer<typeof dailyAggregateSchema>;
+export type EarnedBadge = z.infer<typeof earnedBadgeSchema>;
+export type Gamification = z.infer<typeof gamificationSchema>;
 export type ProgressState = z.infer<typeof progressSchema>;
 
 export function emptyDailyAggregate(): DailyAggregate {
@@ -139,6 +164,8 @@ export function emptyDailyAggregate(): DailyAggregate {
     answered: 0,
     correct: 0,
     seconds: 0,
+    reviews: 0,
+    xp: 0,
     byConfidence: {
       confident: { correct: 0, total: 0 },
       unsure: { correct: 0, total: 0 },
@@ -156,6 +183,7 @@ export function defaultProgress(now: Date = new Date()): ProgressState {
       dailyGoalMinutes: 10,
       validateContentInProd: false,
     },
+    gamification: { xp: 0, badges: [], frozenDays: [] },
     questions: {},
     topics: {},
     events: [],

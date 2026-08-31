@@ -18,7 +18,10 @@ import {
   type TopicMastery,
 } from "../engine/mastery";
 import { dueStates, isDue, reviewForecast, type QuestionState } from "../engine/scheduler";
-import type { ProgressState } from "../storage/progressSchema";
+import type { BadgeContext } from "../engine/badges";
+import { levelFor, type LevelInfo } from "../engine/xp";
+import { freezesToApply, streakInfo, type StreakInfo } from "../engine/streak";
+import { dayKey, type ProgressState } from "../storage/progressSchema";
 
 export interface TopicProgress extends TopicMastery {
   topic: ManifestTopic;
@@ -134,4 +137,59 @@ export function dayTotals(
     correct: day.correct,
     minutes: Math.round(day.seconds / 60),
   };
+}
+
+/* ------------------------------------------------------------------ *
+ * Gamification
+ * ------------------------------------------------------------------ */
+
+/**
+ * The mastery half of the badge context. Passed into recordAnswer rather than
+ * imported by it, so the engine stays independent of the content manifest.
+ */
+export function badgeContextFor(
+  progress: ProgressState,
+  now: number,
+): Omit<BadgeContext, "questions" | "events"> {
+  const topics = topicProgress(progress, now);
+  return {
+    topics: topics.map((t) => ({
+      topicId: t.topicId,
+      domain: t.topic.domain,
+      mastery: t.mastery,
+      started: t.started,
+    })),
+    domains: domainProgress(topics).map((d) => ({
+      domain: d.domain,
+      mastery: d.mastery,
+      topicCount: d.topics.length,
+    })),
+  };
+}
+
+export function level(progress: ProgressState): LevelInfo {
+  return levelFor(progress.gamification.xp);
+}
+
+export function streak(progress: ProgressState, now: number): StreakInfo {
+  return streakInfo({
+    daily: progress.daily,
+    frozenDays: progress.gamification.frozenDays,
+    dailyGoalMinutes: progress.settings.dailyGoalMinutes,
+    today: dayKey(now),
+  });
+}
+
+/**
+ * Freeze days needed to keep the streak alive, if the allowance can cover the whole
+ * gap. Called on boot and after answering; returns [] when there is nothing to do,
+ * so the caller can skip the write.
+ */
+export function pendingFreezes(progress: ProgressState, now: number): string[] {
+  return freezesToApply({
+    daily: progress.daily,
+    frozenDays: progress.gamification.frozenDays,
+    dailyGoalMinutes: progress.settings.dailyGoalMinutes,
+    today: dayKey(now),
+  });
 }

@@ -324,12 +324,49 @@ button that chooses for the user.
 
 ### XP — `engine/xp.ts`. Reward retention, not clicking.
 
-XP accrues **only** on the first answer of a scheduled item per day, scaled by difficulty × a
-calibration multiplier, with a bonus for correctly answering something previously missed. Zero XP for
-re-answering anything already answered today. Daily soft cap with diminishing returns above it.
+Rules, all of them anti-farming:
 
-A streak day counts only if the user hits the goal minutes **and** completes ≥1 scheduled review.
-Two freeze days per calendar month, auto-applied to the first qualifying missed day.
+- a wrong answer earns **nothing**, at any confidence
+- a question pays out **at most once per day** — checked against the answer log, not a separate
+  ledger, so there is no second source of truth. An earlier *miss* on the same day does not block a
+  later payout, or the incentive would be to avoid retrying what you got wrong.
+- multiplied by difficulty (1.0 at difficulty 1 → 2.5 at 5) and by confidence
+  (confident 1.0, unsure 0.7, **guessing 0.3** — XP tracks knowledge, and being right by luck is not
+  knowledge)
+- `+15` for reviving something previously missed
+- past 300 XP in a day, further awards are discounted to a quarter rather than blocked
+
+Ten levels with titles describing what the user can do, not invented ranks — see `LEVELS` in
+`engine/constants.ts`. Level 1 Orientation → level 10 Investment Committee Ready.
+
+### Streaks — `engine/streak.ts`
+
+A day counts only if BOTH hold: the goal minutes were met **and** ≥1 scheduled review was completed.
+The second half is what stops a streak being kept by only ever reading new material — which is why
+`DailyAggregate` carries a `reviews` count.
+
+Two freeze days per calendar month. **Freezes are spent only if they save the streak**: if the gap is
+wider than the remaining allowance can bridge, the streak breaks and the allowance is left untouched.
+Spending two freezes on a three-day gap would waste them for nothing. Frozen days are persisted, so
+the streak is reproducible rather than recomputed differently on each load.
+
+### Badges — `engine/badges.ts`
+
+Mastery milestones and calibration accuracy only. **Nothing for time spent or volume** — a test
+asserts that 500 answers with nothing learned earns zero badges.
+
+Two are deliberately hard to game:
+- *Well Calibrated* requires 90%+ confident accuracy **and** that doubt was admitted on ≥10% of all
+  answers, so it cannot be won by tagging everything Confident.
+- *Knows the Gaps* requires that answers tagged Guessing were usually **wrong**, which is what honest
+  self-assessment looks like.
+
+Domain badges need `MIN_TOPICS_FOR_DOMAIN_BADGE` (3) topics in the domain. Without that guard, a
+domain holding one topic awards the domain badge *before* the single-topic one, which reads as broken —
+it did, on first run.
+
+Once earned, a badge is never revoked. A mastery figure dipping after a fortnight away should not take
+an achievement with it.
 
 ### Required test coverage
 
@@ -337,6 +374,11 @@ Two freeze days per calendar month, auto-applied to the first qualifying missed 
 adaptive step-down after two misses, mastery monotonicity (a correct answer never lowers mastery),
 domain rollup weighting, session budget never overflowing, interleave spread, XP anti-farming (the
 same item twice in a day yields XP once), streak + freeze logic, and every storage migration.
+
+Write the test that tries to **break** the rule, not the one that confirms it works. The XP and badge
+suites are mostly attempts to farm them; the mastery suite includes a brute-force monotonicity check
+over 400 seeded pseudo-random answers. Both the guessing-cap bug and the domain-badge ordering bug
+were found that way rather than by reading the code.
 
 ---
 
@@ -354,18 +396,22 @@ analytics. Writes debounce ~250ms and force-flush on `visibilitychange` and `pag
 
 ```
 {
-  schemaVersion: 2,
-  questions: Record<questionId, QuestionState>,  // scheduling state — the real record
-  topics:    Record<topicId, { attempts, lastStudiedAt }>,   // facts only
-  events:    AnswerEvent[],                      // bounded ring, 5000 / 18 months
-  daily:     Record<isoDate, DailyAggregate>,    // permanent
-  settings:  { theme, sessionLength, dailyGoalMinutes, validateContentInProd },
-  meta:      { createdAt, lastExportAt }
+  schemaVersion: 3,
+  questions:    Record<questionId, QuestionState>,   // scheduling state — the real record
+  topics:       Record<topicId, { attempts, lastStudiedAt }>,   // facts only
+  events:       AnswerEvent[],                       // bounded ring, 5000 / 18 months
+  daily:        Record<isoDate, DailyAggregate>,     // permanent; carries reviews + xp
+  gamification: { xp, badges: [{id, earnedAt}], frozenDays: [dayKey] },
+  settings:     { theme, sessionLength, dailyGoalMinutes, validateContentInProd },
+  meta:         { createdAt, lastExportAt }
 }
 ```
 
-Still to come: `gamification` (M3) and `activeSession` (M6), each as a version bump
-with a tested migration.
+Still to come: `activeSession` (M6), as a version bump with a tested migration.
+
+XP is accumulated rather than derived, unlike mastery. It has to be: the answer log it would be
+derived from is deliberately trimmed, so deriving it would mean the user's total quietly falling as
+old answers aged out.
 
 **Mastery is NOT stored, and neither are domains.** Both are derived from question
 state on every render by `src/state/selectors.ts`. There is no cache, so there is no
@@ -455,7 +501,7 @@ Commit at the end of each milestone, then stop for review. Run `npm run verify` 
 | M0 | Plan, `CLAUDE.md`, repo initialized. No app code. | done |
 | M1 | Content loader + validation, one lesson → quiz → result flow, three seeded topics: `quant-tvm-01`, `econ-curve-01`, `alts-lse-01` | done |
 | M2 | Scheduler + mastery engine, with tests | done |
-| M3 | XP, levels, streaks, badges, skill tree | |
+| M3 | XP, levels, streaks, badges, skill tree | done |
 | M4 | Glossary popovers, global page, drill mode | |
 | M5 | Content build-out, one domain per batch, validated, pause between batches | |
 | M6 | Mock exams, analytics, export/import, session resume | |
