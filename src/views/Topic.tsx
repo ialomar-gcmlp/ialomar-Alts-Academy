@@ -17,7 +17,7 @@ import { Badge, Button, Card, EmptyState, Kbd, PageTitle } from "../ui/primitive
 export function Topic({ id }: { id: string }) {
   const [topic, setTopic] = useState<TopicData | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const startQuiz = useApp((s) => s.startQuiz);
+  const startTopicQuiz = useApp((s) => s.startTopicQuiz);
 
   useEffect(() => {
     let cancelled = false;
@@ -39,7 +39,7 @@ export function Topic({ id }: { id: string }) {
 
   const begin = (): void => {
     if (!topic) return;
-    startQuiz(topic);
+    startTopicQuiz(topic);
     navigate(`quiz/${topic.id}`);
   };
 

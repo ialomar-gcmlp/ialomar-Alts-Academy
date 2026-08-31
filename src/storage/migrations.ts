@@ -17,9 +17,24 @@ export type Migration = (state: UnknownState) => UnknownState;
 
 /**
  * Keyed by the version being migrated FROM. `migrations[1]` upgrades v1 to v2.
- * Empty at v1 — the first entry appears when M2 adds scheduling state.
+ *
+ * Each step must be additive and total: given any valid state at version N it has to
+ * produce a valid state at N+1, without reading anything it cannot be sure exists.
  */
-export const migrations: Record<number, Migration> = {};
+export const migrations: Record<number, Migration> = {
+  /**
+   * v1 -> v2: introduce scheduling state, per-topic facts, the answer log and daily
+   * aggregates. A v1 user has settings and nothing else, so every new field starts
+   * empty — their settings and createdAt carry across untouched.
+   */
+  1: (state) => ({
+    ...state,
+    questions: {},
+    topics: {},
+    events: [],
+    daily: {},
+  }),
+};
 
 export type MigrationOutcome =
   | { status: "ok"; state: UnknownState; from: number; to: number; migrated: boolean }

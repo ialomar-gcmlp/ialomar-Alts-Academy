@@ -1,17 +1,27 @@
 /**
  * Persisted state schema.
  *
- * Versioned from the first commit so that later milestones can add fields through
- * tested migrations rather than by hoping (CLAUDE.md §7). M1 persists settings only;
- * question scheduling state, mastery, events and gamification arrive in M2/M3 as
- * schema version bumps with migrations.
+ * Versioned from the first commit so later milestones add fields through tested
+ * migrations rather than by hoping (CLAUDE.md §7).
+ *
+ *   v1  settings + meta only
+ *   v2  per-question scheduling state, per-topic facts, a bounded answer log,
+ *       and permanent daily aggregates
+ *
+ * Mastery is deliberately NOT stored. It is derived from question state on demand,
+ * so there is no cache to go stale — the entire class of "the number on screen
+ * disagrees with the data behind it" bug simply cannot occur.
  */
 
 import { z } from "zod";
 
-export const PROGRESS_SCHEMA_VERSION = 1;
+import { CONFIDENCE_LEVELS } from "../engine/grading";
+import type { QuestionState } from "../engine/scheduler";
+
+export const PROGRESS_SCHEMA_VERSION = 2;
 
 export const themeSchema = z.enum(["light", "dark"]);
+export const confidenceSchema = z.enum(CONFIDENCE_LEVELS);
 export const sessionLengthSchema = z.union([
   z.literal(5),
   z.literal(10),
@@ -28,9 +38,88 @@ export const settingsSchema = z.object({
   validateContentInProd: z.boolean(),
 });
 
+/* ------------------------------------------------------------------ *
+ * Scheduling state
+ * ------------------------------------------------------------------ */
+
+export const questionStateSchema = z.object({
+  id: z.string(),
+  topicId: z.string(),
+  difficulty: z.number(),
+  ease: z.number(),
+  intervalDays: z.number(),
+  dueAt: z.number(),
+  reps: z.number(),
+  lapses: z.number(),
+  consecutiveMisses: z.number(),
+  lastGrade: z.number().nullable(),
+  lastAnsweredAt: z.number().nullable(),
+  lastConfidence: confidenceSchema.nullable(),
+  correctCount: z.number(),
+  totalCount: z.number(),
+  everCorrect: z.boolean(),
+  needsReteach: z.boolean(),
+});
+
+/*
+ * Two-way assignability check between the Zod schema above and the engine's
+ * QuestionState. If either gains, loses or renames a field, this stops compiling —
+ * which is the point. A silent mismatch here would mean saved scheduling state
+ * failing validation on the next load and the user's history being set aside.
+ */
+type SchemaQuestionState = z.infer<typeof questionStateSchema>;
+const _schemaSatisfiesEngine: QuestionState = {} as SchemaQuestionState;
+const _engineSatisfiesSchema: SchemaQuestionState = {} as QuestionState;
+void _schemaSatisfiesEngine;
+void _engineSatisfiesSchema;
+
+/** Facts about a topic. Anything derivable (mastery) is computed, not stored. */
+export const topicStateSchema = z.object({
+  attempts: z.number().int().min(0),
+  lastStudiedAt: z.number().nullable(),
+});
+
+/**
+ * One answer. Keys are short because this is the only unbounded-by-nature structure
+ * in the store and it is capped at 5,000 entries:
+ *   q question id · t topic id · at timestamp · ok correct · c confidence
+ *   d difficulty · g grade · s seconds spent
+ */
+export const answerEventSchema = z.object({
+  q: z.string(),
+  t: z.string(),
+  at: z.number(),
+  ok: z.boolean(),
+  c: confidenceSchema,
+  d: z.number(),
+  g: z.number(),
+  s: z.number(),
+});
+
+const confidenceTallySchema = z.object({
+  correct: z.number().int().min(0),
+  total: z.number().int().min(0),
+});
+
+/** Kept forever, so long-run analytics survive the answer log being trimmed. */
+export const dailyAggregateSchema = z.object({
+  answered: z.number().int().min(0),
+  correct: z.number().int().min(0),
+  seconds: z.number().min(0),
+  byConfidence: z.object({
+    confident: confidenceTallySchema,
+    unsure: confidenceTallySchema,
+    guessing: confidenceTallySchema,
+  }),
+});
+
 export const progressSchema = z.object({
   schemaVersion: z.number().int().positive(),
   settings: settingsSchema,
+  questions: z.record(z.string(), questionStateSchema),
+  topics: z.record(z.string(), topicStateSchema),
+  events: z.array(answerEventSchema),
+  daily: z.record(z.string(), dailyAggregateSchema),
   meta: z.object({
     createdAt: z.string(),
     lastExportAt: z.string().nullable(),
@@ -40,7 +129,23 @@ export const progressSchema = z.object({
 export type Theme = z.infer<typeof themeSchema>;
 export type SessionLength = z.infer<typeof sessionLengthSchema>;
 export type Settings = z.infer<typeof settingsSchema>;
+export type TopicState = z.infer<typeof topicStateSchema>;
+export type AnswerEvent = z.infer<typeof answerEventSchema>;
+export type DailyAggregate = z.infer<typeof dailyAggregateSchema>;
 export type ProgressState = z.infer<typeof progressSchema>;
+
+export function emptyDailyAggregate(): DailyAggregate {
+  return {
+    answered: 0,
+    correct: 0,
+    seconds: 0,
+    byConfidence: {
+      confident: { correct: 0, total: 0 },
+      unsure: { correct: 0, total: 0 },
+      guessing: { correct: 0, total: 0 },
+    },
+  };
+}
 
 export function defaultProgress(now: Date = new Date()): ProgressState {
   return {
@@ -51,6 +156,10 @@ export function defaultProgress(now: Date = new Date()): ProgressState {
       dailyGoalMinutes: 10,
       validateContentInProd: false,
     },
+    questions: {},
+    topics: {},
+    events: [],
+    daily: {},
     meta: { createdAt: now.toISOString(), lastExportAt: null },
   };
 }
@@ -58,4 +167,12 @@ export function defaultProgress(now: Date = new Date()): ProgressState {
 function prefersDark(): boolean {
   if (typeof window === "undefined" || typeof window.matchMedia !== "function") return false;
   return window.matchMedia("(prefers-color-scheme: dark)").matches;
+}
+
+/** Local calendar day key. Local, not UTC: a streak should follow the user's day. */
+export function dayKey(timestamp: number): string {
+  const d = new Date(timestamp);
+  const month = `${d.getMonth() + 1}`.padStart(2, "0");
+  const day = `${d.getDate()}`.padStart(2, "0");
+  return `${d.getFullYear()}-${month}-${day}`;
 }

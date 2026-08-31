@@ -11,7 +11,9 @@
 
 import { useEffect, useMemo, useState } from "react";
 
+import { manifestTopic } from "../content/loader";
 import { CONFIDENCE_LABELS, CONFIDENCE_LEVELS, isAnswerable, type Confidence } from "../engine/grading";
+import { formatDueIn } from "../lib/time";
 import { navigate } from "../lib/hashRouter";
 import { useHotkeys } from "../lib/keyboard";
 import { selectCurrentItem, useApp } from "../state/store";
@@ -42,7 +44,7 @@ const CONFIDENCE_STYLES: Record<Confidence, { on: string; off: string }> = {
   },
 };
 
-export function Session({ topicId }: { topicId: string }) {
+export function Session({ topicId }: { topicId?: string }) {
   const session = useApp((s) => s.session);
   const item = useApp(selectCurrentItem);
   // Selected one at a time on purpose: Zustand v5 has no default equality check, so
@@ -56,15 +58,15 @@ export function Session({ topicId }: { topicId: string }) {
 
   const [showExitConfirm, setShowExitConfirm] = useState(false);
 
-  // A reload lands here with no session in memory. Send the user back to the lesson
-  // rather than showing an empty shell. (M6 restores the session from storage instead.)
+  // A reload lands here with no session in memory. Go back to wherever the session
+  // came from rather than showing an empty shell. (M6 restores it from storage instead.)
   useEffect(() => {
-    if (!session) navigate(`topic/${topicId}`, { replace: true });
+    if (!session) navigate(topicId === undefined ? "" : `topic/${topicId}`, { replace: true });
   }, [session, topicId]);
 
   const graded = item?.grade ?? null;
   const answerable = item !== null && isAnswerable(item.question, item.response);
-  const canSubmit = answerable && item?.confidence !== null && graded === null;
+  const canSubmit = answerable && item?.confidence != null && graded === null;
 
   const advance = (): void => {
     if (graded === null) {
@@ -134,7 +136,7 @@ export function Session({ topicId }: { topicId: string }) {
   const conceptBlock =
     item.question.concept === undefined
       ? undefined
-      : session.lessonBlocks.find((b) => b.id === item.question.concept);
+      : session.lessonBlocks[item.topicId]?.find((b) => b.id === item.question.concept);
 
   // The one case that earns a stronger intervention: sure and wrong.
   const confidentMiss = graded !== null && !graded.correct && item.confidence === "confident";
@@ -144,7 +146,7 @@ export function Session({ topicId }: { topicId: string }) {
       {/* Progress */}
       <div className="mb-6">
         <div className="mb-2 flex items-baseline justify-between text-[13px] text-fg-muted">
-          <span className="font-medium text-fg">{session.topicTitle}</span>
+          <span className="font-medium text-fg">{session.title}</span>
           <span className="tnum">
             {position} of {total}
           </span>
@@ -158,8 +160,14 @@ export function Session({ topicId }: { topicId: string }) {
       </div>
 
       <Card className="p-5 sm:p-7">
-        <div className="mb-1 flex items-center gap-2 text-[11px] font-semibold uppercase tracking-wider text-fg-subtle">
+        <div className="mb-1 flex flex-wrap items-center gap-2 text-[11px] font-semibold uppercase tracking-wider text-fg-subtle">
+          {session.mode === "review" && (
+            <span className="text-accent">{manifestTopic(item.topicId)?.title ?? item.topicId}</span>
+          )}
           <span>Difficulty {item.question.difficulty}/5</span>
+          {item.wasFlaggedForReteach && (
+            <span className="text-unsure">· missed twice before</span>
+          )}
           {item.question.needsReview === true && (
             <span className="text-flag">· flagged for review</span>
           )}
@@ -251,6 +259,15 @@ export function Session({ topicId }: { topicId: string }) {
               </div>
             )}
 
+            {item.scheduled !== null && (
+              <p className="mt-4 text-[13px] text-fg-subtle">
+                Back {formatDueIn(item.scheduled.dueAt, Date.now())}.
+                {item.scheduled.needsReteach
+                  ? " Missed twice running, so it will come back easier and with the concept attached."
+                  : ""}
+              </p>
+            )}
+
             {item.question.needsReview === true && item.question.reviewNote != null && (
               <p className="mt-4 rounded-md border border-flag bg-flag-soft px-3.5 py-2.5 text-[13px] leading-relaxed text-flag">
                 <strong className="font-semibold">Verify this one: </strong>
@@ -296,7 +313,7 @@ export function Session({ topicId }: { topicId: string }) {
               variant="secondary"
               onClick={() => {
                 endQuiz();
-                navigate(`topic/${topicId}`);
+                navigate(topicId === undefined ? "" : `topic/${topicId}`);
               }}
             >
               Leave

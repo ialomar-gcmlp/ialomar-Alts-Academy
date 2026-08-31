@@ -272,14 +272,32 @@ not a side channel:
 | **confident + wrong** | 0 | interval reset, resurfaces this or next session, **triggers a re-read of the linked `concept` block** |
 
 Interval floor 10 minutes (same-session resurface). Initial ceiling 180 days. Two consecutive misses
-on a question → adaptive difficulty steps **down** within the topic and re-teaches, rather than just
-marking it wrong.
+on a question → `needsReteach`, so the next encounter re-teaches rather than just asking again.
+
+**The guessing cap limits growth; it never claws back an earned interval.** Clamping a long interval
+down to the 7-day cap would let a *correct* answer reduce mastery, which breaks the invariant below.
+`min(computed, max(cap, currentInterval))` is the form that holds.
 
 ### Mastery — `engine/mastery.ts`
 
-Topic mastery ∈ [0,1] from coverage (share of the topic's questions with ≥1 correct rep) ×
-recency-decayed retention × normalized stability, weighted by question difficulty. Domain mastery is
-topic mastery weighted by question count.
+Topic mastery ∈ [0,1] is the **geometric mean** of three components, each weighted by question
+difficulty:
+
+| Component | Meaning |
+|---|---|
+| coverage | share of the topic's questions answered correctly at least once |
+| retention | share of attempted questions whose *last* answer passed, discounted by age (30-day half-life) |
+| stability | mean interval the scheduler has reached, against a 21-day target |
+
+Geometric, not an average, because the three are not substitutes: averaging would let a topic look
+two-thirds mastered having been answered once yesterday and never revisited, which is exactly the
+state "mastered" must exclude. A zero anywhere is a zero overall.
+
+Domain mastery is topic mastery weighted by question count, counting untouched topics as zero.
+
+**Invariant: evaluated at one instant, a correct answer can never lower mastery.** Every component is
+individually non-decreasing on a pass. `mastery.test.ts` checks it directly and by brute force over
+400 pseudo-random answers with a fixed seed.
 
 Gates: a topic unlocks when **every** prereq is ≥ 0.6. A domain boss exam unlocks at domain mastery
 ≥ 0.7 **and** ≥ 80% of its topics started.
@@ -336,18 +354,24 @@ analytics. Writes debounce ~250ms and force-flush on `visibilitychange` and `pag
 
 ```
 {
-  schemaVersion: number,
-  questions:    Record<questionId, QuestionState>,   // scheduling state
-  topics:       Record<topicId, TopicState>,          // rolled-up mastery, lastStudied
-  domains:      Record<domainId, DomainState>,
-  events:       AnswerEvent[],                        // bounded ring
-  daily:        Record<isoDate, DailyAggregate>,      // permanent
-  gamification: { xp, level, streak, freezesUsed, badges[] },
-  activeSession: ActiveSession | null,
-  settings:     { sessionLength, dailyGoalMinutes, theme, validateContentInProd },
-  meta:         { lastExportAt, createdAt }
+  schemaVersion: 2,
+  questions: Record<questionId, QuestionState>,  // scheduling state — the real record
+  topics:    Record<topicId, { attempts, lastStudiedAt }>,   // facts only
+  events:    AnswerEvent[],                      // bounded ring, 5000 / 18 months
+  daily:     Record<isoDate, DailyAggregate>,    // permanent
+  settings:  { theme, sessionLength, dailyGoalMinutes, validateContentInProd },
+  meta:      { createdAt, lastExportAt }
 }
 ```
+
+Still to come: `gamification` (M3) and `activeSession` (M6), each as a version bump
+with a tested migration.
+
+**Mastery is NOT stored, and neither are domains.** Both are derived from question
+state on every render by `src/state/selectors.ts`. There is no cache, so there is no
+way for the number on screen to disagree with the data behind it — a whole class of bug
+removed for a cost of one pass over a few thousand small objects. Only facts that
+cannot be recomputed get persisted.
 
 ### Migration rules
 
@@ -430,7 +454,7 @@ Commit at the end of each milestone, then stop for review. Run `npm run verify` 
 |---|---|---|
 | M0 | Plan, `CLAUDE.md`, repo initialized. No app code. | done |
 | M1 | Content loader + validation, one lesson → quiz → result flow, three seeded topics: `quant-tvm-01`, `econ-curve-01`, `alts-lse-01` | done |
-| M2 | Scheduler + mastery engine, with tests | |
+| M2 | Scheduler + mastery engine, with tests | done |
 | M3 | XP, levels, streaks, badges, skill tree | |
 | M4 | Glossary popovers, global page, drill mode | |
 | M5 | Content build-out, one domain per batch, validated, pause between batches | |

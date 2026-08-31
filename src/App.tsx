@@ -160,6 +160,8 @@ function Routes() {
       return param === undefined ? <NotFound /> : <Topic id={param} />;
     case "quiz":
       return param === undefined ? <NotFound /> : <Session topicId={param} />;
+    case "review":
+      return <Session />;
     case "glossary":
       return <GlossaryPage />;
     case "review-queue":

@@ -11,7 +11,7 @@ import { beforeEach, describe, expect, it } from "vitest";
 import { __setAdapter, flush, load, save } from "./index";
 import { createMemoryAdapter, type StorageAdapter } from "./localStorageAdapter";
 import { migrate, migrations, type UnknownState } from "./migrations";
-import { PROGRESS_SCHEMA_VERSION, defaultProgress } from "./progressSchema";
+import { PROGRESS_SCHEMA_VERSION, defaultProgress, progressSchema } from "./progressSchema";
 
 const KEY = "alts-academy:progress";
 
@@ -49,8 +49,9 @@ describe("migrate", () => {
     expect(out.status).toBe("unmigratable");
   });
 
-  it("applies a registered chain in order and stamps the new version", () => {
-    // Register a temporary chain so the mechanism is tested before M2 adds a real one.
+  it("applies a chain of steps in order and stamps the new version", () => {
+    // A temporary two-step chain, to prove the mechanism works beyond one hop.
+    const saved = { one: migrations[1], two: migrations[2] };
     migrations[1] = (s) => ({ ...s, addedInV2: true });
     migrations[2] = (s) => ({ ...s, addedInV3: true });
     try {
@@ -67,9 +68,64 @@ describe("migrate", () => {
         expect(out.from).toBe(1);
       }
     } finally {
-      delete migrations[1];
-      delete migrations[2];
+      if (saved.one) migrations[1] = saved.one;
+      else delete migrations[1];
+      if (saved.two) migrations[2] = saved.two;
+      else delete migrations[2];
     }
+  });
+});
+
+describe("migration v1 -> v2", () => {
+  /** Exactly what a v1 install had on disk: settings and meta, nothing else. */
+  const v1 = {
+    schemaVersion: 1,
+    settings: {
+      theme: "dark",
+      sessionLength: 20,
+      dailyGoalMinutes: 15,
+      validateContentInProd: false,
+    },
+    meta: { createdAt: "2026-01-01T00:00:00.000Z", lastExportAt: null },
+  };
+
+  it("produces state that satisfies the current schema", () => {
+    const out = migrate(v1);
+    expect(out.status).toBe("ok");
+    if (out.status !== "ok") return;
+
+    const parsed = progressSchema.safeParse(out.state);
+    expect(parsed.success).toBe(true);
+  });
+
+  it("carries the user's settings and createdAt across untouched", () => {
+    // The whole promise of migrations: an update never costs you your history.
+    const out = migrate(v1);
+    if (out.status !== "ok") throw new Error("expected ok");
+
+    expect(out.state).toMatchObject({
+      schemaVersion: PROGRESS_SCHEMA_VERSION,
+      settings: { theme: "dark", sessionLength: 20, dailyGoalMinutes: 15 },
+      meta: { createdAt: "2026-01-01T00:00:00.000Z" },
+    });
+  });
+
+  it("initialises the new collections empty", () => {
+    const out = migrate(v1);
+    if (out.status !== "ok") throw new Error("expected ok");
+    expect(out.state).toMatchObject({ questions: {}, topics: {}, events: [], daily: {} });
+  });
+
+  it("runs end to end through load(), keeping a backup of the v1 blob", async () => {
+    await adapter.set(KEY, JSON.stringify(v1));
+
+    const { state, status } = await load();
+    expect(status).toEqual({ kind: "loaded", migratedFrom: 1 });
+    expect(state.settings.dailyGoalMinutes).toBe(15);
+    expect(state.questions).toEqual({});
+
+    const backup = await adapter.get("alts-academy:progress.backup.v1");
+    expect(backup).toBe(JSON.stringify(v1));
   });
 });
 
