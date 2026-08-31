@@ -1,0 +1,223 @@
+{
+  "schemaVersion": 1,
+  "id": "funds-calls-01",
+  "domain": "fund-structures",
+  "title": "Commitments, Capital Calls and the J-Curve",
+  "summary": "Why you promise money you have not sent, what that obligation actually costs, and why every private fund looks bad first.",
+  "level": "core",
+  "prereqs": ["funds-gplp-01"],
+  "estMinutes": 10,
+  "examRelevance": ["CAIA-L1", "CAIA-L2", "practical"],
+  "lesson": [
+    {
+      "type": "concept",
+      "id": "what-it-is",
+      "body": "You agree to invest $50m in a [[buyout]] fund. You do not send $50m.\n\nInstead you make a **[[commitment]]** — a contractual promise to provide up to that amount when asked. The GP then issues [[capital-call|capital calls]] as it finds deals, typically demanding payment within ten business days. Over a five-year investment period your $50m goes out in perhaps fifteen instalments, and some of it may never be called at all.\n\nThe unfunded portion is the industry's **[[dry-powder]]** in aggregate, and it is your obligation individually.\n\nThis structure exists for a good reason: the GP should not hold your cash earning nothing while it looks for deals. But it transfers a real burden. **You must keep the uncalled amount available, at short notice, for years** — and you are not paid for that."
+    },
+    {
+      "type": "intuition",
+      "id": "the-hidden-cost",
+      "body": "Here is the part that is genuinely underappreciated. **A commitment is a liability with an unknown schedule, and managing it has a cost that never appears in the fund's reported return.**\n\nIf you hold the uncalled amount in cash to be safe, you earn a cash return on money notionally allocated to [[private-equity|private equity]]. That is a drag on your total portfolio that the fund's IRR does not show, because the fund only measures money from the moment it is called.\n\nIf instead you invest the uncalled amount in something liquid to avoid that drag, you must be able to sell it on ten days' notice — including in exactly the conditions where a GP is most likely to call capital, which are often conditions where liquid assets have fallen.\n\nSo the reported return of a private fund systematically overstates what the investor experienced at portfolio level. **A 15% fund IRR earned on capital that was only 60% deployed on average is not a 15% return on the commitment.** Both numbers are true; only one describes your portfolio.\n\nAnd there is a hard edge to this. Failing to meet a capital call is a **default**, and the penalties in most partnership agreements are severe — forfeiture of a large share of your interest is typical. This is one of the few genuinely unforgiving obligations in institutional investing."
+    },
+    {
+      "type": "example",
+      "id": "worked-jcurve",
+      "body": "A $100m fund in its first year. It calls $20m, charges $2m of fees, and has created no realised value yet — the investments are held at cost.",
+      "walkthrough": [
+        "**Capital called:** $20m. **Fees charged:** $2m. **Value created:** $0.",
+        "**[[net-asset-value|Net asset value]]:** $20m - $2m = **$18m**.",
+        "**Net return on called capital:** ($18m - $20m) / $20m = **-10%**.",
+        "The fund has done nothing wrong. It bought assets at what it considers fair value and paid the fees it disclosed. And it is down 10%.",
+        "**This is the [[j-curve|J-curve]]**, and it is arithmetic rather than performance: fees are charged from day one, while value takes years to be created and recognised.",
+        "**Which means an early-life private fund IRR is close to meaningless.** A fund reporting -15% in year two is behaving normally. One reporting +25% in year two has usually revalued something upward, which is a marking decision rather than a realisation."
+      ]
+    },
+    {
+      "type": "concept",
+      "id": "reading-the-curve",
+      "body": "The J-curve has a predictable shape, and knowing where a fund sits on it tells you which numbers to trust.\n\n**Years 1-2: deep negative.** Fees on called capital, assets at cost. IRR is meaningless. [[dpi|DPI]] is zero.\n\n**Years 3-5: recovering.** Some assets marked up, perhaps a first exit. IRR turns positive and is dominated by [[rvpi|RVPI]] — the manager's own valuations.\n\n**Years 5-8: realisations.** Exits convert marks into cash. DPI climbs. **This is the first point at which performance is genuinely evidenced.**\n\n**Years 8+: harvest.** Remaining assets sold, final numbers settle. Often extended beyond the stated life.\n\nTwo practical consequences. First, **comparing funds of different ages is comparing different points on a curve**, not different levels of skill — which is another reason [[vintage-year]] comparison matters. Second, an IRR quoted for a young fund can be inflated simply by having called capital late, because IRR is sensitive to timing. A [[subscription-line]] does exactly that."
+    },
+    {
+      "type": "table",
+      "id": "what-to-trust",
+      "caption": "Which measure to trust, by fund age",
+      "headers": ["Fund age", "Trust", "Ignore"],
+      "rows": [
+        [
+          "Years 1-2",
+          "Nothing. Check deployment pace and whether fees match the agreement.",
+          "IRR, TVPI — both dominated by fees and cost-basis marks."
+        ],
+        [
+          "Years 3-5",
+          "Deployment, portfolio company operating metrics, any realisations.",
+          "IRR as a skill signal; it is mostly [[rvpi|RVPI]] at this stage."
+        ],
+        [
+          "Years 5-8",
+          "[[dpi|DPI]] — realised cash. This is where evidence begins.",
+          "The gap between TVPI and DPI, if the manager emphasises TVPI."
+        ],
+        [
+          "Years 8+",
+          "DPI and final TVPI. Remaining RVPI should be small.",
+          "Explanations for why unrealised assets are worth more than the market will pay."
+        ]
+      ]
+    },
+    {
+      "type": "concept",
+      "id": "how-it-goes-wrong",
+      "body": "**Over-committing.** The classic institutional error. Because capital is called slowly, an investor can commit to more funds than they could fund if all called simultaneously. That works until a year when several funds call heavily and distributions stop — typically the same year, because both respond to the same conditions.\n\n**The denominator effect.** In a market decline, public assets fall while private marks lag. The private allocation rises as a percentage of a shrinking portfolio, pushing the investor over target — at exactly the moment they should be committing to new vintages.\n\n**Funding calls by selling equities in a downturn.** The consequence of the two effects above. The capital call arrives, the liquid portfolio is down, and it is the only source of cash.\n\n**Default.** Missing a call carries severe penalties, including forfeiture of a substantial part of the interest. It is rare among institutions precisely because it is so punitive.\n\n**Recycling.** Some funds may reinvest proceeds rather than distributing them, extending the period your capital is at work — and in some structures the fee base with it. It affects planning and is worth knowing about in advance.\n\n**Late calls flattering IRR.** Where a GP uses a credit facility to delay calls, the reported IRR rises without any change in the underlying investments."
+    },
+    {
+      "type": "pitfall",
+      "id": "irr-on-committed",
+      "body": "**A fund's IRR is calculated on called capital, not on your commitment.** So it answers \"how did the money perform once it was working?\" and not \"how did this allocation perform?\"\n\nBoth questions are legitimate and the second is the one that determines your portfolio return. Answering it requires tracking the whole commitment — including what the uncalled portion earned while it waited — which almost nobody reports and which is entirely computable.\n\nThe honest framing: **fund IRR measures the manager; commitment-level return measures the allocation.** If you only ever look at the first, you will systematically overestimate what private markets contributed."
+    },
+    {
+      "type": "onTheJob",
+      "id": "on-the-job",
+      "body": "**Model the call schedule against the distribution schedule, in a bad year.** Assume calls accelerate and distributions stop simultaneously, because they respond to the same conditions. That stress test is the whole point of commitment planning.\n\n**Ask about expected deployment pace and compare it with the prior fund's actual pace.** A manager who deployed a five-year fund in two years is either seeing exceptional opportunity or is in a hurry to raise the next one.\n\n**Ask whether the fund can recycle proceeds, and whether fees are charged on recycled capital.** Two questions, both short.\n\n**Ignore IRR for funds under four years old.** Say so explicitly when it is presented, and ask for DPI and deployment instead.\n\n**Track where each fund sits on the J-curve when comparing them.** A year-two fund and a year-seven fund cannot be ranked on IRR, and doing so is a common error in portfolio reviews.\n\n**Know your total uncalled commitment as a single number, and where the cash would come from.** If the answer is \"we would sell equities\", establish whether that is acceptable in a year equities are down 25%."
+    },
+    {
+      "type": "keyTakeaways",
+      "id": "takeaways",
+      "items": [
+        "A commitment is a liability with an unknown schedule. Keeping the uncalled amount available has a cost that never appears in the fund's return.",
+        "The J-curve is arithmetic, not performance: fees from day one, value years later. In the worked example, -10% in year one with nothing gone wrong.",
+        "DPI at year five and beyond is where evidence of performance begins. Before that, IRR and TVPI are dominated by fees and the manager's own marks.",
+        "Fund IRR measures the manager on called capital; commitment-level return measures your allocation. Only tracking the first overstates what private markets contributed."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "funds-calls-01-q1",
+      "type": "numeric",
+      "difficulty": 2,
+      "tags": ["j-curve", "capital-call", "fees"],
+      "concept": "worked-jcurve",
+      "stem": "A fund calls $20m, charges $2m of fees, and has created no value yet. What is the net return on called capital, in percent?",
+      "answer": -10,
+      "tolerance": 0.5,
+      "toleranceType": "abs",
+      "unit": "%",
+      "inputHint": "Answer in percent, with a minus sign.",
+      "explanation": "NAV is $20m - $2m = $18m against $20m called, so -10%. Nothing has gone wrong: this is the J-curve, and it is a fee-timing effect rather than a performance one."
+    },
+    {
+      "id": "funds-calls-01-q2",
+      "type": "mcq",
+      "difficulty": 2,
+      "tags": ["commitment", "capital-call", "structure"],
+      "concept": "what-it-is",
+      "stem": "Why do private funds call capital in instalments rather than taking it all at closing?",
+      "choices": [
+        "To reduce the management fee charged to investors",
+        "So the GP does not hold investor cash earning nothing while it searches for deals",
+        "Because regulators cap the amount a fund can hold",
+        "To allow investors to change their commitment amount"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Fees are often charged on committed rather than called capital, so the structure does not reduce them. That is a separate term.",
+        "Correct. Uninvested cash in the fund would drag on returns and inflate the denominator. Calling as deals arise keeps capital working — and transfers the burden of holding it ready to the investor.",
+        "No such cap exists. The structure is an economic choice.",
+        "A commitment is fixed and binding once made. There is no mechanism to revise it."
+      ],
+      "explanation": "The structure is genuinely sensible from the fund's perspective and shifts a real cost to the investor: keeping money available at short notice for years, unpaid. That cost appears in no fund report."
+    },
+    {
+      "id": "funds-calls-01-q3",
+      "type": "tfj",
+      "difficulty": 4,
+      "tags": ["j-curve", "irr", "misconception"],
+      "concept": "irr-on-committed",
+      "stem": "\"This fund reports a 15% IRR, so our allocation to it earned 15%.\" True or false — and why?",
+      "isTrue": false,
+      "justifications": [
+        "False — IRR is measured on called capital only, so the uncalled portion earning a cash return is excluded from the calculation",
+        "False — because IRR always overstates returns by a fixed margin",
+        "True — the fund IRR is the return on the investment in the fund",
+        "False — because IRR cannot be computed for funds with irregular cash flows"
+      ],
+      "justificationIndex": 0,
+      "rationales": [
+        "Correct. The fund's clock starts when capital is called. Money sitting available but uncalled, earning cash, is part of your allocation and not part of the fund's IRR — so the allocation return is lower than 15%.",
+        "There is no fixed margin. The gap depends entirely on deployment pace and what the uncalled money earned.",
+        "It is the return on called capital, which is a narrower thing than the return on the allocation.",
+        "Handling irregular cash flows is precisely what IRR is for, and why private markets use it."
+      ],
+      "explanation": "Both numbers are honest and they answer different questions. Fund IRR measures the manager; commitment-level return measures the allocation. Reporting only the first is standard practice and systematically flattering."
+    },
+    {
+      "id": "funds-calls-01-q4",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["commitment", "denominator-effect", "how-it-goes-wrong"],
+      "concept": "how-it-goes-wrong",
+      "stem": "Public markets fall 30% while private marks are unchanged. What happens to an investor's private allocation, and why is it a problem?",
+      "choices": [
+        "It falls in line with public markets, reducing diversification",
+        "It rises as a share of the portfolio, pushing the investor over target just when new vintages look most attractive",
+        "It becomes easier to fund capital calls, since private assets held their value",
+        "Nothing — allocation percentages are fixed by policy"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Private marks lag rather than falling in line, which is the cause of the problem rather than a mitigant.",
+        "Correct. This is the denominator effect: a shrinking total portfolio makes the unchanged private allocation a larger percentage. Investors then stop committing — often at the point when entry prices have improved most.",
+        "Private assets holding their reported value does not make them a source of cash. Calls must be funded from liquid assets, which have fallen.",
+        "Policy sets targets; market movements move actual allocations away from them. That gap is exactly the issue."
+      ],
+      "explanation": "The denominator effect is procyclical in the worst way: it forces investors to stop committing after prices fall, which is when vintage returns have historically been strongest. Recognising it in advance is most of the defence."
+    },
+    {
+      "id": "funds-calls-01-q5",
+      "type": "mcq",
+      "difficulty": 3,
+      "tags": ["j-curve", "dpi", "measurement"],
+      "concept": "reading-the-curve",
+      "stem": "At what point in a private fund's life does reported performance first become genuinely evidenced?",
+      "choices": [
+        "Year one, once capital has been deployed and marked",
+        "Years five to eight, when exits convert marks into realised cash and DPI climbs",
+        "Year three, once the fund reports a positive IRR",
+        "Only at final liquidation"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Year-one marks are at or near cost, so they contain no performance information at all.",
+        "Correct. DPI is realised cash and cannot be argued with. Until exits happen, reported performance rests on the manager's own valuations.",
+        "A positive IRR in year three usually reflects a mark-up rather than a realisation — a valuation decision, not evidence.",
+        "Waiting for final liquidation is too conservative to be useful. Meaningful DPI from years five onward provides real information well before the end."
+      ],
+      "explanation": "This is why the TVPI-versus-DPI gap is such a useful diagnostic mid-life. Both numbers are reported; only one of them has been tested by someone actually paying."
+    },
+    {
+      "id": "funds-calls-01-q6",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["commitment", "planning", "on-the-job"],
+      "concept": "on-the-job",
+      "stem": "What is the right stress test for an investor's total uncalled commitments?",
+      "choices": [
+        "Assume calls arrive at the average historical pace",
+        "Assume calls accelerate and distributions stop in the same year, since both respond to the same conditions",
+        "Assume all commitments are called at once on day one",
+        "Assume the GP will delay calls if markets are difficult"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Average pace tells you nothing about the bad case, which is the only case a stress test is for.",
+        "Correct. GPs call capital when assets are cheap and stop distributing when exits close — and those are the same conditions. The correlated case is the one that breaks a commitment plan.",
+        "Simultaneous full calls are so improbable that testing against them provides no usable guidance and would preclude any sensible commitment programme.",
+        "Some GPs may slow deployment, and relying on it is the opposite of a stress test. A difficult market is when a disciplined GP most wants to deploy."
+      ],
+      "explanation": "The failure mode is correlation between calls and the absence of distributions, not the absolute size of either. Modelling them as independent is the mistake that turns a manageable programme into forced selling."
+    }
+  ],
+  "needsReview": false,
+  "reviewNote": null
+}

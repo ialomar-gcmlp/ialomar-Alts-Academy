@@ -1,0 +1,212 @@
+{
+  "schemaVersion": 1,
+  "id": "funds-fees-01",
+  "domain": "fund-structures",
+  "title": "Management Fees and Carried Interest",
+  "summary": "What \"2 and 20\" actually costs over a fund's life, and why the fee base matters more than the fee rate.",
+  "level": "core",
+  "prereqs": ["funds-gplp-01"],
+  "estMinutes": 10,
+  "examRelevance": ["CAIA-L1", "CAIA-L2", "practical"],
+  "lesson": [
+    {
+      "type": "concept",
+      "id": "what-it-is",
+      "body": "A manager is paid two ways, and they do completely different jobs.\n\nThe **[[management-fee]]** is an annual charge, historically around 2%, paid whether the fund performs or not. Its stated purpose is to fund the operation — salaries, offices, diligence costs. It is a certainty.\n\n**[[carried-interest]]** is a share of profits, typically 20%, paid only above a [[hurdle-rate]]. It is contingent, and it is where a successful manager makes most of its money.\n\nThe shorthand is \"2 and 20\". What that shorthand hides is the question that actually determines the cost: **2% of what?**\n\n- 2% of **committed** capital — charged on the full amount promised, whether invested or not\n- 2% of **invested** capital — charged only on money actually deployed\n- 2% of **[[net-asset-value|NAV]]** — charged on current value, so it rises with gains\n\nSame rate, materially different bills. The base is the term that matters and it is not in the headline."
+    },
+    {
+      "type": "example",
+      "id": "worked-fee-base",
+      "body": "A $100m fund with a five-year investment period. Capital is drawn gradually, averaging 60% deployed over the period.",
+      "walkthrough": [
+        "**Fee on committed capital.** 2% x $100m x 5 years = **$10m**.",
+        "**Fee on invested capital.** 2% x $60m average x 5 years = **$6m**.",
+        "**Difference: $4m, or 4% of the entire [[commitment]]**, on identical investment activity and identical performance.",
+        "**Now extend to the full fund life.** 2% on committed capital for ten years = **$20m — 20% of the fund**.",
+        "Which means the fund must generate a **1.20x gross multiple simply to return LP capital after management fees**, before any carry, before any transaction costs, and before making a single dollar of profit.",
+        "**Read that carefully.** The hurdle a fund must clear before it has created anything for its investors is not zero and it is not small. Every fee discussion should start from that number rather than from the percentage."
+      ]
+    },
+    {
+      "type": "intuition",
+      "id": "why-the-base-matters",
+      "body": "There is a reason the fee *base* gets less attention than the fee *rate*, and it is worth naming: the rate is one number in a marketing document and the base is a definition buried in a legal one.\n\nBut the base is doing more work. A 1.75% fee on committed capital is more expensive than a 2% fee on invested capital for most of a fund's life. **A manager can concede a rate reduction, keep the base, and be better off.** That is a real negotiation dynamic, not a hypothetical.\n\nTwo related terms compound the effect.\n\n**Step-downs.** Many funds reduce the fee, or shift the base from committed to invested, once the investment period ends. Without a step-down, the LP pays a full fee for years on a fund that is only harvesting — doing no new work.\n\n**Fee offsets.** Managers may charge portfolio companies transaction, monitoring or directors' fees. A [[fee-offset]] credits these against the management fee. At 100% offset the LP is made whole; at 50% the manager keeps half of fees the LP indirectly funded.\n\nSo \"what are the fees?\" has at least five answers: rate, base, step-down, offset, and what expenses are charged to the fund separately."
+    },
+    {
+      "type": "concept",
+      "id": "expenses",
+      "body": "**Fund expenses are the least examined and fastest-growing part of the cost.** These are charged to the fund in addition to the management fee, and the list has expanded considerably over time:\n\n- deal costs on transactions that did not complete — **broken deal expenses**\n- legal, audit, tax, administration and regulatory filing costs\n- travel and diligence costs\n- technology, data and subscription costs\n- in some structures, a share of the manager's own compliance and personnel costs\n\nIndividually each is defensible. Collectively they can add a meaningful amount a year on top of the stated fee, and unlike the management fee they are not usually expressed as a percentage anywhere.\n\nThe practical consequence: **the management fee is not the cost of the fund.** Total expense ratio — fee plus fund expenses — is the number that matters, and it requires reading the financial statements rather than the term sheet. A manager who will state an expected total expense ratio, and has historically hit it, is telling you something useful."
+    },
+    {
+      "type": "table",
+      "id": "the-five-questions",
+      "caption": "The five terms behind \"2 and 20\"",
+      "headers": ["Term", "LP-friendly", "Typical cost of getting it wrong"],
+      "rows": [
+        [
+          "Fee base",
+          "Invested capital",
+          "~4% of commitment over a five-year investment period"
+        ],
+        [
+          "Step-down after investment period",
+          "Yes, to invested capital at a lower rate",
+          "Years of full fees on a fund doing no new investing"
+        ],
+        [
+          "[[fee-offset]] on transaction fees",
+          "100%",
+          "Manager keeps fees the LP has already funded once"
+        ],
+        [
+          "Fund expenses",
+          "Capped, and clearly enumerated",
+          "An uncapped and expanding list, invisible in the term sheet"
+        ],
+        [
+          "Carry terms",
+          "Hard hurdle, whole-fund, compounding",
+          "Up to a third of the GP's carry — see the [[waterfall]] topic"
+        ]
+      ]
+    },
+    {
+      "type": "concept",
+      "id": "how-it-goes-wrong",
+      "body": "**Negotiating the rate and ignoring the base.** The most common error, and managers are aware of it. A concession on the headline can be more than recovered through the definition.\n\n**No step-down.** A ten-year fund with a five-year investment period and no step-down pays full fees for five years of pure harvesting.\n\n**Partial or absent fee offset.** Transaction and monitoring fees charged to companies the LP owns, retained by the manager. Economically the LP pays twice.\n\n**Uncapped expenses.** Where the agreement lists chargeable expenses broadly and without limit, the effective cost drifts upward over the fund's life with no renegotiation point.\n\n**Fees on recycled capital.** Where proceeds are reinvested, some structures charge a fee on the same dollar twice. Worth checking explicitly.\n\n**Fees on committed capital during an extension.** Funds often extend beyond their stated life. Whether fees continue, and on what base, is a term that only matters years after signing — which is why it is easy to concede at the time."
+    },
+    {
+      "type": "pitfall",
+      "id": "percent-of-return",
+      "body": "**Express fees as a share of expected return, not as a share of assets.** The two framings feel completely different and only one supports a decision.\n\n\"2% and 20%\" sounds like a rate. \"Management fees alone will consume 20% of committed capital over the fund's life, so we need a 1.20x gross multiple to break even, and at a 1.7x gross outcome roughly a third of the profit goes to the manager\" is the same information in a form a committee can act on.\n\nThis is the same reframing that makes the [[fund-of-funds|fund-of-funds]] fee arithmetic so stark. Nothing about the numbers changes; what changes is whether the reader can weigh them."
+    },
+    {
+      "type": "onTheJob",
+      "id": "on-the-job",
+      "body": "**Establish the fee base before discussing the rate.** Committed, invested or NAV. Then ask when it steps down and to what.\n\n**Ask for the historical total expense ratio of the prior fund, from the audited accounts.** Not the projected one. The gap between stated fee and actual total cost is the number nobody volunteers.\n\n**Ask what the offset percentage is on transaction and monitoring fees, and what those fees totalled in the last fund.** Both halves — the percentage means nothing without the amount.\n\n**Ask whether fees are charged on recycled capital.** A short question with a real answer.\n\n**Ask what happens to fees during a fund extension.** Most funds extend. Few LPs negotiate this term because at signing it feels remote.\n\n**Compute the break-even gross multiple and say it out loud.** For a 2%-on-committed ten-year fund, LPs need 1.20x gross before they have made anything. Managers rarely dispute the arithmetic and often have not framed it that way."
+    },
+    {
+      "type": "keyTakeaways",
+      "id": "takeaways",
+      "items": [
+        "\"2 and 20\" hides the question that matters: 2% of what? Committed, invested and NAV bases produce materially different bills at the same rate.",
+        "2% on committed capital over ten years is 20% of the fund, so it must return 1.20x gross before LPs have made anything.",
+        "The fee is not the cost. Fund expenses are uncapped in many agreements and appear nowhere in the term sheet.",
+        "Express fees as a share of expected return rather than of assets. Same information, and only one version supports a decision."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "funds-fees-01-q1",
+      "type": "numeric",
+      "difficulty": 2,
+      "tags": ["management-fee", "fee-base"],
+      "concept": "worked-fee-base",
+      "stem": "A $100m fund charges 2% on committed capital. Over a five-year investment period, what do management fees total, in millions?",
+      "answer": 10,
+      "tolerance": 0.2,
+      "toleranceType": "abs",
+      "unit": "$m",
+      "inputHint": "Answer in millions of dollars.",
+      "explanation": "2% x $100m x 5 = $10m. Note this is charged on the full commitment regardless of how much was actually invested, which is the point of the committed-capital base."
+    },
+    {
+      "id": "funds-fees-01-q2",
+      "type": "numeric",
+      "difficulty": 3,
+      "tags": ["management-fee", "fee-base"],
+      "concept": "worked-fee-base",
+      "stem": "Same fund, but the fee is charged on invested capital, which averaged $60m over the five years. What do fees total, in millions?",
+      "answer": 6,
+      "tolerance": 0.2,
+      "toleranceType": "abs",
+      "unit": "$m",
+      "inputHint": "Answer in millions of dollars.",
+      "explanation": "2% x $60m x 5 = $6m, against $10m on the committed base. A $4m difference — 4% of the whole commitment — from a definition, with identical investment activity and identical performance."
+    },
+    {
+      "id": "funds-fees-01-q3",
+      "type": "numeric",
+      "difficulty": 3,
+      "tags": ["management-fee", "break-even"],
+      "concept": "worked-fee-base",
+      "stem": "A fund charges 2% on committed capital for its full ten-year life. What gross multiple must it achieve simply to return LP capital after management fees?",
+      "answer": 1.2,
+      "tolerance": 0.02,
+      "toleranceType": "abs",
+      "unit": "x",
+      "inputHint": "Answer as a multiple, e.g. 1.20 for 1.2x.",
+      "explanation": "2% x 10 years = 20% of committed capital in fees, so the fund needs 1.20x gross just to give LPs their money back — before carry, transaction costs or fund expenses. This is the framing that makes a fee discussion concrete."
+    },
+    {
+      "id": "funds-fees-01-q4",
+      "type": "mcq",
+      "difficulty": 3,
+      "tags": ["management-fee", "negotiation", "fee-base"],
+      "concept": "why-the-base-matters",
+      "stem": "A manager offers to cut the fee from 2% to 1.75% but keeps the base as committed capital. Why might this be a poor trade for the LP?",
+      "choices": [
+        "Because a 0.25% reduction is too small to matter",
+        "Because 1.75% on committed capital can exceed 2% on invested capital for most of the fund's life",
+        "Because rate reductions always come with worse carry terms",
+        "Because the fee base cannot be changed once agreed"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "A 0.25% cut is worth real money — $2.5m on a $100m fund over ten years. The issue is that the base concession is worth more.",
+        "Correct. With average deployment at 60%, 2% on invested is 1.2% of commitment; 1.75% on committed is 1.75%. The apparent concession leaves the LP worse off than the base change would have.",
+        "There is no automatic linkage. The point is about which concession to prioritise, not about a hidden trade.",
+        "The base is entirely negotiable before signing — which is precisely why it should be the priority."
+      ],
+      "explanation": "Managers know the rate is what gets scrutinised. Establishing the base first, then discussing the rate, reverses that and is a better use of negotiating capital."
+    },
+    {
+      "id": "funds-fees-01-q5",
+      "type": "tfj",
+      "difficulty": 4,
+      "tags": ["management-fee", "expenses", "misconception"],
+      "concept": "expenses",
+      "stem": "\"The fund charges 1.75%, so that is our annual cost.\" True or false — and why?",
+      "isTrue": false,
+      "justifications": [
+        "False — fund expenses are charged in addition to the management fee and are often uncapped, so total cost is materially higher",
+        "False — because management fees are usually charged quarterly rather than annually",
+        "True — the management fee is the stated cost of the fund",
+        "False — because the carry should also be counted as an annual cost"
+      ],
+      "justificationIndex": 0,
+      "rationales": [
+        "Correct. Broken deal expenses, legal, audit, administration, travel, data and technology costs are charged to the fund separately. The list is long, growing, and often not capped — and appears nowhere in the term sheet.",
+        "Payment frequency does not change the annual amount. Not the issue.",
+        "This is the misconception. The management fee is a component of the cost, not the cost.",
+        "Carry is a real cost but it is contingent on profits, so it is not an annual charge. The unstated annual charge is expenses."
+      ],
+      "explanation": "The total expense ratio requires the audited financial statements rather than the term sheet. Asking for the prior fund's actual figure — and comparing it with what was projected — is one of the more revealing requests an LP can make."
+    },
+    {
+      "id": "funds-fees-01-q6",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["management-fee", "step-down", "on-the-job"],
+      "concept": "how-it-goes-wrong",
+      "stem": "A ten-year fund has a five-year investment period and no fee step-down. What is the consequence?",
+      "choices": [
+        "Nothing — the fee level was agreed at the outset",
+        "The LP pays a full fee for five years on a fund doing no new investing, only managing and exiting existing holdings",
+        "The GP must return the fees charged after year five",
+        "The fund's life is automatically shortened to five years"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "The level was agreed, and the question is what the LP receives for it. Paying an origination-level fee for a harvesting-level activity is the mismatch.",
+        "Correct. The investment period is when the fee-justifying work — sourcing, diligence, negotiation — happens. After it, the manager is monitoring and exiting, which is real work but less of it. A step-down aligns the fee with the activity.",
+        "There is no such obligation absent a step-down provision. That is the whole point.",
+        "Fund life and investment period are separate terms; the fund continues to its stated end."
+      ],
+      "explanation": "A step-down is close to standard in institutional funds, which makes its absence a specific thing to ask about. It is also easy to concede at signing because it only bites in year six — the same reason extension-period fees get overlooked."
+    }
+  ],
+  "needsReview": false,
+  "reviewNote": null
+}

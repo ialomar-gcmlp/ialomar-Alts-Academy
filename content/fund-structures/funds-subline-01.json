@@ -1,0 +1,223 @@
+{
+  "schemaVersion": 1,
+  "id": "funds-subline-01",
+  "domain": "fund-structures",
+  "title": "Subscription Lines and the IRR Problem",
+  "summary": "A credit facility that raises a fund's reported IRR without changing a single investment — and how to see through it.",
+  "level": "advanced",
+  "prereqs": ["funds-calls-01", "quant-npv-01"],
+  "estMinutes": 9,
+  "examRelevance": ["CAIA-L2", "practical"],
+  "lesson": [
+    {
+      "type": "concept",
+      "id": "what-it-is",
+      "body": "A GP finds a deal and needs $50m on Friday. It has two choices.\n\n**Call the capital.** Issue a [[capital-call]] to LPs, wait ten business days, receive the money, complete the deal. The LPs' capital is now outstanding from that date.\n\n**Draw on a [[subscription-line]].** Borrow $50m from a bank against the security of LP [[commitment|commitments]], complete the deal immediately, and call the capital from LPs some months later to repay the facility.\n\nThe second is the modern default across much of private markets, and it has genuine operational merits: fewer, larger, more predictable capital calls, and the ability to move quickly on a competitive deal.\n\nIt also has an effect on reported performance that has nothing to do with operations. **Because [[internal-rate-of-return|IRR]] measures the return on capital from the moment it is outstanding, delaying the call shortens the measurement period — and a shorter period on the same profit produces a higher annualised rate.**"
+    },
+    {
+      "type": "intuition",
+      "id": "the-irr-effect",
+      "body": "Work through why this happens, because it is a direct application of the IRR mechanics.\n\nSuppose an investment returns 1.5x over four years. Called on day one, the LP's money is outstanding for four years and the IRR is roughly 10.7%. Now hold the deal identical and delay the LP call by twelve months using a facility: the LP's capital is outstanding for three years instead, and the same 1.5x produces an IRR of about 14.5%.\n\n**Same deal. Same profit. Same exit. Nearly four points of additional annual return, created by the calendar.**\n\nThree things follow.\n\n**IRR becomes non-comparable across funds.** A fund using a twelve-month facility and one calling capital immediately cannot be ranked on IRR, because the measure is being applied to different periods.\n\n**The multiple is immune.** [[moic|MOIC]] and [[tvpi|TVPI]] divide value by capital and ignore time entirely, so they are unaffected by the facility. This is why the pairing of IRR and a multiple is not redundant — **the facility moves one and not the other, so the gap between them is diagnostic.**\n\n**The LP is not obviously better off.** They keep their money longer, which has value. They also pay the facility's interest and fees through the fund, and they carry the obligation regardless. Whether it nets positive depends on what the uncalled capital earned in the meantime."
+    },
+    {
+      "type": "concept",
+      "id": "real-costs",
+      "body": "The facility is not free, and the costs sit in three places.\n\n**Interest and fees.** Paid by the fund, so ultimately by LPs. Modest when rates are low; considerably less so when they are not. A facility drawn for a year at a meaningful spread over a short-term rate is a real drag on the fund's absolute return, even as it raises the reported IRR.\n\n**Contingent liability.** LP commitments secure the facility. In an extreme scenario a lender can call on those commitments directly, which means the LP's obligation can be triggered by the facility rather than by an investment decision.\n\n**Lumpy calls.** Fewer, larger calls are operationally simpler and harder to plan around. A single large call arriving in a difficult quarter is a real cash management problem.\n\n**Extended usage.** Facilities were originally bridges of weeks. Where they are used for twelve months or more, the IRR effect grows and so does the interest cost. **The duration of usage is the number that matters, not the existence of the facility.**"
+    },
+    {
+      "type": "table",
+      "id": "what-moves",
+      "caption": "What a subscription line does and does not affect",
+      "headers": ["Measure", "Effect", "Why"],
+      "rows": [
+        [
+          "[[internal-rate-of-return|IRR]]",
+          "Rises",
+          "Shorter period of LP capital outstanding on the same profit."
+        ],
+        [
+          "[[moic|MOIC]] / [[tvpi|TVPI]]",
+          "Slightly falls",
+          "Ignores time entirely, and the facility's interest cost is a real expense."
+        ],
+        [
+          "[[dpi|DPI]]",
+          "Unaffected in substance",
+          "Realised cash returned relative to cash called; the timing shifts, the total does not."
+        ],
+        [
+          "Absolute return to the LP",
+          "Ambiguous",
+          "Depends on what the uncalled capital earned against the facility's cost."
+        ],
+        [
+          "LP cash planning",
+          "Worse",
+          "Fewer, larger, less predictable calls."
+        ]
+      ]
+    },
+    {
+      "type": "concept",
+      "id": "how-it-goes-wrong",
+      "body": "**Comparing IRRs across funds with different facility usage.** The most common analytical error, and it can shift a manager between quartiles without any difference in investment skill.\n\n**Extended usage to manage optics.** A facility drawn for eighteen months around a fundraise, when the GP is showing prospective investors its IRR, is a decision about presentation as much as operations. The question to ask is what the average drawn period has been, historically.\n\n**Interest cost ignored in the comparison.** Analysts adjusting for the timing effect often forget that the facility also cost the fund money. Both adjustments are needed.\n\n**Facility risk in a credit crunch.** The line can be withdrawn or repriced. A GP relying on it for deal execution then has to call capital at short notice — which is a liquidity event for LPs arriving at the worst time.\n\n**Contingent claim on commitments.** LPs should understand that the lender's security is their obligation, and what happens if the fund cannot repay.\n\n**Recycling through the facility.** Where proceeds repay the line rather than being distributed, the LP's capital stays deployed longer than the headline structure implies."
+    },
+    {
+      "type": "pitfall",
+      "id": "ask-for-unlevered",
+      "body": "**The fix is simple and rarely volunteered: ask for the IRR calculated as if capital had been called on the deal date.** Sometimes called an unlevered or facility-adjusted IRR.\n\nMost GPs can produce this — the data is in their system — and a GP that maintains it as a standard disclosure is signalling something about how it wants to be measured. A GP that declines, or says it is not calculated, has told you something too.\n\nAnd if you cannot get it, the practical substitute is to **lean on the multiple.** [[moic|MOIC]] and [[tvpi|TVPI]] are immune to the timing effect, so ranking managers on multiple and treating IRR as secondary removes the distortion entirely. It is a blunter comparison and an honest one."
+    },
+    {
+      "type": "onTheJob",
+      "id": "on-the-job",
+      "body": "**Ask for the facility-adjusted IRR alongside the reported one.** The difference between the two is the size of the effect, quantified, in one number.\n\n**Ask what the average drawn period has been across prior funds.** Weeks is a bridge. Twelve months or more is a performance-reporting decision.\n\n**Ask what the facility cost the fund in interest and fees last year, in dollars.** It is a real expense borne by LPs and it appears in the financial statements rather than in the pitch.\n\n**Rank managers on multiple, not IRR, when facility usage differs.** State that you are doing so and why — it is a defensible methodology and it forecloses a distorted comparison.\n\n**Establish the lender's recourse to LP commitments.** Specifically what happens if the fund cannot repay.\n\n**Ask what the GP would do if the facility were withdrawn.** The answer describes your liquidity risk in a credit crunch, and a GP who has not thought about it has told you that too."
+    },
+    {
+      "type": "keyTakeaways",
+      "id": "takeaways",
+      "items": [
+        "A subscription line delays capital calls, which shortens the period LP capital is outstanding and mechanically raises reported IRR on identical investments.",
+        "Delaying a call by a year on a 1.5x four-year deal moves the IRR from about 10.7% to about 14.5%. Same deal, four points of annual return, created by the calendar.",
+        "Multiples are immune to the effect, which is why the IRR-and-multiple pairing is diagnostic rather than redundant.",
+        "Ask for the facility-adjusted IRR and the average drawn period. Weeks is a bridge; a year or more is a reporting decision."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "funds-subline-01-q1",
+      "type": "mcq",
+      "difficulty": 2,
+      "tags": ["subscription-line", "irr"],
+      "concept": "what-it-is",
+      "stem": "How does a subscription line raise a fund's reported IRR?",
+      "choices": [
+        "By reducing the fund's management fees",
+        "By delaying capital calls, which shortens the period LP capital is outstanding for the same profit",
+        "By increasing the profit on each investment",
+        "By allowing the fund to invest in higher-returning assets"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Fees are unaffected, and the facility's own interest cost is an additional expense to the fund.",
+        "Correct. IRR is an annualised rate, so the same profit over a shorter period of capital outstanding produces a higher figure. Nothing about the investments changes.",
+        "The profit is identical. Only the measurement window moves.",
+        "The facility affects timing of funding, not what the fund is able to buy."
+      ],
+      "explanation": "This is a direct consequence of IRR's sensitivity to timing — the same property that makes IRR flatter funds returning capital early. Recognising it as one mechanism rather than two separate quirks makes both easier to remember."
+    },
+    {
+      "id": "funds-subline-01-q2",
+      "type": "mcq",
+      "difficulty": 3,
+      "tags": ["subscription-line", "moic", "measurement"],
+      "concept": "the-irr-effect",
+      "stem": "Why is the multiple of invested capital unaffected by subscription line usage?",
+      "choices": [
+        "Because the multiple is calculated before fees",
+        "Because a multiple divides value by capital and ignores time entirely",
+        "Because facilities are excluded from the multiple by convention",
+        "Because multiples are only reported at final liquidation"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Multiples can be gross or net of fees, and either way the fee treatment is not why timing does not affect them.",
+        "Correct. MOIC and TVPI have no time dimension. The facility changes when capital was outstanding, which is precisely the variable a multiple does not consider.",
+        "There is no such convention. The immunity is structural, arising from the definition.",
+        "Multiples are reported throughout a fund's life."
+      ],
+      "explanation": "This is why the standard practice of quoting IRR alongside a multiple is not redundancy. The facility moves one and not the other, so a large gap between a fund's IRR percentile and its multiple percentile is a signal worth investigating."
+    },
+    {
+      "id": "funds-subline-01-q3",
+      "type": "tfj",
+      "difficulty": 4,
+      "tags": ["subscription-line", "lp-outcome", "misconception"],
+      "concept": "the-irr-effect",
+      "stem": "\"A subscription line is good for LPs because we keep our money longer.\" True or false — and why?",
+      "isTrue": false,
+      "justifications": [
+        "False — keeping the money has value, but LPs pay the facility's interest and fees through the fund and still carry the obligation, so the net effect is ambiguous",
+        "False — LPs do not actually keep their money longer",
+        "True — retaining capital for longer is unambiguously beneficial",
+        "False — because subscription lines are prohibited in most institutional funds"
+      ],
+      "justificationIndex": 0,
+      "rationales": [
+        "Correct. Three effects run in different directions: the LP earns something on the retained capital, pays the facility cost through the fund, and must still keep the money available. Whether it nets positive depends on what the retained capital earned.",
+        "They do keep it longer — that is the mechanism. The claim fails on the conclusion, not the premise.",
+        "This is the half-truth under test. It ignores the cost side and the fact that the commitment obligation is unchanged.",
+        "They are widespread and generally permitted. Not prohibited."
+      ],
+      "explanation": "The honest position is that the operational benefits are real, the reporting effect is real, and the net economic effect on the LP is genuinely ambiguous and computable. Anyone asserting it is clearly good or clearly bad has not done the arithmetic."
+    },
+    {
+      "id": "funds-subline-01-q4",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["subscription-line", "diligence", "on-the-job"],
+      "concept": "ask-for-unlevered",
+      "stem": "You are comparing two buyout funds with similar strategies. One uses a twelve-month subscription line, the other calls capital immediately. What is the cleanest way to compare them?",
+      "choices": [
+        "Compare reported IRRs, since both are calculated to the same standard",
+        "Rank them on multiple, and request a facility-adjusted IRR from the fund using the line",
+        "Adjust the reported IRRs by a standard haircut for facility usage",
+        "Compare only their DPI figures"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Both IRRs are correctly calculated and they measure different periods, which makes them non-comparable however consistent the method.",
+        "Correct. Multiples are immune to the timing effect, so they support a direct comparison. And most GPs can produce a facility-adjusted IRR, which quantifies the distortion rather than guessing at it.",
+        "A standard haircut would be arbitrary — the effect depends on drawn period, deal duration and profit, all of which vary.",
+        "DPI is useful and only available meaningfully for mature funds, and it discards the unrealised portfolio entirely."
+      ],
+      "explanation": "Two moves, one blunt and one precise: rank on the measure that is immune, and ask for the number that isolates the distortion. Stating the methodology explicitly also makes the comparison defensible to a committee."
+    },
+    {
+      "id": "funds-subline-01-q5",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["subscription-line", "risk", "how-it-goes-wrong"],
+      "concept": "how-it-goes-wrong",
+      "stem": "Why is heavy reliance on a subscription line a liquidity risk for LPs rather than only a reporting issue?",
+      "choices": [
+        "Because the facility increases the fund's management fee base",
+        "Because if the facility is withdrawn or repriced in a credit crunch, the GP must call capital at short notice — a liquidity event arriving at the worst time",
+        "Because LPs must guarantee the facility personally",
+        "Because facilities are unsecured and therefore expensive"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "The fee base is defined in the partnership agreement and is not expanded by the facility.",
+        "Correct. A GP dependent on the line for deal execution loses that flexibility exactly when credit tightens — and must then call from LPs whose liquid portfolios are also under pressure. The correlation is the problem.",
+        "The security is over LP commitments to the fund, not personal guarantees. Real, and a different mechanism.",
+        "These facilities are secured against commitments, which is why they are relatively cheap."
+      ],
+      "explanation": "The pattern recurs across this whole domain: a facility that smooths cash flow in normal conditions concentrates it in stressed ones. Asking what the GP would do if the line were withdrawn turns a reporting discussion into a risk one."
+    },
+    {
+      "id": "funds-subline-01-q6",
+      "type": "mcq",
+      "difficulty": 3,
+      "tags": ["subscription-line", "duration", "on-the-job"],
+      "concept": "real-costs",
+      "stem": "Which single question best distinguishes a facility used as a bridge from one used to manage reported performance?",
+      "choices": [
+        "What is the facility's total size?",
+        "What has the average drawn period been across prior funds?",
+        "Which bank provides the facility?",
+        "What interest rate does the facility carry?"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Size tells you capacity, not how it is used. A large facility drawn for two weeks at a time is a bridge.",
+        "Correct. Duration is the variable that determines both the IRR effect and the interest cost. Weeks is operational; twelve months or more is a decision about how performance is presented.",
+        "The lender matters for reliability in a crunch and says nothing about usage patterns.",
+        "The rate determines the cost per day drawn, so it only becomes meaningful once you know the duration."
+      ],
+      "explanation": "One question, and the answer is a number the GP certainly knows. It is a good example of diligence that is specific enough to be answerable and pointed enough to be informative whichever way it goes."
+    }
+  ],
+  "needsReview": false,
+  "reviewNote": null
+}

@@ -511,6 +511,47 @@ Before a topic file is considered done:
 - [ ] Written from scratch. Nothing traceable to licensed curriculum material.
 - [ ] `npm run content:check` passes.
 
+### House style — APPROVED, do not drift
+
+After reviewing 27 topics the user said: *"I like the way you've structured explanations and quiz
+questions. Continue that style moving forward."* That is the only content feedback given across
+M1-M5, so it is the specification rather than one option among several. What follows is that
+structure written down explicitly, so a later session can reproduce it without guessing.
+
+**Lesson block sequence.** Not every topic needs all of these, and this is the order they go in:
+
+| Block | Job |
+|---|---|
+| `concept` — what it is | Plain definition, then *name the mechanism*. Open with a concrete situation where useful ("A company agrees to be bought for $50 a share...") rather than an abstract definition. |
+| `concept` — the return driver | One block doing nothing but answering "where does the money come from?" Bold the answer as a single sentence. |
+| `intuition` | The counterintuitive point, stated explicitly and in bold. This is the block that earns the topic. If there is nothing surprising to say, the topic is not finished. |
+| `formula` | Only where an equation genuinely helps. `plainReading` reads it aloud in words for someone who cannot parse notation. |
+| `example` | Numbered `walkthrough`, real numbers, ending on a **sanity check the reader can reuse** ("if your annuity factor exceeds n, you have made a mistake") or a "read that carefully" beat that lands the point. |
+| `table` | Environments (helps / hurts / why), or a comparison of measures. Three columns, verdict in the middle. |
+| `concept` — how it blows up | Named failure modes, each a **bold lead-in** then two or three sentences. Naming them is the point — the reader should be able to recall the list. |
+| `pitfall` | One specific misconception, with the reason it is tempting. |
+| `onTheJob` | **Specific questions to ask a manager**, bold-led, with what a good and a bad answer look like. Not general advice. |
+| `keyTakeaways` | Exactly 4 items, each a complete claim that stands alone. No "understand X" phrasing. |
+
+**Question set.** Six to eight per topic, ascending difficulty (aim 1-2 → 4), at least two types:
+
+- **Numeric first** wherever there is arithmetic. Verify every answer in Python before writing it.
+- **Every rationale diagnoses.** A wrong-answer rationale names the *misconception* and why it is
+  tempting — never "this is incorrect". A miss should teach as much as a hit. The correct rationale
+  opens "Correct." then restates the mechanism.
+- **One `tfj` per topic**, targeting a specific plausible misconception, with distractor
+  justifications that are wrong for *interesting* reasons (over-correction, right conclusion via
+  wrong reasoning).
+- **`strategyId` or `chartRead`** where the topic supports it — a described return pattern or a
+  chart, not a definition in disguise.
+- **The last one or two are difficulty 4 and framed on the job**, using the manager-diligence voice.
+- **`explanation` adds something the rationales did not** — the generalisable lesson, or the link to
+  another topic. It is not a summary of the correct rationale.
+
+**Voice.** Direct, unhedged, second person where natural. State the uncomfortable version of a fact
+rather than the diplomatic one ("their good record and their eventual loss have the same cause").
+Assume no jargon: mark up every specialist term on first use. Never write "it is important to note".
+
 Alternatives is the deepest domain — it is the user's day job. Each hedge fund strategy is its own
 topic and must cover: the return driver, typical exposures, what environment helps or hurts it, and
 **how it can blow up**.
@@ -550,7 +591,7 @@ One domain per batch, validated, pause between batches. Keep this current.
 | equity-valuation | 0 | not started — EV/EBITDA term defined |
 | fixed-income | 0 | not started |
 | derivatives | 0 | not started — delta, gamma, implied volatility, vega defined |
-| fund-structures | 0 | not started — but 16 glossary terms already defined (capital call, commitment, TVPI/DPI/RVPI, MOIC, vintage, secondaries, subscription line, lock-up, gate, side pocket, carried interest, dry powder, J-curve, NAV) |
+| fund-structures | 8 | **DONE** — gplp-01, fees-01, waterfall-01, hwm-01, calls-01, liquidity-01, sideletters-01, subline-01 |
 | portfolio-risk | 0 | not started |
 | ethics | 0 | not started |
 
@@ -582,6 +623,25 @@ no markup to resolve.
 as an orphan; a term used but never defined is invisible to it. Batch 3 hit both directions in one
 sitting — 29 undefined slugs, then two orphans from terms defined without a corresponding markup edit.
 Do the glossary additions and the markup edits together, then run `content:check` before anything else.
+
+**Drive the rendered page, not just the validators.** Batch 4 passed `content:check`, `content:audit`,
+`typecheck` and 249 tests while printing raw `**` asterisks onto the lesson page: the markup parser
+resolved glossary terms before emphasis, so `**Tier 2 — [[preferred-return]].**` matched neither
+pattern and leaked. A second case — italic nested inside bold — had been live since batch 3. Both are
+invisible to every check that does not look at the DOM. The sweep that found them is cheap enough to
+repeat every batch:
+
+```js
+// in the browser console, with npm run dev running
+for (const id of ids) { location.hash = '#/topic/' + id; await wait(250);
+  const t = document.querySelector('article').innerText;
+  if (/\*/.test(t) || /\[\[/.test(t)) console.log(id); }
+```
+
+**A bare `[[slug]]` renders the slug with spaces for hyphens, which is wrong for acronyms.**
+`[[dpi]]` printed "dpi" and `[[j-curve]]` printed "j curve" — 46 occurrences across 38 topics before
+anyone looked. Write the alias: `[[dpi|DPI]]`. `content:audit` now warns on any bare reference whose
+rendered form differs from the glossary term's own name.
 
 **Run a structural audit after each batch, on top of `content:check`.** The schema cannot catch a
 misaligned `answerIndex`, because every index in range is structurally valid. This does:

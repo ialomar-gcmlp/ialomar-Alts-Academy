@@ -3,6 +3,17 @@
   "domain": "fund-structures",
   "terms": [
     {
+      "slug": "american-waterfall",
+      "term": "American waterfall (deal-by-deal)",
+      "plain": "A profit split calculated one deal at a time, so the manager can earn its share on early winners before the rest of the fund is resolved. Faster for the manager, and the reason clawbacks exist.",
+      "formal": "A deal-by-deal distribution structure permitting carried interest on individual realisations before whole-fund capital return, typically paired with escrow accounts and clawback protection.",
+      "seeAlso": [
+        "european-waterfall",
+        "clawback",
+        "waterfall"
+      ]
+    },
+    {
       "slug": "capital-call",
       "term": "capital call",
       "plain": "A demand from a fund for investors to send in some of the money they committed. Private funds draw capital down as deals happen rather than taking it all up front.",
@@ -25,6 +36,39 @@
       ]
     },
     {
+      "slug": "catch-up",
+      "term": "catch-up",
+      "plain": "A stretch of the profit split where the manager takes most or all of the cash, to catch up to its full profit share after investors have received their preferred return.",
+      "formal": "A waterfall tier in which the general partner receives an accelerated share of distributions, often 50% to 100%, until it has received its full carried interest percentage of cumulative profits.",
+      "seeAlso": [
+        "preferred-return",
+        "waterfall",
+        "carried-interest"
+      ]
+    },
+    {
+      "slug": "clawback",
+      "term": "clawback",
+      "plain": "A promise by the manager to hand back profit share it was paid earlier, if later losses mean it ended up taking more than its agreed share of the fund's lifetime profits.",
+      "formal": "A contractual obligation requiring the general partner to return previously distributed carried interest so that lifetime distributions conform to the agreed profit split.",
+      "seeAlso": [
+        "american-waterfall",
+        "carried-interest",
+        "waterfall"
+      ]
+    },
+    {
+      "slug": "co-investment",
+      "term": "co-investment",
+      "plain": "A chance to put extra money directly into one specific deal alongside the fund, usually at lower or no fees. Highly prized, and usually offered to the largest investors first.",
+      "formal": "A direct investment in a portfolio company made alongside a fund by one of its limited partners, typically on reduced or zero fee and carried interest terms.",
+      "seeAlso": [
+        "side-letter",
+        "general-partner",
+        "commitment"
+      ]
+    },
+    {
       "slug": "commitment",
       "term": "commitment",
       "plain": "The total amount you promise to a private fund. Only part of it is called at any time, so the money must stay available for years.",
@@ -33,6 +77,16 @@
         "capital-call",
         "dry-powder",
         "vintage-year"
+      ]
+    },
+    {
+      "slug": "crystallisation",
+      "term": "crystallisation",
+      "plain": "The moment a performance fee stops being a paper accrual and is actually taken by the manager, usually at year end. Once taken it is not returned if the fund later falls.",
+      "formal": "The periodic conversion of accrued performance fees into realised fees payable to the manager, resetting the reference level from which future fees are calculated.",
+      "seeAlso": [
+        "high-water-mark",
+        "net-asset-value"
       ]
     },
     {
@@ -58,6 +112,28 @@
       ]
     },
     {
+      "slug": "european-waterfall",
+      "term": "European waterfall (whole-of-fund)",
+      "plain": "A profit split calculated across the whole fund, so the manager earns its share only once every investor's capital and preferred return have been paid back. Slower for the manager, safer for investors.",
+      "formal": "A whole-of-fund distribution structure in which carried interest arises only after aggregate contributed capital and preferred return have been returned to limited partners.",
+      "seeAlso": [
+        "american-waterfall",
+        "waterfall",
+        "clawback"
+      ]
+    },
+    {
+      "slug": "fee-offset",
+      "term": "fee offset",
+      "plain": "An arrangement where fees the manager collects from the companies it owns are credited back against the management fee you pay. The share credited is negotiable, and worth checking.",
+      "formal": "A provision crediting a specified proportion of transaction, monitoring and other portfolio company fees received by the general partner against limited partners' management fee obligations.",
+      "seeAlso": [
+        "management-fee",
+        "limited-partnership-agreement",
+        "general-partner"
+      ]
+    },
+    {
       "slug": "gate",
       "term": "gate",
       "plain": "A limit on how much can be redeemed from a fund in one period. It protects remaining investors from a rush for the exit, and traps you if you wanted out.",
@@ -65,6 +141,39 @@
       "seeAlso": [
         "lockup",
         "side-pocket"
+      ]
+    },
+    {
+      "slug": "general-partner",
+      "term": "general partner (GP)",
+      "plain": "The firm that runs the fund: it finds the deals, makes the decisions and gets paid a fee plus a share of the profits. Usually the manager sitting across the table from you.",
+      "formal": "The partner holding management authority and unlimited liability in a limited partnership, responsible for investment decisions and fund operations, compensated through management fees and carried interest.",
+      "seeAlso": [
+        "limited-partner",
+        "carried-interest",
+        "limited-partnership-agreement"
+      ]
+    },
+    {
+      "slug": "high-water-mark",
+      "term": "high water mark",
+      "plain": "The highest value your account has ever reached. A hedge fund can charge performance fees only on gains above it, so losses have to be earned back before fees resume.",
+      "formal": "The peak net asset value per unit on which performance fees have previously been charged; subsequent fees accrue only on appreciation above that level.",
+      "seeAlso": [
+        "crystallisation",
+        "net-asset-value",
+        "carried-interest"
+      ]
+    },
+    {
+      "slug": "hurdle-rate",
+      "term": "hurdle rate",
+      "plain": "The return the fund must beat before the manager earns any share of the profits. Often 8% a year in private funds.",
+      "formal": "The minimum return threshold that must be achieved before the general partner participates in fund profits.",
+      "seeAlso": [
+        "preferred-return",
+        "waterfall",
+        "carried-interest"
       ]
     },
     {
@@ -78,6 +187,28 @@
       ]
     },
     {
+      "slug": "limited-partner",
+      "term": "limited partner (LP)",
+      "plain": "An investor in the fund. Puts up the money, has no say in individual deals, and cannot lose more than it committed.",
+      "formal": "A passive investor in a limited partnership whose liability is capped at its committed capital and who does not participate in day-to-day investment decisions.",
+      "seeAlso": [
+        "general-partner",
+        "commitment",
+        "limited-partnership-agreement"
+      ]
+    },
+    {
+      "slug": "limited-partnership-agreement",
+      "term": "limited partnership agreement (LPA)",
+      "plain": "The contract setting out every rule of the fund: the fees, how profits are split, how long it lasts, what the manager may and may not do. Everything you are told verbally should be in here.",
+      "formal": "The governing document of a limited partnership, specifying economic terms, investment restrictions, governance rights, reporting obligations, term and dissolution mechanics.",
+      "seeAlso": [
+        "general-partner",
+        "limited-partner",
+        "side-letter"
+      ]
+    },
+    {
       "slug": "lockup",
       "term": "lock-up",
       "plain": "A period during which you cannot get your money out of a fund at all.",
@@ -85,6 +216,17 @@
       "seeAlso": [
         "gate",
         "side-pocket",
+        "commitment"
+      ]
+    },
+    {
+      "slug": "management-fee",
+      "term": "management fee",
+      "plain": "An annual fee charged simply for managing the money, typically 1.5% to 2%. Paid whether the fund makes money or not, which is why the base it is charged on matters so much.",
+      "formal": "A recurring fee charged on committed capital, invested capital or net asset value depending on the stage of the fund's life, intended to cover the manager's operating costs.",
+      "seeAlso": [
+        "carried-interest",
+        "fee-offset",
         "commitment"
       ]
     },
@@ -100,6 +242,16 @@
       ]
     },
     {
+      "slug": "most-favoured-nation",
+      "term": "most favoured nation (MFN)",
+      "plain": "A clause letting an investor see the side deals other investors were given and elect the same terms. Usually restricted to investors who committed at least as much as they did.",
+      "formal": "A provision entitling a limited partner to review side letter terms granted to other investors and to elect to adopt them, commonly subject to commitment-size tiers.",
+      "seeAlso": [
+        "side-letter",
+        "limited-partnership-agreement"
+      ]
+    },
+    {
       "slug": "net-asset-value",
       "term": "net asset value (NAV)",
       "plain": "What a fund is worth: everything it owns minus everything it owes. Exposures are quoted as a percentage of it, so 130% long means long positions worth 1.3 times the fund's capital.",
@@ -108,6 +260,28 @@
         "gross-exposure",
         "net-exposure",
         "hedge-fund"
+      ]
+    },
+    {
+      "slug": "preferred-return",
+      "term": "preferred return (the pref)",
+      "plain": "The first slice of profit, which goes entirely to investors before the manager takes anything. Usually 8% a year on the money actually drawn down.",
+      "formal": "A priority return to limited partners, typically 8% compounded annually on contributed capital, distributed in full before the general partner receives carried interest.",
+      "seeAlso": [
+        "hurdle-rate",
+        "waterfall",
+        "catch-up"
+      ]
+    },
+    {
+      "slug": "redemption-notice",
+      "term": "redemption notice",
+      "plain": "How much warning you must give a hedge fund before pulling money out: 30, 60 or 90 days is typical. Combined with how often the fund lets people out, it determines how fast you can actually get cash.",
+      "formal": "The contractually required advance notification period an investor must provide before a redemption is effected on a permitted dealing date.",
+      "seeAlso": [
+        "lockup",
+        "gate",
+        "net-asset-value"
       ]
     },
     {
@@ -129,6 +303,17 @@
         "commitment",
         "j-curve",
         "tvpi"
+      ]
+    },
+    {
+      "slug": "side-letter",
+      "term": "side letter",
+      "plain": "A private agreement giving one investor terms the others do not have: lower fees, better reporting, more information rights. It is legally part of that investor's deal, not the fund's main contract.",
+      "formal": "A bilateral agreement between the general partner and an individual limited partner that modifies or supplements the partnership agreement as it applies to that investor.",
+      "seeAlso": [
+        "most-favoured-nation",
+        "limited-partnership-agreement",
+        "co-investment"
       ]
     },
     {
@@ -172,6 +357,17 @@
         "commitment",
         "moic",
         "tvpi"
+      ]
+    },
+    {
+      "slug": "waterfall",
+      "term": "waterfall",
+      "plain": "The order in which cash coming out of a fund gets paid out: who receives what, and in what sequence. Each tier fills completely before the next receives anything.",
+      "formal": "The contractual sequence governing distribution of fund proceeds across return of capital, preferred return, catch-up and residual profit split tiers.",
+      "seeAlso": [
+        "preferred-return",
+        "catch-up",
+        "european-waterfall"
       ]
     }
   ]
