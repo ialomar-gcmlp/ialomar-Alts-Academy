@@ -3,76 +3,126 @@
   "domain": "economics",
   "terms": [
     {
-      "slug": "yield-curve",
-      "term": "yield curve",
-      "plain": "A line showing what interest rate you get for lending to the same borrower for different lengths of time — three months, two years, ten years, and so on.",
-      "formal": "A plot of the yields of a single issuer's debt against their maturities at a point in time, most commonly constructed from government securities.",
-      "seeAlso": ["yield-to-maturity", "term-premium", "yield-curve-inversion", "maturity"]
-    },
-    {
-      "slug": "yield-to-maturity",
-      "term": "yield to maturity (YTM)",
-      "plain": "The annual return you would earn on a bond if you bought it at today's price and held it until it matured, collecting every payment along the way.",
-      "formal": "The single discount rate that equates the present value of a bond's remaining cash flows to its current market price, assuming all payments are made and coupons are reinvested at that same rate.",
-      "seeAlso": ["yield-curve", "maturity", "discount-rate"]
-    },
-    {
-      "slug": "term-premium",
-      "term": "term premium",
-      "plain": "The extra yield lenders demand purely for tying their money up longer, over and above what they expect short-term rates to average. It is the price of putting up with uncertainty.",
-      "formal": "The component of a long-dated bond's yield in excess of the average expected future short-term rate over its life, compensating investors for interest rate and inflation uncertainty.",
-      "seeAlso": ["yield-curve", "yield-to-maturity", "duration"]
-    },
-    {
-      "slug": "yield-curve-inversion",
-      "term": "yield curve inversion",
-      "plain": "When short-term interest rates are higher than long-term ones — the curve slopes downward instead of upward. It usually means the market expects rate cuts ahead.",
-      "formal": "A yield curve state in which yields on shorter maturities exceed those on longer maturities, typically reflecting expectations of future monetary easing.",
-      "seeAlso": ["yield-curve", "yield-spread", "recession", "monetary-policy"]
-    },
-    {
-      "slug": "yield-spread",
-      "term": "yield spread",
-      "plain": "The difference between two yields, quoted as one minus the other. For curve shape it is normally the long yield minus the short one, so a negative number means inversion.",
-      "formal": "The arithmetic difference between two yields, used to express curve slope (e.g. the 10-year minus the 2-year) or credit risk (a corporate yield minus a comparable government yield).",
-      "seeAlso": ["yield-curve", "yield-curve-inversion", "basis-point"]
-    },
-    {
       "slug": "basis-point",
       "term": "basis point (bp)",
       "plain": "One hundredth of a percentage point. 100 basis points is 1%. Used because saying \"the yield rose 0.08 percentage points\" is clumsy and easy to mishear.",
       "formal": "A unit equal to 1/100th of one percent (0.0001), used to express changes in interest rates, yields and fees precisely.",
-      "seeAlso": ["yield-spread"]
-    },
-    {
-      "slug": "monetary-policy",
-      "term": "monetary policy",
-      "plain": "What a central bank does to influence borrowing costs and the amount of money circulating — mainly by moving its policy interest rate up or down.",
-      "formal": "Central bank actions affecting the money supply and the level of short-term interest rates in pursuit of statutory objectives, typically price stability and employment.",
-      "seeAlso": ["federal-funds-rate", "yield-curve", "real-interest-rate"]
+      "seeAlso": [
+        "yield-spread"
+      ]
     },
     {
       "slug": "federal-funds-rate",
       "term": "federal funds rate",
       "plain": "The very short-term US interest rate that the Federal Reserve targets. It anchors the short end of the yield curve, so almost every other US rate takes its cue from it.",
       "formal": "The rate at which US depository institutions lend reserve balances to each other overnight, targeted by the Federal Reserve as its principal policy instrument.",
-      "seeAlso": ["monetary-policy", "risk-free-rate", "floating-rate"]
+      "seeAlso": [
+        "monetary-policy",
+        "risk-free-rate",
+        "floating-rate"
+      ]
+    },
+    {
+      "slug": "flight-to-quality",
+      "term": "flight to quality",
+      "plain": "When investors rush into the safest, most liquid assets and abandon everything else. It widens exactly the spreads that relative value strategies are short.",
+      "formal": "A market episode in which demand shifts sharply toward the most liquid and creditworthy instruments, raising liquidity premia and widening spreads between otherwise similar securities.",
+      "seeAlso": [
+        "on-the-run",
+        "fixed-income-relative-value",
+        "yield-spread"
+      ]
+    },
+    {
+      "slug": "monetary-policy",
+      "term": "monetary policy",
+      "plain": "What a central bank does to influence borrowing costs and the amount of money circulating — mainly by moving its policy interest rate up or down.",
+      "formal": "Central bank actions affecting the money supply and the level of short-term interest rates in pursuit of statutory objectives, typically price stability and employment.",
+      "seeAlso": [
+        "federal-funds-rate",
+        "yield-curve",
+        "real-interest-rate"
+      ]
     },
     {
       "slug": "real-interest-rate",
       "term": "real interest rate",
       "plain": "The interest rate after stripping out expected inflation — what you actually gain in purchasing power rather than in dollars.",
       "formal": "A nominal interest rate adjusted for expected inflation. Approximately nominal minus expected inflation; precisely, (1+nominal)/(1+inflation) - 1.",
-      "seeAlso": ["monetary-policy", "yield-to-maturity", "discount-rate"]
+      "seeAlso": [
+        "monetary-policy",
+        "yield-to-maturity",
+        "discount-rate"
+      ]
     },
     {
       "slug": "recession",
       "term": "recession",
       "plain": "A meaningful, broad-based decline in economic activity lasting more than a few months — not just one weak quarter.",
       "formal": "A significant, broadly diffused decline in economic activity persisting more than a few months, assessed across output, employment and income rather than by a single mechanical rule.",
-      "seeAlso": ["yield-curve-inversion", "monetary-policy"],
+      "seeAlso": [
+        "yield-curve-inversion",
+        "monetary-policy"
+      ],
       "needsReview": true,
       "reviewNote": "I have deliberately avoided the popular 'two consecutive quarters of negative GDP' shorthand, which is not how the US dating body defines it. Verify the definition you want to standardise on."
+    },
+    {
+      "slug": "term-premium",
+      "term": "term premium",
+      "plain": "The extra yield lenders demand purely for tying their money up longer, over and above what they expect short-term rates to average. It is the price of putting up with uncertainty.",
+      "formal": "The component of a long-dated bond's yield in excess of the average expected future short-term rate over its life, compensating investors for interest rate and inflation uncertainty.",
+      "seeAlso": [
+        "yield-curve",
+        "yield-to-maturity",
+        "duration"
+      ]
+    },
+    {
+      "slug": "yield-curve",
+      "term": "yield curve",
+      "plain": "A line showing what interest rate you get for lending to the same borrower for different lengths of time — three months, two years, ten years, and so on.",
+      "formal": "A plot of the yields of a single issuer's debt against their maturities at a point in time, most commonly constructed from government securities.",
+      "seeAlso": [
+        "yield-to-maturity",
+        "term-premium",
+        "yield-curve-inversion",
+        "maturity"
+      ]
+    },
+    {
+      "slug": "yield-curve-inversion",
+      "term": "yield curve inversion",
+      "plain": "When short-term interest rates are higher than long-term ones — the curve slopes downward instead of upward. It usually means the market expects rate cuts ahead.",
+      "formal": "A yield curve state in which yields on shorter maturities exceed those on longer maturities, typically reflecting expectations of future monetary easing.",
+      "seeAlso": [
+        "yield-curve",
+        "yield-spread",
+        "recession",
+        "monetary-policy"
+      ]
+    },
+    {
+      "slug": "yield-spread",
+      "term": "yield spread",
+      "plain": "The difference between two yields, quoted as one minus the other. For curve shape it is normally the long yield minus the short one, so a negative number means inversion.",
+      "formal": "The arithmetic difference between two yields, used to express curve slope (e.g. the 10-year minus the 2-year) or credit risk (a corporate yield minus a comparable government yield).",
+      "seeAlso": [
+        "yield-curve",
+        "yield-curve-inversion",
+        "basis-point"
+      ]
+    },
+    {
+      "slug": "yield-to-maturity",
+      "term": "yield to maturity (YTM)",
+      "plain": "The annual return you would earn on a bond if you bought it at today's price and held it until it matured, collecting every payment along the way.",
+      "formal": "The single discount rate that equates the present value of a bond's remaining cash flows to its current market price, assuming all payments are made and coupons are reinvested at that same rate.",
+      "seeAlso": [
+        "yield-curve",
+        "maturity",
+        "discount-rate"
+      ]
     }
   ]
 }

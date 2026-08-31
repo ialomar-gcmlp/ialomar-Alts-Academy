@@ -3,25 +3,113 @@
   "domain": "fixed-income",
   "terms": [
     {
-      "slug": "maturity",
-      "term": "maturity",
-      "plain": "The date a loan or bond ends and the borrower must repay the principal. \"A ten-year bond\" means ten years until that date.",
-      "formal": "The date on which a debt instrument's principal becomes due and payable, and the length of time remaining until that date.",
-      "seeAlso": ["yield-curve", "duration", "yield-to-maturity"]
+      "slug": "capital-structure",
+      "term": "capital structure",
+      "plain": "The full stack of how a company is funded: senior secured debt at the top, then more junior debt, then equity at the bottom. Position in the stack determines who gets paid first.",
+      "formal": "The composition and ranking of an issuer's funding sources, from senior secured obligations through subordinated debt to common equity, establishing the order of claims on cash flows and assets.",
+      "seeAlso": [
+        "seniority",
+        "distressed-debt",
+        "leveraged-buyout"
+      ]
     },
     {
       "slug": "duration",
       "term": "duration",
       "plain": "A measure of how much an investment's price moves when interest rates change. Higher duration means more rate sensitivity — driven mainly by how far in the future the cash flows arrive.",
       "formal": "The sensitivity of an instrument's price to a change in yield, expressed in years (Macaulay) or as an approximate percentage price change per 1% yield change (modified).",
-      "seeAlso": ["maturity", "term-premium", "discount-factor"]
+      "seeAlso": [
+        "maturity",
+        "term-premium",
+        "discount-factor"
+      ]
     },
     {
       "slug": "floating-rate",
       "term": "floating rate",
       "plain": "A loan whose interest rate resets periodically in line with a short-term reference rate, instead of being fixed for the whole life of the loan. When short rates rise, the borrower pays more almost immediately.",
       "formal": "A debt instrument whose coupon periodically resets at a specified spread over a short-term reference rate, giving it low price sensitivity to rate changes but variable interest income.",
-      "seeAlso": ["federal-funds-rate", "private-credit", "duration"]
+      "seeAlso": [
+        "federal-funds-rate",
+        "private-credit",
+        "duration"
+      ]
+    },
+    {
+      "slug": "haircut",
+      "term": "haircut",
+      "plain": "The slice of a position's value a lender will not lend against. A 5% haircut means you must fund 5% yourself, and if the lender raises it you must find cash immediately.",
+      "formal": "The discount applied to collateral value when determining borrowing capacity. Increases in haircuts reduce available leverage and can force deleveraging without any change in position value.",
+      "seeAlso": [
+        "repo",
+        "margin-call",
+        "deleveraging"
+      ]
+    },
+    {
+      "slug": "indenture",
+      "term": "indenture",
+      "plain": "The contract governing a bond: what the borrower may and may not do, what happens on default, what collateral secures it. In distressed investing it matters more than the financial statements.",
+      "formal": "The legal agreement setting out a debt instrument's terms, covenants, security and remedies. Determines what transactions an issuer may undertake and therefore the protection a holder actually has.",
+      "seeAlso": [
+        "seniority",
+        "liability-management",
+        "distressed-debt"
+      ]
+    },
+    {
+      "slug": "maturity",
+      "term": "maturity",
+      "plain": "The date a loan or bond ends and the borrower must repay the principal. \"A ten-year bond\" means ten years until that date.",
+      "formal": "The date on which a debt instrument's principal becomes due and payable, and the length of time remaining until that date.",
+      "seeAlso": [
+        "yield-curve",
+        "duration",
+        "yield-to-maturity"
+      ]
+    },
+    {
+      "slug": "on-the-run",
+      "term": "on-the-run",
+      "plain": "The most recently issued government bond of a given maturity, and the most actively traded. Older bonds of similar maturity are off-the-run and trade slightly cheaper because they are less liquid.",
+      "formal": "The current benchmark issue for a given maturity, commanding a liquidity premium over previously issued (off-the-run) bonds with near-identical cash flows.",
+      "seeAlso": [
+        "fixed-income-relative-value",
+        "maturity",
+        "flight-to-quality"
+      ]
+    },
+    {
+      "slug": "repo",
+      "term": "repo (repurchase agreement)",
+      "plain": "Borrowing cash by pledging a bond as collateral, agreeing to buy it back shortly afterwards. It is how leveraged bond positions are funded, and it can be withdrawn.",
+      "formal": "A collateralised short-term borrowing in which securities are sold with an agreement to repurchase them at a set price and date. The principal financing mechanism for levered fixed income positions.",
+      "seeAlso": [
+        "haircut",
+        "fixed-income-relative-value",
+        "margin-call"
+      ]
+    },
+    {
+      "slug": "seniority",
+      "term": "seniority",
+      "plain": "Where a claim sits in the queue to be paid if a borrower fails. Senior claims are paid before subordinated ones, and in a restructuring that ordering usually decides everything.",
+      "formal": "The ranking of a claim in the priority of payment on insolvency, determined by contract and law. The primary determinant of recovery on a distressed obligation.",
+      "seeAlso": [
+        "capital-structure",
+        "distressed-debt",
+        "indenture"
+      ]
+    },
+    {
+      "slug": "swap-spread",
+      "term": "swap spread",
+      "plain": "The gap between the yield on a government bond and the fixed rate on an interest rate swap of the same maturity.",
+      "formal": "The difference between the interest rate swap rate and the government bond yield at a comparable maturity, reflecting bank credit, regulatory and balance-sheet factors.",
+      "seeAlso": [
+        "fixed-income-relative-value",
+        "yield-spread"
+      ]
     }
   ]
 }

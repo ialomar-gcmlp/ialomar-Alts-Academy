@@ -1,0 +1,219 @@
+{
+  "schemaVersion": 1,
+  "id": "alts-statarb-01",
+  "domain": "alternatives",
+  "title": "Quantitative and Statistical Arbitrage",
+  "summary": "Thousands of tiny systematic bets with a small edge each, where the risk is that everyone found the same signal.",
+  "level": "advanced",
+  "prereqs": ["alts-emn-01"],
+  "estMinutes": 10,
+  "examRelevance": ["CAIA-L1", "CAIA-L2", "practical"],
+  "lesson": [
+    {
+      "type": "concept",
+      "id": "what-it-is",
+      "body": "[[statistical-arbitrage]] applies systematic rules to a large universe of securities, taking many small positions where a statistical relationship suggests a mispricing. No view on any individual company — the edge is statistical, expressed across hundreds or thousands of positions.\n\nThe classic form is **pairs trading**. Two historically related securities diverge; short the outperformer, buy the underperformer, expect the relationship to reassert. Entry and exit are usually governed by a [[z-score]]: enter when the spread is two or more standard deviations from its normal relationship, exit as it reverts.\n\nModern implementations are considerably broader — multi-factor models, short-horizon reversal signals, cross-sectional momentum, machine learning on alternative data — but the architecture is constant:\n\n- **A small edge per position.** [[hit-rate|Hit rates]] barely above 50% are normal and sufficient.\n- **Enormous breadth.** Thousands of positions, so the law of large numbers does the work.\n- **Short holding periods.** Days to weeks, sometimes less.\n- **Tight risk constraints.** Market, sector and factor neutrality are usually imposed explicitly."
+    },
+    {
+      "type": "concept",
+      "id": "return-driver",
+      "body": "**The return driver is a small statistical edge applied across a very large number of independent bets.**\n\nThe arithmetic is the appeal. A 52% hit rate on one trade is indistinguishable from noise. The same edge across 5,000 trades is highly reliable — the same logic that makes a casino's small house edge a dependable business.\n\nThat framing makes the two genuine risks obvious:\n\n1. **The edge decays.** Signals stop working as others discover them, as markets change, or as the inefficiency is arbitraged away. A statistical edge is not a law of nature; it is a temporary feature of a market's structure.\n2. **The bets are not as independent as assumed.** Breadth only delivers reliability if outcomes are genuinely unrelated. When positions share a hidden common factor, 5,000 bets behave like one bet, and the arithmetic that made the strategy attractive stops applying.\n\nAlmost every serious statistical arbitrage failure is one of those two, and the second is the one that happens suddenly."
+    },
+    {
+      "type": "intuition",
+      "id": "crowding",
+      "body": "The distinctive risk of this strategy is **crowding**, and it deserves stating precisely because it is not obvious.\n\nSuppose ten funds independently analyse the same public data with similar techniques and reasonable competence. They will discover similar signals — not because they copied each other, but because the data supports a limited number of findings. So they hold similar positions without any coordination.\n\nNow one of them suffers losses elsewhere and must reduce risk. Their selling pushes prices against the shared positions. The other nine now show losses, so their risk systems reduce too. That selling moves prices further. **A mechanical feedback loop, with no fundamental news at all.**\n\nThis is what happened in the quant deleveraging of August 2007: several days of severe losses across market neutral quantitative funds whose individual positions were, on their own terms, correctly hedged and within limits.\n\nThe lesson generalises beyond this strategy. **Risk systems that measure your own positions cannot see how many other people hold them.** Position-level risk management is blind to exactly the risk that matters most here, which is why crowding has to be assessed separately and qualitatively."
+    },
+    {
+      "type": "table",
+      "id": "environments",
+      "caption": "What helps and what hurts",
+      "headers": ["Environment", "Effect", "Why"],
+      "rows": [
+        [
+          "High dispersion with mean-reverting prices",
+          "Helps most",
+          "Wide, temporary divergences that reassert are exactly what the signals are built to capture."
+        ],
+        [
+          "Moderate volatility",
+          "Helps",
+          "Enough movement to create opportunities, not so much that relationships break down."
+        ],
+        [
+          "Deep liquidity and low trading costs",
+          "Essential",
+          "High turnover means costs matter enormously. A signal that works gross can lose net."
+        ],
+        [
+          "Strong sustained trends",
+          "Hurts",
+          "Reversal signals fight a trend and lose repeatedly. Mean reversion assumes something to revert to."
+        ],
+        [
+          "Industry-wide deleveraging",
+          "Hurts badly",
+          "Crowded positions unwind together with no fundamental news. The characteristic failure."
+        ],
+        [
+          "Structural market change",
+          "Hurts",
+          "Regulatory change, a shift in market microstructure or a new dominant participant can retire a signal permanently."
+        ]
+      ]
+    },
+    {
+      "type": "concept",
+      "id": "how-it-blows-up",
+      "body": "**Crowded deleveraging.** The signature failure, described above. Fast, severe, and invisible to position-level risk systems.\n\n**Silent signal decay.** More insidious than a crash. A signal weakens gradually, and because the edge was always small, distinguishing decay from an unlucky run takes a great deal of data — by which point considerable money has been lost. Managers face a genuine dilemma: turn off a signal that may just be having a bad stretch, or keep running one that no longer works.\n\n**Overfitting.** With enough computing power and enough candidate signals, something always looks profitable in a backtest. A strategy selected from thousands of variants on the basis of in-sample performance carries almost no information about the future — which is exactly the multiple testing problem from the statistics topic, at industrial scale.\n\n**Leverage on a thin edge.** Because the per-position edge is small, these funds often run high [[gross-exposure]]. That converts a modest adverse move into a large capital loss.\n\n**Trading costs.** High turnover means costs are a first-order consideration, not a detail. Many signals are genuinely profitable before costs and worthless after them.\n\n**Capacity.** A signal that works on $200m may not work on $5bn, because the trades required to exploit it move the prices it depends on. Growth in assets can destroy the very edge that attracted them."
+    },
+    {
+      "type": "pitfall",
+      "id": "backtest",
+      "body": "**Treat an in-sample backtest as close to uninformative.** A strategy chosen from a large space of candidates on the basis of historical performance has been selected precisely for having looked good — which is what searching does, whether or not any real edge exists.\n\nThe questions that carry information: what has happened *since* the model was fixed, how many variants were tried before this one, and did the manager keep a genuine holdout period untouched during development? Live out-of-sample record after the strategy was locked down is worth more than any length of backtest, and a manager who understands that will say so before you ask."
+    },
+    {
+      "type": "onTheJob",
+      "id": "on-the-job",
+      "body": "**Ask about crowding directly, and expect a specific answer.** Position size relative to average daily volume, overlap with known public factors, and how the manager monitors whether others hold the same book. \"We do not know what others hold\" is honest but is also the answer of a manager not managing this risk.\n\n**Ask about signal turnover.** How many signals are in production, how many have been retired, and what triggered the retirements? A manager who has never turned a signal off has either been extraordinarily lucky or is not looking.\n\n**Ask about capacity and whether it is enforced.** A manager who has closed to new capital at a stated level is demonstrating something a marketing document cannot. Firms that grow past their capacity typically deliver declining returns to everyone, including existing investors.\n\n**Look at the worst week, and at daily data if available.** As with market neutral, deleveraging events resolve inside days and a monthly series conceals them.\n\n**Ask what fraction of gross return is consumed by trading costs.** For a high-turnover strategy this is one of the most revealing numbers available, and it is one a competent manager tracks closely."
+    },
+    {
+      "type": "keyTakeaways",
+      "id": "takeaways",
+      "items": [
+        "A small edge per position, made reliable by enormous breadth — the same logic as a casino's house edge.",
+        "Breadth only works if the bets are independent. Crowding makes thousands of positions behave like one.",
+        "Risk systems measure your own positions and cannot see how many others hold them, which is why crowding needs separate assessment.",
+        "In-sample backtests carry almost no information. What matters is the live record since the model was fixed, and how many variants were tried."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "alts-statarb-01-q1",
+      "type": "numeric",
+      "difficulty": 2,
+      "tags": ["statistical-arbitrage", "pairs-trading", "z-score"],
+      "concept": "what-it-is",
+      "stem": "A pair's spread normally averages zero with a standard deviation of 1.5%. It currently stands at 3.3%. What is the z-score?",
+      "answer": 2.2,
+      "tolerance": 0.05,
+      "toleranceType": "abs",
+      "inputHint": "Answer as a number, to 1 or 2 decimal places.",
+      "explanation": "z = (3.3 - 0) / 1.5 = 2.2. Above a typical entry threshold of 2, so the system would short the outperformer and buy the underperformer, expecting reversion. Note the whole trade rests on the standard deviation being a stable, meaningful quantity."
+    },
+    {
+      "id": "alts-statarb-01-q2",
+      "type": "mcq",
+      "difficulty": 3,
+      "tags": ["statistical-arbitrage", "return-driver", "breadth"],
+      "concept": "return-driver",
+      "stem": "A quant manager reports a hit rate of 52% on individual trades. What should you conclude?",
+      "choices": [
+        "The strategy is barely better than a coin flip and should be avoided",
+        "That is normal and can be highly profitable, provided the bets are numerous and genuinely independent",
+        "The hit rate must be misreported, since profitable strategies need higher accuracy",
+        "The manager should concentrate on their best ideas instead"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "On one trade, 52% is noise. Across thousands it is a reliable edge — the same arithmetic that makes a casino profitable on a small house advantage.",
+        "Correct. Breadth converts a tiny edge into a dependable return. The essential condition is the independence of the bets, which is exactly what crowding destroys.",
+        "52% is entirely typical for this strategy and requires no explanation. High per-trade accuracy is a feature of concentrated discretionary investing, not systematic breadth.",
+        "Concentrating would abandon the source of reliability. With a 52% edge, a handful of positions is a gamble; thousands is a business."
+      ],
+      "explanation": "The insight is that reliability comes from breadth rather than from accuracy. Which also identifies the fragility: everything depends on the bets being independent, and nothing in the hit rate tells you whether they are."
+    },
+    {
+      "id": "alts-statarb-01-q3",
+      "type": "tfj",
+      "difficulty": 4,
+      "tags": ["statistical-arbitrage", "crowding", "risk-management"],
+      "concept": "crowding",
+      "stem": "\"Every position was within risk limits and the book was factor neutral, so the four-day 9% loss was unforeseeable.\" True or false — and why?",
+      "isTrue": false,
+      "justifications": [
+        "False — position-level risk limits cannot see how many other funds hold the same positions, and crowding is an assessable risk",
+        "False — factor neutral books cannot lose money",
+        "True — if all limits were respected, the loss was genuinely unforeseeable",
+        "False — because four-day losses are always the result of a risk system failure"
+      ],
+      "justificationIndex": 0,
+      "rationales": [
+        "Correct. Risk systems measure your own book. Crowding is a property of the market's aggregate positioning, and it can be partly assessed — via position size relative to volume, overlap with public factors, and awareness of peer positioning.",
+        "Factor neutral books lose money regularly, including from crowding. The claim is simply false.",
+        "This is the excuse under examination. Limits observed and risk unmeasured are compatible, and the gap between them is precisely where crowding lives.",
+        "Not all rapid losses indicate a system failure. The specific failure here is a blind spot in what the system measures, not a malfunction."
+      ],
+      "explanation": "This distinction — between risk you measure and risk you carry — is the most transferable idea in the strategy. A manager who says \"we were within limits\" without addressing crowding has explained why the loss was permitted rather than why it happened."
+    },
+    {
+      "id": "alts-statarb-01-q4",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["statistical-arbitrage", "backtest", "overfitting"],
+      "concept": "backtest",
+      "stem": "A manager shows a 15-year backtest with a Sharpe ratio of 2.4, developed by testing several thousand signal variants. What does the backtest tell you?",
+      "choices": [
+        "That the strategy has a strong and durable edge",
+        "Very little — the strategy was selected for having looked good, which is what searching thousands of variants produces",
+        "That the manager has excellent computing infrastructure",
+        "That the Sharpe ratio will be higher in live trading, since backtests are conservative"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "A high in-sample Sharpe from a large search is close to guaranteed whether or not a real edge exists. It carries almost no information about the future.",
+        "Correct. This is the multiple testing problem at industrial scale: test thousands of variants at any threshold and the best will look excellent by chance alone. The selection is the flaw, not the arithmetic.",
+        "Infrastructure enabled the search, which is what created the problem rather than solving it.",
+        "Backtests are typically optimistic, not conservative — they usually understate costs, capacity limits and implementation slippage."
+      ],
+      "explanation": "The same lesson as the hypothesis testing topic, applied here: a result found by searching is not evidence of the strength its statistics imply. Only the record since the model was fixed carries real information."
+    },
+    {
+      "id": "alts-statarb-01-q5",
+      "type": "strategyId",
+      "difficulty": 4,
+      "tags": ["statistical-arbitrage", "strategy-identification"],
+      "concept": "crowding",
+      "description": "A fund holds around 3,000 equity positions, roughly half long and half short, with sector and market exposures constrained near zero and average holding periods of about six days. Gross exposure runs near 500%. Over five years it returned a steady 9% annualised with 6% volatility — then lost 9% in four days during which the equity market was flat and no company-specific news affected its holdings.",
+      "choices": [
+        "A statistical arbitrage fund caught in an industry-wide deleveraging",
+        "A long/short equity fund with a factor reversal",
+        "A convertible arbitrage fund in a credit shock",
+        "A trend-following programme at an inflection point"
+      ],
+      "answerIndex": 0,
+      "rationales": [
+        "Correct. Three thousand positions, six-day holding periods, tight neutrality constraints and 500% gross is statistical arbitrage exactly. A severe loss over days with a flat market and no news is the crowded-unwind signature.",
+        "A long/short fund would hold tens of positions, not thousands, and would not hold them for six days on average.",
+        "Convertible arbitrage holds convertible bonds hedged with equity, not 3,000 equity positions, and its losses come with credit spread widening.",
+        "Trend following trades futures on rules and would not be described as market and sector neutral with 3,000 equity positions."
+      ],
+      "explanation": "The diagnostic combination is extreme breadth, very short holding periods, high gross, and a loss with no identifiable fundamental cause. That last detail is what points at positioning rather than at any position."
+    },
+    {
+      "id": "alts-statarb-01-q6",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["statistical-arbitrage", "capacity", "on-the-job"],
+      "concept": "how-it-blows-up",
+      "stem": "Why can growth in assets under management destroy a statistical arbitrage strategy's edge?",
+      "choices": [
+        "Larger funds face higher fee pressure, reducing net returns",
+        "The trades needed to exploit the signal move the prices the signal depends on",
+        "Larger funds must diversify into strategies they do not understand",
+        "Regulators impose additional constraints above a size threshold"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Fee pressure affects economics, not the edge itself. The signal would still work.",
+        "Correct. The mispricings are small and the liquidity available to exploit them is finite. Trading in size moves prices toward fair value before the position is complete, consuming the very opportunity being pursued.",
+        "Strategy drift is a real risk of growth but it is a management choice, not the mechanism by which capacity destroys an edge.",
+        "Regulatory thresholds exist but are not what limits capacity here. Market impact is."
+      ],
+      "explanation": "Capacity is a genuine hard constraint in this strategy rather than a marketing consideration. A manager who has closed to new capital at a stated level is showing you they understand it — and the incentives to ignore it are obvious, which is what makes the demonstration meaningful."
+    }
+  ],
+  "needsReview": false,
+  "reviewNote": null
+}

@@ -1,0 +1,242 @@
+{
+  "schemaVersion": 1,
+  "id": "alts-emn-01",
+  "domain": "alternatives",
+  "title": "Equity Market Neutral",
+  "summary": "Long and short balanced so the market cancels out, leaving only stock selection — and factor risk nobody intended.",
+  "level": "core",
+  "prereqs": ["alts-lse-01"],
+  "estMinutes": 10,
+  "examRelevance": ["CAIA-L1", "CAIA-L2", "practical"],
+  "lesson": [
+    {
+      "type": "concept",
+      "id": "what-it-is",
+      "body": "[[equity-market-neutral|Equity market neutral]] takes the long/short structure and removes the directional bet entirely. Longs and shorts are sized so [[net-exposure]] sits near zero, which means the fund should make roughly nothing when the market moves and roughly everything from whether the longs beat the shorts.\n\nThat is the promise: a return stream with almost no [[beta]], so it diversifies an equity portfolio rather than duplicating it.\n\nThe distinction from ordinary [[long-short-equity]] is not a matter of degree. A typical long/short manager runs 30-70% net long and expects to make money in rising markets. A market neutral manager deliberately gives that up. If they are still making money when equities fall, that is the design working — and if they are losing money in a flat market, the cause is inside the book, not outside it."
+    },
+    {
+      "type": "concept",
+      "id": "return-driver",
+      "body": "**The return driver is the spread between the two legs, plus financing.**\n\nWith a 100/100 book — 100% long, 100% short — the arithmetic is unusually clean. If the longs return +9% and the shorts return +3%, the P&L is (1.00 × 9%) - (1.00 × 3%) = **+6%**. Net exposure is zero, so no part of that came from the market. The entire 6% is the spread the manager selected.\n\nOn top of that sits the [[short-rebate]]: interest earned on short sale proceeds, net of [[stock-borrow]] costs. In a low-rate world this is noise. When short rates are high it becomes a meaningful, almost passive component — which is worth remembering before crediting a manager for a good year that coincided with high cash rates.\n\nNote what is absent. There is no market return to fall back on. A market neutral manager who cannot pick stocks has no second source of income, which is why the strategy's dispersion between good and bad managers is wide."
+    },
+    {
+      "type": "intuition",
+      "id": "why-neutral-isnt-safe",
+      "body": "\"Market neutral\" sounds like \"risk neutral\", and it is not. Removing market exposure does not remove risk; it concentrates the remaining risk into stock selection and, crucially, into [[factor-exposure|factor exposures]].\n\nHere is the trap. A manager sets net exposure to zero and considers themselves hedged. But suppose the longs are mostly cheap, slow-growing companies and the shorts are mostly expensive, fast-growing ones — a perfectly reasonable value orientation. That book is neutral to the *market* and enormously exposed to the *value-versus-growth* factor. When growth outperforms value sharply, both legs lose simultaneously, and the net-zero exposure provides no protection at all.\n\nThis is why market neutral funds sometimes post losses that look impossible for a hedged book. They were hedged against the risk they were measuring and unhedged against the risk that arrived. **Beta neutrality is one constraint; factor neutrality is a different and much harder one.**"
+    },
+    {
+      "type": "table",
+      "id": "environments",
+      "caption": "What helps and what hurts",
+      "headers": ["Environment", "Effect", "Why"],
+      "rows": [
+        [
+          "High stock-level dispersion",
+          "Helps",
+          "Wide gaps between winners and losers are the raw material. Direction is irrelevant; separation is everything."
+        ],
+        [
+          "High short-term interest rates",
+          "Helps",
+          "The [[short-rebate]] on short proceeds becomes a real contributor rather than a rounding error."
+        ],
+        [
+          "Falling equity markets",
+          "Neutral by design",
+          "With no net exposure the fund should be indifferent — which is precisely why allocators hold it."
+        ],
+        [
+          "Sharp factor reversal",
+          "Hurts badly",
+          "Unintended shared tilts mean both legs lose at once. The characteristic failure mode."
+        ],
+        [
+          "High correlation, macro-driven markets",
+          "Hurts",
+          "Stocks move together on macro news, so fundamental differences stop being priced and selection has nothing to bite on."
+        ],
+        [
+          "Forced deleveraging across the industry",
+          "Hurts badly",
+          "[[crowded-trade|Crowded]] positions unwind together regardless of fundamentals, and gross exposure amplifies it."
+        ]
+      ]
+    },
+    {
+      "type": "concept",
+      "id": "how-it-blows-up",
+      "body": "**Unintended factor bets.** Covered above, and the most common cause of a surprising loss. The manager believed they were running a stock selection book and were in fact running a style bet.\n\n**Leverage on a small edge.** Because the raw spread between legs is modest, market neutral managers often run high [[gross-exposure]] — 300% or more — to reach a target return. That magnifies everything. A 3% adverse move across a 400% gross book is a 12% loss of capital.\n\n**Crowding and simultaneous deleveraging.** Quantitative market neutral books built on similar signals hold similar positions. When one large participant is forced to reduce, the resulting moves hit everyone running the same book, triggering further reductions. The 2007 quant deleveraging episode is the canonical example: a few days of severe losses in books that were, on their own terms, correctly hedged.\n\n**Borrow and margin.** As with any short book, a [[stock-borrow]] recall or a [[prime-broker]] margin increase forces trading at the worst moment. High gross makes this materially worse, because more of the available financing is already in use."
+    },
+    {
+      "type": "pitfall",
+      "id": "low-vol-illusion",
+      "body": "**Low measured volatility can be leverage waiting to be revealed.** A market neutral fund reporting 4% annualised volatility looks conservative. But if that 4% comes from a 400% gross book on a thin edge, the volatility is low because the *hedges are working*, not because the positions are small.\n\nThe distinction matters because hedges work reliably in normal conditions and fail together in stressed ones. Two funds can both report 4% volatility, one running 100% gross and one running 400%, and they are not remotely the same risk. Always read reported volatility alongside gross exposure, and ask what the worst week looked like rather than what the average month did."
+    },
+    {
+      "type": "onTheJob",
+      "id": "on-the-job",
+      "body": "**Ask for the factor decomposition, not just beta.** A near-zero market beta is table stakes. The question is what the residual is exposed to: size, value, momentum, quality, sector, country. If the manager cannot produce that breakdown, they do not know their own risk.\n\n**Look at gross exposure over time alongside volatility.** Rising gross with flat volatility means the manager is relying more heavily on hedges holding. That is a risk decision, whether or not it is described as one.\n\n**Check the worst week, not the worst month.** Deleveraging events resolve inside days. A monthly return series can show a modest loss while concealing a week that nearly ended the fund.\n\n**Interrogate the crowding.** For quantitative managers especially: how many others are likely running similar signals, and what is the position size relative to average daily volume? Liquidity of the *exit* is the risk, and it is invisible in a return series until it matters."
+    },
+    {
+      "type": "keyTakeaways",
+      "id": "takeaways",
+      "items": [
+        "Net exposure near zero means the return comes from the spread between legs plus the short rebate — with no market return to fall back on.",
+        "Beta neutral is not factor neutral. Unintended style tilts make both legs lose together, which is the characteristic failure.",
+        "A thin edge invites high gross exposure, and gross is where the leverage hides. Read volatility and gross together.",
+        "Crowded quantitative books deleverage simultaneously. Look at the worst week, because these events resolve in days."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "alts-emn-01-q1",
+      "type": "numeric",
+      "difficulty": 2,
+      "tags": ["equity-market-neutral", "return-decomposition"],
+      "concept": "return-driver",
+      "stem": "A market neutral fund runs 100% long and 100% short. Over the year its longs return +9% and the stocks it is short return +3%. Ignoring financing, what is the fund's return, in percent?",
+      "answer": 6,
+      "tolerance": 0.2,
+      "toleranceType": "abs",
+      "unit": "%",
+      "inputHint": "Answer in percent.",
+      "explanation": "(1.00 x 9%) - (1.00 x 3%) = +6%. Net exposure is zero, so none of this came from the market — the whole 6% is the spread between the legs, which is exactly what the structure is designed to isolate."
+    },
+    {
+      "id": "alts-emn-01-q2",
+      "type": "mcq",
+      "difficulty": 2,
+      "tags": ["equity-market-neutral", "definition"],
+      "concept": "what-it-is",
+      "stem": "What most clearly distinguishes equity market neutral from ordinary long/short equity?",
+      "choices": [
+        "Market neutral funds use no leverage",
+        "Market neutral funds deliberately hold net exposure near zero, giving up market return entirely",
+        "Market neutral funds hold only large-cap stocks",
+        "Market neutral funds do not charge performance fees"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Backwards, in fact. Because the edge per position is thin, market neutral funds often run *higher* gross exposure than a typical long/short book.",
+        "Correct. A long/short manager typically stays 30-70% net long and expects market return to contribute. Market neutral gives that up by design, in exchange for a return stream that does not duplicate an equity allocation.",
+        "Market capitalisation has nothing to do with it. Market neutral books exist across the full size spectrum.",
+        "Fee structures are similar. The distinction is structural, not commercial."
+      ],
+      "explanation": "The difference is the deliberate surrender of market exposure. That is what makes market neutral a diversifier and also what removes the manager's fallback: with no beta, a manager who cannot select stocks has no second source of return."
+    },
+    {
+      "id": "alts-emn-01-q3",
+      "type": "tfj",
+      "difficulty": 3,
+      "tags": ["equity-market-neutral", "factor-exposure", "misconception"],
+      "concept": "why-neutral-isnt-safe",
+      "stem": "\"This fund has net exposure of zero, so it is hedged against equity risk.\" True or false — and why?",
+      "isTrue": false,
+      "justifications": [
+        "False — zero net exposure removes market beta but leaves factor exposures, which can make both legs lose together",
+        "False — net exposure of exactly zero is impossible to maintain in practice",
+        "True — zero net exposure is the definition of being hedged against equity risk",
+        "False — because short positions always carry more risk than long positions"
+      ],
+      "justificationIndex": 0,
+      "rationales": [
+        "Correct. Longs concentrated in one style and shorts in its opposite is neutral to the index and heavily exposed to that style. When it reverses, both legs lose simultaneously and the net-zero position offers nothing.",
+        "Exact zero is hard to hold continuously, but that operational point is not why the claim fails. A book at precisely zero net can still lose badly.",
+        "This is the misconception under test. Beta neutrality is one constraint; factor neutrality is a separate and much harder one.",
+        "Shorts do carry asymmetric risk, but that is a different issue and does not explain why a net-zero book can lose on both legs at once."
+      ],
+      "explanation": "Hedged against the risk you measured is not hedged against the risk that arrives. This is why factor decomposition — not just beta — is the substantive question to put to a market neutral manager."
+    },
+    {
+      "id": "alts-emn-01-q4",
+      "type": "mcq",
+      "difficulty": 3,
+      "tags": ["equity-market-neutral", "gross-exposure", "leverage"],
+      "concept": "low-vol-illusion",
+      "stem": "Two market neutral funds both report 4% annualised volatility. Fund A runs 100% gross, Fund B runs 400%. What should you conclude?",
+      "choices": [
+        "They carry equivalent risk, since volatility is the measure of risk",
+        "Fund B's low volatility depends on its hedges holding, so it carries materially more risk of a sharp loss",
+        "Fund A is riskier, because a smaller book is less diversified",
+        "Fund B must have a better manager, achieving the same volatility with more positions"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Identical realised volatility does not imply identical risk. It means both books behaved similarly in the conditions observed — which says nothing about conditions where hedges stop working.",
+        "Correct. Fund B's volatility is low because offsetting positions cancel. In stress those relationships break down, and four times the gross means four times the exposure to that breakdown.",
+        "Diversification helps, but 400% gross on a thin edge is the larger risk consideration by a wide margin.",
+        "More positions is not evidence of skill. Achieving the same volatility on four times the gross means each position contributes less, which is as consistent with a weaker edge as a stronger one."
+      ],
+      "explanation": "Volatility measures what happened, and hedged books behave well right up until they do not. Gross exposure tells you how much is riding on those hedges continuing to work — which is why the two numbers only mean something read together."
+    },
+    {
+      "id": "alts-emn-01-q5",
+      "type": "strategyId",
+      "difficulty": 4,
+      "tags": ["equity-market-neutral", "strategy-identification"],
+      "concept": "how-it-blows-up",
+      "description": "A fund's returns show correlation near zero to equity indices over five years and volatility of about 5%. Then, over four trading days, it loses 11% — while the equity market is roughly flat. The manager reports that positions were within all risk limits and net exposure was under 2% throughout.",
+      "choices": [
+        "A quantitative market neutral book caught in a crowded deleveraging",
+        "A long/short equity fund hit by a market selloff",
+        "A merger arbitrage fund with a large deal break",
+        "A global macro fund wrong-footed on a rate decision"
+      ],
+      "answerIndex": 0,
+      "rationales": [
+        "Correct. Every detail points here: near-zero net exposure, low measured volatility, a flat market, and a severe loss compressed into days. That is crowded positions unwinding simultaneously, not a directional mistake.",
+        "A market selloff cannot explain it — the market was flat, and net exposure under 2% means direction was not the driver.",
+        "A deal break would show as a single-position loss, and merger arb funds are not usually described as market neutral with near-zero equity correlation over five years.",
+        "A macro fund would not report net equity exposure under 2% as its defining risk statistic, and its losses would be traceable to identifiable macro positions."
+      ],
+      "explanation": "The signature is a large loss over days, in a flat market, from a book that was correctly hedged on its own measures. Risk limits were observed and the risk was real anyway — because the limits measured position-level exposure, not how many other funds held the same positions."
+    },
+    {
+      "id": "alts-emn-01-q6",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["equity-market-neutral", "short-rebate", "on-the-job"],
+      "concept": "return-driver",
+      "stem": "A market neutral fund returned 7% in a year when short-term rates were 5%. What should you establish before crediting the manager?",
+      "choices": [
+        "Whether the equity market rose that year",
+        "How much of the return came from the short rebate rather than from stock selection",
+        "Whether the fund's volatility was below its long-run average",
+        "Whether the manager increased gross exposure during the year"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "With net exposure near zero the market's direction should be largely irrelevant, which is the whole point of the structure.",
+        "Correct. With rates at 5%, interest on short sale proceeds net of borrow costs can be a substantial and essentially passive share of a 7% return. Selection skill is what remains after that is stripped out.",
+        "Volatility relative to history is worth knowing but does not address where the return came from.",
+        "Rising gross is worth investigating, but it would amplify selection results rather than substitute for them. The rebate is the passive component."
+      ],
+      "explanation": "In a high-rate environment the short rebate flatters market neutral returns without any skill involved. The same 7% earned when cash paid nothing is a considerably more impressive number, and separating the two is basic diligence."
+    },
+    {
+      "id": "alts-emn-01-q7",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["equity-market-neutral", "diligence", "on-the-job"],
+      "concept": "on-the-job",
+      "stem": "Why is the worst *week* more informative than the worst *month* for a quantitative market neutral fund?",
+      "choices": [
+        "Weekly data is always more statistically reliable than monthly",
+        "Deleveraging events resolve within days, so a monthly figure can average away a week that nearly ended the fund",
+        "Monthly returns are usually estimated rather than actual for these funds",
+        "Weekly volatility annualises more accurately"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "More frequent data is not automatically more reliable, and that general claim is not the reason here.",
+        "Correct. Crowded unwinds happen and partially recover inside a single month. A -2% month can contain a -11% four-day stretch, and the difference between those two facts is the difference between an inconvenience and an existential event.",
+        "Market neutral funds hold liquid listed equities and can mark daily. Estimation is not the issue.",
+        "Annualising is a mechanical point and irrelevant to what the extreme observation reveals."
+      ],
+      "explanation": "Monthly aggregation hides exactly the events that matter for a strategy whose risk is concentrated in rapid deleveraging. Asking for daily or weekly return history is a specific, answerable diligence request, and reluctance to provide it is itself informative."
+    }
+  ],
+  "needsReview": false,
+  "reviewNote": null
+}

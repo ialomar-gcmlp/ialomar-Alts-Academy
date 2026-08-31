@@ -1,0 +1,250 @@
+{
+  "schemaVersion": 1,
+  "id": "alts-cta-01",
+  "domain": "alternatives",
+  "title": "Managed Futures and Trend Following",
+  "summary": "Systematic rules that ride price momentum across dozens of markets, losing patiently and winning in crises.",
+  "level": "core",
+  "prereqs": [],
+  "estMinutes": 10,
+  "examRelevance": ["CAIA-L1", "CAIA-L2", "practical"],
+  "lesson": [
+    {
+      "type": "concept",
+      "id": "what-it-is",
+      "body": "A [[managed-futures]] fund — often called a CTA — trades liquid futures across equities, bonds, currencies and commodities according to systematic rules. The dominant rule is [[trend-following]]: if a market has been rising, be long; if falling, be short. No forecast, no view on value, no opinion about whether the price is justified.\n\nThe design has three defining features.\n\n**Breadth.** A typical programme trades 50 to 200 markets. No single position matters much; the return comes from the aggregate of many small independent bets.\n\n**Systematic and unemotional.** Rules are specified in advance and followed. The manager's judgement goes into designing and maintaining the system, not into individual trades.\n\n**Long or short with equal ease.** Futures make short exposure as cheap and simple as long. This symmetry is what allows the strategy to profit in sustained declines, which is its most valuable property to an allocator."
+    },
+    {
+      "type": "concept",
+      "id": "return-driver",
+      "body": "**The return driver is sustained directional moves — trends that persist long enough to be identified and ridden.**\n\nWhy should trends exist at all? Two explanations are usually offered, and you should be able to state both without endorsing either uncritically. Behavioural: investors underreact to news initially and then overreact, producing drift. Structural: institutional flows, risk management rules and hedging demands produce mechanical price pressure that persists over weeks or months.\n\nWhatever the cause, the empirical pattern the strategy exploits is that price moves have some tendency to continue. The manager does not need to know why.\n\nA second, smaller driver worth knowing: CTAs hold most of their capital as cash margin, so in a high-rate environment the **interest on unencumbered cash** is a real contributor. A CTA returning 6% when cash pays 5% has produced very little from trading, and separating the two is basic diligence."
+    },
+    {
+      "type": "intuition",
+      "id": "the-shape",
+      "body": "Trend following has the opposite return shape to almost everything else in a hedge fund portfolio, and that is the entire reason to own it.\n\n**It is positively [[skewness|skewed]]:** many small losses and occasional large gains. In choppy, directionless markets the system is repeatedly stopped out — entering as a move begins, exiting as it reverses, bleeding a little each time. Then a sustained trend arrives and one position pays for a year of those small losses.\n\n**And it tends to do well precisely when equities do badly.** Not because it predicts crises, but because crises are usually *sustained* moves. Equities fall for months, bonds rally for months, currencies move for months. A trend system positioned short equities and long bonds by the third week of a decline profits from the rest of it.\n\nThis is the mirror image of [[merger-arbitrage]] or option selling. Those collect premiums steadily and pay out in crises; trend following bleeds steadily and collects in crises. **Holding both is not diversification by asset class — it is diversification by return shape**, which is more durable, because the two are structurally rather than statistically opposed.\n\nThe cost is that you must tolerate long stretches of losing money for the property you are buying. Most investors say they will and then do not."
+    },
+    {
+      "type": "table",
+      "id": "environments",
+      "caption": "What helps and what hurts",
+      "headers": ["Environment", "Effect", "Why"],
+      "rows": [
+        [
+          "Sustained directional moves in any market",
+          "Helps most",
+          "Direction is irrelevant — persistence is everything. A long bear market is as good as a bull market."
+        ],
+        [
+          "Crisis with prolonged repricing",
+          "Helps",
+          "Multi-month moves in equities, bonds and currencies are exactly what the system is built to capture."
+        ],
+        [
+          "High cash rates",
+          "Helps",
+          "Most capital sits as margin and unencumbered cash, so interest is a genuine contributor."
+        ],
+        [
+          "Choppy, range-bound markets",
+          "Hurts",
+          "Repeated false signals: enter as a move starts, exit as it reverses. Death by a thousand small losses."
+        ],
+        [
+          "Sharp V-shaped reversals",
+          "Hurts badly",
+          "The system is maximally positioned in the old direction exactly when the turn happens. Trend followers lose most at inflection points."
+        ],
+        [
+          "Sudden crisis with no preceding trend",
+          "Hurts",
+          "A one-day shock gives the system no time to position. Trend following protects against slow crises, not fast ones."
+        ]
+      ]
+    },
+    {
+      "type": "concept",
+      "id": "how-it-blows-up",
+      "body": "**The reversal.** The defining risk. A trend system is by construction most heavily positioned in a direction just as that direction has run furthest — which is also when a reversal is most likely. Losses at turning points are not a flaw in a particular manager's system; they are inherent to the approach.\n\n**Correlated positioning across managers.** Trend systems built on similar price signals reach similar conclusions and hold similar positions. When a trend breaks, many CTAs reduce the same exposures simultaneously, amplifying the move against all of them.\n\n**Leverage through notional exposure.** Futures require modest margin, so notional exposure often runs several times capital. Volatility targeting mitigates this — most programmes size positions inversely to recent volatility — but volatility targeting is backward-looking, so a jump from a calm regime catches the book at its largest.\n\n**Crowded commodity positions in thin markets.** Some markets a CTA trades are much smaller than the equity index futures. Concentrated systematic positioning in those can be difficult to exit.\n\n**Investor behaviour.** The most reliable way to lose money in trend following is to buy it after a strong year — when it has just paid off and trends are mature — and sell it after a bad stretch, immediately before the next crisis. The strategy's shape almost guarantees this pattern, and it destroys more investor returns than any drawdown does."
+    },
+    {
+      "type": "pitfall",
+      "id": "not-crisis-insurance",
+      "body": "**Trend following is not crisis insurance, and selling it as such is a mistake.** It protects against *slow* crises — declines that develop over weeks, giving the system time to reverse positioning. It provides little protection against a genuine one-day shock, because it will still be positioned for the previous regime when the shock lands.\n\nThe honest description is that it has historically been long-volatility in character and has often done well during extended equity declines. That is valuable, and it is not the same as a hedge that pays when you need it on any given morning. If a portfolio needs protection against a gap, options do that job; trend following does a different one."
+    },
+    {
+      "type": "onTheJob",
+      "id": "on-the-job",
+      "body": "**Strip out the cash return.** With rates at 5%, a large part of a CTA's headline return can be interest on margin. Ask for the trading return separately; a reputable manager will have it.\n\n**Ask about the lookback horizon.** Short-term systems (days to weeks) and long-term ones (months) behave differently and are not substitutes. Short-term programmes trade more, cost more, and turn faster at reversals; long-term ones capture more of a big move and give back more at the turn.\n\n**Judge over a full cycle, and mean it.** A CTA assessed over three quiet years will look like a poor investment, because in three quiet years it is one. The allocation only makes sense if you will still hold it when it is uncomfortable, which is precisely when its diversification is about to be worth something.\n\n**Ask about capacity in the smaller markets.** Aggregate assets across the trend-following industry relative to the liquidity of the less deep contracts is a genuine constraint, and managers vary in how honestly they discuss it."
+    },
+    {
+      "type": "keyTakeaways",
+      "id": "takeaways",
+      "items": [
+        "Systematic rules ride persistence across many liquid futures markets, long or short with equal ease.",
+        "Positively skewed: many small losses, occasional large gains. The mirror image of premium-selling strategies, which is why holding both diversifies by return shape rather than by asset class.",
+        "It protects against slow crises, not one-day shocks — the system will still be positioned for the old regime when a gap arrives.",
+        "The worst risk is behavioural: buying after a strong year and selling after a weak stretch, which the strategy's shape almost invites."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "alts-cta-01-q1",
+      "type": "mcq",
+      "difficulty": 2,
+      "tags": ["managed-futures", "trend-following", "return-driver"],
+      "concept": "return-driver",
+      "stem": "What does a trend-following system need in order to make money?",
+      "choices": [
+        "Markets to rise",
+        "Price moves that persist long enough to be identified and ridden",
+        "Accurate forecasts of economic data",
+        "Low volatility across the markets it trades"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Direction is irrelevant. Futures make short positions as easy as long, so a sustained decline is as profitable as a sustained rise.",
+        "Correct. The strategy needs persistence, not direction. A move that continues for months is the raw material; one that reverses quickly is a loss whichever way it went.",
+        "Trend followers make no forecasts. The system responds to prices that have already moved, which is what makes it systematic rather than discretionary.",
+        "Low volatility with no direction is one of the worst environments — repeated false signals and steady small losses."
+      ],
+      "explanation": "Persistence rather than direction is the distinction that makes the strategy work as a diversifier: it can profit from a bear market as readily as a bull market, which almost nothing else in a portfolio does."
+    },
+    {
+      "id": "alts-cta-01-q2",
+      "type": "mcq",
+      "difficulty": 3,
+      "tags": ["trend-following", "skewness", "portfolio-construction"],
+      "concept": "the-shape",
+      "stem": "Why is holding both trend following and merger arbitrage considered genuine diversification?",
+      "choices": [
+        "They trade different asset classes",
+        "Their return shapes are structurally opposed — one bleeds and pays in crises, the other collects premiums and pays out in crises",
+        "Their historical correlation is negative",
+        "Trend following is systematic and merger arbitrage is discretionary"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "They do trade different assets, but asset-class diversification is the weaker argument — assets can converge in stress while structurally opposed payoffs cannot.",
+        "Correct. Trend following is positively skewed and merger arb negatively skewed. That opposition comes from what each strategy *is*, so it is more durable than any measured correlation.",
+        "Their measured correlation is typically low rather than reliably negative, and correlations are unstable. Structure is the sounder basis.",
+        "The systematic/discretionary distinction is real but says nothing about how the two return streams interact."
+      ],
+      "explanation": "Diversifying by return shape is more robust than diversifying by asset class or by historical correlation, because it rests on the mechanism generating the returns rather than on a statistic that can change."
+    },
+    {
+      "id": "alts-cta-01-q3",
+      "type": "tfj",
+      "difficulty": 3,
+      "tags": ["trend-following", "crisis", "misconception"],
+      "concept": "not-crisis-insurance",
+      "stem": "\"Trend following is a hedge against market crashes.\" True or false — and why?",
+      "isTrue": false,
+      "justifications": [
+        "False — it profits from crises that develop over weeks, but is still positioned for the old regime when a one-day shock hits",
+        "False — trend following has no relationship with equity market performance",
+        "True — trend followers reliably profit whenever equities fall sharply",
+        "False — because futures cannot be used to take short positions"
+      ],
+      "justificationIndex": 0,
+      "rationales": [
+        "Correct. The system needs time to reverse its positioning. A slow decline it will capture; a gap it will be caught by, because on the morning of the shock it still holds yesterday's trend.",
+        "Overcorrection. There is a well-documented tendency to do well in extended equity declines — the claim is too strong, not baseless.",
+        "This is the misconception. \"Reliably\" and \"sharply\" are both wrong: it depends on whether the fall is sustained enough to be traded.",
+        "Factually incorrect — the ease of shorting futures is central to how the strategy works."
+      ],
+      "explanation": "The distinction between slow and fast crises is the honest version of the crisis-protection claim. If a portfolio needs protection against a gap, options provide it; trend following provides something different and often more affordable."
+    },
+    {
+      "id": "alts-cta-01-q4",
+      "type": "mcq",
+      "difficulty": 3,
+      "tags": ["managed-futures", "cash-return", "on-the-job"],
+      "concept": "return-driver",
+      "stem": "A CTA returned 6% in a year when short-term rates averaged 5%. What should you establish?",
+      "choices": [
+        "Whether equities rose that year",
+        "How much of the 6% was interest on margin and unencumbered cash rather than trading profit",
+        "Whether the fund increased its number of markets traded",
+        "Whether the fund's volatility target changed"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Equity direction is largely irrelevant to a strategy that trades dozens of markets long and short.",
+        "Correct. CTAs hold most capital as cash and margin, so at 5% rates the interest component can account for most of a 6% headline. The trading return is what you are paying fees for.",
+        "Market count affects diversification but does not explain the composition of the return.",
+        "A change in volatility target would matter for risk, but does not separate interest from trading profit."
+      ],
+      "explanation": "This is the same lesson as the market neutral short rebate: in a high-rate environment, cash flatters strategies that hold a lot of it. Asking for the trading return net of interest is a simple, answerable request."
+    },
+    {
+      "id": "alts-cta-01-q5",
+      "type": "strategyId",
+      "difficulty": 4,
+      "tags": ["trend-following", "strategy-identification"],
+      "concept": "the-shape",
+      "description": "A fund lost 3-6% in each of four consecutive calendar years while equities rose steadily, then gained 38% in a year when equities fell 19% over eight months and bonds sold off persistently. It trades over 100 liquid futures contracts, holds no single position above 3% of risk, and follows rules with no discretionary override.",
+      "choices": [
+        "A trend-following managed futures programme",
+        "A global macro fund",
+        "A convertible arbitrage fund",
+        "A long volatility options strategy"
+      ],
+      "answerIndex": 0,
+      "rationales": [
+        "Correct. Over 100 markets, strict position limits, no discretion, years of small losses in a rising equity market, then a large gain during a sustained multi-month decline. That is trend following exactly.",
+        "Macro would hold far fewer positions and would involve discretionary judgement rather than rules with no override.",
+        "Convertible arbitrage trades convertible bonds against their underlying equity, not a hundred futures markets, and does not produce this pattern.",
+        "Long volatility would bleed similarly in calm years but profits from volatility spikes rather than from sustained directional moves, and would not be described as trading 100 futures on trend rules."
+      ],
+      "explanation": "The tell is the combination: extreme breadth with tight position limits, zero discretion, and a return pattern of patient small losses followed by a large gain during an extended repricing. The eight-month duration of the equity decline is what made it capturable."
+    },
+    {
+      "id": "alts-cta-01-q6",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["trend-following", "how-it-blows-up", "reversal"],
+      "concept": "how-it-blows-up",
+      "stem": "Why are sharp V-shaped reversals the characteristic worst case for trend following?",
+      "choices": [
+        "Because reversals usually happen when volatility is low",
+        "Because the system is by construction most heavily positioned in a direction just as that direction has run furthest",
+        "Because futures markets close during sharp reversals",
+        "Because trend followers use stop losses, which do not work in reversals"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Reversals often coincide with rising volatility, and volatility targeting would reduce positions in that case. The timing of volatility is not the mechanism.",
+        "Correct. Position size grows with the strength and duration of a trend, so the book is at its largest precisely when the move is most extended — and therefore most vulnerable to turning.",
+        "Futures markets remain open and liquid through reversals; that is one of the strategy's advantages.",
+        "Stop losses do function, and they are what limits the damage. They cannot prevent the loss incurred between the peak position and the exit."
+      ],
+      "explanation": "This is structural rather than a failing of any particular system. Maximum conviction coincides with maximum extension, so losses at inflection points are the price of participating in trends at all — and no amount of system refinement removes it."
+    },
+    {
+      "id": "alts-cta-01-q7",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["trend-following", "investor-behaviour", "on-the-job"],
+      "concept": "how-it-blows-up",
+      "stem": "What is the most common way investors lose money in trend following, even when the manager performs as designed?",
+      "choices": [
+        "Paying performance fees in good years",
+        "Buying after a strong year and redeeming after a weak stretch — exiting just before the diversification is needed",
+        "Failing to hedge the currency exposure of the fund",
+        "Choosing a short-term rather than a long-term system"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Fees are a genuine cost but they are not the dominant destroyer of realised investor returns here.",
+        "Correct. The strategy's shape — years of small losses, then a large gain — almost invites this. Allocating after the payoff and redeeming during the bleed converts a diversifier into a reliable loss.",
+        "Currency exposure is usually managed at the fund level and is not the main source of investor disappointment.",
+        "Lookback horizon matters for the character of the returns, but either can work. Timing behaviour does more damage than the choice between them."
+      ],
+      "explanation": "The gap between fund returns and investor returns is unusually wide in this strategy. The allocation only earns its diversification if it is held through the uncomfortable stretch, which is exactly when the case for holding it feels weakest."
+    }
+  ],
+  "needsReview": false,
+  "reviewNote": null
+}

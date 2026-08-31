@@ -544,7 +544,7 @@ One domain per batch, validated, pause between batches. Keep this current.
 |---|---|---|
 | quantitative-methods | 10 | **done** — tvm-01/02, npv-01, ret-01, stat-01, dist-01, prob-01, bayes-01, hyp-01, reg-01 |
 | economics | 1 | seeded only (econ-curve-01) |
-| alternatives | 1 | seeded only (alts-lse-01) — the deepest domain, one topic per HF strategy |
+| alternatives | 11 | **hedge fund strategies done** — lse, emn, merger, macro, cta, event, distressed, convert, firv, statarb, multistrat. Private markets (PE, credit, real assets, fund-of-funds) still to do. |
 | financial-statement-analysis | 0 | not started |
 | corporate-issuers | 0 | not started |
 | equity-valuation | 0 | not started |
@@ -559,6 +559,24 @@ One domain per batch, validated, pause between batches. Keep this current.
 **Verify the arithmetic before writing it.** Every numeric answer in the quant batch was computed in
 Python first and the result pasted into the content, never typed from memory. Two figures were wrong
 on first attempt and would otherwise have shipped.
+
+**Scan for unmarked jargon at the end of every batch.** The brief is explicit that every piece of
+specialist language must be defined at point of use, and prose written at speed does not comply on its
+own. The alternatives batch shipped its first draft using *repo*, *haircut*, *indenture*, *seniority*,
+*capital structure*, *implied volatility*, *carry*, *on-the-run*, *pod* and *fulcrum security* without
+markup — 15 terms then had to be added and marked up in a follow-up pass. Cheaper to scan as you go:
+
+```bash
+python -c "import io,glob,re;[print(f,[c for c in ['repo','haircut','indenture','seniority','carry','pod','basis point'] if re.search(r''+c+r'',re.sub(r'\[\[[a-z0-9-]+(\|[^\]]+)?\]\]','',io.open(f,encoding='utf-8').read()),re.I)]) for f in glob.glob('content/*/*.json')]"
+```
+
+Note the orphan check in `content:check` catches the reverse error (a term defined but never
+referenced) but cannot catch this one — undefined jargon in prose is invisible to it, because there is
+no markup to resolve.
+
+**Watch for duplicate JSON keys.** Two topics shipped a lesson block with `"id"` written twice.
+`json.load` silently keeps the last and Zod parses it happily. Scan with
+`json.load(..., object_pairs_hook=...)` after each batch.
 
 **Run a structural audit after each batch, on top of `content:check`.** The schema cannot catch a
 misaligned `answerIndex`, because every index in range is structurally valid. This does:

@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "domain": "derivatives",
+  "terms": [
+    {
+      "slug": "delta",
+      "term": "delta",
+      "plain": "How much an option-like instrument's value moves for a small move in the thing it is based on. A delta of 0.60 means it captures about 60% of the share price move.",
+      "formal": "The first derivative of an instrument's value with respect to the price of the underlying. Used as the hedge ratio: shorting delta times the conversion ratio in shares neutralises small price moves.",
+      "seeAlso": [
+        "gamma",
+        "convertible-bond",
+        "convertible-arbitrage"
+      ]
+    },
+    {
+      "slug": "gamma",
+      "term": "gamma",
+      "plain": "How much the delta itself changes as the underlying moves. Positive gamma is what lets a hedged position mechanically sell high and buy low as it rebalances.",
+      "formal": "The second derivative of value with respect to the underlying price, equivalently the rate of change of delta. Long gamma positions profit from realised movement in either direction through rehedging.",
+      "seeAlso": [
+        "delta",
+        "convertible-arbitrage",
+        "volatility"
+      ]
+    },
+    {
+      "slug": "implied-volatility",
+      "term": "implied volatility",
+      "plain": "How much movement an option's price implies the market expects. Not a forecast and not history, but what you are paying for, backed out of the option's price.",
+      "formal": "The volatility input that equates a model price to the observed market price of an option. Distinct from realised volatility, and the quantity a long-volatility strategy seeks to buy cheaply.",
+      "seeAlso": [
+        "volatility",
+        "vega",
+        "convertible-arbitrage"
+      ]
+    },
+    {
+      "slug": "vega",
+      "term": "vega",
+      "plain": "How much an option-like position gains or loses when implied volatility changes. Separate from gains made from the underlying actually moving.",
+      "formal": "The sensitivity of an instrument's value to a change in implied volatility. A delta-hedged convertible book is typically long vega as well as long gamma.",
+      "seeAlso": [
+        "implied-volatility",
+        "gamma",
+        "delta"
+      ]
+    }
+  ]
+}

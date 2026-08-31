@@ -1,0 +1,220 @@
+{
+  "schemaVersion": 1,
+  "id": "alts-distressed-01",
+  "domain": "alternatives",
+  "title": "Distressed Debt",
+  "summary": "Buying the debt of companies in or near default, where the return comes from the recovery process rather than from the market.",
+  "level": "advanced",
+  "prereqs": ["alts-event-01"],
+  "estMinutes": 10,
+  "examRelevance": ["CAIA-L1", "CAIA-L2", "practical"],
+  "lesson": [
+    {
+      "type": "concept",
+      "id": "what-it-is",
+      "body": "[[distressed-debt]] investing means buying the obligations of companies in serious financial trouble — in default, heading there, or restructuring — at prices far below face value.\n\nA bond with a face value of 100 might trade at 42 because the market expects the company to reorganise and the holder to receive rather less than 100. The distressed investor's question is not \"will this company recover?\" but a narrower and more answerable one: **\"what will this specific claim receive when the capital structure is reorganised, and is 42 less than that?\"**\n\nThere are two broad postures, and they are genuinely different businesses.\n\n**Passive or trading distressed.** Buy an undervalued claim, wait for the process to resolve, sell. The edge is analysis of documentation and recovery values.\n\n**Active or control distressed.** Buy enough of a strategic class of debt to influence the reorganisation — sometimes converting into the post-restructuring equity and owning the business. The edge is legal and negotiating skill on top of the analysis, and holding periods run to years."
+    },
+    {
+      "type": "concept",
+      "id": "return-driver",
+      "body": "**The return driver is the gap between the price paid and the eventual recovery on that claim.**\n\nBuy at 42 and recover 65 and you have made 54.8%, regardless of what equity markets did while you waited. Buy at 42 and recover 30 and you have lost 28.6%.\n\nWhat determines recovery is not the company's prospects in general but **where your claim sits in the [[capital-structure]]**. [[seniority|Seniority]] decides who is paid first, and in a reorganisation the difference between senior secured and subordinated debt is frequently the difference between near-full recovery and nothing. This is why distressed analysis is more legal than financial: the [[indenture]], the collateral, the intercreditor agreement and the jurisdiction determine the outcome, and two claims on the same failing company can have completely unrelated returns.\n\nA further point that surprises people: **the company failing is not the risk.** The failure is assumed and priced. The risk is being wrong about recovery, about seniority, or about how long the process takes."
+    },
+    {
+      "type": "intuition",
+      "id": "why-illiquidity-pays",
+      "body": "Distressed opportunities exist because of a forced-seller dynamic that is remarkably reliable.\n\nWhen a company deteriorates, a large set of holders become unable to own its debt, regardless of price. Investment grade mandates prohibit defaulted securities. Insurance companies face capital charges. Index funds must sell on exclusion. Banks want the exposure off their books before a reporting date. None of these sellers are making a judgement about value — they are complying with a constraint.\n\nSo the buyer is being paid for three distinct things, and it is worth separating them:\n\n1. **Bearing genuine credit risk** — the company might recover less than expected.\n2. **Providing liquidity** to constrained sellers who must transact.\n3. **Doing difficult, slow work** — reading documents, engaging in a legal process, waiting years.\n\nOnly the first is risk in the usual sense. The second and third are compensation for capabilities and patience, which is why distressed returns have historically been attractive to those who genuinely have both — and why they are poor for anyone who has to sell in a hurry."
+    },
+    {
+      "type": "table",
+      "id": "environments",
+      "caption": "What helps and what hurts",
+      "headers": ["Environment", "Effect", "Why"],
+      "rows": [
+        [
+          "Rising default rates",
+          "Helps",
+          "More opportunity set. Distressed managers do their buying when everyone else is selling."
+        ],
+        [
+          "Forced selling by constrained holders",
+          "Helps most",
+          "The cleanest form of the opportunity: sellers transacting for reasons unrelated to value."
+        ],
+        [
+          "Creditor-friendly legal regimes",
+          "Helps",
+          "Predictable, enforceable processes make recovery analysis reliable rather than speculative."
+        ],
+        [
+          "Long benign credit cycle",
+          "Hurts",
+          "Nothing defaults, spreads are tight, and the strategy has little to buy. Distressed funds can wait years."
+        ],
+        [
+          "Abundant rescue financing",
+          "Hurts",
+          "Companies that should restructure are refinanced instead, deferring the opportunity and often worsening eventual recoveries."
+        ],
+        [
+          "Weak or unpredictable insolvency law",
+          "Hurts badly",
+          "Recovery analysis depends on enforceable priority. Where it is not enforceable, the analysis is guesswork."
+        ]
+      ]
+    },
+    {
+      "type": "concept",
+      "id": "how-it-blows-up",
+      "body": "**Being wrong about seniority or collateral.** The most fundamental error. A claim you believed was secured turns out to be structurally subordinated, or the collateral sits in an entity your claim cannot reach. This is a documentation failure, not a market event, and it is unrecoverable.\n\n**[[liability-management|Liability management exercises]].** Increasingly common and worth understanding: a company and a subset of creditors agree a transaction that moves collateral out of reach, or issues new debt ranking ahead of yours. Creditors who thought they were senior discover they have been subordinated with their own indenture's permission. Analysing this risk means reading the covenants, not the credit metrics.\n\n**Process duration.** A restructuring expected to take eighteen months takes four years. The recovery may be as modelled, but the annualised return collapses and capital was locked the whole time.\n\n**Illiquidity when you need out.** These are thin markets by nature. A distressed fund facing redemptions may have to sell claims at whatever the few available buyers offer — and those buyers know the seller is constrained.\n\n**Correlated timing.** Defaults cluster. A manager who is fully invested when the cycle turns finds every position deteriorating at once, with no capital left to buy the better opportunities the same conditions are creating."
+    },
+    {
+      "type": "pitfall",
+      "id": "marks",
+      "body": "**Reported valuations in distressed books deserve particular scepticism.** Many claims trade rarely, so marks are model-based or drawn from thin quotes. That has two consequences you should expect rather than be surprised by: reported [[volatility]] understates true risk, and reported returns are smoothed relative to what a liquidation would realise.\n\nSo the usual measures mislead in the usual direction. A distressed fund showing lower volatility than a high yield bond fund is telling you about marking practice. The questions worth asking are what fraction of the book has traded recently, who provides the marks, and what an independent valuation would say — not what the volatility figure is."
+    },
+    {
+      "type": "onTheJob",
+      "id": "on-the-job",
+      "body": "**Ask where in the capital structure the manager plays, and why.** A consistent answer — senior secured only, or [[fulcrum-security]] specialists — indicates a defined edge. A manager who moves around opportunistically may be genuinely flexible or may lack a specialism, and the difference matters.\n\n**Ask about liability management risk explicitly.** Whether a manager can describe how recent aggressive creditor-on-creditor transactions worked, and how their documentation review guards against them, is one of the fastest reads on their sophistication available.\n\n**Ask about expected versus realised process duration** on closed positions. Systematic optimism about timelines shows up as returns below underwriting, and it compounds.\n\n**Match the fund's liquidity terms to the strategy.** Distressed work requires years. A distressed strategy offering quarterly liquidity is either not doing the work it claims or is exposed to a forced-sale spiral. Lock-ups here are a feature, not a concession.\n\n**Ask what they are doing now.** A distressed manager fully invested at the top of a benign credit cycle has usually stretched their mandate to stay busy."
+    },
+    {
+      "type": "keyTakeaways",
+      "id": "takeaways",
+      "items": [
+        "The return is the gap between price paid and recovery on your specific claim. The company failing is assumed and priced.",
+        "Seniority, collateral and documentation determine recovery. Two claims on the same company can have unrelated outcomes.",
+        "The opportunity comes from constrained sellers, and the compensation is for credit risk, liquidity provision and slow legal work.",
+        "Liability management exercises can subordinate creditors using their own indenture. That risk is found in covenants, not credit metrics."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "alts-distressed-01-q1",
+      "type": "numeric",
+      "difficulty": 2,
+      "tags": ["distressed-debt", "recovery"],
+      "concept": "return-driver",
+      "stem": "You buy a bond at 42 on a face value of 100. The restructuring eventually delivers a recovery of 65. What is your return, in percent?",
+      "answer": 54.76,
+      "tolerance": 0.5,
+      "toleranceType": "abs",
+      "unit": "%",
+      "inputHint": "Answer in percent, to 1 or 2 decimal places.",
+      "explanation": "(65 - 42) / 42 = 54.76%. Note the denominator is what you paid, not the face value — the return is on capital committed. Face value matters only as the reference for the recovery percentage."
+    },
+    {
+      "id": "alts-distressed-01-q2",
+      "type": "mcq",
+      "difficulty": 3,
+      "tags": ["distressed-debt", "seniority", "return-driver"],
+      "concept": "return-driver",
+      "stem": "Two funds both buy debt of the same failing company at similar prices, and one recovers nearly in full while the other recovers almost nothing. What most likely explains it?",
+      "choices": [
+        "One fund negotiated better than the other",
+        "The claims sat at different points in the capital structure, with different seniority and collateral",
+        "One fund held for longer than the other",
+        "The company's fortunes changed between the two purchases"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Negotiating skill matters in control situations, but it cannot overcome a structurally subordinated claim. Priority is decided before anyone sits down.",
+        "Correct. Seniority and collateral determine who is paid and in what order. Claims on the same company can have completely unrelated recoveries, which is why the analysis is documentary rather than about the business.",
+        "Holding period affects annualised return, not the recovery on the claim.",
+        "The same company's prospects apply to both. What differs is the position in the queue."
+      ],
+      "explanation": "This is the central insight of the strategy: you are not buying a company, you are buying a specific claim with specific rights. \"Which security?\" matters more than \"which company?\"."
+    },
+    {
+      "id": "alts-distressed-01-q3",
+      "type": "mcq",
+      "difficulty": 3,
+      "tags": ["distressed-debt", "forced-sellers", "return-driver"],
+      "concept": "why-illiquidity-pays",
+      "stem": "Why does distressed debt frequently trade below any reasonable estimate of recovery value?",
+      "choices": [
+        "Because analysts systematically overestimate recovery rates",
+        "Because many holders are prohibited from owning defaulted debt and must sell regardless of price",
+        "Because the securities cannot legally be held by hedge funds",
+        "Because the eventual recovery is genuinely unknowable"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Estimation error runs in both directions and does not explain a persistent one-way discount.",
+        "Correct. Investment grade mandates, insurance capital rules, index exclusion and bank reporting pressures all force sales for reasons unrelated to value. That is the structural source of the opportunity.",
+        "Backwards — hedge funds are among the few holders who *can* own these securities, which is precisely why they are the buyers.",
+        "Recovery is uncertain but far from unknowable; it is estimable from documentation and asset values. Uncertainty alone would not produce a systematic discount."
+      ],
+      "explanation": "Naming the mechanism is what makes the opportunity credible. Forced sellers acting under constraints rather than judgement is a specific, observable phenomenon — and it also explains why the opportunity is largest when credit conditions are worst."
+    },
+    {
+      "id": "alts-distressed-01-q4",
+      "type": "tfj",
+      "difficulty": 4,
+      "tags": ["distressed-debt", "liability-management", "documentation"],
+      "concept": "how-it-blows-up",
+      "stem": "\"We hold senior secured debt, so our recovery is protected.\" True or false — and why?",
+      "isTrue": false,
+      "justifications": [
+        "False — liability management exercises can move collateral or issue debt ranking ahead, sometimes with the existing indenture's permission",
+        "False — senior secured debt has no priority in a restructuring",
+        "True — senior secured is the highest claim and is therefore protected",
+        "False — because secured claims are always challenged in bankruptcy"
+      ],
+      "justificationIndex": 0,
+      "rationales": [
+        "Correct. If the documentation permits it, a company and a cooperative subset of creditors can transfer collateral to an unrestricted subsidiary or raise new priority debt. Holders who believed themselves senior find they have been subordinated within the terms they agreed to.",
+        "Factually wrong — senior secured genuinely does rank first on the collateral it holds. The point is that what counts as its collateral can be changed.",
+        "The label is right and the conclusion does not follow. Protection depends on the covenants, not on the name of the tranche.",
+        "Challenges happen but are not routine or usually decisive. The real risk is a permitted transaction, not litigation."
+      ],
+      "explanation": "This is the risk that has changed most in recent years. The protection lives in the covenant package rather than in the tranche label, which means the analysis is a documentation exercise — and it is why asking a manager to explain their covenant review is such a fast read on their sophistication."
+    },
+    {
+      "id": "alts-distressed-01-q5",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["distressed-debt", "liquidity-terms", "on-the-job"],
+      "concept": "on-the-job",
+      "stem": "A distressed fund offers quarterly redemption with 30 days' notice. Why is that a concern?",
+      "choices": [
+        "Quarterly liquidity is unusual and suggests the manager lacks investor demand",
+        "Restructuring processes take years, so a liquidity mismatch risks forced sales into thin markets at the worst time",
+        "Distressed funds are prohibited from offering quarterly liquidity",
+        "It means the fund cannot use leverage"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Redemption terms reflect the manager's chosen structure, not their popularity.",
+        "Correct. The strategy requires holding illiquid claims through multi-year legal processes. Frequent redemption rights mean redemptions can arrive exactly when the claims are hardest to sell — forcing sales to buyers who know you are constrained.",
+        "No such prohibition exists. Some funds do offer it, which is the problem rather than the impossibility.",
+        "Liquidity terms and leverage are separate matters entirely."
+      ],
+      "explanation": "This is the clearest case in alternatives where lock-ups protect the investor rather than the manager. Terms mismatched to the strategy's horizon create a forced-sale mechanism, and the first redeemers are effectively paid by those who stay."
+    },
+    {
+      "id": "alts-distressed-01-q6",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["distressed-debt", "cycle", "on-the-job"],
+      "concept": "on-the-job",
+      "stem": "A distressed manager reports being fully invested after several years of very low default rates. What should that prompt you to ask?",
+      "choices": [
+        "Nothing — a manager should always be fully invested",
+        "Whether they have stretched their mandate into less distressed, lower-return situations to stay deployed",
+        "Whether they have enough staff to manage the positions",
+        "Whether their fee structure rewards being invested"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Being fully invested when there is little genuine distress to buy is a warning rather than a virtue. Patience is part of this strategy.",
+        "Correct. With nothing genuinely distressed available, staying fully deployed usually means buying stressed-but-not-distressed credit, or performing credit at tight spreads — a materially different risk and return profile from what was underwritten.",
+        "Staffing matters operationally but does not address why the book is fully invested in a benign cycle.",
+        "Fee incentives to deploy are a real conflict worth noting, but the substantive question is what they actually bought."
+      ],
+      "explanation": "Mandate drift is the quiet risk in cyclical strategies. A distressed fund that has been fully invested through a benign cycle may have become a high yield fund with distressed fees, and the returns will look adequate until the cycle turns."
+    }
+  ],
+  "needsReview": false,
+  "reviewNote": null
+}

@@ -3,6 +3,40 @@
   "domain": "alternatives",
   "terms": [
     {
+      "slug": "carry",
+      "term": "carry",
+      "plain": "What a position earns or costs simply for being held, before any price move: coupons received, interest paid on borrowings, financing costs.",
+      "formal": "The net income or cost of holding a position over time, excluding price appreciation. Comprises coupon or dividend income less financing and borrow costs.",
+      "seeAlso": [
+        "short-rebate",
+        "repo",
+        "convertible-arbitrage"
+      ]
+    },
+    {
+      "slug": "convertible-arbitrage",
+      "term": "convertible arbitrage",
+      "plain": "Buying a convertible bond and shorting the right amount of its underlying stock, so you profit from how much the share price moves rather than which way.",
+      "formal": "A strategy holding convertible bonds delta-hedged with short equity, monetising cheap embedded volatility through gamma trading while retaining or hedging the credit component.",
+      "seeAlso": [
+        "convertible-bond",
+        "delta",
+        "gamma",
+        "gross-exposure"
+      ]
+    },
+    {
+      "slug": "convertible-bond",
+      "term": "convertible bond",
+      "plain": "A bond the holder can swap for a fixed number of the issuer's shares. It is a bond and a call option on the equity at the same time.",
+      "formal": "A debt instrument carrying an embedded option to convert into a specified number of the issuer's shares, giving it combined credit, interest rate and equity option sensitivities.",
+      "seeAlso": [
+        "convertible-arbitrage",
+        "delta",
+        "gamma"
+      ]
+    },
+    {
       "slug": "crowded-trade",
       "term": "crowded trade",
       "plain": "A position that lots of managers hold at the same time. It feels like your own idea but behaves like everyone else's, so when one large holder sells, everybody's position moves against them at once.",
@@ -25,6 +59,17 @@
       ]
     },
     {
+      "slug": "distressed-debt",
+      "term": "distressed debt",
+      "plain": "Buying the debt of companies in or near default at a large discount, betting the eventual recovery on your particular claim is worth more than you paid.",
+      "formal": "Investment in obligations of financially troubled issuers at prices reflecting expected recovery. Returns depend on the claim's seniority, collateral and the insolvency regime rather than on the issuer's prospects generally.",
+      "seeAlso": [
+        "event-driven",
+        "private-credit",
+        "leveraged-buyout"
+      ]
+    },
+    {
       "slug": "equity-market-neutral",
       "term": "equity market neutral",
       "plain": "A strategy that deliberately keeps long and short positions roughly balanced, so returns come from stock selection rather than from the market going up or down.",
@@ -34,6 +79,50 @@
         "net-exposure",
         "alpha",
         "beta"
+      ]
+    },
+    {
+      "slug": "event-driven",
+      "term": "event driven",
+      "plain": "Strategies whose outcome depends on a specific corporate action completing — a takeover, a spin-off, a restructuring — rather than on where markets go.",
+      "formal": "A family of strategies positioning around identifiable corporate catalysts, where return depends on the event's resolution rather than on market direction. Individually idiosyncratic, collectively dependent on financing conditions.",
+      "seeAlso": [
+        "merger-arbitrage",
+        "distressed-debt",
+        "hedge-fund"
+      ]
+    },
+    {
+      "slug": "fixed-income-relative-value",
+      "term": "fixed income relative value",
+      "plain": "Trading tiny price differences between near-identical bonds, using heavy borrowing to make small spreads worthwhile. The strategy behind the most famous hedge fund failure.",
+      "formal": "Strategies exploiting expected convergence between closely related fixed income instruments, matched on duration and typically levered many times, dependent on repo financing to hold positions to convergence.",
+      "seeAlso": [
+        "duration",
+        "yield-curve",
+        "value-at-risk"
+      ]
+    },
+    {
+      "slug": "fulcrum-security",
+      "term": "fulcrum security",
+      "plain": "The layer of a failing company's debt that gets converted into ownership of the reorganised business. Above it, holders are paid; below it, holders get little or nothing.",
+      "formal": "The claim at which value breaks in a restructuring, typically converting into post-reorganisation equity. Identifying it correctly is the central analytical task in control distressed investing.",
+      "seeAlso": [
+        "distressed-debt",
+        "seniority",
+        "capital-structure"
+      ]
+    },
+    {
+      "slug": "global-macro",
+      "term": "global macro",
+      "plain": "Taking views on big-picture variables — interest rates, currencies, policy — and expressing them wherever the trade is cleanest. Few positions, large sizes.",
+      "formal": "A discretionary strategy positioning across asset classes on macroeconomic and policy judgements, typically concentrated, derivatives-intensive, and lacking any convergence mechanism to correct a wrong view.",
+      "seeAlso": [
+        "managed-futures",
+        "multi-strategy",
+        "hedge-fund"
       ]
     },
     {
@@ -59,6 +148,17 @@
       ]
     },
     {
+      "slug": "hit-rate",
+      "term": "hit rate",
+      "plain": "The share of trades that make money. A high hit rate is not the same as a profitable strategy: it depends entirely on how big the wins are against the losses.",
+      "formal": "The proportion of positions producing a gain. Uninformative without the average magnitude of gains and losses; systematic strategies operate profitably at hit rates barely above 50%.",
+      "seeAlso": [
+        "statistical-arbitrage",
+        "skewness",
+        "merger-arbitrage"
+      ]
+    },
+    {
       "slug": "leveraged-buyout",
       "term": "leveraged buyout (LBO)",
       "plain": "Buying a company using a large amount of borrowed money, with the company's own cash flows expected to service the debt.",
@@ -67,6 +167,17 @@
         "private-credit",
         "floating-rate",
         "j-curve"
+      ]
+    },
+    {
+      "slug": "liability-management",
+      "term": "liability management exercise",
+      "plain": "A transaction where a company and some of its creditors rearrange the debt in a way that leaves other creditors worse off, often moving collateral out of reach using permissions in the original documents.",
+      "formal": "A negotiated restructuring transaction, frequently involving collateral transfers or priming debt issuance, that alters relative creditor priority within the terms permitted by existing documentation.",
+      "seeAlso": [
+        "indenture",
+        "seniority",
+        "distressed-debt"
       ]
     },
     {
@@ -92,6 +203,17 @@
       ]
     },
     {
+      "slug": "managed-futures",
+      "term": "managed futures (CTA)",
+      "plain": "Funds that trade liquid futures across many markets by systematic rules, most commonly following price trends. They can go short as easily as long.",
+      "formal": "Systematic programmes trading exchange-listed futures across equities, rates, currencies and commodities, predominantly trend-following, holding most capital as cash margin.",
+      "seeAlso": [
+        "trend-following",
+        "global-macro",
+        "skewness"
+      ]
+    },
+    {
       "slug": "margin-call",
       "term": "margin call",
       "plain": "A demand from your broker to post more cash or cut positions, because the collateral backing your borrowing is no longer enough. It usually arrives at the worst possible moment.",
@@ -114,6 +236,17 @@
       ]
     },
     {
+      "slug": "multi-strategy",
+      "term": "multi-strategy",
+      "plain": "Several different hedge fund strategies inside one vehicle, with the centre moving capital between them. Diversified in returns, concentrated in one balance sheet.",
+      "formal": "A single vehicle allocating capital across multiple distinct strategies under one risk and financing framework, adding return through capital allocation but removing the firewall between strategies that separate funds provide.",
+      "seeAlso": [
+        "hedge-fund",
+        "global-macro",
+        "gross-exposure"
+      ]
+    },
+    {
       "slug": "net-exposure",
       "term": "net exposure",
       "plain": "Long positions minus short positions, as a percentage of the fund's capital. It tells you how much market risk the fund is actually carrying.",
@@ -123,6 +256,17 @@
         "beta",
         "equity-market-neutral",
         "net-asset-value"
+      ]
+    },
+    {
+      "slug": "pod",
+      "term": "pod",
+      "plain": "A semi-autonomous trading team inside a larger fund, running its own book with its own risk limits and its own share of the profits it makes.",
+      "formal": "An independently managed portfolio within a multi-manager platform, allocated capital and risk limits centrally, typically compensated on its own performance rather than the fund's.",
+      "seeAlso": [
+        "multi-strategy",
+        "hedge-fund",
+        "performance-attribution"
       ]
     },
     {
@@ -182,6 +326,17 @@
       ]
     },
     {
+      "slug": "statistical-arbitrage",
+      "term": "statistical arbitrage",
+      "plain": "Thousands of small systematic bets with a tiny edge each, made reliable by sheer numbers. The risk is that everyone else found the same signal.",
+      "formal": "Systematic strategies exploiting small statistical relationships across large security universes with short holding periods and tight factor constraints, relying on breadth for reliability and therefore on the independence of positions.",
+      "seeAlso": [
+        "equity-market-neutral",
+        "crowded-trade",
+        "z-score"
+      ]
+    },
+    {
       "slug": "stock-borrow",
       "term": "stock borrow",
       "plain": "Renting a share from someone who owns it so you can short sell it. You pay a fee, and the lender can usually demand the share back at any time.",
@@ -190,6 +345,17 @@
         "short-selling",
         "short-rebate",
         "prime-broker"
+      ]
+    },
+    {
+      "slug": "trend-following",
+      "term": "trend following",
+      "plain": "Buy what has been going up, sell what has been going down, on rules rather than judgement. Many small losses, occasional large gains.",
+      "formal": "A systematic approach taking positions in the direction of recent price movement, producing positively skewed returns and historically performing well during extended market declines.",
+      "seeAlso": [
+        "managed-futures",
+        "skewness",
+        "merger-arbitrage"
       ]
     }
   ]

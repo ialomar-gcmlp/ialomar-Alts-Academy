@@ -1,0 +1,228 @@
+{
+  "schemaVersion": 1,
+  "id": "alts-event-01",
+  "domain": "alternatives",
+  "title": "Event Driven",
+  "summary": "Positions whose outcome depends on a corporate action completing — spin-offs, restructurings, activist campaigns — rather than on markets.",
+  "level": "core",
+  "prereqs": [],
+  "estMinutes": 9,
+  "examRelevance": ["CAIA-L1", "CAIA-L2", "practical"],
+  "lesson": [
+    {
+      "type": "concept",
+      "id": "what-it-is",
+      "body": "[[event-driven]] is the umbrella covering strategies whose returns depend on a specific corporate action rather than on a market view. [[merger-arbitrage]] is the best-known member; the family is wider.\n\n**Spin-offs and demergers.** A conglomerate separates a division. The pieces are often mispriced around the split, because the shareholder bases of the parent and the spun-out entity differ and forced selling follows.\n\n**[[capital-structure|Capital structure]] events.** Refinancings, recapitalisations, rights issues, tender offers — each creates a temporary dislocation between securities of the same issuer.\n\n**Activist situations.** A shareholder pushes for a change: a sale, a break-up, a buyback, new management. The position pays if the campaign succeeds.\n\n**Restructurings and bankruptcies.** Covered separately under distressed, but structurally part of the same family.\n\nWhat unites them is that a **date and a decision**, not a price level, determines the outcome."
+    },
+    {
+      "type": "concept",
+      "id": "return-driver",
+      "body": "**The return driver is a mispricing that a specific event will resolve, plus the manager's judgement that the event happens.**\n\nWhy do these mispricings exist? Usually because of a structural reason rather than market inefficiency in the abstract:\n\n- **Forced or indiscriminate selling.** Index funds must sell a spun-off entity that does not fit their mandate, regardless of its value.\n- **Analyst coverage gaps.** A newly separated business has no research history and no natural shareholder base for a while.\n- **Complexity.** Situations requiring legal, regulatory or documentation work are avoided by generalists, which reduces competition for them.\n\nThat last point is important. **Much of the return in event driven is compensation for doing unglamorous work** — reading documents, understanding an indenture, modelling a regulatory process — rather than for insight about value. It is a strategy where diligence effort is the edge."
+    },
+    {
+      "type": "intuition",
+      "id": "idiosyncratic-until-it-isnt",
+      "body": "Event driven managers describe their returns as idiosyncratic, and position by position that is true: whether a spin-off completes has nothing to do with the level of the equity market.\n\nBut the description misleads at the portfolio level, for two reasons.\n\n**Events depend on capital markets functioning.** Deals need financing, spin-offs need receptive buyers, activists need a market willing to reprice on news. When credit tightens or equity markets fall sharply, transactions across the entire book slow, get renegotiated, or fail. Positions that were genuinely independent on their fundamentals become correlated through the funding environment.\n\n**Many of these positions are long-biased in substance.** A spin-off position, an activist stake, a post-restructuring equity — most are long risk assets with an event catalyst attached. So the book usually has more equity beta than the \"idiosyncratic\" framing implies, and it shows up in exactly the months you would rather it did not.\n\nThe honest summary: **low correlation on average, materially higher correlation in stress** — the same pattern as most strategies whose diversification is measured rather than structural."
+    },
+    {
+      "type": "table",
+      "id": "environments",
+      "caption": "What helps and what hurts",
+      "headers": ["Environment", "Effect", "Why"],
+      "rows": [
+        [
+          "High corporate activity",
+          "Helps most",
+          "More deals, spin-offs and campaigns means more opportunities and better diversification."
+        ],
+        [
+          "Available credit",
+          "Helps",
+          "Most corporate events need financing. Cheap and plentiful debt is what allows them to complete."
+        ],
+        [
+          "Shareholder-friendly governance regimes",
+          "Helps",
+          "Activism only works where shareholders can actually force change."
+        ],
+        [
+          "Credit market freeze",
+          "Hurts badly",
+          "Events stall across the whole book at once. A correlated shock to positions that looked independent."
+        ],
+        [
+          "Sharp equity selloff",
+          "Hurts",
+          "The book's underlying long bias surfaces, and buyers for complex situations disappear."
+        ],
+        [
+          "Hostile regulatory or political environment",
+          "Hurts",
+          "Raises the failure rate for transactions generally, not one deal at a time."
+        ]
+      ]
+    },
+    {
+      "type": "concept",
+      "id": "how-it-blows-up",
+      "body": "**Correlated event failure.** The dominant risk. A financing freeze or a regulatory shift causes many events to stall simultaneously. Thirty independent-looking positions turn out to share one dependency.\n\n**Illiquidity in complex situations.** The very complexity that reduces competition also reduces the number of buyers when you want out. Post-restructuring equities, small spin-offs and stub securities can be extremely difficult to exit in size.\n\n**Timeline extension.** Events that take twice as long halve the annualised return and tie up capital that could have been redeployed. Not a loss, but a real cost that compounds across a book.\n\n**Hidden beta.** A manager who has described their returns as market-independent, then loses 15% in an equity selloff, has discovered their book's long bias in public. Worth establishing beforehand.\n\n**Concentration in the one big idea.** Activist positions in particular tend to be large, long-held and public. A campaign that fails, in a position sized for conviction, can dominate a year."
+    },
+    {
+      "type": "pitfall",
+      "id": "idiosyncratic-claim",
+      "body": "**Treat \"our returns are idiosyncratic\" as a hypothesis rather than a description.** It is true of individual positions and frequently false of the portfolio, because the funding environment is a common factor running through every event.\n\nThe test is conditional, not average: what did this fund do in the worst quarter for credit spreads, and in the worst quarter for equities? If the answer is \"we were down meaningfully both times\", the book has a common factor, whatever the long-run correlation statistic says."
+    },
+    {
+      "type": "onTheJob",
+      "id": "on-the-job",
+      "body": "**Ask what fraction of the book depends on new financing.** That is the cleanest single measure of the correlated risk. A book where most events need a credit market to function is a levered bet on credit conditions wearing an idiosyncratic label.\n\n**Ask about average holding period versus expected holding period.** Systematic timeline slippage tells you the manager is optimistic about processes, which will show up in returns as a persistent drag rather than as losses.\n\n**Look at the worst credit quarter and the worst equity quarter.** Two numbers, and they usually settle the question about whether the returns are genuinely independent.\n\n**For activist exposure, ask how positions are sized and how long they have been held.** A large public stake held for three years pending a campaign is a very different liquidity and concentration profile from a diversified book of announced transactions, even though both sit under the same strategy label."
+    },
+    {
+      "type": "keyTakeaways",
+      "id": "takeaways",
+      "items": [
+        "The outcome depends on a corporate action completing — a date and a decision, not a price level.",
+        "Much of the return compensates unglamorous documentation and process work rather than insight about value.",
+        "Positions are idiosyncratic individually and correlated through the funding environment collectively.",
+        "The characteristic failure is correlated event failure when credit tightens, plus illiquidity in exactly the complex situations that offered the best spreads."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "alts-event-01-q1",
+      "type": "mcq",
+      "difficulty": 2,
+      "tags": ["event-driven", "return-driver"],
+      "concept": "return-driver",
+      "stem": "Why do mispricings persist around corporate events like spin-offs?",
+      "choices": [
+        "Because markets are broadly inefficient",
+        "Because of structural reasons like forced index selling, absent research coverage and the complexity of the analysis",
+        "Because company management deliberately misprices the securities",
+        "Because event-driven managers coordinate to keep prices low"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Too vague to be useful, and it does not explain why these particular situations offer opportunity while most do not.",
+        "Correct. Index funds must sell what no longer fits their mandate, a new entity has no coverage or natural shareholder base, and complex situations deter generalists. Each is a specific structural reason.",
+        "Management does not set market prices. Spin-off terms may be criticised, but the mispricing arises in the market, not from the issuer.",
+        "Nonsense, and would be unlawful. Competition among event managers narrows spreads rather than widening them."
+      ],
+      "explanation": "Naming the specific mechanism is what separates a real edge from a story. Forced selling and coverage gaps are observable and temporary — which is exactly why the opportunity is bounded in time."
+    },
+    {
+      "id": "alts-event-01-q2",
+      "type": "tfj",
+      "difficulty": 3,
+      "tags": ["event-driven", "correlation", "misconception"],
+      "concept": "idiosyncratic-claim",
+      "stem": "\"Our returns are idiosyncratic, driven by individual corporate events rather than markets.\" True or false as a description of an event-driven portfolio?",
+      "isTrue": false,
+      "justifications": [
+        "False — individual events are idiosyncratic, but the portfolio shares a dependence on functioning credit and equity markets",
+        "False — event-driven returns are entirely explained by equity beta",
+        "True — corporate events are unrelated to market conditions",
+        "False — because idiosyncratic risk cannot be measured"
+      ],
+      "justificationIndex": 0,
+      "rationales": [
+        "Correct. Whether one spin-off completes is independent of the market. Whether thirty transactions complete is not, because nearly all of them need financing and receptive buyers.",
+        "Overcorrection. There is usually more equity beta than claimed, but the returns are not merely beta — the event work does generate genuine idiosyncratic return.",
+        "This is the claim under test. It holds position by position and fails at the portfolio level, which is where it matters.",
+        "Idiosyncratic risk is perfectly measurable. The issue is that the measured average conceals a state-dependent common factor."
+      ],
+      "explanation": "The pattern — low correlation on average, higher in stress — recurs across strategies whose diversification is statistical rather than structural. The conditional test, not the average, is what settles it."
+    },
+    {
+      "id": "alts-event-01-q3",
+      "type": "mcq",
+      "difficulty": 3,
+      "tags": ["event-driven", "how-it-blows-up", "credit"],
+      "concept": "how-it-blows-up",
+      "stem": "A credit market freeze hits an event-driven fund holding 25 unrelated situations. Why is the damage larger than diversification would suggest?",
+      "choices": [
+        "Because credit spreads are directly held in the portfolio",
+        "Because most corporate events require financing, so a freeze stalls positions across the entire book simultaneously",
+        "Because the fund is required to sell during a freeze",
+        "Because 25 positions is insufficient diversification"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "An equity-oriented event fund may hold little or no credit directly. The transmission is through whether transactions can be funded, not through spread exposure.",
+        "Correct. Financing availability is a common factor running through nearly every event. When it disappears, positions that were fundamentally independent stall together.",
+        "There is no requirement to sell. Forced selling can follow from redemptions or margin, but the mechanism here is events failing to complete.",
+        "Twenty-five would be adequate diversification for independent outcomes. The count is not the problem; the shared dependency is."
+      ],
+      "explanation": "This is independence failing where it matters, and it recurs across the alternatives universe: a book that looks diversified by position is concentrated by dependency. Establishing what fraction of a book needs new financing is the practical version of this question."
+    },
+    {
+      "id": "alts-event-01-q4",
+      "type": "mcq",
+      "difficulty": 3,
+      "tags": ["event-driven", "timeline", "returns"],
+      "concept": "how-it-blows-up",
+      "stem": "An event expected to resolve in 6 months takes 18 months instead, with the same eventual payoff. What is the effect?",
+      "choices": [
+        "No effect, since the payoff was unchanged",
+        "The annualised return falls to roughly a third, and capital was tied up that could have been redeployed",
+        "The position becomes a loss",
+        "The manager's fee is reduced proportionally"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "The absolute payoff is unchanged, but return is payoff per unit of time and capital. Tripling the time divides the annualised return by roughly three.",
+        "Correct. And there is a second cost beyond the arithmetic: capital committed for an extra year could not fund other opportunities.",
+        "It is not a loss — the payoff still arrives. It is a materially worse investment than underwritten, which is a different problem.",
+        "Fees are charged on assets and performance, not adjusted for slippage against a projected timetable."
+      ],
+      "explanation": "Timeline slippage is the quiet drag in event driven. It rarely produces losses, so it does not show up as drawdown — it shows up as returns persistently below what the spread capture implied, which is harder to notice and harder to diagnose."
+    },
+    {
+      "id": "alts-event-01-q5",
+      "type": "strategyId",
+      "difficulty": 4,
+      "tags": ["event-driven", "strategy-identification"],
+      "concept": "idiosyncratic-until-it-isnt",
+      "description": "A fund holds around 25 positions, each tied to an announced corporate action — two spin-offs, several tender offers, a handful of announced acquisitions and three activist stakes. Correlation to equities is 0.35 over five years. Its two worst quarters coincided with the widest credit spread quarters in the period, in which it fell 9% and 12%.",
+      "choices": [
+        "An event-driven fund whose positions are individually idiosyncratic but share a dependence on financing conditions",
+        "A distressed debt fund",
+        "An equity market neutral fund",
+        "A trend-following programme"
+      ],
+      "answerIndex": 0,
+      "rationales": [
+        "Correct. The position types are textbook event driven, and the tell is the two worst quarters lining up with credit stress — revealing the funding dependency common to the whole book.",
+        "Distressed would hold impaired debt and post-restructuring securities rather than announced acquisitions and tender offers.",
+        "Market neutral would hold hundreds of equity positions with near-zero equity correlation, not 25 event positions at 0.35.",
+        "Trend following holds futures on rules, has no corporate positions at all, and would typically do well rather than badly in a stressed quarter."
+      ],
+      "explanation": "The diagnostic detail is the coincidence of the worst quarters with credit stress. That is the funding common factor surfacing, and it is precisely what a five-year average correlation of 0.35 obscures."
+    },
+    {
+      "id": "alts-event-01-q6",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["event-driven", "activism", "concentration"],
+      "concept": "how-it-blows-up",
+      "stem": "Why does activist exposure carry a different risk profile from a book of announced transactions, even within the same fund?",
+      "choices": [
+        "Activist positions are always in smaller companies",
+        "Activist stakes are typically large, long-held and public, so they concentrate risk and are hard to exit quietly",
+        "Activist campaigns have no defined outcome date, so they cannot be valued",
+        "Activist positions are not subject to market risk"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Activists target companies across the size spectrum, including very large ones. Size is not the distinguishing feature.",
+        "Correct. Conviction sizing, multi-year holding periods and public disclosure combine to make these positions concentrated and difficult to reduce without moving the price or signalling defeat.",
+        "The absence of a fixed date makes valuation harder but not impossible. The risk difference is about size and liquidity.",
+        "Activist positions are long equity stakes and carry full market risk, usually more than a diversified deal book does."
+      ],
+      "explanation": "Two very different liquidity and concentration profiles can sit under one strategy label. Asking for the split between announced-transaction exposure and activist exposure is a simple way to see what you actually own."
+    }
+  ],
+  "needsReview": false,
+  "reviewNote": null
+}
