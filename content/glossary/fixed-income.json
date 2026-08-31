@@ -3,6 +3,28 @@
   "domain": "fixed-income",
   "terms": [
     {
+      "slug": "bond",
+      "term": "bond",
+      "plain": "A loan in tradeable form: the issuer promises fixed coupon payments and repayment of par at maturity. Because the payments are fixed, the price is the only thing that can move.",
+      "formal": "A debt security obliging the issuer to pay periodic interest and to repay principal at maturity, transferable in a secondary market.",
+      "seeAlso": [
+        "coupon",
+        "par-value",
+        "ytm"
+      ]
+    },
+    {
+      "slug": "callable-bond",
+      "term": "callable bond",
+      "plain": "A bond the issuer can repay early. They will do it when rates fall — exactly when you would rather keep it — so the option belongs to them and its cost is in your yield.",
+      "formal": "A debt security containing an embedded issuer option to redeem before maturity at specified prices and dates, producing negative convexity for the holder.",
+      "seeAlso": [
+        "convexity",
+        "bond",
+        "ytm"
+      ]
+    },
+    {
       "slug": "capital-structure",
       "term": "capital structure",
       "plain": "The full stack of how a company is funded: senior secured debt at the top, then more junior debt, then equity at the bottom. Position in the stack determines who gets paid first.",
@@ -14,6 +36,28 @@
       ]
     },
     {
+      "slug": "convexity",
+      "term": "convexity",
+      "plain": "The curvature in the price-yield relationship. It makes duration overstate losses and understate gains, so for a conventional bond it always works in the holder's favour.",
+      "formal": "The second derivative of price with respect to yield, scaled by price; positive for conventional bonds and negative where the borrower holds a prepayment or call option.",
+      "seeAlso": [
+        "duration",
+        "callable-bond",
+        "bond"
+      ]
+    },
+    {
+      "slug": "coupon",
+      "term": "coupon",
+      "plain": "The annual interest a bond pays, as a percentage of par. Fixed at issue for a conventional bond, so 5% pays 5 a year on 100 whatever happens to rates.",
+      "formal": "The contractual periodic interest payment on a debt security, expressed as an annual percentage of par value.",
+      "seeAlso": [
+        "bond",
+        "par-value",
+        "floating-rate"
+      ]
+    },
+    {
       "slug": "covenant",
       "term": "covenant",
       "plain": "A promise in a loan agreement about what the borrower will and will not do. Breaching one hands negotiating power to the lender.",
@@ -22,6 +66,17 @@
         "indenture",
         "direct-lending",
         "seniority"
+      ]
+    },
+    {
+      "slug": "credit-spread",
+      "term": "credit spread",
+      "plain": "The extra yield a borrower pays over the risk-free rate of the same maturity. It compensates for expected loss, unexpected loss, illiquidity and market sentiment — four things, often confused for one.",
+      "formal": "The yield differential between a credit-risky security and a risk-free security of equivalent maturity, decomposable into expected loss, risk premium and liquidity components.",
+      "seeAlso": [
+        "probability-of-default",
+        "loss-given-default",
+        "yield-spread"
       ]
     },
     {
@@ -69,6 +124,17 @@
       ]
     },
     {
+      "slug": "loss-given-default",
+      "term": "loss given default (LGD)",
+      "plain": "How much you lose when a default happens, as a percentage. The complement of recovery: 40% recovery means 60% loss given default. Where you sit in the capital structure decides it.",
+      "formal": "The expected economic loss on a defaulted exposure as a proportion of the amount outstanding, equal to one minus the recovery rate.",
+      "seeAlso": [
+        "probability-of-default",
+        "seniority",
+        "credit-spread"
+      ]
+    },
+    {
       "slug": "maturity",
       "term": "maturity",
       "plain": "The date a loan or bond ends and the borrower must repay the principal. \"A ten-year bond\" means ten years until that date.",
@@ -101,6 +167,28 @@
       ]
     },
     {
+      "slug": "par-value",
+      "term": "par value",
+      "plain": "The amount a bond repays at maturity, conventionally quoted as 100. Prices above it are a premium, below it a discount.",
+      "formal": "The principal amount of a debt security, repayable at maturity and used as the base for coupon calculation.",
+      "seeAlso": [
+        "bond",
+        "coupon",
+        "ytm"
+      ]
+    },
+    {
+      "slug": "probability-of-default",
+      "term": "probability of default (PD)",
+      "plain": "The chance a borrower fails to pay as promised within a period. Driven by leverage, coverage, cash flow volatility and when the debt matures.",
+      "formal": "The estimated likelihood that an obligor fails to meet a contractual payment obligation over a specified horizon.",
+      "seeAlso": [
+        "loss-given-default",
+        "credit-spread",
+        "interest-coverage"
+      ]
+    },
+    {
       "slug": "repo",
       "term": "repo (repurchase agreement)",
       "plain": "Borrowing cash by pledging a bond as collateral, agreeing to buy it back shortly afterwards. It is how leveraged bond positions are funded, and it can be withdrawn.",
@@ -130,6 +218,17 @@
       "seeAlso": [
         "fixed-income-relative-value",
         "yield-spread"
+      ]
+    },
+    {
+      "slug": "ytm",
+      "term": "yield to maturity (YTM)",
+      "plain": "The single rate that makes a bond's promised cash flows equal its price. It assumes you hold to maturity and reinvest every coupon at that same rate — so it is a promise, not a forecast.",
+      "formal": "The internal rate of return of a bond's promised cash flows at its current price, assuming the security is held to maturity and coupons are reinvested at the same yield.",
+      "seeAlso": [
+        "bond",
+        "duration",
+        "credit-spread"
       ]
     }
   ]

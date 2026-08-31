@@ -609,7 +609,7 @@ One domain per batch, validated, pause between batches. Keep this current.
 | financial-statement-analysis | 7 | **DONE** — statements, cashflow, ebitda, workingcapital, ratios, debt, earningsquality (one worked company throughout) |
 | corporate-issuers | 6 | **DONE** — capitalstructure, wacc, allocation, governance, ma, issuance |
 | equity-valuation | 0 | not started — EV/EBITDA term defined |
-| fixed-income | 0 | not started |
+| fixed-income | 3 | **PARTIAL** — bonds, duration, credit done. Still to write: forward/spot rates, floating-rate notes, securitisation and tranching |
 | derivatives | 0 | not started — delta, gamma, implied volatility, vega defined |
 | fund-structures | 8 | **DONE** — gplp-01, fees-01, waterfall-01, hwm-01, calls-01, liquidity-01, sideletters-01, subline-01 |
 | portfolio-risk | 0 | not started |

@@ -1,0 +1,225 @@
+{
+  "schemaVersion": 1,
+  "id": "fi-bonds-01",
+  "domain": "fixed-income",
+  "title": "Bond Mechanics: Price, Yield and Why They Move Oppositely",
+  "summary": "A bond is a fixed set of promised cash flows, so the only thing that can adjust when required returns change is the price.",
+  "level": "core",
+  "prereqs": ["quant-tvm-01"],
+  "estMinutes": 9,
+  "examRelevance": ["CFA-L1", "CAIA-L1", "practical"],
+  "lesson": [
+    {
+      "type": "concept",
+      "id": "what-it-is",
+      "body": "A [[bond|bond]] is a loan in tradeable form. The issuer promises a fixed schedule: periodic [[coupon|coupon]] payments and the return of [[par-value|par value]] at [[maturity]].\n\nFour features define any bond, and together they determine everything else:\n\n**Par value** — the amount repaid at maturity, conventionally quoted as 100.\n\n**Coupon rate** — the annual interest as a percentage of par. Fixed at issue for a conventional bond, so a 5% coupon pays 5 a year on 100 of par forever, whatever happens to interest rates.\n\n**Maturity** — when the principal comes back.\n\n**[[seniority|Seniority]] and security** — where the holder ranks if the issuer cannot pay.\n\n**The crucial consequence of \"fixed\": the cash flows cannot change.** So when the market's [[required-return|required return]] on this issuer rises, the only variable left is the price. A bond issued at 100 with a 5% coupon into a world where 5% was the going rate becomes worth less than 100 the moment the going rate is 6% — because a buyer can get 6% elsewhere and will only accept 5% of coupon if they pay less than 100 for it."
+    },
+    {
+      "type": "concept",
+      "id": "price-and-yield",
+      "body": "**Price and yield are two ways of saying the same thing, and the relationship is inverse by construction.**\n\nA bond's price is the [[present-value|present value]] of its promised cash flows, discounted at the market's required return. That required return, expressed as the single rate that makes the present value equal the observed price, is the **[[ytm|yield to maturity]]**.\n\nSo:\n\n- **Yield above coupon** → price below par. The bond trades at a **discount**.\n- **Yield equal to coupon** → price at par.\n- **Yield below coupon** → price above par. A **premium**.\n\nWhich makes the direction easy to reconstruct rather than memorise: **if you need more return than the coupon provides, you must pay less than 100.**\n\nOne subtlety worth carrying. **A bond quoted at a yield is quoted at a price, and the two contain identical information.** Traders quote yields because they are comparable across bonds with different coupons and maturities; risk systems care about prices because that is what appears in a portfolio value. Neither is more fundamental."
+    },
+    {
+      "type": "intuition",
+      "id": "what-ytm-assumes",
+      "body": "**[[ytm|Yield to maturity]] is a single number standing in for a whole schedule, and it earns that simplicity by making two assumptions people forget.**\n\n**One: you hold to maturity.** Sell earlier and your realised return depends on the price then, which depends on rates then. YTM is not a forecast of your return unless you hold the bond to the end.\n\n**Two: every coupon is reinvested at the YTM itself.** This is the assumption that quietly does most of the work. A 5% bond quoted at a 6% yield only delivers 6% if each coupon can be redeployed at 6% for the remaining life. If rates fall, the coupons reinvest lower and the realised return is below the quoted yield.\n\n**So YTM is a promise conditional on a world that stays still.** For a short bond the reinvestment assumption barely matters; for a thirty-year bond it is most of the return.\n\nTwo practical consequences:\n\n**A zero-coupon bond has no reinvestment risk**, because there are no coupons to reinvest. Its YTM, held to maturity, is exactly its return — which is why zeros are the cleanest instruments for matching a known future liability.\n\n**And comparing two bonds on YTM alone compares two different reinvestment assumptions.** Usually fine; worth knowing when the maturities are far apart."
+    },
+    {
+      "type": "formula",
+      "id": "price-formula",
+      "latex": "P = \\sum_{t=1}^{n} \\frac{C}{(1+y)^t} + \\frac{F}{(1+y)^n}",
+      "plainReading": "The price is every coupon discounted back at the yield, plus the face value discounted back from maturity. Nothing more than a present value calculation applied to a fixed schedule.",
+      "variables": [
+        { "symbol": "C", "meaning": "the coupon payment, fixed at issue" },
+        { "symbol": "y", "meaning": "yield to maturity — the market's required return, and the only thing that moves" },
+        { "symbol": "F", "meaning": "face or [[par-value|par value]], repaid at maturity" },
+        { "symbol": "n", "meaning": "number of periods to maturity" }
+      ]
+    },
+    {
+      "type": "example",
+      "id": "worked-price",
+      "body": "A bond with a 5% annual coupon and ten years to maturity, par 100. Price it at four different market yields.",
+      "walkthrough": [
+        "**At a 5% yield** the price is exactly **100.00**. The coupon equals the required return, so no adjustment is needed.",
+        "**At 4%** the price is **108.11**. The 5 of annual coupon is more than the market requires, so buyers bid the price above par until the effective return is 4%.",
+        "**At 6%** the price is **92.64**. Now the coupon is insufficient, so the price falls until the combination of 5 a year plus a 7.36 gain at maturity delivers 6%.",
+        "**At 7%** the price is **85.95**.",
+        "Now look at the moves rather than the levels. From 6%, a rise of 100bp takes the price from 92.64 to 85.95 — a fall of **7.22%**. A fall of 100bp takes it to 100.00 — a rise of **7.94%**.",
+        "**Read that carefully: the same 100bp move produced a bigger gain than loss. Bond price responses are asymmetric in the holder's favour**, and that asymmetry has a name — convexity — and its own topic.",
+        "Sanity check worth reusing: **before computing anything, check the direction from the coupon against the yield.** Coupon 5%, yield 6%, so the price must be below 100. If a calculation says 104, a sign or a period count is wrong — and that check catches most bond arithmetic errors in one second."
+      ]
+    },
+    {
+      "type": "table",
+      "id": "quote-table",
+      "caption": "Reading a bond quote",
+      "headers": ["What you see", "What it means", "What to check next"],
+      "rows": [
+        [
+          "Price 92.64",
+          "Trading at a discount to par",
+          "Whether the discount is rates or credit — compare with a government bond of the same maturity."
+        ],
+        [
+          "Yield 6.00%",
+          "The single rate equating price with promised cash flows",
+          "Whether it assumes reinvestment you believe in, over that maturity."
+        ],
+        [
+          "Spread 200bp",
+          "Compensation above the risk-free curve for credit and liquidity",
+          "The issuer's default probability and expected recovery."
+        ],
+        [
+          "Coupon 5%, maturity 10y",
+          "The fixed schedule that cannot change",
+          "Whether it is callable — an issuer option that caps your upside."
+        ]
+      ]
+    },
+    {
+      "type": "concept",
+      "id": "how-it-goes-wrong",
+      "body": "**Reading a high yield as a high return.** A yield of 12% on a bond that defaults is not a 12% return. Yield is a promise; return is an outcome, and for credit the gap between them is the expected loss.\n\n**Ignoring call features.** A [[callable-bond|callable bond]] lets the issuer repay early, which they will do when rates fall — exactly when you would most like to keep the bond. The option belongs to the issuer and its cost is in your yield.\n\n**Comparing yields across different conventions.** Semi-annual versus annual compounding, different day counts, and yield-to-call versus yield-to-maturity all produce numbers that look comparable and are not.\n\n**Forgetting accrued interest.** Quoted \"clean\" prices exclude the coupon accrued since the last payment; the cash you pay is the \"dirty\" price. Small, systematic, and a recurring source of settlement confusion.\n\n**Treating the yield as your return without holding to maturity.** If the horizon is three years and the bond has ten, the return depends on the price in three years, which nobody knows."
+    },
+    {
+      "type": "pitfall",
+      "id": "rates-vs-credit",
+      "body": "**When a bond's price falls, exactly two things can have happened, and confusing them leads to opposite decisions.**\n\n**Rates rose.** The risk-free curve moved and every bond of that maturity fell. Nothing changed about the issuer. Hold to maturity and you receive everything promised — the loss is a mark, not a permanent impairment.\n\n**The spread widened.** The market now demands more compensation for this issuer's risk. Something changed about the borrower, or about the market's appetite for its kind of risk. Held to maturity, you might not receive everything promised.\n\n**The diagnostic takes one minute: compare the bond's yield change with the change in a government bond of the same maturity.** The difference is the spread move. That single subtraction separates a mark-to-market event from a credit event.\n\nAnd it matters because the responses are opposite. A rate-driven fall in a bond you intend to hold is, if anything, an opportunity to buy more of the same. A spread-driven fall is a signal to re-underwrite the issuer. **Portfolio reports that show only price changes make this distinction impossible, which is why any credit report worth reading decomposes the move into rates and spread.**"
+    },
+    {
+      "type": "onTheJob",
+      "id": "on-the-job",
+      "body": "**Ask for return decomposed into rates and spread, not just price change.** It is the difference between a mark and a credit problem, and it is one subtraction away.\n\n**Ask whether the bond is callable, and what the yield-to-call is.** If the issuer's option is likely to be exercised, the yield-to-maturity is not the relevant number.\n\n**For any long-dated bond, ask what the return is if coupons reinvest 200bp lower.** The quoted yield assumes they do not, and over thirty years the assumption is most of the answer.\n\n**Check the compounding convention before comparing two yields.** Semi-annual and annual quotes for the same bond differ, and cross-market comparisons routinely mix them.\n\n**When a [[private-credit|private credit]] manager quotes a yield, ask what it is net of expected losses.** A 12% gross yield with 3% of expected annual credit loss is a 9% expectation, and only one of those numbers is a return."
+    },
+    {
+      "type": "keyTakeaways",
+      "id": "takeaways",
+      "items": [
+        "The cash flows are fixed, so when required returns change the price is the only thing that can adjust — which makes the inverse relationship structural rather than a convention.",
+        "Coupon above yield means a premium, below means a discount. Checking that direction first catches most bond arithmetic errors instantly.",
+        "The 5% ten-year bond priced 100.00 at a 5% yield, 92.64 at 6% and 85.95 at 7% — and a 100bp fall gained 7.94% where a 100bp rise lost 7.22%.",
+        "Yield to maturity assumes you hold to maturity and reinvest every coupon at that same yield. For a thirty-year bond the reinvestment assumption is most of the return."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "fi-bonds-01-q1",
+      "type": "numeric",
+      "difficulty": 2,
+      "tags": ["bonds", "price", "arithmetic"],
+      "concept": "worked-price",
+      "stem": "A 5% annual coupon bond with 10 years to maturity is priced to yield 6%. What is its price, per 100 of par? Two decimal places.",
+      "answer": 92.64,
+      "tolerance": 0.35,
+      "toleranceType": "abs",
+      "inputHint": "Discount ten coupons of 5 plus 100 at maturity, all at 6%.",
+      "explanation": "The direction check comes first: coupon 5% below the 6% yield means the price must be under 100. Any answer above par indicates a sign error or the wrong number of periods, and that check is faster than redoing the calculation."
+    },
+    {
+      "id": "fi-bonds-01-q2",
+      "type": "numeric",
+      "difficulty": 3,
+      "tags": ["bonds", "price", "arithmetic"],
+      "concept": "worked-price",
+      "stem": "Same bond, now priced to yield 4%. What is its price? Two decimal places.",
+      "answer": 108.11,
+      "tolerance": 0.4,
+      "toleranceType": "abs",
+      "explanation": "A 5% coupon in a 4% world is worth a premium, and the premium of 8.11 is roughly the 1% annual excess coupon received for ten years, discounted. Seeing it that way makes premium and discount prices intuitive rather than mechanical."
+    },
+    {
+      "id": "fi-bonds-01-q3",
+      "type": "mcq",
+      "difficulty": 2,
+      "tags": ["bonds", "price-yield"],
+      "concept": "price-and-yield",
+      "stem": "Why do bond prices fall when market yields rise?",
+      "choices": [
+        "Because issuers reduce the coupon when rates rise",
+        "Because the coupon is fixed, so the price is the only thing that can adjust to deliver a higher required return",
+        "Because bondholders sell in panic",
+        "Because the par value is reduced"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "A conventional bond's coupon is contractual and cannot change. That fixity is precisely what forces the price to move.",
+        "Correct. Fixed cash flows plus a higher discount rate mean a lower present value. It is arithmetic, not sentiment.",
+        "Selling is how the price gets there, and the reason it must get there is the arithmetic.",
+        "Par is contractual and unaffected by market rates."
+      ],
+      "explanation": "Understanding it as \"the only free variable\" rather than as a memorised rule also tells you when the rule breaks: a floating-rate note has an adjustable coupon, so its price barely moves with rates. The mechanism explains the exception."
+    },
+    {
+      "id": "fi-bonds-01-q4",
+      "type": "tfj",
+      "difficulty": 3,
+      "tags": ["bonds", "ytm", "misconception"],
+      "concept": "what-ytm-assumes",
+      "stem": "\"This bond yields 6%, so holding it will return 6% a year.\" True or false — and why?",
+      "isTrue": false,
+      "justifications": [
+        "False — yield to maturity assumes you hold to maturity and reinvest every coupon at 6%; if rates fall, the coupons reinvest lower and the realised return is below the quoted yield",
+        "False — yield to maturity is always higher than the realised return",
+        "True — that is the definition of yield to maturity",
+        "False — because the quoted yield excludes the coupon payments"
+      ],
+      "justificationIndex": 0,
+      "rationales": [
+        "Correct. Two assumptions are embedded: the full holding period, and reinvestment at the same rate. Both can fail, and the reinvestment one dominates for long maturities.",
+        "Not always — if rates rise, coupons reinvest higher and the realised return can exceed the quoted yield.",
+        "The definition contains the assumptions, which is exactly what makes the claim conditional rather than automatic.",
+        "The yield calculation includes every coupon; that is what it discounts."
+      ],
+      "explanation": "The clean case is a zero-coupon bond: no coupons, so no reinvestment assumption, and the yield held to maturity is the return exactly. That is why zeros are used to match known future liabilities, and it is the sharpest way to see what the assumption is doing."
+    },
+    {
+      "id": "fi-bonds-01-q5",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["bonds", "credit", "on-the-job"],
+      "concept": "rates-vs-credit",
+      "stem": "A corporate bond's price falls 6%. What single comparison identifies whether this is a rates event or a credit event?",
+      "choices": [
+        "Compare the price with its 52-week average",
+        "Compare the change in its yield with the change in a government bond yield of the same maturity",
+        "Check whether the issuer's equity also fell",
+        "Check the trading volume"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "A historical average says where the price has been, not why it moved now.",
+        "Correct. The difference between the two yield changes is the spread move. Rates explain the part shared with the government bond; the residual is credit and liquidity.",
+        "Equity is informative and reacts to many things, and it does not isolate the rates component.",
+        "Volume indicates activity, not cause."
+      ],
+      "explanation": "The responses are opposite, which is why the distinction earns its keep: a rates-driven fall in a bond you intend to hold changes nothing about what you receive, while a spread-driven fall is an instruction to re-underwrite the borrower. Any credit report worth reading decomposes the move."
+    },
+    {
+      "id": "fi-bonds-01-q6",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["bonds", "callable", "on-the-job"],
+      "concept": "how-it-goes-wrong",
+      "stem": "Why does a call feature reduce the value of a bond to its holder?",
+      "choices": [
+        "Because callable bonds pay lower coupons",
+        "Because the issuer will repay early when rates fall — exactly when the holder would most want to keep the bond",
+        "Because callable bonds have shorter maturities",
+        "Because the call price is always below par"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "They typically pay higher coupons as compensation, which is the market pricing the option rather than the reason it has value.",
+        "Correct. The option is the issuer's and it is exercised against the holder: your upside from falling rates is capped, and you are returned cash to reinvest at the new lower rates.",
+        "The stated maturity is unchanged; what is uncertain is whether it is reached.",
+        "Call prices are often at or slightly above par, and the level is not the source of the disadvantage."
+      ],
+      "explanation": "This is the same asymmetry as any short option position: you have sold something whose value rises exactly when it hurts you. It is why yield-to-worst rather than yield-to-maturity is the honest quote for a callable bond, and why callables underperform in a rally."
+    }
+  ],
+  "needsReview": false,
+  "reviewNote": null
+}
