@@ -14,23 +14,36 @@
  * Paragraphs are separated by a blank line (\n\n). Nothing else is interpreted, so
  * content can never inject markup or HTML into the app.
  *
- * Known limitation: emphasis and glossary terms do not nest. A term inside **bold**
- * renders as plain bold text. Content is authored to avoid it, and the validator
- * still sees the slug because referencedSlugs scans the raw string.
+ * Constructs nest. `**Tier 2 — [[preferred-return]].**` is bold text, a bold term and
+ * bold text; `**when commodities *are* the inflation**` is bold, bold-italic, bold.
+ * Emphasis is resolved first as structure, then terms are resolved inside each span
+ * and inherit that span's emphasis, so the node list stays flat — each node carries
+ * an outer-to-inner list of the emphasis wrapping it — and the renderer needs no
+ * recursive node type.
+ *
+ * The earlier version parsed terms first and looked for `**...**` in the leftovers,
+ * and its bold pattern could not span an inner asterisk. Both cases above then failed
+ * SILENTLY, printing their asterisks onto the page. The house style is built on bold
+ * lead-ins and every specialist term is marked up, so those collisions are routine
+ * rather than exotic: two shipped in the first 38 topics.
  */
 
 const TERM_PATTERN = /\[\[([a-z0-9-]+)(?:\|([^\]]+))?\]\]/g;
-const STRONG_PATTERN = /\*\*([^*]+)\*\*/g;
+/** Non-greedy and asterisk-tolerant, so bold can contain an italic. */
+const STRONG_PATTERN = /\*\*(.+?)\*\*/g;
 const EM_PATTERN = /\*([^*]+)\*/g;
 
-export type InlineNode =
-  | { kind: "text"; text: string }
-  | { kind: "term"; slug: string; display: string }
-  | { kind: "strong"; text: string }
-  | { kind: "em"; text: string };
+export type Emphasis = "strong" | "em";
 
-/** Back-compat alias: the term-only view of a string. */
-export type ProseSegment = Extract<InlineNode, { kind: "text" | "term" }>;
+/** Emphasis wrapping a node, outermost first. Absent when there is none. */
+export type InlineNode =
+  | { kind: "text"; text: string; emphasis?: Emphasis[] }
+  | { kind: "term"; slug: string; display: string; emphasis?: Emphasis[] };
+
+/** The term-only view of a string: text and glossary segments, no emphasis. */
+export type ProseSegment =
+  | { kind: "text"; text: string }
+  | { kind: "term"; slug: string; display: string };
 
 /** Split prose into plain text and glossary-term segments, in order. */
 export function parseProse(input: string): ProseSegment[] {
@@ -52,27 +65,36 @@ export function parseProse(input: string): ProseSegment[] {
 }
 
 /**
- * Full inline parse: terms first, then emphasis within the remaining text.
- * Staged rather than a single tokenizer because the constructs do not nest.
+ * Full inline parse: emphasis first as structure, then terms within each span.
+ * Terms inherit the emphasis of the span they sit in, which keeps the result a flat
+ * list — one pass in the renderer, no recursive node type.
  */
 export function parseInline(input: string): InlineNode[] {
-  return parseProse(input).flatMap((segment) =>
-    segment.kind === "term" ? [segment] : splitEmphasis(segment.text),
+  return splitEmphasis(input).flatMap((span) =>
+    parseProse(span.text).map((segment) =>
+      span.emphasis.length === 0 ? segment : { ...segment, emphasis: span.emphasis },
+    ),
   );
 }
 
-function splitEmphasis(text: string): InlineNode[] {
-  return splitOn(text, STRONG_PATTERN, "strong").flatMap((node) =>
-    node.kind === "text" ? splitOn(node.text, EM_PATTERN, "em") : [node],
+type Span = { text: string; emphasis: Emphasis[] };
+
+/**
+ * Bold before italic, so a doubled asterisk is never read as two italics, then
+ * italic within each bold span — one level of nesting, which is all the house style
+ * uses and all that can be expressed with two asterisk forms.
+ */
+function splitEmphasis(input: string): Span[] {
+  return splitOn(input, STRONG_PATTERN, "strong").flatMap((outer) =>
+    splitOn(outer.text, EM_PATTERN, "em").map((inner) => ({
+      text: inner.text,
+      emphasis: [...outer.emphasis, ...inner.emphasis],
+    })),
   );
 }
 
-function splitOn(
-  text: string,
-  pattern: RegExp,
-  kind: "strong" | "em",
-): InlineNode[] {
-  const out: InlineNode[] = [];
+function splitOn(text: string, pattern: RegExp, emphasis: Emphasis): Span[] {
+  const out: Span[] = [];
   let cursor = 0;
 
   for (const match of text.matchAll(pattern)) {
@@ -80,12 +102,12 @@ function splitOn(
     const inner = match[1];
     if (inner === undefined) continue;
 
-    if (at > cursor) out.push({ kind: "text", text: text.slice(cursor, at) });
-    out.push({ kind, text: inner });
+    if (at > cursor) out.push({ text: text.slice(cursor, at), emphasis: [] });
+    out.push({ text: inner, emphasis: [emphasis] });
     cursor = at + match[0].length;
   }
 
-  if (cursor < text.length) out.push({ kind: "text", text: text.slice(cursor) });
+  if (cursor < text.length) out.push({ text: text.slice(cursor), emphasis: [] });
   return out;
 }
 

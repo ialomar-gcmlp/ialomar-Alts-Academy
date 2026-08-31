@@ -410,6 +410,17 @@
       ]
     },
     {
+      "slug": "private-equity",
+      "term": "private equity",
+      "plain": "Investing in companies that are not listed on a stock exchange, usually by taking a controlling stake and holding it for years. Buyouts, growth equity and venture capital are all forms of it.",
+      "formal": "Equity investment in privately held companies, typically made through closed-end funds of finite life, encompassing buyout, growth equity and venture capital strategies.",
+      "seeAlso": [
+        "buyout",
+        "growth-equity",
+        "venture-capital"
+      ]
+    },
+    {
       "slug": "real-assets",
       "term": "real assets",
       "plain": "Physical assets held mainly for inflation protection and diversification rather than for income — commodities, resources, timber and farmland.",

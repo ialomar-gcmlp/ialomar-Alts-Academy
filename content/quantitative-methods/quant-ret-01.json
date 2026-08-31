@@ -60,7 +60,7 @@
     {
       "type": "concept",
       "id": "twr-vs-irr",
-      "body": "The arithmetic/geometric distinction is about averaging returns. A second, separate distinction is about **whose decisions you want to measure**.\n\n**[[time-weighted-return]] (TWR)** strips out the effect of money moving in and out. It measures the return on a dollar that stayed invested throughout, which isolates the *manager's* performance from the *investor's* timing. It is the geometric chain of period returns, and it is the standard for reporting liquid fund performance.\n\n**[[money-weighted-return]]** — in practice usually an [[internal-rate-of-return]] — does the opposite. It weights each period by how much capital was actually at risk, so it captures the combined effect of manager skill and the timing of contributions and withdrawals.\n\nNeither is more correct. They answer different questions:\n\n- *How good is this manager?* Time-weighted.\n- *How did I actually do?* Money-weighted.\n\nAnd the reason private markets report IRR is not conventional preference: the manager controls the timing of capital calls and distributions, so timing IS part of what they are being judged on. In a hedge fund, where the investor decides when to subscribe and redeem, time-weighted is the fair measure."
+      "body": "The arithmetic/geometric distinction is about averaging returns. A second, separate distinction is about **whose decisions you want to measure**.\n\n**[[time-weighted-return|time-weighted return]] (TWR)** strips out the effect of money moving in and out. It measures the return on a dollar that stayed invested throughout, which isolates the *manager's* performance from the *investor's* timing. It is the geometric chain of period returns, and it is the standard for reporting liquid fund performance.\n\n**[[money-weighted-return|money-weighted return]]** — in practice usually an [[internal-rate-of-return]] — does the opposite. It weights each period by how much capital was actually at risk, so it captures the combined effect of manager skill and the timing of contributions and withdrawals.\n\nNeither is more correct. They answer different questions:\n\n- *How good is this manager?* Time-weighted.\n- *How did I actually do?* Money-weighted.\n\nAnd the reason private markets report IRR is not conventional preference: the manager controls the timing of capital calls and distributions, so timing IS part of what they are being judged on. In a hedge fund, where the investor decides when to subscribe and redeem, time-weighted is the fair measure."
     },
     {
       "type": "table",
@@ -86,7 +86,7 @@
         [
           "[[money-weighted-return|Money-weighted]] / IRR",
           "How did this investor's capital actually do, timing included?",
-          "Private equity, private credit, real assets"
+          "[[private-equity|Private equity]], [[private-credit|private credit]], [[real-assets|real assets]]"
         ]
       ]
     },

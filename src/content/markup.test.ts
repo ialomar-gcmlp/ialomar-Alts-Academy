@@ -61,20 +61,79 @@ describe("referencedSlugs", () => {
 describe("parseInline", () => {
   it("resolves bold and italic alongside terms", () => {
     expect(parseInline("**Net** is *longs* minus [[net-exposure]]")).toEqual([
-      { kind: "strong", text: "Net" },
+      { kind: "text", text: "Net", emphasis: ["strong"] },
       { kind: "text", text: " is " },
-      { kind: "em", text: "longs" },
+      { kind: "text", text: "longs", emphasis: ["em"] },
       { kind: "text", text: " minus " },
       { kind: "term", slug: "net-exposure", display: "net exposure" },
     ]);
   });
 
   it("prefers bold over italic for a doubled asterisk", () => {
-    expect(parseInline("**bold**")).toEqual([{ kind: "strong", text: "bold" }]);
+    expect(parseInline("**bold**")).toEqual([
+      { kind: "text", text: "bold", emphasis: ["strong"] },
+    ]);
   });
 
   it("leaves an unmatched asterisk as literal text", () => {
     expect(parseInline("5 * 3 = 15")).toEqual([{ kind: "text", text: "5 * 3 = 15" }]);
+  });
+
+  // Regression: this shipped rendering "**Tier 2 - [[preferred-return]].**" with the
+  // asterisks printed on the page, because terms were parsed before emphasis and the
+  // bold pattern could not span the term markup. The house style is built on bold
+  // lead-ins, so this collision is routine.
+  it("resolves a term inside bold, and marks it bold", () => {
+    expect(parseInline("**Tier 2 - [[preferred-return]].**")).toEqual([
+      { kind: "text", text: "Tier 2 - ", emphasis: ["strong"] },
+      {
+        kind: "term",
+        slug: "preferred-return",
+        display: "preferred return",
+        emphasis: ["strong"],
+      },
+      { kind: "text", text: ".", emphasis: ["strong"] },
+    ]);
+  });
+
+  it("resolves a term inside italic", () => {
+    expect(parseInline("*a [[gate]] applies*")).toEqual([
+      { kind: "text", text: "a ", emphasis: ["em"] },
+      { kind: "term", slug: "gate", display: "gate", emphasis: ["em"] },
+      { kind: "text", text: " applies", emphasis: ["em"] },
+    ]);
+  });
+
+  it("carries a display alias through emphasis", () => {
+    expect(parseInline("**[[basis-point|bps]]**")).toEqual([
+      { kind: "term", slug: "basis-point", display: "bps", emphasis: ["strong"] },
+    ]);
+  });
+
+  // Regression: "**when commodities *are* the inflation**" rendered with its
+  // asterisks visible, because the bold pattern could not span the inner italic.
+  it("nests italic inside bold", () => {
+    expect(parseInline("**when it *is* the thing**")).toEqual([
+      { kind: "text", text: "when it ", emphasis: ["strong"] },
+      { kind: "text", text: "is", emphasis: ["strong", "em"] },
+      { kind: "text", text: " the thing", emphasis: ["strong"] },
+    ]);
+  });
+
+  it("nests a term inside italic inside bold", () => {
+    expect(parseInline("**a *[[gate]]* applies**")).toEqual([
+      { kind: "text", text: "a ", emphasis: ["strong"] },
+      { kind: "term", slug: "gate", display: "gate", emphasis: ["strong", "em"] },
+      { kind: "text", text: " applies", emphasis: ["strong"] },
+    ]);
+  });
+
+  it("leaves terms outside emphasis unemphasised", () => {
+    expect(parseInline("[[gate]] and **stop**")).toEqual([
+      { kind: "term", slug: "gate", display: "gate" },
+      { kind: "text", text: " and " },
+      { kind: "text", text: "stop", emphasis: ["strong"] },
+    ]);
   });
 });
 

@@ -16,6 +16,7 @@
 import { pathToFileURL } from "node:url";
 
 import type { Question, Topic } from "../src/content/schema";
+import { collectProse } from "../src/content/walk";
 import { loadContent } from "./lib/content-fs";
 import { bold, dim, green, red, yellow } from "./lib/report";
 
@@ -41,7 +42,23 @@ function choicesOf(q: Question): { options: string[]; answerIndex: number } | nu
   }
 }
 
-function auditTopic(topic: Topic, file: string): { failures: Finding[]; warnings: Finding[] } {
+/**
+ * A bare `[[slug]]` renders as the slug with its hyphens turned into spaces, which is
+ * right for most terms and wrong for every acronym and every genuinely hyphenated one:
+ * `[[dpi]]` printed "dpi" and `[[j-curve]]` printed "j curve" on the page. The parser
+ * cannot fix this — it has no access to the glossary by design — so the fix is an
+ * explicit alias, `[[dpi|DPI]]`, and this check is what stops the next one shipping.
+ */
+const BARE_TERM = /\[\[([a-z0-9-]+)\]\]/g;
+
+/** Term names carry a parenthetical expansion, e.g. "distributions to paid-in (DPI)". */
+const withoutParenthetical = (s: string): string => s.replace(/\s*\(.*?\)/g, "").trim();
+
+function auditTopic(
+  topic: Topic,
+  file: string,
+  termNames: Map<string, string>,
+): { failures: Finding[]; warnings: Finding[] } {
   const failures: Finding[] = [];
   const warnings: Finding[] = [];
 
@@ -120,11 +137,32 @@ function auditTopic(topic: Topic, file: string): { failures: Finding[]; warnings
     warn("questions", `${topic.questions.length} questions — the checklist caps at 10`);
   }
 
+  /* ---- bare term references that will render badly ---- */
+  const flagged = new Set<string>();
+  for (const field of collectProse(topic)) {
+    for (const match of field.text.matchAll(BARE_TERM)) {
+      const slug = match[1];
+      if (slug === undefined || flagged.has(slug)) continue;
+
+      const name = termNames.get(slug);
+      if (name === undefined) continue; // undefined slug: content:check's job
+
+      const rendered = slug.replace(/-/g, " ");
+      if (rendered.toLowerCase() !== withoutParenthetical(name).toLowerCase()) {
+        flagged.add(slug);
+        warn(
+          field.path,
+          `[[${slug}]] will render "${rendered}" — write [[${slug}|...]] with the words you want`,
+        );
+      }
+    }
+  }
+
   return { failures, warnings };
 }
 
 function main(): number {
-  const { topics, problems } = loadContent();
+  const { topics, terms, problems } = loadContent();
 
   if (problems.length > 0) {
     console.log(
@@ -135,8 +173,10 @@ function main(): number {
   const failures: Finding[] = [];
   const warnings: Finding[] = [];
 
+  const termNames = new Map([...terms].map(([slug, term]) => [slug, term.term]));
+
   for (const { topic, file } of topics) {
-    const result = auditTopic(topic, file);
+    const result = auditTopic(topic, file, termNames);
     failures.push(...result.failures);
     warnings.push(...result.warnings);
   }

@@ -55,7 +55,7 @@
     {
       "type": "concept",
       "id": "what-r-really-is",
-      "body": "The hardest part of this topic is not the algebra, it is knowing what number to use for r. The [[discount-rate]] is not handed to you by nature; it is a judgement about what return you require for taking this particular risk over this particular horizon.\n\nA government bond cash flow gets discounted at something close to a [[risk-free-rate]]. A late-stage venture company's projected exit gets discounted at something far higher, because the promise is far shakier. Same formula, wildly different r — and because r sits inside an exponent, small disagreements about it produce enormous disagreements about value."
+      "body": "The hardest part of this topic is not the algebra, it is knowing what number to use for r. The [[discount-rate]] is not handed to you by nature; it is a judgement about what return you require for taking this particular risk over this particular horizon.\n\nA government bond cash flow gets discounted at something close to a [[risk-free-rate|risk-free rate]]. A late-stage venture company's projected exit gets discounted at something far higher, because the promise is far shakier. Same formula, wildly different r — and because r sits inside an exponent, small disagreements about it produce enormous disagreements about value."
     },
     {
       "type": "table",
@@ -82,7 +82,7 @@
     {
       "type": "onTheJob",
       "id": "on-the-job",
-      "body": "You will meet this within your first month, usually without anyone calling it time value of money.\n\nA private fund projects that it will return capital in years 6 through 9. To compare that against a fund returning capital in years 3 through 5, you cannot just add up the dollars — you discount them, and the earlier fund looks better than the raw totals suggest. This is the arithmetic underneath why the [[j-curve]] matters and why an [[internal-rate-of-return]] can flatter a fund that returned money early.\n\nIt also shows up whenever someone says a valuation is \"rate sensitive\". What they mean is that r sits in an exponent, so moving it a little moves the answer a lot."
+      "body": "You will meet this within your first month, usually without anyone calling it time value of money.\n\nA private fund projects that it will return capital in years 6 through 9. To compare that against a fund returning capital in years 3 through 5, you cannot just add up the dollars — you discount them, and the earlier fund looks better than the raw totals suggest. This is the arithmetic underneath why the [[j-curve|J-curve]] matters and why an [[internal-rate-of-return]] can flatter a fund that returned money early.\n\nIt also shows up whenever someone says a valuation is \"rate sensitive\". What they mean is that r sits in an exponent, so moving it a little moves the answer a lot."
     },
     {
       "type": "keyTakeaways",

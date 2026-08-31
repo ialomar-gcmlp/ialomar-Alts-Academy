@@ -12,7 +12,7 @@
     {
       "type": "concept",
       "id": "the-normal",
-      "body": "A distribution describes how likely each outcome is. The [[normal-distribution]] — the bell curve — is the one finance reaches for by default, because it needs only two numbers to specify completely: a mean and a [[standard-deviation]].\n\nThat economy is its appeal and its danger. Two parameters give you every probability you could ask for:\n\n- about **68%** of observations fall within one standard deviation of the mean\n- about **95%** within two\n- about **99.7%** within three\n\nA [[z-score]] converts any observation into standard deviations from the mean, which lets you read those probabilities off directly. It is the bridge between a specific return and a general statement about likelihood."
+      "body": "A distribution describes how likely each outcome is. The [[normal-distribution]] — the bell curve — is the one finance reaches for by default, because it needs only two numbers to specify completely: a mean and a [[standard-deviation]].\n\nThat economy is its appeal and its danger. Two parameters give you every probability you could ask for:\n\n- about **68%** of observations fall within one standard deviation of the mean\n- about **95%** within two\n- about **99.7%** within three\n\nA [[z-score|z-score]] converts any observation into standard deviations from the mean, which lets you read those probabilities off directly. It is the bridge between a specific return and a general statement about likelihood."
     },
     {
       "type": "formula",

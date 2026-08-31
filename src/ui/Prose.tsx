@@ -201,24 +201,29 @@ export function Inline({
   interactive?: boolean;
 }): ReactNode {
   return parseInline(text).map((node, i) => {
-    switch (node.kind) {
-      case "text":
-        return <span key={i}>{node.text}</span>;
-      case "strong":
-        return (
-          <strong key={i} className="font-semibold text-fg">
-            {node.text}
-          </strong>
-        );
-      case "em":
-        return <em key={i}>{node.text}</em>;
-      case "term":
-        return interactive ? (
-          <TermTrigger key={i} slug={node.slug} display={node.display} />
+    const content =
+      node.kind === "text" ? (
+        node.text
+      ) : interactive ? (
+        <TermTrigger slug={node.slug} display={node.display} />
+      ) : (
+        <TermStatic slug={node.slug} display={node.display} />
+      );
+
+    // Emphasis wraps the node rather than being a node of its own, so a term inside
+    // **bold** renders as a bold, still-tappable term. reduceRight because the list
+    // is outermost-first: ["strong", "em"] must come out as <strong><em>.
+    const emphasised = (node.emphasis ?? []).reduceRight<ReactNode>(
+      (inner, kind) =>
+        kind === "strong" ? (
+          <strong className="font-semibold text-fg">{inner}</strong>
         ) : (
-          <TermStatic key={i} slug={node.slug} display={node.display} />
-        );
-    }
+          <em>{inner}</em>
+        ),
+      content,
+    );
+
+    return <span key={i}>{emphasised}</span>;
   });
 }
 
