@@ -491,6 +491,40 @@ never runs on a reload or a closed tab, so without `pagehide` the span in progre
 `pauseSession` ends with `flushSync()` because the storage module's own `visibilitychange` flush was
 registered first and has therefore already run with the pre-pause state.
 
+### Mock exams — BUILT (M6b). `engine/exam.ts` + `views/Exams.tsx`
+
+An exam is a measurement, so the file exists to keep the flattering shortcuts out.
+
+**Gated, and the gate is actionable.** Unlocks at domain mastery ≥ 0.7 with ≥ 80% of
+topics started (`MASTERY.BOSS_*`) and at least `EXAM.QUESTIONS_MIN` questions in the
+domain — below that one miss moves the mark too far to mean anything. A locked card
+states the nearest missing requirement ("Open 5 more topics", "Mastery is 43%"), never
+a padlock. `examRequirement` picks one reason, in order of how actionable it is.
+
+**Wall-clock timed.** The only clock in the app that does not pause when the tab is
+hidden — see the note in `activeTime.ts` for why every other one does. Deadline is
+`startedAt + count × EXAM.SECONDS_PER_QUESTION`; `ExamClock` ticks once a second and
+submits at zero, and resuming an expired paper marks it as it stands.
+
+**Composed across the domain.** `composeExam` round-robins over topics before taking a
+second question from any, then shuffles, seeded on `startedAt`. A twenty-question exam
+over eight topics cannot draw twelve from one lesson, and a repeat attempt is a
+different paper.
+
+**No confidence, no feedback until submitted.** An exam does not ask how sure you are —
+answers record as `EXAM.RECORDED_CONFIDENCE` ("unsure"), the neutral row of the grade
+table: right schedules a short interval, wrong is a soft lapse rather than the reset a
+confident miss earns. Calibration analytics must therefore exclude exam answers. Pips
+render `answered` rather than correct/wrong so the paper does not leak its own marking.
+
+**A blank counts as wrong.** Scoring only what was answered would let a slow attempt
+outscore a complete one. `ExamResult` distinguishes running out of time from handing it
+in early, because the two mean different things about what to fix.
+
+**Answers still feed the scheduler**, question by question as the paper is sat, under
+the ordinary XP rules — so an exam is also a review, and sitting one twice in a day
+pays no XP the second time.
+
 ### Dev-only inspection handle
 
 `main.tsx` exposes the store as `window.__alts` under `import.meta.env.DEV`. Time accounting has to
@@ -630,7 +664,7 @@ Commit at the end of each milestone, then stop for review. Run `npm run verify` 
 | M3 | XP, levels, streaks, badges, skill tree | done |
 | M4 | Glossary popovers, global page, drill mode | done |
 | M5 | Content build-out, one domain per batch, validated, pause between batches | done — see inventory below |
-| M6 | Mock exams, analytics, export/import, session resume | **in progress** — M6a session resume + active time done; mock exams, analytics, export/import to come |
+| M6 | Mock exams, analytics, export/import, session resume | **in progress** — M6a resume + active time, M6b mock exams done; analytics and export/import to come |
 | M7 | Polish: mobile, keyboard, accessibility, empty states, error handling | |
 
 Working software over completeness at every milestone. A great app with 20 topics beats a broken one

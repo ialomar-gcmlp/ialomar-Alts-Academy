@@ -11,6 +11,7 @@ import { useRoute, navigate } from "./lib/hashRouter";
 import { installFlushHandlers } from "./storage";
 import { level, streak } from "./state/selectors";
 import { useApp } from "./state/store";
+import { Exams } from "./views/Exams";
 import { GlossaryPage } from "./views/GlossaryPage";
 import { Home } from "./views/Home";
 import { ReviewQueue } from "./views/ReviewQueue";
@@ -23,6 +24,7 @@ import { Icon } from "./ui/icons";
 const NAV = [
   { path: "", label: "Topics" },
   { path: "progress", label: "Progress" },
+  { path: "exams", label: "Exams" },
   { path: "glossary", label: "Glossary" },
   { path: "review-queue", label: "Review queue" },
 ] as const;
@@ -232,7 +234,10 @@ function Routes() {
       return param === undefined ? <NotFound /> : <Session topicId={param} />;
     case "review":
     case "drill":
+    case "exam":
       return <Session />;
+    case "exams":
+      return <Exams />;
     case "progress":
       return <Progress />;
     case "glossary":

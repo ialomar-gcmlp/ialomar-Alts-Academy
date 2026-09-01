@@ -24,6 +24,7 @@ import {
 } from "../state/selectors";
 import { selectResumableSession, useApp } from "../state/store";
 import { savedProgressSummary } from "../state/sessionPersist";
+import type { SavedSession } from "../storage/progressSchema";
 import { dayKey } from "../storage/progressSchema";
 import { DOMAIN_MONOGRAM, domainStyle } from "../ui/domain";
 import { Icon } from "../ui/icons";
@@ -105,6 +106,17 @@ function WeekStrip() {
  * the user came back for. Both actions are explicit — an abandoned session that
  * silently resumed itself would be worse than one that asks.
  */
+/**
+ * Where a resumed session lives. All three render the same view, but the URL should
+ * say which one it is — landing an exam on #/review is misleading, and the route is
+ * what the user sees if they reload again.
+ */
+function resumeRoute(saved: SavedSession): string {
+  if (saved.mode === "exam") return "exam";
+  if (saved.topicId !== null) return `quiz/${saved.topicId}`;
+  return "review";
+}
+
 function ResumeCard() {
   const saved = useApp(selectResumableSession);
   const resumeSaved = useApp((s) => s.resumeSaved);
@@ -121,8 +133,7 @@ function ResumeCard() {
       const ok = await resumeSaved();
       // A snapshot whose content has since changed cannot be rebuilt; the store has
       // already discarded it, so the card simply disappears.
-      if (ok)
-        navigate(saved.topicId === null ? "review" : `quiz/${saved.topicId}`);
+      if (ok) navigate(resumeRoute(saved));
     } finally {
       setBusy(false);
     }

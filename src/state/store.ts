@@ -12,8 +12,22 @@
 
 import { create } from "zustand";
 
-import { glossary, loadTopic, manifestTopic } from "../content/loader";
-import type { LessonBlock, Question, Topic } from "../content/schema";
+import { glossary, loadTopic, manifest, manifestTopic } from "../content/loader";
+import {
+  DOMAIN_LABELS,
+  type Domain,
+  type LessonBlock,
+  type Question,
+  type Topic,
+} from "../content/schema";
+import {
+  composeExam,
+  examLength,
+  hasExpired,
+  scoreExam,
+  type ExamCandidate,
+} from "../engine/exam";
+import { EXAM } from "../engine/constants";
 import {
   gradeAnswer,
   isAnswerable,
@@ -31,7 +45,7 @@ import {
   type DrillDirection,
   type DrillItem,
 } from "../engine/glossary";
-import { badgeContextFor, pendingFreezes } from "./selectors";
+import { badgeContextFor, domainExams, domainProgress, pendingFreezes, topicProgress } from "./selectors";
 import type { QuestionState } from "../engine/scheduler";
 import {
   applyEffects,
@@ -140,6 +154,16 @@ interface AppState {
   startTopicQuiz: (topic: Topic) => void;
   startReviewSession: (questionIds: string[]) => Promise<number>;
   startDrillSession: (count: number) => number;
+  /**
+   * Start a mock exam for a domain. Returns the question count, or 0 when the domain
+   * is locked or too small — the caller turns that into a message, not an empty exam.
+   */
+  startExam: (domain: Domain) => Promise<number>;
+  /**
+   * End an exam and record the attempt. Called on the last question and by the
+   * countdown reaching zero, so it must be safe to call twice.
+   */
+  finishExam: () => void;
   markTermsSeen: (slugs: string[]) => void;
   setResponse: (response: Response) => void;
   setConfidence: (confidence: Confidence) => void;
@@ -383,6 +407,105 @@ export const useApp = create<AppState>((set, get) => ({
   },
 
   /** Mark terms as met. Only writes when something is genuinely new. */
+  /**
+   * Build a mock exam for one domain.
+   *
+   * Loads every topic in the domain — an exam is meant to cover it, so there is no
+   * cheaper subset to load — then composes from the whole pool. Seeded on the start
+   * time, so sitting the same exam twice does not test your memory of the last one.
+   */
+  async startExam(domain) {
+    const progress = get().progress;
+    const now = Date.now();
+
+    const row = domainExams(domainProgress(topicProgress(progress, now)), progress).find(
+      (exam) => exam.domain === domain,
+    );
+    if (row === undefined || !row.unlocked) return 0;
+
+    const topicIds = manifest.topics
+      .filter((topic) => topic.domain === domain)
+      .map((topic) => topic.id);
+    const topics = await Promise.all(topicIds.map((id) => loadTopic(id)));
+
+    const byId = new Map<string, { question: Question; topicId: string }>();
+    const candidates: ExamCandidate[] = [];
+    const lessonBlocks: Record<string, LessonBlock[]> = {};
+
+    for (const topic of topics) {
+      // Kept so a missed question can link back to the lesson that teaches it.
+      lessonBlocks[topic.id] = topic.lesson;
+      for (const question of topic.questions) {
+        byId.set(question.id, { question, topicId: topic.id });
+        candidates.push({
+          questionId: question.id,
+          topicId: topic.id,
+          difficulty: question.difficulty,
+        });
+      }
+    }
+
+    const picked = composeExam(candidates, examLength(candidates.length), now);
+    const items = picked
+      .map((candidate) => byId.get(candidate.questionId))
+      .filter((item): item is { question: Question; topicId: string } => item !== undefined);
+
+    if (items.length === 0) return 0;
+
+    get().beginSession({
+      mode: "exam",
+      title: `${DOMAIN_LABELS[domain]} exam`,
+      topicId: null,
+      examDomain: domain,
+      items,
+      lessonBlocks,
+    });
+
+    return items.length;
+  },
+
+  /**
+   * Close an exam and write the attempt.
+   *
+   * Safe to call twice: the last question and the countdown both end an exam, and on
+   * a slow last answer they can land together.
+   */
+  finishExam() {
+    const state = get();
+    const session = state.session;
+    if (!session || session.mode !== "exam" || session.finishedAt !== null) return;
+
+    const now = Date.now();
+    const finished: QuizSession = {
+      ...bankCurrentSpan(session, now, true),
+      finishedAt: now,
+    };
+
+    const score = scoreExam(
+      finished.items.map((item) => ({ correct: item.grade === null ? null : item.grade.correct })),
+    );
+
+    const attempt = {
+      domain: session.examDomain ?? "",
+      startedAt: session.startedAt,
+      finishedAt: now,
+      correct: score.correct,
+      total: score.total,
+      passed: score.passed,
+      // Wall clock, not active time: that is what an exam measures.
+      seconds: Math.round((now - session.startedAt) / 1000),
+    };
+
+    const progress: ProgressState = {
+      ...clearSavedSession(state.progress),
+      exams: [...state.progress.exams, attempt],
+    };
+
+    set({ progress, session: finished });
+    save(progress);
+    void flush();
+  },
+
   markTermsSeen(slugs) {
     const progress = get().progress;
     const now = Date.now();
@@ -421,8 +544,14 @@ export const useApp = create<AppState>((set, get) => ({
     const item = session.items[session.index];
     if (!item) return;
     if (item.grade !== null) return; // already submitted; ignore a repeated Enter
-    if (item.confidence === null) return; // confidence is required before grading
     if (!isAnswerable(item.question, item.response)) return;
+
+    // An exam does not ask how sure you are — it would break the pace and the
+    // illusion — so it records the neutral position in the grade table. See
+    // EXAM.RECORDED_CONFIDENCE for why that is the honest default.
+    const confidence =
+      item.confidence ?? (session.mode === "exam" ? EXAM.RECORDED_CONFIDENCE : null);
+    if (confidence === null) return; // every other mode requires it before grading
 
     const grade = gradeAnswer(item.question, item.response);
     const now = Date.now();
@@ -444,7 +573,7 @@ export const useApp = create<AppState>((set, get) => ({
           slug: item.drill.slug,
           domain: item.drill.domain,
           correct: grade.correct,
-          confidence: item.confidence,
+          confidence,
           seconds,
         },
         now,
@@ -484,7 +613,7 @@ export const useApp = create<AppState>((set, get) => ({
         topicId: item.topicId,
         difficulty: item.question.difficulty,
         correct: grade.correct,
-        confidence: item.confidence,
+        confidence,
         seconds,
       },
       now,
@@ -495,7 +624,9 @@ export const useApp = create<AppState>((set, get) => ({
     items[session.index] = {
       ...item,
       grade,
-      revealed: true,
+      confidence,
+      // No feedback during an exam: the whole paper is marked at the end.
+      revealed: session.mode !== "exam",
       activeMs: itemActiveMs,
       scheduled,
       xpAwarded: xp.total,
@@ -522,6 +653,12 @@ export const useApp = create<AppState>((set, get) => ({
     const now = Date.now();
 
     if (session.index >= session.items.length - 1) {
+      // An exam has an attempt to record, so it ends through its own action.
+      if (session.mode === "exam") {
+        get().finishExam();
+        return;
+      }
+
       // Finished. Bank the last span, then clear the snapshot — a result screen is
       // not work in progress, and leaving it would offer to resume a done session.
       const finished: QuizSession = {
@@ -617,12 +754,24 @@ export const useApp = create<AppState>((set, get) => ({
       return false;
     }
 
+    const resumedAt = Date.now();
     set({
       session: {
         ...rebuilt.session,
-        clock: resumeClockAt(rebuilt.session.clock, Date.now()),
+        clock: resumeClockAt(rebuilt.session.clock, resumedAt),
       },
     });
+
+    // An exam runs on wall clock, so it can expire while the tab is shut. Resuming one
+    // whose time is up marks what was answered rather than handing back a paper with
+    // no time left on it.
+    if (
+      rebuilt.session.mode === "exam" &&
+      hasExpired(rebuilt.session.startedAt, rebuilt.session.items.length, resumedAt)
+    ) {
+      get().finishExam();
+    }
+
     return true;
   },
 

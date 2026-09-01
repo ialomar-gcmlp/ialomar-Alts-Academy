@@ -7,7 +7,7 @@
  */
 
 import { manifest } from "../content/loader";
-import type { Domain, ManifestTopic } from "../content/schema";
+import { DOMAIN_LABELS, type Domain, type ManifestTopic } from "../content/schema";
 import {
   bossUnlocked,
   blockingPrereqs,
@@ -18,6 +18,7 @@ import {
   type TopicMastery,
 } from "../engine/mastery";
 import { dueStates, isDue, reviewForecast, type QuestionState } from "../engine/scheduler";
+import { bestAttempt, examRequirement, type ExamRequirement } from "../engine/exam";
 import type { BadgeContext } from "../engine/badges";
 import { levelFor, type LevelInfo } from "../engine/xp";
 import { freezesToApply, streakInfo, type StreakInfo } from "../engine/streak";
@@ -101,6 +102,53 @@ export function domainProgress(topics: TopicProgress[]): DomainProgress[] {
       mastery,
       topics: list,
       bossUnlocked: bossUnlocked(mastery, list.filter((t) => t.started).length, list.length),
+    };
+  });
+}
+
+export interface DomainExam extends ExamRequirement {
+  domain: Domain;
+  label: string;
+  /** Best share correct so far, or null if never sat. */
+  best: { correct: number; total: number; passed: boolean; finishedAt: number } | null;
+  attempts: number;
+}
+
+/**
+ * The exam list: one row per domain, unlocked or with the reason it is not.
+ *
+ * Question counts come from the manifest rather than from what the user has answered
+ * — the gate is about the domain being big enough to measure, not about progress.
+ */
+export function domainExams(
+  domains: DomainProgress[],
+  progress: ProgressState,
+): DomainExam[] {
+  return domains.map((domain) => {
+    const requirement = examRequirement({
+      domain: domain.domain,
+      mastery: domain.mastery,
+      topicsStarted: domain.topics.filter((t) => t.started).length,
+      topicsTotal: domain.topics.length,
+      questionsAvailable: domain.topics.reduce((n, t) => n + t.topic.questionCount, 0),
+    });
+
+    const best = bestAttempt(progress.exams, domain.domain);
+
+    return {
+      ...requirement,
+      domain: domain.domain,
+      label: DOMAIN_LABELS[domain.domain],
+      attempts: progress.exams.filter((a) => a.domain === domain.domain).length,
+      best:
+        best === null
+          ? null
+          : {
+              correct: best.correct,
+              total: best.total,
+              passed: best.passed,
+              finishedAt: best.finishedAt,
+            },
     };
   });
 }

@@ -78,6 +78,37 @@ export const MASTERY = {
  * the user was actually present. The clock pauses when the tab is hidden; these two
  * numbers handle the cases the browser cannot tell us about.
  */
+export const EXAM = {
+  /** Questions in a full mock. Twenty is a sitting, not a marathon. */
+  QUESTIONS_MAX: 20,
+  /**
+   * Below this an exam is not a measurement. A domain with six questions available
+   * would produce a score where one miss moves the result by 17 points, so the exam
+   * stays locked and says so rather than reporting noise as a grade.
+   */
+  QUESTIONS_MIN: 8,
+
+  /**
+   * Wall-clock seconds per question. Deliberately wall-clock, unlike the rest of the
+   * app: a timed exam that pauses when you look away is not timed. Roughly the pace
+   * both CFA and CAIA multiple choice runs at.
+   */
+  SECONDS_PER_QUESTION: 90,
+
+  /** Share correct needed to pass. */
+  PASS_FRACTION: 0.7,
+
+  /**
+   * Exam answers are recorded with this confidence. An exam does not ask how sure you
+   * are — that would break the pace and the illusion — so it takes the neutral
+   * position in the grade table: right counts as unsure-and-right (a short interval,
+   * still scheduled) and wrong as a soft lapse rather than the harsh reset a confident
+   * miss earns. Calibration analytics deliberately ignores exam answers for this
+   * reason: no confidence was elicited, so there is nothing to calibrate.
+   */
+  RECORDED_CONFIDENCE: "unsure",
+} as const;
+
 export const ACTIVE_TIME = {
   /**
    * The longest single uninterrupted span credited to one question. A visible tab is

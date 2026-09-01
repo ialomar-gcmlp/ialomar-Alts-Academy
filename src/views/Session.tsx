@@ -9,7 +9,7 @@
  * Space reveals the explanation, Esc leaves.
  */
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 import { manifestTopic } from "../content/loader";
 import {
@@ -18,6 +18,7 @@ import {
   isAnswerable,
   type Confidence,
 } from "../engine/grading";
+import { formatCountdown, remainingMs } from "../engine/exam";
 import { formatDueIn } from "../lib/time";
 import { navigate } from "../lib/hashRouter";
 import { useHotkeys } from "../lib/keyboard";
@@ -40,6 +41,7 @@ import {
 } from "../ui/primitives";
 import { Prose } from "../ui/Prose";
 import { QuestionView, choiceCount } from "../ui/questions/QuestionView";
+import { ExamResult } from "./ExamResult";
 import { Result } from "./Result";
 
 const CONFIDENCE_KEYS: Record<Confidence, string> = {
@@ -83,6 +85,61 @@ function comboAt(
   return run;
 }
 
+/**
+ * The exam countdown.
+ *
+ * Ticks once a second — the only interval in the app — and calls `onExpire` when it
+ * reaches zero. It reads wall clock deliberately: `remainingMs` is derived from
+ * `startedAt`, so a tab that was hidden for ten minutes comes back showing ten
+ * minutes gone, which is what being timed means.
+ *
+ * Checks on mount too, because the tab may have been shut for longer than the paper.
+ */
+function ExamClock({
+  startedAt,
+  count,
+  onExpire,
+}: {
+  startedAt: number;
+  count: number;
+  onExpire: () => void;
+}) {
+  const [left, setLeft] = useState(() =>
+    remainingMs(startedAt, count, Date.now()),
+  );
+
+  useEffect(() => {
+    const tick = (): void => {
+      const ms = remainingMs(startedAt, count, Date.now());
+      setLeft(ms);
+      if (ms === 0) onExpire();
+    };
+
+    tick();
+    const id = window.setInterval(tick, 1000);
+    return () => window.clearInterval(id);
+  }, [startedAt, count, onExpire]);
+
+  // Under two minutes the colour changes as well as the number, so it registers
+  // without being read.
+  const urgent = left <= 2 * 60_000;
+
+  return (
+    <span
+      className={`flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[13px] font-bold tnum ${
+        urgent ? "bg-incorrect/15 text-incorrect" : "bg-surface-2 text-fg-muted"
+      }`}
+      // Announced on the minute rather than every second, which would be unusable
+      // with a screen reader.
+      aria-live={left % 60_000 < 1000 ? "polite" : "off"}
+    >
+      <Icon name="clock" size={13} />
+      {formatCountdown(left)}
+      <span className="sr-only"> remaining</span>
+    </span>
+  );
+}
+
 export function Session({ topicId }: { topicId?: string }) {
   const session = useApp((s) => s.session);
   const item = useApp(selectCurrentItem);
@@ -94,17 +151,32 @@ export function Session({ topicId }: { topicId?: string }) {
   const next = useApp((s) => s.next);
   const reveal = useApp((s) => s.reveal);
   const endQuiz = useApp((s) => s.endQuiz);
+  const finishExam = useApp((s) => s.finishExam);
   const resumable = useApp(selectResumableSession);
   const pauseSession = useApp((s) => s.pauseSession);
   const resumeSession = useApp((s) => s.resumeSession);
 
   const [showExitConfirm, setShowExitConfirm] = useState(false);
 
-  // A reload lands here with no session in memory. If a snapshot survived, go to the
-  // home page, which is where the offer to pick it up lives; otherwise fall back to
-  // the topic the session came from rather than showing an empty shell.
+  /**
+   * Written during render on purpose: it has to be true before the redirect effect
+   * below runs on the commit where the session goes away.
+   */
+  const hadSession = useRef(false);
+  if (session !== null) hadSession.current = true;
+
+  /**
+   * A reload lands here with no session in memory. If a snapshot survived, go to the
+   * home page, which is where the offer to pick it up lives; otherwise fall back to
+   * the topic the session came from rather than showing an empty shell.
+   *
+   * Only for a session that was never here. Ending one deliberately — Leave, or an
+   * exam being submitted — navigates on its own, and this effect used to fire
+   * afterwards and overwrite that with the home page, so every Leave went home
+   * regardless of where it said it was going.
+   */
   useEffect(() => {
-    if (session) return;
+    if (session || hadSession.current) return;
     const home = resumable !== null || topicId === undefined;
     navigate(home ? "" : `topic/${topicId}`, { replace: true });
   }, [session, topicId, resumable]);
@@ -148,13 +220,21 @@ export function Session({ topicId }: { topicId?: string }) {
   ]);
 
   const graded = item?.grade ?? null;
+  const isExam = session?.mode === "exam";
   const answerable =
     item !== null && isAnswerable(item.question, item.response);
-  const canSubmit = answerable && item?.confidence != null && graded === null;
+  // An exam does not ask for confidence, so an answer is all it waits for.
+  const canSubmit =
+    answerable && graded === null && (isExam || item?.confidence != null);
 
   const advance = (): void => {
     if (graded === null) {
-      if (canSubmit) submit();
+      if (!canSubmit) return;
+      submit();
+      // One press per question in an exam: answer and move on, with no marking in
+      // between. `next` reads the store synchronously, so it sees the answer just
+      // recorded — and on the last question it hands over to finishExam.
+      if (isExam) next();
       return;
     }
     next();
@@ -203,11 +283,11 @@ export function Session({ topicId }: { topicId?: string }) {
   useHotkeys(
     {
       ...numberKeys,
-      c: () => graded === null && setConfidence("confident"),
-      u: () => graded === null && setConfidence("unsure"),
-      g: () => graded === null && setConfidence("guessing"),
+      c: () => !isExam && graded === null && setConfidence("confident"),
+      u: () => !isExam && graded === null && setConfidence("unsure"),
+      g: () => !isExam && graded === null && setConfidence("guessing"),
       Enter: advance,
-      Space: () => item !== null && !item.revealed && reveal(),
+      Space: () => !isExam && item !== null && !item.revealed && reveal(),
       Escape: () => setShowExitConfirm(true),
     },
     session !== null && session.finishedAt === null,
@@ -216,7 +296,9 @@ export function Session({ topicId }: { topicId?: string }) {
   if (!session) return null;
 
   if (session.finishedAt !== null) {
-    return <Result />;
+    // An exam ends on a marked paper, not a session summary — different enough to be
+    // its own view rather than branches through Result.
+    return session.mode === "exam" ? <ExamResult /> : <Result />;
   }
 
   if (!item) {
@@ -227,7 +309,11 @@ export function Session({ topicId }: { topicId?: string }) {
   const position = session.index + 1;
   const combo = comboAt(session.items, session.index);
   const pips: PipState[] = session.items.map((entry, i) => {
-    if (entry.grade !== null) return entry.grade.correct ? "correct" : "wrong";
+    if (entry.grade !== null) {
+      // Neutral in an exam: how it went is not information the candidate gets yet.
+      if (isExam) return "answered";
+      return entry.grade.correct ? "correct" : "wrong";
+    }
     return i === session.index ? "current" : "todo";
   });
   const topicMeta = manifestTopic(item.topicId);
@@ -263,6 +349,13 @@ export function Session({ topicId }: { topicId?: string }) {
               <Icon name="flame" size={13} className="flame-live" />
               {combo} in a row
             </span>
+          )}
+          {isExam && (
+            <ExamClock
+              startedAt={session.startedAt}
+              count={total}
+              onExpire={finishExam}
+            />
           )}
           <Pips states={pips} />
         </div>
@@ -322,8 +415,8 @@ export function Session({ topicId }: { topicId?: string }) {
             onSubmit={() => canSubmit && submit()}
           />
 
-          {/* Confidence — required before submitting */}
-          {graded === null && (
+          {/* Confidence — required before submitting, and never asked in an exam */}
+          {graded === null && !isExam && (
             <div className="mt-7 border-t border-border-base pt-5">
               <div className="mb-2.5 text-[13px] text-fg-muted">
                 How sure are you?{" "}
@@ -355,8 +448,8 @@ export function Session({ topicId }: { topicId?: string }) {
             </div>
           )}
 
-          {/* Verdict + explanation */}
-          {graded !== null && (
+          {/* Verdict + explanation. An exam marks the whole paper at the end. */}
+          {graded !== null && !isExam && (
             <div className="mt-7 border-t border-border-base pt-5">
               <div
                 key={item.question.id}
@@ -461,7 +554,7 @@ export function Session({ topicId }: { topicId?: string }) {
           {graded === null && !answerable && (
             <span className="text-[13px] text-fg-subtle">Choose an answer</span>
           )}
-          {graded === null && answerable && item.confidence === null && (
+          {graded === null && answerable && !isExam && item.confidence === null && (
             <span className="text-[13px] text-fg-subtle">
               Now tag your confidence
             </span>
@@ -471,11 +564,15 @@ export function Session({ topicId }: { topicId?: string }) {
             disabled={graded === null && !canSubmit}
             onClick={advance}
           >
-            {graded === null
-              ? "Check answer"
-              : session.index === total - 1
-                ? "See results"
-                : "Next question"}{" "}
+            {isExam
+              ? session.index === total - 1
+                ? "Submit paper"
+                : "Next question"
+              : graded === null
+                ? "Check answer"
+                : session.index === total - 1
+                  ? "See results"
+                  : "Next question"}{" "}
             <Kbd>Enter</Kbd>
           </Button>
         </div>
@@ -483,18 +580,23 @@ export function Session({ topicId }: { topicId?: string }) {
 
       {showExitConfirm && (
         <Card className="mt-5 p-5">
-          <p className="font-medium text-fg">Leave this set?</p>
+          <p className="font-medium text-fg">
+            {isExam ? "Leave the exam?" : "Leave this set?"}
+          </p>
           <p className="mt-1 text-[14px] text-fg-muted">
-            Your place is saved. You can pick this up from the home page for the
-            next twelve hours — answers already submitted are recorded either
-            way.
+            {isExam
+              ? "The clock keeps running — an exam is timed whether the tab is open or not. Come back before it expires and you carry on; come back after and it is marked as it stands."
+              : "Your place is saved. You can pick this up from the home page for the next twelve hours — answers already submitted are recorded either way."}
           </p>
           <div className="mt-4 flex gap-2">
             <Button
               variant="secondary"
               onClick={() => {
                 endQuiz();
-                navigate(topicId === undefined ? "" : `topic/${topicId}`);
+                // Back where you came from: the exam list, the topic, or home.
+                navigate(
+                  isExam ? "exams" : topicId === undefined ? "" : `topic/${topicId}`,
+                );
               }}
             >
               Leave

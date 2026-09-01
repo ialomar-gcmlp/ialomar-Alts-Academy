@@ -332,7 +332,11 @@ export function Meter({
   );
 }
 
-export type PipState = "correct" | "wrong" | "current" | "todo";
+/**
+ * `answered` exists for exams, which must not leak whether a question went well
+ * before the paper is marked. Everywhere else the dots carry the outcome.
+ */
+export type PipState = "correct" | "wrong" | "current" | "todo" | "answered";
 
 /**
  * One dot per question in a session.
@@ -347,6 +351,7 @@ export function Pips({ states }: { states: PipState[] }) {
     wrong: "bg-incorrect",
     current: "bg-accent scale-125 ring-3 ring-accent/25",
     todo: "bg-border-strong/60",
+    answered: "bg-fg-subtle",
   };
 
   return (
