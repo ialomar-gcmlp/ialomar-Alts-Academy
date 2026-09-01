@@ -390,6 +390,68 @@ describe("migration v3 -> v4", () => {
   });
 });
 
+describe("migration v5 -> v6", () => {
+  const v5 = {
+    schemaVersion: 5,
+    settings: {
+      theme: "light",
+      sessionLength: 10,
+      dailyGoalMinutes: 10,
+      validateContentInProd: false,
+      effects: "full",
+    },
+    gamification: { xp: 900, badges: [], frozenDays: [] },
+    questions: {
+      "quant-tvm-01-q1": {
+        id: "quant-tvm-01-q1",
+        topicId: "quant-tvm-01",
+        difficulty: 2,
+        ease: 2.5,
+        intervalDays: 3,
+        dueAt: 1790000000000,
+        reps: 2,
+        lapses: 0,
+        consecutiveMisses: 0,
+        lastGrade: 5,
+        lastAnsweredAt: 1789000000000,
+        lastConfidence: "confident",
+        correctCount: 2,
+        totalCount: 2,
+        everCorrect: true,
+        needsReteach: false,
+      },
+    },
+    topics: {},
+    termsSeen: {},
+    termDrills: {},
+    events: [],
+    daily: {},
+    meta: { createdAt: "2026-05-01T00:00:00.000Z", lastExportAt: null },
+  };
+
+  it("produces state that satisfies the current schema", () => {
+    const out = migrate(v5);
+    expect(out.status).toBe("ok");
+    if (out.status !== "ok") return;
+    expect(progressSchema.safeParse(out.state).success).toBe(true);
+  });
+
+  it("starts with no saved session and no exam history", () => {
+    // Nothing to reconstruct: a v5 user could not have had either.
+    const out = migrate(v5);
+    if (out.status !== "ok") throw new Error("expected ok");
+    expect(out.state["activeSession"]).toBeNull();
+    expect(out.state["exams"]).toEqual([]);
+  });
+
+  it("leaves scheduling state and XP untouched", () => {
+    const out = migrate(v5);
+    if (out.status !== "ok") throw new Error("expected ok");
+    expect(out.state["questions"]).toEqual(v5.questions);
+    expect(out.state["gamification"]).toEqual(v5.gamification);
+  });
+});
+
 describe("migration v4 -> v5", () => {
   const v4 = {
     schemaVersion: 4,

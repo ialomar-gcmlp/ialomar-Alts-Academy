@@ -38,6 +38,7 @@ import {
   applyTheme,
   defaultProgress,
   flush,
+  flushSync,
   load,
   save,
   type Effects,
@@ -45,16 +46,25 @@ import {
   type ProgressState,
   type Theme,
 } from "../storage";
-import type { SessionLength } from "../storage/progressSchema";
+import type { SavedSession, SessionLength } from "../storage/progressSchema";
+import {
+  bankSpan,
+  isResumable,
+  resume as resumeClockAt,
+  split,
+  startClock,
+  type ActiveClock,
+} from "../engine/activeTime";
+import { fromSaved, savedTopicIds, toSaved } from "./sessionPersist";
 
 /**
- * Upper bound on the time credited to one question. Without it, a tab left open over
- * lunch would report a forty-minute answer and wreck the daily minutes figure.
- * Proper active-time tracking arrives with session resume in M6.
+ * Time credited to a question comes from src/engine/activeTime.ts, which pauses when
+ * the tab is hidden and caps any single span. It replaced a blunt 300-second-per-
+ * question ceiling in M6; the cap is now per uninterrupted span rather than per
+ * question, so a genuinely long question is credited and an abandoned tab is not.
  */
-const MAX_SECONDS_PER_QUESTION = 300;
 
-export type SessionMode = "learn" | "review" | "drill";
+export type SessionMode = "learn" | "review" | "drill" | "exam";
 
 export interface QuizItem {
   question: Question;
@@ -63,8 +73,8 @@ export interface QuizItem {
   confidence: Confidence | null;
   grade: Grade | null;
   revealed: boolean;
-  /** When this question was first shown, for the time credited to it. */
-  shownAt: number | null;
+  /** Active milliseconds credited to this question, banked as the session moves on. */
+  activeMs: number;
   /** Scheduling state after submitting — drives "comes back in ..." in the UI. */
   scheduled: QuestionState | null;
   /** True when the scheduler had flagged this for re-teaching before we asked it. */
@@ -82,6 +92,8 @@ export interface QuizSession {
   title: string;
   /** Set for a single-topic session; null for a mixed review. */
   topicId: string | null;
+  /** Set for a mock exam, so the attempt is recorded against the right domain. */
+  examDomain: string | null;
   items: QuizItem[];
   /** Lesson blocks available for post-miss re-reads, keyed by topic. */
   lessonBlocks: Record<string, LessonBlock[]>;
@@ -90,12 +102,15 @@ export interface QuizSession {
   finishedAt: number | null;
   /** Badges earned during this session, to announce at the end. */
   badgesEarned: EarnedBadge[];
+  /** Active-time clock. Runs while the tab is visible and the session is unfinished. */
+  clock: ActiveClock;
 }
 
 export interface SessionSpec {
   mode: SessionMode;
   title: string;
   topicId: string | null;
+  examDomain?: string | null;
   items: {
     question: Question;
     topicId: string;
@@ -132,6 +147,17 @@ interface AppState {
   submit: () => void;
   next: () => void;
   endQuiz: () => void;
+
+  /* ---- session resume (M6) ---- */
+
+  /** Bank the running span and stop the clock — called when the tab is hidden. */
+  pauseSession: () => void;
+  /** Start the clock again — called when the tab becomes visible. */
+  resumeSession: () => void;
+  /** Rebuild the saved session into a live one. Returns false if it could not be used. */
+  resumeSaved: () => Promise<boolean>;
+  /** Throw away the saved session without resuming it. */
+  discardSaved: () => void;
 }
 
 export const useApp = create<AppState>((set, get) => ({
@@ -163,7 +189,10 @@ export const useApp = create<AppState>((set, get) => ({
   },
 
   setTheme(theme) {
-    const progress = { ...get().progress, settings: { ...get().progress.settings, theme } };
+    const progress = {
+      ...get().progress,
+      settings: { ...get().progress.settings, theme },
+    };
     applyTheme(theme);
     set({ progress });
     save(progress);
@@ -174,18 +203,26 @@ export const useApp = create<AppState>((set, get) => ({
   },
 
   setEffects(effects) {
-    const progress = { ...get().progress, settings: { ...get().progress.settings, effects } };
+    const progress = {
+      ...get().progress,
+      settings: { ...get().progress.settings, effects },
+    };
     applyEffects(effects);
     set({ progress });
     save(progress);
   },
 
   toggleEffects() {
-    get().setEffects(get().progress.settings.effects === "calm" ? "full" : "calm");
+    get().setEffects(
+      get().progress.settings.effects === "calm" ? "full" : "calm",
+    );
   },
 
   setSessionLength(sessionLength) {
-    const progress = { ...get().progress, settings: { ...get().progress.settings, sessionLength } };
+    const progress = {
+      ...get().progress,
+      settings: { ...get().progress.settings, sessionLength },
+    };
     set({ progress });
     save(progress);
   },
@@ -205,33 +242,34 @@ export const useApp = create<AppState>((set, get) => ({
     const now = Date.now();
     const states = get().progress.questions;
 
-    set({
-      session: {
-        mode: spec.mode,
-        title: spec.title,
-        topicId: spec.topicId,
-        lessonBlocks: spec.lessonBlocks,
-        items: spec.items.map((item, i) => ({
-          question: item.question,
-          topicId: item.topicId,
-          response: null,
-          confidence: null,
-          grade: null,
-          revealed: false,
-          // Only the first item is on screen; the rest get stamped on arrival.
-          shownAt: i === 0 ? now : null,
-          scheduled: null,
-          wasFlaggedForReteach: states[item.question.id]?.needsReteach ?? false,
-          xpAwarded: 0,
-          xpSkipped: null,
-          drill: item.drill ?? null,
-        })),
-        index: 0,
-        startedAt: now,
-        finishedAt: null,
-        badgesEarned: [],
-      },
-    });
+    const session: QuizSession = {
+      mode: spec.mode,
+      title: spec.title,
+      topicId: spec.topicId,
+      examDomain: spec.examDomain ?? null,
+      lessonBlocks: spec.lessonBlocks,
+      items: spec.items.map((item) => ({
+        question: item.question,
+        topicId: item.topicId,
+        response: null,
+        confidence: null,
+        grade: null,
+        revealed: false,
+        activeMs: 0,
+        scheduled: null,
+        wasFlaggedForReteach: states[item.question.id]?.needsReteach ?? false,
+        xpAwarded: 0,
+        xpSkipped: null,
+        drill: item.drill ?? null,
+      })),
+      index: 0,
+      startedAt: now,
+      finishedAt: null,
+      badgesEarned: [],
+      clock: startClock(now),
+    };
+
+    set({ session, progress: persistSession(get().progress, session, now) });
   },
 
   startTopicQuiz(topic) {
@@ -241,7 +279,10 @@ export const useApp = create<AppState>((set, get) => ({
       topicId: topic.id,
       // M1/M2 ask every question in file order. The time-budgeted composer that
       // mixes due reviews, weak areas and new material arrives in M6.
-      items: topic.questions.map((question) => ({ question, topicId: topic.id })),
+      items: topic.questions.map((question) => ({
+        question,
+        topicId: topic.id,
+      })),
       lessonBlocks: { [topic.id]: topic.lesson },
     });
   },
@@ -257,7 +298,10 @@ export const useApp = create<AppState>((set, get) => ({
       ...new Set(
         questionIds
           .map((id) => get().progress.questions[id]?.topicId)
-          .filter((id): id is string => id !== undefined && manifestTopic(id) !== undefined),
+          .filter(
+            (id): id is string =>
+              id !== undefined && manifestTopic(id) !== undefined,
+          ),
       ),
     ];
 
@@ -269,13 +313,16 @@ export const useApp = create<AppState>((set, get) => ({
     for (const topic of topics) {
       lessonBlocks[topic.id] = topic.lesson;
       for (const question of topic.questions) {
-        if (wanted.has(question.id)) items.push({ question, topicId: topic.id });
+        if (wanted.has(question.id))
+          items.push({ question, topicId: topic.id });
       }
     }
 
     // Preserve the caller's ordering (most overdue first), not file order.
     const rank = new Map(questionIds.map((id, i) => [id, i]));
-    items.sort((a, b) => (rank.get(a.question.id) ?? 0) - (rank.get(b.question.id) ?? 0));
+    items.sort(
+      (a, b) => (rank.get(a.question.id) ?? 0) - (rank.get(b.question.id) ?? 0),
+    );
 
     if (items.length === 0) return 0;
 
@@ -305,7 +352,12 @@ export const useApp = create<AppState>((set, get) => ({
     // If the user has barely read anything yet, fall back to unseen terms rather
     // than refusing to drill at all.
     if (pool.length === 0) {
-      pool = drillPool(terms, { seen, drills: progress.termDrills, now, allowUnseen: true });
+      pool = drillPool(terms, {
+        seen,
+        drills: progress.termDrills,
+        now,
+        allowUnseen: true,
+      });
     }
 
     // Seeded on the day, so re-entering the same drill does not reshuffle mid-set.
@@ -319,7 +371,11 @@ export const useApp = create<AppState>((set, get) => ({
       items: items.map((item) => ({
         question: drillToQuestion(item),
         topicId: item.term.domain,
-        drill: { slug: item.slug, domain: item.term.domain, direction: item.direction },
+        drill: {
+          slug: item.slug,
+          domain: item.term.domain,
+          direction: item.direction,
+        },
       })),
       lessonBlocks: {},
     });
@@ -370,10 +426,13 @@ export const useApp = create<AppState>((set, get) => ({
 
     const grade = gradeAnswer(item.question, item.response);
     const now = Date.now();
-    const seconds = Math.min(
-      MAX_SECONDS_PER_QUESTION,
-      Math.max(0, (now - (item.shownAt ?? now)) / 1000),
-    );
+
+    // Bank the span that belongs to this question. The clock keeps running: the
+    // explanation the user is about to read is part of the session's active time,
+    // and it gets credited to the next question when they advance.
+    const { banked, clock } = split(session.clock, now);
+    const itemActiveMs = item.activeMs + banked;
+    const seconds = Math.round(itemActiveMs / 1000);
 
     // Glossary drills schedule against termDrills, not questions, so they never
     // enter the topic review queue. Same XP rules, same daily aggregate.
@@ -396,12 +455,17 @@ export const useApp = create<AppState>((set, get) => ({
         ...item,
         grade,
         revealed: true,
+        activeMs: itemActiveMs,
         scheduled: result.state,
         xpAwarded: result.xp.total,
         xpSkipped: result.xp.skipped,
       };
 
-      set({ progress: result.progress, session: { ...session, items: drillItems } });
+      // Drills are not resumable, so no snapshot is written for them.
+      set({
+        progress: result.progress,
+        session: { ...session, items: drillItems, clock },
+      });
       save(result.progress);
       return;
     }
@@ -432,49 +496,212 @@ export const useApp = create<AppState>((set, get) => ({
       ...item,
       grade,
       revealed: true,
+      activeMs: itemActiveMs,
       scheduled,
       xpAwarded: xp.total,
       xpSkipped: xp.skipped,
     };
 
-    set({
-      progress,
-      session: {
-        ...session,
-        items,
-        badgesEarned: [...session.badgesEarned, ...badges],
-      },
-    });
-    save(progress);
+    const updated: QuizSession = {
+      ...session,
+      items,
+      clock,
+      badgesEarned: [...session.badgesEarned, ...badges],
+    };
+
+    // Snapshot with the answer included, so a tab closed on the explanation screen
+    // resumes on the next question rather than re-asking this one.
+    set({ progress: persistSession(progress, updated, now), session: updated });
   },
 
   next() {
-    const session = get().session;
+    const state = get();
+    const session = state.session;
     if (!session) return;
 
+    const now = Date.now();
+
     if (session.index >= session.items.length - 1) {
-      set({ session: { ...session, finishedAt: Date.now() } });
+      // Finished. Bank the last span, then clear the snapshot — a result screen is
+      // not work in progress, and leaving it would offer to resume a done session.
+      const finished: QuizSession = {
+        ...bankCurrentSpan(session, now, true),
+        finishedAt: now,
+      };
+      set({ progress: clearSavedSession(state.progress), session: finished });
       void flush();
       return;
     }
 
-    const nextIndex = session.index + 1;
-    const items = session.items.slice();
-    const upcoming = items[nextIndex];
-    if (upcoming && upcoming.shownAt === null) {
-      items[nextIndex] = { ...upcoming, shownAt: Date.now() };
-    }
-
-    set({ session: { ...session, index: nextIndex, items } });
+    // The span so far belongs to the question being left behind.
+    const banked = bankCurrentSpan(session, now, false);
+    const advanced: QuizSession = { ...banked, index: banked.index + 1 };
+    set({
+      progress: persistSession(state.progress, advanced, now),
+      session: advanced,
+    });
   },
 
   endQuiz() {
+    const state = get();
+    // Leaving mid-session deliberately KEEPS the snapshot: that is exactly the case
+    // resume exists for. Only finishing clears it.
+    if (state.session !== null && state.session.finishedAt === null) {
+      const now = Date.now();
+      const paused = bankCurrentSpan(state.session, now, true);
+      set({ progress: persistSession(state.progress, paused, now) });
+    }
     void flush();
     set({ session: null });
   },
+
+  /* ---- session resume ---- */
+
+  pauseSession() {
+    const session = get().session;
+    if (!session || session.finishedAt !== null) return;
+    const now = Date.now();
+    const paused = bankCurrentSpan(session, now, true);
+    // Persist on hide as well as on answer: a tab closed from a hidden state never
+    // gets another event, so this is the last chance to record the time.
+    set({
+      progress: persistSession(get().progress, paused, now),
+      session: paused,
+    });
+
+    // Written synchronously, not left to the debounce. The storage module has its own
+    // visibilitychange flush, but it was registered first and therefore already ran
+    // with the PRE-pause state — so a debounced write here would be lost with the tab.
+    flushSync();
+  },
+
+  resumeSession() {
+    const session = get().session;
+    if (!session || session.finishedAt !== null) return;
+    set({
+      session: { ...session, clock: resumeClockAt(session.clock, Date.now()) },
+    });
+  },
+
+  async resumeSaved() {
+    const state = get();
+    const saved = state.progress.activeSession;
+    if (saved === null) return false;
+    if (!isResumable(saved.savedAt, Date.now())) {
+      state.discardSaved();
+      return false;
+    }
+
+    // Load every topic the snapshot references, then rebuild from ids.
+    const topicIds = savedTopicIds(saved).filter(
+      (id) => manifestTopic(id) !== undefined,
+    );
+    const topics = await Promise.all(topicIds.map((id) => loadTopic(id)));
+
+    const byId = new Map<string, Question>();
+    const lessonBlocks: Record<string, LessonBlock[]> = {};
+    for (const topic of topics) {
+      lessonBlocks[topic.id] = topic.lesson;
+      for (const question of topic.questions) byId.set(question.id, question);
+    }
+
+    const rebuilt = fromSaved(
+      saved,
+      (id) => byId.get(id),
+      lessonBlocks,
+      (id) => get().progress.questions[id]?.needsReteach ?? false,
+    );
+
+    if (rebuilt === null) {
+      get().discardSaved();
+      return false;
+    }
+
+    set({
+      session: {
+        ...rebuilt.session,
+        clock: resumeClockAt(rebuilt.session.clock, Date.now()),
+      },
+    });
+    return true;
+  },
+
+  discardSaved() {
+    const progress = clearSavedSession(get().progress);
+    set({ progress });
+  },
 }));
 
-function patchCurrent(state: AppState, patch: (item: QuizItem) => QuizItem): Partial<AppState> {
+/**
+ * Bank the span in progress against the question currently on screen.
+ *
+ * Every transition that ends a span has to do this, not just answering: if a pause
+ * banked time into the session clock alone, the question's own dwell would lose it,
+ * and the per-question seconds passed to the scheduler would under-report every
+ * time the tab was hidden. Crediting here keeps one invariant true —
+ *
+ *   sum(items[].activeMs) === clock.accumulatedMs
+ *
+ * — which is what makes the session total and the question times agree.
+ *
+ * `stop: true` leaves the clock paused; `false` starts the next span immediately.
+ */
+function bankCurrentSpan(
+  session: QuizSession,
+  now: number,
+  stop: boolean,
+): QuizSession {
+  const { items, clock } = bankSpan(
+    session.clock,
+    session.items,
+    session.index,
+    now,
+    stop,
+  );
+  return { ...session, items, clock };
+}
+
+/**
+ * Write the session snapshot into progress and save.
+ *
+ * Returns the new progress rather than setting it, so the caller can apply it in the
+ * same `set` as the session and never render a state where the two disagree.
+ *
+ * A drill produces no snapshot, and must not clear one belonging to a real session
+ * the user has half-finished — hence the early return rather than writing null.
+ */
+function persistSession(
+  progress: ProgressState,
+  session: QuizSession,
+  now: number,
+): ProgressState {
+  const saved = toSaved(session, now);
+  if (saved === null) return progress;
+
+  const next: ProgressState = { ...progress, activeSession: saved };
+  save(next);
+  return next;
+}
+
+/** Drop the snapshot. Used on finish and on explicit discard. */
+function clearSavedSession(progress: ProgressState): ProgressState {
+  if (progress.activeSession === null) return progress;
+  const next: ProgressState = { ...progress, activeSession: null };
+  save(next);
+  return next;
+}
+
+/** The saved session, if there is one recent enough to offer. */
+export function selectResumableSession(s: AppState): SavedSession | null {
+  const saved = s.progress.activeSession;
+  if (saved === null) return null;
+  return isResumable(saved.savedAt, Date.now()) ? saved : null;
+}
+
+function patchCurrent(
+  state: AppState,
+  patch: (item: QuizItem) => QuizItem,
+): Partial<AppState> {
   const session = state.session;
   if (!session) return {};
   const current = session.items[session.index];
@@ -493,7 +720,8 @@ export const selectCurrentItem = (s: AppState): QuizItem | null =>
 export const selectAnsweredCount = (s: AppState): number =>
   s.session?.items.filter((i) => i.grade !== null).length ?? 0;
 
-export const selectTotalCount = (s: AppState): number => s.session?.items.length ?? 0;
+export const selectTotalCount = (s: AppState): number =>
+  s.session?.items.length ?? 0;
 
 export const selectXp = (s: AppState): number => s.progress.gamification.xp;
 

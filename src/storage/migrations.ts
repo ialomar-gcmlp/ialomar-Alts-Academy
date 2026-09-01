@@ -88,6 +88,21 @@ export const migrations: Record<number, Migration> = {
       ? { ...state["settings"], effects: "full" }
       : { effects: "full" },
   }),
+
+  /**
+   * v5 -> v6: the resumable session snapshot and mock exam history.
+   *
+   * Both start empty, and there is nothing to reconstruct. A v5 user had no saved
+   * session by definition — the feature did not exist — and no exam attempts. The
+   * answer log could in principle be mined for something exam-shaped, but inventing
+   * attempt records the user never sat would be a fabrication in a history they may
+   * later rely on.
+   */
+  5: (state) => ({
+    ...state,
+    activeSession: null,
+    exams: [],
+  }),
 };
 
 function isRecord(value: unknown): value is Record<string, unknown> {

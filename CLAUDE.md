@@ -432,7 +432,7 @@ so mixing the two would inflate the topic review queue with items `startReviewSe
 cannot build, and would muddle topic mastery. A test asserts drills never land in
 `questions`.
 
-Still to come: `activeSession` (M6), as a version bump with a tested migration.
+`activeSession` and `exams` arrived in v6 (M6a) as a version bump with a tested migration.
 
 XP is accumulated rather than derived, unlike mastery. It has to be: the answer log it would be
 derived from is deliberately trimmed, so deriving it would mean the user's total quietly falling as
@@ -450,12 +450,52 @@ Ordered chain, one function per version step, **each with its own test**. Before
 pre-migration blob at `progress.backup.v{n}`. A stored version *newer* than the code knows about must
 **refuse to write** and show a warning — never silently coerce.
 
-### Session resume
+### Session resume — BUILT (M6a)
 
-`activeSession` persists after every answer: queue, index, answers so far, accumulated **active**
-time, startedAt. On load, a session under 12h old offers Resume on the same question. Elapsed time is
-accumulated active-time, not wall-clock, and pauses on `visibilitychange` — so a tab left open over
-lunch does not burn the session budget.
+`activeSession` persists after every answer, every pause and on leaving: queue, index, the
+**response** per item (never the grade — that is recomputed, so a content fix cannot leave a stale
+grade behind), `xpAwarded` and `dueAt` (never recomputed, or resuming would double-count XP and
+reschedule the question), per-item active time, startedAt, savedAt. A snapshot under 12h old
+(`ACTIVE_TIME.RESUME_WINDOW_MS`) offers **Pick up where I left off** on the home page; the other
+button discards it. Finishing a session clears the snapshot — a result screen is not work in
+progress. Glossary drills are deliberately **not** resumable: their questions are generated from a
+seeded RNG, so an id alone cannot rebuild one.
+
+`src/state/sessionPersist.ts` owns `toSaved` / `fromSaved`. A question that no longer exists is
+dropped and the index shifts to compensate; if nothing survives, the snapshot is discarded rather
+than resumed empty.
+
+### Active time — `engine/activeTime.ts`. Never wall-clock.
+
+Time credited to the day (and therefore to the streak) is the one number a bug can inflate in the
+user's favour, so it is a pure clock over `{ accumulatedMs, runningSince }`, with `now` always
+passed in:
+
+- **pauses when the tab is hidden**, and resumes when it comes back;
+- **caps any single span** at `ACTIVE_TIME.MAX_SPAN_MS` (5 min) — a visible tab is not proof anyone
+  is reading it;
+- credits **zero, never negative**, if the system clock moves backwards.
+
+One invariant ties the per-question times to the session total, and `bankSpan` is what keeps it:
+
+```
+sum(items[].activeMs) === clock.accumulatedMs
+```
+
+Every transition that ends a span must credit it to the item on screen — answering, advancing,
+pausing, leaving, finishing. Banking into the clock alone was a real bug: hiding the tab moved the
+span out of the item, so a question read for a minute was recorded as taking a second.
+
+`Session.tsx` drives it from `visibilitychange` **and** `pagehide`. Both are needed: React cleanup
+never runs on a reload or a closed tab, so without `pagehide` the span in progress is lost.
+`pauseSession` ends with `flushSync()` because the storage module's own `visibilitychange` flush was
+registered first and has therefore already run with the pre-pause state.
+
+### Dev-only inspection handle
+
+`main.tsx` exposes the store as `window.__alts` under `import.meta.env.DEV`. Time accounting has to
+be verified by reading the live clock, not inferred from the DOM — this is how the invariant above
+was checked in the browser. Vite folds the branch away in production.
 
 ---
 
@@ -589,8 +629,8 @@ Commit at the end of each milestone, then stop for review. Run `npm run verify` 
 | M2 | Scheduler + mastery engine, with tests | done |
 | M3 | XP, levels, streaks, badges, skill tree | done |
 | M4 | Glossary popovers, global page, drill mode | done |
-| M5 | Content build-out, one domain per batch, validated, pause between batches | **in progress** — see inventory below |
-| M6 | Mock exams, analytics, export/import, session resume | |
+| M5 | Content build-out, one domain per batch, validated, pause between batches | done — see inventory below |
+| M6 | Mock exams, analytics, export/import, session resume | **in progress** — M6a session resume + active time done; mock exams, analytics, export/import to come |
 | M7 | Polish: mobile, keyboard, accessibility, empty states, error handling | |
 
 Working software over completeness at every milestone. A great app with 20 topics beats a broken one

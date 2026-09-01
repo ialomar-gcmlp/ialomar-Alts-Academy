@@ -22,7 +22,8 @@ import {
   topicProgress,
   type TopicProgress,
 } from "../state/selectors";
-import { useApp } from "../state/store";
+import { selectResumableSession, useApp } from "../state/store";
+import { savedProgressSummary } from "../state/sessionPersist";
 import { dayKey } from "../storage/progressSchema";
 import { DOMAIN_MONOGRAM, domainStyle } from "../ui/domain";
 import { Icon } from "../ui/icons";
@@ -57,7 +58,9 @@ function WeekStrip() {
       const qualified = seconds >= goalSeconds && (day?.reviews ?? 0) >= 1;
       return {
         key,
-        label: new Date(`${key}T12:00:00`).toLocaleDateString(undefined, { weekday: "narrow" }),
+        label: new Date(`${key}T12:00:00`).toLocaleDateString(undefined, {
+          weekday: "narrow",
+        }),
         state: qualified
           ? "hit"
           : frozen.has(key)
@@ -95,6 +98,81 @@ function WeekStrip() {
   );
 }
 
+/**
+ * Offer to pick up an unfinished session.
+ *
+ * Shown above everything else, because a half-finished set is the most likely thing
+ * the user came back for. Both actions are explicit — an abandoned session that
+ * silently resumed itself would be worse than one that asks.
+ */
+function ResumeCard() {
+  const saved = useApp(selectResumableSession);
+  const resumeSaved = useApp((s) => s.resumeSaved);
+  const discardSaved = useApp((s) => s.discardSaved);
+  const [busy, setBusy] = useState(false);
+
+  if (saved === null) return null;
+
+  const { answered, total, remaining } = savedProgressSummary(saved);
+
+  const pickUp = async (): Promise<void> => {
+    setBusy(true);
+    try {
+      const ok = await resumeSaved();
+      // A snapshot whose content has since changed cannot be rebuilt; the store has
+      // already discarded it, so the card simply disappears.
+      if (ok)
+        navigate(saved.topicId === null ? "review" : `quiz/${saved.topicId}`);
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  return (
+    // A solid accent bar down the left edge and a full-strength tint, because a 30%
+    // wash on white was invisible: this card has to catch the eye before the hero.
+    // The tint sits on the inner element, not the Card — Card's own bg-surface is the
+    // same specificity, so which one won would depend on stylesheet order.
+    <Card className="mb-6 overflow-hidden border-accent/50 p-0">
+      <div className="flex bg-accent-soft">
+        <span className="w-1.5 shrink-0 bg-accent" aria-hidden="true" />
+        <div className="flex flex-1 flex-wrap items-center justify-between gap-4 p-4 sm:p-5">
+          <div className="min-w-0">
+            <div className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-accent">
+              <Icon name="clock" size={13} />
+              Unfinished session
+            </div>
+            <p className="mt-1 text-[16px] font-bold text-fg">{saved.title}</p>
+            <p className="mt-0.5 text-[13.5px] text-fg-muted tnum">
+              {answered} of {total} answered · {remaining} left ·{" "}
+              {formatAgo(saved.savedAt, Date.now())}
+            </p>
+          </div>
+
+          <div className="flex shrink-0 items-center gap-2">
+            <Button
+              variant="vivid"
+              onClick={() => void pickUp()}
+              disabled={busy}
+            >
+              <Icon name="arrow" size={15} />
+              {busy ? "Loading…" : "Pick up where I left off"}
+            </Button>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={discardSaved}
+              disabled={busy}
+            >
+              Discard
+            </Button>
+          </div>
+        </div>
+      </div>
+    </Card>
+  );
+}
+
 function Hero({
   due,
   starting,
@@ -116,7 +194,11 @@ function Hero({
       {/* A stripe of every domain colour: the app's own palette as a header. */}
       <div className="flex h-1.5">
         {(Object.keys(DOMAIN_MONOGRAM) as Domain[]).map((domain) => (
-          <span key={domain} className="d-fill flex-1" style={domainStyle(domain)} />
+          <span
+            key={domain}
+            className="d-fill flex-1"
+            style={domainStyle(domain)}
+          />
         ))}
       </div>
 
@@ -142,7 +224,12 @@ function Hero({
 
           <div className="mt-5 flex flex-wrap items-center gap-2.5">
             {due.length > 0 ? (
-              <Button variant="vivid" size="xl" onClick={onReview} disabled={starting}>
+              <Button
+                variant="vivid"
+                size="xl"
+                onClick={onReview}
+                disabled={starting}
+              >
                 <Icon name="bolt" size={17} />
                 {starting ? "Loading…" : `Review ${due.length}`}
               </Button>
@@ -174,7 +261,12 @@ function Hero({
         {/* Today's numbers, big enough to read without leaning in. */}
         <div className="flex shrink-0 items-center gap-6 sm:gap-5">
           <div className="text-center">
-            <Ring value={goalPct} size={72} thickness={7} color="var(--p-streak)">
+            <Ring
+              value={goalPct}
+              size={72}
+              thickness={7}
+              color="var(--p-streak)"
+            >
               <span className="flex flex-col items-center leading-none">
                 <Icon
                   name="flame"
@@ -192,9 +284,16 @@ function Hero({
           </div>
 
           <div className="text-center">
-            <Ring value={info.progress} size={72} thickness={7} color="var(--p-accent)">
+            <Ring
+              value={info.progress}
+              size={72}
+              thickness={7}
+              color="var(--p-accent)"
+            >
               <span className="flex flex-col items-center leading-none">
-                <span className="text-[15px] font-bold text-fg tnum">{info.level}</span>
+                <span className="text-[15px] font-bold text-fg tnum">
+                  {info.level}
+                </span>
                 <span className="text-[9px] font-bold uppercase tracking-wider text-fg-subtle">
                   lvl
                 </span>
@@ -216,7 +315,8 @@ function Hero({
           </span>
           {info.next !== null && (
             <span className="text-fg-subtle">
-              · {(info.next - progress.gamification.xp).toLocaleString()} to {info.nextTitle}
+              · {(info.next - progress.gamification.xp).toLocaleString()} to{" "}
+              {info.nextTitle}
             </span>
           )}
         </div>
@@ -248,7 +348,9 @@ function TopicCard({ progress }: { progress: TopicProgress }) {
         <div className="mb-2.5 flex items-start gap-2.5">
           <Monogram code={DOMAIN_MONOGRAM[topic.domain]} size={32} />
           <div className="min-w-0 flex-1">
-            <h3 className="text-[16px] font-bold leading-snug text-fg">{topic.title}</h3>
+            <h3 className="text-[16px] font-bold leading-snug text-fg">
+              {topic.title}
+            </h3>
           </div>
           {started && (
             <Ring value={mastery} size={30} thickness={3.5} color="var(--d)">
@@ -259,7 +361,9 @@ function TopicCard({ progress }: { progress: TopicProgress }) {
           )}
         </div>
 
-        <p className="flex-1 text-[13.5px] leading-relaxed text-fg-muted">{topic.summary}</p>
+        <p className="flex-1 text-[13.5px] leading-relaxed text-fg-muted">
+          {topic.summary}
+        </p>
 
         <div className="mt-3 flex flex-wrap items-center gap-1.5">
           {dueCount > 0 && (
@@ -269,7 +373,10 @@ function TopicCard({ progress }: { progress: TopicProgress }) {
             </Badge>
           )}
           {topic.examRelevance.map((exam) => (
-            <Badge key={exam} tone={exam === "practical" ? "domain" : "neutral"}>
+            <Badge
+              key={exam}
+              tone={exam === "practical" ? "domain" : "neutral"}
+            >
               {exam === "practical" ? "on the job" : exam}
             </Badge>
           ))}
@@ -293,7 +400,9 @@ function TopicCard({ progress }: { progress: TopicProgress }) {
           <Icon name="lock" size={12} className="mt-0.5" />
           <span>
             Best done after{" "}
-            {blockedBy.map((id) => manifestTopic(id)?.title ?? id).join(" and ")}
+            {blockedBy
+              .map((id) => manifestTopic(id)?.title ?? id)
+              .join(" and ")}
           </span>
         </p>
       )}
@@ -329,7 +438,10 @@ export function Home() {
       .sort((a, b) => a.mastery - b.mastery)[0];
   }, [topics]);
 
-  const totalQuestions = manifest.topics.reduce((n, t) => n + t.questionCount, 0);
+  const totalQuestions = manifest.topics.reduce(
+    (n, t) => n + t.questionCount,
+    0,
+  );
   const answeredEver = Object.keys(progress.questions).length;
   const lastStudied = Object.values(progress.topics)
     .map((t) => t.lastStudiedAt)
@@ -348,6 +460,8 @@ export function Home() {
 
   return (
     <div>
+      <ResumeCard />
+
       <Hero
         due={due}
         starting={starting}
@@ -359,7 +473,8 @@ export function Home() {
         {manifest.topics.length} topics · {totalQuestions} questions ·{" "}
         {manifest.glossaryCount} glossary terms
         {answeredEver > 0 && ` · ${answeredEver} seen`}
-        {lastStudied !== undefined && ` · last studied ${formatAgo(lastStudied, now)}`}
+        {lastStudied !== undefined &&
+          ` · last studied ${formatAgo(lastStudied, now)}`}
       </p>
 
       <div className="space-y-9">
@@ -388,7 +503,11 @@ export function Home() {
                   {domain.mastery > 0 && (
                     <span className="flex items-center gap-2">
                       <span className="w-20">
-                        <Meter value={domain.mastery} color="var(--d)" height={5} />
+                        <Meter
+                          value={domain.mastery}
+                          color="var(--d)"
+                          height={5}
+                        />
                       </span>
                       <span className="text-[12px] font-semibold text-fg-muted tnum">
                         {Math.round(domain.mastery * 100)}%

@@ -10,6 +10,7 @@
  *   v3  gamification (XP, badges, frozen days) and a per-day review count
  *   v4  glossary: terms seen, and drill scheduling state per term/direction
  *   v5  the `effects` setting (full vs calm motion)
+ *   v6  the resumable session snapshot, and mock exam attempts
  *
  * Mastery is deliberately NOT stored. It is derived from question state on demand,
  * so there is no cache to go stale — the entire class of "the number on screen
@@ -21,7 +22,7 @@ import { z } from "zod";
 import { CONFIDENCE_LEVELS } from "../engine/grading";
 import type { QuestionState } from "../engine/scheduler";
 
-export const PROGRESS_SCHEMA_VERSION = 5;
+export const PROGRESS_SCHEMA_VERSION = 6;
 
 export const themeSchema = z.enum(["light", "dark"]);
 export const confidenceSchema = z.enum(CONFIDENCE_LEVELS);
@@ -146,6 +147,83 @@ export const gamificationSchema = z.object({
   frozenDays: z.array(z.string()),
 });
 
+/* ------------------------------------------------------------------ *
+ * Resumable session (v6)
+ * ------------------------------------------------------------------ */
+
+/**
+ * A saved session, small enough to write after every answer.
+ *
+ * Deliberately stores question IDs rather than question objects. The content is
+ * already on disk and loads by id, so persisting it would duplicate megabytes into
+ * localStorage for no benefit — and it would go stale the moment a topic is edited.
+ *
+ * The RESPONSE is stored and the grade is not: grading is a pure function of the
+ * question and the response, so it can be recomputed on resume. Storing a grade
+ * would create two sources of truth that could disagree after a content fix.
+ *
+ * `xpAwarded` and `dueAt` ARE stored, because those were already applied to the rest
+ * of progress when the answer was recorded. Recomputing them would either double-
+ * count the XP or silently reschedule the question.
+ */
+export const savedResponseSchema = z.discriminatedUnion("kind", [
+  z.object({ kind: z.literal("choice"), choiceIndex: z.number().int() }),
+  z.object({
+    kind: z.literal("numeric"),
+    value: z.number().nullable(),
+    raw: z.string(),
+  }),
+  z.object({
+    kind: z.literal("tfj"),
+    isTrue: z.boolean().nullable(),
+    justificationIndex: z.number().int().nullable(),
+  }),
+]);
+
+export const savedItemSchema = z.object({
+  questionId: z.string(),
+  topicId: z.string(),
+  response: savedResponseSchema.nullable(),
+  confidence: confidenceSchema.nullable(),
+  /** True once submitted. The response alone cannot say so — a picked answer is not a submitted one. */
+  answered: z.boolean(),
+  /** Already credited to gamification when the answer was recorded; never recomputed. */
+  xpAwarded: z.number().min(0),
+  /** Already written to the scheduler; kept only so the UI can say "back tomorrow". */
+  dueAt: z.number().nullable(),
+  /** Active milliseconds credited to this question. */
+  activeMs: z.number().min(0),
+});
+
+export const savedSessionSchema = z.object({
+  /** "drill" is absent by design — generated drills cannot be rebuilt from an id. */
+  mode: z.enum(["learn", "review", "exam"]),
+  title: z.string(),
+  topicId: z.string().nullable(),
+  /** Set for exam sessions, so the result can be recorded against the right domain. */
+  examDomain: z.string().nullable(),
+  items: z.array(savedItemSchema),
+  index: z.number().int().min(0),
+  startedAt: z.number(),
+  savedAt: z.number(),
+  /** Banked active time for the whole session. The clock is never saved running. */
+  activeMs: z.number().min(0),
+  badgesEarned: z.array(earnedBadgeSchema),
+});
+
+/** A completed mock exam. Kept permanently — it is a record of what you could do. */
+export const examAttemptSchema = z.object({
+  domain: z.string(),
+  startedAt: z.number(),
+  finishedAt: z.number(),
+  correct: z.number().int().min(0),
+  total: z.number().int().min(1),
+  /** Whether the attempt met the pass threshold in force at the time. */
+  passed: z.boolean(),
+  /** Active seconds spent, for the record rather than for scoring. */
+  seconds: z.number().min(0),
+});
+
 export const progressSchema = z.object({
   schemaVersion: z.number().int().positive(),
   settings: settingsSchema,
@@ -162,6 +240,10 @@ export const progressSchema = z.object({
   termDrills: z.record(z.string(), questionStateSchema),
   events: z.array(answerEventSchema),
   daily: z.record(z.string(), dailyAggregateSchema),
+  /** In-flight session, or null. Written after every answer so a closed tab loses nothing. */
+  activeSession: savedSessionSchema.nullable(),
+  /** Completed mock exams, oldest first. */
+  exams: z.array(examAttemptSchema),
   meta: z.object({
     createdAt: z.string(),
     lastExportAt: z.string().nullable(),
@@ -177,6 +259,10 @@ export type AnswerEvent = z.infer<typeof answerEventSchema>;
 export type DailyAggregate = z.infer<typeof dailyAggregateSchema>;
 export type EarnedBadge = z.infer<typeof earnedBadgeSchema>;
 export type Gamification = z.infer<typeof gamificationSchema>;
+export type SavedResponse = z.infer<typeof savedResponseSchema>;
+export type SavedItem = z.infer<typeof savedItemSchema>;
+export type SavedSession = z.infer<typeof savedSessionSchema>;
+export type ExamAttempt = z.infer<typeof examAttemptSchema>;
 export type ProgressState = z.infer<typeof progressSchema>;
 
 export function emptyDailyAggregate(): DailyAggregate {
@@ -211,6 +297,8 @@ export function defaultProgress(now: Date = new Date()): ProgressState {
     termDrills: {},
     events: [],
     daily: {},
+    activeSession: null,
+    exams: [],
     meta: { createdAt: now.toISOString(), lastExportAt: null },
   };
 }

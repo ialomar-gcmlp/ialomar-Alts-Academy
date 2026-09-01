@@ -71,6 +71,29 @@ export const MASTERY = {
   WEAK_AREA_CEILING: 0.5,
 } as const;
 
+/**
+ * Active time accounting (src/engine/activeTime.ts).
+ *
+ * Study minutes drive the streak, so the time credited to a question has to be time
+ * the user was actually present. The clock pauses when the tab is hidden; these two
+ * numbers handle the cases the browser cannot tell us about.
+ */
+export const ACTIVE_TIME = {
+  /**
+   * The longest single uninterrupted span credited to one question. A visible tab is
+   * not proof anyone is reading it, and no question in this app takes five minutes
+   * of continuous attention. Replaces M1's blunt 300-second-per-question cap.
+   */
+  MAX_SPAN_MS: 5 * MINUTE_MS,
+
+  /**
+   * How old a saved session can be and still be offered for resuming. Long enough
+   * to cover closing the tab and coming back after lunch; short enough that a
+   * forgotten session from last week is not presented as work in progress.
+   */
+  RESUME_WINDOW_MS: 12 * HOUR_MS,
+} as const;
+
 export const HISTORY = {
   /** Raw answer log is a ring buffer; daily aggregates are kept permanently. */
   MAX_EVENTS: 5000,

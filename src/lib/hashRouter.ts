@@ -18,10 +18,16 @@ export interface Route {
 
 function readHash(): Route {
   const raw = window.location.hash.replace(/^#\/?/, "");
-  return { raw, segments: raw.split("/").filter(Boolean).map(decodeURIComponent) };
+  return {
+    raw,
+    segments: raw.split("/").filter(Boolean).map(decodeURIComponent),
+  };
 }
 
-export function navigate(path: string, options: { replace?: boolean } = {}): void {
+export function navigate(
+  path: string,
+  options: { replace?: boolean } = {},
+): void {
   const target = `#/${path.replace(/^\/+/, "")}`;
   if (options.replace) {
     window.history.replaceState(null, "", target);
@@ -35,8 +41,22 @@ export function useRoute(): Route {
   const [route, setRoute] = useState<Route>(readHash);
 
   useEffect(() => {
-    const onChange = (): void => setRoute(readHash());
+    // Only replaces the route object when the hash actually differs, so calling this
+    // defensively never costs a render.
+    const onChange = (): void =>
+      setRoute((prev) => {
+        const next = readHash();
+        return next.raw === prev.raw ? prev : next;
+      });
+
     window.addEventListener("hashchange", onChange);
+
+    // Re-read after subscribing. A child effect can navigate before this parent
+    // effect runs — React flushes child effects first — and the event dispatched
+    // then has no listener yet. Without this line that navigation is silently lost
+    // and the app renders the old route: on a reload mid-session, a blank page.
+    onChange();
+
     return () => window.removeEventListener("hashchange", onChange);
   }, []);
 
