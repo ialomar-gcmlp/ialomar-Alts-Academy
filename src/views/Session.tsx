@@ -28,6 +28,7 @@ import {
   useApp,
 } from "../state/store";
 import { LessonBlockView } from "../ui/blocks/LessonBlocks";
+import { VignettePanel } from "../ui/questions/VignettePanel";
 import { DOMAIN_MONOGRAM, domainStyle } from "../ui/domain";
 import { Icon } from "../ui/icons";
 import {
@@ -428,6 +429,7 @@ export function Session({ topicId }: { topicId?: string }) {
           </div>
 
           <div ref={stemRef} tabIndex={-1} className="outline-none">
+            {item.vignette !== null && <VignettePanel context={item.vignette} />}
             <QuestionView
               question={item.question}
               response={item.response}

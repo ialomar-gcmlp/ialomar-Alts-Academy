@@ -19,3 +19,6 @@ coverage/
 
 # Local progress exports (may contain personal study history)
 *.progress.json
+
+# Ready but unpushable: needs a gh token with the workflow scope (see README).
+.github/workflows/deploy.yml

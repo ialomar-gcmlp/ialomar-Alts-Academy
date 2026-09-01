@@ -60,7 +60,13 @@ export const topicIdSchema = z
 
 export const questionIdSchema = z
   .string()
-  .regex(/^[a-z]+(-[a-z0-9]+)+-\d{2}-q\d+$/, "question id must look like 'quant-tvm-01-q1'");
+  .regex(
+    // The optional letter suffix is for vignette sub-questions (q9a..q9d), keeping
+    // the parent's number visible wherever the id appears — analytics, the review
+    // queue, an exam breakdown — so siblings are recognisable as one case.
+    /^[a-z]+(-[a-z0-9]+)+-\d{2}-q\d+[a-z]?$/,
+    "question id must look like 'quant-tvm-01-q1' (or 'quant-tvm-01-q1a' for a vignette sub)",
+  );
 
 export const termSlugSchema = z
   .string()
@@ -333,6 +339,7 @@ export const IMPLEMENTED_QUESTION_TYPES = [
   "tfj",
   "strategyId",
   "chartRead",
+  "vignette",
 ] as const;
 
 /* ------------------------------------------------------------------ *

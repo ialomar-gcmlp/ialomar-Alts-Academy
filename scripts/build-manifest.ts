@@ -13,7 +13,7 @@ import { join } from "node:path";
 import { pathToFileURL } from "node:url";
 
 import { CONTENT_SCHEMA_VERSION, type Manifest } from "../src/content/schema";
-import { collectQuestionIds } from "../src/content/walk";
+import { schedulableCount } from "../src/content/flatten";
 import { CONTENT_DIR, loadContent, topicQuestionSeconds, type LoadedContent } from "./lib/content-fs";
 import { dim, reportProblems, yellow } from "./lib/report";
 
@@ -32,7 +32,9 @@ export function toManifest(loaded: LoadedContent): Manifest {
         prereqs: topic.prereqs,
         estMinutes: topic.estMinutes,
         examRelevance: topic.examRelevance,
-        questionCount: collectQuestionIds(topic).length,
+        // Schedulable questions: vignette subs count, their parent does not. Using
+        // collectQuestionIds here would add one per vignette and cap coverage below 1.
+        questionCount: schedulableCount(topic.questions),
         questionSeconds: topicQuestionSeconds(topic),
         tags: [...new Set(topic.questions.flatMap((q) => q.tags))].sort(),
         needsReview: topic.needsReview || topic.questions.some((q) => q.needsReview === true),

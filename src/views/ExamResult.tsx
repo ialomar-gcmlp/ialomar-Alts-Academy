@@ -25,6 +25,7 @@ import { DOMAIN_MONOGRAM, domainStyle } from "../ui/domain";
 import { Icon } from "../ui/icons";
 import { Prose, Inline } from "../ui/Prose";
 import { QuestionView } from "../ui/questions/QuestionView";
+import { VignettePanel } from "../ui/questions/VignettePanel";
 import { Badge, Button, Card, Kbd, Meter, Monogram, Ring } from "../ui/primitives";
 
 export function ExamResult() {
@@ -330,6 +331,10 @@ function ReviewRow({
 
       {open && (
         <div className="border-t border-border-base p-4 sm:p-5">
+          {/* A vignette sub is meaningless without its case, especially in a review
+              of a paper sat an hour ago. */}
+          {item.vignette !== null && <VignettePanel context={item.vignette} />}
+
           {/* Read-only: the same renderer as the exam, with grading shown and no
               handler that could change the answer after the fact. */}
           <QuestionView

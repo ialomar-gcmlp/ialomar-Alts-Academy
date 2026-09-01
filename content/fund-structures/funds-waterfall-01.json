@@ -290,6 +290,107 @@
         "The GP's model will be accurate and will be built around a favourable scenario. Build your own, and run the poor outcome."
       ],
       "explanation": "The clauses interact, so their combined effect is not readable from reading them in order. Modelling at three outcomes also reveals something a single case hides: terms that look modest in a strong fund can be expensive in a middling one."
+    },
+    {
+      "id": "funds-waterfall-01-q9",
+      "type": "vignette",
+      "difficulty": 4,
+      "tags": [
+        "waterfall",
+        "catch-up",
+        "carry",
+        "case"
+      ],
+      "concept": "worked-waterfall",
+      "stem": "You are reviewing the final distribution for Meridian Growth Partners II, a fund that has just sold its last portfolio company. The fund uses a whole-of-fund ([[european-waterfall]]) structure: nothing is split with the manager until investors have their capital and [[preferred-return]] back across the *entire* fund. The LPA terms and the fund's numbers are in Exhibit 1. Work the waterfall tier by tier — each question builds on the one before it.",
+      "exhibits": [
+        {
+          "kind": "table",
+          "title": "Meridian Growth Partners II — terms and outcome",
+          "headers": [
+            "Item",
+            "Value"
+          ],
+          "rows": [
+            [
+              "Capital contributed by LPs",
+              "120.0"
+            ],
+            [
+              "Preferred return",
+              "8% per year, simple (non-compounding)"
+            ],
+            [
+              "Time capital was outstanding",
+              "2 years"
+            ],
+            [
+              "Catch-up",
+              "100% to GP"
+            ],
+            [
+              "Carried interest",
+              "20%"
+            ],
+            [
+              "Total exit proceeds to distribute",
+              "165.0"
+            ]
+          ]
+        }
+      ],
+      "explanation": "The full waterfall: 165.0 of proceeds returns 120.0 of capital (45.0 of profit left), pays the LPs 19.2 of accrued preferred (25.8 left), gives the GP a 4.8 catch-up, then splits the remaining 21.0 as 16.8 to LPs and 4.2 to the GP. LPs end with 156.0 and the GP with 9.0 — exactly 20% of the 45.0 profit, which is what a full catch-up is designed to produce.",
+      "subQuestions": [
+        {
+          "id": "funds-waterfall-01-q9a",
+          "type": "numeric",
+          "stem": "Tier 2: after capital is returned, how much accrued [[preferred-return]] is owed to the LPs?",
+          "answer": 19.2,
+          "tolerance": 0.05,
+          "toleranceType": "abs",
+          "inputHint": "Simple interest: rate × years × capital. Answer to 1 decimal place.",
+          "explanation": "Simple (non-compounding) preferred: 120.0 × 8% × 2 years = **19.2**. Had the LPA specified compounding, it would be 120 × (1.08² − 1) = 19.968 — always check which one the document says, because the difference compounds with time."
+        },
+        {
+          "id": "funds-waterfall-01-q9b",
+          "type": "numeric",
+          "stem": "Tier 3: how much does the GP receive in the [[catch-up|catch-up]] tier? (The catch-up runs until the GP has received 20% of all profit distributed beyond returned capital.)",
+          "answer": 4.8,
+          "tolerance": 0.05,
+          "toleranceType": "abs",
+          "inputHint": "Solve x = 20% × (preferred + x), or use x = preferred ÷ 4 for a 100% catch-up at 20% carry.",
+          "explanation": "The GP catches up until its take equals 20% of everything distributed above capital so far: x = 0.20 × (19.2 + x), so 0.8x = 3.84 and x = **4.8**. A handy check for a 100% catch-up at 20% carry: the catch-up is always a quarter of the preferred, because the GP needs 1 for every 4 the LPs already got."
+        },
+        {
+          "id": "funds-waterfall-01-q9c",
+          "type": "numeric",
+          "stem": "Across the whole waterfall, what is the GP's total [[carried-interest]]?",
+          "answer": 9.0,
+          "tolerance": 0.05,
+          "toleranceType": "abs",
+          "inputHint": "Catch-up plus the GP's share of the final-tier split.",
+          "explanation": "After the 4.8 catch-up, 21.0 remains and splits 80/20: 16.8 to LPs, 4.2 to the GP. Total carry = 4.8 + 4.2 = **9.0**. Sanity check: total profit is 165 − 120 = 45, and 20% of 45 is exactly 9 — a full catch-up makes the preferred return a timing device, not a permanent transfer away from the GP."
+        },
+        {
+          "id": "funds-waterfall-01-q9d",
+          "type": "mcq",
+          "stem": "The GP's 9.0 is exactly 20% of the fund's 45.0 profit — as if the [[preferred-return]] never existed. What made that happen?",
+          "choices": [
+            "The 100% catch-up: it repays the GP for the carry it skipped while the LPs' preferred was being paid",
+            "The preferred return was set too low to matter",
+            "Rounding — on exact figures the GP would receive less than 20%",
+            "The 80/20 split in the final tier always produces exactly 20% of total profit"
+          ],
+          "answerIndex": 0,
+          "rationales": [
+            "Yes. With a full catch-up the preferred only changes *when* the GP gets paid, not *how much* — the hurdle is soft. Without the catch-up tier, the GP would earn 20% of only 25.8 (5.16 instead of 9.0), and the hurdle would be hard: a real transfer of 3.84 from GP to LPs.",
+            "The size of the preferred is irrelevant to this outcome — with a 100% catch-up the GP ends at 20% of total profit whether the preferred is 1 or 30. Only the catch-up's existence and speed matter.",
+            "The figures here are exact: 4.8 + 4.2 = 9.0 = 20% × 45.0. No rounding is involved.",
+            "The final tier splits only what is *left* after capital, preferred and catch-up — 21.0 here, not the whole 45.0 of profit. On its own it cannot bring the GP up to 20% of the total; that is precisely the catch-up tier's job."
+          ],
+          "explanation": "A 100% catch-up makes the hurdle **soft**: the preferred sets the order of payments, not the final economics. Removing the catch-up (a **hard** hurdle) would leave the GP with 20% of 25.8 = 5.16 — so in this fund, the catch-up clause is worth 3.84 to the manager. That is why it is one of the first terms to check in an LPA."
+        }
+      ]
     }
   ],
   "needsReview": false,

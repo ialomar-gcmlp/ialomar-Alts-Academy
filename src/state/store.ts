@@ -12,6 +12,12 @@
 
 import { create } from "zustand";
 
+import {
+  flattenQuestions,
+  groupVignetteSiblings,
+  type FlatQuestion,
+  type VignetteContext,
+} from "../content/flatten";
 import { glossary, loadTopic, manifest, manifestTopic } from "../content/loader";
 import {
   DOMAIN_LABELS,
@@ -101,6 +107,8 @@ export interface QuizItem {
   xpSkipped: "incorrect" | "already-earned-today" | null;
   /** Present on glossary drills; routes recording to the term store. */
   drill: { slug: string; domain: string; direction: DrillDirection } | null;
+  /** Present on vignette sub-questions; the case rendered above the question. */
+  vignette: VignetteContext | null;
 }
 
 export interface QuizSession {
@@ -131,6 +139,7 @@ export interface SessionSpec {
     question: Question;
     topicId: string;
     drill?: { slug: string; domain: string; direction: DrillDirection };
+    vignette?: VignetteContext | null;
   }[];
   lessonBlocks: Record<string, LessonBlock[]>;
 }
@@ -302,6 +311,7 @@ export const useApp = create<AppState>((set, get) => ({
         xpAwarded: 0,
         xpSkipped: null,
         drill: item.drill ?? null,
+        vignette: item.vignette ?? null,
       })),
       index: 0,
       startedAt: now,
@@ -318,11 +328,12 @@ export const useApp = create<AppState>((set, get) => ({
       mode: "learn",
       title: topic.title,
       topicId: topic.id,
-      // M1/M2 ask every question in file order. The time-budgeted composer that
-      // mixes due reviews, weak areas and new material arrives in M6.
-      items: topic.questions.map((question) => ({
-        question,
+      // File order, with vignettes exploded into their subs — the case renders
+      // above each one, and each sub schedules on its own id.
+      items: flattenQuestions(topic.questions).map((flat) => ({
+        question: flat.question,
         topicId: topic.id,
+        vignette: flat.vignette,
       })),
       lessonBlocks: { [topic.id]: topic.lesson },
     });
@@ -348,33 +359,41 @@ export const useApp = create<AppState>((set, get) => ({
 
     const topics = await Promise.all(topicIds.map((id) => loadTopic(id)));
 
-    const items: { question: Question; topicId: string }[] = [];
+    const found: { flat: FlatQuestion; topicId: string }[] = [];
     const lessonBlocks: Record<string, LessonBlock[]> = {};
 
     for (const topic of topics) {
       lessonBlocks[topic.id] = topic.lesson;
-      for (const question of topic.questions) {
-        if (wanted.has(question.id))
-          items.push({ question, topicId: topic.id });
+      for (const flat of flattenQuestions(topic.questions)) {
+        if (wanted.has(flat.question.id)) found.push({ flat, topicId: topic.id });
       }
     }
 
-    // Preserve the caller's ordering (most overdue first), not file order.
+    // Preserve the caller's ordering (most overdue first), not file order — then
+    // pull siblings of one case together so it is only read once per sitting.
     const rank = new Map(questionIds.map((id, i) => [id, i]));
-    items.sort(
-      (a, b) => (rank.get(a.question.id) ?? 0) - (rank.get(b.question.id) ?? 0),
+    found.sort(
+      (a, b) =>
+        (rank.get(a.flat.question.id) ?? 0) - (rank.get(b.flat.question.id) ?? 0),
     );
 
-    if (items.length === 0) return 0;
+    const byId = new Map(found.map((entry) => [entry.flat.question.id, entry]));
+    const ordered = groupVignetteSiblings(found.map((entry) => entry.flat));
+
+    if (ordered.length === 0) return 0;
 
     get().beginSession({
       mode: "review",
       title: "Review",
       topicId: null,
-      items,
+      items: ordered.map((flat) => ({
+        question: flat.question,
+        topicId: byId.get(flat.question.id)?.topicId ?? "",
+        vignette: flat.vignette,
+      })),
       lessonBlocks,
     });
-    return items.length;
+    return ordered.length;
   },
 
   /**
@@ -445,19 +464,19 @@ export const useApp = create<AppState>((set, get) => ({
       .map((topic) => topic.id);
     const topics = await Promise.all(topicIds.map((id) => loadTopic(id)));
 
-    const byId = new Map<string, { question: Question; topicId: string }>();
+    const byId = new Map<string, { flat: FlatQuestion; topicId: string }>();
     const candidates: ExamCandidate[] = [];
     const lessonBlocks: Record<string, LessonBlock[]> = {};
 
     for (const topic of topics) {
       // Kept so a missed question can link back to the lesson that teaches it.
       lessonBlocks[topic.id] = topic.lesson;
-      for (const question of topic.questions) {
-        byId.set(question.id, { question, topicId: topic.id });
+      for (const flat of flattenQuestions(topic.questions)) {
+        byId.set(flat.question.id, { flat, topicId: topic.id });
         candidates.push({
-          questionId: question.id,
+          questionId: flat.question.id,
           topicId: topic.id,
-          difficulty: question.difficulty,
+          difficulty: flat.question.difficulty,
         });
       }
     }
@@ -465,7 +484,15 @@ export const useApp = create<AppState>((set, get) => ({
     const picked = composeExam(candidates, examLength(candidates.length), now);
     const items = picked
       .map((candidate) => byId.get(candidate.questionId))
-      .filter((item): item is { question: Question; topicId: string } => item !== undefined);
+      .filter(
+        (entry): entry is { flat: FlatQuestion; topicId: string } =>
+          entry !== undefined,
+      )
+      .map((entry) => ({
+        question: entry.flat.question,
+        topicId: entry.topicId,
+        vignette: entry.flat.vignette,
+      }));
 
     if (items.length === 0) return 0;
 
@@ -753,11 +780,12 @@ export const useApp = create<AppState>((set, get) => ({
     );
     const topics = await Promise.all(topicIds.map((id) => loadTopic(id)));
 
-    const byId = new Map<string, Question>();
+    const byId = new Map<string, FlatQuestion>();
     const lessonBlocks: Record<string, LessonBlock[]> = {};
     for (const topic of topics) {
       lessonBlocks[topic.id] = topic.lesson;
-      for (const question of topic.questions) byId.set(question.id, question);
+      for (const flat of flattenQuestions(topic.questions))
+        byId.set(flat.question.id, flat);
     }
 
     const rebuilt = fromSaved(

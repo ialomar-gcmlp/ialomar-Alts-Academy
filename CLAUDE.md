@@ -204,6 +204,37 @@ choice's entry says why it is right; the others say why they are wrong. This let
 *the option the user picked* was wrong. `content:check` enforces the length. This deliberately
 replaces a `whyWrong` array of "why A/B/D is wrong", which is ambiguous once the answer index moves.
 
+### Vignettes — BUILT (M8a). `src/content/flatten.ts`
+
+A vignette (CFA-style item set: stem + exhibits + 2-6 linked sub-questions) **flattens
+into its subs at load time; nothing downstream ever sees the parent.** The rejected
+alternative — one quiz item with a compound response — fights everything already
+built: scheduling would reset a whole case on one missed sub, grading would need a new
+response kind, and exams could not pick subs individually.
+
+- Each sub becomes a complete standalone Question (mcq or numeric), inheriting
+  difficulty/tags/concept/needsReview from the parent, keeping its own id, stem,
+  answer fields and explanation. Sub ids take a letter suffix: `funds-waterfall-01-q9a`
+  — the id schema allows one trailing letter for exactly this.
+- The shared case travels as `QuizItem.vignette` (`VignetteContext`), the same pattern
+  as `QuizItem.drill`. `VignettePanel` renders it above the question — in sessions,
+  and in the exam-result review, and when a lone sub comes back in a review weeks
+  later, which is what makes that question answerable at all.
+- **The parent id is never schedulable.** `schedulableCount` (not
+  `collectQuestionIds`, which includes the parent for uniqueness checks) feeds the
+  manifest's questionCount, or coverage could never reach 1.
+- The first sub carries the case's reading time on top of its own default, so time
+  budgeting sees a 4-sub case as one reading plus four answers.
+- `groupVignetteSiblings` keeps same-case subs adjacent in a review session —
+  presentation only; dueness still decides what is in the session. A session holding
+  one sub of a case shows that sub alone, case attached.
+- The snapshot stores no case; resume rebuilds it from content via the FlatQuestion
+  lookup, like everything else that can be derived.
+
+Authoring: exhibits are text / table / chart. **No `[[markup]]` in table cells** —
+they render as plain text. Verified end to end in the browser: a topic session of 8
+standalone + 4 subs, a wrong sub returning alone with its case, and resume mid-case.
+
 ### Glossary — canonical, one definition per term
 
 Terms are defined **only** in `content/glossary/{domain}.json`. A topic file may not define a term.
@@ -797,6 +828,9 @@ Commit at the end of each milestone, then stop for review. Run `npm run verify` 
 | M5 | Content build-out, one domain per batch, validated, pause between batches | done — see inventory below |
 | M6 | Mock exams, analytics, export/import, session resume | done — M6a resume + active time, M6b mock exams, M6c analytics, M6d export/import |
 | M7 | Polish: mobile, keyboard, accessibility, empty states, error handling; offline smoke test of `dist/` | done |
+| M8a | Vignette machinery: flatten, case panel, per-sub scheduling; first authored vignette (funds-waterfall-01-q9) | done |
+| M8b | Vignette content: fund structures → alternatives → FSA, batched with pauses | |
+| M8c | Free recall: schema v8 `recallNotes`, prompt on topic-session results, resurfaced next visit | |
 
 Working software over completeness at every milestone. A great app with 20 topics beats a broken one
 with 200. Keep this table's Status column current.

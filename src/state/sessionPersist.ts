@@ -20,7 +20,7 @@
 
 import { gradeAnswer } from "../engine/grading";
 import { pausedClock } from "../engine/activeTime";
-import type { Question } from "../content/schema";
+import type { FlatQuestion } from "../content/flatten";
 import type { LessonBlock } from "../content/schema";
 import type { SavedItem, SavedSession } from "../storage/progressSchema";
 import type { QuizItem, QuizSession } from "./store";
@@ -80,7 +80,9 @@ export interface RebuildResult {
  */
 export function fromSaved(
   saved: SavedSession,
-  lookup: (questionId: string) => Question | undefined,
+  // FlatQuestion, not Question: a vignette sub needs its case rebuilt alongside it,
+  // and the snapshot deliberately stores neither — both derive from content.
+  lookup: (questionId: string) => FlatQuestion | undefined,
   lessonBlocks: Record<string, LessonBlock[]>,
   needsReteach: (questionId: string) => boolean,
 ): RebuildResult | null {
@@ -90,8 +92,9 @@ export function fromSaved(
   let indexShift = 0;
 
   saved.items.forEach((savedItem, position) => {
-    const question = lookup(savedItem.questionId);
-    if (question === undefined) {
+    const flat = lookup(savedItem.questionId);
+    const question = flat?.question;
+    if (flat === undefined || question === undefined) {
       droppedIds.push(savedItem.questionId);
       if (position < saved.index) indexShift += 1;
       return;
@@ -122,6 +125,7 @@ export function fromSaved(
       xpAwarded: savedItem.xpAwarded,
       xpSkipped: null,
       drill: null,
+      vignette: flat.vignette,
     });
   });
 

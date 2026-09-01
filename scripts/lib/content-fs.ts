@@ -19,6 +19,7 @@ import {
   type GlossaryTerm,
   type Topic,
 } from "../../src/content/schema";
+import { flattenQuestions } from "../../src/content/flatten";
 import { referencedSlugs } from "../../src/content/markup";
 import { collectProse } from "../../src/content/walk";
 import { questionSeconds } from "../../src/content/timing";
@@ -268,5 +269,10 @@ function findCycles(byId: Map<string, LoadedTopic>): string[][] {
 
 /** Total expected seconds for a topic's questions — what the session composer budgets with. */
 export function topicQuestionSeconds(topic: Topic): number {
-  return topic.questions.reduce((sum, q) => sum + questionSeconds(q), 0);
+  // Flattened, so a vignette costs its subs plus the case reading (charged to the
+  // first sub by flattenQuestions) rather than one flat default.
+  return flattenQuestions(topic.questions).reduce(
+    (sum, flat) => sum + questionSeconds(flat.question),
+    0,
+  );
 }
