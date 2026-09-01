@@ -22,7 +22,7 @@ import { z } from "zod";
 import { CONFIDENCE_LEVELS } from "../engine/grading";
 import type { QuestionState } from "../engine/scheduler";
 
-export const PROGRESS_SCHEMA_VERSION = 7;
+export const PROGRESS_SCHEMA_VERSION = 8;
 
 export const themeSchema = z.enum(["light", "dark"]);
 export const confidenceSchema = z.enum(CONFIDENCE_LEVELS);
@@ -221,6 +221,11 @@ export const savedSessionSchema = z.object({
 });
 
 /** A completed mock exam. Kept permanently — it is a record of what you could do. */
+export const recallNoteSchema = z.object({
+  text: z.string().min(1).max(500),
+  at: z.number(),
+});
+
 export const examAttemptSchema = z.object({
   domain: z.string(),
   startedAt: z.number(),
@@ -253,6 +258,13 @@ export const progressSchema = z.object({
   activeSession: savedSessionSchema.nullable(),
   /** Completed mock exams, oldest first. */
   exams: z.array(examAttemptSchema),
+  /**
+   * Free-recall notes, keyed by topic: the user's own one-sentence answer to "what
+   * is worth keeping from this?", written at the end of a topic session. Kept to the
+   * last few per topic (RECALL.KEEP) — the point is the act of writing and one
+   * re-meeting, not an archive.
+   */
+  recallNotes: z.record(z.string(), z.array(recallNoteSchema)),
   meta: z.object({
     createdAt: z.string(),
     lastExportAt: z.string().nullable(),
@@ -272,6 +284,7 @@ export type SavedResponse = z.infer<typeof savedResponseSchema>;
 export type SavedItem = z.infer<typeof savedItemSchema>;
 export type SavedSession = z.infer<typeof savedSessionSchema>;
 export type ExamAttempt = z.infer<typeof examAttemptSchema>;
+export type RecallNote = z.infer<typeof recallNoteSchema>;
 export type ProgressState = z.infer<typeof progressSchema>;
 
 export function emptyDailyAggregate(): DailyAggregate {
@@ -308,6 +321,7 @@ export function defaultProgress(now: Date = new Date()): ProgressState {
     daily: {},
     activeSession: null,
     exams: [],
+    recallNotes: {},
     meta: { createdAt: now.toISOString(), lastExportAt: null },
   };
 }

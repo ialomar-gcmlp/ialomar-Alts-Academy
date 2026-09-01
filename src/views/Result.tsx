@@ -17,6 +17,7 @@ import { useHotkeys } from "../lib/keyboard";
 import { formatDueIn } from "../lib/time";
 import { useApp, type QuizItem } from "../state/store";
 import { Icon } from "../ui/icons";
+import { RECALL, latestRecallNote } from "../engine/recall";
 import { Badge, Button, Card, Kbd, Meter, Ring, StatTile } from "../ui/primitives";
 import { Inline } from "../ui/Prose";
 
@@ -189,6 +190,85 @@ function ItemLine({ item, now }: { item: QuizItem; now: number }) {
   );
 }
 
+/**
+ * Free recall, at the moment it works best: the session is done, the material is
+ * fresh, and summarising it from memory is a different act from the recognising the
+ * questions asked for. Optional on purpose — never blocks leaving — and worth no XP:
+ * the moment a note earns points, the honest sentence becomes keyword stuffing.
+ *
+ * Topic sessions only. A mixed review spans topics, so "what is worth keeping from
+ * this?" has no single home for the answer.
+ */
+function RecallPrompt({ topicId }: { topicId: string }) {
+  const notes = useApp((s) => s.progress.recallNotes);
+  const saveRecallNote = useApp((s) => s.saveRecallNote);
+  const [draft, setDraft] = useState("");
+  const [saved, setSaved] = useState(false);
+
+  const previous = latestRecallNote(notes, topicId);
+
+  const commit = (): void => {
+    if (draft.trim() === "") return;
+    saveRecallNote(topicId, draft);
+    setSaved(true);
+  };
+
+  if (saved) {
+    return (
+      <Card className="mb-6 p-5">
+        <p className="flex items-center gap-2 text-[14px] font-medium text-correct">
+          <Icon name="check" size={15} />
+          Kept. It comes back the next time you open this topic.
+        </p>
+      </Card>
+    );
+  }
+
+  return (
+    <Card className="mb-6 p-5">
+      <h2 className="text-[13px] font-bold uppercase tracking-wider text-fg-subtle">
+        Before you go
+      </h2>
+      <p className="mt-1 text-[14px] text-fg-muted">
+        One sentence, from memory: what is worth keeping from this?
+      </p>
+
+      {previous !== null && (
+        <p className="mt-2 rounded-md bg-surface-2 px-3 py-2 text-[13px] leading-relaxed text-fg-subtle">
+          Last time you said: <em className="text-fg-muted">{previous.text}</em>
+        </p>
+      )}
+
+      <textarea
+        value={draft}
+        onChange={(e) => setDraft(e.target.value)}
+        onKeyDown={(e) => {
+          // Enter saves; Shift+Enter makes a rare second line. stopPropagation so
+          // the session-level Enter hotkey (leave) does not fire from inside it.
+          e.stopPropagation();
+          if (e.key === "Enter" && !e.shiftKey) {
+            e.preventDefault();
+            commit();
+          }
+        }}
+        maxLength={RECALL.MAX_LENGTH}
+        rows={2}
+        placeholder="The one idea, in your own words…"
+        className="mt-3 w-full resize-none rounded-lg border border-border-strong bg-surface px-3 py-2 text-[14.5px] leading-relaxed text-fg outline-none placeholder:text-fg-subtle focus:border-accent focus:ring-4 focus:ring-accent/15"
+      />
+
+      <div className="mt-2 flex items-center justify-between gap-3">
+        <span className="text-[12px] text-fg-subtle">
+          Optional — skipping costs nothing, writing it is the rehearsal.
+        </span>
+        <Button size="sm" variant="secondary" onClick={commit} disabled={draft.trim() === ""}>
+          Keep it
+        </Button>
+      </div>
+    </Card>
+  );
+}
+
 export function Result() {
   const session = useApp((s) => s.session);
   const endQuiz = useApp((s) => s.endQuiz);
@@ -282,6 +362,10 @@ export function Result() {
           </div>
         </div>
       </Card>
+
+      {session.mode === "learn" && session.topicId !== null && (
+        <RecallPrompt topicId={session.topicId} />
+      )}
 
       {/* New badges lead, because they are the only thing here the user has not
           already seen question by question. */}

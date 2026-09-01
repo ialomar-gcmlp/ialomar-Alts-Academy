@@ -12,6 +12,7 @@ import { collectProse } from "../content/walk";
 import { DOMAIN_LABELS, type Topic as TopicData } from "../content/schema";
 import { navigate } from "../lib/hashRouter";
 import { useHotkeys } from "../lib/keyboard";
+import { latestRecallNote } from "../engine/recall";
 import { useApp } from "../state/store";
 import { Lesson } from "../ui/blocks/LessonBlocks";
 import { DOMAIN_MONOGRAM, domainStyle } from "../ui/domain";
@@ -30,6 +31,7 @@ export function Topic({ id }: { id: string }) {
   const [topic, setTopic] = useState<TopicData | null>(null);
   const [error, setError] = useState<string | null>(null);
   const startTopicQuiz = useApp((s) => s.startTopicQuiz);
+  const recallNote = useApp((s) => latestRecallNote(s.progress.recallNotes, id));
   const markTermsSeen = useApp((s) => s.markTermsSeen);
 
   useEffect(() => {
@@ -87,6 +89,17 @@ export function Topic({ id }: { id: string }) {
 
   return (
     <article style={domainStyle(topic.domain)}>
+      {/* The re-meeting half of free recall: what you wrote from memory last time,
+          shown before you read again. Comparing it against the lesson is the point. */}
+      {recallNote !== null && (
+        <aside className="mb-5 rounded-lg border border-accent/40 bg-accent-soft/50 px-4 py-3">
+          <span className="text-[11px] font-bold uppercase tracking-wider text-accent">
+            Your note from last time
+          </span>
+          <p className="mt-1 text-[14.5px] leading-relaxed text-fg">{recallNote.text}</p>
+        </aside>
+      )}
+
       <div className="mb-4 flex items-center gap-2.5">
         <Monogram code={DOMAIN_MONOGRAM[topic.domain]} size={30} />
         <span className="d-text text-[12px] font-bold uppercase tracking-widest">

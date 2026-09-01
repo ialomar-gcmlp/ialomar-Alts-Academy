@@ -463,8 +463,8 @@ so mixing the two would inflate the topic review queue with items `startReviewSe
 cannot build, and would muddle topic mastery. A test asserts drills never land in
 `questions`.
 
-`activeSession` and `exams` arrived in v6 (M6a), and the answer event's `x` flag in v7
-(M6c), each as a version bump with a tested migration.
+`activeSession` and `exams` arrived in v6 (M6a), the answer event's `x` flag in v7
+(M6c), and `recallNotes` in v8 (M8c) — each a version bump with a tested migration.
 
 XP is accumulated rather than derived, unlike mastery. It has to be: the answer log it would be
 derived from is deliberately trimmed, so deriving it would mean the user's total quietly falling as
@@ -687,6 +687,25 @@ contains **only** requests to the local origin. The single external string in th
 error-decoder URL inside an error message, which is never fetched. KaTeX fonts are vendored into
 `dist/assets/`.
 
+### Free recall — BUILT (M8c). `engine/recall.ts`, schema v8
+
+The one thing the app never asked for before: a summary generated from memory, which
+is a different act from recognising an answer. Two halves:
+
+- **The prompt** (`RecallPrompt` in Result.tsx): after a *topic* session only — a
+  mixed review spans topics, so the question has no single home. One sentence,
+  optional, never blocks leaving, and **worth no XP**: the moment a note earns
+  points, the honest sentence becomes keyword stuffing. Enter saves;
+  `stopPropagation` keeps the session-level Enter (leave) from firing inside it.
+- **The re-meeting** (Topic.tsx): the latest note shown above the lesson on the next
+  visit — "Your note from last time" — so the user compares their own words against
+  the material before re-reading.
+
+Storage: `recallNotes` keyed by topic, last `RECALL.KEEP` (3) kept, capped at
+`RECALL.MAX_LENGTH` before the schema's 500. `addRecallNote` returns the same
+reference for blank input so callers skip persistence. Migration 7→8 starts empty —
+the notes are the user's own words, so there is nothing honest to reconstruct.
+
 ### Dev-only inspection handle
 
 `main.tsx` exposes the store as `window.__alts` under `import.meta.env.DEV`. Time accounting has to
@@ -830,7 +849,7 @@ Commit at the end of each milestone, then stop for review. Run `npm run verify` 
 | M7 | Polish: mobile, keyboard, accessibility, empty states, error handling; offline smoke test of `dist/` | done |
 | M8a | Vignette machinery: flatten, case panel, per-sub scheduling; first authored vignette (funds-waterfall-01-q9) | done |
 | M8b | Vignette content: fund structures → alternatives → FSA, batched with pauses | |
-| M8c | Free recall: schema v8 `recallNotes`, prompt on topic-session results, resurfaced next visit | |
+| M8c | Free recall: schema v8 `recallNotes`, prompt on topic-session results, resurfaced next visit | done |
 
 Working software over completeness at every milestone. A great app with 20 topics beats a broken one
 with 200. Keep this table's Status column current.

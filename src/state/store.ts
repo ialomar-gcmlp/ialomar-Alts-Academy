@@ -42,6 +42,7 @@ import {
   type Response,
 } from "../engine/grading";
 import type { EarnedBadge } from "../engine/badges";
+import { addRecallNote } from "../engine/recall";
 import { recordAnswer } from "../engine/record";
 import {
   DRILL_DIFFICULTY,
@@ -193,6 +194,12 @@ interface AppState {
   resumeSaved: () => Promise<boolean>;
   /** Throw away the saved session without resuming it. */
   discardSaved: () => void;
+
+  /**
+   * Save the user's one-sentence free-recall note for a topic. Blank input is a
+   * no-op — the prompt is optional, and an empty note re-met later is just noise.
+   */
+  saveRecallNote: (topicId: string, text: string) => void;
 
   /* ---- export and import (M6d) ---- */
 
@@ -824,6 +831,15 @@ export const useApp = create<AppState>((set, get) => ({
   discardSaved() {
     const progress = clearSavedSession(get().progress);
     set({ progress });
+  },
+
+  saveRecallNote(topicId, text) {
+    const progress = get().progress;
+    const notes = addRecallNote(progress.recallNotes, topicId, text, Date.now());
+    if (notes === progress.recallNotes) return; // blank — nothing written
+    const next: ProgressState = { ...progress, recallNotes: notes };
+    set({ progress: next });
+    save(next);
   },
 
   exportProgress() {

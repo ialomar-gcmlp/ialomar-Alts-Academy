@@ -119,6 +119,17 @@ export const migrations: Record<number, Migration> = {
         )
       : [],
   }),
+
+  /**
+   * v7 -> v8: free-recall notes, keyed by topic.
+   *
+   * Starts empty — the notes are the user's own words, so there is nothing to
+   * reconstruct and nothing it would be honest to invent.
+   */
+  7: (state) => ({
+    ...state,
+    recallNotes: {},
+  }),
 };
 
 function isRecord(value: unknown): value is Record<string, unknown> {

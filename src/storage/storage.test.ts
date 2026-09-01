@@ -390,6 +390,42 @@ describe("migration v3 -> v4", () => {
   });
 });
 
+describe("migration v7 -> v8", () => {
+  const v7 = {
+    schemaVersion: 7,
+    settings: {
+      theme: "light",
+      sessionLength: 10,
+      dailyGoalMinutes: 10,
+      validateContentInProd: false,
+      effects: "full",
+    },
+    gamification: { xp: 50, badges: [], frozenDays: [] },
+    questions: {},
+    topics: {},
+    termsSeen: {},
+    termDrills: {},
+    events: [],
+    daily: {},
+    activeSession: null,
+    exams: [],
+    meta: { createdAt: "2026-05-01T00:00:00.000Z", lastExportAt: null },
+  };
+
+  it("produces state that satisfies the current schema", () => {
+    const out = migrate(v7);
+    expect(out.status).toBe("ok");
+    if (out.status !== "ok") return;
+    expect(progressSchema.safeParse(out.state).success).toBe(true);
+  });
+
+  it("starts with no recall notes — nothing honest to reconstruct", () => {
+    const out = migrate(v7);
+    if (out.status !== "ok") throw new Error("expected ok");
+    expect(out.state["recallNotes"]).toEqual({});
+  });
+});
+
 describe("migration v6 -> v7", () => {
   const v6 = {
     schemaVersion: 6,
