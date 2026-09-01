@@ -41,24 +41,43 @@ table at the bottom of that file is the progress tracker.
 
 ---
 
-## Using it offline
+## Opening it
 
-The build is static files with **no network calls at runtime** — no fonts, no analytics, no APIs.
-Asset paths are relative, so `dist/` works three ways:
+**Double-click `Alts Academy.cmd`.** It builds the app if needed, serves it on
+`http://localhost:5173`, and opens your browser. Leave that window open while you study; closing it
+stops the app.
+
+To work on the app instead of just using it:
 
 ```bash
-npm run build
+npm run dev
 ```
 
-- **Open `dist/index.html` directly** from the file system.
-- **Copy `dist/` onto any static host**, at the root or in a subdirectory. Routing is hash-based, so
-  no rewrite rules are needed.
-- **Serve it locally**: `python -m http.server` from inside `dist/`.
+Both use port 5173 on purpose — see the warning below about where progress lives.
 
-Progress lives in `localStorage` under `alts-academy:*`, so it is per-browser and per-origin. Moving
-machines, or clearing site data, means exporting first — **Progress → Your data → Export**. Every
-schema change ships with a tested migration, and the state being replaced by an import is kept under
-a separate key as a safety net.
+### Why it needs a local server
+
+The build loads its code as an ES module, and browsers refuse module scripts from a `file://` path:
+a local file counts as having no origin, so CORS blocks it and you get a blank page. This is a
+browser rule, not a limitation of the app — **opening `dist/index.html` by double-clicking it does
+not work.** Serving the folder does, and the server is local: nothing reaches the network.
+
+Any static host works too. Asset paths are relative and routing is hash-based, so `dist/` can be
+dropped at a domain root or in a subdirectory with no rewrite rules.
+
+### Where progress lives, and how to lose it
+
+Progress is in the browser's `localStorage`, keyed to the **exact address** the app was served from.
+`http://localhost:5173` and `http://localhost:8000` are two different homes with two different
+histories, and neither can see the other. So:
+
+- Keep using the same port. The launcher and `npm run dev` both use 5173 for this reason.
+- Moving browser, machine or port means **Progress → Your data → Export** first, then importing the
+  file on the other side.
+- Clearing site data for `localhost` erases it. There is no server holding a copy.
+
+Keys are `alts-academy:*`. Every schema change ships with a tested migration, and the state replaced
+by an import is kept under a separate key as a safety net.
 
 ---
 

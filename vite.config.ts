@@ -78,14 +78,17 @@ export default defineConfig({
    * Relative asset paths, not absolute.
    *
    * The default `/assets/...` only works when the app is served from a domain root.
-   * With `./` the same `dist/` opens from `file://`, from a subdirectory of a static
-   * host, and from a server root — which is the whole reason this app uses hash
-   * routing. M7 caught the claim being false: the paths were absolute.
+   * With `./` the same `dist/` serves from a server root or any subdirectory, which
+   * together with hash routing means no rewrite rules anywhere.
+   *
+   * It still does not open from `file://`: the entry is a module script, and browsers
+   * CORS-block module scripts from a file path. Use `Alts Academy.cmd`, which serves
+   * the folder locally.
    */
   base: "./",
 
   build: {
-    // Static output, hostable anywhere, openable from file:// (hash routing).
+    // Static output, hostable anywhere — any static host, any subdirectory.
     target: "es2022",
     sourcemap: true,
   },

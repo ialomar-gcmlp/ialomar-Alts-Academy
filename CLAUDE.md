@@ -68,7 +68,7 @@ Runtime dependencies are limited to five. Adding a sixth requires a written just
 | Validation | Zod v4 | Single source of truth for content shape. TS types derived via `z.infer` — never hand-write a type Zod already describes. |
 | State | Zustand | Progress writes fire on every answer; Context would re-render the whole tree each time. Selector subscriptions prevent that. Persistence is **our** storage module, not Zustand `persist`, so we own versioning. **v5 has no default equality check: never return a fresh object from a selector.** Select one value or one action at a time. |
 | Formulas | KaTeX, lazy `import()` | Only credible LaTeX renderer. Bundled, so it stays offline. Code-split so formula-free pages don't pay for it. |
-| Routing | **none** — `src/lib/hashRouter.ts` | ~40 lines. Hash routing means the build works from `file://` and any static host with zero rewrite rules. react-router is 10KB and a large API for 8 views. |
+| Routing | **none** — `src/lib/hashRouter.ts` | ~40 lines. Hash routing means the build works on any static host, at a root or in a subdirectory, with zero rewrite rules. (Not from `file://` — see the note in §7.) react-router is 10KB and a large API for 8 views. |
 | Charts | **none** — `src/ui/charts/` | Hand-rolled SVG. Chart-read questions need full control of the series anyway. Colors follow the `dataviz` skill palette rules. |
 | Tests | Vitest | Shares the Vite config. Targets pure logic, not components. |
 | Fonts | System UI stack, `tabular-nums` for figures | Zero downloads, native feel, offline. |
@@ -619,9 +619,20 @@ Findings from the M7 sweep, and the rules that came out of them:
 ### Offline: verified, and how
 
 `base: "./"` in `vite.config.ts` — **not the default**. Absolute `/assets/…` paths only work from a
-domain root, which made the documented claim ("openable from file://, hostable in a subdirectory")
-false until M7 caught it. Verified by serving `dist/` at both a server root and `/dist/`, and by
-confirming the old absolute path 404s where the relative one resolves.
+domain root, so the build could not be hosted from a subdirectory. Verified by serving `dist/` at
+both a server root and `/dist/`, and by confirming the absolute path 404s where the relative one
+resolves.
+
+**`file://` does NOT work, and never did.** The build emits
+`<script type="module" crossorigin>`, and a browser refuses module scripts from a file path — the
+local file has no origin, so CORS blocks it. The claim "openable from file:// (hash routing)"
+travelled from the M0 plan into `vite.config.ts`, `CLAUDE.md` and the README without anyone opening
+the file; relative paths were necessary for it but never sufficient. Hash routing does deliver the
+other half of the promise: any static host, any subdirectory, no rewrite rules.
+
+`Alts Academy.cmd` is the answer for daily use: it builds if needed, serves `dist/` on **port 5173**
+and opens the browser. The port matters — `localStorage` is keyed by origin, so serving on a
+different port would present the user with an empty app and no explanation.
 
 The network log for a full walk of the built app — every view, a session, KaTeX, lazy topic chunks —
 contains **only** requests to the local origin. The single external string in the bundle is React's
