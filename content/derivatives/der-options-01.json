@@ -1,0 +1,215 @@
+{
+  "schemaVersion": 1,
+  "id": "der-options-01",
+  "domain": "derivatives",
+  "title": "Options: Asymmetry, Premium and Put-Call Parity",
+  "summary": "The buyer purchases a right and a limited loss; the seller collects a premium and an obligation with no ceiling.",
+  "level": "core",
+  "prereqs": ["der-forwards-01"],
+  "estMinutes": 10,
+  "examRelevance": ["CFA-L1", "CAIA-L1", "practical"],
+  "lesson": [
+    {
+      "type": "concept",
+      "id": "what-it-is",
+      "body": "An **[[option|option]]** gives its holder the right, not the obligation, to buy or sell at a fixed price.\n\n**A [[call-option|call]]** is the right to buy at the [[strike-price|strike]]. Valuable when the price rises above it.\n\n**A [[put-option|put]]** is the right to sell at the strike. Valuable when the price falls below it.\n\nThe holder pays a **premium** for that right. The seller receives it and takes on the obligation.\n\n**The asymmetry is the entire instrument.** A call buyer's loss is capped at the premium and their gain is unlimited. The seller's gain is capped at the premium and their loss is unlimited. Those two positions are mirror images with completely different risk profiles, and that difference — not the directional view — is what an option is for.\n\nTwo pieces of vocabulary that carry more weight than they appear to:\n\n**Intrinsic value** is what the option would be worth if exercised now. **Time value** is everything else — the premium paid for the possibility of favourable movement before expiry.\n\n**An out-of-the-money option is entirely time value, and time value goes to zero at expiry with certainty.** That is not a risk; it is a scheduled event."
+    },
+    {
+      "type": "concept",
+      "id": "what-you-are-buying",
+      "body": "**An option is not primarily a directional bet. It is a purchase of convexity — an asymmetric payoff — and its price is mostly a price for [[volatility]].**\n\nThis is the shift in framing that makes options make sense. Two people can hold the same view on direction and want opposite option positions, because they disagree about *how much* the price will move rather than which way.\n\nFive inputs set an option's value, and only one is a direction:\n\n**Spot relative to strike.** How far in or out of the money.\n\n**Time to expiry.** More time means more chance of movement.\n\n**[[implied-volatility|Volatility]].** The big one — more expected movement makes both calls and puts worth more.\n\n**Interest rates.** The cost of financing the equivalent position.\n\n**Dividends or carry.** Cash flows on the underlying before expiry.\n\n**Notice that volatility raises the value of calls and puts alike.** That is the clearest sign that an option is an instrument about magnitude rather than direction: if you expect a large move and do not know which way, you want to own options; if you expect quiet, you want to have sold them.\n\n**So buying an option because you are bullish is often the wrong instrument.** If the move you expect is smaller than the implied volatility prices in, you can be right about direction and still lose."
+    },
+    {
+      "type": "intuition",
+      "id": "parity",
+      "body": "**[[put-call-parity|Put-call parity]] says a call and a put on the same underlying, strike and expiry are related by an exact arbitrage. It is the single most useful relationship in options.**\n\nThe logic: owning a call and having sold a put at the same strike gives you the underlying at that strike with certainty — upside through the call, downside through the assigned put. That is a [[forward-contract|forward contract]], so:\n\n**Call − Put = Spot − [[present-value|Present value]] of the strike.**\n\nThree things this buys you immediately.\n\n**Any position can be built several ways.** Owning a stock and a protective put is identical to owning a call plus cash. If one is cheaper, use it — this is where execution cost actually lives.\n\n**A price check with no model.** If quoted calls and puts violate parity, one of them is mispriced or your inputs are wrong. It requires no volatility assumption and no Black-Scholes, only arithmetic.\n\n**Synthetic positions.** You can create a short without borrowing stock, or a long without funding it. Useful when the direct route is expensive, restricted, or unavailable.\n\n**And the deeper point: puts and calls are not different products.** They are the same instrument seen from either side of a forward, which is why an intuition about one transfers exactly to the other."
+    },
+    {
+      "type": "example",
+      "id": "worked-payoff",
+      "body": "A one-year call, strike 100, on an underlying at 100. Premium 10.45. [[risk-free-rate|Risk-free rate]] 5%.",
+      "walkthrough": [
+        "**Breakeven** = strike + premium = **110.45**. Below that the buyer loses money even if the option finishes in the money.",
+        "At expiry with the underlying at **80**: payoff 0, net **−10.45**. The whole premium, and no more.",
+        "At **100**: payoff 0, net **−10.45**. Being exactly right about direction — no move — still loses the premium.",
+        "At **110**: payoff 10.00, net **−0.45**. In the money, still a loss.",
+        "At **130**: payoff 30.00, net **+19.55**.",
+        "**Read that carefully: the underlying rose 10% and the call buyer still lost money.** Options require the move to exceed what the premium already priced in.",
+        "Now parity. PV of the strike at 5% = 100/1.05 = **95.24**. So Put = Call − Spot + PV(K) = 10.45 − 100 + 95.24 = **5.69**.",
+        "Check: Call − Put = 10.45 − 5.69 = 4.76, and Spot − PV(K) = 100 − 95.24 = **4.76**. They tie, as they must.",
+        "Sanity check worth reusing: **compute the breakeven before buying any option, and compare the required move with the underlying's typical move over that horizon.** If breakeven needs a bigger move than the asset usually makes, the premium is asking you to be unusually right."
+      ]
+    },
+    {
+      "type": "table",
+      "id": "position-table",
+      "caption": "The four basic positions and what each really is",
+      "headers": ["Position", "You want", "Worst case"],
+      "rows": [
+        [
+          "Long call",
+          "A large rise, larger than the premium implies",
+          "Lose the premium — capped and certain if the move does not come."
+        ],
+        [
+          "Long put",
+          "A large fall; also used as insurance on a holding",
+          "Lose the premium."
+        ],
+        [
+          "Short call",
+          "Quiet markets or a modest fall",
+          "Unlimited. The reason naked call selling is rare in regulated portfolios."
+        ],
+        [
+          "Short put",
+          "Quiet markets or a modest rise; income on a holding you would buy anyway",
+          "The strike less the premium — economically like owning the asset from the strike down."
+        ]
+      ]
+    },
+    {
+      "type": "concept",
+      "id": "how-it-goes-wrong",
+      "body": "**Buying options as a leveraged directional bet.** The premium already prices an expected move. Being right about direction by less than that loses money, which is why so many correct views produce losing option trades.\n\n**Selling options for \"income\".** The premium is not income; it is payment for a liability whose size is unknown. It looks like income for long stretches, which is precisely what makes it dangerous.\n\n**Ignoring time decay.** An out-of-the-money option is pure time value and time value goes to zero on a schedule. Holding one and waiting is a losing position by construction.\n\n**Assuming a hedge is static.** An option hedge's effectiveness changes as the market moves, because its sensitivity changes. It needs monitoring, and that is the next topic.\n\n**Forgetting the counterparty and the margin.** Exchange-traded options are margined daily; over-the-counter options carry counterparty exposure. Both consume liquidity at inconvenient moments.\n\n**Comparing premiums without comparing volatility.** A cheap-looking option may be cheap because the market expects nothing to happen, and an expensive one may be fairly priced for a known event."
+    },
+    {
+      "type": "pitfall",
+      "id": "short-vol",
+      "body": "**Selling options produces a return stream that looks superb until it does not, and the shape is the same wherever it appears.**\n\nSmall, regular, positive returns. High win rate. Excellent reported [[sharpe-ratio|Sharpe ratio]]. Then a single period that removes several years of gains.\n\nThe reason is structural rather than bad luck: **the seller has swapped a small certain gain for a large uncertain loss.** The distribution is negatively skewed by construction, and the statistics computed on a short sample of it — which is any sample without a crisis — describe the wrong distribution.\n\nSo the diagnostic questions are about the tail rather than the average:\n\n**What is the maximum loss, and has it been sized?** Not \"expected\" loss — maximum. For a naked short call there is no answer.\n\n**How does the strategy behave in a 20% single-day move?** Historical simulation is available and rarely shown.\n\n**Is the Sharpe ratio computed over a period containing a crisis?** A 2.5 Sharpe from 2012 to 2019 in a short volatility strategy is a statement about the period, not the strategy.\n\n**None of this makes option selling a bad strategy.** The [[implied-volatility|volatility risk premium]] is real and persistent — sellers are paid for providing insurance, and insurance is a legitimate business. **The requirement is that the position is sized for the loss rather than for the average**, which is exactly what an insurer does and what a yield-seeking allocator frequently does not."
+    },
+    {
+      "type": "onTheJob",
+      "id": "on-the-job",
+      "body": "**Compute the breakeven and compare it with the asset's typical move over that horizon.** It converts \"I am bullish\" into \"I need more than X%, and the asset moves that much Y% of the time\".\n\n**For any option-selling strategy, ask for the maximum loss and how it was sized.** If the answer is about expected loss, the tail has not been considered.\n\n**Ask whether the track record includes a genuine volatility event.** A short volatility record without one describes a market regime.\n\n**Use put-call parity as a free arbitrage check on any quoted pair.** No model, no volatility assumption, just arithmetic.\n\n**When a portfolio holds options for hedging, ask what happens to the hedge if the market moves 10% before the event you are hedging.** Option hedges change character as they move, and a hedge that has become deeply in or out of the money is no longer the hedge you bought."
+    },
+    {
+      "type": "keyTakeaways",
+      "id": "takeaways",
+      "items": [
+        "The asymmetry is the instrument: the buyer's loss is capped at the premium, the seller's is not, and that difference matters more than the directional view.",
+        "Volatility raises the value of calls and puts alike, which is the clearest sign that an option prices magnitude rather than direction.",
+        "In the worked example the underlying rose 10% and the call buyer still lost — breakeven was 110.45, because the premium already priced a move.",
+        "Put-call parity ties the two together exactly: Call − Put = Spot − PV(strike), verified here as 4.76 both ways. It is a model-free price check and a route to synthetic positions."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "der-options-01-q1",
+      "type": "numeric",
+      "difficulty": 2,
+      "tags": ["options", "breakeven", "arithmetic"],
+      "concept": "worked-payoff",
+      "stem": "A call with a strike of 100 costs 10.45. What is the breakeven price at expiry? Two decimal places.",
+      "answer": 110.45,
+      "tolerance": 0.1,
+      "toleranceType": "abs",
+      "explanation": "A 10.45% rise is needed just to avoid a loss. Comparing that with how often the underlying actually moves that much over a year is the difference between a considered position and a hopeful one."
+    },
+    {
+      "id": "der-options-01-q2",
+      "type": "numeric",
+      "difficulty": 3,
+      "tags": ["options", "parity", "arithmetic"],
+      "concept": "worked-payoff",
+      "stem": "Spot 100, strike 100, one-year call worth 10.45, risk-free rate 5%. What is the put worth by put-call parity? Two decimal places.",
+      "answer": 5.69,
+      "tolerance": 0.1,
+      "toleranceType": "abs",
+      "inputHint": "P = C − S + K/(1+r)",
+      "explanation": "The call is worth more than the put at the same strike because of the time value of money: you defer paying the strike. That is the whole content of the parity relationship, and it needs no volatility assumption to hold."
+    },
+    {
+      "id": "der-options-01-q3",
+      "type": "mcq",
+      "difficulty": 3,
+      "tags": ["options", "volatility"],
+      "concept": "what-you-are-buying",
+      "stem": "Why does higher expected volatility raise the value of both calls and puts?",
+      "choices": [
+        "Because volatile assets have higher expected returns",
+        "Because the option's loss is capped at the premium while the gain is not, so a wider distribution of outcomes is worth more",
+        "Because volatility increases interest rates",
+        "Because it makes exercise more likely"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Expected return does not enter option pricing in the way intuition suggests — the asymmetry does.",
+        "Correct. Extra downside beyond the premium costs the holder nothing, while extra upside is kept in full. A wider distribution therefore adds value on one side only.",
+        "Volatility and rates are separate inputs with separate effects.",
+        "It makes large moves in both directions more likely, and the value comes from the truncated loss rather than from exercise probability."
+      ],
+      "explanation": "This is why options are described as instruments on volatility rather than on direction. It also explains why an option can lose money on a correct directional call: you paid for a distribution, and a small favourable move is a narrow one."
+    },
+    {
+      "id": "der-options-01-q4",
+      "type": "mcq",
+      "difficulty": 3,
+      "tags": ["options", "parity"],
+      "concept": "parity",
+      "stem": "You own a stock and a protective put at strike 100. What position is this economically equivalent to?",
+      "choices": [
+        "A short call plus cash",
+        "A long call at the same strike plus cash equal to the present value of the strike",
+        "A short put",
+        "A forward contract"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "A short call has capped upside and unlimited downside — close to the opposite profile.",
+        "Correct. Rearranging parity: Stock + Put = Call + PV(K). Both have limited downside at the strike and full participation above it.",
+        "A short put has the downside without the protection, which is precisely the inverse.",
+        "A forward has symmetric exposure with no protection at the strike."
+      ],
+      "explanation": "The practical use is execution: if the call plus cash version is cheaper after transaction costs and financing, build it that way. Recognising these equivalences is most of what makes options desks efficient, and it costs nothing to check."
+    },
+    {
+      "id": "der-options-01-q5",
+      "type": "tfj",
+      "difficulty": 4,
+      "tags": ["options", "misconception"],
+      "concept": "short-vol",
+      "stem": "\"We sell covered calls for income, so it is a conservative yield strategy.\" True or false — and why?",
+      "isTrue": false,
+      "justifications": [
+        "False — the premium is payment for giving away the upside, so the position keeps the full downside and caps the gain; it is a change in the return distribution rather than income",
+        "False — covered call writing always loses money",
+        "True — the premium is genuine income and the position is covered",
+        "False — because covered calls require margin"
+      ],
+      "justificationIndex": 0,
+      "rationales": [
+        "Correct. You still own the asset and all of its downside, and you have sold the upside beyond the strike. The premium compensates for that, and calling it income obscures what was exchanged.",
+        "Over-correction. It is a reasonable strategy with a specific profile, and it earns the volatility risk premium over time.",
+        "It is covered in the sense that delivery is possible, and the risk is the truncated upside plus the unchanged downside.",
+        "Covered calls generally require no additional margin, which is part of why they seem free."
+      ],
+      "explanation": "The honest description: a covered call converts uncertain upside into certain premium. In a flat or slowly rising market that is a good trade; in a sharp rally you have sold the return you were invested for. Neither is income, and both are legitimate once described accurately."
+    },
+    {
+      "id": "der-options-01-q6",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["options", "risk", "on-the-job"],
+      "concept": "short-vol",
+      "stem": "A fund selling options reports a Sharpe ratio of 2.5 over seven years. What is the first thing to check?",
+      "choices": [
+        "The fund's assets under management",
+        "Whether the period contains a genuine volatility event, since short volatility returns are small and positive until they are not",
+        "The manager's academic background",
+        "The number of contracts traded"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Size affects capacity and liquidity, not whether the record is representative.",
+        "Correct. The return distribution is negatively skewed by construction, so a sample without a crisis describes the calm regime rather than the strategy. A 2.5 Sharpe from such a period is close to expected.",
+        "Background is context; the return distribution is the question.",
+        "Activity says nothing about the shape of the payoff."
+      ],
+      "explanation": "The constructive follow-up is a stress test rather than a rejection: what did the position lose in the worst single day available, and how is it sized against that? Selling insurance is a legitimate business, and insurers size for the claim rather than for the premium."
+    }
+  ],
+  "needsReview": false,
+  "reviewNote": null
+}

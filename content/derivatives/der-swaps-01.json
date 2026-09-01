@@ -1,0 +1,214 @@
+{
+  "schemaVersion": 1,
+  "id": "der-swaps-01",
+  "domain": "derivatives",
+  "title": "Swaps: Exchanging One Cash Flow for Another",
+  "summary": "An agreement to trade payment streams, worth nothing at inception and a great deal later — which is where the counterparty risk lives.",
+  "level": "core",
+  "prereqs": ["der-forwards-01", "fi-floating-01"],
+  "estMinutes": 9,
+  "examRelevance": ["CFA-L1", "CAIA-L1", "practical"],
+  "lesson": [
+    {
+      "type": "concept",
+      "id": "what-it-is",
+      "body": "A **[[swap|swap]]** is an agreement to exchange one stream of payments for another. The most common is an **[[interest-rate-swap|interest rate swap]]**: one party pays a fixed rate, the other pays a floating rate, both on the same notional amount.\n\n**The notional is never exchanged.** It exists only to calculate the payments, which is why a 100m swap does not require 100m of capital — and why swap markets are enormous relative to the cash markets underneath them.\n\nThe structure at inception is deliberate: **the fixed rate is set so the swap is worth zero to both parties on day one.** Neither side pays the other to enter. That fixed rate is, by construction, the market's expected average of the floating rate over the swap's life — so it comes from the same forward curve as everything else.\n\nAfterwards it stops being worth zero. If rates rise, the fixed payer is paying below market and their side of the swap has positive value. **That accumulated value is an unsecured claim on the counterparty, which is the whole reason swaps are collateralised** — and the reason [[margin-call|margin calls]] on swap positions consume cash exactly when markets move."
+    },
+    {
+      "type": "concept",
+      "id": "why-use-one",
+      "body": "**A swap separates an exposure from the funding that would normally carry it, and that separation is what makes it useful.**\n\n**Converting an existing liability.** A borrower with floating-rate debt who wants certainty pays fixed in a swap. They keep the loan and change its economics, without refinancing.\n\n**Expressing a rate view without a bond.** Paying fixed in a swap is economically similar to being short a bond, without borrowing one, funding it, or finding one to sell.\n\n**Matching liabilities.** A pension fund with long-dated obligations receives fixed in long-dated swaps to extend asset duration without buying the bonds — capital-efficient, and it is why swap-based liability-driven investment exists at all.\n\n**[[total-return-swap|Total return swaps]]** go further: one side pays the total return on an asset — price change plus income — and receives a financing rate. **The receiver gets the full economic exposure without owning the asset**, which is a financing arrangement as much as a derivative and is how a great deal of leverage is actually taken in institutional portfolios.\n\n**The efficiency is real, and the exposure is identical to owning the thing.** A total return swap on an equity index is an equity position with a loan attached, and it should appear in a risk report as exactly that."
+    },
+    {
+      "type": "intuition",
+      "id": "the-collateral-problem",
+      "body": "**A swap requires almost no capital to enter and can require a great deal of cash to keep, and that asymmetry is where swap-based strategies fail.**\n\nThe mechanics: the swap's value moves with rates, and the losing side posts collateral to the winning side. Daily. In cash or high-quality securities.\n\nSo a position sized to a notional the [[balance-sheet|balance sheet]] could never fund is entirely possible to enter, and its collateral demands scale with market moves rather than with the initial capital committed.\n\nThe consequence is a specific and recurring failure mode:\n\n**The hedge works, and it bankrupts you anyway.** A pension fund receiving fixed to match its liabilities is hedged in economic terms — if rates rise, its liabilities fall by roughly what the swap loses. But the liability reduction is an actuarial calculation and the swap loss is a cash call tomorrow morning.\n\n**That mismatch — economic offset, cash timing difference — is exactly what caused the 2022 liability-driven investment crisis in UK pensions.** The hedges were doing their job. The collateral calls arrived faster than the assets could be sold to meet them, and forced selling into the same move made it worse.\n\n**So the question for any swap-based strategy is not whether the hedge is correct. It is what happens to cash when it moves against you, and how much of it is available within twenty-four hours.**"
+    },
+    {
+      "type": "example",
+      "id": "worked-swap",
+      "body": "A borrower with 100m of floating-rate debt enters a swap: pay 4.50% fixed, receive the floating reference rate. The reference is currently 5.25%.",
+      "walkthrough": [
+        "**Today.** Receive 5.25% floating, pay 4.50% fixed, on 100m. Net receipt = 0.75% × 100m = **+0.75m a year**.",
+        "Combined with the underlying loan — on which they pay floating — the borrower now effectively pays **4.50% fixed**. Certainty achieved.",
+        "**If the reference falls to 3.00%.** Net on the swap = (3.00% − 4.50%) × 100m = **−1.50m a year**. The swap is now costing money.",
+        "But the loan is cheaper by exactly the same amount, so the total cost is still **4.50%**. The hedge worked.",
+        "**Read that carefully: the swap showing a large loss is the hedge functioning, not failing.** The two legs are meant to offset, and reporting only the derivative's mark makes a working hedge look like a bad trade.",
+        "The problem is that the swap loss is collateralised in cash immediately, and the loan saving arrives month by month over years.",
+        "Sanity check worth reusing: **for any hedge, write down when each leg settles in cash.** If the hedge settles daily and the exposure settles over years, the position needs a liquidity facility — and that requirement should be sized at inception rather than discovered."
+      ]
+    },
+    {
+      "type": "table",
+      "id": "swap-table",
+      "caption": "Common swaps and what they are really doing",
+      "headers": ["Type", "Exchange", "Used for"],
+      "rows": [
+        [
+          "[[interest-rate-swap|Interest rate swap]]",
+          "Fixed for floating",
+          "Converting a liability, expressing a rate view, matching liability duration."
+        ],
+        [
+          "Currency swap",
+          "Payments in two currencies",
+          "Funding in one currency, exposure in another."
+        ],
+        [
+          "[[total-return-swap|Total return swap]]",
+          "Total return on an asset for a financing rate",
+          "Synthetic exposure and leverage without owning the asset."
+        ],
+        [
+          "Credit default swap",
+          "Periodic premium for payment on default",
+          "Hedging or taking credit exposure separately from funding it."
+        ]
+      ]
+    },
+    {
+      "type": "concept",
+      "id": "how-it-goes-wrong",
+      "body": "**Counterparty exposure accumulating quietly.** A swap starts at zero value and becomes a substantial unsecured claim as rates move. Collateral agreements exist for this and they have thresholds, minimum transfer amounts and disputes.\n\n**Notional mistaken for exposure.** A 100m notional swap is not 100m at risk — but reporting only the mark understates it too, because the mark can grow rapidly. Both figures are needed.\n\n**Collateral in the wrong asset.** Posting government bonds is efficient until the bonds fall in the same move that triggers the call, which is exactly what happens when the exposure is to rates.\n\n**Reporting one leg.** A working hedge shows a loss on the derivative and an offsetting gain elsewhere. Risk reports that show derivative marks in isolation make functioning hedges look like failed trades, and invite exactly the wrong intervention.\n\n**Basis between the swap and the hedged item.** A swap referencing one rate hedging a loan priced off another leaves residual exposure. Small in normal times and it widens in stress, which is when the hedge is being relied on."
+    },
+    {
+      "type": "pitfall",
+      "id": "synthetic-leverage",
+      "body": "**A total return swap is leverage, and it is leverage that does not appear where an allocator normally looks for it.**\n\nThe economics: receive the total return on an index, pay a financing rate. You have the full exposure of owning the index, funded by the counterparty, with only collateral posted. If the index falls 20%, you owe 20% of the notional — on capital that may be a fraction of it.\n\nThe attractions are real: capital efficiency, access to markets where direct ownership is restricted, and operational simplicity.\n\nThe reporting problem is that **the position may show as a small mark rather than as a large exposure.** A fund with modest reported assets can hold multiples of that in economic exposure, and a naive gross-exposure figure will not reveal it.\n\nSo three questions belong in any diligence where swaps appear:\n\n**What is the total economic exposure including all derivative notionals, and how does it compare with [[net-asset-value|net asset value]]?**\n\n**What collateral is posted, in what assets, and what happens if those assets fall in the same event?**\n\n**Who are the counterparties and what is the concentration?** A fund with one swap counterparty has a single point of failure that no amount of position diversification addresses.\n\n**None of this makes synthetic exposure inappropriate.** It makes it a thing that must be measured on its economics rather than on its accounting footprint."
+    },
+    {
+      "type": "onTheJob",
+      "id": "on-the-job",
+      "body": "**Ask for economic exposure including derivative notionals, alongside net asset value.** A swap-heavy fund's risk is invisible in an assets figure.\n\n**For every hedge, map when each leg settles in cash.** Daily-settling hedges against slow-settling exposures need a liquidity line sized in advance.\n\n**Ask what collateral is posted and whether it falls in the same scenario that triggers the call.** Posting long bonds against a rate hedge is the case that has already caused a crisis.\n\n**Ask for counterparty concentration and the collateral thresholds.** Minimum transfer amounts and thresholds determine how much unsecured exposure builds before anything moves.\n\n**Read hedge and hedged item together, never separately.** A derivative showing a large loss next to an unreported offsetting gain is the most common way a working hedge gets unwound at the worst moment."
+    },
+    {
+      "type": "keyTakeaways",
+      "id": "takeaways",
+      "items": [
+        "A swap exchanges payment streams on a notional that is never exchanged, priced so it is worth zero at inception — and it accumulates value, which becomes a claim on the counterparty.",
+        "In the worked example the borrower paid 4.50% fixed whichever way rates moved: at a 3.00% reference the swap lost 1.50m a year and the loan saved exactly the same.",
+        "The failure mode is cash timing, not economics: the swap collateralises daily while the hedged exposure settles over years. That mismatch caused the 2022 UK pension crisis.",
+        "A total return swap is leverage that does not appear in an assets figure. Ask for economic exposure including notionals, collateral composition, and counterparty concentration."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "der-swaps-01-q1",
+      "type": "numeric",
+      "difficulty": 2,
+      "tags": ["swaps", "arithmetic"],
+      "concept": "worked-swap",
+      "stem": "A 100m swap: pay 4.50% fixed, receive 5.25% floating. What is the annual net cash flow, in millions? Give the sign from the payer's perspective.",
+      "answer": 0.75,
+      "tolerance": 0.03,
+      "toleranceType": "abs",
+      "unit": "$m",
+      "explanation": "Positive today because the floating rate exceeds the fixed rate. It will turn negative if the reference falls below 4.50% — and at that point the hedge is doing its job, since the underlying floating-rate loan is cheaper by the same amount."
+    },
+    {
+      "id": "der-swaps-01-q2",
+      "type": "numeric",
+      "difficulty": 3,
+      "tags": ["swaps", "arithmetic"],
+      "concept": "worked-swap",
+      "stem": "Same swap. The floating reference falls to 3.00%. What is the annual net cash flow now, in millions? Give the sign.",
+      "answer": -1.5,
+      "tolerance": 0.05,
+      "toleranceType": "abs",
+      "unit": "$m",
+      "explanation": "A 1.5m annual loss on the swap, exactly offset by a 1.5m saving on the floating-rate loan it hedges. Reporting the swap alone would show a failing position; reporting both legs shows a hedge working precisely as designed."
+    },
+    {
+      "id": "der-swaps-01-q3",
+      "type": "mcq",
+      "difficulty": 3,
+      "tags": ["swaps", "structure"],
+      "concept": "what-it-is",
+      "stem": "Why is an interest rate swap worth zero to both parties at inception?",
+      "choices": [
+        "Because no money changes hands at the start",
+        "Because the fixed rate is set at the market's expected average of the floating rate over the swap's life",
+        "Because the notional is never exchanged",
+        "Because swaps are collateralised"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "No payment at the start is the consequence of the pricing rather than the reason for it.",
+        "Correct. The fixed rate is chosen from the forward curve so that the two expected payment streams have equal present value. Neither side has an advantage, so neither pays for the position.",
+        "The notional's role in calculation is separate from why the swap prices at zero.",
+        "Collateral manages the exposure that builds later; it does not determine the initial value."
+      ],
+      "explanation": "It follows that the swap rate contains the same information as the forward curve — which is why quoting a view as \"paying fixed at 4.50%\" is the same kind of statement as disagreeing with the forwards, just expressed in a different instrument."
+    },
+    {
+      "id": "der-swaps-01-q4",
+      "type": "tfj",
+      "difficulty": 4,
+      "tags": ["swaps", "liquidity", "misconception"],
+      "concept": "the-collateral-problem",
+      "stem": "\"Our liability hedge is economically matched, so a rate move cannot hurt us.\" True or false — and why?",
+      "isTrue": false,
+      "justifications": [
+        "False — the swap collateralises in cash daily while the liability reduction is an actuarial value over decades, so an economically matched position can still face a liquidity failure",
+        "False — liability hedges never match economically",
+        "True — a matched hedge eliminates the exposure",
+        "False — because interest rate swaps cannot hedge pension liabilities"
+      ],
+      "justificationIndex": 0,
+      "rationales": [
+        "Correct. The offset is real in value terms and the timing is not. Cash out tomorrow against a benefit realised over thirty years is a liquidity problem regardless of the economics.",
+        "Over-correction. Duration matching with swaps works well economically, which is why it is standard practice.",
+        "It eliminates the economic exposure and creates a cash-flow timing exposure in its place.",
+        "They are the standard instrument for exactly this purpose."
+      ],
+      "explanation": "This is precisely what happened in the 2022 UK pension episode: the hedges were correct, the collateral calls outran available liquidity, and forced selling of the collateral assets amplified the move that caused the calls. The lesson is about liquidity planning rather than about hedging."
+    },
+    {
+      "id": "der-swaps-01-q5",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["swaps", "leverage", "on-the-job"],
+      "concept": "synthetic-leverage",
+      "stem": "A fund holds total return swaps giving it exposure well above its net asset value. Where does this show up?",
+      "choices": [
+        "In the fund's reported assets under management",
+        "Only in the derivative notional disclosure — the mark may be small while the economic exposure is a multiple of NAV",
+        "In the management fee calculation",
+        "It does not need to be disclosed"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Assets under management reflects the capital, not the exposure the swaps create.",
+        "Correct. The mark-to-market can be modest while the notional exposure is several times the fund's capital, so a reader looking only at assets will underestimate the risk substantially.",
+        "Fee bases vary and are a separate matter from measuring exposure.",
+        "It is disclosed, typically in notional terms — the problem is that it is easy to overlook."
+      ],
+      "explanation": "The one question that resolves it: what is total economic exposure including all derivative notionals, as a multiple of NAV? It is answerable, it is rarely on the front page of a factsheet, and it is the number that describes what happens in a drawdown."
+    },
+    {
+      "id": "der-swaps-01-q6",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["swaps", "collateral", "on-the-job"],
+      "concept": "how-it-goes-wrong",
+      "stem": "A rate hedge is collateralised with long-dated government bonds. What is the specific danger?",
+      "choices": [
+        "Government bonds are not accepted as collateral",
+        "When rates rise, the swap loses and demands collateral at the same moment the posted bonds fall in value — so the collateral shrinks as the requirement grows",
+        "Government bonds pay no income",
+        "Collateral must always be posted in cash"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "They are among the most widely accepted forms of collateral.",
+        "Correct. The collateral and the exposure share a risk factor, so both move adversely in the same event. Selling the bonds to meet the call then pushes prices further in the same direction.",
+        "They pay coupons, and income is not the issue.",
+        "High-quality securities are routinely acceptable, which is exactly how this exposure arises."
+      ],
+      "explanation": "The general principle is worth carrying beyond swaps: collateral should be uncorrelated with the exposure it secures. Posting the asset most sensitive to the risk you are hedging builds a feedback loop, and it is discovered under stress rather than in a policy document."
+    }
+  ],
+  "needsReview": false,
+  "reviewNote": null
+}

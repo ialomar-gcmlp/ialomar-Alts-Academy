@@ -1,0 +1,214 @@
+{
+  "schemaVersion": 1,
+  "id": "der-greeks-01",
+  "domain": "derivatives",
+  "title": "The Greeks: What an Option Position Is Actually Exposed To",
+  "summary": "Delta is the position you hold, gamma is how fast it changes, theta is the rent, and vega is the view — four numbers that describe an option better than its name does.",
+  "level": "advanced",
+  "prereqs": ["der-options-01"],
+  "estMinutes": 10,
+  "examRelevance": ["CFA-L2", "CAIA-L2", "practical"],
+  "lesson": [
+    {
+      "type": "concept",
+      "id": "what-it-is",
+      "body": "An option's value depends on several things at once, and the **greeks** are the sensitivities to each. They are what a trading desk actually manages — nobody runs a book of \"calls and puts\", they run a book of exposures.\n\n**[[delta]]** — how much the option's value moves for a one-unit move in the underlying. Between 0 and 1 for a call, 0 and −1 for a put. **Delta is the equivalent underlying position you are holding.**\n\n**[[gamma]]** — how much delta itself changes as the underlying moves. The curvature. Long options have positive gamma; short options negative.\n\n**[[theta]]** — how much value is lost per day simply from time passing. Negative for the buyer, positive for the seller.\n\n**[[vega]]** — how much the value changes when [[implied-volatility|implied volatility]] moves one point. Positive for the buyer of any option.\n\n**Read together, these four say what a position actually is.** \"Long 100 calls\" is a description of a trade. \"Delta 5,500, gamma 300, theta −900 a day, vega 4,000\" is a description of a risk — and it is the version that tells you what happens next."
+    },
+    {
+      "type": "concept",
+      "id": "delta-is-a-position",
+      "body": "**Delta converts an option position into an equivalent holding of the underlying, which is the only way to compare it with anything else in a portfolio.**\n\nA call with a delta of 0.55, on 100 contracts of 100 shares each, behaves like **5,500 shares**. That is the number that belongs in a portfolio exposure report, not \"100 call contracts\".\n\nSo delta hedging means holding the offsetting amount of the underlying — short 5,500 shares here — leaving a position with no first-order exposure to direction.\n\nWhat remains after hedging is the point:\n\n**Gamma**, so the hedge is only correct at this instant.\n\n**Theta**, the daily cost of holding the option.\n\n**Vega**, exposure to changes in implied volatility.\n\n**A delta-hedged long option position is therefore a bet that realised movement exceeds what the premium priced** — you have removed the direction and kept the volatility. That is what \"trading volatility\" means concretely, and it is why option traders can be indifferent to which way the market goes."
+    },
+    {
+      "type": "intuition",
+      "id": "gamma-is-the-engine",
+      "body": "**Gamma is where a delta-hedged option position actually makes or loses money, and the mechanism is worth working through slowly because it is genuinely counterintuitive.**\n\nStart long 100 calls at delta 0.55 — equivalent to 5,500 shares — and short 5,500 shares as the hedge. Net delta zero.\n\nNow the underlying **rises 5%**. Because of gamma, the call's delta rises to, say, **0.70**: the position is now equivalent to 7,000 shares against a 5,500-share hedge. To restore neutrality you **sell another 1,500 shares** — at the higher price.\n\nThen the underlying **falls back**. Delta drops, the hedge is now too large, and you **buy shares back** — at the lower price.\n\n**You sold high and bought low, and the only reason was that the position required rebalancing. That is the gamma profit, and it is paid for by theta.**\n\nWhich gives the cleanest statement of what a long option position is:\n\n**Long gamma, short theta.** You profit from movement and pay rent for the privilege. If the underlying moves more than the premium implied, the rebalancing gains exceed the decay. If it sits still, theta wins.\n\n**Short options invert everything.** Short gamma means you buy as it rises and sell as it falls — losing on every rebalance — while collecting theta. **Which is why short-volatility positions bleed slowly in calm markets and lose violently in fast ones: the rebalancing works against you exactly when the moves are largest.**"
+    },
+    {
+      "type": "example",
+      "id": "worked-hedge",
+      "body": "Long 100 call contracts, 100 shares each, delta 0.55. The underlying then rises and delta moves to 0.70.",
+      "walkthrough": [
+        "Equivalent share position = 0.55 × 100 × 100 = **5,500 shares**.",
+        "To delta hedge, **short 5,500 shares**. [[net-exposure|Net exposure]] to a small price move: zero.",
+        "The underlying rises. Delta is now 0.70, so the equivalent position is 0.70 × 100 × 100 = **7,000 shares**.",
+        "The hedge is now 1,500 shares too small, so **short a further 1,500 shares** — at the new, higher price.",
+        "If the price falls back to where it started, delta returns to 0.55 and you **buy back 1,500 shares** at the lower price.",
+        "**Read that carefully: the round trip made money and required no view at all. The position sold high and bought low because the arithmetic of the hedge demanded it.**",
+        "Against that, the option lost time value on both days. Whether the round trip was profitable depends on whether the move was larger than the theta paid.",
+        "Sanity check worth reusing: **compare daily theta with the daily move the underlying would need to break even.** For a long option position, that break-even move is the honest [[hurdle-rate|hurdle rate]], and it is computable before entering."
+      ]
+    },
+    {
+      "type": "table",
+      "id": "greek-table",
+      "caption": "The four greeks, and what each one costs you",
+      "headers": ["Greek", "Measures", "Long options / short options"],
+      "rows": [
+        [
+          "[[delta]]",
+          "Equivalent underlying position",
+          "Either sign — this is the part you usually hedge away."
+        ],
+        [
+          "[[gamma]]",
+          "How fast delta changes",
+          "Positive: rebalancing profits / Negative: rebalancing losses."
+        ],
+        [
+          "[[theta]]",
+          "Value lost per day",
+          "Negative: you pay rent / Positive: you collect it."
+        ],
+        [
+          "[[vega]]",
+          "Sensitivity to implied volatility",
+          "Positive: gains if volatility rises / Negative: the reverse."
+        ]
+      ]
+    },
+    {
+      "type": "concept",
+      "id": "how-it-goes-wrong",
+      "body": "**Hedging discretely in a fast market.** Delta hedging assumes continuous rebalancing. In a gap move the hedge is wrong for the whole distance, and short gamma positions take the full loss without any rebalancing opportunity.\n\n**Gamma concentrating near expiry.** An at-the-money option's gamma rises sharply as expiry approaches, so the hedge needs more frequent adjustment exactly when there is least time to be right.\n\n**Ignoring vega on a delta-hedged book.** A position with no directional exposure can still lose substantially when implied volatility falls, particularly after an event passes.\n\n**Transaction costs eating the gamma profit.** Rebalancing has a cost. In a low-volatility market the theoretical gamma gains do not cover the spread crossed to capture them.\n\n**Reporting an option position by notional.** A book of options described by contract count or notional tells you nothing. Delta, gamma, theta and vega tell you what happens tomorrow, and any risk report without them is decorative."
+    },
+    {
+      "type": "pitfall",
+      "id": "greeks-outside-derivatives",
+      "body": "**Positions with option-like payoffs appear throughout alternatives, and their greeks are real even when nobody computes them.**\n\n**[[carried-interest|Carried interest]] is a call option** on the fund's performance, struck at the hurdle. The [[general-partner|general partner]] is long gamma: near the hurdle, small changes in outcome change their payoff a great deal, and the incentive to take risk rises as the option moves out of the money. That is not a criticism — it is the structure, and it is why [[clawback|clawbacks]] and whole-fund [[waterfall|waterfalls]] exist.\n\n**Equity in a levered company is a call option** on the [[enterprise-value|enterprise value]], struck at the debt. Deep out of the money — a company in distress — the equity holder's incentive is to increase volatility, because they hold the upside and the lenders hold the downside. This is the mechanism behind most creditor-shareholder conflicts in a restructuring.\n\n**A [[high-water-mark|high water mark]] makes a performance fee an option** that resets, which is exactly why the incentives after a large drawdown deserve attention.\n\n**A gate or redemption restriction is an option held by the manager**, exercised when liquidity is worst.\n\n**The general habit: whenever a payoff is asymmetric, ask who is long the option and who is short it, and what each side's incentive is when it moves.** The greeks are a language for that question, and it applies far outside a derivatives desk."
+    },
+    {
+      "type": "onTheJob",
+      "id": "on-the-job",
+      "body": "**Ask any options manager for delta, gamma, theta and vega, not positions.** Contract counts describe trades; greeks describe risk.\n\n**Ask what a 10% overnight gap does to the book.** It is the scenario where delta hedging fails, and short gamma positions have no answer.\n\n**For a delta-hedged strategy, ask what daily move breaks even against theta.** That is the hurdle the position needs the market to clear, every day.\n\n**Identify the option-like payoffs in your own portfolio.** Carry, equity in levered companies, performance fees above a high water mark — all are options, and the counterparty's incentives follow from their position in them.\n\n**When a manager is far below their high water mark, ask what has changed about position sizing.** They hold an out-of-the-money option, and the structural incentive is toward more risk rather than less."
+    },
+    {
+      "type": "keyTakeaways",
+      "id": "takeaways",
+      "items": [
+        "Delta converts options into an equivalent underlying position: 100 calls at 0.55 delta on 100 shares each is 5,500 shares, and that is the number for an exposure report.",
+        "Gamma is where a delta-hedged position earns: rebalancing forces you to sell as it rises and buy as it falls, and theta is the rent paid for that privilege.",
+        "Long options are long gamma and short theta — profitable if realised movement exceeds what the premium priced. Short options invert every part of that.",
+        "Option-like payoffs are everywhere in alternatives: carried interest, equity in a levered company and a performance fee above a high water mark are all calls, with the incentives that implies."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "der-greeks-01-q1",
+      "type": "numeric",
+      "difficulty": 2,
+      "tags": ["greeks", "delta", "arithmetic"],
+      "concept": "worked-hedge",
+      "stem": "You are long 100 call contracts, each on 100 shares, with a delta of 0.55. How many shares is this equivalent to?",
+      "answer": 5500,
+      "tolerance": 50,
+      "toleranceType": "abs",
+      "inputHint": "delta × contracts × shares per contract",
+      "explanation": "This is the number that belongs in a portfolio exposure report. \"100 call contracts\" is not an exposure — it is a description of a trade, and two positions with identical contract counts can have completely different market risk."
+    },
+    {
+      "id": "der-greeks-01-q2",
+      "type": "numeric",
+      "difficulty": 3,
+      "tags": ["greeks", "gamma", "arithmetic"],
+      "concept": "worked-hedge",
+      "stem": "The underlying rises and delta moves from 0.55 to 0.70. How many additional shares must you short to stay delta neutral?",
+      "answer": 1500,
+      "tolerance": 50,
+      "toleranceType": "abs",
+      "explanation": "And you short them at the higher price. When the underlying falls back, you buy them at the lower price. The rebalancing itself produces the gamma profit — no view required, only movement."
+    },
+    {
+      "id": "der-greeks-01-q3",
+      "type": "mcq",
+      "difficulty": 3,
+      "tags": ["greeks", "gamma"],
+      "concept": "gamma-is-the-engine",
+      "stem": "A delta-hedged long option position makes money when what happens?",
+      "choices": [
+        "The underlying rises",
+        "The underlying moves more than the premium implied, in either direction",
+        "Implied volatility falls",
+        "Time passes without incident"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Direction has been hedged away, so a rise on its own produces nothing.",
+        "Correct. Rebalancing captures movement in both directions, and the theta paid is the cost. Realised movement above the implied level is the profit.",
+        "Falling implied volatility hurts a long option position through vega.",
+        "Quiet markets are exactly when theta wins and the long position bleeds."
+      ],
+      "explanation": "This is the concrete meaning of \"trading volatility\": you have removed the direction and kept the magnitude. It also explains why an options desk can be genuinely indifferent to market direction while caring enormously about how much it moves."
+    },
+    {
+      "id": "der-greeks-01-q4",
+      "type": "tfj",
+      "difficulty": 4,
+      "tags": ["greeks", "misconception"],
+      "concept": "gamma-is-the-engine",
+      "stem": "\"Our short options book is delta hedged, so it is market neutral.\" True or false — and why?",
+      "isTrue": false,
+      "justifications": [
+        "False — delta hedging removes first-order directional exposure only; short gamma means the hedge is wrong in the direction that hurts as soon as the market moves",
+        "False — short option books cannot be delta hedged",
+        "True — delta hedging makes a position market neutral by definition",
+        "False — because delta hedging requires continuous trading, which is impossible"
+      ],
+      "justificationIndex": 0,
+      "rationales": [
+        "Correct. Negative gamma means delta moves against you: you must buy after it rises and sell after it falls, losing on each rebalance. The larger the move, the worse it gets.",
+        "They can be and routinely are — the hedging is the issue rather than its possibility.",
+        "It removes exposure to a small move at this instant, which is a much narrower claim than market neutrality.",
+        "Discrete hedging is a real limitation and a secondary one; the gamma sign is the structural problem."
+      ],
+      "explanation": "This is why short volatility losses are convex: the position loses more per unit of move as the move gets larger. A book described as neutral on Friday can lose a multiple of its expected annual return on Monday, and nothing about the description was false."
+    },
+    {
+      "id": "der-greeks-01-q5",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["greeks", "alternatives", "on-the-job"],
+      "concept": "greeks-outside-derivatives",
+      "stem": "Why does thinking of carried interest as a call option change how you read a GP's incentives?",
+      "choices": [
+        "It shows that carry is overpriced",
+        "It shows the GP is long gamma near the hurdle — small changes in outcome move their payoff a lot, so risk-taking becomes more attractive when carry is at risk",
+        "It shows carry should be paid in cash rather than in interests",
+        "It shows the hurdle rate is irrelevant"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "The framing is about incentives rather than about whether the price is fair.",
+        "Correct. Around the strike — the hurdle — the payoff is highly convex. A fund below its hurdle late in life holds an out-of-the-money option, and volatility is worth more to an option holder.",
+        "The payment form is a separate question from the payoff shape.",
+        "The hurdle is the strike, so it is central rather than irrelevant."
+      ],
+      "explanation": "It is not an accusation — it is a structure. And it explains why clawbacks, whole-fund waterfalls and meaningful GP commitments exist: each one reduces the convexity, which is exactly what you would design if you were worried about a short-dated option holder taking risk with your money."
+    },
+    {
+      "id": "der-greeks-01-q6",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["greeks", "distress", "on-the-job"],
+      "concept": "greeks-outside-derivatives",
+      "stem": "Equity in a heavily indebted company is described as a call option on the enterprise value. What does this predict about a distressed company's behaviour?",
+      "choices": [
+        "It will reduce risk to preserve remaining value",
+        "Shareholders have an incentive to increase volatility, because they hold the upside while lenders hold the downside",
+        "It will always seek to refinance",
+        "Shareholders and lenders have aligned interests in distress"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "That is the lenders' preference, and the equity holders' option is worth more with more volatility.",
+        "Correct. With the option far out of the money, a large risky bet has upside for the equity and downside for the creditors, who are already impaired.",
+        "Refinancing may be attempted and does not follow from the payoff structure.",
+        "Distress is precisely where the interests diverge most sharply."
+      ],
+      "explanation": "This is why covenants restrict asset sales, new debt and distributions in stressed situations — the restrictions exist to constrain an option holder whose incentives have inverted. Recognising the structure predicts the behaviour before it happens."
+    }
+  ],
+  "needsReview": false,
+  "reviewNote": null
+}

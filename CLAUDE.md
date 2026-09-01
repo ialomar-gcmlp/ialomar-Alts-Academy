@@ -610,7 +610,7 @@ One domain per batch, validated, pause between batches. Keep this current.
 | corporate-issuers | 6 | **DONE** — capitalstructure, wacc, allocation, governance, ma, issuance |
 | equity-valuation | 5 | **DONE** — dcf, multiples, quality, comparables, privatemarks |
 | fixed-income | 6 | **DONE** — bonds, duration, credit, forwards, floating, securitisation |
-| derivatives | 0 | not started — delta, gamma, implied volatility, vega defined |
+| derivatives | 6 | **DONE** — forwards, options, greeks, vol, swaps, hedging |
 | fund-structures | 8 | **DONE** — gplp-01, fees-01, waterfall-01, hwm-01, calls-01, liquidity-01, sideletters-01, subline-01 |
 | portfolio-risk | 0 | not started |
 | ethics | 0 | not started |

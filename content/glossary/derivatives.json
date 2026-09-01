@@ -3,6 +3,39 @@
   "domain": "derivatives",
   "terms": [
     {
+      "slug": "basis-risk",
+      "term": "basis risk",
+      "plain": "The risk left over because the hedge is not exactly the exposure — different grade, location, maturity or index. It is small in normal times and widens in stress.",
+      "formal": "The residual risk arising from imperfect correlation between a hedging instrument and the exposure it hedges.",
+      "seeAlso": [
+        "futures-contract",
+        "swap",
+        "correlation"
+      ]
+    },
+    {
+      "slug": "call-option",
+      "term": "call option",
+      "plain": "The right to buy at the strike price. Worth something when the price rises above it; the buyer's maximum loss is the premium.",
+      "formal": "An option conferring the right to purchase the underlying at the strike price on or before expiry.",
+      "seeAlso": [
+        "put-option",
+        "option",
+        "put-call-parity"
+      ]
+    },
+    {
+      "slug": "convenience-yield",
+      "term": "convenience yield",
+      "plain": "The non-financial benefit of physically holding a commodity rather than a claim on it. When it exceeds the cost of carry the futures curve slopes downward.",
+      "formal": "The implicit return from holding a physical commodity, reflecting optionality of availability, which enters the cost-of-carry relationship as a negative carry component.",
+      "seeAlso": [
+        "backwardation",
+        "contango",
+        "forward-contract"
+      ]
+    },
+    {
       "slug": "delta",
       "term": "delta",
       "plain": "How much an option-like instrument's value moves for a small move in the thing it is based on. A delta of 0.60 means it captures about 60% of the share price move.",
@@ -11,6 +44,28 @@
         "gamma",
         "convertible-bond",
         "convertible-arbitrage"
+      ]
+    },
+    {
+      "slug": "forward-contract",
+      "term": "forward contract",
+      "plain": "A private agreement to buy or sell something at a fixed price on a future date. Settles once, at maturity, and carries counterparty risk.",
+      "formal": "A bilateral over-the-counter agreement to exchange an asset at a specified price on a specified future date, customisable and not centrally cleared.",
+      "seeAlso": [
+        "futures-contract",
+        "convenience-yield",
+        "swap"
+      ]
+    },
+    {
+      "slug": "futures-contract",
+      "term": "futures contract",
+      "plain": "A standardised, exchange-traded forward, settled in cash daily. The daily settlement is the practical difference — a losing position demands cash tomorrow morning.",
+      "formal": "An exchange-traded standardised contract for future delivery, marked to market daily with margin flows through a central counterparty.",
+      "seeAlso": [
+        "forward-contract",
+        "roll-yield",
+        "contango"
       ]
     },
     {
@@ -33,6 +88,116 @@
         "volatility",
         "vega",
         "convertible-arbitrage"
+      ]
+    },
+    {
+      "slug": "interest-rate-swap",
+      "term": "interest rate swap",
+      "plain": "Swapping a fixed rate for a floating one on a notional amount. Used to convert a liability, express a rate view, or match liability duration without buying bonds.",
+      "formal": "A swap exchanging fixed-rate payments for floating-rate payments on a notional principal, priced at inception so its value is zero to both parties.",
+      "seeAlso": [
+        "swap",
+        "floating-rate",
+        "duration"
+      ]
+    },
+    {
+      "slug": "option",
+      "term": "option",
+      "plain": "The right, not the obligation, to buy or sell at a fixed price. The buyer's loss is capped at the premium and the seller's is not — that asymmetry is the instrument.",
+      "formal": "A contract conferring on the holder the right to transact at a specified strike price, for which a premium is paid to the writer who assumes the corresponding obligation.",
+      "seeAlso": [
+        "call-option",
+        "put-option",
+        "strike-price"
+      ]
+    },
+    {
+      "slug": "put-call-parity",
+      "term": "put-call parity",
+      "plain": "The exact relationship tying a call and a put at the same strike: Call minus Put equals Spot minus the present value of the strike. A price check that needs no model.",
+      "formal": "The no-arbitrage identity relating European call and put prices on the same underlying, strike and expiry to the spot price and the discounted strike.",
+      "seeAlso": [
+        "call-option",
+        "put-option",
+        "option"
+      ]
+    },
+    {
+      "slug": "put-option",
+      "term": "put option",
+      "plain": "The right to sell at the strike price. Worth something when the price falls below it, which is why it is the standard instrument for downside protection.",
+      "formal": "An option conferring the right to sell the underlying at the strike price on or before expiry.",
+      "seeAlso": [
+        "call-option",
+        "option",
+        "put-call-parity"
+      ]
+    },
+    {
+      "slug": "realised-volatility",
+      "term": "realised volatility",
+      "plain": "How much an asset actually moved, measured from past returns. The backward-looking counterpart to implied volatility, and usually lower than it.",
+      "formal": "The standard deviation of an asset's returns measured over a historical window, annualised.",
+      "seeAlso": [
+        "implied-volatility",
+        "variance-risk-premium",
+        "volatility"
+      ]
+    },
+    {
+      "slug": "strike-price",
+      "term": "strike price",
+      "plain": "The fixed price at which an option can be exercised. Everything about an option's behaviour depends on where the market sits relative to it.",
+      "formal": "The contractually specified price at which the underlying may be bought or sold under an option contract.",
+      "seeAlso": [
+        "option",
+        "call-option",
+        "put-option"
+      ]
+    },
+    {
+      "slug": "swap",
+      "term": "swap",
+      "plain": "An agreement to exchange one stream of payments for another on a notional that is never exchanged. Worth zero at inception and a great deal later.",
+      "formal": "A bilateral contract to exchange cash flow streams calculated on a notional principal over a specified term, typically collateralised.",
+      "seeAlso": [
+        "interest-rate-swap",
+        "total-return-swap",
+        "forward-contract"
+      ]
+    },
+    {
+      "slug": "theta",
+      "term": "theta",
+      "plain": "How much an option loses per day simply from time passing. Negative for the buyer — the rent paid for holding optionality — and positive for the seller.",
+      "formal": "The sensitivity of an option's value to the passage of time, conventionally expressed per day and generally negative for long option positions.",
+      "seeAlso": [
+        "delta",
+        "gamma",
+        "vega"
+      ]
+    },
+    {
+      "slug": "total-return-swap",
+      "term": "total return swap",
+      "plain": "One side pays the whole return on an asset — price plus income — and receives a financing rate. Economically it is owning the asset with a loan attached, and it may not appear in an assets figure.",
+      "formal": "A swap transferring the total economic performance of a reference asset in exchange for a financing rate, providing synthetic exposure without ownership.",
+      "seeAlso": [
+        "swap",
+        "interest-rate-swap",
+        "net-exposure"
+      ]
+    },
+    {
+      "slug": "variance-risk-premium",
+      "term": "variance risk premium",
+      "plain": "The persistent gap between what options charge for expected movement and the movement that arrives. It is the price of insurance, which is why option sellers earn it on average.",
+      "formal": "The difference between option-implied variance and subsequently realised variance, representing compensation for bearing volatility risk.",
+      "seeAlso": [
+        "implied-volatility",
+        "realised-volatility",
+        "option"
       ]
     },
     {
