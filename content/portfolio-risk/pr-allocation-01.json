@@ -1,0 +1,222 @@
+{
+  "schemaVersion": 1,
+  "id": "pr-allocation-01",
+  "domain": "portfolio-risk",
+  "title": "Asset Allocation and the Alternatives Sleeve",
+  "summary": "The allocation decision explains most of a portfolio's outcome, and the optimiser that produces it is fed inputs that guarantee more private assets.",
+  "level": "advanced",
+  "prereqs": ["pr-diversification-01", "eq-privatemarks-01"],
+  "estMinutes": 9,
+  "examRelevance": ["CFA-L2", "CAIA-L2", "practical"],
+  "lesson": [
+    {
+      "type": "concept",
+      "id": "what-it-is",
+      "body": "Asset allocation is the decision about how much to hold of each broad exposure. It comes before manager selection and it matters more.\n\nThe conventional process has three steps:\n\n**Capital market assumptions.** Expected return, volatility and correlation for each asset class. All three are estimates; the first is nearly unknowable and the other two are measured on history.\n\n**Optimisation or judgement.** A mean-variance optimiser, a risk-parity approach, or a committee. All produce weights.\n\n**Constraints.** Liquidity needs, policy limits, governance tolerance, regulatory requirements.\n\n**The third step usually determines the answer, and it is treated as an afterthought.** An optimiser without constraints recommends portfolios no institution could hold; with realistic constraints, the optimisation is mostly choosing between a small number of feasible options.\n\nWhich is worth knowing before spending weeks on the inputs. **The high-value work in allocation is defining the constraints honestly** — what liquidity is genuinely needed, what drawdown the governance can survive, what the actual time horizon is — because those decide the outcome."
+    },
+    {
+      "type": "concept",
+      "id": "the-optimiser-problem",
+      "body": "**A mean-variance optimiser fed private market statistics will always recommend more private assets, and the recommendation comes from the measurement rather than from the economics.**\n\nThe mechanism, from the marks topic: private returns are quarterly estimates that adjust partway toward reality. That smoothing produces:\n\n**Understated volatility** — often half the true figure or less.\n\n**Understated correlation** with public markets.\n\n**Overstated [[sharpe-ratio|Sharpe ratios]]**, because volatility sits in the denominator.\n\nAn optimiser rewards exactly those three properties. It has no way to know one series was estimated and another was traded, so it allocates accordingly. **The output is not an investment conclusion; it is the smoothing, restated as a recommendation.**\n\nThree corrections, in order of preference:\n\n**Unsmooth the private return series** using its autocorrelation, and re-run. Standard technique, rarely applied.\n\n**Substitute a lagged public proxy** — levered small-cap for buyout, levered loans for [[private-credit|private credit]] — and use its statistics.\n\n**Apply an explicit volatility haircut** and document it. Crude, transparent, and far better than nothing.\n\n**And then impose the liquidity constraint separately**, because an optimiser has no concept of not being able to sell."
+    },
+    {
+      "type": "intuition",
+      "id": "what-alts-are-for",
+      "body": "**The case for an alternatives allocation is not that it produces higher returns. It is that it accesses return sources a public portfolio cannot.**\n\nStated plainly, there are four:\n\n**The illiquidity premium.** Compensation for accepting that you cannot sell. Real, and only earned by investors who genuinely do not need to sell — for anyone else it is a risk taken without the corresponding payment.\n\n**Access to a different opportunity set.** Most companies are private. Some sectors and stages exist only there.\n\n**Control and influence.** A buyout owner can change management, [[capital-structure|capital structure]] and strategy. A minority public shareholder cannot.\n\n**Genuinely different payoff shapes.** Trend following and some macro strategies behave unlike everything else, and that is worth more than their standalone returns suggest.\n\n**What is not on the list: lower volatility.** That is a measurement artefact. Nor is \"diversification\" in the abstract — [[private-equity|private equity]] is levered equity, and its true correlation with public equity is high once the smoothing is removed.\n\n**So the honest sizing question is: how much illiquidity can this portfolio genuinely bear, given its liabilities and its governance?** That number is a liquidity calculation rather than an optimisation, and it is the binding constraint for almost every institution."
+    },
+    {
+      "type": "table",
+      "id": "alloc-table",
+      "caption": "What each allocation actually buys",
+      "headers": ["Allocation", "Return source", "What it costs"],
+      "rows": [
+        [
+          "Public equity",
+          "Equity risk premium",
+          "Volatility you can see, daily."
+        ],
+        [
+          "Private equity",
+          "Equity premium plus leverage plus illiquidity",
+          "Ten-year [[lockup|lock-up]], fees, and correlation you cannot measure honestly."
+        ],
+        [
+          "Private credit",
+          "[[credit-spread|Credit spread]] plus illiquidity",
+          "Lock-up, and credit deterioration that appears late."
+        ],
+        [
+          "[[real-assets|Real assets]]",
+          "Inflation linkage and cash yield",
+          "Capital intensity, and sensitivity to long rates."
+        ],
+        [
+          "[[trend-following|Trend following]]",
+          "A payoff shape opposite to the rest",
+          "Losing money most of the time, which is what makes it work."
+        ],
+        [
+          "Government bonds and cash",
+          "The only reliable diversifier in a [[deleveraging]]",
+          "The lowest expected return, which is why it gets minimised."
+        ]
+      ]
+    },
+    {
+      "type": "example",
+      "id": "worked-inputs",
+      "body": "An optimiser is given two candidate assets. Public equity: 8% expected return, 16% volatility. A private strategy: 10% expected return, 8% reported volatility, correlation 0.4 with equities.",
+      "walkthrough": [
+        "On those inputs the private strategy dominates: higher return, half the volatility, low correlation. **An unconstrained optimiser allocates heavily to it.**",
+        "Now unsmooth. The private series has high autocorrelation; correcting it gives roughly **16% volatility** and a correlation nearer **0.75**.",
+        "**Read that carefully: on the corrected inputs the private strategy is levered equity with a 2% return advantage and a lock-up.** That is a defensible allocation and a completely different one from what the optimiser first proposed.",
+        "The Sharpe ratio moves the same way. At a 3% [[risk-free-rate|risk-free rate]]: reported (10 − 3)/8 = **0.88**; corrected (10 − 3)/16 = **0.44**. Public equity is (8 − 3)/16 = **0.31**.",
+        "So the private strategy still wins on the corrected figures — by a sensible margin rather than an implausible one.",
+        "**And the sizing constraint is now the lock-up rather than the optimiser**, which is the honest place for it to sit.",
+        "Sanity check worth reusing: **before any optimisation involving private assets, compute the autocorrelation of each private return series.** A high figure means the inputs need correcting, and the correction changes the answer rather than refining it."
+      ]
+    },
+    {
+      "type": "concept",
+      "id": "how-it-goes-wrong",
+      "body": "**Optimising on smoothed inputs.** The single largest error in institutional allocation, and it is invisible because the arithmetic is correct.\n\n**Expected returns extrapolated from the recent past.** A decade of falling rates produced excellent returns for long-duration and levered assets. Assuming that continues is a rate forecast disguised as an assumption.\n\n**Constraints applied after optimisation.** Optimise first, then constrain, and the result is an unconstrained portfolio trimmed to fit. Better to define the feasible set first.\n\n**Ignoring the fee difference in expected returns.** A 10% gross private return with 2-and-20 is not 10%. Comparisons have to be net of everything, and the gross figure is what usually appears in the assumptions.\n\n**Rebalancing rules that cannot be executed.** A policy requiring quarterly rebalancing to target cannot rebalance illiquid assets, so it rebalances the liquid ones — which changes the portfolio in ways nobody chose.\n\n**Treating a target as achievable immediately.** A private markets target takes years to reach through commitments, so the portfolio spends most of its life away from its target by construction."
+    },
+    {
+      "type": "pitfall",
+      "id": "the-governance-constraint",
+      "body": "**The binding constraint on most institutional portfolios is not liquidity or risk tolerance. It is what the governing body will tolerate seeing.**\n\nThis is rarely written down and it decides outcomes. A committee that will not sit through a 25% drawdown has an effective stop-loss at 25%, whether or not a document says so. A portfolio built on a twenty-year horizon and reviewed against annual benchmarks is being managed to one year.\n\nThe mismatch produces predictable behaviour:\n\n**Selling at the bottom.** Not because the strategy failed, but because the drawdown exceeded tolerance.\n\n**Chasing recent performance.** Allocating to whatever has worked, which is a decision about the last cycle.\n\n**Manager turnover at the worst time.** Terminating after three bad years, which for most strategies is a normal sample.\n\n**Illiquidity as a commitment device.** The uncomfortable truth is that a lock-up prevents the panic sale — which is part of why private market returns have exceeded public ones for the same investors. Some of the illiquidity premium is compensation for a constraint, and some of it is protection from ourselves.\n\n**So the honest allocation process states the governance tolerance as an explicit constraint** — \"we can survive a 20% drawdown and not a 35% one\" — and builds within it. **A portfolio the committee cannot hold through a bad year is not a long-horizon portfolio, whatever the policy says.**"
+    },
+    {
+      "type": "onTheJob",
+      "id": "on-the-job",
+      "body": "**Compute the autocorrelation of every private return series before it enters an optimiser.** A high figure means the inputs need unsmoothing first.\n\n**Ask what the allocation looks like with private volatility doubled and correlation raised to 0.75.** That is the honest input set, and the answer is the defensible allocation.\n\n**State the governance drawdown tolerance explicitly and build within it.** An unstated tolerance operates as a stop-loss nobody chose.\n\n**Check that expected returns are net of all fees.** Gross private returns compared with net public ones systematically favour the private allocation.\n\n**Ask how the rebalancing policy handles illiquid assets.** If it cannot rebalance them, it is a policy for rebalancing the liquid portfolio — which is a different decision."
+    },
+    {
+      "type": "keyTakeaways",
+      "id": "takeaways",
+      "items": [
+        "Constraints usually determine the allocation, so defining them honestly is the high-value work — not refining the expected return assumptions.",
+        "An optimiser fed smoothed private statistics always recommends more private assets: unsmoothing took a strategy from 8% to 16% volatility and 0.4 to 0.75 correlation.",
+        "Alternatives buy the illiquidity premium, a different opportunity set, control, and different payoff shapes. They do not buy lower volatility — that is a measurement artefact.",
+        "The binding constraint is usually governance tolerance. A portfolio the committee cannot hold through a bad year is not a long-horizon portfolio, whatever the policy says."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "pr-allocation-01-q1",
+      "type": "mcq",
+      "difficulty": 2,
+      "tags": ["allocation", "process"],
+      "concept": "what-it-is",
+      "stem": "Which step in the allocation process usually determines the final answer?",
+      "choices": [
+        "The expected return assumptions",
+        "The constraints — liquidity needs, policy limits, governance tolerance and horizon",
+        "The choice of optimisation technique",
+        "The correlation estimates"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Expected returns matter enormously and are nearly unknowable, which is why weeks spent refining them adds little.",
+        "Correct. An unconstrained optimiser recommends portfolios no institution could hold. Once realistic constraints are applied, the feasible set is small and the constraints have effectively chosen.",
+        "Technique affects the answer at the margin and less than the constraint set does.",
+        "Correlations matter and are estimated from history, and they are still applied within the constraints."
+      ],
+      "explanation": "Which is a useful reordering of effort: define what the portfolio genuinely cannot do — sell nothing for ten years, survive a 35% drawdown — before optimising within it. That work is neglected because it is uncomfortable rather than difficult."
+    },
+    {
+      "id": "pr-allocation-01-q2",
+      "type": "numeric",
+      "difficulty": 3,
+      "tags": ["allocation", "sharpe", "arithmetic"],
+      "concept": "worked-inputs",
+      "stem": "A private strategy returns 10% with 8% reported volatility, against a 3% risk-free rate. What is its reported Sharpe ratio? Two decimal places.",
+      "answer": 0.88,
+      "tolerance": 0.04,
+      "toleranceType": "abs",
+      "explanation": "On unsmoothed volatility of 16% the same returns give 0.44 — still better than public equity's 0.31, and by a plausible margin rather than an implausible one. The correction does not eliminate the case for the allocation; it right-sizes it."
+    },
+    {
+      "id": "pr-allocation-01-q3",
+      "type": "numeric",
+      "difficulty": 3,
+      "tags": ["allocation", "sharpe", "arithmetic"],
+      "concept": "worked-inputs",
+      "stem": "Same 10% return and 3% risk-free rate, but unsmoothed volatility is 16%. What is the corrected Sharpe ratio? Two decimal places.",
+      "answer": 0.44,
+      "tolerance": 0.03,
+      "toleranceType": "abs",
+      "explanation": "Half the reported figure, from correcting one input. An optimiser given 0.88 and 0.44 produces very different portfolios, and only one of those numbers describes a series that was actually traded."
+    },
+    {
+      "id": "pr-allocation-01-q4",
+      "type": "tfj",
+      "difficulty": 4,
+      "tags": ["allocation", "misconception"],
+      "concept": "what-alts-are-for",
+      "stem": "\"Private equity diversifies a portfolio because its correlation with public equity is low.\" True or false — and why?",
+      "isTrue": false,
+      "justifications": [
+        "False — the low measured correlation is largely a product of smoothed quarterly marks; unsmoothed, private equity is levered equity with high correlation to public equity",
+        "False — private equity has negative correlation with public equity",
+        "True — the measured correlation is genuinely low",
+        "False — because correlation is irrelevant to diversification"
+      ],
+      "justificationIndex": 0,
+      "rationales": [
+        "Correct. Once the estimation lag is removed, the correlation rises substantially. The businesses share an economy, a financing environment and an exit market.",
+        "It is positive and high on corrected data.",
+        "It is measured as low, and the measurement reflects the valuation process rather than the exposure.",
+        "Correlation is central to diversification, which is why the artefact matters so much."
+      ],
+      "explanation": "The real case for private equity is the illiquidity premium, access to a different opportunity set and control — all defensible. Diversification is the one claim the data does not support, and it is the one most often made because it is the one an optimiser rewards."
+    },
+    {
+      "id": "pr-allocation-01-q5",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["allocation", "governance", "on-the-job"],
+      "concept": "the-governance-constraint",
+      "stem": "A pension fund states a twenty-year horizon but reviews managers against annual benchmarks and has terminated three managers after two bad years each. What is its effective horizon?",
+      "choices": [
+        "Twenty years, as stated in the policy",
+        "About two years — the revealed tolerance, which is the constraint that actually binds",
+        "Five years, the industry standard",
+        "It cannot be determined"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "The stated horizon is a policy statement contradicted by the behaviour.",
+        "Correct. Revealed preference is the operative constraint. A portfolio built for twenty years and governed on two will be dismantled in the first sustained drawdown.",
+        "Nothing here indicates five years, and the terminations indicate two.",
+        "It is determinable from the behaviour, which is more informative than the document."
+      ],
+      "explanation": "The productive response is to state the real tolerance and build within it, rather than building for the stated horizon and discovering the real one in a bad year. A smaller allocation to illiquid assets that survives is worth more than a larger one that gets sold at the bottom."
+    },
+    {
+      "id": "pr-allocation-01-q6",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["allocation", "optimiser", "on-the-job"],
+      "concept": "the-optimiser-problem",
+      "stem": "What single check should precede any optimisation involving private assets?",
+      "choices": [
+        "Verifying the expected return assumptions with a consultant",
+        "Computing the autocorrelation of each private return series, and unsmoothing where it is high",
+        "Extending the historical data period",
+        "Adding more asset classes to the opportunity set"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Expected returns are the least knowable input and consultants' estimates are also estimates.",
+        "Correct. High autocorrelation identifies smoothing, and the correction changes the volatility and correlation inputs that drive the whole allocation.",
+        "A longer sample of smoothed data is still smoothed.",
+        "More asset classes with distorted inputs compounds the problem."
+      ],
+      "explanation": "It is one calculation on data already in hand, and it changes the answer rather than refining it. That combination — cheap, decisive, rarely done — makes it the highest-return check in the whole allocation process."
+    }
+  ],
+  "needsReview": false,
+  "reviewNote": null
+}

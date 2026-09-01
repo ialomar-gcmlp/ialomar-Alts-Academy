@@ -612,7 +612,7 @@ One domain per batch, validated, pause between batches. Keep this current.
 | fixed-income | 6 | **DONE** — bonds, duration, credit, forwards, floating, securitisation |
 | derivatives | 6 | **DONE** — forwards, options, greeks, vol, swaps, hedging |
 | fund-structures | 8 | **DONE** — gplp-01, fees-01, waterfall-01, hwm-01, calls-01, liquidity-01, sideletters-01, subline-01 |
-| portfolio-risk | 0 | not started |
+| portfolio-risk | 6 | **DONE** — diversification, riskmeasures, attribution, liquidity, allocation, factors |
 | ethics | 0 | not started |
 
 ### Authoring a batch — two hard-won rules

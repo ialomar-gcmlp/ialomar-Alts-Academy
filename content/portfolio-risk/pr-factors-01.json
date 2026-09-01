@@ -1,0 +1,245 @@
+{
+  "schemaVersion": 1,
+  "id": "pr-factors-01",
+  "domain": "portfolio-risk",
+  "title": "Factors: What You Actually Own",
+  "summary": "Strategies have names and portfolios have exposures — and the useful question is which underlying risks you are being paid to bear.",
+  "level": "advanced",
+  "prereqs": ["pr-attribution-01"],
+  "estMinutes": 9,
+  "examRelevance": ["CFA-L2", "CAIA-L2", "practical"],
+  "lesson": [
+    {
+      "type": "concept",
+      "id": "what-it-is",
+      "body": "A **factor** is a common driver of returns across many assets. The idea is that most of what a portfolio earns comes from exposure to a small number of shared risks rather than from the specific holdings.\n\nThe ones with the most evidence behind them:\n\n**Market.** The equity risk premium. The largest factor by some distance.\n\n**Size.** Small companies have historically earned more than large ones, with more risk.\n\n**Value.** Cheap assets on fundamental measures outperforming expensive ones, in long samples and with long painful stretches.\n\n**Momentum.** Recent winners continuing to win, which is the most robust and the least explicable.\n\n**Quality or profitability.** Businesses earning high returns on capital outperforming those that do not.\n\n**Carry.** Earning the yield differential — in currencies, bonds, commodities.\n\n**Volatility.** Selling insurance, in any of its forms.\n\n**Illiquidity.** Compensation for not being able to sell.\n\n**The point of the framework is comparability.** Two strategies with different names, fee structures and vocabularies can be shown to earn the same thing — and once that is visible, the question becomes which is the cheaper way to own it."
+    },
+    {
+      "type": "concept",
+      "id": "strategies-are-factor-bundles",
+      "body": "**Most alternative strategies are bundles of known factors plus a residual, and the residual is what a fee should be for.**\n\nRunning a [[regression]] of a strategy's returns against factor returns typically explains a great deal:\n\n**Buyout** — market, size (small), leverage, illiquidity. The residual after those is usually modest.\n\n**[[private-credit|Private credit]]** — credit, carry, illiquidity, short volatility.\n\n**[[long-short-equity|Long/short equity]]** — market beta at some level, often value or momentum, sometimes size.\n\n**[[merger-arbitrage|Merger arbitrage]]** — short volatility plus a small market beta that appears exactly when deals break.\n\n**[[trend-following|Trend following]]** — momentum across asset classes, with a payoff shape unlike the rest.\n\n**Real estate** — rates, credit, and local economic growth.\n\n**This is not a debunking exercise.** Owning factors is how returns are earned, and accessing them through a competent manager is a legitimate decision.\n\n**What it does is change the questions.** Instead of \"is this a good manager?\", you can ask: which factors am I buying, what am I paying for them, is there a cheaper route to the same exposure, and how much of the return is genuinely unexplained? **The last number is the one worth a performance fee, and it is usually smaller than the fee assumes.**"
+    },
+    {
+      "type": "intuition",
+      "id": "double-counting",
+      "body": "**The most common factor problem in an institutional portfolio is not missing a factor. It is owning the same one many times without noticing.**\n\nThe mechanism is that allocations are made by strategy name, and factors cut across names. So a portfolio assembled to look diversified by category can be concentrated by exposure:\n\n**Short volatility** appears in merger arbitrage, private credit, covered call overlays, relative value and reinsurance.\n\n**Illiquidity** appears in every private allocation, plus some [[hedge-fund|hedge fund]] strategies holding hard-to-value positions.\n\n**Credit** appears in private credit, distressed, real estate debt, levered loans, and the debt inside every buyout portfolio company.\n\n**Small-cap equity beta** appears in buyout, [[growth-equity|growth equity]], and small-cap public managers.\n\n**A portfolio with fifteen managers across six strategy categories can hold four factors.** And because the factor exposures are shared, the bad scenario for each is the same scenario.\n\nThe diagnostic is a factor exposure table rather than an allocation table: **for each holding, list the factors and their approximate weights, then aggregate.** The aggregate is what the portfolio owns.\n\n**It is a dull exercise and it is where the concentration is found**, because the concentration was never visible in a list of strategy names."
+    },
+    {
+      "type": "example",
+      "id": "worked-factors",
+      "body": "An allocator holds five strategies, each 20% of the alternatives sleeve: buyout, private credit, merger arbitrage, real estate, and a covered call overlay.",
+      "walkthrough": [
+        "**Buyout** — equity beta, small-cap tilt, leverage, illiquidity.",
+        "**Private credit** — credit spread, illiquidity, short volatility, floating rate.",
+        "**Merger arbitrage** — short volatility, small equity beta on deal breaks.",
+        "**Real estate** — rates, credit, local growth, illiquidity.",
+        "**Covered calls** — equity beta, short volatility.",
+        "Now aggregate. **Short volatility appears in three of five. Illiquidity in three. Credit in two. Equity beta in three.**",
+        "**Read that carefully: five strategy names, and the portfolio is essentially long equity risk, long credit, short volatility and short liquidity.** Four exposures, and all four deteriorate in the same event.",
+        "The stress test confirms it: a sharp equity fall with widening spreads and vanishing liquidity damages every one of the five holdings simultaneously.",
+        "**And a correlation matrix built on calm-period data would have shown this portfolio as diversified**, because in calm periods the idiosyncratic drivers dominate.",
+        "Sanity check worth reusing: **write each holding's factors in a column and count how many times each factor appears.** Any factor appearing in more than half the portfolio is the portfolio's actual position, whatever the allocation table says."
+      ]
+    },
+    {
+      "type": "table",
+      "id": "factor-table",
+      "caption": "Factors, what they pay for, and where they hide",
+      "headers": ["Factor", "Compensation for", "Where it appears unlabelled"],
+      "rows": [
+        [
+          "Market",
+          "Bearing undiversifiable equity risk",
+          "Buyout, growth equity, long/short with [[net-exposure|net exposure]]."
+        ],
+        [
+          "Credit",
+          "Default and downgrade risk",
+          "Private credit, distressed, real estate debt, buyout portfolio debt."
+        ],
+        [
+          "Short volatility",
+          "Providing insurance",
+          "Merger arb, relative value, covered calls, levered credit."
+        ],
+        [
+          "Illiquidity",
+          "Accepting that you cannot sell",
+          "Every private allocation, and some hedge funds' hard-to-value books."
+        ],
+        [
+          "[[carry]]",
+          "Financing, storage or liquidity provision",
+          "Currency strategies, commodity roll, financing spreads."
+        ],
+        [
+          "Momentum",
+          "Contested — behavioural or risk-based",
+          "[[trend-following|Trend following]], and some equity long/short books."
+        ]
+      ]
+    },
+    {
+      "type": "concept",
+      "id": "how-it-goes-wrong",
+      "body": "**Factor zoo.** Hundreds of published factors, most of which are data-mined and do not survive out of sample. The short list above is what has held up across markets and decades.\n\n**Factor regressions on smoothed returns.** Private strategies' factor loadings are understated for the same reason their volatility is. Lagged factors help; ignoring the problem does not.\n\n**Assuming factor premia are constant.** They vary, sometimes for a decade. Value underperformed for long enough to end careers before recovering.\n\n**Treating factors as free.** Each is compensation for bearing a risk, which means each has periods of loss. A factor that never lost money would not be paid.\n\n**Buying factor exposure twice.** Paying an alternatives fee for exposure available in a cheap systematic vehicle. Worth checking rather than assuming.\n\n**Confusing factor exposure with the strategy's stated intent.** A manager describing themselves as market-neutral with a 0.4 measured beta has an exposure regardless of the description."
+    },
+    {
+      "type": "pitfall",
+      "id": "what-to-pay-for",
+      "body": "**Once a strategy is decomposed into factors, the fee question becomes specific and answerable: what part of this is not available more cheaply?**\n\nThe hierarchy is reasonably clear.\n\n**Cheap and widely available:** market beta, and the main equity style factors through systematic vehicles at low cost. Paying an alternatives fee for these is paying for packaging.\n\n**Moderately priced and available:** credit and carry exposures through liquid vehicles, with a liquidity difference that is genuine and should be priced.\n\n**Genuinely requires a manager:** illiquidity, control, access to private companies, and operational improvement. These cannot be bought cheaply because they need someone to do the work.\n\n**Genuinely scarce:** true alpha — return unexplained by any factor. Rare, hard to verify (as the attribution topic showed, decades of data), and the only thing that unambiguously justifies a performance fee.\n\n**So the practical framework: pay index fees for factors, pay real fees for illiquidity and control, and pay performance fees only where the unexplained residual is large and persistent.**\n\nThat is not a hostile position toward managers — the middle category is most of the alternatives industry and it earns its fees. **It is a way of knowing which category you are buying**, because the fee schedule rarely says.\n\nAnd it produces the single most useful diligence question in this whole domain: **what part of your return is not explained by factor exposures, and how do you know?** A manager who has run the regression and can show it is doing something most cannot."
+    },
+    {
+      "type": "onTheJob",
+      "id": "on-the-job",
+      "body": "**Build a factor exposure table across the whole portfolio.** List each holding's factors, aggregate, and count. Any factor in more than half the book is the portfolio's real position.\n\n**Ask each manager what factors explain their returns, and what the residual is.** The answer tells you whether they have looked.\n\n**Check whether any exposure is available in a cheap systematic vehicle.** If it is, the alternatives fee is buying packaging.\n\n**Run factor regressions using lagged factors for private strategies.** Contemporaneous regressions understate the loadings because of the marks.\n\n**Compare a manager's stated exposure with the measured one.** \"Market neutral\" with a 0.4 beta is an exposure whatever the description says, and it is measurable from returns you already have."
+    },
+    {
+      "type": "keyTakeaways",
+      "id": "takeaways",
+      "items": [
+        "Factors make strategies comparable: two funds with different names and vocabularies can be shown to earn the same thing, and then the question is which is cheaper.",
+        "Most alternative strategies are factor bundles plus a residual. In the worked portfolio, five strategy names produced four exposures — equity, credit, short volatility and illiquidity.",
+        "The common failure is owning one factor many times. Short volatility appeared in three of five holdings, and all four exposures deteriorate in the same event.",
+        "Pay index fees for factors, real fees for illiquidity and control, and performance fees only where the unexplained residual is large and persistent."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "pr-factors-01-q1",
+      "type": "mcq",
+      "difficulty": 2,
+      "tags": ["factors", "definition"],
+      "concept": "what-it-is",
+      "stem": "What is the main practical value of a factor framework?",
+      "choices": [
+        "It predicts which assets will outperform",
+        "It makes strategies with different names comparable, by showing which underlying risks each one is being paid to bear",
+        "It eliminates the need for manager selection",
+        "It guarantees diversification"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Factors describe compensated risks; they are not forecasts of which specific assets will win.",
+        "Correct. Once two strategies are expressed in the same exposures, they can be compared on cost, liquidity and residual — which is impossible while they are described in their own vocabularies.",
+        "It informs manager selection rather than replacing it.",
+        "It reveals concentration as often as it enables diversification, which is most of its value."
+      ],
+      "explanation": "The comparability is the point. It converts \"is this a good hedge fund?\" into \"what exposures does it hold, what do they cost elsewhere, and what is left over?\" — three answerable questions in place of one unanswerable one."
+    },
+    {
+      "id": "pr-factors-01-q2",
+      "type": "mcq",
+      "difficulty": 3,
+      "tags": ["factors", "concentration"],
+      "concept": "double-counting",
+      "stem": "A portfolio holds buyout, private credit, merger arbitrage, real estate and a covered call overlay. Which factor appears most often?",
+      "choices": [
+        "Momentum",
+        "Short volatility — in private credit, merger arbitrage and the covered call overlay",
+        "Size",
+        "Inflation"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "None of the five is primarily a momentum strategy; trend following would be.",
+        "Correct. Three of the five collect a premium for providing insurance in one form or another, and all three lose in the same conditions.",
+        "Size appears in buyout and not across the rest.",
+        "Real estate has some inflation linkage; it is not a shared factor here."
+      ],
+      "explanation": "None of these strategies is described as short volatility, which is exactly why the exercise is worth doing. The exposure is in the payoff shape — small regular gains, occasional large losses — rather than in the name."
+    },
+    {
+      "id": "pr-factors-01-q3",
+      "type": "tfj",
+      "difficulty": 4,
+      "tags": ["factors", "misconception"],
+      "concept": "strategies-are-factor-bundles",
+      "stem": "\"Showing that a strategy's returns are mostly explained by factors means the manager adds no value.\" True or false — and why?",
+      "isTrue": false,
+      "justifications": [
+        "False — accessing factors competently is genuine value, particularly where the exposure requires illiquidity, control or work that cannot be bought cheaply; what changes is what a fair fee looks like",
+        "False — factor regressions cannot be applied to alternative strategies",
+        "True — factor-explained returns are by definition not skill",
+        "False — because factors do not explain returns reliably"
+      ],
+      "justificationIndex": 0,
+      "rationales": [
+        "Correct. Someone has to source deals, underwrite credit and improve operations. The decomposition tells you which category of fee is appropriate, not that the manager is redundant.",
+        "They can be, with care over smoothing and lagged factors.",
+        "Delivering factor exposure that cannot be bought cheaply is valuable — the illiquidity and control factors require a manager by construction.",
+        "The short list of established factors explains a great deal of most strategies' returns."
+      ],
+      "explanation": "The useful conclusion is a fee hierarchy: index fees for exposures available cheaply, real fees for illiquidity and control, performance fees only for a persistent unexplained residual. It respects what managers do and prices it accurately."
+    },
+    {
+      "id": "pr-factors-01-q4",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["factors", "regression", "on-the-job"],
+      "concept": "how-it-goes-wrong",
+      "stem": "Why do factor regressions on private strategy returns understate the true exposures?",
+      "choices": [
+        "Because private strategies genuinely have lower exposures",
+        "Because the returns are smoothed quarterly estimates, which reduces measured covariance with contemporaneous factor returns",
+        "Because private strategies report gross of fees",
+        "Because factor data is unavailable at quarterly frequency"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "A levered buyout portfolio has more equity exposure than the public market, not less.",
+        "Correct. Partial adjustment each period damps the measured relationship with any contemporaneous series, so the loading appears smaller than the economic exposure.",
+        "Fee treatment affects the level of returns, not the covariance structure.",
+        "Factor returns are available at any frequency."
+      ],
+      "explanation": "The standard correction is to include lagged factor returns and sum the coefficients, which recovers much of the true loading. It is a five-line change to a regression and it materially alters the conclusion about how much exposure a private allocation carries."
+    },
+    {
+      "id": "pr-factors-01-q5",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["factors", "fees", "on-the-job"],
+      "concept": "what-to-pay-for",
+      "stem": "Which exposure most clearly justifies paying a full alternatives fee?",
+      "choices": [
+        "Market beta",
+        "Illiquidity and control — someone has to source, underwrite and improve the assets, and it cannot be bought in a cheap vehicle",
+        "Value and momentum style exposure",
+        "Credit spread exposure to liquid loans"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Available for a few basis points, so paying an alternatives fee for it is paying for packaging.",
+        "Correct. These require work that cannot be replicated passively, which is why the middle category of the fee hierarchy is where most of the alternatives industry legitimately sits.",
+        "Available through systematic vehicles at low cost.",
+        "Available through liquid loan funds and ETFs at a fraction of the fee."
+      ],
+      "explanation": "This hierarchy is not hostile to managers — it identifies where fees are earned. It also identifies where they are not, which is the part that rarely appears in a fee negotiation and is entirely computable in advance."
+    },
+    {
+      "id": "pr-factors-01-q6",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["factors", "diligence", "on-the-job"],
+      "concept": "what-to-pay-for",
+      "stem": "Which single question best tests whether a manager understands their own return drivers?",
+      "choices": [
+        "What is your target return?",
+        "What proportion of your returns is explained by factor exposures, and how do you know?",
+        "How many people are on the investment team?",
+        "What is your largest position?"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "A target is an intention rather than an analysis of what produces returns.",
+        "Correct. A manager who has run the regression, knows the loadings and can state the residual has examined their own business. Most have not.",
+        "Team size describes resources rather than understanding.",
+        "Position size is a risk detail and does not address the sources of return."
+      ],
+      "explanation": "The answer is revealing either way. A manager with the analysis is unusually self-aware and usually easier to underwrite; one who reacts to the question as an accusation has told you they have not looked, which is itself a finding."
+    }
+  ],
+  "needsReview": false,
+  "reviewNote": null
+}

@@ -25,6 +25,17 @@
       ]
     },
     {
+      "slug": "denominator-effect",
+      "term": "denominator effect",
+      "plain": "Public markets fall, private marks do not move, so the private allocation rises as a share of a smaller portfolio. A measurement artefact that forces real selling.",
+      "formal": "The mechanical increase in an illiquid asset allocation caused by a decline in the value of liquid holdings while illiquid valuations remain stale.",
+      "seeAlso": [
+        "commitment",
+        "fair-value",
+        "drawdown"
+      ]
+    },
+    {
       "slug": "drawdown",
       "term": "drawdown",
       "plain": "How far an investment has fallen from its highest previous value. A 20% drawdown means you are 20% below the best it has ever been.",
@@ -32,6 +43,17 @@
       "seeAlso": [
         "deleveraging",
         "beta"
+      ]
+    },
+    {
+      "slug": "expected-shortfall",
+      "term": "expected shortfall",
+      "plain": "The average loss on the days that breach your value-at-risk threshold. Strictly more informative than VaR, and less widely quoted because it is less flattering.",
+      "formal": "The conditional expectation of loss given that loss exceeds the value-at-risk threshold at a specified confidence level.",
+      "seeAlso": [
+        "value-at-risk",
+        "drawdown",
+        "volatility"
       ]
     },
     {
@@ -43,6 +65,17 @@
         "beta",
         "alpha",
         "crowded-trade"
+      ]
+    },
+    {
+      "slug": "information-ratio",
+      "term": "information ratio",
+      "plain": "Alpha divided by its volatility — how much skill per unit of noise. It sets how many years of data are needed before a track record means anything: (1.96 / IR)² years.",
+      "formal": "Active return divided by tracking error, measuring risk-adjusted outperformance relative to a benchmark.",
+      "seeAlso": [
+        "alpha",
+        "sharpe-ratio",
+        "performance-attribution"
       ]
     },
     {
