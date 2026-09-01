@@ -1,0 +1,227 @@
+{
+  "schemaVersion": 1,
+  "id": "eth-duties-01",
+  "domain": "ethics",
+  "title": "Whose Money Is It: Duty, Care and Fair Dealing",
+  "summary": "Managing someone else's money creates obligations that do not arise from managing your own — and the obligations survive the client's ignorance of them.",
+  "level": "core",
+  "prereqs": [],
+  "estMinutes": 8,
+  "examRelevance": ["CFA-L1", "CAIA-L1", "practical"],
+  "lesson": [
+    {
+      "type": "concept",
+      "id": "scope-note",
+      "body": "**A note on what this domain is and is not.**\n\nIf you sit the CFA or CAIA exams, ethics is examined against a specific published code — CFA Institute's Code of Ethics and Standards of Professional Conduct, or the CAIA equivalent. **This app deliberately does not reproduce or paraphrase those documents.** You will need the official text for the exam, and no summary substitutes for it.\n\nWhat these topics do instead is work through the situations an alternatives analyst actually meets, from first principles: why the obligations exist, what they require in practice, and how they show up in a diligence meeting or a valuation committee.\n\n**The two are complementary.** The codes tell you what the rules are. These topics are about recognising the situation in front of you as the one the rule is about — which is the part that is genuinely hard, and the part where careers are ended by people who knew the rules perfectly well."
+    },
+    {
+      "type": "concept",
+      "id": "what-it-is",
+      "body": "**The whole of investment ethics follows from one fact: you are making decisions about money that is not yours, and the owner cannot watch you.**\n\nThat asymmetry — you know more, they cannot check, and they rely on you — is what creates obligations beyond ordinary commercial dealing. Four of them do most of the work.\n\n**Loyalty.** The client's interest comes before yours and before your employer's. Where they conflict, the client wins — and \"the client\" means the actual fund investors, not the person who introduced them.\n\n**Care.** A reasonable basis for a recommendation, and enough work to have one. This is a diligence obligation rather than a good-intentions one.\n\n**Fair dealing.** Clients in the same situation get treated the same. Not identically — different mandates justify different actions — but no client gets systematically worse treatment because they are smaller or less attentive.\n\n**Candour.** Disclose what a reasonable client would want to know, particularly about conflicts, fees, risks and how you are paid.\n\n**None of these depends on the client noticing.** That is the point: the duties exist precisely because the client cannot verify, so \"nobody complained\" is not evidence of compliance."
+    },
+    {
+      "type": "intuition",
+      "id": "why-rules-arent-enough",
+      "body": "**Almost nobody fails ethically by breaking a rule they knew applied. They fail by not recognising the situation as one a rule governs.**\n\nThe failure mode is a series of small, defensible steps:\n\n**A conversation.** A management team mentions something interesting at a site visit that is not yet public. It felt like colour, not information.\n\n**An expense.** A cost that could plausibly be the fund's or the manager's, charged to the fund. Everyone does it. It is 5bp.\n\n**A mark.** A comparable set that supports 10x rather than 9x. Both are defensible, and one is a better quarter.\n\n**An allocation.** A scarce [[co-investment|co-investment]] offered to the investor who is about to commit to the next fund rather than pro rata to everyone.\n\n**Each one alone is arguable.** Together they describe a pattern in which the manager's interest wins each close call, and the pattern is what a regulator, an investor or a journalist eventually sees.\n\nSo the practical discipline is not memorising prohibitions. It is a habit of noticing:\n\n**Whose interest does this serve?** If mine or my firm's, more care is required.\n\n**Would I be comfortable if the client saw this decision and my reasoning?** Not the outcome — the reasoning.\n\n**Would I make the same call if it went the other way?** A judgement that always resolves in the same direction is not a judgement.\n\n**And the most useful one: what would this look like written down by someone unsympathetic?** It is uncomfortable and it is a reliable detector."
+    },
+    {
+      "type": "table",
+      "id": "duty-table",
+      "caption": "Where each duty bites in an alternatives role",
+      "headers": ["Duty", "Situation", "What it requires"],
+      "rows": [
+        [
+          "Loyalty",
+          "A co-investment is scarce and one investor is more commercially valuable",
+          "Allocate by a stated policy, not by commercial value."
+        ],
+        [
+          "Care",
+          "A recommendation under time pressure in a competitive process",
+          "A reasonable basis, or an explicit statement that there is not one."
+        ],
+        [
+          "Fair dealing",
+          "Two investors ask the same question and one gets a fuller answer",
+          "The same information to both, or a disclosed reason for the difference."
+        ],
+        [
+          "Candour",
+          "The fund pays an expense that could be the manager's",
+          "Disclose the policy and apply it consistently."
+        ],
+        [
+          "All four",
+          "A [[side-letter|side letter]] gives one investor better terms",
+          "Disclosure, and an [[most-favoured-nation|MFN]] process that actually functions."
+        ]
+      ]
+    },
+    {
+      "type": "example",
+      "id": "worked-expense",
+      "body": "A 500 fund. Certain costs — some travel, some technology, some research subscriptions — could arguably be borne by the fund or by the manager. The manager charges 25bp a year of them to the fund.",
+      "walkthrough": [
+        "25bp on 500 = **1.25 a year**.",
+        "Over a ten-year fund life: **12.5**.",
+        "Against a 2% [[management-fee|management fee]] of 10.0 a year, that 1.25 is **12% of the management fee**, transferred without a fee increase.",
+        "**Read that carefully: an expense policy transferred the equivalent of 12% of the management fee from investors to the manager, in items each of which was individually arguable.**",
+        "Now the disclosure test. If the [[limited-partnership-agreement|limited partnership agreement]] permits it and the policy is disclosed and consistently applied, this is a commercial term investors accepted.",
+        "If the policy is vague, applied inconsistently, or the amounts are not separately reported, the same 25bp is a governance failure — **and the arithmetic is identical in both cases.**",
+        "Sanity check worth reusing: **for any expense practice, ask what it costs in [[basis-point|basis points]] and what percentage of the management fee that represents.** It converts a debate about categories into a number, and the number is usually larger than anyone expected."
+      ]
+    },
+    {
+      "type": "concept",
+      "id": "how-it-goes-wrong",
+      "body": "**\"Everyone does it.\"** Market practice is evidence about what is common, not about what is permitted or right. Several practices that were universal are now the subject of enforcement.\n\n**\"The documents allow it.\"** A permission in a partnership agreement is a defence and not a justification. Investors who signed a broad expense clause did not necessarily agree to any particular use of it.\n\n**\"No one complained.\"** The duties exist because clients cannot verify. Absence of complaint is absence of detection.\n\n**\"It was immaterial.\"** Materiality is judged against the client's interest rather than the firm's revenue. 25bp is immaterial to a manager and it is 12% of their fee.\n\n**Assuming disclosure cures everything.** Disclosure makes a conflict visible; it does not make an unfair arrangement fair. Some conflicts must be avoided rather than disclosed.\n\n**Deferring to seniority.** \"I raised it and was told it was fine\" is a reasonable position for a junior person and it is not a complete one. Ask who else could look at it, and write down that you asked."
+    },
+    {
+      "type": "pitfall",
+      "id": "junior-position",
+      "body": "**A first-year analyst has less authority than anyone in the room and better information than most, and that combination is genuinely difficult.**\n\nYou see the raw data, you build the model, and you notice when an assumption changed between drafts. You also have the least standing to challenge it and the most to lose.\n\nSo the practical options, ordered by cost:\n\n**Ask a question rather than making an allegation.** \"Can you help me understand why the comparable set changed?\" is a request for education, and it is answerable. It also creates a record.\n\n**Put it in writing, neutrally.** An email asking a factual question is a contemporaneous record of when you noticed and what you were told. It protects everyone, including the person who answers well.\n\n**Escalate on process rather than on conclusion.** \"Should this go to the valuation committee?\" is procedural and hard to refuse.\n\n**Use the channels that exist.** Compliance functions are frequently helpful and consulting them is not disloyalty.\n\n**And know the limit.** If the answer is unsatisfactory and the amount is material, the question stops being about the model and starts being about whether you can sign your name to it. **That is a genuinely hard place to be, and the people who navigate it well are the ones who noticed early and asked in writing while it was still a small question.**"
+    },
+    {
+      "type": "onTheJob",
+      "id": "on-the-job",
+      "body": "**Ask whose interest a close call serves.** If the answer is the firm's, the standard of care goes up rather than down.\n\n**Convert any practice into basis points and a share of the management fee.** It turns a categorisation argument into a number, and the number is the substance.\n\n**When something changes between drafts, ask why in writing.** Neutral, factual, and it creates the record that protects you.\n\n**Ask whether a conflict is being disclosed or managed.** Disclosure makes it visible; only avoidance or a structural control actually addresses it.\n\n**For your own firm's practices, ask what would be reported if a journalist described them accurately.** It is not a legal test and it is a reliable one."
+    },
+    {
+      "type": "keyTakeaways",
+      "id": "takeaways",
+      "items": [
+        "The duties exist because the client knows less and cannot verify — so \"nobody complained\" is absence of detection rather than evidence of compliance.",
+        "Loyalty, care, fair dealing and candour cover most situations, and none of them depends on the client noticing.",
+        "Failures are rarely broken rules. They are a sequence of individually arguable calls that all resolve in the manager's favour.",
+        "25bp of arguable expenses on a 500 fund is 1.25 a year, 12.5 over a fund life, and 12% of a 2% management fee. Convert practices into numbers."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "eth-duties-01-q1",
+      "type": "mcq",
+      "difficulty": 2,
+      "tags": ["ethics", "duties"],
+      "concept": "what-it-is",
+      "stem": "Why does managing someone else's money create obligations beyond ordinary commercial dealing?",
+      "choices": [
+        "Because regulators require it",
+        "Because the client knows less, cannot verify what you do, and relies on you — an asymmetry ordinary commercial dealing does not have",
+        "Because investment returns are uncertain",
+        "Because fees are high"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Regulation codifies the obligations; it is not the reason they exist. They would exist in an unregulated market.",
+        "Correct. The information asymmetry and the reliance are what create the duty. That is why it does not depend on the client noticing or complaining.",
+        "Uncertainty affects outcomes rather than the nature of the relationship.",
+        "Fee levels are a commercial term; the duty applies at any fee level."
+      ],
+      "explanation": "Deriving the duties from the asymmetry rather than from a rulebook makes them portable. It tells you how to behave in a situation no rule anticipated, which is most of the situations that actually arise."
+    },
+    {
+      "id": "eth-duties-01-q2",
+      "type": "numeric",
+      "difficulty": 3,
+      "tags": ["ethics", "expenses", "arithmetic"],
+      "concept": "worked-expense",
+      "stem": "A 500 fund is charged 25bp a year of arguable expenses. What is the annual amount?",
+      "answer": 1.25,
+      "tolerance": 0.05,
+      "toleranceType": "abs",
+      "explanation": "Over a ten-year fund that is 12.5, and against a 2% management fee of 10.0 a year it is 12% of the manager's fee. Converting a categorisation debate into a number is what makes it a real conversation."
+    },
+    {
+      "id": "eth-duties-01-q3",
+      "type": "mcq",
+      "difficulty": 3,
+      "tags": ["ethics", "disclosure"],
+      "concept": "how-it-goes-wrong",
+      "stem": "A conflict of interest has been fully disclosed to investors. What does that achieve?",
+      "choices": [
+        "It resolves the conflict",
+        "It makes the conflict visible so investors can assess it — but it does not make an unfair arrangement fair, and some conflicts require avoidance rather than disclosure",
+        "It transfers legal responsibility to the investors",
+        "Nothing — disclosure has no value"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "The conflict still exists and still operates; visibility is not removal.",
+        "Correct. Disclosure is necessary and frequently insufficient. Where the conflict is severe or the investor cannot realistically act on the disclosure, avoidance or a structural control is required.",
+        "Disclosure does not transfer the underlying duty.",
+        "It has real value — it enables assessment and it is the minimum requirement."
+      ],
+      "explanation": "The practical test is whether the investor can act on the disclosure. A conflict disclosed in a document nobody can negotiate, about a decision already taken, has been documented rather than managed."
+    },
+    {
+      "id": "eth-duties-01-q4",
+      "type": "tfj",
+      "difficulty": 4,
+      "tags": ["ethics", "misconception"],
+      "concept": "how-it-goes-wrong",
+      "stem": "\"This is standard market practice, so it is acceptable.\" True or false — and why?",
+      "isTrue": false,
+      "justifications": [
+        "False — market practice is evidence about what is common, not about what is permitted or right; several universal practices have since been the subject of enforcement",
+        "False — market practice is always a violation",
+        "True — industry norms define the standard of care",
+        "False — because market practice cannot be established"
+      ],
+      "justificationIndex": 0,
+      "rationales": [
+        "Correct. Commonality is a weak defence and a poor test. Practices around expense allocation, fee offsets and marketing performance have all moved from universal to enforced against.",
+        "Over-correction. Most market practice is entirely legitimate.",
+        "Norms inform expectations and do not override the underlying duty to the client.",
+        "It can usually be established easily; the problem is what it proves."
+      ],
+      "explanation": "The better question is whether the practice would survive being described accurately to the person whose money it affects. That test is available immediately and does not require waiting for a regulator to form a view."
+    },
+    {
+      "id": "eth-duties-01-q5",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["ethics", "junior", "on-the-job"],
+      "concept": "junior-position",
+      "stem": "You notice an assumption changed between two drafts of a model in a way that improves the outcome. What is the best first step?",
+      "choices": [
+        "Raise it as a concern with senior management immediately",
+        "Ask a neutral factual question in writing about why the assumption changed",
+        "Say nothing, since you are junior and may be missing context",
+        "Escalate directly to compliance"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "It may come to that, and an allegation is harder to answer and harder to withdraw than a question.",
+        "Correct. A neutral written question is answerable, low-cost, frequently resolved by a good explanation, and it creates a contemporaneous record either way.",
+        "You may well be missing context — which is exactly why asking is better than either accusing or ignoring.",
+        "Compliance is a legitimate channel and usually the second step, after the direct question has an unsatisfactory answer."
+      ],
+      "explanation": "Asking in writing does three things at once: it gets you the explanation you probably need, it gives the other person a chance to be right, and it records when you noticed. All three matter, and the third one matters most if it later turns out badly."
+    },
+    {
+      "id": "eth-duties-01-q6",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["ethics", "materiality", "on-the-job"],
+      "concept": "how-it-goes-wrong",
+      "stem": "A manager describes a practice as immaterial because it affects only 25bp a year. How should materiality be judged?",
+      "choices": [
+        "Against the manager's revenue, since that is what is at stake for them",
+        "Against the client's interest — 25bp a year is immaterial to the manager and is 12% of their management fee, transferred from investors",
+        "Against the fund's total assets, where 25bp is negligible",
+        "Materiality thresholds are set by auditors and not by judgement"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "The manager's perspective is exactly the wrong reference point for a duty owed to the client.",
+        "Correct. The same amount is trivial from one side and a substantial share of economics from the other. Materiality has to be judged from the side bearing the cost.",
+        "As a share of assets almost anything looks negligible, which is what makes that framing useful to whoever is proposing the practice.",
+        "Auditors set thresholds for financial statement purposes, which is a different question from a duty."
+      ],
+      "explanation": "The reframing is the whole point: express the amount as a share of the fee, not of the assets. It is the same number described honestly, and it changes the conclusion in most conversations of this kind."
+    }
+  ],
+  "needsReview": false,
+  "reviewNote": null
+}

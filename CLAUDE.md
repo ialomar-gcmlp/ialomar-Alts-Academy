@@ -613,7 +613,16 @@ One domain per batch, validated, pause between batches. Keep this current.
 | derivatives | 6 | **DONE** — forwards, options, greeks, vol, swaps, hedging |
 | fund-structures | 8 | **DONE** — gplp-01, fees-01, waterfall-01, hwm-01, calls-01, liquidity-01, sideletters-01, subline-01 |
 | portfolio-risk | 6 | **DONE** — diversification, riskmeasures, attribution, liquidity, allocation, factors |
-| ethics | 0 | not started |
+| ethics | 5 | **DONE** — duties, conflicts, mnpi, valuation, judgement |
+
+**M5 is complete: 86 topics across all eleven domains, 563 questions, 262 glossary terms.**
+
+One scope decision worth recording. The ethics domain deliberately does **not** reproduce or
+paraphrase CFA Institute's Code and Standards or the CAIA equivalent — the brief forbids it, and a
+paraphrase would be both a rights problem and worse than the original for exam purposes. The topics
+instead reason from first principles about the situations an alternatives analyst actually meets, and
+`eth-duties-01` opens by telling the reader explicitly that they need the official text for the exam
+and that this app is not it. Keep that note if the domain is ever extended.
 
 ### Authoring a batch — two hard-won rules
 

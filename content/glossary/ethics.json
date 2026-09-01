@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "domain": "ethics",
+  "terms": [
+    {
+      "slug": "mnpi",
+      "term": "material non-public information (MNPI)",
+      "plain": "Information a reasonable investor would consider important that has not been released to the market. Two tests, both required — material, and non-public.",
+      "formal": "Information not generally disseminated which a reasonable investor would consider significant in making an investment decision; trading or tipping on it is unlawful in most jurisdictions.",
+      "seeAlso": [
+        "corporate-governance",
+        "agency-problem"
+      ]
+    }
+  ]
+}

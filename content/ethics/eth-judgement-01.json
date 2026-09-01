@@ -1,0 +1,224 @@
+{
+  "schemaVersion": 1,
+  "id": "eth-judgement-01",
+  "domain": "ethics",
+  "title": "When the Rules Run Out",
+  "summary": "Most difficult situations are not covered by a rule — they are covered by whether anyone is willing to ask an awkward question early.",
+  "level": "core",
+  "prereqs": ["eth-conflicts-01", "eth-valuation-01"],
+  "estMinutes": 8,
+  "examRelevance": ["CFA-L1", "practical"],
+  "lesson": [
+    {
+      "type": "concept",
+      "id": "what-it-is",
+      "body": "Codes of conduct cover the situations someone anticipated. The situations that end up mattering usually have at least one feature nobody wrote a rule for — a novel structure, an unusual counterparty, a genuinely ambiguous expense, a valuation with no comparable.\n\nSo the practical question is not \"what does the rule say?\" but **\"what does the rule exist to protect, and does that protection apply here?\"**\n\nFour tests do most of the work when no rule fits. None is decisive alone and together they are usually enough:\n\n**The disclosure test.** Would I be comfortable if the affected party saw this decision and my reasoning? Not the outcome — the reasoning.\n\n**The reversal test.** Would I make the same call if the benefit ran the other way? A judgement that always resolves in one direction is not a judgement.\n\n**The newspaper test.** How would this read if described accurately by someone unsympathetic? Crude and a good detector.\n\n**The precedent test.** If this became standard practice at every firm, would the outcome be acceptable? It catches practices that are harmless once and corrosive in aggregate.\n\n**These are not clever. They are questions people skip because asking them slows things down** — which is precisely when they are most useful."
+    },
+    {
+      "type": "concept",
+      "id": "pressure",
+      "body": "**Ethical failures happen under specific, recognisable conditions. Knowing the conditions is more useful than knowing the rules.**\n\n**Time pressure.** A competitive process with a deadline tonight. Care is the first thing that gets compressed, and \"we didn't have time\" is the most common explanation for inadequate diligence.\n\n**Money on the line.** A fund near its hurdle, a bonus determined this quarter, a fundraise depending on a mark.\n\n**Everyone agreeing.** Unanimity in a room is often the absence of anyone willing to be the dissenter rather than the presence of genuine consensus.\n\n**Seniority.** \"This has been decided\" ends most junior objections, and it is frequently said by someone who would rather have been asked.\n\n**Incrementalism.** The step in front of you is small because the previous nine steps already happened. Each one was defensible relative to the last.\n\n**Novelty.** A structure nobody has seen has no established practice, so the absence of a rule gets read as permission.\n\n**When two or more of these are present at once, the probability of a bad decision rises sharply** — and recognising the combination is something you can do in the moment, where evaluating the ethics of a novel structure often is not."
+    },
+    {
+      "type": "intuition",
+      "id": "asking-early",
+      "body": "**The single highest-value ethical skill is asking an awkward question while it is still a small question.**\n\nThe arithmetic of this is straightforward. Early, the question is cheap: nothing has been committed, no one has publicly taken a position, and the answer is probably a reasonable explanation you did not have. Late, the same question requires someone to reverse a decision, admit a mistake, or unwind a transaction — and the cost of being right has become enormous.\n\nSo the practical form is deliberately modest:\n\n**Ask as a request for understanding.** \"Can you help me see why this is the right treatment?\" People answer that. They defend against accusations.\n\n**Ask about process rather than conclusion.** \"Should this go to the committee?\" is procedural and hard to refuse.\n\n**Put it in writing, neutrally.** A factual question in an email is a contemporaneous record and it protects the person answering as much as the person asking.\n\n**Ask early enough that the answer can change something.** The value decays fast.\n\n**And accept that most of the time the answer will be good.** That is not a failure of the question — it is the normal outcome, and it is how you learn where the real boundaries are. **A person who asks ten questions and gets nine reassuring answers has calibrated their judgement and established a reputation for asking. Both are worth having when the tenth answer is unsatisfactory.**"
+    },
+    {
+      "type": "example",
+      "id": "worked-drift",
+      "body": "A valuation practice produces 1% a year of optimistic drift — each quarter's discretionary choices land slightly favourably. Nobody has done anything indefensible.",
+      "walkthrough": [
+        "Year one: reported value **1.0% above** the honest estimate. Invisible, and well within any reasonable range.",
+        "Compounding at 1% a year for five years: reported NAV **1,051 against 1,000** — **+5.1%**.",
+        "At 2% a year of drift: **1,104 against 1,000**, or **+10.4%**.",
+        "**Read that carefully: a decade of individually defensible decisions produces a material misstatement, and there is no point at which anyone made a wrong call.**",
+        "Now the detection. In any single quarter the drift is smaller than the honest uncertainty in the estimate, so no review of one quarter can find it.",
+        "It is only visible in the pattern: **do the discretionary choices ever go the other way?** In an honest process roughly half should.",
+        "Sanity check worth reusing: **for any recurring judgement, count the direction of the last ten discretionary calls.** If they all point the same way, the process has a bias regardless of the merits of any individual decision — and that count is a five-minute exercise nobody performs."
+      ]
+    },
+    {
+      "type": "table",
+      "id": "test-table",
+      "caption": "Four tests, and what each one catches",
+      "headers": ["Test", "Question", "Catches"],
+      "rows": [
+        [
+          "Disclosure",
+          "Would the affected party be comfortable seeing my reasoning?",
+          "Decisions that rely on the client not knowing how they were made."
+        ],
+        [
+          "Reversal",
+          "Would I decide the same way if the benefit ran the other way?",
+          "Judgements that always resolve favourably — bias rather than analysis."
+        ],
+        [
+          "Newspaper",
+          "How does this read described accurately by someone unsympathetic?",
+          "Practices defensible internally and indefensible externally."
+        ],
+        [
+          "Precedent",
+          "What if every firm did this as standard?",
+          "Things harmless once and corrosive in aggregate."
+        ]
+      ]
+    },
+    {
+      "type": "concept",
+      "id": "how-it-goes-wrong",
+      "body": "**Waiting for certainty before raising something.** You will rarely be certain, and by the time you are, the decision has been made and the cost of raising it has multiplied.\n\n**Framing a question as an accusation.** It guarantees defensiveness and loses you the explanation you probably needed.\n\n**Assuming someone senior has considered it.** Often they have not, or they have considered a different aspect. The question is usually welcome.\n\n**Believing that the absence of a rule means permission.** Novel structures have no established practice, and the four tests still apply.\n\n**Escalating conclusions rather than facts.** \"I think this is improper\" invites argument; \"the comparable set changed in Q3 and I could not find the reason recorded\" invites investigation.\n\n**Going along and intending to raise it later.** Later is always more expensive, and the record will show you participated."
+    },
+    {
+      "type": "pitfall",
+      "id": "the-long-game",
+      "body": "**The strongest practical argument for behaving well is not moral. It is that this industry is small, long-lived and has an extremely good memory.**\n\nThe people across the table in a negotiation will be colleagues, counterparties, references and employers over a forty-year career. Reputation is the only asset that compounds without being marked to market — and it is destroyed in a single decision far more efficiently than it is built by a thousand.\n\nThree specific ways this cashes out, which are worth knowing early:\n\n**References are informal and permanent.** The reason a candidate does not get a role is frequently a phone call nobody will ever describe to them.\n\n**Being known as someone who asks is an asset.** It gets you consulted earlier, included in harder decisions, and trusted with more. The reputational cost of asking awkward questions is far lower than juniors expect, and the benefit is real.\n\n**Being associated with a bad episode is costly even when blameless.** Which is an argument for the contemporaneous written question — it is the only evidence that you noticed and asked.\n\n**And the honest version of the whole subject: most people in this industry behave well most of the time, and the failures cluster in the conditions described earlier.** You are unlikely to face a clear choice between right and wrong. **You are quite likely to face a Tuesday afternoon where the easy thing is to not ask, and the whole of professional ethics is what you do on that Tuesday.**"
+    },
+    {
+      "type": "onTheJob",
+      "id": "on-the-job",
+      "body": "**Apply the four tests when no rule fits:** disclosure, reversal, newspaper, precedent. They take a minute and they cover most novel situations.\n\n**Notice the conditions rather than evaluating the ethics.** Time pressure, money on the line, unanimity, seniority, incrementalism, novelty. Two or more together is the signal to slow down.\n\n**Ask as a question, in writing, early.** Cheap now, expensive later, and the record protects everyone.\n\n**For any recurring judgement, count the direction of the last ten discretionary calls.** All one way is a bias, whatever the merits of each.\n\n**Escalate facts rather than conclusions.** A specific factual question invites investigation; a characterisation invites argument."
+    },
+    {
+      "type": "keyTakeaways",
+      "id": "takeaways",
+      "items": [
+        "When no rule fits, ask what the rule exists to protect — then apply the disclosure, reversal, newspaper and precedent tests.",
+        "Failures cluster under recognisable conditions: time pressure, money at stake, unanimity, seniority, incrementalism and novelty. Two or more together is the warning.",
+        "1% a year of optimistic drift compounds to +5.1% over five years with no individual decision being wrong. Count the direction of the last ten discretionary calls.",
+        "Ask awkward questions early, in writing, as questions. Most answers will be reassuring — which is how judgement gets calibrated and how a reputation for asking gets built."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "eth-judgement-01-q1",
+      "type": "mcq",
+      "difficulty": 2,
+      "tags": ["ethics", "judgement"],
+      "concept": "what-it-is",
+      "stem": "A situation arises that no rule in your firm's code addresses. What is the right starting question?",
+      "choices": [
+        "Whether anything explicitly prohibits it",
+        "What the rules exist to protect, and whether that protection applies here",
+        "Whether other firms do it",
+        "Whether the amounts involved are large"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Absence of prohibition is not permission, particularly for novel structures nobody anticipated.",
+        "Correct. Reasoning from the purpose extends to situations the drafters did not foresee, which is precisely when guidance is needed.",
+        "Market practice is evidence about frequency rather than about acceptability.",
+        "Size affects consequences, not whether the conduct is appropriate."
+      ],
+      "explanation": "This is why understanding the reason behind a rule is more durable than memorising it. Rules are finite and situations are not, and reasoning from purpose is what transfers."
+    },
+    {
+      "id": "eth-judgement-01-q2",
+      "type": "numeric",
+      "difficulty": 3,
+      "tags": ["ethics", "drift", "arithmetic"],
+      "concept": "worked-drift",
+      "stem": "A valuation drifts 1% optimistic each year for five years, compounding. By what percentage does the reported value exceed the honest one? One decimal place.",
+      "answer": 5.1,
+      "tolerance": 0.3,
+      "toleranceType": "abs",
+      "unit": "%",
+      "inputHint": "1.01⁵ − 1",
+      "explanation": "Material, and produced without any individual decision being wrong. It is why detection has to look at the pattern of discretionary choices rather than at the merits of any one of them."
+    },
+    {
+      "id": "eth-judgement-01-q3",
+      "type": "mcq",
+      "difficulty": 3,
+      "tags": ["ethics", "conditions"],
+      "concept": "pressure",
+      "stem": "Which combination of conditions most raises the risk of a poor ethical decision?",
+      "choices": [
+        "A junior team and an unfamiliar sector",
+        "A deadline tonight, a fund near its hurdle, and unanimous agreement in the room",
+        "A large transaction with extensive documentation",
+        "A long holding period and an illiquid asset"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Inexperience raises the risk of error and is not the pattern that produces ethical failures.",
+        "Correct. Time pressure compresses care, money at stake creates the incentive, and unanimity signals that nobody is willing to dissent. Three of the six conditions at once.",
+        "Documentation and scale generally increase scrutiny rather than reducing it.",
+        "Illiquidity creates valuation difficulty, and on its own it is not the high-risk combination."
+      ],
+      "explanation": "Recognising the conditions is more practical than evaluating the ethics in the moment, because you can spot the combination in seconds while assessing a novel structure properly takes hours you do not have."
+    },
+    {
+      "id": "eth-judgement-01-q4",
+      "type": "tfj",
+      "difficulty": 4,
+      "tags": ["ethics", "misconception"],
+      "concept": "asking-early",
+      "stem": "\"I should wait until I am sure before raising a concern.\" True or false — and why?",
+      "isTrue": false,
+      "justifications": [
+        "False — you will rarely be certain, and by the time you are, the decision is made and the cost of raising it has multiplied; a question asked early is cheap and usually answered well",
+        "False — you should escalate every doubt immediately to compliance",
+        "True — raising unfounded concerns damages your credibility",
+        "False — because concerns should always be raised anonymously"
+      ],
+      "justificationIndex": 0,
+      "rationales": [
+        "Correct. The value of the question decays fast. Early it costs nothing and usually produces an explanation; late it requires someone to reverse a decision.",
+        "Over-correction. The first step is normally a direct factual question to the person involved.",
+        "A neutral question is not an accusation, and asking questions builds credibility rather than spending it.",
+        "Anonymous channels exist for serious matters and are a poor default for ordinary questions."
+      ],
+      "explanation": "Reframing it as a question rather than a concern resolves the dilemma. \"Can you help me understand this?\" requires no certainty at all, and it is the form in which almost every one of these situations should first be raised."
+    },
+    {
+      "id": "eth-judgement-01-q5",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["ethics", "escalation", "on-the-job"],
+      "concept": "how-it-goes-wrong",
+      "stem": "You decide to raise something with a senior colleague. Which framing is most likely to be productive?",
+      "choices": [
+        "\"I think this valuation is improper\"",
+        "\"The comparable set changed in Q3 and I could not find the reason recorded — can you point me to it?\"",
+        "\"Compliance would probably have a problem with this\"",
+        "\"Are we sure this is allowed?\""
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "A characterisation invites a defence rather than an explanation, and it commits you to a position you may not need.",
+        "Correct. A specific factual observation with a request for information. It is answerable, it is hard to take offence at, and it creates a record either way.",
+        "Invoking compliance as a threat sets up an adversarial exchange before any facts are established.",
+        "Too vague to answer, and it implies suspicion without giving anyone anything to respond to."
+      ],
+      "explanation": "The pattern is: one specific fact, one request for information. It gets you the explanation you probably need, gives the other person a chance to be right, and records that you asked — all in a single sentence."
+    },
+    {
+      "id": "eth-judgement-01-q6",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["ethics", "reputation", "on-the-job"],
+      "concept": "the-long-game",
+      "stem": "What is the strongest practical argument for asking awkward questions early in your career?",
+      "choices": [
+        "It is required by professional standards",
+        "The industry is small and long-lived, the reputational cost of asking is far lower than juniors assume, and being known as someone who asks gets you trusted with more",
+        "It protects you from regulatory liability",
+        "It demonstrates technical competence"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Standards matter and the practical argument is what actually changes behaviour on a difficult afternoon.",
+        "Correct. The perceived cost is high and the actual cost is low, while the benefit — being consulted earlier and trusted with harder decisions — compounds over a long career.",
+        "It helps, and personal liability is rarely the live issue for a junior analyst.",
+        "It can, and that is a side effect rather than the argument."
+      ],
+      "explanation": "The asymmetry is the point: the imagined cost of asking is a moment of awkwardness, and the actual cost of not asking can be being associated with an episode you noticed and said nothing about. Most people overweight the first and discover the second too late."
+    }
+  ],
+  "needsReview": false,
+  "reviewNote": null
+}
