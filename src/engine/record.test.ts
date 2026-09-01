@@ -68,6 +68,7 @@ describe("recordAnswer", () => {
       c: "unsure",
       g: 3, // unsure + correct
       s: 30,
+      x: false,
     });
   });
 
@@ -146,6 +147,7 @@ describe("trimEvents", () => {
     d: 3,
     g: 5,
     s: 10,
+    x: false,
   });
 
   it("leaves a small log alone", () => {

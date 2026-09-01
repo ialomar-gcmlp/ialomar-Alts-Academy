@@ -34,6 +34,7 @@ const events = (specs: { c: Confidence; ok: boolean }[]): AnswerEvent[] =>
     d: 3,
     g: spec.ok ? 5 : 0,
     s: 20,
+    x: false,
   }));
 
 const repeat = (n: number, c: Confidence, ok: boolean) =>

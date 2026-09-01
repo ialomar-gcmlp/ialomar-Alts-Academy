@@ -78,6 +78,24 @@ export const MASTERY = {
  * the user was actually present. The clock pauses when the tab is hidden; these two
  * numbers handle the cases the browser cannot tell us about.
  */
+export const CALIBRATION = {
+  /**
+   * Below this, calibration is noise. Three confident answers do not establish that
+   * you are overconfident, and reporting it anyway would teach the user to distrust
+   * the page.
+   */
+  MIN_ANSWERS: 30,
+
+  /** Being right less often than this while claiming certainty is the finding. */
+  CONFIDENT_FLOOR: 0.8,
+
+  /** Guessing right more often than this means under-claiming, not luck. */
+  GUESS_CEILING: 0.5,
+
+  /** Hours with fewer answers than this are not reported as good or bad times. */
+  MIN_ANSWERS_PER_HOUR: 10,
+} as const;
+
 export const EXAM = {
   /** Questions in a full mock. Twenty is a sitting, not a marathon. */
   QUESTIONS_MAX: 20,

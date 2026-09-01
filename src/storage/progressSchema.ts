@@ -22,7 +22,7 @@ import { z } from "zod";
 import { CONFIDENCE_LEVELS } from "../engine/grading";
 import type { QuestionState } from "../engine/scheduler";
 
-export const PROGRESS_SCHEMA_VERSION = 6;
+export const PROGRESS_SCHEMA_VERSION = 7;
 
 export const themeSchema = z.enum(["light", "dark"]);
 export const confidenceSchema = z.enum(CONFIDENCE_LEVELS);
@@ -107,6 +107,15 @@ export const answerEventSchema = z.object({
   d: z.number(),
   g: z.number(),
   s: z.number(),
+  /**
+   * True when the answer came from a mock exam.
+   *
+   * Calibration is the reason this field exists. An exam never asks how sure you are,
+   * so its answers are recorded at a neutral confidence — counting them as if the user
+   * had claimed "unsure" would report a calibration they never expressed. Every other
+   * statistic treats an exam answer like any other.
+   */
+  x: z.boolean(),
 });
 
 const confidenceTallySchema = z.object({

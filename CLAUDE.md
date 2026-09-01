@@ -432,7 +432,8 @@ so mixing the two would inflate the topic review queue with items `startReviewSe
 cannot build, and would muddle topic mastery. A test asserts drills never land in
 `questions`.
 
-`activeSession` and `exams` arrived in v6 (M6a) as a version bump with a tested migration.
+`activeSession` and `exams` arrived in v6 (M6a), and the answer event's `x` flag in v7
+(M6c), each as a version bump with a tested migration.
 
 XP is accumulated rather than derived, unlike mastery. It has to be: the answer log it would be
 derived from is deliberately trimmed, so deriving it would mean the user's total quietly falling as
@@ -524,6 +525,40 @@ in early, because the two mean different things about what to fix.
 **Answers still feed the scheduler**, question by question as the paper is sat, under
 the ordinary XP rules — so an exam is also a review, and sitting one twice in a day
 pays no XP the second time.
+
+### Analytics — BUILT (M6c). `engine/analytics.ts`, panels on `views/Progress.tsx`
+
+The dashboard lives on the Progress page rather than a tab of its own: one place that
+answers "how is this going", scannable top to bottom. Four panels — accuracy over
+time, calibration, the seven-day forecast, and a footnote card for exam marks and
+time-of-day — above the domain board and skill tree.
+
+Three rules, each a way a plausible implementation reads better than the truth:
+
+1. **Days with nothing answered are gaps, not zeros.** `dailySeries` returns
+   `accuracy: null` for an empty day and `Sparkline` breaks the line there. Zero would
+   claim everything was wrong; omitting the day entirely would hide the gap and turn a
+   week with two sessions into a flat line.
+
+2. **Calibration excludes exam answers.** Progress schema **v7** adds `x: boolean` to
+   the answer event for exactly this. An exam records a confidence it never asked for,
+   so counting it would report a claim the user never made. The card names the number
+   excluded rather than silently dropping it.
+
+3. **Trends weight by answers, not by day.** Averaging daily percentages lets one
+   question on a quiet day count as much as forty on a busy one.
+
+Nothing is reported before it means anything: calibration stays silent below
+`CALIBRATION.MIN_ANSWERS`, and a best time of day needs `MIN_ANSWERS_PER_HOUR` in the
+hour. Saying nothing beats presenting noise as a finding.
+
+`Sparkline` scales proportionally (`xMidYMid meet`) and carries a 0/50/100% scale.
+Stretching an SVG to fill its box turns the markers into ellipses and distorts every
+label in it — which is what the first version did.
+
+The page still shows no "answers given" or "hours studied" headline. Counts appear
+only as the denominator of an accuracy figure, where leaving them out would be the
+dishonest choice.
 
 ### Dev-only inspection handle
 
@@ -664,7 +699,7 @@ Commit at the end of each milestone, then stop for review. Run `npm run verify` 
 | M3 | XP, levels, streaks, badges, skill tree | done |
 | M4 | Glossary popovers, global page, drill mode | done |
 | M5 | Content build-out, one domain per batch, validated, pause between batches | done — see inventory below |
-| M6 | Mock exams, analytics, export/import, session resume | **in progress** — M6a resume + active time, M6b mock exams done; analytics and export/import to come |
+| M6 | Mock exams, analytics, export/import, session resume | **in progress** — M6a resume + active time, M6b mock exams, M6c analytics done; export/import to come |
 | M7 | Polish: mobile, keyboard, accessibility, empty states, error handling | |
 
 Working software over completeness at every milestone. A great app with 20 topics beats a broken one

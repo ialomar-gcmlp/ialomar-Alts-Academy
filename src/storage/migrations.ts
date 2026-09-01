@@ -103,6 +103,22 @@ export const migrations: Record<number, Migration> = {
     activeSession: null,
     exams: [],
   }),
+
+  /**
+   * v6 -> v7: answer events gain `x`, marking the ones that came from a mock exam.
+   *
+   * False for every existing event, which is a fact rather than a guess: exams did
+   * not exist before v6, so no stored answer can have come from one. Calibration
+   * reads this field to exclude exam answers, where no confidence was ever elicited.
+   */
+  6: (state) => ({
+    ...state,
+    events: Array.isArray(state["events"])
+      ? state["events"].map((event) =>
+          isRecord(event) ? { ...event, x: false } : event,
+        )
+      : [],
+  }),
 };
 
 function isRecord(value: unknown): value is Record<string, unknown> {

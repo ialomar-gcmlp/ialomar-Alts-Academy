@@ -615,6 +615,7 @@ export const useApp = create<AppState>((set, get) => ({
         correct: grade.correct,
         confidence,
         seconds,
+        fromExam: session.mode === "exam",
       },
       now,
       { badgeContext: (p) => badgeContextFor(p, now) },

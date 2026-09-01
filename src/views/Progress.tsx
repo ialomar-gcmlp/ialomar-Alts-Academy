@@ -1,23 +1,42 @@
 /**
- * Progress — level, streak, badges and the skill tree.
+ * Progress — the dashboard: level, streak, accuracy over time, calibration, what is
+ * coming back, mastery by domain, the skill tree and badges.
  *
- * Everything here reports on retention rather than effort. There is no "answers
- * given" or "hours studied" figure anywhere on the page, because rewarding those was
- * explicitly out of scope.
+ * Everything here reports on retention rather than effort. There is still no "answers
+ * given" or "hours studied" headline anywhere on the page, because rewarding those was
+ * explicitly out of scope; counts appear only as the denominator of an accuracy figure,
+ * where leaving them out would be the dishonest choice.
  */
 
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 
+import {
+  accuracyByHour,
+  accuracyTrend,
+  bestStudyHours,
+  calibration,
+  calibrationVerdict,
+  dailySeries,
+  examSeries,
+} from "../engine/analytics";
 import { BADGES, badgeById } from "../engine/badges";
+import { CONFIDENCE_LABELS, type Confidence } from "../engine/grading";
 import { DOMAIN_LABELS, type Domain } from "../content/schema";
 import { navigate } from "../lib/hashRouter";
 import { formatMinutes } from "../lib/time";
-import { domainProgress, level, streak, topicProgress } from "../state/selectors";
+import {
+  domainProgress,
+  forecast,
+  level,
+  streak,
+  topicProgress,
+} from "../state/selectors";
 import { useApp } from "../state/store";
 import { DOMAIN_MONOGRAM, domainStyle } from "../ui/domain";
 import { Icon } from "../ui/icons";
 import { Badge, Card, Meter, Monogram, PageTitle, Ring } from "../ui/primitives";
 import { SkillTree, SkillTreeLegend } from "../ui/SkillTree";
+import { Sparkline, type SparkPoint } from "../ui/charts/Sparkline";
 
 function LevelCard() {
   const progress = useApp((s) => s.progress);
@@ -189,6 +208,274 @@ function Badges() {
  * Eleven bars is the fastest read on this page: where you are strong, where you have
  * not started, and — since mastery decays — where something you did know is fading.
  */
+/**
+ * Windows the accuracy chart offers. Thirty days is the default: long enough to show
+ * a trend, short enough that a bad week still shows up in it.
+ */
+const WINDOWS = [
+  { days: 14, label: "14d" },
+  { days: 30, label: "30d" },
+  { days: 90, label: "90d" },
+] as const;
+
+/**
+ * Accuracy over time.
+ *
+ * Days with nothing answered are gaps in the line, not zeros — see `Sparkline`. The
+ * sentence underneath is the point of the card: a chart shows movement, a sentence
+ * says whether the movement means anything.
+ */
+function AccuracyCard() {
+  const daily = useApp((s) => s.progress.daily);
+  const [days, setDays] = useState<number>(30);
+  const now = Date.now();
+
+  const series = useMemo(() => dailySeries(daily, now, days), [daily, now, days]);
+  const trend = accuracyTrend(series);
+
+  const points: SparkPoint[] = series.map((point) => ({
+    label: new Date(point.at).toLocaleDateString(undefined, {
+      month: "short",
+      day: "numeric",
+    }),
+    value: point.accuracy,
+    detail: point.answered === 0 ? undefined : `${point.correct} of ${point.answered}`,
+  }));
+
+  const activeDays = series.filter((point) => point.answered > 0).length;
+
+  return (
+    <Card className="p-5">
+      <div className="mb-1 flex flex-wrap items-baseline justify-between gap-3">
+        <h2 className="text-[13px] font-bold uppercase tracking-wider text-fg-subtle">
+          Accuracy over time
+        </h2>
+
+        <div className="flex gap-1">
+          {WINDOWS.map((window) => (
+            <button
+              key={window.days}
+              type="button"
+              onClick={() => setDays(window.days)}
+              aria-pressed={days === window.days}
+              className={`rounded-md px-2 py-0.5 text-[12px] font-semibold tnum ${
+                days === window.days
+                  ? "bg-accent text-accent-fg"
+                  : "text-fg-subtle hover:bg-surface-2 hover:text-fg"
+              }`}
+            >
+              {window.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <p className="mb-3 text-[12.5px] text-fg-subtle tnum">
+        {activeDays} of the last {days} days answered · gaps are days you did not study
+      </p>
+
+      <Sparkline
+        points={points}
+        color="var(--p-accent)"
+        ariaLabel={`Accuracy per day over the last ${days} days`}
+      />
+
+      <p className="mt-3 text-[13.5px] leading-relaxed text-fg-muted">
+        {trendSentence(trend, days)}
+      </p>
+    </Card>
+  );
+}
+
+function trendSentence(trend: ReturnType<typeof accuracyTrend>, days: number): string {
+  if (trend.answered === 0) {
+    return `Nothing answered in the last ${days} days, so there is no trend to report.`;
+  }
+  if (trend.deltaPoints === null) {
+    return "Not enough spread across the window to compare halves yet — keep going and this becomes a trend.";
+  }
+
+  const after = Math.round((trend.after ?? 0) * 100);
+  if (trend.deltaPoints > 2) {
+    return `${after}% across the recent half, up ${trend.deltaPoints} points on the earlier half. Accuracy rising while questions keep coming back is the shape you want.`;
+  }
+  if (trend.deltaPoints < -2) {
+    return `${after}% across the recent half, down ${Math.abs(trend.deltaPoints)} points. Usually this means intervals have stretched far enough that reviews are genuinely harder — the scheduler working, not a problem.`;
+  }
+  return `${after}% across the recent half, flat against the earlier one.`;
+}
+
+/**
+ * Calibration — the number this app is really about.
+ *
+ * Next to accuracy on purpose: being wrong while sure is the finding worth acting on,
+ * and it is invisible in a score. Exam answers are excluded, because an exam records
+ * a confidence it never asked for.
+ */
+function CalibrationCard() {
+  const events = useApp((s) => s.progress.events);
+  const cal = useMemo(() => calibration(events), [events]);
+
+  const tone: Record<Confidence, { bar: string; text: string }> = {
+    confident: { bar: "var(--p-conf-confident)", text: "text-confident" },
+    unsure: { bar: "var(--p-conf-unsure)", text: "text-unsure" },
+    guessing: { bar: "var(--p-conf-guessing)", text: "text-guessing" },
+  };
+
+  return (
+    <Card className="p-5">
+      <h2 className="mb-1 text-[13px] font-bold uppercase tracking-wider text-fg-subtle">
+        Calibration
+      </h2>
+      <p className="mb-4 text-[12.5px] text-fg-subtle tnum">
+        How often each claim turned out to be right
+        {cal.excluded > 0 && ` · ${cal.excluded} exam answers excluded`}
+      </p>
+
+      <div className="space-y-3">
+        {cal.buckets.map((bucket) => (
+          <div key={bucket.confidence}>
+            <div className="mb-1 flex items-baseline justify-between gap-3 text-[13px]">
+              <span className={`font-semibold ${tone[bucket.confidence].text}`}>
+                {CONFIDENCE_LABELS[bucket.confidence]}
+              </span>
+              <span className="text-fg-muted tnum">
+                {bucket.accuracy === null
+                  ? "—"
+                  : `${Math.round(bucket.accuracy * 100)}% of ${bucket.total}`}
+              </span>
+            </div>
+            <Meter value={bucket.accuracy ?? 0} color={tone[bucket.confidence].bar} />
+          </div>
+        ))}
+      </div>
+
+      <p className="mt-4 text-[13.5px] leading-relaxed text-fg-muted">
+        {calibrationVerdict(cal)}
+      </p>
+    </Card>
+  );
+}
+
+/**
+ * What is coming back, and when.
+ *
+ * Seven days, because that is the horizon a plan can act on: a tall bar on Thursday
+ * is a reason to do a longer session on Wednesday. The first bar counts everything
+ * already due, however overdue.
+ */
+function ForecastCard() {
+  const progress = useApp((s) => s.progress);
+  const now = Date.now();
+  const days = useMemo(() => forecast(progress, now, 7), [progress, now]);
+  const peak = Math.max(1, ...days);
+  const total = days.reduce((n, d) => n + d, 0);
+
+  return (
+    <Card className="p-5">
+      <h2 className="mb-1 text-[13px] font-bold uppercase tracking-wider text-fg-subtle">
+        Next seven days
+      </h2>
+      <p className="mb-4 text-[12.5px] text-fg-subtle tnum">
+        {total === 0
+          ? "Nothing scheduled — everything you have answered is resting"
+          : `${total} question${total === 1 ? "" : "s"} come back this week`}
+      </p>
+
+      <div className="flex items-end gap-1.5">
+        {days.map((count, i) => {
+          const at = now + i * 86_400_000;
+          const label =
+            i === 0
+              ? "Now"
+              : new Date(at).toLocaleDateString(undefined, { weekday: "narrow" });
+          return (
+            <div key={i} className="flex flex-1 flex-col items-center gap-1">
+              <span className="text-[11px] font-semibold text-fg-muted tnum">
+                {count === 0 ? "" : count}
+              </span>
+
+              {/* Every day gets a track, so a day with nothing due reads as an empty
+                  column rather than a hairline that could be a rendering artefact. */}
+              <div
+                className="flex w-full items-end rounded bg-surface-2"
+                style={{ height: 56 }}
+                title={`${count} due ${i === 0 ? "now" : new Date(at).toLocaleDateString()}`}
+              >
+                {count > 0 && (
+                  <div
+                    className={`w-full rounded ${i === 0 ? "bg-accent" : "bg-accent/45"}`}
+                    style={{ height: `${Math.max(6, (count / peak) * 56)}px` }}
+                  />
+                )}
+              </div>
+
+              <span className="text-[11px] text-fg-subtle">{label}</span>
+            </div>
+          );
+        })}
+      </div>
+    </Card>
+  );
+}
+
+/**
+ * Exam marks and when you answer best.
+ *
+ * Both are omitted until there is enough to say: one attempt is not a trend, and an
+ * hour with three answers in it is not a time of day.
+ */
+function AnalyticsFooter() {
+  const progress = useApp((s) => s.progress);
+  const exams = useMemo(() => examSeries(progress.exams), [progress.exams]);
+  const hours = useMemo(
+    () => bestStudyHours(accuracyByHour(progress.events)),
+    [progress.events],
+  );
+
+  if (exams.length === 0 && hours.best === null) return null;
+
+  const hour = (h: number): string =>
+    new Date(2026, 0, 1, h).toLocaleTimeString(undefined, { hour: "numeric" });
+
+  const latest = exams[exams.length - 1];
+  const best = exams.length === 0 ? 0 : Math.max(...exams.map((e) => e.fraction));
+
+  return (
+    <Card className="p-5">
+      <h2 className="mb-3 text-[13px] font-bold uppercase tracking-wider text-fg-subtle">
+        Also worth knowing
+      </h2>
+
+      <ul className="space-y-2.5 text-[13.5px] leading-relaxed text-fg-muted">
+        {latest !== undefined && (
+          <li className="flex items-start gap-2">
+            <Icon name="target" size={14} className="mt-1 shrink-0 text-accent" />
+            <span>
+              {exams.length === 1
+                ? `One exam sat: ${Math.round(latest.fraction * 100)}% on ${DOMAIN_LABELS[latest.domain as Domain] ?? latest.domain}.`
+                : `${exams.length} exams sat, most recently ${Math.round(latest.fraction * 100)}%. Best so far ${Math.round(best * 100)}%.`}
+            </span>
+          </li>
+        )}
+
+        {hours.best !== null && hours.worst !== null && (
+          <li className="flex items-start gap-2">
+            <Icon name="clock" size={14} className="mt-1 shrink-0 text-accent" />
+            <span>
+              You answer best around {hour(hours.best.hour)} (
+              {Math.round((hours.best.accuracy ?? 0) * 100)}% of {hours.best.answered}) and
+              worst around {hour(hours.worst.hour)} (
+              {Math.round((hours.worst.accuracy ?? 0) * 100)}% of {hours.worst.answered}).
+              Worth putting the harder material in the better slot.
+            </span>
+          </li>
+        )}
+      </ul>
+    </Card>
+  );
+}
+
 function DomainBoard() {
   const progress = useApp((s) => s.progress);
   const now = useMemo(() => Date.now(), [progress]);
@@ -284,6 +571,15 @@ export function Progress() {
         <LevelCard />
         <StreakCard />
       </div>
+
+      {/* The dashboard proper: how it is going, whether the confidence tags mean
+          anything, and what is coming back. */}
+      <section className="mb-10 grid gap-4 lg:grid-cols-2">
+        <AccuracyCard />
+        <CalibrationCard />
+        <ForecastCard />
+        <AnalyticsFooter />
+      </section>
 
       <DomainBoard />
 

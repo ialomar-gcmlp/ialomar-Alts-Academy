@@ -263,6 +263,8 @@ export function recordDrillAnswer(
     d: DRILL_DIFFICULTY,
     g: state.lastGrade ?? 0,
     s: Math.max(0, Math.round(answer.seconds)),
+    // A drill is never an exam.
+    x: false,
   };
 
   const tally = day.byConfidence[answer.confidence];

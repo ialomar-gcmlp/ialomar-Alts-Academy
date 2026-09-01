@@ -390,6 +390,61 @@ describe("migration v3 -> v4", () => {
   });
 });
 
+describe("migration v6 -> v7", () => {
+  const v6 = {
+    schemaVersion: 6,
+    settings: {
+      theme: "light",
+      sessionLength: 10,
+      dailyGoalMinutes: 10,
+      validateContentInProd: false,
+      effects: "full",
+    },
+    gamification: { xp: 400, badges: [], frozenDays: [] },
+    questions: {},
+    topics: {},
+    termsSeen: {},
+    termDrills: {},
+    events: [
+      { q: "quant-tvm-01-q1", t: "quant-tvm-01", at: 1789000000000, ok: true, c: "confident", d: 2, g: 5, s: 30 },
+      { q: "quant-tvm-01-q2", t: "quant-tvm-01", at: 1789000100000, ok: false, c: "guessing", d: 4, g: 1, s: 55 },
+    ],
+    daily: {},
+    activeSession: null,
+    exams: [],
+    meta: { createdAt: "2026-05-01T00:00:00.000Z", lastExportAt: null },
+  };
+
+  it("produces state that satisfies the current schema", () => {
+    const out = migrate(v6);
+    expect(out.status).toBe("ok");
+    if (out.status !== "ok") return;
+    expect(progressSchema.safeParse(out.state).success).toBe(true);
+  });
+
+  it("marks every existing answer as not from an exam", () => {
+    // A fact rather than a guess: exams did not exist before v6.
+    const out = migrate(v6);
+    if (out.status !== "ok") throw new Error("expected ok");
+    const events = out.state["events"] as { x: boolean }[];
+    expect(events.map((event) => event.x)).toEqual([false, false]);
+  });
+
+  it("changes nothing else about an event", () => {
+    const out = migrate(v6);
+    if (out.status !== "ok") throw new Error("expected ok");
+    const events = out.state["events"] as Record<string, unknown>[];
+    expect(events[0]).toMatchObject(v6.events[0] as Record<string, unknown>);
+  });
+
+  it("survives an empty or missing answer log", () => {
+    const out = migrate({ ...v6, events: undefined });
+    expect(out.status).toBe("ok");
+    if (out.status !== "ok") return;
+    expect(out.state["events"]).toEqual([]);
+  });
+});
+
 describe("migration v5 -> v6", () => {
   const v5 = {
     schemaVersion: 5,

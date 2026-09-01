@@ -31,6 +31,11 @@ export interface RecordedAnswer {
   confidence: Confidence;
   /** Wall time the user actually spent on this question. */
   seconds: number;
+  /**
+   * True when the answer came from a mock exam, which does not ask for confidence.
+   * Only calibration reads it — every other statistic counts an exam answer normally.
+   */
+  fromExam?: boolean;
 }
 
 export interface RecordResult {
@@ -100,6 +105,7 @@ export function recordAnswer(
     d: answer.difficulty,
     g: state.lastGrade ?? 0,
     s: Math.max(0, Math.round(answer.seconds)),
+    x: answer.fromExam === true,
   };
 
   const tally = day.byConfidence[answer.confidence];

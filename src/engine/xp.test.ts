@@ -25,6 +25,7 @@ const event = (over: Partial<AnswerEvent> = {}): AnswerEvent => ({
   d: 3,
   g: 5,
   s: 20,
+  x: false,
   ...over,
 });
 
