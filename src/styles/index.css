@@ -58,6 +58,18 @@
     }
   }
 
+  /*
+   * Touch targets. On a coarse pointer the smallest comfortable hit area is about
+   * 44px, which several controls here miss by ten. Applied with a class rather than
+   * to every button, because the small chips (weekday pills, difficulty pips) are
+   * decoration and inflating them would wreck the layout it belongs to.
+   */
+  @media (pointer: coarse) {
+    .tap {
+      min-height: 44px;
+    }
+  }
+
   .calm *,
   .calm *::before,
   .calm *::after {

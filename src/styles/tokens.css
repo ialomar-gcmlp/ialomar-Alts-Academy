@@ -27,7 +27,12 @@
   /* text */
   --p-fg: #1c1917; /* primary */
   --p-fg-muted: #6b6560; /* secondary, captions */
-  --p-fg-subtle: #948f88; /* tertiary, disabled */
+  /*
+   * Darkened in M7 from #948f88, which measured 3.21:1 on a card and 2.87:1 on a
+   * well — below the large-text floor, on a token used for 11-13px labels. Now
+   * 5.07:1 and 4.54:1, so it clears AA for normal text on both surfaces.
+   */
+  --p-fg-subtle: #736e67; /* tertiary, disabled */
   --p-fg-inverse: #faf9f7;
 
   /* accent — muted teal */
@@ -42,7 +47,8 @@
   --p-correct-soft: #e6efe9;
   --p-incorrect: #9a3f36;
   --p-incorrect-soft: #f5e7e5;
-  --p-flag: #8a6a24; /* needs-review / caution */
+  /* Nudged in M7: 4.36:1 on flag-soft was just under AA. Now 4.57:1. */
+  --p-flag: #866723; /* needs-review / caution */
   --p-flag-soft: #f5eede;
 
   /* confidence tags */
@@ -96,7 +102,8 @@
   /* text */
   --p-fg: #ede9e2;
   --p-fg-muted: #a5a096;
-  --p-fg-subtle: #77726a;
+  /* Lightened in M7 from #77726a (3.54:1 / 3.18:1). Now 5.03:1 and 4.52:1. */
+  --p-fg-subtle: #918c83;
   --p-fg-inverse: #16150f;
 
   /* accent */

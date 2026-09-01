@@ -385,9 +385,11 @@ function ForecastCard() {
         Next seven days
       </h2>
       <p className="mb-4 text-[12.5px] text-fg-subtle tnum">
-        {total === 0
-          ? "Nothing scheduled — everything you have answered is resting"
-          : `${total} question${total === 1 ? "" : "s"} come back this week`}
+        {total > 0
+          ? `${total} question${total === 1 ? "" : "s"} come back this week`
+          : Object.keys(progress.questions).length === 0
+            ? "Nothing scheduled yet — answer a few questions and they start coming back"
+            : "Nothing scheduled — everything you have answered is resting"}
       </p>
 
       <div className="flex items-end gap-1.5">
@@ -702,6 +704,7 @@ export function Progress() {
   const progress = useApp((s) => s.progress);
   const now = useMemo(() => Date.now(), [progress]);
   const topics = useMemo(() => topicProgress(progress, now), [progress, now]);
+  const answered = Object.keys(progress.questions).length;
 
   return (
     <div>
@@ -716,13 +719,29 @@ export function Progress() {
       </div>
 
       {/* The dashboard proper: how it is going, whether the confidence tags mean
-          anything, and what is coming back. */}
-      <section className="mb-10 grid gap-4 lg:grid-cols-2">
-        <AccuracyCard />
-        <CalibrationCard />
-        <ForecastCard />
-        <AnalyticsFooter />
-      </section>
+          anything, and what is coming back.
+
+          Collapsed to a single line before the first answer. Four cards of dashes and
+          "not enough data yet" is worse than one sentence saying so. */}
+      {answered === 0 ? (
+        <Card className="mb-10 p-5">
+          <h2 className="mb-1 text-[13px] font-bold uppercase tracking-wider text-fg-subtle">
+            Nothing to report yet
+          </h2>
+          <p className="max-w-measure text-[13.5px] leading-relaxed text-fg-muted">
+            Accuracy over time, how well-calibrated your confidence turns out to be, and
+            what is due in the next seven days all appear here once you have answered
+            something.
+          </p>
+        </Card>
+      ) : (
+        <section className="mb-10 grid gap-4 lg:grid-cols-2">
+          <AccuracyCard />
+          <CalibrationCard />
+          <ForecastCard />
+          <AnalyticsFooter />
+        </section>
+      )}
 
       <DomainBoard />
 

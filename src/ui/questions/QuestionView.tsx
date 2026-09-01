@@ -72,7 +72,7 @@ function ChoiceList({
   const locked = grade !== null;
 
   return (
-    <ul className="space-y-2">
+    <ul className="space-y-2" role="group" aria-label="Answer choices">
       {choices.map((choice, i) => {
         const state = choiceState(i, selected, grade);
         // After grading, show the rationale for the correct answer and for the one
@@ -105,6 +105,19 @@ function ChoiceList({
                   `${labelPrefix}${i + 1}`
                 )}
               </span>
+              {/* The marker above is aria-hidden, so without this the mark is
+                  conveyed by colour and an icon alone and a screen reader gets no
+                  verdict at all. */}
+              {locked && (state === "correct" || state === "wrong") && (
+                <span className="sr-only">
+                  {state === "correct"
+                    ? selected === i
+                      ? "Correct, and this is what you chose. "
+                      : "This was the correct answer. "
+                    : "Your answer, and it was wrong. "}
+                </span>
+              )}
+
               {/* Non-interactive terms: a glossary popover trigger is a <button>, and
                   nesting one inside this button would be invalid HTML and swallow
                   the click. The rationale below is outside the button, so its terms
@@ -275,12 +288,13 @@ function TrueFalseJustified({ question, response, grade, onRespond }: QuestionPr
         <div className="mb-2 text-[11px] font-semibold uppercase tracking-wider text-fg-subtle">
           Your verdict
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-2" role="group" aria-label="True or false">
           {[true, false].map((value) => (
             <button
               key={String(value)}
               type="button"
               disabled={locked}
+              aria-pressed={current.isTrue === value}
               onClick={() => setVerdict(value)}
               className={`press rounded-xl border-2 px-7 py-2.5 text-[15px] font-bold ${verdictStyle(value)} ${locked ? "cursor-default" : ""}`}
             >

@@ -5,9 +5,10 @@
  * static files that work from file:// or any static host with no rewrite rules.
  */
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import { useRoute, navigate } from "./lib/hashRouter";
+import { useHotkeys } from "./lib/keyboard";
 import { installFlushHandlers } from "./storage";
 import { level, streak } from "./state/selectors";
 import { useApp } from "./state/store";
@@ -18,7 +19,8 @@ import { ReviewQueue } from "./views/ReviewQueue";
 import { Session } from "./views/Session";
 import { Progress } from "./views/Progress";
 import { Topic } from "./views/Topic";
-import { EmptyState, Ring } from "./ui/primitives";
+import { EmptyState, Kbd, Ring } from "./ui/primitives";
+import { ErrorBoundary } from "./ui/ErrorBoundary";
 import { Icon } from "./ui/icons";
 
 const NAV = [
@@ -71,7 +73,7 @@ function Header() {
                 type="button"
                 onClick={() => navigate(entry.path)}
                 aria-current={isActive ? "page" : undefined}
-                className={`shrink-0 whitespace-nowrap rounded-lg px-2.5 py-1.5 text-[13px] font-medium ${
+                className={`tap shrink-0 whitespace-nowrap rounded-lg px-2.5 py-1.5 text-[13px] font-medium ${
                   isActive
                     ? "bg-accent text-accent-fg shadow-sm"
                     : "text-fg-muted hover:bg-surface-2 hover:text-fg"
@@ -85,7 +87,7 @@ function Header() {
           <button
             type="button"
             onClick={toggleEffects}
-            className={`ml-1 shrink-0 rounded-lg px-2 py-1.5 ${effects === "calm" ? "text-fg-subtle hover:bg-surface-2" : "text-xp hover:bg-surface-2"}`}
+            className={`tap ml-1 shrink-0 rounded-lg px-2 py-1.5 ${effects === "calm" ? "text-fg-subtle hover:bg-surface-2" : "text-xp hover:bg-surface-2"}`}
             aria-label={effects === "calm" ? "Turn animations on" : "Calm mode: turn animations off"}
             title={effects === "calm" ? "Calm mode is on — click for animations" : "Animations on — click for calm mode"}
           >
@@ -95,7 +97,7 @@ function Header() {
           <button
             type="button"
             onClick={toggleTheme}
-            className="shrink-0 rounded-lg px-2.5 py-1.5 text-[13px] text-fg-muted hover:bg-surface-2 hover:text-fg"
+            className="tap shrink-0 rounded-lg px-2.5 py-1.5 text-[13px] text-fg-muted hover:bg-surface-2 hover:text-fg"
             aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
             title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
           >
@@ -125,7 +127,7 @@ function StatusBar() {
       type="button"
       onClick={() => navigate("progress")}
       title={`Level ${info.level} — ${info.title}`}
-      className="flex shrink-0 items-center gap-2.5 rounded-lg px-1.5 py-1 hover:bg-surface-2"
+      className="tap flex shrink-0 items-center gap-2.5 rounded-lg px-1.5 py-1 hover:bg-surface-2"
     >
       <Ring value={info.progress} size={26} thickness={3} color="var(--p-accent)">
         <span className="text-[10px] font-bold text-fg tnum">{info.level}</span>
@@ -149,6 +151,79 @@ function StatusBar() {
         {streakInfo.current}
       </span>
     </button>
+  );
+}
+
+/**
+ * Keyboard reference, on `?`.
+ *
+ * The app is keyboard-first, which is only true if the keys are discoverable. This is
+ * the one place they are written down, so it has to stay in step with what the views
+ * actually bind — the comment on each row names the view that owns the key.
+ */
+const SHORTCUTS: { keys: string[]; what: string; where: string }[] = [
+  { keys: ["1", "…", "9"], what: "Pick an answer", where: "In a question" },
+  { keys: ["T", "F"], what: "True or false", where: "In a true/false question" },
+  { keys: ["C"], what: "Tag confident", where: "In a question" },
+  { keys: ["U"], what: "Tag unsure", where: "In a question" },
+  { keys: ["G"], what: "Tag guessing", where: "In a question" },
+  { keys: ["Enter"], what: "Check the answer, then move on", where: "In a question" },
+  { keys: ["Space"], what: "Reveal the explanation", where: "In a question" },
+  { keys: ["Esc"], what: "Leave the set", where: "In a question" },
+  { keys: ["Enter"], what: "Start the questions", where: "On a topic" },
+  { keys: ["Enter"], what: "Back to where you came from", where: "On a result" },
+  { keys: ["/"], what: "Jump to search", where: "In the glossary" },
+  { keys: ["?"], what: "This list", where: "Anywhere" },
+];
+
+function ShortcutsOverlay({ onClose }: { onClose: () => void }) {
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-start justify-center overflow-auto bg-black/40 p-4 sm:items-center"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Keyboard shortcuts"
+      onClick={onClose}
+    >
+      <div
+        className="w-full max-w-md rounded-xl border border-border-base bg-surface p-5 shadow-card"
+        // Clicks inside must not dismiss it, or selecting text closes the dialog.
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="mb-3 flex items-baseline justify-between gap-4">
+          <h2 className="text-[16px] font-bold text-fg">Keyboard</h2>
+          <button
+            type="button"
+            onClick={onClose}
+            className="text-[13px] text-fg-muted underline decoration-dotted underline-offset-2 hover:text-fg"
+          >
+            Close <Kbd>Esc</Kbd>
+          </button>
+        </div>
+
+        <table className="w-full text-left text-[13.5px]">
+          <tbody>
+            {SHORTCUTS.map((row, i) => (
+              <tr key={i} className="border-t border-border-base first:border-t-0">
+                <td className="whitespace-nowrap py-1.5 pr-3 align-top">
+                  {row.keys.map((key, k) =>
+                    key === "…" ? (
+                      <span key={k} className="px-0.5 text-fg-subtle">
+                        …
+                      </span>
+                    ) : (
+                      <Kbd key={k}>{key}</Kbd>
+                    ),
+                  )}
+                </td>
+                <td className="py-1.5 pr-3 align-top text-fg">{row.what}</td>
+                <td className="py-1.5 align-top text-[12.5px] text-fg-subtle">{row.where}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
   );
 }
 
@@ -266,21 +341,44 @@ function NotFound() {
 export function App() {
   const hydrate = useApp((s) => s.hydrate);
   const hydrated = useApp((s) => s.hydrated);
+  const [showShortcuts, setShowShortcuts] = useState(false);
 
   useEffect(() => {
     void hydrate();
     return installFlushHandlers();
   }, [hydrate]);
 
+  // Registered at the shell so `?` works on every page. Escape is claimed here only
+  // while the overlay is open, so a session keeps it the rest of the time.
+  useHotkeys({ "?": () => setShowShortcuts((open) => !open) });
+  useHotkeys({ Escape: () => setShowShortcuts(false) }, showShortcuts);
+
   return (
     <div className="flex min-h-dvh flex-col">
+      {/* First tab stop: the nav is seven controls deep, and a keyboard user should
+          not have to walk it on every page change. */}
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-3 focus:top-3 focus:z-50 focus:rounded-lg focus:bg-accent focus:px-3 focus:py-2 focus:text-sm focus:font-semibold focus:text-accent-fg"
+      >
+        Skip to content
+      </a>
+
       <Header />
       <StorageNotice />
-      <main className="mx-auto w-full max-w-5xl flex-1 px-5 py-8 sm:py-10">
+
+      <main id="main" className="mx-auto w-full max-w-5xl flex-1 px-5 py-8 sm:py-10">
         {/* Held back one tick so the persisted theme applies before content paints. */}
-        {hydrated ? <Routes /> : null}
+        {hydrated ? (
+          <ErrorBoundary>
+            <Routes />
+          </ErrorBoundary>
+        ) : null}
       </main>
+
       <Footer />
+
+      {showShortcuts && <ShortcutsOverlay onClose={() => setShowShortcuts(false)} />}
     </div>
   );
 }

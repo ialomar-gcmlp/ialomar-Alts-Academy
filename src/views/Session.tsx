@@ -221,6 +221,26 @@ export function Session({ topicId }: { topicId?: string }) {
 
   const graded = item?.grade ?? null;
   const isExam = session?.mode === "exam";
+
+  /**
+   * Focus follows the question.
+   *
+   * Advancing replaces the card's contents while focus stays on the button that was
+   * pressed, so a keyboard or screen-reader user is left pointing at "Next question"
+   * with no idea what is now on screen. Moving focus to the question heading fixes
+   * that, and `tabIndex={-1}` makes the heading focusable without adding a tab stop.
+   */
+  const stemRef = useRef<HTMLDivElement>(null);
+  const positionKey = `${session?.startedAt ?? 0}:${session?.index ?? 0}`;
+  const firstRender = useRef(true);
+  useEffect(() => {
+    if (firstRender.current) {
+      // Not on mount: stealing focus on arrival would scroll a fresh page.
+      firstRender.current = false;
+      return;
+    }
+    stemRef.current?.focus();
+  }, [positionKey]);
   const answerable =
     item !== null && isAnswerable(item.question, item.response);
   // An exam does not ask for confidence, so an answer is all it waits for.
@@ -407,13 +427,15 @@ export function Session({ topicId }: { topicId?: string }) {
             )}
           </div>
 
-          <QuestionView
-            question={item.question}
-            response={item.response}
-            grade={graded}
-            onRespond={setResponse}
-            onSubmit={() => canSubmit && submit()}
-          />
+          <div ref={stemRef} tabIndex={-1} className="outline-none">
+            <QuestionView
+              question={item.question}
+              response={item.response}
+              grade={graded}
+              onRespond={setResponse}
+              onSubmit={() => canSubmit && submit()}
+            />
+          </div>
 
           {/* Confidence — required before submitting, and never asked in an exam */}
           {graded === null && !isExam && (
@@ -433,7 +455,7 @@ export function Session({ topicId }: { topicId?: string }) {
                       type="button"
                       onClick={() => setConfidence(level)}
                       aria-pressed={on}
-                      className={`inline-flex items-center gap-2 rounded-md border px-3.5 py-1.5 text-[14px] font-medium ${on ? CONFIDENCE_STYLES[level].on : CONFIDENCE_STYLES[level].off}`}
+                      className={`tap inline-flex items-center gap-2 rounded-md border px-3.5 py-1.5 text-[14px] font-medium ${on ? CONFIDENCE_STYLES[level].on : CONFIDENCE_STYLES[level].off}`}
                     >
                       {CONFIDENCE_LABELS[level]}
                       <span
@@ -448,9 +470,15 @@ export function Session({ topicId }: { topicId?: string }) {
             </div>
           )}
 
-          {/* Verdict + explanation. An exam marks the whole paper at the end. */}
+          {/* Verdict + explanation. An exam marks the whole paper at the end.
+              `role="status"` announces the outcome: without it the only signal that
+              an answer was graded is colour and an icon. */}
           {graded !== null && !isExam && (
-            <div className="mt-7 border-t border-border-base pt-5">
+            <div
+              className="mt-7 border-t border-border-base pt-5"
+              role="status"
+              aria-live="polite"
+            >
               <div
                 key={item.question.id}
                 className={`anim-pop relative mb-4 flex flex-wrap items-center gap-2.5 overflow-visible rounded-lg px-3.5 py-2.5 ${

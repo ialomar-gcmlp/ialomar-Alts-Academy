@@ -588,6 +588,46 @@ first. Answers since are counted from the answer log, which is trimmed to a roll
 window and so is only usable for a threshold this small. An app that nags on day one
 gets ignored by the time it matters.
 
+### Accessibility and polish — BUILT (M7)
+
+Findings from the M7 sweep, and the rules that came out of them:
+
+- **Text contrast is measured, not judged.** `--p-fg-subtle` was #948f88, which measures 2.87:1 on a
+  well — below even the large-text floor, on the token used for every 11-13px label. Now #736e67
+  (light) and #918c83 (dark); `--p-flag` also moved for the same reason. Every text token now clears
+  4.5:1 against every surface it sits on, in both modes. **Re-measure after any token change** — the
+  domain-hue validator checks series colours against the surface, not text against text.
+- **Touch targets.** A `.tap` class sets `min-height: 44px` under `@media (pointer: coarse)`, applied
+  to `buttonBase`, the nav pills, the confidence pills and the status chip. Deliberately not applied
+  to every element: the weekday pills and difficulty pips are decoration, and inflating them would
+  wreck the layout.
+- **Focus follows the question.** Advancing replaces the card's contents while focus sits on the
+  button that was pressed. `Session.tsx` moves focus to the question wrapper (`tabIndex={-1}`) on
+  every index change, but not on mount.
+- **The mark is never colour alone.** Graded choices carry an `sr-only` verdict, because the
+  tick/cross marker is `aria-hidden`. The verdict block is `role="status" aria-live="polite"`.
+- **`?` opens the keyboard reference** (`SHORTCUTS` in `App.tsx`). It is the only written record of
+  the bindings, so it has to be updated with them.
+- **`ErrorBoundary` offers the export.** A render crash reads the raw blob straight out of
+  localStorage rather than going through the store — the store is what might be broken — and wraps it
+  in the same envelope so the file is importable. It shows the stack too: no bug tracker, and the
+  stack is the only diagnostic there is.
+- **Empty states distinguish "nothing yet" from "nothing now".** A first-run user has never answered
+  anything, which is not the same as having nothing due: Home says "Start here", the analytics
+  section collapses to one line, and the forecast does not claim answers exist.
+
+### Offline: verified, and how
+
+`base: "./"` in `vite.config.ts` — **not the default**. Absolute `/assets/…` paths only work from a
+domain root, which made the documented claim ("openable from file://, hostable in a subdirectory")
+false until M7 caught it. Verified by serving `dist/` at both a server root and `/dist/`, and by
+confirming the old absolute path 404s where the relative one resolves.
+
+The network log for a full walk of the built app — every view, a session, KaTeX, lazy topic chunks —
+contains **only** requests to the local origin. The single external string in the bundle is React's
+error-decoder URL inside an error message, which is never fetched. KaTeX fonts are vendored into
+`dist/assets/`.
+
 ### Dev-only inspection handle
 
 `main.tsx` exposes the store as `window.__alts` under `import.meta.env.DEV`. Time accounting has to
@@ -728,7 +768,7 @@ Commit at the end of each milestone, then stop for review. Run `npm run verify` 
 | M4 | Glossary popovers, global page, drill mode | done |
 | M5 | Content build-out, one domain per batch, validated, pause between batches | done — see inventory below |
 | M6 | Mock exams, analytics, export/import, session resume | done — M6a resume + active time, M6b mock exams, M6c analytics, M6d export/import |
-| M7 | Polish: mobile, keyboard, accessibility, empty states, error handling; offline smoke test of `dist/` | **next** |
+| M7 | Polish: mobile, keyboard, accessibility, empty states, error handling; offline smoke test of `dist/` | done |
 
 Working software over completeness at every milestone. A great app with 20 topics beats a broken one
 with 200. Keep this table's Status column current.

@@ -228,6 +228,8 @@ function Hero({
   const info = level(progress);
   const streakInfo = streak(progress, Date.now());
   const goalPct = Math.min(1, streakInfo.secondsToday / streakInfo.goalSeconds);
+  /** Never answered anything. Not the same as "nothing due today". */
+  const firstRun = Object.keys(progress.questions).length === 0;
 
   return (
     <Card className="mb-8 overflow-hidden">
@@ -247,19 +249,25 @@ function Hero({
       <div className="flex flex-col gap-5 p-5 sm:flex-row sm:items-start sm:justify-between sm:gap-6 sm:p-6">
         <div className="min-w-0 flex-1">
           <h1 className="text-[22px] font-bold leading-tight tracking-tight text-fg sm:text-[30px]">
-            {due.length > 0
-              ? `${due.length} question${due.length === 1 ? "" : "s"} ready to come back`
-              : streakInfo.todayQualified
-                ? "Today is already banked."
-                : "Pick up where you left off."}
+            {/* A first-time user has nothing to pick up, and telling them otherwise
+                is the first thing they read. */}
+            {firstRun
+              ? "Start here."
+              : due.length > 0
+                ? `${due.length} question${due.length === 1 ? "" : "s"} ready to come back`
+                : streakInfo.todayQualified
+                  ? "Today is already banked."
+                  : "Pick up where you left off."}
           </h1>
 
           <p className="mt-1.5 max-w-measure text-[14.5px] leading-relaxed text-fg-muted">
-            {due.length > 0
-              ? "Reviews are the half that makes it stick — mixed across topics, most overdue first."
-              : suggestion !== undefined
-                ? `Nothing due right now, so this is a good moment for something new: ${suggestion.topic.title}.`
-                : "Every specialist term is underlined — tap or hover it for a plain-English definition."}
+            {firstRun
+              ? "Every topic is a short lesson and then questions on it. Answer honestly about how sure you are — that is what decides when each question comes back."
+              : due.length > 0
+                ? "Reviews are the half that makes it stick — mixed across topics, most overdue first."
+                : suggestion !== undefined
+                  ? `Nothing due right now, so this is a good moment for something new: ${suggestion.topic.title}.`
+                  : "Every specialist term is underlined — tap or hover it for a plain-English definition."}
           </p>
 
           <div className="mt-5 flex flex-wrap items-center gap-2.5">

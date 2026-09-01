@@ -74,6 +74,16 @@ function contentManifest(): Plugin {
 export default defineConfig({
   plugins: [contentManifest(), react(), tailwindcss()],
 
+  /**
+   * Relative asset paths, not absolute.
+   *
+   * The default `/assets/...` only works when the app is served from a domain root.
+   * With `./` the same `dist/` opens from `file://`, from a subdirectory of a static
+   * host, and from a server root — which is the whole reason this app uses hash
+   * routing. M7 caught the claim being false: the paths were absolute.
+   */
+  base: "./",
+
   build: {
     // Static output, hostable anywhere, openable from file:// (hash routing).
     target: "es2022",

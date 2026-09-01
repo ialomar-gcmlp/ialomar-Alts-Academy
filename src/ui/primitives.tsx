@@ -18,7 +18,7 @@ import { Icon, type IconName } from "./icons";
 type ButtonVariant = "primary" | "secondary" | "ghost" | "vivid" | "danger";
 
 const buttonBase =
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg font-semibold press " +
+  "tap inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg font-semibold press " +
   "disabled:opacity-40 disabled:cursor-not-allowed select-none";
 
 const buttonVariants: Record<ButtonVariant, string> = {
