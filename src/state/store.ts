@@ -55,6 +55,7 @@ import {
   flushSync,
   load,
   save,
+  stashPreImport,
   type Effects,
   type LoadStatus,
   type ProgressState,
@@ -70,6 +71,7 @@ import {
   type ActiveClock,
 } from "../engine/activeTime";
 import { fromSaved, savedTopicIds, toSaved } from "./sessionPersist";
+import { exportFilename, serializeExport } from "../storage/transfer";
 
 /**
  * Time credited to a question comes from src/engine/activeTime.ts, which pauses when
@@ -182,6 +184,21 @@ interface AppState {
   resumeSaved: () => Promise<boolean>;
   /** Throw away the saved session without resuming it. */
   discardSaved: () => void;
+
+  /* ---- export and import (M6d) ---- */
+
+  /**
+   * Serialize progress for download and stamp `meta.lastExportAt`.
+   *
+   * Returns the text and filename rather than touching the DOM: the store does not
+   * know about anchors, and this keeps the action testable.
+   */
+  exportProgress: () => { text: string; filename: string };
+  /**
+   * Replace all progress with a validated import. The previous state is kept under a
+   * separate storage key first, because this is the one destructive action in the app.
+   */
+  importProgress: (state: ProgressState) => void;
 }
 
 export const useApp = create<AppState>((set, get) => ({
@@ -779,6 +796,39 @@ export const useApp = create<AppState>((set, get) => ({
   discardSaved() {
     const progress = clearSavedSession(get().progress);
     set({ progress });
+  },
+
+  exportProgress() {
+    const now = Date.now();
+    const state = get().progress;
+    const text = serializeExport(state, now);
+
+    // Stamped only on a real export, and after serializing — so the file records the
+    // state as it was, and the nudge counts from the moment it was saved.
+    const progress: ProgressState = {
+      ...state,
+      meta: { ...state.meta, lastExportAt: new Date(now).toISOString() },
+    };
+    set({ progress });
+    save(progress);
+    void flush();
+
+    return { text, filename: exportFilename(now) };
+  },
+
+  importProgress(state) {
+    // Keep what is being replaced. The confirm dialog says this cannot be undone from
+    // inside the app, which is true — but a copy on disk costs nothing and has saved
+    // this kind of mistake before.
+    stashPreImport(get().progress);
+
+    // The import decides settings too, so the theme has to be reapplied.
+    applyTheme(state.settings.theme);
+    applyEffects(state.settings.effects);
+
+    set({ progress: state, session: null });
+    save(state);
+    void flush();
   },
 }));
 

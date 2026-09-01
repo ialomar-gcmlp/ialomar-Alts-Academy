@@ -152,6 +152,18 @@ export async function flush(): Promise<void> {
   await adapter.set(KEY, JSON.stringify(state));
 }
 
+/**
+ * Keep a copy of the state an import is about to replace.
+ *
+ * Written synchronously and under its own key, so it survives even if the import
+ * itself goes wrong. Same idea as the pre-migration backup: the user cannot undo an
+ * import from inside the app, so the bytes should still exist somewhere.
+ */
+export function stashPreImport(state: ProgressState): void {
+  if (!adapter.available) return;
+  adapter.setSync(`${KEY}.backup.preimport`, JSON.stringify(state));
+}
+
 /** Synchronous last resort, for pagehide/visibilitychange. */
 export function flushSync(): void {
   if (writesBlocked || pending === null) return;

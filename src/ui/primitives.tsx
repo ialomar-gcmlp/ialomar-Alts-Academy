@@ -15,7 +15,7 @@ import { Icon, type IconName } from "./icons";
  * Button
  * ------------------------------------------------------------------ */
 
-type ButtonVariant = "primary" | "secondary" | "ghost" | "vivid";
+type ButtonVariant = "primary" | "secondary" | "ghost" | "vivid" | "danger";
 
 const buttonBase =
   "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg font-semibold press " +
@@ -29,6 +29,10 @@ const buttonVariants: Record<ButtonVariant, string> = {
     "hover:brightness-110",
   secondary: "bg-surface text-fg border border-border-strong hover:bg-surface-2",
   ghost: "text-fg-muted hover:text-fg hover:bg-surface-2",
+  // Reserved for actions that destroy data. Only the import confirmation uses it, and
+  // it should stay that way — a warning colour on an ordinary button teaches the user
+  // to ignore it.
+  danger: "bg-incorrect text-white hover:brightness-110 shadow-sm",
 };
 
 const buttonSizes = {

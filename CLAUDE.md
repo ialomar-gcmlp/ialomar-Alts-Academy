@@ -560,6 +560,34 @@ The page still shows no "answers given" or "hours studied" headline. Counts appe
 only as the denominator of an accuracy figure, where leaving them out would be the
 dishonest choice.
 
+### Export and import — BUILT (M6d). `storage/transfer.ts`
+
+The only way progress leaves this machine, and the only reason a browser wiping its
+storage is survivable. Buttons live in the **Your data** card on the Progress page.
+
+- **Export** is a Blob the browser saves — `alts-academy-progress-YYYY-MM-DD.json`,
+  wrapped in an envelope carrying `format` and `schemaVersion`. Stamps
+  `meta.lastExportAt` after serializing, so the file records the state as it was.
+- **Import runs the same migration chain and Zod schema as stored progress**, so a
+  file exported months ago from an older build still imports, upgraded on the way in.
+- **Every refusal gives a reason the user can act on**: not JSON, not our format,
+  from a newer build ("update the app and import it again — nothing has been
+  changed"), or the field that failed validation. A partially applied import would be
+  the worst outcome in this app, so nothing is touched until it validates.
+- **Two steps, and the second one names what dies**: how many answers and how much XP
+  the file holds, against what it would replace. `Button variant="danger"` exists only
+  for that confirmation and should stay that way.
+- The state being replaced is stashed under `progress.backup.preimport` first. The
+  dialog is honest that an import cannot be undone from inside the app — the copy on
+  disk is the safety net, not a promise in the UI.
+
+**The nudge** (`backupNudge`) is deliberately quiet: silent until there is something
+worth losing, then one line — on Home, linking to the buttons — after
+`BACKUP_NUDGE.AFTER_DAYS` (14) or `AFTER_ANSWERS` (100) new answers, whichever comes
+first. Answers since are counted from the answer log, which is trimmed to a rolling
+window and so is only usable for a threshold this small. An app that nags on day one
+gets ignored by the time it matters.
+
 ### Dev-only inspection handle
 
 `main.tsx` exposes the store as `window.__alts` under `import.meta.env.DEV`. Time accounting has to
@@ -699,8 +727,8 @@ Commit at the end of each milestone, then stop for review. Run `npm run verify` 
 | M3 | XP, levels, streaks, badges, skill tree | done |
 | M4 | Glossary popovers, global page, drill mode | done |
 | M5 | Content build-out, one domain per batch, validated, pause between batches | done — see inventory below |
-| M6 | Mock exams, analytics, export/import, session resume | **in progress** — M6a resume + active time, M6b mock exams, M6c analytics done; export/import to come |
-| M7 | Polish: mobile, keyboard, accessibility, empty states, error handling | |
+| M6 | Mock exams, analytics, export/import, session resume | done — M6a resume + active time, M6b mock exams, M6c analytics, M6d export/import |
+| M7 | Polish: mobile, keyboard, accessibility, empty states, error handling; offline smoke test of `dist/` | **next** |
 
 Working software over completeness at every milestone. A great app with 20 topics beats a broken one
 with 200. Keep this table's Status column current.

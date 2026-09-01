@@ -24,6 +24,7 @@ import {
 } from "../state/selectors";
 import { selectResumableSession, useApp } from "../state/store";
 import { savedProgressSummary } from "../state/sessionPersist";
+import { backupNudge } from "../storage/transfer";
 import type { SavedSession } from "../storage/progressSchema";
 import { dayKey } from "../storage/progressSchema";
 import { DOMAIN_MONOGRAM, domainStyle } from "../ui/domain";
@@ -115,6 +116,34 @@ function resumeRoute(saved: SavedSession): string {
   if (saved.mode === "exam") return "exam";
   if (saved.topicId !== null) return `quiz/${saved.topicId}`;
   return "review";
+}
+
+/**
+ * A single line about backing up, and only when it is warranted.
+ *
+ * On the home page because that is where the user actually is; the buttons live on
+ * the Progress page, so this links there rather than duplicating them. `backupNudge`
+ * decides when — nothing until there is something worth losing.
+ */
+function BackupNudge() {
+  const progress = useApp((s) => s.progress);
+  const nudge = backupNudge(progress, Date.now());
+
+  if (!nudge.due || nudge.message === null) return null;
+
+  return (
+    <p className="mb-4 flex flex-wrap items-center gap-x-2 gap-y-1 text-[12.5px] text-fg-subtle">
+      <Icon name="alert" size={13} className="shrink-0 text-flag" />
+      {nudge.message}
+      <button
+        type="button"
+        onClick={() => navigate("progress")}
+        className="underline decoration-dotted underline-offset-2 hover:text-fg-muted"
+      >
+        Export a copy
+      </button>
+    </p>
+  );
 }
 
 function ResumeCard() {
@@ -471,6 +500,7 @@ export function Home() {
 
   return (
     <div>
+      <BackupNudge />
       <ResumeCard />
 
       <Hero

@@ -8,7 +8,7 @@
  * where leaving them out would be the dishonest choice.
  */
 
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 
 import {
   accuracyByHour,
@@ -34,8 +34,16 @@ import {
 import { useApp } from "../state/store";
 import { DOMAIN_MONOGRAM, domainStyle } from "../ui/domain";
 import { Icon } from "../ui/icons";
-import { Badge, Card, Meter, Monogram, PageTitle, Ring } from "../ui/primitives";
+import { Badge, Button, Card, Meter, Monogram, PageTitle, Ring } from "../ui/primitives";
 import { SkillTree, SkillTreeLegend } from "../ui/SkillTree";
+import {
+  backupNudge,
+  lastExportLabel,
+  parseImport,
+  replacementSentence,
+  summarize,
+  type ImportResult,
+} from "../storage/transfer";
 import { Sparkline, type SparkPoint } from "../ui/charts/Sparkline";
 
 function LevelCard() {
@@ -522,6 +530,141 @@ function DomainBoard() {
 }
 
 /** Motion, in one place, next to the numbers it decorates. */
+/**
+ * Export and import.
+ *
+ * The one destructive action in the app, so it is a two-step: pick a file, read what
+ * it holds and what it would replace, then confirm. The summary is in the user's terms
+ * — answers, XP, dates — because "Import?" is not a question anyone can answer safely.
+ *
+ * No network: export is a Blob the browser saves, import is a file the user picks.
+ */
+function DataCard() {
+  const progress = useApp((s) => s.progress);
+  const exportProgress = useApp((s) => s.exportProgress);
+  const importProgress = useApp((s) => s.importProgress);
+
+  const fileInput = useRef<HTMLInputElement>(null);
+  const [pending, setPending] = useState<ImportResult | null>(null);
+  const [done, setDone] = useState<string | null>(null);
+
+  const now = Date.now();
+  const nudge = backupNudge(progress, now);
+  const current = summarize(progress);
+
+  const download = (): void => {
+    const { text, filename } = exportProgress();
+    const url = URL.createObjectURL(new Blob([text], { type: "application/json" }));
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = filename;
+    link.click();
+    // Revoked on the next tick: Safari needs the element to have been clicked first.
+    setTimeout(() => URL.revokeObjectURL(url), 0);
+    setDone(`Saved ${filename}`);
+  };
+
+  const pick = async (file: File | undefined): Promise<void> => {
+    setDone(null);
+    if (file === undefined) return;
+    setPending(parseImport(await file.text()));
+    // Cleared so picking the same file twice still fires a change event.
+    if (fileInput.current !== null) fileInput.current.value = "";
+  };
+
+  const confirmImport = (): void => {
+    if (pending === null || pending.status !== "ok") return;
+    importProgress(pending.state);
+    setPending(null);
+    setDone(
+      `Imported ${pending.summary.answers} answered question${pending.summary.answers === 1 ? "" : "s"}${pending.migrated ? `, upgraded from schema v${pending.fromVersion}` : ""}.`,
+    );
+  };
+
+  return (
+    <Card className="p-5">
+      <h2 className="mb-1 text-[13px] font-bold uppercase tracking-wider text-fg-subtle">
+        Your data
+      </h2>
+      <p className="mb-4 max-w-measure text-[13px] leading-relaxed text-fg-muted">
+        Everything lives in this browser's storage — there is no account and nothing
+        leaves the machine. An export is the only copy that survives clearing site data
+        or moving to another computer.
+      </p>
+
+      <div className="mb-4 flex flex-wrap items-center gap-2">
+        <Button variant="secondary" onClick={download}>
+          <Icon name="arrow" size={15} className="rotate-90" />
+          Export
+        </Button>
+        <Button variant="ghost" onClick={() => fileInput.current?.click()}>
+          Import a file
+        </Button>
+        <input
+          ref={fileInput}
+          type="file"
+          accept="application/json,.json"
+          className="hidden"
+          onChange={(e) => void pick(e.target.files?.[0])}
+        />
+        <span className="text-[12.5px] text-fg-subtle tnum">
+          {lastExportLabel(progress, now)}
+          {current.answers > 0 && ` · ${current.answers} answered questions here`}
+        </span>
+      </div>
+
+      {nudge.due && nudge.message !== null && pending === null && (
+        <p className="mb-4 flex items-start gap-2 rounded-md border border-flag bg-flag-soft px-3.5 py-2.5 text-[13px] leading-relaxed text-flag">
+          <Icon name="alert" size={14} className="mt-0.5 shrink-0" />
+          {nudge.message}
+        </p>
+      )}
+
+      {done !== null && (
+        <p className="mb-4 rounded-md border border-correct bg-correct-soft px-3.5 py-2.5 text-[13px] text-correct">
+          {done}
+        </p>
+      )}
+
+      {pending !== null && pending.status === "error" && (
+        <div className="rounded-md border border-incorrect bg-incorrect-soft px-3.5 py-2.5 text-[13px] leading-relaxed text-incorrect">
+          <p>{pending.detail}</p>
+          <button
+            type="button"
+            onClick={() => setPending(null)}
+            className="mt-2 underline decoration-dotted underline-offset-2"
+          >
+            Dismiss
+          </button>
+        </div>
+      )}
+
+      {pending !== null && pending.status === "ok" && (
+        <div className="rounded-lg border border-flag bg-flag-soft p-4">
+          <p className="font-semibold text-fg">Replace everything with this file?</p>
+          <p className="mt-1.5 max-w-measure text-[13.5px] leading-relaxed text-fg-muted">
+            {replacementSentence(pending.summary, current)}
+          </p>
+          {pending.migrated && (
+            <p className="mt-2 text-[12.5px] text-fg-subtle">
+              The file is from schema v{pending.fromVersion} and will be upgraded on
+              import.
+            </p>
+          )}
+          <div className="mt-4 flex flex-wrap gap-2">
+            <Button variant="danger" onClick={confirmImport}>
+              Replace my progress
+            </Button>
+            <Button variant="ghost" onClick={() => setPending(null)}>
+              Cancel
+            </Button>
+          </div>
+        </div>
+      )}
+    </Card>
+  );
+}
+
 function EffectsSwitch() {
   const effects = useApp((s) => s.progress.settings.effects);
   const toggleEffects = useApp((s) => s.toggleEffects);
@@ -600,8 +743,9 @@ export function Progress() {
 
       <Badges />
 
-      <div className="mt-10">
+      <div className="mt-10 grid gap-4 lg:grid-cols-2">
         <EffectsSwitch />
+        <DataCard />
       </div>
     </div>
   );
