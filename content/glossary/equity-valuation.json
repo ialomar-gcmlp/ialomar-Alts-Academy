@@ -3,6 +3,39 @@
   "domain": "equity-valuation",
   "terms": [
     {
+      "slug": "comparable-companies",
+      "term": "comparable company analysis",
+      "plain": "Valuing a business off what similar listed companies trade at. Gives a minority value, and the peer set does the valuing — so who chose it matters more than the arithmetic.",
+      "formal": "A relative valuation method applying trading multiples of similar listed companies to a subject company's financial metrics.",
+      "seeAlso": [
+        "precedent-transactions",
+        "valuation-multiple",
+        "fair-value"
+      ]
+    },
+    {
+      "slug": "dcf",
+      "term": "discounted cash flow (DCF)",
+      "plain": "Valuing a business as the cash it will produce, discounted for time and risk. Its real value is forcing you to state your assumptions — most of the answer usually comes from the terminal value.",
+      "formal": "A valuation method computing present value from projected free cash flows and a terminal value, discounted at a rate matched to the cash flow definition.",
+      "seeAlso": [
+        "terminal-value",
+        "wacc",
+        "valuation-multiple"
+      ]
+    },
+    {
+      "slug": "enterprise-value",
+      "term": "enterprise value (EV)",
+      "plain": "The value of the whole business, owed to lenders and shareholders together. Equity value plus net debt — so it pairs with profit measures taken before interest.",
+      "formal": "The aggregate value of a firm's operating assets, equal to equity market value plus net debt and other claims, used with pre-interest earnings measures.",
+      "seeAlso": [
+        "net-debt",
+        "valuation-multiple",
+        "ev-ebitda"
+      ]
+    },
+    {
       "slug": "ev-ebitda",
       "term": "EV/EBITDA multiple",
       "plain": "A company's total value (equity plus debt) divided by its EBITDA. The standard shorthand for how expensive a business is.",
@@ -11,6 +44,61 @@
         "ebitda",
         "buyout",
         "growth-equity"
+      ]
+    },
+    {
+      "slug": "fair-value",
+      "term": "fair value",
+      "plain": "An estimate of what an asset would fetch in an orderly transaction. For private companies it is produced quarterly by the owner — a considered judgement rather than a price someone paid.",
+      "formal": "The price receivable on selling an asset in an orderly transaction between market participants at the measurement date, estimated where no observable price exists.",
+      "seeAlso": [
+        "comparable-companies",
+        "net-asset-value",
+        "valuation-multiple"
+      ]
+    },
+    {
+      "slug": "multiple-expansion",
+      "term": "multiple expansion",
+      "plain": "Exiting at a higher multiple than you paid. Real money and not an operational achievement — it reflects what the market was willing to pay, so it should be separated in any attribution.",
+      "formal": "The component of investment return attributable to a change in the valuation multiple between entry and exit, distinct from earnings growth and debt reduction.",
+      "seeAlso": [
+        "valuation-multiple",
+        "enterprise-value",
+        "roic"
+      ]
+    },
+    {
+      "slug": "precedent-transactions",
+      "term": "precedent transaction analysis",
+      "plain": "Valuing a business off what acquirers actually paid for similar ones. Gives a control value, so it sits above trading comparables by roughly the control premium.",
+      "formal": "A relative valuation method applying multiples paid in comparable acquisitions, inclusive of control premia and acquirer-specific synergies.",
+      "seeAlso": [
+        "comparable-companies",
+        "control-premium",
+        "valuation-multiple"
+      ]
+    },
+    {
+      "slug": "terminal-value",
+      "term": "terminal value",
+      "plain": "Everything after the explicit forecast, collapsed into one number. Typically 70-80% of a DCF's answer, resting on two assumptions nobody can verify.",
+      "formal": "The present value at the forecast horizon of all subsequent cash flows, computed as a growing perpetuity or from an assumed exit multiple.",
+      "seeAlso": [
+        "dcf",
+        "wacc",
+        "valuation-multiple"
+      ]
+    },
+    {
+      "slug": "valuation-multiple",
+      "term": "valuation multiple",
+      "plain": "Value divided by a measure of profit. A compressed discounted cash flow: every multiple implies a growth rate, a discount rate and a reinvestment need, without saying which.",
+      "formal": "A ratio of enterprise or equity value to an earnings, cash flow or revenue measure, used for relative valuation against comparable assets.",
+      "seeAlso": [
+        "enterprise-value",
+        "ev-ebitda",
+        "comparable-companies"
       ]
     }
   ]

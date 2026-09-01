@@ -1,0 +1,282 @@
+{
+  "schemaVersion": 1,
+  "id": "eq-quality-01",
+  "domain": "equity-valuation",
+  "title": "What Makes a Business Worth a High Multiple",
+  "summary": "Growth is only valuable above the cost of capital, and it is only sustained if something stops competitors from taking it.",
+  "level": "advanced",
+  "prereqs": [
+    "eq-multiples-01",
+    "ci-wacc-01"
+  ],
+  "estMinutes": 9,
+  "examRelevance": [
+    "CFA-L2",
+    "CAIA-L2",
+    "practical"
+  ],
+  "lesson": [
+    {
+      "type": "concept",
+      "id": "what-it-is",
+      "body": "Two businesses grow revenue at 10% a year. One deserves a high multiple and the other does not, and the difference is not visible in the growth rate.\n\n**The question is what the growth costs.** Growth requires capital — working capital, equipment, stores, engineers. The relationship is exact:\n\n**growth = [[roic|ROIC]] × reinvestment rate**\n\nA business earning 10% on capital that wants to grow 10% must reinvest **all** of its profit. A business earning 30% on capital growing at the same 10% reinvests a third and has two thirds left over.\n\n**Same growth, and one of them produces cash while the other consumes it.**\n\nThis single identity explains most of what people mean by \"quality\". A high return on capital is what turns growth into cash rather than into a funding requirement. It is why software businesses command multiples that shock people from capital-intensive industries — not because the growth is faster, but because it is nearly free."
+    },
+    {
+      "type": "concept",
+      "id": "the-moat",
+      "body": "**A high return on capital attracts competition. What matters for valuation is whether anything stops it.**\n\nIn a competitive market, returns above the cost of capital are an invitation. Capital arrives, capacity expands, prices fall, and returns converge to the cost of capital. **The default assumption for any business should be that its excess returns fade.**\n\nSo a high multiple is a claim that they will not fade quickly, and that claim needs a mechanism. The durable ones are few:\n\n**Switching costs.** Changing supplier is expensive, risky or disruptive. Enterprise software embedded in a customer's operations, a bank's core system.\n\n**Network effects.** The product improves as more people use it, so scale is self-reinforcing.\n\n**Cost advantage.** Structurally lower costs from scale, location, or a process competitors cannot copy.\n\n**Intangible assets.** Brands people pay more for, patents, regulatory licences.\n\n**Efficient scale.** A market only large enough to support one or two operators profitably — most infrastructure.\n\n**What is not a moat: being good at your job, having a talented team, being first, or growing quickly.** All are real advantages and none prevents a well-funded competitor from entering. The test is whether a competitor with equal capital and equal talent would struggle to take the business."
+    },
+    {
+      "type": "intuition",
+      "id": "fade-is-the-assumption",
+      "body": "**Every valuation contains an implicit assumption about how long excess returns last, and almost nobody states it.**\n\nA multiple of 20x on a business earning 30% on capital is not primarily a bet on growth. It is a bet that 30% returns persist for a long time. If they fade to the cost of capital over five years, the same business is worth a fraction of that price even if revenue grows exactly as forecast.\n\nWhich reframes the diligence question in a useful way. Instead of \"how fast will it grow?\", ask:\n\n**How long can it earn these returns, and what stops competitors from arriving?**\n\nThe evidence for durability is historical and specific:\n\n**How long has the return on capital been high?** Ten years of high returns through a competitive market is evidence. Three years after a favourable market shift is not.\n\n**What happened when a competitor tried?** Concrete history beats any theory about barriers.\n\n**Has pricing held in a downturn?** Pricing power is claimed constantly and revealed only under pressure.\n\n**And the asymmetry worth remembering: a business with a genuine moat and moderate growth compounds value quietly for decades. A business with fast growth and no moat converts capital into competitors' entry tickets** — it proves the market is attractive and invites everyone in."
+    },
+    {
+      "type": "example",
+      "id": "worked-reinvestment",
+      "body": "Two businesses, both growing 10% a year. One earns 10% on invested capital, the other 30%.",
+      "walkthrough": [
+        "**Low-return business.** growth = ROIC × reinvestment rate, so 10% = 10% × reinvestment. Reinvestment rate = **100%**. Every unit of profit goes back in.",
+        "**High-return business.** 10% = 30% × reinvestment. Reinvestment rate = **33%**. Two thirds of profit is free.",
+        "**Read that carefully: identical growth, and one produces no distributable cash at all while the other distributes two thirds of its earnings.**",
+        "Now check against the cost of capital, say 8%. The low-return business earns 10% on capital and is creating a little value: a 2-point spread on everything it reinvests.",
+        "The high-return business earns a 22-point spread, on a third of the reinvestment. So its growth is both cheaper and more valuable per unit.",
+        "And the slower-growth case is instructive too. At 5% growth: the 10% business reinvests 50%, and the 30% business reinvests **17%**, distributing 83% of profits.",
+        "Sanity check worth reusing: **compute the reinvestment rate from growth and ROIC before believing any growth story.** If it comes out near or above 100%, the growth is being funded rather than generated, and the business needs capital from somewhere — usually you."
+      ]
+    },
+    {
+      "type": "table",
+      "id": "moat-table",
+      "caption": "Testing a claimed advantage",
+      "headers": [
+        "Claimed advantage",
+        "Is it durable?",
+        "Evidence that settles it"
+      ],
+      "rows": [
+        [
+          "Switching costs",
+          "Often, in operationally embedded products",
+          "Actual churn rate, and what it costs a customer to leave."
+        ],
+        [
+          "Network effects",
+          "Very, where they genuinely exist",
+          "Whether value per user rises with scale — usually asserted, rarely shown."
+        ],
+        [
+          "Cost advantage",
+          "Depends on the source",
+          "Gross margin versus the nearest competitor, sustained over years."
+        ],
+        [
+          "Brand",
+          "Yes, where customers pay more for the same thing",
+          "Price premium against an equivalent unbranded product."
+        ],
+        [
+          "\"Best-in-class team\"",
+          "No",
+          "None — a competitor can hire equally good people."
+        ],
+        [
+          "First mover",
+          "No, on its own",
+          "Whether the lead converted into one of the mechanisms above."
+        ]
+      ]
+    },
+    {
+      "type": "concept",
+      "id": "how-it-goes-wrong",
+      "body": "**Extrapolating high returns forever.** The single largest source of overvaluation. Competition is the base case; persistence is the claim that needs evidence.\n\n**Confusing high margin with high return on capital.** A business can have excellent margins and terrible returns if it needs an enormous asset base. Margin is per unit of revenue; ROIC is per unit of capital, and only the second determines value.\n\n**Ignoring the reinvestment requirement.** A growth forecast without a matching capital forecast is arithmetic that does not close. The growth has to be paid for.\n\n**Treating market growth as company growth.** Being in an expanding market invites competitors as reliably as it provides customers.\n\n**Mistaking scale for a moat.** Being large helps only if it produces lower unit costs or a network effect. Otherwise it is just a bigger version of an ordinary business, with the same competitive exposure.\n\n**Buying quality at any price.** An excellent business bought at a multiple that already assumes thirty years of persistence has no margin for the moat eroding — and the price is the only protection available."
+    },
+    {
+      "type": "pitfall",
+      "id": "quality-in-private-markets",
+      "body": "**In private markets the quality question has a specific and uncomfortable form: how much of the return on capital belongs to the business, and how much belongs to the owner?**\n\nA founder-run company might earn high returns partly because the founder personally holds the customer relationships, prices the work, and works unreasonable hours. That return is real and it is not transferable — and the price being asked is a multiple of it.\n\nSo the diligence questions are about separability rather than about performance:\n\n**Customer concentration and ownership.** What share of revenue is with customers whose relationship is personal to the seller? What happens to those in year two?\n\n**Pricing discipline.** Is pricing systematic, or does one person decide each job? Systematic pricing survives a handover; judgement often does not.\n\n**Management depth.** Is there a team, or a person with assistants? The second is a key-person risk priced as a business.\n\n**Normalised costs.** A founder taking below-market pay, using their own property, or absorbing functions the business will have to hire for — all inflate the returns being sold.\n\n**The honest framing: you are buying the part of the business that survives the seller's departure, and the price should reflect that part.** This is exactly what an earnout is for, and it is why the negotiation over it is really a negotiation about whose returns these are."
+    },
+    {
+      "type": "onTheJob",
+      "id": "on-the-job",
+      "body": "**Compute the reinvestment rate from growth and ROIC before accepting any growth plan.** Near 100% means the growth consumes everything it earns.\n\n**Ask how long the return on capital has been above the cost of capital, and through what conditions.** Ten years including a downturn is evidence; three good years is a market observation.\n\n**Ask what happened the last time a serious competitor entered.** History settles moat arguments faster than any framework.\n\n**Ask what proportion of revenue is under contract versus relationship-based.** Particularly in founder-led businesses, where the distinction decides what actually transfers.\n\n**For a high multiple, ask how many years of excess returns it implies.** If the answer is twenty and the moat evidence covers three, the price and the evidence are not talking about the same business."
+    },
+    {
+      "type": "keyTakeaways",
+      "id": "takeaways",
+      "items": [
+        "growth = ROIC × reinvestment rate. At 10% growth, a 10% ROIC business reinvests everything and a 30% ROIC business reinvests a third — same growth, opposite cash generation.",
+        "High returns attract competition, so fade is the base case and persistence is the claim requiring evidence. A high multiple is mostly a bet on duration, not on growth.",
+        "Switching costs, network effects, cost advantage, intangibles and efficient scale are moats. A talented team, being first and growing fast are not.",
+        "In private markets, ask how much of the return belongs to the business rather than to the founder — you are buying the part that survives their departure."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "eq-quality-01-q1",
+      "type": "mcq",
+      "difficulty": 2,
+      "tags": [
+        "quality",
+        "definition"
+      ],
+      "concept": "what-it-is",
+      "stem": "Two businesses both grow 10% a year. What determines whether that growth is worth paying for?",
+      "choices": [
+        "The size of the market they operate in",
+        "The return earned on the capital the growth requires — high returns mean growth generates cash, low returns mean it consumes cash",
+        "Whether the growth is organic or from acquisitions",
+        "How long they have been growing"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "A large market invites competitors as reliably as it provides customers, and says nothing about the return on capital.",
+        "Correct. growth = ROIC × reinvestment rate, so the same growth requires all of the profit at a 10% return and a third of it at 30%.",
+        "The source of growth matters for other reasons and does not change the capital arithmetic.",
+        "History is evidence about durability, not about what the growth costs."
+      ],
+      "explanation": "This one identity does most of the work in judging quality. It also explains why two companies with identical revenue growth can deserve completely different multiples without anyone being irrational."
+    },
+    {
+      "id": "eq-quality-01-q2",
+      "type": "numeric",
+      "difficulty": 3,
+      "tags": [
+        "quality",
+        "roic",
+        "arithmetic"
+      ],
+      "concept": "worked-reinvestment",
+      "stem": "A business earns 30% on invested capital and grows 10% a year. What reinvestment rate does that require, as a percentage of profit?",
+      "answer": 33,
+      "tolerance": 2,
+      "toleranceType": "abs",
+      "unit": "%",
+      "inputHint": "growth = ROIC × reinvestment rate",
+      "explanation": "Two thirds of profit is therefore free while still growing 10%. The identical growth rate at a 10% ROIC requires reinvesting everything — which is the entire difference between a compounding business and a treadmill."
+    },
+    {
+      "id": "eq-quality-01-q3",
+      "type": "numeric",
+      "difficulty": 3,
+      "tags": [
+        "quality",
+        "roic",
+        "arithmetic"
+      ],
+      "concept": "worked-reinvestment",
+      "stem": "A business earns 10% on invested capital and wants to grow 10% a year. What reinvestment rate does that require, as a percentage of profit?",
+      "answer": 100,
+      "tolerance": 2,
+      "toleranceType": "abs",
+      "unit": "%",
+      "explanation": "Every unit of profit goes back into the business, so it distributes nothing while growing. Any growth above 10% requires external capital — which is why low-ROIC growth companies are perpetually raising money and why that is a structural feature rather than a phase."
+    },
+    {
+      "id": "eq-quality-01-q4",
+      "type": "mcq",
+      "difficulty": 3,
+      "tags": [
+        "quality",
+        "moat"
+      ],
+      "concept": "the-moat",
+      "stem": "Which of these is a durable competitive advantage?",
+      "choices": [
+        "An exceptionally strong management team",
+        "High switching costs for customers whose operations depend on the product",
+        "Being first to market",
+        "Rapid revenue growth"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Real and valuable, and people can be hired away or retire. It is not a structural barrier to a competitor.",
+        "Correct. When leaving is expensive, risky or disruptive, a competitor must overcome the cost of switching as well as being better. That is a structural barrier.",
+        "It only matters if the lead was converted into switching costs, network effects or scale. On its own it is a head start.",
+        "Fast growth signals an attractive market, which attracts entrants — it is closer to a liability than a moat without a barrier."
+      ],
+      "explanation": "The test that separates them: would a competitor with equal capital and equal talent struggle to take this business? Switching costs pass, a good team does not — and the question is answerable with evidence rather than opinion."
+    },
+    {
+      "id": "eq-quality-01-q5",
+      "type": "tfj",
+      "difficulty": 4,
+      "tags": [
+        "quality",
+        "misconception"
+      ],
+      "concept": "what-it-is",
+      "stem": "\"This business has 40% margins, so it earns excellent returns on capital.\" True or false — and why?",
+      "isTrue": false,
+      "justifications": [
+        "False — margin is profit per unit of revenue and ROIC is profit per unit of capital; a high-margin business needing an enormous asset base can earn poor returns",
+        "False — margins and returns on capital are unrelated",
+        "True — high margins necessarily produce high returns on capital",
+        "False — because 40% margins are not unusually high"
+      ],
+      "justificationIndex": 0,
+      "rationales": [
+        "Correct. Capital intensity is the missing term. A pipeline or a semiconductor fabrication plant can have superb margins and ordinary returns because of the capital required to produce them.",
+        "Over-correction. They are related through asset turnover, which is exactly the variable that decides.",
+        "Only if the asset base is modest. The DuPont decomposition makes the dependence explicit.",
+        "The level is not the issue; the missing capital dimension is."
+      ],
+      "explanation": "The DuPont identity is doing the work here: return equals margin times turnover. High margin with low turnover and low margin with high turnover can produce the same return, and a distributor and a luxury brand are the same business by this measure and nothing alike in any other."
+    },
+    {
+      "id": "eq-quality-01-q6",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": [
+        "quality",
+        "valuation"
+      ],
+      "concept": "fade-is-the-assumption",
+      "stem": "A business earning 30% on capital trades at 20x earnings. What is that price primarily a bet on?",
+      "choices": [
+        "The rate of revenue growth over the next three years",
+        "How long the 30% returns persist before competition erodes them",
+        "The company's dividend policy",
+        "Interest rates staying low"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Near-term growth matters and is a small part of a valuation dominated by the terminal period.",
+        "Correct. Excess returns fade in competitive markets. A high multiple is a claim about duration — how many years the spread over the cost of capital survives.",
+        "Distribution policy allocates cash rather than creating it, and it does not drive the multiple.",
+        "Rates affect the discount rate, which matters, and they are not what the quality premium is about."
+      ],
+      "explanation": "Framing quality as a duration bet makes the diligence concrete: how many years of excess returns does this price require, and what evidence covers that period? A twenty-year implication supported by three years of history is a mismatch worth naming out loud."
+    },
+    {
+      "id": "eq-quality-01-q7",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": [
+        "quality",
+        "private-markets",
+        "on-the-job"
+      ],
+      "concept": "quality-in-private-markets",
+      "stem": "A founder-run business earns 35% on capital. What is the most important diligence question?",
+      "choices": [
+        "What is the founder's succession plan?",
+        "How much of that return depends on the founder personally — customer relationships, pricing judgement, below-market pay — and therefore does not transfer",
+        "What is the company's market share?",
+        "How long has the founder owned the business?"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Necessary and downstream: you first need to know how much of the economics is attached to the person.",
+        "Correct. You are buying the part of the business that survives the founder's departure, and the price is a multiple of returns that may partly belong to them rather than to it.",
+        "Market share describes position rather than transferability.",
+        "Tenure is context and does not tell you what is embedded in the person."
+      ],
+      "explanation": "This is why earnouts and retention packages exist, and why negotiating them is really a negotiation about whose returns these are. The specific tests — customer concentration, pricing systematisation, management depth, normalised owner compensation — are all answerable in diligence."
+    }
+  ],
+  "needsReview": false,
+  "reviewNote": null
+}

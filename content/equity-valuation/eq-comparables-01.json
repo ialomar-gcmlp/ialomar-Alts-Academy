@@ -1,0 +1,233 @@
+{
+  "schemaVersion": 1,
+  "id": "eq-comparables-01",
+  "domain": "equity-valuation",
+  "title": "Comparables and Precedent Transactions",
+  "summary": "The peer set is the answer. Whoever chooses it has already decided the valuation, and the choice is rarely shown.",
+  "level": "core",
+  "prereqs": ["eq-multiples-01"],
+  "estMinutes": 8,
+  "examRelevance": ["CFA-L1", "CAIA-L1", "practical"],
+  "lesson": [
+    {
+      "type": "concept",
+      "id": "what-it-is",
+      "body": "Two market-based valuation methods sit alongside a [[dcf|discounted cash flow]], and they answer subtly different questions.\n\n**[[comparable-companies|Comparable company analysis]]** — what do similar listed businesses trade at? This gives a *minority* market value: the price of a share, not of control.\n\n**[[precedent-transactions|Precedent transaction analysis]]** — what have buyers actually paid to acquire similar businesses? This gives a *control* value, and it includes whatever [[control-premium|premium]] and synergies those buyers were willing to pay for.\n\nSo the two methods normally produce different answers, and the gap is informative rather than a problem: **precedent transactions sit above trading comparables by roughly the control premium.**\n\nWhich you use depends on what is being valued. A minority stake with no control rights is closer to the trading comparable; an acquisition of the whole business is closer to the precedent transaction. **Valuing a control stake off trading multiples understates it, and marking a minority position at transaction multiples overstates it** — and the second error is the more common one in private portfolios."
+    },
+    {
+      "type": "concept",
+      "id": "selection-is-the-answer",
+      "body": "**The peer set determines the valuation, so whoever selects it has made the decision. Everything after that is arithmetic.**\n\nThis is not cynicism about the method — it is a description of where the judgement sits. A business could plausibly be compared with:\n\n- companies in the same narrow niche, of which there may be three;\n- companies in the broader sector, of which there are forty;\n- companies with similar growth and margins in any sector;\n- companies of similar size and geography.\n\nEach set produces a different multiple, and each is defensible. **A peer set assembled after the desired answer is known will produce that answer while every individual choice looks reasonable.**\n\nSo the questions to ask are about process rather than about the number:\n\n**Who chose the peers and when?** Before or after the valuation was drafted.\n\n**What was excluded, and on what stated criterion?** Exclusions carry more information than inclusions, and they are rarely listed.\n\n**Is the median or the mean being used?** With a small set, one outlier moves the mean substantially, and the choice is often unexplained.\n\n**How wide is the range?** A peer set spanning 6x to 18x has not produced a valuation; it has produced a list."
+    },
+    {
+      "type": "intuition",
+      "id": "adjust-then-compare",
+      "body": "**Comparables are only meaningful after adjusting for the things that legitimately differ, and there are exactly four that matter.**\n\n**Growth.** A peer growing 15% should trade above one growing 3%. Compare multiples against growth rates, not in isolation.\n\n**Profitability.** Return on capital and margin drive how much of the growth is free cash. Two companies at the same multiple with different ROIC are not equally priced.\n\n**Risk.** Cyclicality, customer concentration, regulatory exposure. Higher risk means a higher [[discount-rate|discount rate]] and a lower deserved multiple.\n\n**Capital intensity.** [[ebitda|EBITDA]] multiples treat a business needing 8% of revenue in [[capex|capital expenditure]] identically to one needing 1%. Over a hold period that gap is enormous.\n\nThe practical version is a small table: for each peer, the multiple next to its growth rate, its ROIC and its capex intensity. **A company on a lower multiple than peers with lower growth, lower returns and heavier capex is not cheap. It is correctly priced.**\n\n**And the inverse is the actual opportunity: a company on a peer-average multiple with above-peer growth and returns.** That is a mispricing rather than a discount, and it only becomes visible once the comparison has been adjusted."
+    },
+    {
+      "type": "example",
+      "id": "worked-peers",
+      "body": "A target trades at 8x EV/EBITDA. Three peer sets are proposed for the same business.",
+      "walkthrough": [
+        "**Narrow niche (3 companies):** multiples of 7x, 8x, 9x. Median **8x**. Conclusion: fairly valued.",
+        "**Broad sector (12 companies):** multiples ranging 6x to 16x. Median **11x**. Conclusion: 38% undervalued.",
+        "**Growth-and-margin matched (5 companies, any sector):** median **9x**. Conclusion: mildly undervalued.",
+        "**Read that carefully: three defensible peer sets, three conclusions ranging from fairly valued to 38% undervalued, on identical facts about the target.**",
+        "Now the diagnostic. The broad-sector set has a range of 6x to 16x — a spread that tells you the set contains businesses with genuinely different economics. Its median is arithmetic rather than evidence.",
+        "The narrow set is small enough that one company's idiosyncrasy moves the median, and it is the most economically comparable.",
+        "So the honest presentation is all three, with the ranges, and a stated preference with reasons — rather than one median presented as the answer.",
+        "Sanity check worth reusing: **look at the range before the median.** A tight range around a median is a real signal. A wide range means the peer set is heterogeneous, and its central figure is a number rather than a valuation."
+      ]
+    },
+    {
+      "type": "table",
+      "id": "method-table",
+      "caption": "Which method for which question",
+      "headers": ["Method", "Answers", "Systematic bias"],
+      "rows": [
+        [
+          "Trading comparables",
+          "What a minority share is worth today",
+          "Excludes control value; moves with market sentiment day to day."
+        ],
+        [
+          "Precedent transactions",
+          "What a buyer paid for control",
+          "Includes premiums and synergies; the sample is drawn from a different market environment."
+        ],
+        [
+          "[[dcf|DCF]]",
+          "What the cash flows are worth on your assumptions",
+          "Dominated by terminal assumptions; as optimistic as its author."
+        ],
+        [
+          "All three, with ranges",
+          "Where the answer plausibly lies and why the methods disagree",
+          "None — the disagreement between them is the useful output."
+        ]
+      ]
+    },
+    {
+      "type": "concept",
+      "id": "how-it-goes-wrong",
+      "body": "**Stale transaction comparables.** Deals done in a different rate environment are a record of what was paid then. In private markets this cuts both ways: transaction multiples from a hot market support marks long after the market cooled.\n\n**Averaging away the information.** A mean across a heterogeneous set produces a number with no economic meaning. Report the range and the distribution.\n\n**Peer multiples on inconsistent definitions.** If some peers' [[enterprise-value|enterprise values]] include leases and pensions and others' do not, the comparison is between differently constructed numbers.\n\n**Ignoring size.** Smaller companies typically trade at lower multiples for liquidity and risk reasons. Comparing a mid-market private business with listed large caps overstates its value systematically.\n\n**Circularity in private markets.** Marks based on comparable transactions, which are themselves priced off marks, produce a valuation system with no external anchor. It works until it is tested by a sale.\n\n**Using the method that gives the answer you need.** Trading comparables when they are low and transactions when they are high. The tell is a method choice that changes between reporting periods."
+    },
+    {
+      "type": "pitfall",
+      "id": "marks-and-comparables",
+      "body": "**Private portfolio marks are usually built from comparables, which means the peer set is doing the valuing — and it is chosen by the party being measured.**\n\nThe mechanics are ordinary and the incentive is structural. A manager marks a portfolio company using listed comparables or recent transactions. The manager selects the comparables. Those marks determine reported performance, which determines the next fundraise.\n\nNone of that implies bad faith. It does mean the questions worth asking are about consistency over time:\n\n**Has the peer set changed since entry?** A set that changes when the original peers de-rate is the clearest available signal.\n\n**Is the discount to listed comparables consistent?** Applying a 20% illiquidity discount in one period and 10% in another moves marks without any change in the business.\n\n**Does the mark exceed the entry multiple?** That is a claim of multiple expansion which has not been realised. It may be right and it should be stated as a claim.\n\n**What did assets sold in the last two years fetch relative to their final marks?** This is the only external test available, and it is the best single question in this topic. A manager whose realisations consistently clear above their last marks has demonstrated conservatism; consistently below is the opposite, and both are simple facts."
+    },
+    {
+      "type": "onTheJob",
+      "id": "on-the-job",
+      "body": "**Ask for the full peer list, the exclusions, and the criterion used.** Exclusions carry the information, and they are rarely volunteered.\n\n**Ask for the range as well as the median.** A 6x-to-16x set has not valued anything.\n\n**Put each peer's multiple next to its growth, ROIC and capex intensity.** It converts \"trades below peers\" into a testable claim about why.\n\n**Ask whether the peer set has changed since entry, and why.** Changing comparables is how a mark survives a sector de-rating.\n\n**Ask what realisations achieved relative to their final marks over the last two years.** It is the only external check on a manager's valuation discipline, and it is a matter of record."
+    },
+    {
+      "type": "keyTakeaways",
+      "id": "takeaways",
+      "items": [
+        "Trading comparables give a minority value; precedent transactions give a control value including premium and synergies. Match the method to what is being valued.",
+        "The peer set is the answer: three defensible sets valued the same business at fairly valued, mildly cheap and 38% undervalued.",
+        "Look at the range before the median. A wide range means the set is heterogeneous and its central figure is arithmetic rather than evidence.",
+        "For private marks, ask whether the peer set changed since entry and what realisations achieved relative to their final marks — the only external test available."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "eq-comparables-01-q1",
+      "type": "mcq",
+      "difficulty": 2,
+      "tags": ["comparables", "method"],
+      "concept": "what-it-is",
+      "stem": "Why do precedent transaction multiples typically exceed trading comparables?",
+      "choices": [
+        "Because acquirers are less price-sensitive than public investors",
+        "Because they include a control premium and the acquirer's expected synergies",
+        "Because transactions are recorded net of fees",
+        "Because listed companies are systematically overvalued"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Acquirers are often disciplined, and the structural reason is what they are buying rather than how they behave.",
+        "Correct. A transaction buys control and the ability to realise synergies, so the price reflects value that a minority shareholder cannot access.",
+        "Fee treatment is a detail and does not explain a systematic gap of this size.",
+        "The gap exists in every market environment and does not require public markets to be mispriced."
+      ],
+      "explanation": "The consequence for private portfolios is direct: marking a minority position at transaction multiples imports a control premium you do not own. Ask which method a mark uses and whether the position actually carries control."
+    },
+    {
+      "id": "eq-comparables-01-q2",
+      "type": "mcq",
+      "difficulty": 3,
+      "tags": ["comparables", "selection"],
+      "concept": "selection-is-the-answer",
+      "stem": "A peer set produces multiples from 6x to 16x with a median of 11x. What should you conclude?",
+      "choices": [
+        "The target is worth 11x",
+        "The set is heterogeneous, so the median is arithmetic rather than evidence — the range is the finding",
+        "The 16x company should be excluded as an outlier",
+        "A mean would be more reliable than the median"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "A median drawn from businesses with visibly different economics does not describe any of them, including the target.",
+        "Correct. A spread that wide says the set contains genuinely different businesses. The right response is to narrow it on economic criteria, not to average it.",
+        "Possibly, and dropping inconvenient observations after seeing them is exactly how peer sets get engineered.",
+        "The mean is more sensitive to outliers, not less — it would be worse here."
+      ],
+      "explanation": "The habit worth building is to read the range first and the central tendency second. A tight range is a real signal about how the market prices this type of business; a wide one is an instruction to do more work on the peer selection."
+    },
+    {
+      "id": "eq-comparables-01-q3",
+      "type": "mcq",
+      "difficulty": 3,
+      "tags": ["comparables", "adjustment"],
+      "concept": "adjust-then-compare",
+      "stem": "A company trades at 8x where peers average 11x. It grows more slowly, earns lower returns on capital and spends more on capex. What is the conclusion?",
+      "choices": [
+        "It is 27% undervalued",
+        "It is probably correctly priced — all three differences justify a lower multiple",
+        "The peer set must be wrong",
+        "It should be valued using a DCF instead"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "The discount exists, and the three differences are precisely the reasons a multiple should be lower.",
+        "Correct. Lower growth, lower returns and heavier capital needs each justify a lower multiple. The gap is explained rather than an opportunity.",
+        "The peer set may be reasonable; the raw comparison was the problem.",
+        "A DCF would be useful and would tell you the same thing through different arithmetic."
+      ],
+      "explanation": "The genuinely interesting case is the inverse: a company at the peer-average multiple with above-peer growth and returns. That is a mispricing rather than a discount, and it is invisible until the comparison is adjusted for the four factors."
+    },
+    {
+      "id": "eq-comparables-01-q4",
+      "type": "tfj",
+      "difficulty": 4,
+      "tags": ["comparables", "marks", "misconception"],
+      "concept": "marks-and-comparables",
+      "stem": "\"Our portfolio is marked using listed comparables, so the marks are objective.\" True or false — and why?",
+      "isTrue": false,
+      "justifications": [
+        "False — the manager selects the comparables and the discount applied, so the method is market-referenced but the inputs are chosen by the party being measured",
+        "False — listed comparables should never be used for private companies",
+        "True — using market data makes the valuation objective",
+        "False — because listed multiples are too volatile to use"
+      ],
+      "justificationIndex": 0,
+      "rationales": [
+        "Correct. The arithmetic is mechanical and the peer set, the multiple chosen within its range, and the illiquidity discount are all judgements made by the manager whose performance they determine.",
+        "Over-correction. It is a standard and reasonable method — the issue is who controls the inputs.",
+        "Market-referenced is not the same as objective when the reference set is selected.",
+        "Volatility is a genuine complication and it is not what makes the objectivity claim fail."
+      ],
+      "explanation": "The productive response is consistency testing rather than suspicion: has the peer set changed, has the discount changed, and what have realisations achieved against their final marks? All three are matters of record, and together they measure valuation discipline without requiring anyone to re-do the valuation."
+    },
+    {
+      "id": "eq-comparables-01-q5",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["comparables", "diligence", "on-the-job"],
+      "concept": "marks-and-comparables",
+      "stem": "Which single question best tests a private manager's valuation discipline?",
+      "choices": [
+        "What multiple do you use to mark portfolio companies?",
+        "What did assets sold in the last two years achieve relative to their final carrying values?",
+        "Who audits the fund?",
+        "How often are valuations updated?"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "The multiple is an input the manager chose; asking for it tests nothing.",
+        "Correct. Realisations against final marks is the only external verification available — the market provided a number and the mark can be compared with it.",
+        "The auditor confirms process and does not set the marks.",
+        "Frequency describes the process rather than its accuracy."
+      ],
+      "explanation": "Consistently exiting above the last mark demonstrates conservatism; consistently below demonstrates the opposite. Either way it is a matter of record, it takes one question, and it is far more informative than any description of the valuation policy."
+    },
+    {
+      "id": "eq-comparables-01-q6",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["comparables", "circularity", "on-the-job"],
+      "concept": "how-it-goes-wrong",
+      "stem": "Private marks are set from comparable transactions, which are themselves priced partly off prevailing marks. What is the risk?",
+      "choices": [
+        "Marks will be too volatile",
+        "The valuation system has no external anchor, so it can drift from realisable value until a sale tests it",
+        "Transactions cannot be used as comparables",
+        "Marks will always be too low"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "The characteristic failure is the opposite — too stable, because each reference point supports the others.",
+        "Correct. Circular referencing is self-consistent rather than self-correcting. The system holds together until a realisation provides an external price.",
+        "They are legitimate comparables; the circularity is a caution about relying on them exclusively.",
+        "The drift can run in either direction, and it has more often been upward."
+      ],
+      "explanation": "This is why realisation data matters so much more than valuation policy in private markets: it is the only point where an external price enters the system. A portfolio with few realisations has a valuation framework that has not yet been tested by anything outside itself."
+    }
+  ],
+  "needsReview": false,
+  "reviewNote": null
+}

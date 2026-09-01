@@ -1,0 +1,219 @@
+{
+  "schemaVersion": 1,
+  "id": "eq-multiples-01",
+  "domain": "equity-valuation",
+  "title": "Multiples: Shorthand for a Discounted Cash Flow",
+  "summary": "A multiple is not an alternative to a valuation model — it is one, compressed, with the assumptions hidden.",
+  "level": "core",
+  "prereqs": ["eq-dcf-01", "fsa-ebitda-01"],
+  "estMinutes": 9,
+  "examRelevance": ["CFA-L1", "CAIA-L1", "practical"],
+  "lesson": [
+    {
+      "type": "concept",
+      "id": "what-it-is",
+      "body": "A [[valuation-multiple|multiple]] divides a measure of value by a measure of profit. **EV/[[ebitda|EBITDA]]** puts enterprise value over operating earnings; **P/E** puts the share price over earnings per share.\n\nThe critical distinction is what each side of the ratio belongs to, and mismatching them is the commonest error in the subject:\n\n**[[enterprise-value|Enterprise value]] belongs to everyone** — lenders and shareholders. So it pairs with profit measures before interest: EBITDA, EBIT, sales.\n\n**Equity value belongs to shareholders alone.** So it pairs with profit measures after interest: net income, earnings per share, equity [[free-cash-flow|free cash flow]].\n\n**EV/net income is meaningless.** So is P/EBITDA. The numerator and denominator must belong to the same claimants.\n\nThe bridge between the two is [[net-debt|net debt]]:\n\n**Enterprise value = equity value + net debt.**\n\nWhich has a consequence worth internalising early. A company with 800 of enterprise value and 400 of net debt has 400 of equity. **One turn of EBITDA multiple on 80 of EBITDA is 80 of enterprise value — and 20% of the equity.** In a levered structure, multiples move the equity far more than they move the enterprise."
+    },
+    {
+      "type": "concept",
+      "id": "what-a-multiple-encodes",
+      "body": "**A multiple is a compressed discounted cash flow. Every multiple implies a growth rate, a [[discount-rate|discount rate]] and a reinvestment requirement — it simply does not say which.**\n\nThis follows directly from the [[perpetuity]] arithmetic. If value equals cash flow divided by discount rate minus growth, then the multiple *is* one over that difference. A business at 10x is being priced as though the gap between its cost of capital and its growth rate is about 10%; one at 20x, about 5%.\n\nSo three things justify a higher multiple and only three:\n\n**Higher growth**, sustained.\n\n**Lower risk**, meaning a lower discount rate.\n\n**Less capital needed to produce the growth**, so more of the profit is actually free.\n\n**Anything else offered as a justification is one of these three in disguise, or it is not a reason.**\n\nThis is why the phrase \"it trades at 8x and peers trade at 12x, so it is cheap\" is incomplete rather than wrong. The gap is a starting question: **which of growth, risk or capital intensity differs, and by enough to explain four turns?** Sometimes the answer is nothing, and it is genuinely cheap. Often the market has noticed something the comparison has not."
+    },
+    {
+      "type": "intuition",
+      "id": "leverage-and-multiples",
+      "body": "**P/E and EV/EBITDA disagree about leverage, and the disagreement is the reason to use both.**\n\nTake two identical businesses: same EBITDA of 80, same enterprise value of 800, so both at **10.0x EV/EBITDA**. One has no debt; the other has 400.\n\n- **Unlevered.** EBIT 50, no interest, tax 25% → net income 37.5. Equity value 800. **P/E = 21.3x.**\n- **Levered.** EBIT 50, interest 20, tax 25% → net income 22.5. Equity value 400. **P/E = 17.8x.**\n\n**Identical businesses, identical EV/EBITDA, and P/E ratios nearly four turns apart.** The levered company looks \"cheaper\" on P/E purely because of its [[capital-structure|capital structure]].\n\nWhich tells you when to use each:\n\n**EV/EBITDA for comparing operations** across companies financed differently — the reason [[private-equity|private equity]] quotes everything this way, since a buyer intends to change the financing anyway.\n\n**P/E for what a shareholder receives**, given the structure as it stands.\n\n**And the practical warning: any peer comparison on P/E across companies with different leverage is partly a comparison of [[balance-sheet|balance sheets]].** If a screen throws up a company on a conspicuously low P/E, check its net debt before concluding anything."
+    },
+    {
+      "type": "example",
+      "id": "worked-bridge",
+      "body": "A company with EBITDA of 80 and net debt of 400, valued at 10x EV/EBITDA.",
+      "walkthrough": [
+        "Enterprise value = 10 × 80 = **800**.",
+        "Equity value = 800 − 400 net debt = **400**.",
+        "Now move the multiple. At **9x**: EV 720, equity **320**. At **11x**: EV 880, equity **480**.",
+        "**Read that carefully: one turn of multiple moved enterprise value by 10% and equity value by 20%.** Leverage amplifies the multiple in exactly the way it amplifies everything else.",
+        "So a buyout entering at 10x and exiting at 9x has lost a fifth of its equity value to multiple contraction alone, before any operational performance.",
+        "And the reverse: entering at 9x and exiting at 11x adds 160 of equity value on 320 — a 50% gain from the market's willingness to pay, with the business unchanged.",
+        "Sanity check worth reusing: **convert any multiple change into its effect on the equity, not the enterprise.** The formula is one turn of EBITDA divided by the equity value — here 80/400 = 20% per turn. That is the number that belongs in an investment memo."
+      ]
+    },
+    {
+      "type": "table",
+      "id": "multiple-table",
+      "caption": "Which multiple, and what it is blind to",
+      "headers": ["Multiple", "Best for", "Blind to"],
+      "rows": [
+        [
+          "EV/EBITDA",
+          "Comparing operations across different capital structures",
+          "Capital intensity — two businesses with identical EBITDA and very different [[capex|capital expenditure]] look the same."
+        ],
+        [
+          "EV/EBIT",
+          "As above, but after the cost of assets wearing out",
+          "Differences in [[depreciation]] policy and asset age."
+        ],
+        [
+          "P/E",
+          "What a shareholder earns given the structure as it stands",
+          "Leverage, one-off items, and differences in tax position."
+        ],
+        [
+          "EV/Sales",
+          "Loss-making or early-stage businesses",
+          "Everything about profitability — it assumes a margin you have not seen."
+        ],
+        [
+          "EV/(EBITDA − capex)",
+          "Capital-intensive businesses",
+          "Less standard, harder to source comparables, and much more honest."
+        ]
+      ]
+    },
+    {
+      "type": "concept",
+      "id": "how-it-goes-wrong",
+      "body": "**Mismatched numerator and denominator.** EV over net income, or price over EBITDA. Both produce a number and neither means anything.\n\n**Net debt measured inconsistently.** If the multiple's comparables net cash differently, or exclude leases and pensions, the bridge from enterprise to equity is not comparable. This is the most common source of spurious multiple gaps.\n\n**Comparing a levered P/E with an unlevered one.** As above — the low P/E may be entirely a capital structure difference.\n\n**Trailing versus forward multiples mixed.** A company at 12x trailing may be at 9x forward. Peer sets frequently blend the two without saying.\n\n**Adjusted EBITDA in the denominator.** A multiple on adjusted earnings is a multiple on a negotiated number. Always ask which EBITDA, then recompute on the reported figure.\n\n**Multiples applied across cycles.** Peak-cycle EBITDA at a peak-cycle multiple values a business twice on the same optimism, and the two errors compound rather than offset."
+    },
+    {
+      "type": "pitfall",
+      "id": "multiple-expansion",
+      "body": "**In a buyout, returns come from three sources, and only one of them is skill.**\n\n**EBITDA growth** — the business got bigger or better. Attributable to the manager.\n\n**Debt paydown** — cash flow reduced the claim ahead of the equity. Partly attributable, since it depends on cash generation.\n\n**[[multiple-expansion|Multiple expansion]]** — the market paid a higher multiple than it did at entry. Not attributable to anyone; it is a market condition.\n\nThe arithmetic makes the third one large. On the worked company, moving from 9x to 11x adds 50% to the equity value with no operational change whatsoever. In a decade of falling rates and rising multiples, a great deal of reported private equity performance came from precisely that.\n\n**Which is why attribution is the diligence question that matters most in manager selection.** A manager whose returns came predominantly from multiple expansion has been well positioned rather than skilful — and the position was available to everyone.\n\nThe follow-up is sharper still: **what does the return look like assuming exit at the entry multiple?** Any manager underwriting deals honestly already has that number, because it is the standard conservative case. A manager who does not have it has been assuming the market stays generous.\n\nAnd the same test applies to a mark: **a portfolio company held above its entry multiple is claiming expansion that has not been realised.**"
+    },
+    {
+      "type": "onTheJob",
+      "id": "on-the-job",
+      "body": "**Ask for return attribution split into EBITDA growth, debt paydown and multiple change.** Three numbers, and they separate skill from conditions more decisively than any narrative.\n\n**Ask what the return is at a flat exit multiple.** If most of it disappears, the thesis depends on the market rather than on the business.\n\n**Convert every multiple move into its effect on equity value.** One turn on 80 of EBITDA against 400 of equity is 20% — that is the sentence for the memo.\n\n**Check which EBITDA is in the denominator, and whether comparables use the same one.** Adjusted versus reported can be a turn of apparent difference on its own.\n\n**For any \"it trades below peers\" argument, ask which of growth, risk or capital intensity differs.** If none of the three explains the gap, it may genuinely be cheap — and that answer is worth much more once the alternatives have been eliminated."
+    },
+    {
+      "type": "keyTakeaways",
+      "id": "takeaways",
+      "items": [
+        "Enterprise value pairs with pre-interest profit; equity value pairs with post-interest profit. EV/net income and P/EBITDA are not conservative or aggressive, they are meaningless.",
+        "A multiple is a compressed DCF: only higher growth, lower risk or lower capital intensity can justify a higher one.",
+        "Two identical businesses at the same 10.0x EV/EBITDA had P/E ratios of 21.3x and 17.8x purely because one carried 400 of debt.",
+        "One turn of multiple on 80 of EBITDA is 10% of enterprise value and 20% of the equity — which is why multiple expansion dominates so much buyout attribution."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "eq-multiples-01-q1",
+      "type": "numeric",
+      "difficulty": 2,
+      "tags": ["multiples", "bridge", "arithmetic"],
+      "concept": "worked-bridge",
+      "stem": "EBITDA is 80, the EV/EBITDA multiple is 10x and net debt is 400. What is the equity value?",
+      "answer": 400,
+      "tolerance": 5,
+      "toleranceType": "abs",
+      "explanation": "The bridge is where leverage enters the valuation. The same enterprise value with 600 of net debt would leave only 200 of equity — so the multiple describes the business and the net debt decides how much of it belongs to the shareholder."
+    },
+    {
+      "id": "eq-multiples-01-q2",
+      "type": "numeric",
+      "difficulty": 3,
+      "tags": ["multiples", "leverage", "arithmetic"],
+      "concept": "worked-bridge",
+      "stem": "Same company. The multiple falls from 10x to 9x. By what percentage does the equity value fall?",
+      "answer": 20,
+      "tolerance": 1,
+      "toleranceType": "abs",
+      "unit": "%",
+      "inputHint": "Compute equity value at each multiple and compare.",
+      "explanation": "Enterprise value fell 10% and equity fell 20%. The ratio is simply one turn of EBITDA divided by equity value — worth computing at entry for any levered deal, because it is the sensitivity that decides the outcome."
+    },
+    {
+      "id": "eq-multiples-01-q3",
+      "type": "mcq",
+      "difficulty": 3,
+      "tags": ["multiples", "consistency"],
+      "concept": "what-it-is",
+      "stem": "Why is EV/net income not a meaningful multiple?",
+      "choices": [
+        "Because net income is too volatile",
+        "Because enterprise value belongs to lenders and shareholders while net income belongs only to shareholders — the two sides describe different claimants",
+        "Because net income includes tax",
+        "Because enterprise value cannot be observed"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Volatility affects reliability, not whether the ratio is coherent.",
+        "Correct. Enterprise value is a claim held jointly by debt and equity; net income is what remains after the debt has been paid. Dividing one by the other compares incompatible quantities.",
+        "Tax is deducted from both EBIT and net income and is not the source of the mismatch.",
+        "Enterprise value is readily computed as equity value plus net debt."
+      ],
+      "explanation": "The rule reduces to one question asked before any ratio: whose money is the numerator, and whose is the denominator? Answering it prevents this error and the related P/EBITDA one, both of which appear in professional work more often than they should."
+    },
+    {
+      "id": "eq-multiples-01-q4",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["multiples", "leverage"],
+      "concept": "leverage-and-multiples",
+      "stem": "Two identical businesses trade at 10.0x EV/EBITDA. One is unlevered with a P/E of 21.3x; the other carries 400 of debt and has a P/E of 17.8x. What does the lower P/E indicate?",
+      "choices": [
+        "The levered company is cheaper and a better investment",
+        "Nothing about relative value — the P/E difference is the capital structure, which EV/EBITDA already tells you is identical",
+        "The levered company is more profitable",
+        "The unlevered company has better growth prospects"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "It is not cheaper. The businesses are identical and the equity claims differ in risk, which is what the P/E gap reflects.",
+        "Correct. Leverage reduces both net income and equity value, and the P/E falls because equity value falls proportionally more. The lower ratio is a description of the balance sheet.",
+        "It is less profitable at the bottom line, because interest consumes part of the operating profit.",
+        "Growth is identical by construction here."
+      ],
+      "explanation": "This is why value screens on low P/E systematically surface levered companies. Any such screen needs a leverage filter alongside it, or it becomes a mechanism for buying balance sheet risk while believing you are buying cheapness."
+    },
+    {
+      "id": "eq-multiples-01-q5",
+      "type": "tfj",
+      "difficulty": 4,
+      "tags": ["multiples", "misconception"],
+      "concept": "what-a-multiple-encodes",
+      "stem": "\"It trades at 8x where peers trade at 12x, so it is undervalued.\" True or false — and why?",
+      "isTrue": false,
+      "justifications": [
+        "False — a multiple encodes growth, risk and capital intensity, so the gap is a question about which of those differs rather than a conclusion",
+        "False — multiples can never be compared between companies",
+        "True — a lower multiple on comparable earnings means better value",
+        "False — because peer multiples are usually calculated incorrectly"
+      ],
+      "justificationIndex": 0,
+      "rationales": [
+        "Correct. Four turns of difference is a hypothesis to test. Lower growth, higher risk or heavier capital needs each justify part of it, and sometimes none of them do — which is the interesting case.",
+        "Over-correction. Comparison is exactly what multiples are for, and it is a starting point rather than an answer.",
+        "It means a lower price per unit of earnings, and whether that is value depends on why.",
+        "Calculation errors happen and are not the reason the inference fails."
+      ],
+      "explanation": "The productive next step is to work out which of the three explanations the gap would require, then test that specifically. If the company's growth, risk and capital intensity all match its peers, the case for cheapness is considerably stronger — and you arrived at it by elimination rather than assertion."
+    },
+    {
+      "id": "eq-multiples-01-q6",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["multiples", "attribution", "on-the-job"],
+      "concept": "multiple-expansion",
+      "stem": "A buyout manager's returns came mostly from multiple expansion. What is the sharpest follow-up question?",
+      "choices": [
+        "How many deals did the fund complete?",
+        "What is the return on each deal assuming exit at the entry multiple?",
+        "What was the average holding period?",
+        "Which sectors did the fund invest in?"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Deal count describes activity rather than the source of returns.",
+        "Correct. Holding the exit multiple flat isolates what the manager did to the business. Any honest underwriting already contains this case, so the request is routine and the answer is revealing either way.",
+        "Holding period is useful context and does not separate skill from market conditions.",
+        "Sector explains where they invested rather than what produced the return."
+      ],
+      "explanation": "A manager who cannot produce the flat-multiple case has been underwriting on the assumption that the market stays generous. That was a good assumption for a decade and it is an assumption, and it should be visible in the return expectation rather than buried in an exit line."
+    }
+  ],
+  "needsReview": false,
+  "reviewNote": null
+}

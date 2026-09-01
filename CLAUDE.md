@@ -608,7 +608,7 @@ One domain per batch, validated, pause between batches. Keep this current.
 | alternatives | 19 | **DONE** — 11 hedge fund strategies (lse, emn, merger, macro, cta, event, distressed, convert, firv, statarb, multistrat) + 8 private markets (pe-01 buyout, pe-02 growth, vc, pc, re, infra, realassets, fof) |
 | financial-statement-analysis | 7 | **DONE** — statements, cashflow, ebitda, workingcapital, ratios, debt, earningsquality (one worked company throughout) |
 | corporate-issuers | 6 | **DONE** — capitalstructure, wacc, allocation, governance, ma, issuance |
-| equity-valuation | 0 | not started — EV/EBITDA term defined |
+| equity-valuation | 5 | **DONE** — dcf, multiples, quality, comparables, privatemarks |
 | fixed-income | 6 | **DONE** — bonds, duration, credit, forwards, floating, securitisation |
 | derivatives | 0 | not started — delta, gamma, implied volatility, vega defined |
 | fund-structures | 8 | **DONE** — gplp-01, fees-01, waterfall-01, hwm-01, calls-01, liquidity-01, sideletters-01, subline-01 |
