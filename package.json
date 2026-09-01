@@ -14,7 +14,8 @@
     "content:check": "tsx scripts/validate-content.ts",
     "content:build": "tsx scripts/build-manifest.ts",
     "verify": "npm run content:check && npm run content:audit && npm run typecheck && npm run test && npm run build",
-    "content:audit": "tsx scripts/audit-content.ts"
+    "content:audit": "tsx scripts/audit-content.ts",
+    "deploy": "npm run build && node scripts/deploy-pages.mjs"
   },
   "dependencies": {
     "katex": "0.18.5",

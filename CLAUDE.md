@@ -630,9 +630,26 @@ travelled from the M0 plan into `vite.config.ts`, `CLAUDE.md` and the README wit
 the file; relative paths were necessary for it but never sufficient. Hash routing does deliver the
 other half of the promise: any static host, any subdirectory, no rewrite rules.
 
-`Alts Academy.cmd` is the answer for daily use: it builds if needed, serves `dist/` on **port 5173**
+`Alts Academy.cmd` is the answer for local use: it builds if needed, serves `dist/` on **port 5173**
 and opens the browser. The port matters — `localStorage` is keyed by origin, so serving on a
 different port would present the user with an empty app and no explanation.
+
+### Published at https://ialomar-gcmlp.github.io/ialomar-Alts-Academy/
+
+GitHub Pages, served from the `gh-pages` branch of the same repository — no second repo, and no
+build output on `main`. `npm run deploy` (`scripts/deploy-pages.mjs`) builds and pushes that branch
+through a **git worktree**: switching to an orphan branch in place leaves every file from `main`
+untracked and needs a forced checkout to undo, which is not something a routine deploy should
+require.
+
+**`main` is not the live site.** New content is published only when someone runs `npm run deploy`.
+`.github/workflows/deploy.yml` exists to make that automatic on push, but it is uncommitted: pushing
+a workflow file needs a `workflow` token scope the `gh` login does not have, and `gh auth refresh -h
+github.com -s workflow` is an interactive flow for the user to run.
+
+Three origins now hold separate progress — the Pages URL, `localhost:5173`, and anything else. That
+is a property of `localStorage`, not a bug, and export/import is the only bridge. Say so plainly
+whenever suggesting the user switch.
 
 The network log for a full walk of the built app — every view, a session, KaTeX, lazy topic chunks —
 contains **only** requests to the local origin. The single external string in the bundle is React's

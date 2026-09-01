@@ -43,9 +43,19 @@ table at the bottom of that file is the progress tracker.
 
 ## Opening it
 
+### https://ialomar-gcmlp.github.io/ialomar-Alts-Academy/
+
+Bookmark it. No terminal, no server, works on a laptop or a phone. The page is served by GitHub
+Pages from the `gh-pages` branch of this repository.
+
+Nothing about your studying is on the internet: progress is written to your own browser's storage
+and never leaves the device. The published files are the app, not your history.
+
+### Locally, without a link
+
 **Double-click `Alts Academy.cmd`.** It builds the app if needed, serves it on
 `http://localhost:5173`, and opens your browser. Leave that window open while you study; closing it
-stops the app.
+stops the app. Useful offline, or if you would rather not depend on GitHub being up.
 
 To work on the app instead of just using it:
 
@@ -63,18 +73,42 @@ browser rule, not a limitation of the app — **opening `dist/index.html` by dou
 not work.** Serving the folder does, and the server is local: nothing reaches the network.
 
 Any static host works too. Asset paths are relative and routing is hash-based, so `dist/` can be
-dropped at a domain root or in a subdirectory with no rewrite rules.
+dropped at a domain root or in a subdirectory with no rewrite rules — which is exactly what the
+Pages deployment is doing, at `/ialomar-Alts-Academy/`.
+
+### Updating the live site
+
+`main` holding new content does **not** change what is published. Run:
+
+```bash
+npm run deploy
+```
+
+That builds, copies the result onto the `gh-pages` branch through a git worktree (so your working
+directory is never switched out from under you), and pushes. Pages picks it up within a minute.
+
+There is a `.github/workflows/deploy.yml` in the working tree that would do this automatically on
+every push, but pushing a workflow file needs a `workflow` scope the current `gh` token does not
+have. To enable it:
+
+```bash
+gh auth refresh -h github.com -s workflow
+```
+
+Then commit and push the workflow, and `npm run deploy` becomes unnecessary.
 
 ### Where progress lives, and how to lose it
 
 Progress is in the browser's `localStorage`, keyed to the **exact address** the app was served from.
-`http://localhost:5173` and `http://localhost:8000` are two different homes with two different
-histories, and neither can see the other. So:
+The Pages URL, `http://localhost:5173`, and `http://localhost:8000` are three different homes with
+three different histories, and none of them can see the others. So:
 
-- Keep using the same port. The launcher and `npm run dev` both use 5173 for this reason.
-- Moving browser, machine or port means **Progress → Your data → Export** first, then importing the
-  file on the other side.
-- Clearing site data for `localhost` erases it. There is no server holding a copy.
+- **Pick one and stay on it.** Studying on the Pages link on Monday and localhost on Tuesday gives
+  you two half-finished review queues, not one.
+- Moving between them — or to another browser, machine or phone — means **Progress → Your data →
+  Export** on the old one, then importing the file on the new one.
+- The launcher and `npm run dev` both use port 5173 so at least those two agree.
+- Clearing site data erases it. There is no server holding a copy.
 
 Keys are `alts-academy:*`. Every schema change ships with a tested migration, and the state replaced
 by an import is kept under a separate key as a safety net.
@@ -103,6 +137,7 @@ npm run dev
 | `npm run content:audit` | Prose and authoring checks the schema cannot express |
 | `npm run typecheck` | `tsc --noEmit` |
 | `npm run verify` | All of the above, in order — the gate every milestone passes |
+| `npm run deploy` | Build and publish to the live Pages URL |
 
 ---
 
