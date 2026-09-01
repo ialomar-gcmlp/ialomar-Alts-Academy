@@ -1,0 +1,282 @@
+{
+  "schemaVersion": 1,
+  "id": "fi-forwards-01",
+  "domain": "fixed-income",
+  "title": "Spot Rates, Forward Rates and What the Curve Already Assumes",
+  "summary": "The curve contains a complete forecast of future short rates — and beating it means disagreeing with that forecast, not with the direction of rates.",
+  "level": "advanced",
+  "prereqs": [
+    "fi-bonds-01",
+    "econ-curve-01"
+  ],
+  "estMinutes": 10,
+  "examRelevance": [
+    "CFA-L1",
+    "CFA-L2",
+    "practical"
+  ],
+  "lesson": [
+    {
+      "type": "concept",
+      "id": "what-it-is",
+      "body": "Two different rates get called \"the interest rate\" and confusing them causes real errors.\n\n**A [[spot-rate|spot rate]]** is today's rate for money borrowed today and repaid at one future date. The two-year spot rate is what you earn on a single payment two years out. A curve of spot rates for every maturity is the honest description of the rate environment.\n\n**A [[forward-rate|forward rate]]** is today's rate for a loan that *starts* at a future date. The \"one-year rate, one year from now\" — written 1y1y — is agreed today for a period that has not begun.\n\nThe critical fact, and it is the same one as in currency forwards: **the forward rate is not a forecast. It is arithmetic, forced by the spot curve.**\n\nIf it were anything else, two riskless strategies covering the same period would produce different outcomes, and someone would take the difference. Lock in a two-year rate today, or lock in one year today and one year forward starting in a year — same money, same period, same certainty. **They must return the same, and that equality defines the forward rate.**"
+    },
+    {
+      "type": "concept",
+      "id": "the-curve-is-a-forecast",
+      "body": "**Because forwards are pinned by the spot curve, the curve contains a complete implied path of future short rates. That path is the market's forecast, and it is already in every price.**\n\nThis is the fact that reframes most rates positioning. An upward-sloping curve does not mean \"rates will rise\" is a good trade — it means rates rising is what the curve already assumes. To make money you have to be right about something the curve is wrong about.\n\nSo the useful question is never \"where are rates going?\" It is **\"where do I differ from the forwards, and by how much?\"**\n\nTwo consequences follow directly.\n\n**Every rate view has a breakeven you can compute.** Buying a longer bond rather than rolling short ones wins only if future short rates come in *below* the forwards. That threshold is a number, not an opinion.\n\n**The curve's shape has a portfolio meaning rather than a predictive one.** A steep curve says the market expects meaningful rate rises; a flat one says it does not. Neither tells you what will happen — both tell you what you are being paid to disagree with, which is more useful."
+    },
+    {
+      "type": "intuition",
+      "id": "carry-and-rolldown",
+      "body": "**A bond can make money without any rate forecast being right, and the two sources have names worth knowing separately.**\n\n**Carry** is the coupon you collect for holding it. If the coupon exceeds your funding cost, you earn the difference simply by waiting.\n\n**Rolldown** is subtler and often larger. On an upward-sloping curve, a three-year bond becomes a two-year bond after a year — and if the curve has not moved, it is now priced at the *lower* two-year rate. Lower yield means higher price. **You gain without anything changing.**\n\nThe combination is why an upward-sloping curve rewards holding longer bonds even when nobody expects rates to fall. And it is why \"the curve is upward sloping so I should stay short\" is usually wrong: staying short forgoes both carry and rolldown, and you need rates to rise faster than the forwards imply just to break even.\n\n**The honest framing: carry and rolldown are what you earn if you are wrong about nothing. The rate view is what you earn on top of that — or lose.** A strategy whose entire return is carry and rolldown is a legitimate strategy with a specific failure mode, which is a curve that moves against you faster than the accumulated carry can absorb."
+    },
+    {
+      "type": "formula",
+      "id": "forward-formula",
+      "latex": "(1 + s_2)^2 = (1 + s_1) \\times (1 + f_{1,1})",
+      "plainReading": "Growing money for two years at the two-year spot rate must equal growing it for one year at the one-year rate and then for a second year at the forward rate agreed today. Rearranged, the forward rate is whatever makes that equality hold.",
+      "variables": [
+        {
+          "symbol": "s_1, s_2",
+          "meaning": "the one-year and two-year spot rates observable today"
+        },
+        {
+          "symbol": "f_{1,1}",
+          "meaning": "the one-year rate starting in one year, implied rather than quoted"
+        }
+      ]
+    },
+    {
+      "type": "example",
+      "id": "worked-forward",
+      "body": "Spot rates today: one year 4.00%, two years 4.50%, three years 4.70%.",
+      "walkthrough": [
+        "**1y1y forward** = (1.045² / 1.040) − 1 = **5.00%**. The market's implied one-year rate, one year out.",
+        "**2y1y forward** = (1.047³ / 1.045²) − 1 = **5.10%**. The implied one-year rate two years out.",
+        "Check the no-arbitrage tie: two years at 4.50% gives 1.045² = **1.092025**. One year at 4.00% then one year at the 5.00% forward gives 1.040 × 1.050024 = **1.092025**. Identical, as required.",
+        "**So the breakeven is explicit: buying the two-year today beats rolling one-year bonds only if the one-year rate in a year turns out below 5.00%.**",
+        "Test it. If the one-year rate is 4.50% in a year, rolling gives 1.0868 against 1.0920 — the two-year wins. If it is 5.50%, rolling gives 1.0972 and the two-year loses.",
+        "**Read that carefully: the curve slopes upward and buying the longer bond still wins unless short rates rise by more than 100bp within a year.** \"Rates are going up\" is not sufficient — they must go up faster than the curve already assumes.",
+        "Now carry and rolldown on the three-year. Buy at par with a 4.70% coupon. A year later, with the curve unchanged, it is a two-year bond with a 4.70% coupon priced at the 4.50% two-year rate: **100.375**.",
+        "Total return = 4.70 of coupon + 0.375 of price gain = **5.075%** — from a bond yielding 4.70%, with the curve completely unchanged.",
+        "Sanity check worth reusing: **before taking any duration position, compute the forward and state your view as a difference from it.** \"I think the one-year rate will be 4.25% when the forward says 5.00%\" is a position. \"I think rates will fall\" is a sentiment."
+      ]
+    },
+    {
+      "type": "table",
+      "id": "curve-table",
+      "caption": "What each curve shape is paying you to disagree with",
+      "headers": [
+        "Curve shape",
+        "What the forwards imply",
+        "What you must believe to be long duration"
+      ],
+      "rows": [
+        [
+          "Steeply upward",
+          "Substantial rate rises ahead",
+          "Rates rise by less than that, or fall. Carry and rolldown are large."
+        ],
+        [
+          "Flat",
+          "Roughly unchanged short rates",
+          "Rates fall. Carry and rolldown give you almost nothing while you wait."
+        ],
+        [
+          "Inverted",
+          "Rate cuts ahead",
+          "Cuts deeper or sooner than priced. Negative carry — you pay to wait."
+        ],
+        [
+          "Humped",
+          "Rises then falls",
+          "Depends where on the curve you sit; the shape itself is the position."
+        ]
+      ]
+    },
+    {
+      "type": "concept",
+      "id": "how-it-goes-wrong",
+      "body": "**Reading forwards as predictions.** They are no-arbitrage prices. Historically, forwards have been a poor forecast of realised short rates, which is precisely why carry strategies have earned a long-run return — and why they periodically give a lot of it back.\n\n**Positioning on direction rather than on difference.** Being right that rates rise while they rise less than the forwards imply is a losing position. The direction is not the trade.\n\n**Ignoring negative carry.** On an inverted curve, holding long bonds costs you every day you wait. A view that is right eventually can still lose if the carry bleed exceeds the eventual gain.\n\n**Assuming the curve stays still for rolldown.** Rolldown is real and it assumes an unchanged curve. In a selloff the roll gain disappears and the duration loss dominates.\n\n**Confusing [[ytm|yield to maturity]] with spot rates.** A coupon bond's YTM is a blend across maturities. Discounting each cash flow at its own spot rate is the correct method, and the difference matters most for high-coupon bonds and steep curves."
+    },
+    {
+      "type": "pitfall",
+      "id": "forwards-in-private-markets",
+      "body": "**The same logic applies to any private-market model that assumes a financing cost, and there it is usually invisible.**\n\nA buyout model runs five years with floating-rate debt. Somewhere in the spreadsheet is an assumption about what the reference rate does over those five years. Three possibilities:\n\n**It uses the forward curve.** The disciplined choice — the model assumes the market's implied path and takes no position.\n\n**It holds today's rate flat.** On an inverted curve this overstates the interest bill; on an upward-sloping one it understates it. Either way the model contains an unstated rate view.\n\n**It assumes cuts.** Very common in models written after a tightening cycle, and it is a macro position embedded in an equity underwriting.\n\n**The question to ask is: what rate path is in the model, and how does it compare with the forwards?** If the model assumes cuts the forwards do not, part of the projected return is a rates bet rather than an investment case — and it is being taken with leverage, in an illiquid vehicle, by a team whose expertise is operational.\n\nThat is not necessarily wrong. It should be visible, and it should be sized deliberately rather than inherited from whoever built the template."
+    },
+    {
+      "type": "onTheJob",
+      "id": "on-the-job",
+      "body": "**State any rate view as a difference from the forwards, in [[basis-point|basis points]].** It is the only version that can be tested, and it makes the size of the bet explicit.\n\n**Compute carry and rolldown before the directional view.** They are what you earn if nothing happens, and they often exceed the expected gain from being right.\n\n**On an inverted curve, quantify the negative carry per month of waiting.** A correct view held too long can still lose money.\n\n**In any levered model, find the reference rate assumption and compare it with the forward curve.** A model assuming cuts the market does not price contains a macro position inside an equity thesis.\n\n**Ask whether valuations use spot rates or a single yield.** For long-dated cash flows on a steep curve, the difference is material and the shortcut is common."
+    },
+    {
+      "type": "keyTakeaways",
+      "id": "takeaways",
+      "items": [
+        "A forward rate is arithmetic forced by the spot curve, not a forecast: locking two years today and rolling one year into the forward must produce identical outcomes.",
+        "The curve therefore contains a complete implied path of short rates, so the only position worth holding is where you differ from it — stated in basis points.",
+        "With 1y at 4.00% and 2y at 4.50%, the 1y1y forward is 5.00%. Buying the two-year still wins unless short rates rise more than 100bp within a year.",
+        "Carry and rolldown are what you earn when nothing happens: the 4.70% three-year returned 5.075% over a year on a completely unchanged curve."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "fi-forwards-01-q1",
+      "type": "mcq",
+      "difficulty": 2,
+      "tags": [
+        "forwards",
+        "definition"
+      ],
+      "concept": "what-it-is",
+      "stem": "What is the difference between a spot rate and a forward rate?",
+      "choices": [
+        "A spot rate is for government debt and a forward rate is for corporate debt",
+        "A spot rate applies to money borrowed today; a forward rate is agreed today for a loan that starts at a future date",
+        "A spot rate is fixed and a forward rate floats",
+        "A forward rate is the average of past spot rates"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Both exist for any issuer. The distinction is about when the borrowing period begins, not about who is borrowing.",
+        "Correct. The spot rate covers a period starting now; the forward covers a period starting later, at a rate locked in today.",
+        "Both are fixed once agreed. Neither floats — a floating rate is a different instrument entirely.",
+        "It is derived from current spot rates, not from history, and it is forced by arbitrage rather than averaged."
+      ],
+      "explanation": "Getting the timing distinction straight first makes the rest of the topic mechanical: once you know a forward covers a future period, it becomes obvious why locking two years today and rolling one year into a forward must tie — they cover the same period with the same certainty."
+    },
+    {
+      "id": "fi-forwards-01-q2",
+      "type": "numeric",
+      "difficulty": 3,
+      "tags": [
+        "forwards",
+        "arithmetic"
+      ],
+      "concept": "worked-forward",
+      "stem": "The one-year spot rate is 4.00% and the two-year spot rate is 4.50%. What is the one-year rate one year forward, in percent? Two decimal places.",
+      "answer": 5.0,
+      "tolerance": 0.06,
+      "toleranceType": "abs",
+      "unit": "%",
+      "inputHint": "(1 + s₂)² / (1 + s₁) − 1",
+      "explanation": "Note the forward exceeds both spot rates. On an upward-sloping curve it always does — the forward has to be high enough to pull the average up to the longer spot rate, which is why forwards look like aggressive rate forecasts and are not forecasts at all."
+    },
+    {
+      "id": "fi-forwards-01-q3",
+      "type": "numeric",
+      "difficulty": 4,
+      "tags": [
+        "forwards",
+        "arithmetic"
+      ],
+      "concept": "worked-forward",
+      "stem": "Spot rates: two years 4.50%, three years 4.70%. What is the one-year rate two years forward, in percent? Two decimal places.",
+      "answer": 5.1,
+      "tolerance": 0.08,
+      "toleranceType": "abs",
+      "unit": "%",
+      "inputHint": "(1 + s₃)³ / (1 + s₂)² − 1",
+      "explanation": "The implied path is 4.00%, then 5.00%, then 5.10% — a complete forecast extracted from three observable numbers. Any rates view can now be stated as a disagreement with a specific point on that path."
+    },
+    {
+      "id": "fi-forwards-01-q4",
+      "type": "mcq",
+      "difficulty": 3,
+      "tags": [
+        "forwards",
+        "positioning"
+      ],
+      "concept": "the-curve-is-a-forecast",
+      "stem": "The curve is upward sloping and you expect rates to rise. Is being short duration a good position?",
+      "choices": [
+        "Yes — rising rates hurt long bonds",
+        "Only if rates rise by more than the forwards already imply; otherwise you forgo carry and rolldown for nothing",
+        "Yes, because an upward-sloping curve always precedes rate rises",
+        "No — short duration is never appropriate"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "True and insufficient. The rise is already in the price, so being right about the direction earns nothing.",
+        "Correct. The forwards embed the expected rises. To profit you must be right about the amount, and while you wait you are giving up carry and rolldown.",
+        "The curve reflects expectations rather than causing outcomes, and it has been a poor predictor historically.",
+        "Short duration is entirely appropriate when you expect rises larger than those priced."
+      ],
+      "explanation": "This is the single most common error in rates positioning, and the fix is one calculation: work out the forward, then state your view against it. A view identical to the forwards is not a view, it is a carry position with extra steps."
+    },
+    {
+      "id": "fi-forwards-01-q5",
+      "type": "numeric",
+      "difficulty": 4,
+      "tags": [
+        "carry",
+        "rolldown",
+        "arithmetic"
+      ],
+      "concept": "carry-and-rolldown",
+      "stem": "A three-year bond bought at par with a 4.70% coupon. One year later the curve is unchanged, so it is a two-year bond priced at the 4.50% two-year rate: 100.375. What is the total one-year return, in percent? Three decimal places.",
+      "answer": 5.075,
+      "tolerance": 0.06,
+      "toleranceType": "abs",
+      "unit": "%",
+      "inputHint": "Coupon plus price change.",
+      "explanation": "A 4.70% bond returning 5.075% with nothing happening at all. The extra 37.5bp is rolldown — the bond aged into a lower point on an upward-sloping curve. It is why holding longer bonds on a steep curve is rewarded even by investors with no rate view."
+    },
+    {
+      "id": "fi-forwards-01-q6",
+      "type": "tfj",
+      "difficulty": 4,
+      "tags": [
+        "forwards",
+        "misconception"
+      ],
+      "concept": "the-curve-is-a-forecast",
+      "stem": "\"The forward curve shows rates rising to 5%, so the market expects 5% rates.\" True or false — and why?",
+      "isTrue": false,
+      "justifications": [
+        "False — forwards are no-arbitrage prices forced by the spot curve, and they have historically been poor forecasts, which is precisely why carry strategies earn a long-run return",
+        "False — the forward curve shows rates falling, not rising",
+        "True — the forward curve is the market's consensus forecast",
+        "False — because forward rates are set by central banks"
+      ],
+      "justificationIndex": 0,
+      "rationales": [
+        "Correct. The forward is whatever makes two riskless strategies tie. It embeds expectations mixed with a term premium, and the historical gap between forwards and realised rates is the source of carry returns.",
+        "The shape depends on the spot curve; upward-sloping spots give forwards above spots.",
+        "It is close to the expectation plus a risk premium, and treating it as a pure forecast ignores the premium and the historical record.",
+        "Central banks set the policy rate; forwards follow from the whole spot curve through arbitrage."
+      ],
+      "explanation": "The persistent gap between forwards and realised rates is the same phenomenon as the currency carry trade: the forward is not the expectation, and systematically taking the other side of it has paid over long periods while occasionally losing years of gains at once."
+    },
+    {
+      "id": "fi-forwards-01-q7",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": [
+        "forwards",
+        "private-markets",
+        "on-the-job"
+      ],
+      "concept": "forwards-in-private-markets",
+      "stem": "A buyout model with floating-rate debt assumes the reference rate falls 150bp over three years, while the forward curve implies a 50bp fall. What does this mean?",
+      "choices": [
+        "The model is more conservative than the market",
+        "Part of the projected equity return is a leveraged macro bet embedded in an operational thesis, and it should be sized deliberately rather than inherited",
+        "The model is using the correct methodology",
+        "Nothing — rate assumptions do not materially affect buyout returns"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "It is more optimistic, not more conservative: it assumes cheaper debt than the market prices.",
+        "Correct. The extra 100bp of assumed cuts flows straight into interest savings and equity value. It is a rate position, taken with leverage, by a team whose skill is operational.",
+        "The disciplined default is the forward curve, precisely because it takes no position.",
+        "In a levered structure, interest is one of the largest cash costs — 100bp on substantial debt is material to equity returns."
+      ],
+      "explanation": "The fix is easy and rarely done: re-run at the forward curve and report both. The difference is the size of the embedded rate bet, and an investment committee can then decide whether it wants that bet rather than discovering it later."
+    }
+  ],
+  "needsReview": false,
+  "reviewNote": null
+}

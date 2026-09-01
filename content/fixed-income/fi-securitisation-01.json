@@ -1,0 +1,228 @@
+{
+  "schemaVersion": 1,
+  "id": "fi-securitisation-01",
+  "domain": "fixed-income",
+  "title": "Securitisation and Tranching: How One Pool Becomes Four Risks",
+  "summary": "Slicing a loan portfolio by seniority creates a AAA claim and a leveraged equity from the same assets — and the equity is 7x levered whether or not anyone calls it that.",
+  "level": "advanced",
+  "prereqs": ["fi-credit-01", "fi-floating-01"],
+  "estMinutes": 10,
+  "examRelevance": ["CAIA-L1", "CAIA-L2", "practical"],
+  "lesson": [
+    {
+      "type": "concept",
+      "id": "what-it-is",
+      "body": "[[securitisation|Securitisation]] pools a set of loans into a separate vehicle and issues claims against that pool with different priorities. The pool's cash flows are then distributed in a strict order — a [[waterfall]], the same mechanism as a fund's.\n\nA [[clo|collateralised loan obligation]] is the version an alternatives analyst meets most: a pool of several hundred leveraged corporate loans, funded by rated notes and an equity piece.\n\nThe structure of a representative deal, per 100 of loans:\n\n**AAA notes, 62%** — paid first, and last to take losses.\n\n**Mezzanine notes, 24%** — rated AA down to BB, paid next.\n\n**Equity, 14%** — paid last, and first to absorb losses.\n\n**The pool is ordinary. The claims are not.** No individual loan in a CLO is investment grade; the AAA note is, because 38% of the structure sits beneath it absorbing losses first. **Tranching does not reduce risk — it redistributes it, concentrating it in a small slice so the remainder can be sold as safe.**\n\nThat sentence is the whole subject. Everything else is where the attachment points sit and whether the loss estimates behind them are right."
+    },
+    {
+      "type": "concept",
+      "id": "attachment-points",
+      "body": "**The two numbers that define any tranche are where it starts taking losses and where it is wiped out. Everything else is commentary.**\n\nIn the structure above:\n\n**Equity** attaches at 0% and detaches at 14%. It takes the first loss and is gone once portfolio losses reach 14%.\n\n**Mezzanine** attaches at 14% and detaches at 38%. Untouched below 14%; destroyed above 38%.\n\n**AAA** attaches at 38%. Nothing reaches it until more than a third of the entire pool has been lost.\n\nSo the rating is a statement about the attachment point rather than about the loans. **A AAA CLO note is safe because leveraged loans would have to lose 38% for it to lose a cent — not because the borrowers are strong.**\n\nThis reframing does two useful things.\n\n**It makes the rating checkable.** Ask what cumulative portfolio loss would be needed to impair this tranche, and compare it with historical loss experience for that asset class in its worst period. That is a number against a number.\n\n**It explains why mezzanine is the dangerous slice.** It has neither the equity's upside nor the senior's cushion: a modest deterioration passes straight through it, and its returns look bond-like right up to the point where they do not."
+    },
+    {
+      "type": "intuition",
+      "id": "equity-is-levered",
+      "body": "**CLO equity is a leveraged bet on corporate credit, and the leverage is arithmetic rather than opinion: 100 of loans supported by 14 of equity is 7.1 times.**\n\nWork the economics. The pool yields the reference rate plus 400bp — call it 9.25% on 100, so 9.25 of income. The liabilities cost less because they are senior and rated: the AAA at reference plus 150 and the mezzanine at reference plus 475 together cost 6.59.\n\n**The residual is 9.25 − 6.59 = 2.66, on 14 of equity: a 19.0% return.** That is the CLO arbitrage — the pool earns more than the notes cost, and the equity keeps the difference on a leveraged base.\n\nNow apply credit losses, which is where the leverage shows its other face:\n\n- **0% annual loss** → residual 2.66 → equity return **19.0%**\n- **2% annual loss** → residual 0.66 → equity return **4.7%**\n- **4% annual loss** → residual −1.34 → equity return **−9.5%**\n\n**Read that carefully: a 2 percentage point rise in the loss rate removed three quarters of the return, and 4% turns it negative.** That is 7x leverage behaving exactly as 7x leverage does.\n\n**Which makes the honest description of CLO equity: a levered [[long-position|long position]] in the corporate credit cycle, with a return that is excellent in benign conditions and negative in a bad one.** It is not a yield product, whatever the distribution schedule suggests."
+    },
+    {
+      "type": "example",
+      "id": "worked-waterfall",
+      "body": "The same structure: 100 of loans, AAA 62, mezzanine 24, equity 14. Trace what happens at four different cumulative portfolio loss levels.",
+      "walkthrough": [
+        "**5% loss (5 of the pool).** Equity absorbs all of it: **equity −5 of 14**, mezzanine and AAA untouched. The equity has lost over a third of its value from a 5% pool loss — that is the 7x.",
+        "**14% loss.** Equity absorbs 14 and is **completely wiped out**. Mezzanine and AAA still untouched.",
+        "**25% loss.** Equity gone; mezzanine absorbs the next 11 of its 24. **Mezzanine −11 of 24**, AAA untouched.",
+        "**45% loss.** Equity gone, mezzanine entirely gone, and AAA takes **−7 of its 62** — its first loss, after nearly half the pool has been destroyed.",
+        "**Read that carefully: the AAA note survives losses that would have destroyed the entire equity three times over.** That is what the rating is describing, and it is a statement about the structure rather than about the borrowers.",
+        "Now put the loss levels in context. Ask what cumulative loss the underlying asset class experienced in its worst historical period, and compare it with the 38% attachment point.",
+        "Sanity check worth reusing: **for any structured position, state the attachment and detachment points and the cumulative loss that impairs you.** If someone cannot give you those two numbers, they do not know what they own — and the rating is not a substitute for them."
+      ]
+    },
+    {
+      "type": "table",
+      "id": "tranche-table",
+      "caption": "One pool, four different investments",
+      "headers": ["Tranche", "Attaches / detaches", "What you are really buying"],
+      "rows": [
+        [
+          "AAA (62%)",
+          "38% / 100%",
+          "A claim that survives unless a third of the pool is destroyed. Low spread, high structural protection."
+        ],
+        [
+          "Mezzanine (24%)",
+          "14% / 38%",
+          "Bond-like returns with a thin cushion — the slice with neither upside nor protection."
+        ],
+        [
+          "Equity (14%)",
+          "0% / 14%",
+          "A 7x levered bet on the corporate credit cycle, distributed as cash while conditions are benign."
+        ],
+        [
+          "The loan pool itself",
+          "n/a",
+          "The underlying risk, unlevered. What every tranche is a claim on."
+        ]
+      ]
+    },
+    {
+      "type": "concept",
+      "id": "how-it-goes-wrong",
+      "body": "**Default correlation understated.** Tranching relies on losses arriving gradually and independently. If defaults cluster — and they do, because borrowers share an economy — losses reach the senior tranches faster than an independence assumption predicts. This is precisely what went wrong in the 2008 mortgage structures, and the lesson is about the correlation assumption rather than about securitisation itself.\n\n**Ratings read as safety rather than as attachment points.** A rating summarises expected loss under a model. The model's correlation assumption is the fragile input, and it is not in the rating letter.\n\n**Collateral quality drifting.** A CLO manager can trade the pool within limits. Documented flexibility on ratings buckets, industry concentration and payment-in-kind loans decides how much drift is possible.\n\n**Reinvestment period ending.** During it the manager can replace repaid loans; afterwards the pool amortises. The economics of the equity change entirely at that date, and it is knowable in advance.\n\n**Mark-to-market on the tranche, not the pool.** Tranche prices move far more than pool losses justify in a stress event, because liquidity in a leveraged claim disappears first."
+    },
+    {
+      "type": "pitfall",
+      "id": "the-arbitrage-is-a-spread",
+      "body": "**The \"CLO arbitrage\" is not an arbitrage. It is the spread between what the loan pool yields and what the notes cost, and it is compensation for taking the risk the notes shed.**\n\nCalling it arbitrage suggests a free lunch found by clever structuring. What is actually happening is a transfer: senior investors accept a lower spread in exchange for a 38% loss cushion, and the equity is paid for providing that cushion.\n\nTwo consequences follow, and both are testable.\n\n**The arbitrage compresses when loan spreads tighten or note spreads widen.** New CLO formation slows in exactly those conditions, which tells you the economics are a market price rather than a structural edge.\n\n**The return is highly sensitive to the loss rate**, as the 19% / 4.7% / −9.5% sequence shows. So the equity's expected return depends entirely on a credit loss forecast, which is the one input nobody can observe.\n\n**The useful question for any structured credit allocation: what annual loss rate makes this position break even, and how does that compare with the worst historical experience for this collateral?** For the equity above, breakeven is a little under 3% a year — a number that can be argued about with evidence, where \"19% target return\" cannot."
+    },
+    {
+      "type": "onTheJob",
+      "id": "on-the-job",
+      "body": "**Ask for the attachment and detachment points, and the cumulative loss that impairs your tranche.** Two numbers that define the position, and the rating is not a substitute.\n\n**Ask what annual loss rate takes the return to zero.** For CLO equity it is usually low single digits, and it converts a target return into a testable claim.\n\n**Ask what the correlation assumption is in the loss model.** It is the assumption that failed in 2008 and it is rarely volunteered.\n\n**Ask when the reinvestment period ends.** The equity's economics change materially at that date, and the date is fixed at issue.\n\n**Ask for the documented flexibility on collateral quality — ratings buckets, industry limits, payment-in-kind loans.** It determines how far the pool you underwrote can drift from the pool you end up owning."
+    },
+    {
+      "type": "keyTakeaways",
+      "id": "takeaways",
+      "items": [
+        "Tranching redistributes risk rather than reducing it: no loan in a CLO is investment grade, and the AAA note is, because 38% of the structure absorbs losses first.",
+        "A tranche is defined by two numbers — where it starts taking losses and where it is wiped out. The rating is a statement about those points, not about the borrowers.",
+        "CLO equity at 14 of a 100 pool is 7.1x levered. Returns of 19.0% at zero losses become 4.7% at 2% annual losses and −9.5% at 4%.",
+        "The CLO arbitrage is a spread, not a free lunch — senior investors accept less for a 38% cushion, and the equity is paid for providing it."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "fi-securitisation-01-q1",
+      "type": "numeric",
+      "difficulty": 2,
+      "tags": ["securitisation", "attachment", "arithmetic"],
+      "concept": "attachment-points",
+      "stem": "A CLO has equity of 14% and mezzanine of 24%. At what cumulative portfolio loss does the AAA tranche start taking losses, in percent?",
+      "answer": 38,
+      "tolerance": 0.5,
+      "toleranceType": "abs",
+      "unit": "%",
+      "explanation": "The attachment point is simply everything beneath you. It is also the honest way to describe the rating: the AAA is not safe because the loans are good, it is safe because more than a third of the pool must be destroyed before it is touched."
+    },
+    {
+      "id": "fi-securitisation-01-q2",
+      "type": "numeric",
+      "difficulty": 3,
+      "tags": ["securitisation", "leverage", "arithmetic"],
+      "concept": "equity-is-levered",
+      "stem": "A CLO holds 100 of loans funded with 14 of equity. What is the leverage on the loan pool, in turns? Two decimal places.",
+      "answer": 7.14,
+      "tolerance": 0.1,
+      "toleranceType": "abs",
+      "unit": "x",
+      "explanation": "Nobody describes CLO equity as a 7x levered credit fund, and that is exactly what the arithmetic says it is. Holding that number in mind makes the return sensitivity to loss rates unsurprising rather than alarming."
+    },
+    {
+      "id": "fi-securitisation-01-q3",
+      "type": "numeric",
+      "difficulty": 4,
+      "tags": ["securitisation", "returns", "arithmetic"],
+      "concept": "equity-is-levered",
+      "stem": "Pool income 9.25, liability cost 6.59, equity 14. What is the equity return, in percent? One decimal place.",
+      "answer": 19.0,
+      "tolerance": 0.4,
+      "toleranceType": "abs",
+      "unit": "%",
+      "inputHint": "(income − liability cost) ÷ equity",
+      "explanation": "That 19% assumes zero credit losses, which no CLO experiences. At 2% annual losses the same structure returns 4.7% and at 4% it returns −9.5% — so the headline is a ceiling rather than an expectation."
+    },
+    {
+      "id": "fi-securitisation-01-q4",
+      "type": "mcq",
+      "difficulty": 3,
+      "tags": ["securitisation", "tranching"],
+      "concept": "what-it-is",
+      "stem": "How can a pool containing no investment-grade loans support a AAA-rated note?",
+      "choices": [
+        "The rating agency assesses the manager rather than the loans",
+        "Because 38% of the structure sits beneath it and absorbs losses first, so the note is only impaired after extreme portfolio losses",
+        "Because the loans are insured",
+        "Because the note has a shorter maturity than the loans"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Manager quality is assessed and it is not what produces the rating — the subordination is.",
+        "Correct. The rating describes the position in the waterfall, not the credit quality of the underlying borrowers. Subordination is the entire mechanism.",
+        "CLO notes are not typically insured; the protection is structural.",
+        "Maturity affects timing rather than loss priority."
+      ],
+      "explanation": "Stating it as \"38% of the pool must be lost before I am touched\" rather than \"it is AAA\" is a better habit for exactly one reason: the first version can be tested against historical loss experience, and the second cannot."
+    },
+    {
+      "id": "fi-securitisation-01-q5",
+      "type": "tfj",
+      "difficulty": 4,
+      "tags": ["securitisation", "misconception"],
+      "concept": "the-arbitrage-is-a-spread",
+      "stem": "\"Tranching creates value by turning risky loans into safe securities.\" True or false — and why?",
+      "isTrue": false,
+      "justifications": [
+        "False — it redistributes risk rather than reducing it, concentrating losses in a thin equity slice so the remainder can be sold as senior",
+        "False — tranching always destroys value through fees",
+        "True — diversification within the pool genuinely reduces total risk",
+        "False — because securitised structures are not permitted to be rated AAA"
+      ],
+      "justificationIndex": 0,
+      "rationales": [
+        "Correct. The pool's total risk is unchanged; what changes is who bears which part of the loss distribution. The senior note's safety is purchased with the equity's exposure.",
+        "Fees are a real cost and are not the reason the claim fails — the claim mischaracterises what tranching does.",
+        "Pooling does diversify idiosyncratic risk, and tranching is a separate operation that redistributes what remains. The claim conflates the two.",
+        "They are routinely rated AAA, which is the fact the question is about."
+      ],
+      "explanation": "The distinction between pooling and tranching is worth keeping separate: pooling diversifies name-specific risk, and tranching allocates the systematic risk that pooling cannot remove. 2008 was a failure of the second — correlation assumptions — rather than of the first."
+    },
+    {
+      "id": "fi-securitisation-01-q6",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["securitisation", "correlation", "on-the-job"],
+      "concept": "how-it-goes-wrong",
+      "stem": "Which assumption in a tranching model most determines whether senior tranches are genuinely safe?",
+      "choices": [
+        "The recovery rate on individual loans",
+        "The correlation between defaults — because clustered losses reach senior tranches far faster than independent ones",
+        "The average loan maturity",
+        "The manager's trading permissions"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Recovery matters and enters the expected loss calculation, and it does not drive the shape of the tail the way correlation does.",
+        "Correct. Independence spreads losses thinly across time and names; correlation stacks them, which is exactly what a subordination cushion is poorly equipped for.",
+        "Maturity affects timing rather than the loss distribution's shape.",
+        "Trading permissions determine collateral drift — a real risk and a separate one."
+      ],
+      "explanation": "This is the specific lesson of 2008: the mortgage structures were not badly built for the assumed world, they were built for a world where regional house prices moved independently. Ask what correlation the model assumes and what happens at a higher one — the second answer is the interesting one."
+    },
+    {
+      "id": "fi-securitisation-01-q7",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["securitisation", "diligence", "on-the-job"],
+      "concept": "the-arbitrage-is-a-spread",
+      "stem": "A manager offers CLO equity with a 19% target return. What is the most useful single question?",
+      "choices": [
+        "What is the AAA tranche's spread?",
+        "What annual credit loss rate takes this return to zero, and how does it compare with the worst historical experience for this collateral?",
+        "Who is the rating agency?",
+        "How large is the CLO?"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "The senior spread is an input to the equity's economics and does not test the return assumption.",
+        "Correct. It converts a target into a testable claim. For this structure breakeven is a little under 3% a year, which can be compared with actual loss experience rather than debated as a projection.",
+        "The agency matters for the notes' marketability rather than for the equity's return.",
+        "Size affects diversification and liquidity, not the sensitivity of the return to losses."
+      ],
+      "explanation": "The same question works on every levered credit product: find the loss rate at which the return is zero, then argue about whether that loss rate is plausible. It moves the conversation from a projection nobody can verify to a historical record everyone can look up."
+    }
+  ],
+  "needsReview": false,
+  "reviewNote": null
+}

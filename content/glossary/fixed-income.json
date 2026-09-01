@@ -36,6 +36,17 @@
       ]
     },
     {
+      "slug": "clo",
+      "term": "collateralised loan obligation (CLO)",
+      "plain": "A securitisation of several hundred leveraged corporate loans, funded by rated notes and a thin equity piece. The equity is a roughly 7x levered bet on corporate credit.",
+      "formal": "A managed securitisation vehicle holding a diversified pool of leveraged loans, financed by tranched debt and subordinated equity, with defined attachment and detachment points.",
+      "seeAlso": [
+        "securitisation",
+        "seniority",
+        "loss-given-default"
+      ]
+    },
+    {
       "slug": "convexity",
       "term": "convexity",
       "plain": "The curvature in the price-yield relationship. It makes duration overstate losses and understate gains, so for a conventional bond it always works in the holder's favour.",
@@ -99,6 +110,17 @@
         "federal-funds-rate",
         "private-credit",
         "duration"
+      ]
+    },
+    {
+      "slug": "forward-rate",
+      "term": "forward rate",
+      "plain": "Today's rate for a loan that starts at a future date. Forced by the spot curve rather than forecast — if it were anything else, two riskless strategies would pay differently.",
+      "formal": "The interest rate for a future period implied by current spot rates under no-arbitrage, such that rolling short investments through the forward equals the longer spot investment.",
+      "seeAlso": [
+        "spot-rate",
+        "yield-curve",
+        "covered-interest-parity"
       ]
     },
     {
@@ -200,6 +222,17 @@
       ]
     },
     {
+      "slug": "securitisation",
+      "term": "securitisation",
+      "plain": "Pooling loans into a separate vehicle and issuing claims against the pool with different priorities. It redistributes risk rather than reducing it.",
+      "formal": "The transfer of a pool of assets to a special purpose vehicle which issues tranched liabilities against the pool's cash flows, ordered by seniority.",
+      "seeAlso": [
+        "clo",
+        "seniority",
+        "credit-spread"
+      ]
+    },
+    {
       "slug": "seniority",
       "term": "seniority",
       "plain": "Where a claim sits in the queue to be paid if a borrower fails. Senior claims are paid before subordinated ones, and in a restructuring that ordering usually decides everything.",
@@ -208,6 +241,17 @@
         "capital-structure",
         "distressed-debt",
         "indenture"
+      ]
+    },
+    {
+      "slug": "spot-rate",
+      "term": "spot rate",
+      "plain": "Today's rate for money borrowed now and repaid at one future date. A curve of these for every maturity is the honest description of the rate environment.",
+      "formal": "The zero-coupon yield for a single cash flow at a specified maturity, used to discount that cash flow directly.",
+      "seeAlso": [
+        "forward-rate",
+        "yield-curve",
+        "ytm"
       ]
     },
     {

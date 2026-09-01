@@ -1,0 +1,215 @@
+{
+  "schemaVersion": 1,
+  "id": "fi-floating-01",
+  "domain": "fixed-income",
+  "title": "Floating-Rate Notes: Where the Risk Goes Instead",
+  "summary": "A coupon that resets removes almost all price sensitivity to rates — and hands the exposure to the borrower, which is where it comes back.",
+  "level": "core",
+  "prereqs": ["fi-duration-01", "fi-credit-01"],
+  "estMinutes": 9,
+  "examRelevance": ["CFA-L1", "CAIA-L1", "practical"],
+  "lesson": [
+    {
+      "type": "concept",
+      "id": "what-it-is",
+      "body": "A [[floating-rate|floating-rate]] instrument pays a coupon that resets periodically: a **reference rate** plus a fixed **spread**.\n\nA loan at \"reference plus 350\" with the reference at 5.25% pays 8.75% today. If the reference falls to 3.00%, the coupon becomes 6.50%. **The spread is fixed for the life of the loan; the reference is not.**\n\nThe reference rate is an overnight or short-term benchmark — SOFR in dollars, €STR in euros, SONIA in sterling — reset quarterly in most [[private-credit|private credit]] and syndicated loans.\n\nThe consequence for price is direct. Between resets, the instrument is effectively a very short bond: **its [[duration]] is roughly the time until the next reset.** With quarterly resets that is about 0.25 years, so a 100bp move in rates changes the price by about a quarter of a percent.\n\n**Compare that with a five-year fixed-rate bond, where the same 100bp move costs roughly 4.4%.** That difference — seventeen times less price sensitivity — is what people mean when they call floating-rate credit \"low duration\", and it is genuinely true of the instrument."
+    },
+    {
+      "type": "concept",
+      "id": "two-durations",
+      "body": "**A floating-rate loan has two durations, and only one of them is short.**\n\n**Interest rate duration** is near zero, for the reason above. The coupon resets, so the price does not need to.\n\n**[[credit-spread|Spread]] duration** is the full remaining life of the loan. If the market's required spread for this borrower rises from 350bp to 550bp, the loan's value falls by roughly the spread change times the years remaining — the same arithmetic as duration, applied to a different rate.\n\nSo a five-year floating loan has an interest rate duration of about 0.25 and a spread duration of about 4. **Calling it \"low duration\" without saying which is a description of one exposure and a silence about the larger one.**\n\nThis matters because of when each one moves. Interest rates rise in expansions and fall in downturns; spreads do the opposite — they are tightest when conditions are benign and widen violently in stress. **The exposure that was removed is the one that would have helped in a downturn, and the exposure that remains is the one that hurts in exactly that scenario.**\n\nWhich is why a fixed-rate government bond and a floating-rate loan behave so differently in a recession: one rallies as rates fall, the other falls as spreads widen. Both are \"bonds\"."
+    },
+    {
+      "type": "intuition",
+      "id": "the-risk-moves",
+      "body": "**Interest rate risk in a floating-rate loan does not disappear. It transfers to the borrower, and you own the borrower.**\n\nThis is the sentence that matters for anyone allocating to private credit, and the arithmetic makes it concrete.\n\nTake the worked company: [[ebitda|EBITDA]] of 80 and debt of 400 at reference plus 350.\n\n- Reference at 5.25%, coupon 8.75% → interest 35.0, **coverage 2.29x**\n- Reference at 3.00%, coupon 6.50% → interest 26.0, **coverage 3.08x**\n- Reference at 8.00%, coupon 11.50% → interest 46.0, **coverage 1.74x**\n\n**A 275bp rise in the reference rate took [[interest-coverage|interest coverage]] from 2.29x to 1.74x with no change in the business whatsoever.** For a company with a [[covenant]] at 2.0x, that is a breach caused entirely by [[monetary-policy|monetary policy]].\n\nSo the lender's position in a tightening cycle is genuinely double-edged:\n\n**Income rises**, immediately and mechanically.\n\n**Credit quality falls**, across the whole portfolio at once, because every borrower faces the same reference rate.\n\n**And the second effect is correlated in a way the first is not.** Higher income is a certainty; the defaults arrive together, later, and in the same environment where recoveries are worst. The protection is real and it is narrower than \"we have no duration\" implies."
+    },
+    {
+      "type": "example",
+      "id": "worked-frn",
+      "body": "A five-year loan at reference plus 350bp, reference currently 5.25%, quarterly reset. Compare it with a five-year fixed-rate bond of similar credit quality.",
+      "walkthrough": [
+        "Current coupon = 5.25% + 3.50% = **8.75%**.",
+        "**Rates rise 100bp.** The floating loan's price barely moves — duration is about 0.25 years, so roughly **−0.25%**. Its next coupon resets to 9.75%.",
+        "The fixed bond, at a duration of roughly 4.4, falls about **−4.4%**.",
+        "**Spreads widen 200bp.** Now the floating loan's spread duration of about 4 bites: value falls roughly 4 × 2% = **−8%**.",
+        "**Read that carefully: the instrument marketed as low duration lost 8% on a spread move and 0.25% on a rate move.** Both are \"interest rate\" events in ordinary conversation and they are entirely different exposures.",
+        "Now the borrower. Debt of 400 at the new 9.75% coupon means interest of 39.0 against EBITDA of 80: coverage falls from 2.29x to **2.05x** on a 100bp move alone.",
+        "At a reference of 8.00% the coupon is 11.50%, interest 46.0, and coverage **1.74x** — below a typical 2.0x covenant.",
+        "Sanity check worth reusing: **for any floating-rate credit position, write down both durations and the borrower's coverage at plus 300bp.** Three numbers, and together they describe the actual exposure in a way a single duration figure never can."
+      ]
+    },
+    {
+      "type": "table",
+      "id": "frn-table",
+      "caption": "What moves a floating-rate loan, and what it does to the borrower",
+      "headers": ["Event", "Effect on the loan's price", "Effect on the borrower"],
+      "rows": [
+        [
+          "Reference rate rises 100bp",
+          "Roughly −0.25% — duration is the time to next reset",
+          "Interest bill rises immediately; coverage falls."
+        ],
+        [
+          "Spread widens 200bp",
+          "Roughly −8% on a four-year spread duration",
+          "None directly — but it usually reflects deteriorating conditions."
+        ],
+        [
+          "Reference rate falls 200bp",
+          "Roughly +0.5%",
+          "Interest bill falls; coverage improves materially."
+        ],
+        [
+          "Recession",
+          "Spreads widen and defaults rise together",
+          "Revenue falls while the rate-driven interest bill is still elevated."
+        ]
+      ]
+    },
+    {
+      "type": "concept",
+      "id": "how-it-goes-wrong",
+      "body": "**Reference rate floors.** Many loans set a minimum reference rate. When rates were near zero this meant the borrower paid more than the market rate — a real feature that quietly raised yields, and one that only matters again if rates return to the floor.\n\n**Quoting yield on today's reference rate.** A loan yielding 8.75% at a 5.25% reference does not yield 8.75% if the reference falls to 3.00%. Forward-curve-based yield projections exist and are rarely shown.\n\n**Ignoring the reset lag.** A loan resetting quarterly in arrears passes through rate changes with a delay. Small, and it matters in a fast-moving cycle.\n\n**Treating spread duration as zero.** The most consequential error in this topic. Marks on floating-rate portfolios move with spreads, and in a stress event those moves are large.\n\n**Hedging the wrong exposure.** An investor worried about \"rate risk\" in a floating-rate portfolio who buys interest rate protection has hedged the exposure they did not have, and paid for it."
+    },
+    {
+      "type": "pitfall",
+      "id": "the-resilience-illusion",
+      "body": "**Floating-rate private credit performed conspicuously well through the last tightening cycle, and there are two explanations for it that are hard to tell apart from the outside.**\n\n**The genuine one.** Coupons reset upward, income rose, and interest rate duration was near zero, so marks held up where fixed-rate bonds fell sharply. All of that is real and it is the strategy working as designed.\n\n**The reporting one.** Private loans are marked quarterly by the manager rather than traded daily. Spread duration is real, and if spreads widen and the mark does not move, the resilience is partly a measurement artefact.\n\nThe two are separable with evidence:\n\n**Compare the manager's marks with traded loan indices over the same period.** A portfolio that never moved while the syndicated market fell several points is making a claim about its holdings that deserves testing.\n\n**Ask what proportion of loans were amended.** An amendment that defers a maturity or capitalises interest avoids a default without improving the credit — and payment-in-kind conversions are a specific thing to count.\n\n**Ask for coverage ratios across the portfolio, by year.** This is the exposure that rose while marks stayed flat, and it is the [[leading-indicator|leading indicator]] for the defaults that follow.\n\n**None of this means the resilience is false.** It means the evidence for it lives in coverage ratios and amendment counts rather than in a stable mark."
+    },
+    {
+      "type": "onTheJob",
+      "id": "on-the-job",
+      "body": "**Ask for interest rate duration and spread duration as separate numbers.** \"Low duration\" almost always refers to the first and the risk sits in the second.\n\n**Ask for portfolio interest coverage at the current reference rate and at plus 300bp.** The second number is where a tightening cycle actually lands.\n\n**Ask what percentage of loans have been amended, and how many are paying in kind.** Both suppress the reported default rate without improving credit quality.\n\n**Ask whether quoted yields use today's reference rate or the forward curve.** On an inverted curve those differ substantially over a fund's life.\n\n**Compare the manager's marks with a traded loan index over the same period.** A portfolio that did not move while the market did is a claim, and one worth asking about directly."
+    },
+    {
+      "type": "keyTakeaways",
+      "id": "takeaways",
+      "items": [
+        "A resetting coupon makes interest rate duration roughly the time to the next reset — about 0.25 years quarterly, against 4.4 for a comparable fixed-rate bond.",
+        "Spread duration remains the full life of the loan: a 200bp spread widening cost about 8% where a 100bp rate move cost 0.25%.",
+        "The rate risk transfers to the borrower. On the worked company, a 275bp reference rise took coverage from 2.29x to 1.74x with no change in the business.",
+        "The lender's income rises immediately and credit quality falls across the whole portfolio at once — so ask for coverage ratios and amendment counts, not just marks."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "fi-floating-01-q1",
+      "type": "numeric",
+      "difficulty": 2,
+      "tags": ["floating-rate", "arithmetic"],
+      "concept": "worked-frn",
+      "stem": "A loan pays the reference rate plus 350bp. The reference falls from 5.25% to 3.00%. What is the new coupon, in percent?",
+      "answer": 6.5,
+      "tolerance": 0.06,
+      "toleranceType": "abs",
+      "unit": "%",
+      "explanation": "The spread is contractual and fixed; only the reference moves. It is why a floating-rate fund's income falls immediately when the central bank cuts — the yield was never a property of the loan, it was a property of the rate environment plus a fixed margin."
+    },
+    {
+      "id": "fi-floating-01-q2",
+      "type": "numeric",
+      "difficulty": 3,
+      "tags": ["floating-rate", "coverage", "arithmetic"],
+      "concept": "the-risk-moves",
+      "stem": "EBITDA 80, debt 400 at a coupon of 11.50%. What is EBITDA interest coverage, in turns? Two decimal places.",
+      "answer": 1.74,
+      "tolerance": 0.05,
+      "toleranceType": "abs",
+      "unit": "x",
+      "explanation": "At an 8.75% coupon the same company covers interest 2.29x. The entire deterioration came from the reference rate, not from the business — and for a borrower with a 2.0x covenant it is a breach caused by monetary policy."
+    },
+    {
+      "id": "fi-floating-01-q3",
+      "type": "mcq",
+      "difficulty": 3,
+      "tags": ["floating-rate", "duration"],
+      "concept": "two-durations",
+      "stem": "Why is a floating-rate loan's interest rate duration approximately the time until its next reset?",
+      "choices": [
+        "Because the principal is repaid at each reset",
+        "Because at each reset the coupon returns to a market rate, so only the period until then is exposed to a rate change",
+        "Because floating-rate loans have short maturities",
+        "Because the spread absorbs rate movements"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "Principal is not repaid at a reset; only the coupon is recalculated.",
+        "Correct. After the reset the instrument pays a market-based coupon again, so the price does not need to adjust. Only the fixed stub until then carries rate exposure.",
+        "Maturities are often five to seven years — it is the reset frequency, not the maturity, that sets the rate duration.",
+        "The spread is fixed and absorbs nothing; the reference does the moving."
+      ],
+      "explanation": "The mechanism explains the exception too: a loan with an annual reset has four times the rate duration of a quarterly one. Reset frequency is a real term in the document, and it is worth checking rather than assuming quarterly."
+    },
+    {
+      "id": "fi-floating-01-q4",
+      "type": "tfj",
+      "difficulty": 4,
+      "tags": ["floating-rate", "misconception"],
+      "concept": "two-durations",
+      "stem": "\"Floating-rate loans have almost no duration, so our portfolio marks should be stable.\" True or false — and why?",
+      "isTrue": false,
+      "justifications": [
+        "False — interest rate duration is near zero but spread duration is the full remaining life, and marks move with required spreads",
+        "False — floating-rate loans have the same duration as fixed-rate bonds of the same maturity",
+        "True — near-zero duration means stable prices",
+        "False — because floating-rate loans are always held at amortised cost"
+      ],
+      "justificationIndex": 0,
+      "rationales": [
+        "Correct. A four-year spread duration and a 200bp widening is roughly an 8% move, which dwarfs anything the rate exposure could produce.",
+        "They do not — the resetting coupon genuinely removes most rate sensitivity.",
+        "It means stability with respect to rates specifically, which is a much narrower claim than stable marks.",
+        "Accounting treatment varies and is a separate criticism from the underlying exposure."
+      ],
+      "explanation": "The timing is what makes this matter: spreads widen in exactly the conditions where rates are falling, so the exposure that was removed would have helped and the one that remains hurts. That is close to the opposite of what \"low duration\" suggests to most listeners."
+    },
+    {
+      "id": "fi-floating-01-q5",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["floating-rate", "credit", "on-the-job"],
+      "concept": "the-risk-moves",
+      "stem": "In a tightening cycle, why is a direct lending fund's position double-edged?",
+      "choices": [
+        "Income falls while credit quality improves",
+        "Income rises immediately and mechanically, while every borrower's coverage deteriorates at the same time",
+        "The fund must mark its loans to market daily",
+        "Reference rate floors prevent coupons from rising"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "The direction is reversed on both counts in a tightening cycle.",
+        "Correct. The coupon rises for the lender and the interest bill rises for every borrower simultaneously — so the benefit is certain and immediate, and the cost is correlated across the portfolio and arrives later.",
+        "Private loans are typically marked quarterly by the manager, which is part of why the deterioration is slow to appear.",
+        "Floors set a minimum and do not prevent rises above it."
+      ],
+      "explanation": "The correlation is the important half. Higher income is diversifiable in the sense that it is certain; the credit deterioration hits every borrower at once, which is exactly the kind of exposure that portfolio statistics computed in calm periods will understate."
+    },
+    {
+      "id": "fi-floating-01-q6",
+      "type": "mcq",
+      "difficulty": 4,
+      "tags": ["floating-rate", "diligence", "on-the-job"],
+      "concept": "the-resilience-illusion",
+      "stem": "A private credit portfolio's marks barely moved while traded loan indices fell several points. What is the most useful follow-up?",
+      "choices": [
+        "Ask for the fund's target return",
+        "Ask for portfolio coverage ratios by year and the number of loans amended or paying in kind",
+        "Ask whether the fund uses leverage",
+        "Ask for the manager's track record over ten years"
+      ],
+      "answerIndex": 1,
+      "rationales": [
+        "The target is unrelated to whether the marks reflect current conditions.",
+        "Correct. Coverage ratios show the exposure that actually rose, and amendment and payment-in-kind counts show defaults being deferred rather than avoided. Both are knowable and neither depends on the mark.",
+        "Fund-level leverage matters for risk and does not test the marks.",
+        "A long record is useful context and says nothing about this quarter's valuation."
+      ],
+      "explanation": "The point is not that stable marks are dishonest — they may be entirely justified for held-to-maturity loans. It is that the evidence for resilience lives in the borrowers' financial condition, and that evidence is available on request while a mark is an opinion."
+    }
+  ],
+  "needsReview": false,
+  "reviewNote": null
+}
