@@ -706,6 +706,39 @@ Storage: `recallNotes` keyed by topic, last `RECALL.KEEP` (3) kept, capped at
 reference for blank input so callers skip persistence. Migration 7→8 starts empty —
 the notes are the user's own words, so there is nothing honest to reconstruct.
 
+### Anti-memorisation — BUILT (M9). `engine/prepare.ts`
+
+The scheduler re-asks questions on purpose; what it cannot defend against is
+memorising the surface instead of the content. Two mechanisms close that:
+
+**Seeded choice shuffling (M9a).** Every session deals each question's choices fresh,
+seeded by `(question id ^ session startedAt)`. Stable within a session (options never
+move under the cursor), reproducible on resume (a saved response index still points at
+the choice text it was given against — `fromSaved` re-deals with the snapshot's
+startedAt), different across sessions. The question is permuted as a whole — choices,
+answerIndex and the index-aligned rationales together. Numeric-looking option lists
+stay in authored order (exam convention, and the number itself is the memorable part).
+**Never** seed with anything but the session's startedAt: any other seed silently
+regrades saved responses against reshuffled options.
+
+**Numeric variant tables (M9b).** A numeric question may carry `variants` — alternate
+parameterisations (stem + answer + explanation travelling together, tolerance/hint
+falling back to base). One is resolved per encounter with the same seed discipline.
+One id, one scheduling state; only the figures rotate. Rules:
+
+- **Variants are authored tables, not runtime formulas** — no math engine in the app
+  to get wrong, and every figure stays Python-verified. Generate variants with a
+  script that interpolates stems and explanations from the same computed values that
+  become the answers, so prose and answer cannot disagree (see the M9b commit).
+- **Stems must be self-contained.** "Using the same figures" breaks when the
+  neighbouring question dealt a different variant. M9b fixed three base stems for this.
+- **No variants on vignette subs** — their figures are fixed by the case's exhibits.
+- Variant prose is walked by `collectProse`, so glossary refs and markup are validated
+  like everywhere else.
+
+Coverage as of M9b: all 27 quantitative-methods numerics carry two variants each.
+The other domains' 122 numerics are open work — same generation discipline.
+
 ### Dev-only inspection handle
 
 `main.tsx` exposes the store as `window.__alts` under `import.meta.env.DEV`. Time accounting has to

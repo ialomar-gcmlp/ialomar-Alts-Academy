@@ -5,9 +5,15 @@
   "title": "Distributions, the Normal Curve and Fat Tails",
   "summary": "The bell curve, why finance keeps assuming it, and what goes wrong when returns refuse to cooperate.",
   "level": "core",
-  "prereqs": ["quant-stat-01"],
+  "prereqs": [
+    "quant-stat-01"
+  ],
   "estMinutes": 10,
-  "examRelevance": ["CFA-L1", "CAIA-L1", "practical"],
+  "examRelevance": [
+    "CFA-L1",
+    "CAIA-L1",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
@@ -20,8 +26,14 @@
       "latex": "z = \\frac{x - \\mu}{\\sigma}",
       "plainReading": "The z-score is the observation minus the mean, divided by the standard deviation. It answers: how many standard deviations from typical is this?",
       "variables": [
-        { "symbol": "\\mu", "meaning": "the mean of the distribution" },
-        { "symbol": "\\sigma", "meaning": "the standard deviation — [[volatility]], for returns" }
+        {
+          "symbol": "\\mu",
+          "meaning": "the mean of the distribution"
+        },
+        {
+          "symbol": "\\sigma",
+          "meaning": "the standard deviation — [[volatility]], for returns"
+        }
       ]
     },
     {
@@ -47,10 +59,46 @@
       "caption": "Normal versus fat-tailed, same mean and scale (illustrative densities)",
       "spec": {
         "kind": "line",
-        "xLabels": ["-4σ", "-3σ", "-2σ", "-1σ", "mean", "+1σ", "+2σ", "+3σ", "+4σ"],
+        "xLabels": [
+          "-4σ",
+          "-3σ",
+          "-2σ",
+          "-1σ",
+          "mean",
+          "+1σ",
+          "+2σ",
+          "+3σ",
+          "+4σ"
+        ],
         "series": [
-          { "name": "Normal", "values": [0.0001, 0.0044, 0.054, 0.242, 0.3989, 0.242, 0.054, 0.0044, 0.0001] },
-          { "name": "Fat-tailed", "values": [0.0067, 0.0197, 0.0663, 0.2147, 0.375, 0.2147, 0.0663, 0.0197, 0.0067] }
+          {
+            "name": "Normal",
+            "values": [
+              0.0001,
+              0.0044,
+              0.054,
+              0.242,
+              0.3989,
+              0.242,
+              0.054,
+              0.0044,
+              0.0001
+            ]
+          },
+          {
+            "name": "Fat-tailed",
+            "values": [
+              0.0067,
+              0.0197,
+              0.0663,
+              0.2147,
+              0.375,
+              0.2147,
+              0.0663,
+              0.0197,
+              0.0067
+            ]
+          }
         ],
         "yLabel": "Relative likelihood",
         "yUnit": ""
@@ -88,23 +136,46 @@
       "id": "quant-dist-01-q1",
       "type": "numeric",
       "difficulty": 2,
-      "tags": ["z-score", "normal-distribution"],
+      "tags": [
+        "z-score",
+        "normal-distribution"
+      ],
       "concept": "z-formula",
       "stem": "A strategy has an expected return of 8% and volatility of 12%. What is the z-score of a -16% annual return?",
       "answer": -2,
       "tolerance": 0.05,
       "toleranceType": "abs",
       "inputHint": "Answer as a number, with a minus sign if below the mean.",
-      "explanation": "z = (-16 - 8)/12 = -2.0. Two standard deviations below the mean, which under a normal distribution sits at about the 2.3rd percentile — roughly a 1-in-44 year."
+      "explanation": "z = (-16 - 8)/12 = -2.0. Two standard deviations below the mean, which under a normal distribution sits at about the 2.3rd percentile — roughly a 1-in-44 year.",
+      "variants": [
+        {
+          "stem": "A strategy has an expected return of 6% and volatility of 10%. What is the z-score of a -9% annual return?",
+          "answer": -1.5,
+          "explanation": "z = (return − mean) ÷ volatility = (-9 − 6) ÷ 10 = **-1.5**. The sign says which side of the mean; the magnitude says how many volatilities away."
+        },
+        {
+          "stem": "A strategy has an expected return of 10% and volatility of 15%. What is the z-score of a +40% annual return?",
+          "answer": 2.0,
+          "explanation": "z = (return − mean) ÷ volatility = (40 − 10) ÷ 15 = **+2.0**. The sign says which side of the mean; the magnitude says how many volatilities away."
+        }
+      ]
     },
     {
       "id": "quant-dist-01-q2",
       "type": "mcq",
       "difficulty": 2,
-      "tags": ["normal-distribution", "probability"],
+      "tags": [
+        "normal-distribution",
+        "probability"
+      ],
       "concept": "the-normal",
       "stem": "Under a normal distribution, roughly what proportion of outcomes fall within two standard deviations of the mean?",
-      "choices": ["68%", "95%", "99.7%", "50%"],
+      "choices": [
+        "68%",
+        "95%",
+        "99.7%",
+        "50%"
+      ],
       "answerIndex": 1,
       "rationales": [
         "68% is the one-standard-deviation figure.",
@@ -118,14 +189,54 @@
       "id": "quant-dist-01-q3",
       "type": "chartRead",
       "difficulty": 3,
-      "tags": ["fat-tails", "chart-reading", "kurtosis"],
+      "tags": [
+        "fat-tails",
+        "chart-reading",
+        "kurtosis"
+      ],
       "concept": "tails-chart",
       "spec": {
         "kind": "line",
-        "xLabels": ["-4σ", "-3σ", "-2σ", "-1σ", "mean", "+1σ", "+2σ", "+3σ", "+4σ"],
+        "xLabels": [
+          "-4σ",
+          "-3σ",
+          "-2σ",
+          "-1σ",
+          "mean",
+          "+1σ",
+          "+2σ",
+          "+3σ",
+          "+4σ"
+        ],
         "series": [
-          { "name": "Curve A", "values": [0.0001, 0.0044, 0.054, 0.242, 0.3989, 0.242, 0.054, 0.0044, 0.0001] },
-          { "name": "Curve B", "values": [0.0067, 0.0197, 0.0663, 0.2147, 0.375, 0.2147, 0.0663, 0.0197, 0.0067] }
+          {
+            "name": "Curve A",
+            "values": [
+              0.0001,
+              0.0044,
+              0.054,
+              0.242,
+              0.3989,
+              0.242,
+              0.054,
+              0.0044,
+              0.0001
+            ]
+          },
+          {
+            "name": "Curve B",
+            "values": [
+              0.0067,
+              0.0197,
+              0.0663,
+              0.2147,
+              0.375,
+              0.2147,
+              0.0663,
+              0.0197,
+              0.0067
+            ]
+          }
         ],
         "yLabel": "Relative likelihood",
         "yUnit": ""
@@ -150,7 +261,10 @@
       "id": "quant-dist-01-q4",
       "type": "strategyId",
       "difficulty": 4,
-      "tags": ["skewness", "strategy-identification"],
+      "tags": [
+        "skewness",
+        "strategy-identification"
+      ],
       "concept": "skew-kurt",
       "description": "A strategy has produced 46 positive months out of 52, with a modest average monthly gain and very low reported volatility. The six negative months include one that lost more than the previous eighteen months of gains combined. Returns show negative skew and high excess kurtosis.",
       "choices": [
@@ -172,7 +286,11 @@
       "id": "quant-dist-01-q5",
       "type": "tfj",
       "difficulty": 3,
-      "tags": ["fat-tails", "risk-models", "misconception"],
+      "tags": [
+        "fat-tails",
+        "risk-models",
+        "misconception"
+      ],
       "concept": "fat-tails",
       "stem": "\"Our model says a loss this large should occur once every 500 years, so the model must have been correct and we were simply unlucky.\" True or false — and why?",
       "isTrue": false,
@@ -195,7 +313,11 @@
       "id": "quant-dist-01-q6",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["correlation", "stress", "on-the-job"],
+      "tags": [
+        "correlation",
+        "stress",
+        "on-the-job"
+      ],
       "concept": "on-the-job",
       "stem": "A multi-strategy portfolio is built assuming low correlations between its underlying strategies, measured over ten years. Why might it perform far worse than modelled in a crisis?",
       "choices": [
@@ -217,7 +339,10 @@
       "id": "quant-dist-01-q7",
       "type": "numeric",
       "difficulty": 3,
-      "tags": ["z-score", "normal-distribution"],
+      "tags": [
+        "z-score",
+        "normal-distribution"
+      ],
       "concept": "worked-z",
       "stem": "A strategy has an expected return of 8% and volatility of 12%. What annual return sits exactly 1.5 standard deviations below the mean, in percent?",
       "answer": -10,
@@ -225,7 +350,19 @@
       "toleranceType": "abs",
       "unit": "%",
       "inputHint": "Answer in percent, with a minus sign if negative.",
-      "explanation": "8 - (1.5 x 12) = -10%. Converting in this direction — from a number of standard deviations back to a return — is how volatility figures get turned into loss scenarios, and it is worth being fluent in both directions."
+      "explanation": "8 - (1.5 x 12) = -10%. Converting in this direction — from a number of standard deviations back to a return — is how volatility figures get turned into loss scenarios, and it is worth being fluent in both directions.",
+      "variants": [
+        {
+          "stem": "A strategy has an expected return of 6% and volatility of 10%. What annual return sits exactly 2 standard deviations below the mean, in percent?",
+          "answer": -14.0,
+          "explanation": "Mean minus 2 volatilities: 6% − 2 × 10% = **-14%**. Same arithmetic as a z-score, run backwards from z = −2."
+        },
+        {
+          "stem": "A strategy has an expected return of 9% and volatility of 14%. What annual return sits exactly 1.5 standard deviations below the mean, in percent?",
+          "answer": -12.0,
+          "explanation": "Mean minus 1.5 volatilities: 9% − 1.5 × 14% = **-12%**. Same arithmetic as a z-score, run backwards from z = −1.5."
+        }
+      ]
     }
   ],
   "needsReview": false,

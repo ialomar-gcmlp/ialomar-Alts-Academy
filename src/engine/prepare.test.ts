@@ -141,20 +141,105 @@ describe("prepareQuestion — tfj", () => {
   });
 });
 
-describe("prepareQuestion — types with nothing to shuffle", () => {
-  it("returns numeric questions untouched (for now — variants are their defence)", () => {
-    const numeric: Question = {
-      id: "quant-tvm-01-q2",
-      type: "numeric",
-      difficulty: 2,
-      tags: ["t"],
-      stem: "Compute.",
-      explanation: "Worked.",
-      answer: 42,
-      tolerance: 0.1,
-      toleranceType: "abs",
-    };
-    expect(prepareQuestion(numeric, T0)).toBe(numeric);
+const numeric = (over: Partial<Extract<Question, { type: "numeric" }>> = {}): Question => ({
+  id: "quant-tvm-01-q2",
+  type: "numeric",
+  difficulty: 2,
+  tags: ["t"],
+  stem: "Base stem: 100 at 6% for 3 years.",
+  explanation: "Base explanation: 119.10.",
+  answer: 119.1,
+  tolerance: 0.1,
+  toleranceType: "abs",
+  inputHint: "to 2 decimal places",
+  ...over,
+});
+
+describe("prepareQuestion — numeric variants", () => {
+  const withVariants = (): Question =>
+    numeric({
+      variants: [
+        { stem: "Variant A: 200 at 5% for 2 years.", answer: 220.5, explanation: "A: 220.50." },
+        {
+          stem: "Variant B: 50 at 10% for 4 years.",
+          answer: 73.21,
+          explanation: "B: 73.21.",
+          tolerance: 0.05,
+          inputHint: "to the nearest cent",
+        },
+      ],
+    });
+
+  it("returns a variant-free question untouched", () => {
+    const base = numeric();
+    expect(prepareQuestion(base, T0)).toBe(base);
+  });
+
+  it("keeps stem, answer and explanation glued together", () => {
+    // An explanation walking the wrong figures would be worse than none — the house
+    // style derives the actual numbers, so the three fields must travel as one.
+    for (let k = 0; k < 20; k++) {
+      const dealt = prepareQuestion(withVariants(), T0 + k);
+      if (dealt.type !== "numeric") throw new Error("type changed");
+      if (dealt.stem.startsWith("Base")) {
+        expect(dealt.answer).toBe(119.1);
+        expect(dealt.explanation).toContain("119.10");
+      } else if (dealt.stem.startsWith("Variant A")) {
+        expect(dealt.answer).toBe(220.5);
+        expect(dealt.explanation).toContain("220.50");
+      } else {
+        expect(dealt.answer).toBe(73.21);
+        expect(dealt.explanation).toContain("73.21");
+      }
+    }
+  });
+
+  it("actually rotates across sessions — every form appears", () => {
+    const seen = new Set<number>();
+    for (let k = 0; k < 40; k++) {
+      const dealt = prepareQuestion(withVariants(), T0 + k * 60_000);
+      if (dealt.type === "numeric") seen.add(dealt.answer);
+    }
+    expect(seen).toEqual(new Set([119.1, 220.5, 73.21]));
+  });
+
+  it("is deterministic for a given session start, like the choice deal", () => {
+    const a = prepareQuestion(withVariants(), T0 + 777);
+    const b = prepareQuestion(withVariants(), T0 + 777);
+    expect(a).toEqual(b);
+  });
+
+  it("falls back to the base tolerance and hint when a variant omits them", () => {
+    let sawA = false;
+    for (let k = 0; k < 40 && !sawA; k++) {
+      const dealt = prepareQuestion(withVariants(), T0 + k);
+      if (dealt.type === "numeric" && dealt.stem.startsWith("Variant A")) {
+        sawA = true;
+        expect(dealt.tolerance).toBe(0.1); // base's
+        expect(dealt.inputHint).toBe("to 2 decimal places"); // base's
+      }
+    }
+    expect(sawA).toBe(true);
+  });
+
+  it("uses the variant's own tolerance and hint when given", () => {
+    let sawB = false;
+    for (let k = 0; k < 40 && !sawB; k++) {
+      const dealt = prepareQuestion(withVariants(), T0 + k);
+      if (dealt.type === "numeric" && dealt.stem.startsWith("Variant B")) {
+        sawB = true;
+        expect(dealt.tolerance).toBe(0.05);
+        expect(dealt.inputHint).toBe("to the nearest cent");
+      }
+    }
+    expect(sawB).toBe(true);
+  });
+
+  it("grades against the resolved variant's answer", () => {
+    const dealt = prepareQuestion(withVariants(), T0 + 3);
+    if (dealt.type !== "numeric") throw new Error("type changed");
+    const right = gradeAnswer(dealt, { kind: "numeric", value: dealt.answer, raw: String(dealt.answer) });
+    expect(right.correct).toBe(true);
   });
 });
 

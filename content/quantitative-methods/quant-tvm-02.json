@@ -5,9 +5,15 @@
   "title": "Annuities and Perpetuities",
   "summary": "Shortcuts for valuing a stream of identical payments, instead of discounting each one by hand.",
   "level": "foundation",
-  "prereqs": ["quant-tvm-01"],
+  "prereqs": [
+    "quant-tvm-01"
+  ],
   "estMinutes": 7,
-  "examRelevance": ["CFA-L1", "CAIA-L1", "practical"],
+  "examRelevance": [
+    "CFA-L1",
+    "CAIA-L1",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
@@ -25,9 +31,18 @@
       "latex": "PV = PMT \\times \\frac{1 - (1+r)^{-n}}{r}",
       "plainReading": "Present value equals the payment, multiplied by one minus the discount factor for the final period, all divided by the rate. The fraction is often called the annuity factor — it is simply the sum of all the individual [[discount-factor|discount factors]] rolled into one number.",
       "variables": [
-        { "symbol": "PMT", "meaning": "the payment made each period — identical every time, which is what makes it an [[annuity]]" },
-        { "symbol": "r", "meaning": "the rate per period" },
-        { "symbol": "n", "meaning": "the number of payments" }
+        {
+          "symbol": "PMT",
+          "meaning": "the payment made each period — identical every time, which is what makes it an [[annuity]]"
+        },
+        {
+          "symbol": "r",
+          "meaning": "the rate per period"
+        },
+        {
+          "symbol": "n",
+          "meaning": "the number of payments"
+        }
       ]
     },
     {
@@ -74,7 +89,10 @@
       "id": "quant-tvm-02-q1",
       "type": "numeric",
       "difficulty": 2,
-      "tags": ["annuity", "present-value"],
+      "tags": [
+        "annuity",
+        "present-value"
+      ],
       "concept": "pv-annuity",
       "stem": "What is the present value of $2,000 received at the end of each year for 10 years, discounted at 7% a year?",
       "answer": 14047.16,
@@ -82,13 +100,31 @@
       "toleranceType": "abs",
       "unit": "$",
       "inputHint": "Answer in dollars. Do not type a $ sign.",
-      "explanation": "The annuity factor is (1 - 1.07^-10)/0.07 = 7.0236. Multiply by $2,000 to get $14,047.16. Note the factor is below 10 — it must be, since later payments are worth less than the first."
+      "explanation": "The annuity factor is (1 - 1.07^-10)/0.07 = 7.0236. Multiply by $2,000 to get $14,047.16. Note the factor is below 10 — it must be, since later payments are worth less than the first.",
+      "variants": [
+        {
+          "stem": "What is the present value of $3,000 received at the end of each year for 8 years, discounted at 6% a year?",
+          "answer": 18629.38,
+          "tolerance": 5,
+          "explanation": "Annuity factor = (1 − 1.06^−8) ÷ 0.06 = 6.20979, so PV = $3,000 × 6.20979 = **$18,629.38**. Sanity check: the factor (6.21) must be below 8 — each of the 8 payments is worth less than a full dollar today."
+        },
+        {
+          "stem": "What is the present value of $1,500 received at the end of each year for 12 years, discounted at 9% a year?",
+          "answer": 10741.09,
+          "tolerance": 5,
+          "explanation": "Annuity factor = (1 − 1.09^−12) ÷ 0.09 = 7.16073, so PV = $1,500 × 7.16073 = **$10,741.09**. Sanity check: the factor (7.16) must be below 12 — each of the 12 payments is worth less than a full dollar today."
+        }
+      ]
     },
     {
       "id": "quant-tvm-02-q2",
       "type": "numeric",
       "difficulty": 3,
-      "tags": ["annuity", "future-value", "compounding-frequency"],
+      "tags": [
+        "annuity",
+        "future-value",
+        "compounding-frequency"
+      ],
       "concept": "pv-annuity",
       "stem": "You invest $500 at the end of every quarter for 5 years. The rate is 8% a year, compounded quarterly. What is the value at the end?",
       "answer": 12148.68,
@@ -96,13 +132,29 @@
       "toleranceType": "abs",
       "unit": "$",
       "inputHint": "Answer in dollars. Convert the rate and the periods to quarters first.",
-      "explanation": "One period is a quarter, so r = 0.02 and n = 20. FV = 500 x ((1.02^20 - 1)/0.02) = 500 x 24.297 = $12,148.68. The most common wrong answer uses r = 0.08 with n = 20, which applies 8% per quarter and badly overstates the result."
+      "explanation": "One period is a quarter, so r = 0.02 and n = 20. FV = 500 x ((1.02^20 - 1)/0.02) = 500 x 24.297 = $12,148.68. The most common wrong answer uses r = 0.08 with n = 20, which applies 8% per quarter and badly overstates the result.",
+      "variants": [
+        {
+          "stem": "You invest $750 at the end of every quarter for 4 years. The rate is 6% a year, compounded quarterly. What is the value at the end?",
+          "answer": 13449.28,
+          "tolerance": 10,
+          "explanation": "Per-quarter rate 1.50%, 16 quarters. FV = $750 × ((1 + 0.0150)^16 − 1) ÷ 0.0150 = **$13,449.28**. Everything must be in the same units — quarterly rate with quarterly periods."
+        },
+        {
+          "stem": "You invest $400 at the end of every quarter for 6 years. The rate is 10% a year, compounded quarterly. What is the value at the end?",
+          "answer": 12939.62,
+          "tolerance": 10,
+          "explanation": "Per-quarter rate 2.50%, 24 quarters. FV = $400 × ((1 + 0.0250)^24 − 1) ÷ 0.0250 = **$12,939.62**. Everything must be in the same units — quarterly rate with quarterly periods."
+        }
+      ]
     },
     {
       "id": "quant-tvm-02-q3",
       "type": "numeric",
       "difficulty": 2,
-      "tags": ["perpetuity"],
+      "tags": [
+        "perpetuity"
+      ],
       "concept": "pv-perpetuity",
       "stem": "An infrastructure asset is expected to pay $50,000 a year indefinitely. At a 6% discount rate, what is it worth today?",
       "answer": 833333,
@@ -110,13 +162,31 @@
       "toleranceType": "abs",
       "unit": "$",
       "inputHint": "Answer in dollars, to the nearest dollar.",
-      "explanation": "PV = PMT / r = 50,000 / 0.06 = $833,333. A payment forever is worth a finite amount, because the far-future payments discount to almost nothing."
+      "explanation": "PV = PMT / r = 50,000 / 0.06 = $833,333. A payment forever is worth a finite amount, because the far-future payments discount to almost nothing.",
+      "variants": [
+        {
+          "stem": "An infrastructure asset is expected to pay $30,000 a year indefinitely. At a 5% discount rate, what is it worth today?",
+          "answer": 600000,
+          "tolerance": 1000,
+          "explanation": "A perpetuity is PV = cash flow ÷ rate = $30,000 ÷ 0.05 = **$600,000**. Infinite payments, finite value — the far-future ones discount to almost nothing."
+        },
+        {
+          "stem": "An infrastructure asset is expected to pay $80,000 a year indefinitely. At a 8% discount rate, what is it worth today?",
+          "answer": 1000000,
+          "tolerance": 1000,
+          "explanation": "A perpetuity is PV = cash flow ÷ rate = $80,000 ÷ 0.08 = **$1,000,000**. Infinite payments, finite value — the far-future ones discount to almost nothing."
+        }
+      ]
     },
     {
       "id": "quant-tvm-02-q4",
       "type": "mcq",
       "difficulty": 2,
-      "tags": ["annuity", "timing", "pitfall"],
+      "tags": [
+        "annuity",
+        "timing",
+        "pitfall"
+      ],
       "concept": "timing",
       "stem": "Two identical payment streams differ only in timing: one pays at the end of each period, the other at the start. How do their present values compare?",
       "choices": [
@@ -138,7 +208,10 @@
       "id": "quant-tvm-02-q5",
       "type": "tfj",
       "difficulty": 3,
-      "tags": ["perpetuity", "misconception"],
+      "tags": [
+        "perpetuity",
+        "misconception"
+      ],
       "concept": "why-the-shortcut-works",
       "stem": "\"A payment stream that never ends must be worth an infinite amount today.\" True or false — and why?",
       "isTrue": false,
@@ -161,7 +234,10 @@
       "id": "quant-tvm-02-q6",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["annuity", "sanity-check"],
+      "tags": [
+        "annuity",
+        "sanity-check"
+      ],
       "concept": "worked",
       "stem": "An analyst computes an annuity factor of 12.4 for a 10-year annuity at 6%. What should you conclude?",
       "choices": [
@@ -183,7 +259,11 @@
       "id": "quant-tvm-02-q7",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["perpetuity", "terminal-value", "on-the-job"],
+      "tags": [
+        "perpetuity",
+        "terminal-value",
+        "on-the-job"
+      ],
       "concept": "on-the-job",
       "stem": "A valuation model projects five years of cash flow explicitly, then a growing perpetuity thereafter. The analyst raises the long-run growth rate from 2% to 3%, with a 7% discount rate. What happens to the terminal value?",
       "choices": [

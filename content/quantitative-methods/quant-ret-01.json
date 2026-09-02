@@ -5,9 +5,15 @@
   "title": "Returns Math: Arithmetic, Geometric, TWR and IRR",
   "summary": "Four ways to average a return series, why they differ, and which one answers the question you are actually asking.",
   "level": "core",
-  "prereqs": ["quant-tvm-01"],
+  "prereqs": [
+    "quant-tvm-01"
+  ],
   "estMinutes": 11,
-  "examRelevance": ["CFA-L1", "CAIA-L1", "practical"],
+  "examRelevance": [
+    "CFA-L1",
+    "CAIA-L1",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
@@ -25,8 +31,14 @@
       "latex": "R_g = \\left( \\prod_{t=1}^{n} (1 + R_t) \\right)^{1/n} - 1",
       "plainReading": "Multiply one-plus-each-return together, take the nth root, then subtract one. In words: find the total growth over the whole period, then ask what constant annual rate would have produced it.",
       "variables": [
-        { "symbol": "R_t", "meaning": "the return in period t, as a decimal" },
-        { "symbol": "n", "meaning": "the number of periods" }
+        {
+          "symbol": "R_t",
+          "meaning": "the return in period t, as a decimal"
+        },
+        {
+          "symbol": "n",
+          "meaning": "the number of periods"
+        }
       ]
     },
     {
@@ -47,10 +59,34 @@
       "caption": "Same arithmetic mean of 5%, very different outcomes (illustrative)",
       "spec": {
         "kind": "line",
-        "xLabels": ["Year 0", "Year 1", "Year 2", "Year 3", "Year 4"],
+        "xLabels": [
+          "Year 0",
+          "Year 1",
+          "Year 2",
+          "Year 3",
+          "Year 4"
+        ],
         "series": [
-          { "name": "Steady +5%", "values": [100, 105, 110.25, 115.76, 121.55] },
-          { "name": "+30% / -20%", "values": [100, 130, 104, 135.2, 108.16] }
+          {
+            "name": "Steady +5%",
+            "values": [
+              100,
+              105,
+              110.25,
+              115.76,
+              121.55
+            ]
+          },
+          {
+            "name": "+30% / -20%",
+            "values": [
+              100,
+              130,
+              104,
+              135.2,
+              108.16
+            ]
+          }
         ],
         "yLabel": "Value of $100",
         "yUnit": ""
@@ -66,7 +102,11 @@
       "type": "table",
       "id": "which-measure",
       "caption": "Which measure answers which question",
-      "headers": ["Measure", "Answers", "Where you meet it"],
+      "headers": [
+        "Measure",
+        "Answers",
+        "Where you meet it"
+      ],
       "rows": [
         [
           "Arithmetic mean",
@@ -116,7 +156,10 @@
       "id": "quant-ret-01-q1",
       "type": "numeric",
       "difficulty": 2,
-      "tags": ["geometric-mean", "returns"],
+      "tags": [
+        "geometric-mean",
+        "returns"
+      ],
       "concept": "geometric-formula",
       "stem": "A fund returns +50% in year 1 and -50% in year 2. What is its geometric mean annual return, in percent?",
       "answer": -13.4,
@@ -124,13 +167,30 @@
       "toleranceType": "abs",
       "unit": "%",
       "inputHint": "Answer in percent, to 1 decimal place. Use a minus sign.",
-      "explanation": "1.50 x 0.50 = 0.75, so $100 became $75. The square root of 0.75 is 0.866, giving -13.4% a year. The arithmetic mean of zero describes the two numbers; -13.4% describes your money."
+      "explanation": "1.50 x 0.50 = 0.75, so $100 became $75. The square root of 0.75 is 0.866, giving -13.4% a year. The arithmetic mean of zero describes the two numbers; -13.4% describes your money.",
+      "variants": [
+        {
+          "stem": "A fund returns +60% in year 1 and -40% in year 2. What is its geometric mean annual return, in percent?",
+          "answer": -2.02,
+          "tolerance": 0.2,
+          "explanation": "Chain the growth factors: 1.60 × 0.60 = 0.96, and √0.96 − 1 = **-2.02%** a year. The arithmetic mean says 10%, but your money followed the geometric path."
+        },
+        {
+          "stem": "A fund returns +30% in year 1 and -30% in year 2. What is its geometric mean annual return, in percent?",
+          "answer": -4.61,
+          "tolerance": 0.2,
+          "explanation": "Chain the growth factors: 1.30 × 0.70 = 0.91, and √0.91 − 1 = **-4.61%** a year. The arithmetic mean says 0%, but your money followed the geometric path."
+        }
+      ]
     },
     {
       "id": "quant-ret-01-q2",
       "type": "numeric",
       "difficulty": 3,
-      "tags": ["geometric-mean", "returns"],
+      "tags": [
+        "geometric-mean",
+        "returns"
+      ],
       "concept": "worked-geometric",
       "stem": "A fund returns +10%, then -5%, then +8%. What is its geometric mean annual return, in percent?",
       "answer": 4.115,
@@ -138,13 +198,31 @@
       "toleranceType": "abs",
       "unit": "%",
       "inputHint": "Answer in percent, to 2 decimal places.",
-      "explanation": "1.10 x 0.95 x 1.08 = 1.1286, and 1.1286^(1/3) = 1.04115, so 4.115% a year. The arithmetic mean is 4.333% — higher, as it always is, but only slightly here because the series is not very volatile."
+      "explanation": "1.10 x 0.95 x 1.08 = 1.1286, and 1.1286^(1/3) = 1.04115, so 4.115% a year. The arithmetic mean is 4.333% — higher, as it always is, but only slightly here because the series is not very volatile.",
+      "variants": [
+        {
+          "stem": "A fund returns +12%, then -6%, then +9%. What is its geometric mean annual return, in percent?",
+          "answer": 4.695,
+          "tolerance": 0.1,
+          "explanation": "(1.12 × 0.94 × 1.09)^(1/3) − 1 = 1.1476^(1/3) − 1 = **4.69%**. Always below the arithmetic mean of 5.00% — volatility drags the compound path."
+        },
+        {
+          "stem": "A fund returns +20%, then -10%, then +5%. What is its geometric mean annual return, in percent?",
+          "answer": 4.281,
+          "tolerance": 0.1,
+          "explanation": "(1.20 × 0.90 × 1.05)^(1/3) − 1 = 1.1340^(1/3) − 1 = **4.28%**. Always below the arithmetic mean of 5.00% — volatility drags the compound path."
+        }
+      ]
     },
     {
       "id": "quant-ret-01-q3",
       "type": "mcq",
       "difficulty": 2,
-      "tags": ["geometric-mean", "arithmetic-mean", "intuition"],
+      "tags": [
+        "geometric-mean",
+        "arithmetic-mean",
+        "intuition"
+      ],
       "concept": "why-they-diverge",
       "stem": "Under what condition are the arithmetic and geometric means of a return series equal?",
       "choices": [
@@ -166,14 +244,41 @@
       "id": "quant-ret-01-q4",
       "type": "chartRead",
       "difficulty": 3,
-      "tags": ["volatility-drag", "chart-reading"],
+      "tags": [
+        "volatility-drag",
+        "chart-reading"
+      ],
       "concept": "divergence-chart",
       "spec": {
         "kind": "line",
-        "xLabels": ["Year 0", "Year 1", "Year 2", "Year 3", "Year 4"],
+        "xLabels": [
+          "Year 0",
+          "Year 1",
+          "Year 2",
+          "Year 3",
+          "Year 4"
+        ],
         "series": [
-          { "name": "Fund A", "values": [100, 105, 110.25, 115.76, 121.55] },
-          { "name": "Fund B", "values": [100, 130, 104, 135.2, 108.16] }
+          {
+            "name": "Fund A",
+            "values": [
+              100,
+              105,
+              110.25,
+              115.76,
+              121.55
+            ]
+          },
+          {
+            "name": "Fund B",
+            "values": [
+              100,
+              130,
+              104,
+              135.2,
+              108.16
+            ]
+          }
         ],
         "yLabel": "Value of $100",
         "yUnit": ""
@@ -198,7 +303,11 @@
       "id": "quant-ret-01-q5",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["twr", "irr", "measurement"],
+      "tags": [
+        "twr",
+        "irr",
+        "measurement"
+      ],
       "concept": "twr-vs-irr",
       "stem": "An investor put money into a fund just before a bad quarter and added more just before a good one. Compared with the fund's time-weighted return, their money-weighted return will be:",
       "choices": [
@@ -220,7 +329,11 @@
       "id": "quant-ret-01-q6",
       "type": "tfj",
       "difficulty": 4,
-      "tags": ["arithmetic-mean", "geometric-mean", "nuance"],
+      "tags": [
+        "arithmetic-mean",
+        "geometric-mean",
+        "nuance"
+      ],
       "concept": "which-to-use",
       "stem": "\"The geometric mean is always the right average to use for returns.\" True or false — and why?",
       "isTrue": false,
@@ -243,7 +356,12 @@
       "id": "quant-ret-01-q7",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["twr", "irr", "on-the-job", "alternatives"],
+      "tags": [
+        "twr",
+        "irr",
+        "on-the-job",
+        "alternatives"
+      ],
       "concept": "on-the-job",
       "stem": "A colleague puts a hedge fund's 11% annualised time-weighted return next to a buyout fund's 11% net IRR and concludes they performed identically. What is wrong with that?",
       "choices": [
@@ -265,7 +383,10 @@
       "id": "quant-ret-01-q8",
       "type": "numeric",
       "difficulty": 4,
-      "tags": ["recovery", "volatility-drag"],
+      "tags": [
+        "recovery",
+        "volatility-drag"
+      ],
       "concept": "why-they-diverge",
       "stem": "A fund falls 40%. What percentage gain is required to get back to the starting value?",
       "answer": 66.67,
@@ -273,7 +394,21 @@
       "toleranceType": "abs",
       "unit": "%",
       "inputHint": "Answer in percent, to 1 or 2 decimal places.",
-      "explanation": "$100 falls to $60. To return to $100 you need a gain of 40/60 = 66.67%. Losses and gains are not symmetric in percentage terms, which is the mechanism behind volatility drag — and the reason drawdown control matters more than it first appears."
+      "explanation": "$100 falls to $60. To return to $100 you need a gain of 40/60 = 66.67%. Losses and gains are not symmetric in percentage terms, which is the mechanism behind volatility drag — and the reason drawdown control matters more than it first appears.",
+      "variants": [
+        {
+          "stem": "A fund falls 25%. What percentage gain is required to get back to the starting value?",
+          "answer": 33.33,
+          "tolerance": 0.5,
+          "explanation": "From 75 back to 100 requires 100 ÷ 75 − 1 = **33.33%**. The recovery is measured from the smaller base — the deeper the hole, the more than proportional the climb."
+        },
+        {
+          "stem": "A fund falls 60%. What percentage gain is required to get back to the starting value?",
+          "answer": 150.0,
+          "tolerance": 0.5,
+          "explanation": "From 40 back to 100 requires 100 ÷ 40 − 1 = **150.00%**. The recovery is measured from the smaller base — the deeper the hole, the more than proportional the climb."
+        }
+      ]
     }
   ],
   "needsReview": false,

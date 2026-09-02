@@ -94,9 +94,33 @@ export function prepareQuestion(question: Question, sessionStartedAt: number): Q
       };
     }
 
-    // Numeric questions have no order to shuffle (their anti-memorisation is the
-    // variant table); match has no renderer; a vignette parent never reaches a
-    // session — flattening replaced it with its subs, which take the cases above.
+    case "numeric": {
+      // The memorisable surface of a calculation question is the number itself, so
+      // each encounter resolves one parameterisation from the variant table. Same
+      // seed discipline as the choice deal: stable within a session and on resume,
+      // different the next time the question comes back.
+      const variants = question.variants;
+      if (variants === undefined || variants.length === 0) return question;
+
+      const pick = Math.floor(mulberry32(seed)() * (variants.length + 1));
+      if (pick === 0) return question; // the authored original is form 0
+
+      const variant = variants[pick - 1];
+      if (variant === undefined) return question;
+      return {
+        ...question,
+        stem: variant.stem,
+        answer: variant.answer,
+        explanation: variant.explanation,
+        tolerance: variant.tolerance ?? question.tolerance,
+        ...(variant.inputHint !== undefined || question.inputHint !== undefined
+          ? { inputHint: variant.inputHint ?? question.inputHint }
+          : {}),
+      };
+    }
+
+    // match has no renderer; a vignette parent never reaches a session — flattening
+    // replaced it with its subs, which take the cases above.
     default:
       return question;
   }

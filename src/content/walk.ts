@@ -73,6 +73,13 @@ export function collectProse(topic: Topic): ProseField[] {
         break;
       case "numeric":
         push(`${at}.stem`, q.stem);
+        // Variant prose is real prose: glossary refs and markup are validated there
+        // like everywhere else, or a bad slug would surface only on the deal that
+        // happened to pick that variant.
+        q.variants?.forEach((v, j) => {
+          push(`${at}.variants[${j}].stem`, v.stem);
+          push(`${at}.variants[${j}].explanation`, v.explanation);
+        });
         break;
       case "tfj":
         push(`${at}.stem`, q.stem);

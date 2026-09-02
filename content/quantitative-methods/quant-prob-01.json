@@ -7,7 +7,11 @@
   "level": "foundation",
   "prereqs": [],
   "estMinutes": 8,
-  "examRelevance": ["CFA-L1", "CAIA-L1", "practical"],
+  "examRelevance": [
+    "CFA-L1",
+    "CAIA-L1",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
@@ -25,7 +29,10 @@
       "latex": "P(A \\cup B) = P(A) + P(B) - P(A \\cap B)",
       "plainReading": "The probability of A or B is the sum of the two, minus the probability of both — because anything in the overlap was counted once in each term.",
       "variables": [
-        { "symbol": "P(A \\cap B)", "meaning": "the [[joint-probability]]: both happening. Zero if the events are [[mutually-exclusive]]." }
+        {
+          "symbol": "P(A \\cap B)",
+          "meaning": "the [[joint-probability]]: both happening. Zero if the events are [[mutually-exclusive]]."
+        }
       ]
     },
     {
@@ -66,33 +73,65 @@
       "id": "quant-prob-01-q1",
       "type": "numeric",
       "difficulty": 2,
-      "tags": ["addition-rule", "probability"],
+      "tags": [
+        "addition-rule",
+        "probability"
+      ],
       "concept": "addition-rule",
       "stem": "P(A) = 0.30, P(B) = 0.40, and P(A and B) = 0.12. What is P(A or B)?",
       "answer": 0.58,
       "tolerance": 0.005,
       "toleranceType": "abs",
       "inputHint": "Answer as a decimal between 0 and 1.",
-      "explanation": "0.30 + 0.40 - 0.12 = 0.58. The overlap must be subtracted because it appears in both of the first two terms. Adding without subtracting gives 0.70, which is the classic error."
+      "explanation": "0.30 + 0.40 - 0.12 = 0.58. The overlap must be subtracted because it appears in both of the first two terms. Adding without subtracting gives 0.70, which is the classic error.",
+      "variants": [
+        {
+          "stem": "P(A) = 0.25, P(B) = 0.50, and P(A and B) = 0.10. What is P(A or B)?",
+          "answer": 0.65,
+          "explanation": "P(A or B) = P(A) + P(B) − P(A and B) = 0.25 + 0.50 − 0.10 = **0.65**. The overlap is subtracted once because adding the two probabilities counted it twice."
+        },
+        {
+          "stem": "P(A) = 0.20, P(B) = 0.35, and P(A and B) = 0.07. What is P(A or B)?",
+          "answer": 0.48,
+          "explanation": "P(A or B) = P(A) + P(B) − P(A and B) = 0.20 + 0.35 − 0.07 = **0.48**. The overlap is subtracted once because adding the two probabilities counted it twice."
+        }
+      ]
     },
     {
       "id": "quant-prob-01-q2",
       "type": "numeric",
       "difficulty": 2,
-      "tags": ["conditional-probability"],
+      "tags": [
+        "conditional-probability"
+      ],
       "concept": "worked",
-      "stem": "Using the same figures — P(A) = 0.30, P(B) = 0.40, P(A and B) = 0.12 — what is P(A given B)?",
+      "stem": "P(A) = 0.30, P(B) = 0.40, and P(A and B) = 0.12. What is P(A given B)?",
       "answer": 0.3,
       "tolerance": 0.005,
       "toleranceType": "abs",
       "inputHint": "Answer as a decimal between 0 and 1.",
-      "explanation": "P(A|B) = P(A and B) / P(B) = 0.12 / 0.40 = 0.30. Since this equals P(A), the two events are independent: knowing B happened tells you nothing about A."
+      "explanation": "P(A|B) = P(A and B) / P(B) = 0.12 / 0.40 = 0.30. Since this equals P(A), the two events are independent: knowing B happened tells you nothing about A.",
+      "variants": [
+        {
+          "stem": "P(A and B) = 0.10 and P(B) = 0.50. What is P(A given B)?",
+          "answer": 0.2,
+          "explanation": "Conditioning shrinks the world to B: P(A|B) = P(A and B) ÷ P(B) = 0.10 ÷ 0.50 = **0.20**. Within the 50% of cases where B happens, A happens 20% of the time."
+        },
+        {
+          "stem": "P(A and B) = 0.14 and P(B) = 0.35. What is P(A given B)?",
+          "answer": 0.4,
+          "explanation": "Conditioning shrinks the world to B: P(A|B) = P(A and B) ÷ P(B) = 0.14 ÷ 0.35 = **0.40**. Within the 35% of cases where B happens, A happens 40% of the time."
+        }
+      ]
     },
     {
       "id": "quant-prob-01-q3",
       "type": "mcq",
       "difficulty": 2,
-      "tags": ["independence", "definition"],
+      "tags": [
+        "independence",
+        "definition"
+      ],
       "concept": "worked",
       "stem": "Which condition means two events are independent?",
       "choices": [
@@ -114,7 +153,10 @@
       "id": "quant-prob-01-q4",
       "type": "numeric",
       "difficulty": 3,
-      "tags": ["multiplication-rule", "independence"],
+      "tags": [
+        "multiplication-rule",
+        "independence"
+      ],
       "concept": "independence",
       "stem": "Two bonds each have a 2% probability of default. If the defaults were independent, what is the probability both default? Answer in percent.",
       "answer": 0.04,
@@ -122,13 +164,28 @@
       "toleranceType": "abs",
       "unit": "%",
       "inputHint": "Answer in percent, e.g. 0.04 for 0.04%.",
-      "explanation": "0.02 x 0.02 = 0.0004, or 0.04% — one in 2,500. The arithmetic is trivial; the assumption is not. If both borrowers share a customer, a commodity exposure or simply an economy, the true joint probability can be many times higher while each individual probability stays at 2%."
+      "explanation": "0.02 x 0.02 = 0.0004, or 0.04% — one in 2,500. The arithmetic is trivial; the assumption is not. If both borrowers share a customer, a commodity exposure or simply an economy, the true joint probability can be many times higher while each individual probability stays at 2%.",
+      "variants": [
+        {
+          "stem": "Two bonds have default probabilities of 3% and 3%. If the defaults were independent, what is the probability both default? Answer in percent.",
+          "answer": 0.09,
+          "explanation": "Independence lets you multiply: 3% × 3% = **0.09%**. The catch is the assumption — in a credit crunch defaults correlate, and the true joint probability can be many times this figure."
+        },
+        {
+          "stem": "Two bonds have default probabilities of 5% and 2%. If the defaults were independent, what is the probability both default? Answer in percent.",
+          "answer": 0.1,
+          "explanation": "Independence lets you multiply: 5% × 2% = **0.1%**. The catch is the assumption — in a credit crunch defaults correlate, and the true joint probability can be many times this figure."
+        }
+      ]
     },
     {
       "id": "quant-prob-01-q5",
       "type": "tfj",
       "difficulty": 4,
-      "tags": ["conditional-probability", "inverse-fallacy"],
+      "tags": [
+        "conditional-probability",
+        "inverse-fallacy"
+      ],
       "concept": "confusing-conditionals",
       "stem": "\"Most hedge funds that have failed were running high leverage. Therefore a highly levered fund is likely to fail.\" True or false — and why?",
       "isTrue": false,
@@ -151,7 +208,11 @@
       "id": "quant-prob-01-q6",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["independence", "diversification", "on-the-job"],
+      "tags": [
+        "independence",
+        "diversification",
+        "on-the-job"
+      ],
       "concept": "on-the-job",
       "stem": "A fund-of-funds holds twenty managers and argues that idiosyncratic risk is therefore diversified away. What is the load-bearing assumption?",
       "choices": [
@@ -173,7 +234,10 @@
       "id": "quant-prob-01-q7",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["scenario-analysis", "joint-probability"],
+      "tags": [
+        "scenario-analysis",
+        "joint-probability"
+      ],
       "concept": "on-the-job",
       "stem": "A risk report states a 20% chance of a sharp rate rise and a 20% chance of credit spreads widening, then reports a 4% chance of both. What is the problem?",
       "choices": [

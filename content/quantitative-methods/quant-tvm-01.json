@@ -7,7 +7,11 @@
   "level": "foundation",
   "prereqs": [],
   "estMinutes": 8,
-  "examRelevance": ["CFA-L1", "CAIA-L1", "practical"],
+  "examRelevance": [
+    "CFA-L1",
+    "CAIA-L1",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
@@ -25,10 +29,22 @@
       "latex": "FV = PV \\times (1 + r)^n",
       "plainReading": "Future value equals today's amount, multiplied by one-plus-the-rate, raised to the number of periods. The exponent is where [[compounding]] lives: each period multiplies the whole balance again, not just the original amount.",
       "variables": [
-        { "symbol": "FV", "meaning": "the amount at the end — the [[future-value]]" },
-        { "symbol": "PV", "meaning": "the amount today — the [[present-value]]" },
-        { "symbol": "r", "meaning": "the rate per period, as a decimal (6% is 0.06)" },
-        { "symbol": "n", "meaning": "the number of periods — not necessarily years" }
+        {
+          "symbol": "FV",
+          "meaning": "the amount at the end — the [[future-value]]"
+        },
+        {
+          "symbol": "PV",
+          "meaning": "the amount today — the [[present-value]]"
+        },
+        {
+          "symbol": "r",
+          "meaning": "the rate per period, as a decimal (6% is 0.06)"
+        },
+        {
+          "symbol": "n",
+          "meaning": "the number of periods — not necessarily years"
+        }
       ]
     },
     {
@@ -37,7 +53,10 @@
       "latex": "PV = \\frac{FV}{(1 + r)^n}",
       "plainReading": "Present value equals the future amount divided by one-plus-the-rate raised to the number of periods. It is simply the future-value formula rearranged — discounting and compounding are the same operation pointed in opposite directions.",
       "variables": [
-        { "symbol": "\\frac{1}{(1+r)^n}", "meaning": "the [[discount-factor]] — the number you multiply a future dollar by to get today's value" }
+        {
+          "symbol": "\\frac{1}{(1+r)^n}",
+          "meaning": "the [[discount-factor]] — the number you multiply a future dollar by to get today's value"
+        }
       ]
     },
     {
@@ -61,12 +80,37 @@
       "type": "table",
       "id": "factor-table",
       "caption": "Discount factors: what one future dollar is worth today",
-      "headers": ["Years away", "at 4%", "at 8%", "at 12%"],
+      "headers": [
+        "Years away",
+        "at 4%",
+        "at 8%",
+        "at 12%"
+      ],
       "rows": [
-        ["1", "0.962", "0.926", "0.893"],
-        ["5", "0.822", "0.681", "0.567"],
-        ["10", "0.676", "0.463", "0.322"],
-        ["20", "0.456", "0.215", "0.104"]
+        [
+          "1",
+          "0.962",
+          "0.926",
+          "0.893"
+        ],
+        [
+          "5",
+          "0.822",
+          "0.681",
+          "0.567"
+        ],
+        [
+          "10",
+          "0.676",
+          "0.463",
+          "0.322"
+        ],
+        [
+          "20",
+          "0.456",
+          "0.215",
+          "0.104"
+        ]
       ]
     },
     {
@@ -100,7 +144,10 @@
       "id": "quant-tvm-01-q1",
       "type": "mcq",
       "difficulty": 1,
-      "tags": ["tvm", "intuition"],
+      "tags": [
+        "tvm",
+        "intuition"
+      ],
       "concept": "why-money-grows",
       "stem": "Ignoring inflation entirely, why would a rational investor still prefer $1,000 today over a guaranteed $1,000 in two years?",
       "choices": [
@@ -122,7 +169,11 @@
       "id": "quant-tvm-01-q2",
       "type": "numeric",
       "difficulty": 2,
-      "tags": ["tvm", "compounding", "future-value"],
+      "tags": [
+        "tvm",
+        "compounding",
+        "future-value"
+      ],
       "concept": "fv-formula",
       "stem": "You invest $5,000 today at 6% a year, compounded annually. What is it worth after 3 years?",
       "answer": 5955.08,
@@ -130,13 +181,31 @@
       "toleranceType": "abs",
       "unit": "$",
       "inputHint": "Answer in dollars, to the nearest cent. Do not type a $ sign.",
-      "explanation": "FV = 5,000 x 1.06^3 = 5,000 x 1.191016 = $5,955.08. Note the gain of $955.08 exceeds the $900 that simple interest would give — the extra $55.08 is [[compounding]]."
+      "explanation": "FV = 5,000 x 1.06^3 = 5,000 x 1.191016 = $5,955.08. Note the gain of $955.08 exceeds the $900 that simple interest would give — the extra $55.08 is [[compounding]].",
+      "variants": [
+        {
+          "stem": "You invest $8,000 today at 5% a year, compounded annually. What is it worth after 4 years?",
+          "answer": 9724.05,
+          "tolerance": 1,
+          "explanation": "FV = $8,000 × (1.05)^4 = $8,000 × 1.21551 = **$9,724.05**. Simple interest would give $9,600.00 — the gap is interest earning interest."
+        },
+        {
+          "stem": "You invest $3,000 today at 7% a year, compounded annually. What is it worth after 5 years?",
+          "answer": 4207.66,
+          "tolerance": 1,
+          "explanation": "FV = $3,000 × (1.07)^5 = $3,000 × 1.40255 = **$4,207.66**. Simple interest would give $4,050.00 — the gap is interest earning interest."
+        }
+      ]
     },
     {
       "id": "quant-tvm-01-q3",
       "type": "numeric",
       "difficulty": 2,
-      "tags": ["tvm", "discounting", "present-value"],
+      "tags": [
+        "tvm",
+        "discounting",
+        "present-value"
+      ],
       "concept": "pv-formula",
       "stem": "A fund tells you it expects to distribute $10,000 to you in exactly 4 years. Using an 8% annual discount rate, what is that distribution worth today?",
       "answer": 7350.3,
@@ -144,13 +213,31 @@
       "toleranceType": "abs",
       "unit": "$",
       "inputHint": "Answer in dollars, to the nearest cent. Do not type a $ sign.",
-      "explanation": "PV = 10,000 / 1.08^4. Since 1.08^4 = 1.36048896, PV = $7,350.30. Put another way, the [[discount-factor]] is 0.735 — each future dollar is worth about 74 cents today."
+      "explanation": "PV = 10,000 / 1.08^4. Since 1.08^4 = 1.36048896, PV = $7,350.30. Put another way, the [[discount-factor]] is 0.735 — each future dollar is worth about 74 cents today.",
+      "variants": [
+        {
+          "stem": "A fund tells you it expects to distribute $25,000 to you in exactly 3 years. Using a 6% annual discount rate, what is that distribution worth today?",
+          "answer": 20990.48,
+          "tolerance": 2,
+          "explanation": "PV = $25,000 ÷ (1.06)^3 = $25,000 ÷ 1.19102 = **$20,990.48**. Discounting is compounding run backwards."
+        },
+        {
+          "stem": "A fund tells you it expects to distribute $8,000 to you in exactly 5 years. Using a 10% annual discount rate, what is that distribution worth today?",
+          "answer": 4967.37,
+          "tolerance": 2,
+          "explanation": "PV = $8,000 ÷ (1.010)^5 = $8,000 ÷ 1.61051 = **$4,967.37**. Discounting is compounding run backwards."
+        }
+      ]
     },
     {
       "id": "quant-tvm-01-q4",
       "type": "mcq",
       "difficulty": 2,
-      "tags": ["tvm", "discounting", "sensitivity"],
+      "tags": [
+        "tvm",
+        "discounting",
+        "sensitivity"
+      ],
       "concept": "reading-the-table",
       "stem": "Holding the cash flow and its timing fixed, what happens to a present value when the discount rate rises?",
       "choices": [
@@ -172,7 +259,11 @@
       "id": "quant-tvm-01-q5",
       "type": "tfj",
       "difficulty": 3,
-      "tags": ["tvm", "discounting", "misconception"],
+      "tags": [
+        "tvm",
+        "discounting",
+        "misconception"
+      ],
       "concept": "reading-the-table",
       "stem": "\"Doubling the discount rate roughly halves the present value of a cash flow.\" True or false — and why?",
       "isTrue": false,
@@ -195,7 +286,11 @@
       "id": "quant-tvm-01-q6",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["tvm", "compounding-frequency", "pitfall"],
+      "tags": [
+        "tvm",
+        "compounding-frequency",
+        "pitfall"
+      ],
       "concept": "period-mismatch",
       "stem": "A model discounts monthly cash flows over 5 years. The analyst has entered n = 60 and r = 0.09 (the 9% annual rate). What is the consequence?",
       "choices": [
@@ -217,20 +312,41 @@
       "id": "quant-tvm-01-q7",
       "type": "numeric",
       "difficulty": 3,
-      "tags": ["tvm", "discount-factor"],
+      "tags": [
+        "tvm",
+        "discount-factor"
+      ],
       "concept": "pv-formula",
       "stem": "What is the discount factor for a cash flow arriving in 5 years, using a 7% annual discount rate?",
       "answer": 0.713,
       "tolerance": 0.002,
       "toleranceType": "abs",
       "inputHint": "Answer as a decimal between 0 and 1, to 3 decimal places (e.g. 0.842).",
-      "explanation": "The [[discount-factor]] is 1 / (1.07)^5 = 1 / 1.402552 = 0.713. Multiplying any 5-year cash flow by 0.713 converts it straight to today's dollars, which is often quicker than dividing repeatedly."
+      "explanation": "The [[discount-factor]] is 1 / (1.07)^5 = 1 / 1.402552 = 0.713. Multiplying any 5-year cash flow by 0.713 converts it straight to today's dollars, which is often quicker than dividing repeatedly.",
+      "variants": [
+        {
+          "stem": "What is the discount factor for a cash flow arriving in 4 years, using a 9% annual discount rate?",
+          "answer": 0.7084,
+          "tolerance": 0.002,
+          "explanation": "DF = 1 ÷ (1.09)^4 = 1 ÷ 1.4116 = **0.7084**. A dollar in year 4 is worth about 71 cents today at this rate."
+        },
+        {
+          "stem": "What is the discount factor for a cash flow arriving in 10 years, using a 5% annual discount rate?",
+          "answer": 0.6139,
+          "tolerance": 0.002,
+          "explanation": "DF = 1 ÷ (1.05)^10 = 1 ÷ 1.6289 = **0.6139**. A dollar in year 10 is worth about 61 cents today at this rate."
+        }
+      ]
     },
     {
       "id": "quant-tvm-01-q8",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["tvm", "sensitivity", "duration-intuition"],
+      "tags": [
+        "tvm",
+        "sensitivity",
+        "duration-intuition"
+      ],
       "concept": "reading-the-table",
       "stem": "Four investments each promise a single payment of $1,000,000. Rates across the board rise by 2 percentage points. Which investment's present value falls by the largest percentage?",
       "choices": [
@@ -252,7 +368,11 @@
       "id": "quant-tvm-01-q9",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["tvm", "on-the-job", "alternatives"],
+      "tags": [
+        "tvm",
+        "on-the-job",
+        "alternatives"
+      ],
       "concept": "on-the-job",
       "stem": "Fund A expects to return $150 million to investors in year 3. Fund B expects to return $170 million in year 7. At a 10% discount rate, which statement is correct?",
       "choices": [

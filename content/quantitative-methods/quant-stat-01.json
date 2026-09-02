@@ -7,7 +7,11 @@
   "level": "foundation",
   "prereqs": [],
   "estMinutes": 8,
-  "examRelevance": ["CFA-L1", "CAIA-L1", "practical"],
+  "examRelevance": [
+    "CFA-L1",
+    "CAIA-L1",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
@@ -30,7 +34,10 @@
       "latex": "s = \\sqrt{ \\frac{1}{n-1} \\sum_{i=1}^{n} (x_i - \\bar{x})^2 }",
       "plainReading": "Sample standard deviation is the square root of the sum of squared deviations from the mean, divided by one less than the number of observations.",
       "variables": [
-        { "symbol": "n-1", "meaning": "the divisor for a [[sample]] rather than a whole [[population]] — using n would understate the spread, because the mean was itself estimated from the same data" }
+        {
+          "symbol": "n-1",
+          "meaning": "the divisor for a [[sample]] rather than a whole [[population]] — using n would understate the spread, because the mean was itself estimated from the same data"
+        }
       ]
     },
     {
@@ -64,7 +71,10 @@
       "id": "quant-stat-01-q1",
       "type": "numeric",
       "difficulty": 1,
-      "tags": ["mean", "descriptive-statistics"],
+      "tags": [
+        "mean",
+        "descriptive-statistics"
+      ],
       "concept": "centre",
       "stem": "A fund's annual returns were -8%, 2%, 3%, 5%, 6%, 6%, 14%. What is the arithmetic mean, in percent?",
       "answer": 4,
@@ -72,26 +82,59 @@
       "toleranceType": "abs",
       "unit": "%",
       "inputHint": "Answer in percent.",
-      "explanation": "The seven returns sum to 28, so the mean is 4.0%. Note the median is 5% — the mean sits below it, pulled down by the single -8% year."
+      "explanation": "The seven returns sum to 28, so the mean is 4.0%. Note the median is 5% — the mean sits below it, pulled down by the single -8% year.",
+      "variants": [
+        {
+          "stem": "A fund's annual returns were -5%, 0%, 2%, 3%, 5%, 7%, 9%. What is the arithmetic mean, in percent?",
+          "answer": 3.0,
+          "explanation": "Sum 21 across 7 years ÷ 7 = **3%**. The arithmetic mean is the right average for a typical single year — not for the compound path."
+        },
+        {
+          "stem": "A fund's annual returns were -2%, 1%, 4%, 4%, 6%, 8%, 14%. What is the arithmetic mean, in percent?",
+          "answer": 5.0,
+          "explanation": "Sum 35 across 7 years ÷ 7 = **5%**. The arithmetic mean is the right average for a typical single year — not for the compound path."
+        }
+      ]
     },
     {
       "id": "quant-stat-01-q2",
       "type": "numeric",
       "difficulty": 3,
-      "tags": ["standard-deviation", "sample"],
+      "tags": [
+        "standard-deviation",
+        "sample"
+      ],
       "concept": "sd-formula",
-      "stem": "For the same series (-8, 2, 3, 5, 6, 6, 14), what is the SAMPLE standard deviation, in percentage points?",
+      "stem": "For the series -8, 2, 3, 5, 6, 6, 14 (in percent), what is the SAMPLE standard deviation, in percentage points?",
       "answer": 6.5574,
       "tolerance": 0.15,
       "toleranceType": "abs",
       "inputHint": "Answer to 2 decimal places. Remember this is a sample.",
-      "explanation": "Deviations from the mean of 4 are -12, -2, -1, 1, 2, 2, 10. Their squares sum to 258. Dividing by n-1 = 6 gives a variance of 43, and the square root is 6.56. Dividing by n = 7 instead would give 6.07 — the population figure, and the wrong one here."
+      "explanation": "Deviations from the mean of 4 are -12, -2, -1, 1, 2, 2, 10. Their squares sum to 258. Dividing by n-1 = 6 gives a variance of 43, and the square root is 6.56. Dividing by n = 7 instead would give 6.07 — the population figure, and the wrong one here.",
+      "variants": [
+        {
+          "stem": "For the series -5, 0, 2, 3, 5, 7, 9 (in percent), what is the SAMPLE standard deviation, in percentage points?",
+          "answer": 4.6547,
+          "tolerance": 0.15,
+          "explanation": "Mean 3; squared deviations sum to 130; divide by n − 1 = 6 (a sample, not the population) and take the root: √(130 ÷ 6) = **4.65**."
+        },
+        {
+          "stem": "For the series -2, 1, 4, 4, 6, 8, 14 (in percent), what is the SAMPLE standard deviation, in percentage points?",
+          "answer": 5.1316,
+          "tolerance": 0.15,
+          "explanation": "Mean 5; squared deviations sum to 158; divide by n − 1 = 6 (a sample, not the population) and take the root: √(158 ÷ 6) = **5.13**."
+        }
+      ]
     },
     {
       "id": "quant-stat-01-q3",
       "type": "mcq",
       "difficulty": 2,
-      "tags": ["mean", "median", "interpretation"],
+      "tags": [
+        "mean",
+        "median",
+        "interpretation"
+      ],
       "concept": "why-both",
       "stem": "A fund's monthly returns have a mean of 0.4% and a median of 0.9%. What does that tell you?",
       "choices": [
@@ -113,7 +156,11 @@
       "id": "quant-stat-01-q4",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["variance", "standard-deviation", "intuition"],
+      "tags": [
+        "variance",
+        "standard-deviation",
+        "intuition"
+      ],
       "concept": "spread",
       "stem": "Why does squaring the deviations, rather than taking their absolute values, matter for how standard deviation behaves?",
       "choices": [
@@ -135,7 +182,10 @@
       "id": "quant-stat-01-q5",
       "type": "numeric",
       "difficulty": 3,
-      "tags": ["volatility", "annualising"],
+      "tags": [
+        "volatility",
+        "annualising"
+      ],
       "concept": "spread",
       "stem": "A fund's monthly return standard deviation is 3.0%. What is its approximate annualised volatility, in percent?",
       "answer": 10.39,
@@ -143,13 +193,31 @@
       "toleranceType": "abs",
       "unit": "%",
       "inputHint": "Answer in percent, to 1 or 2 decimal places.",
-      "explanation": "Multiply by the square root of 12, not by 12: 3.0 x 3.464 = 10.39%. Variances add over time, so standard deviations scale with the square root of the number of periods. Multiplying by 12 would give 36% and is a serious error. Note this assumes returns are independent across months — for a fund with autocorrelated (smoothed) returns it understates the true figure."
+      "explanation": "Multiply by the square root of 12, not by 12: 3.0 x 3.464 = 10.39%. Variances add over time, so standard deviations scale with the square root of the number of periods. Multiplying by 12 would give 36% and is a serious error. Note this assumes returns are independent across months — for a fund with autocorrelated (smoothed) returns it understates the true figure.",
+      "variants": [
+        {
+          "stem": "A fund's monthly return standard deviation is 2.5%. What is its approximate annualised volatility, in percent?",
+          "answer": 8.66,
+          "tolerance": 0.3,
+          "explanation": "Volatility scales with the square root of time: 2.5% × √12 = 2.5% × 3.464 = **8.66%**. Multiplying by 12 would be treating risk like return — the classic error."
+        },
+        {
+          "stem": "A fund's monthly return standard deviation is 4.0%. What is its approximate annualised volatility, in percent?",
+          "answer": 13.86,
+          "tolerance": 0.3,
+          "explanation": "Volatility scales with the square root of time: 4.0% × √12 = 4.0% × 3.464 = **13.86%**. Multiplying by 12 would be treating risk like return — the classic error."
+        }
+      ]
     },
     {
       "id": "quant-stat-01-q6",
       "type": "tfj",
       "difficulty": 4,
-      "tags": ["volatility", "illiquidity", "on-the-job"],
+      "tags": [
+        "volatility",
+        "illiquidity",
+        "on-the-job"
+      ],
       "concept": "on-the-job",
       "stem": "\"This private credit fund reports lower return volatility than a liquid high yield bond fund, so it carries less risk.\" True or false — and why?",
       "isTrue": false,
@@ -172,7 +240,10 @@
       "id": "quant-stat-01-q7",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["survivorship-bias", "data-quality"],
+      "tags": [
+        "survivorship-bias",
+        "data-quality"
+      ],
       "concept": "survivorship",
       "stem": "A hedge fund index shows a strategy averaging 9% a year over a decade. Why might the experience of an investor who allocated at the start have been worse?",
       "choices": [

@@ -5,9 +5,15 @@
   "title": "Bayes' Rule and Base Rates",
   "summary": "How to update a belief when new evidence arrives — and why ignoring the starting odds produces confidently wrong conclusions.",
   "level": "core",
-  "prereqs": ["quant-prob-01"],
+  "prereqs": [
+    "quant-prob-01"
+  ],
   "estMinutes": 10,
-  "examRelevance": ["CFA-L1", "CAIA-L1", "practical"],
+  "examRelevance": [
+    "CFA-L1",
+    "CAIA-L1",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
@@ -20,9 +26,18 @@
       "latex": "P(A|B) = \\frac{P(B|A) \\, P(A)}{P(B)}",
       "plainReading": "The probability of A given the evidence B equals the probability of seeing that evidence if A were true, times the prior probability of A, divided by the overall probability of seeing that evidence at all.",
       "variables": [
-        { "symbol": "P(A)", "meaning": "the [[prior-probability]] — the [[base-rate]], before the evidence" },
-        { "symbol": "P(B|A)", "meaning": "how likely this evidence is when A is true — the test's sensitivity" },
-        { "symbol": "P(B)", "meaning": "how likely the evidence is overall, across both A being true and false" }
+        {
+          "symbol": "P(A)",
+          "meaning": "the [[prior-probability]] — the [[base-rate]], before the evidence"
+        },
+        {
+          "symbol": "P(B|A)",
+          "meaning": "how likely this evidence is when A is true — the test's sensitivity"
+        },
+        {
+          "symbol": "P(B)",
+          "meaning": "how likely the evidence is overall, across both A being true and false"
+        }
       ]
     },
     {
@@ -71,7 +86,10 @@
       "id": "quant-bayes-01-q1",
       "type": "numeric",
       "difficulty": 3,
-      "tags": ["bayes", "base-rate"],
+      "tags": [
+        "bayes",
+        "base-rate"
+      ],
       "concept": "worked-manager",
       "stem": "20% of managers have genuine skill. A screen flags 80% of skilled managers and 30% of unskilled ones. A manager is flagged. What is the probability they are skilled? Answer in percent.",
       "answer": 40,
@@ -79,13 +97,28 @@
       "toleranceType": "abs",
       "unit": "%",
       "inputHint": "Answer in percent.",
-      "explanation": "Out of 1,000 managers: 200 skilled, of whom 160 are flagged; 800 unskilled, of whom 240 are flagged. Total flagged = 400, of whom 160 are skilled, so 40%. The intuitive answer of 80% ignores that the unskilled group is four times larger."
+      "explanation": "Out of 1,000 managers: 200 skilled, of whom 160 are flagged; 800 unskilled, of whom 240 are flagged. Total flagged = 400, of whom 160 are skilled, so 40%. The intuitive answer of 80% ignores that the unskilled group is four times larger.",
+      "variants": [
+        {
+          "stem": "10% of managers have genuine skill. A screen flags 70% of skilled managers and 20% of unskilled ones. A manager is flagged. What is the probability they are actually skilled, in percent?",
+          "answer": 28.0,
+          "explanation": "Flagged and skilled: 10% × 70% = 0.0700. Flagged but unskilled: 90% × 20% = 0.1800. So P(skilled | flagged) = 0.0700 ÷ (0.0700 + 0.1800) = **28.0%**. The false alarms swamp the true hits because unskilled managers are the bigger pool — the base rate does the damage."
+        },
+        {
+          "stem": "25% of managers have genuine skill. A screen flags 60% of skilled managers and 25% of unskilled ones. A manager is flagged. What is the probability they are actually skilled, in percent?",
+          "answer": 44.44,
+          "explanation": "Flagged and skilled: 25% × 60% = 0.1500. Flagged but unskilled: 75% × 25% = 0.1875. So P(skilled | flagged) = 0.1500 ÷ (0.1500 + 0.1875) = **44.4%**. The false alarms swamp the true hits because unskilled managers are the bigger pool — the base rate does the damage."
+        }
+      ]
     },
     {
       "id": "quant-bayes-01-q2",
       "type": "mcq",
       "difficulty": 2,
-      "tags": ["bayes", "intuition"],
+      "tags": [
+        "bayes",
+        "intuition"
+      ],
       "concept": "why-base-rates-win",
       "stem": "In the example above, why is the answer so much lower than the screen's 80% detection rate?",
       "choices": [
@@ -107,7 +140,10 @@
       "id": "quant-bayes-01-q3",
       "type": "numeric",
       "difficulty": 4,
-      "tags": ["bayes", "base-rate"],
+      "tags": [
+        "bayes",
+        "base-rate"
+      ],
       "concept": "bayes-formula",
       "stem": "Now the base rate is 10%, the screen flags 90% of skilled managers, and it flags 20% of unskilled ones. What is the probability a flagged manager is skilled? Answer in percent.",
       "answer": 33.33,
@@ -115,13 +151,29 @@
       "toleranceType": "abs",
       "unit": "%",
       "inputHint": "Answer in percent, to 1 or 2 decimal places.",
-      "explanation": "Per 1,000: 100 skilled, 90 flagged; 900 unskilled, 180 flagged. Total 270 flagged, of whom 90 are skilled = 33.3%. Note the screen here is *better* than the previous one on both measures, yet the posterior is lower — because the base rate halved. The base rate is doing more work than the test quality."
+      "explanation": "Per 1,000: 100 skilled, 90 flagged; 900 unskilled, 180 flagged. Total 270 flagged, of whom 90 are skilled = 33.3%. Note the screen here is *better* than the previous one on both measures, yet the posterior is lower — because the base rate halved. The base rate is doing more work than the test quality.",
+      "variants": [
+        {
+          "stem": "5% of managers have genuine skill. A screen flags 80% of skilled managers and 10% of unskilled ones. A manager is flagged. What is the probability they are actually skilled, in percent?",
+          "answer": 29.63,
+          "explanation": "Flagged and skilled: 5% × 80% = 0.0400. Flagged but unskilled: 95% × 10% = 0.0950. So P(skilled | flagged) = 0.0400 ÷ (0.0400 + 0.0950) = **29.6%**. The false alarms swamp the true hits because unskilled managers are the bigger pool — the base rate does the damage."
+        },
+        {
+          "stem": "15% of managers have genuine skill. A screen flags 85% of skilled managers and 25% of unskilled ones. A manager is flagged. What is the probability they are actually skilled, in percent?",
+          "answer": 37.5,
+          "explanation": "Flagged and skilled: 15% × 85% = 0.1275. Flagged but unskilled: 85% × 25% = 0.2125. So P(skilled | flagged) = 0.1275 ÷ (0.1275 + 0.2125) = **37.5%**. The false alarms swamp the true hits because unskilled managers are the bigger pool — the base rate does the damage."
+        }
+      ]
     },
     {
       "id": "quant-bayes-01-q4",
       "type": "tfj",
       "difficulty": 4,
-      "tags": ["bayes", "track-record", "on-the-job"],
+      "tags": [
+        "bayes",
+        "track-record",
+        "on-the-job"
+      ],
       "concept": "ignoring-the-prior",
       "stem": "\"This manager has beaten their benchmark for five consecutive years, so they are almost certainly skilled.\" True or false — and why?",
       "isTrue": false,
@@ -144,7 +196,11 @@
       "id": "quant-bayes-01-q5",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["bayes", "diligence", "on-the-job"],
+      "tags": [
+        "bayes",
+        "diligence",
+        "on-the-job"
+      ],
       "concept": "on-the-job",
       "stem": "You want to raise the probability that a manager you select is genuinely skilled. Which does most for the posterior?",
       "choices": [
@@ -166,7 +222,10 @@
       "id": "quant-bayes-01-q6",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["bayes", "evidence"],
+      "tags": [
+        "bayes",
+        "evidence"
+      ],
       "concept": "on-the-job",
       "stem": "Two pieces of evidence about a manager: (a) another year of good returns, (b) a coherent, verifiable explanation of where the edge comes from. Which shifts your posterior more, and why?",
       "choices": [

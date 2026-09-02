@@ -5,9 +5,15 @@
   "title": "Correlation and Simple Regression",
   "summary": "Measuring how two series move together, fitting a line through them, and where beta and alpha actually come from.",
   "level": "advanced",
-  "prereqs": ["quant-stat-01"],
+  "prereqs": [
+    "quant-stat-01"
+  ],
   "estMinutes": 11,
-  "examRelevance": ["CFA-L1", "CAIA-L1", "practical"],
+  "examRelevance": [
+    "CFA-L1",
+    "CAIA-L1",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
@@ -25,8 +31,14 @@
       "latex": "\\beta = \\frac{\\text{Cov}(r_i, r_m)}{\\text{Var}(r_m)} = \\rho_{i,m} \\times \\frac{\\sigma_i}{\\sigma_m}",
       "plainReading": "Beta is the covariance of the fund with the market divided by the variance of the market. Equivalently, it is the correlation multiplied by the ratio of the two volatilities — which shows that beta combines how closely they move with how much more volatile the fund is.",
       "variables": [
-        { "symbol": "\\rho_{i,m}", "meaning": "the [[correlation]] between fund and market" },
-        { "symbol": "\\sigma_i / \\sigma_m", "meaning": "the ratio of volatilities. A fund can have high correlation and low beta if it is much less volatile than the market." }
+        {
+          "symbol": "\\rho_{i,m}",
+          "meaning": "the [[correlation]] between fund and market"
+        },
+        {
+          "symbol": "\\sigma_i / \\sigma_m",
+          "meaning": "the ratio of volatilities. A fund can have high correlation and low beta if it is much less volatile than the market."
+        }
       ]
     },
     {
@@ -72,46 +84,96 @@
       "id": "quant-reg-01-q1",
       "type": "numeric",
       "difficulty": 2,
-      "tags": ["beta", "regression"],
+      "tags": [
+        "beta",
+        "regression"
+      ],
       "concept": "beta-formula",
       "stem": "A fund's covariance with the market is 0.0108. The market's return variance is 0.0144. What is the fund's beta?",
       "answer": 0.75,
       "tolerance": 0.02,
       "toleranceType": "abs",
       "inputHint": "Answer as a number, to 2 decimal places.",
-      "explanation": "Beta = Cov / Var(market) = 0.0108 / 0.0144 = 0.75. The fund moves about 0.75% for each 1% market move."
+      "explanation": "Beta = Cov / Var(market) = 0.0108 / 0.0144 = 0.75. The fund moves about 0.75% for each 1% market move.",
+      "variants": [
+        {
+          "stem": "A fund's covariance with the market is 0.0090. The market's return variance is 0.0100. What is the fund's beta?",
+          "answer": 0.9,
+          "explanation": "Beta = covariance ÷ market variance = 0.0090 ÷ 0.0100 = **0.9**. It rescales co-movement by how much the market itself moves."
+        },
+        {
+          "stem": "A fund's covariance with the market is 0.0075. The market's return variance is 0.0125. What is the fund's beta?",
+          "answer": 0.6,
+          "explanation": "Beta = covariance ÷ market variance = 0.0075 ÷ 0.0125 = **0.6**. It rescales co-movement by how much the market itself moves."
+        }
+      ]
     },
     {
       "id": "quant-reg-01-q2",
       "type": "numeric",
       "difficulty": 3,
-      "tags": ["beta", "correlation", "volatility"],
+      "tags": [
+        "beta",
+        "correlation",
+        "volatility"
+      ],
       "concept": "worked-beta",
       "stem": "A fund has a correlation of 0.75 with the market. Its volatility is 18% and the market's is 12%. What is its beta?",
       "answer": 1.125,
       "tolerance": 0.02,
       "toleranceType": "abs",
       "inputHint": "Answer as a number, to 2 or 3 decimal places.",
-      "explanation": "Beta = correlation x (fund vol / market vol) = 0.75 x (0.18/0.12) = 1.125. Note the correlation of 0.75 and the beta of 1.125 are quite different numbers: the fund tracks the market only moderately, but amplifies when it does move."
+      "explanation": "Beta = correlation x (fund vol / market vol) = 0.75 x (0.18/0.12) = 1.125. Note the correlation of 0.75 and the beta of 1.125 are quite different numbers: the fund tracks the market only moderately, but amplifies when it does move.",
+      "variants": [
+        {
+          "stem": "A fund has a correlation of 0.60 with the market. Its volatility is 20% and the market's is 10%. What is its beta?",
+          "answer": 1.2,
+          "explanation": "Beta = correlation × (fund vol ÷ market vol) = 0.60 × (20 ÷ 10) = **1.2**. High volatility alone is not high beta — the correlation decides how much of it is market-shaped."
+        },
+        {
+          "stem": "A fund has a correlation of 0.80 with the market. Its volatility is 15% and the market's is 12%. What is its beta?",
+          "answer": 1.0,
+          "explanation": "Beta = correlation × (fund vol ÷ market vol) = 0.80 × (15 ÷ 12) = **1**. High volatility alone is not high beta — the correlation decides how much of it is market-shaped."
+        }
+      ]
     },
     {
       "id": "quant-reg-01-q3",
       "type": "numeric",
       "difficulty": 2,
-      "tags": ["r-squared", "correlation"],
+      "tags": [
+        "r-squared",
+        "correlation"
+      ],
       "concept": "the-regression",
       "stem": "A regression of a fund on the market gives a correlation of 0.75. What is the R-squared?",
       "answer": 0.5625,
       "tolerance": 0.01,
       "toleranceType": "abs",
       "inputHint": "Answer as a decimal between 0 and 1.",
-      "explanation": "R-squared is the square of the correlation: 0.75^2 = 0.5625. So about 56% of the fund's variance is explained by the market, leaving 44% unexplained."
+      "explanation": "R-squared is the square of the correlation: 0.75^2 = 0.5625. So about 56% of the fund's variance is explained by the market, leaving 44% unexplained.",
+      "variants": [
+        {
+          "stem": "A regression of a fund on the market gives a correlation of 0.60. What is the R-squared?",
+          "answer": 0.36,
+          "explanation": "R² is the correlation squared: 0.60² = **0.36**. The market explains 36% of the fund's variance; the rest is everything else the fund is doing."
+        },
+        {
+          "stem": "A regression of a fund on the market gives a correlation of 0.90. What is the R-squared?",
+          "answer": 0.81,
+          "explanation": "R² is the correlation squared: 0.90² = **0.81**. The market explains 81% of the fund's variance; the rest is everything else the fund is doing."
+        }
+      ]
     },
     {
       "id": "quant-reg-01-q4",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["r-squared", "interpretation", "manager-evaluation"],
+      "tags": [
+        "r-squared",
+        "interpretation",
+        "manager-evaluation"
+      ],
       "concept": "r-squared-warning",
       "stem": "A long/short equity manager charging performance fees for stock selection shows an R-squared of 0.88 against the equity market. What does that suggest?",
       "choices": [
@@ -133,7 +195,11 @@
       "id": "quant-reg-01-q5",
       "type": "tfj",
       "difficulty": 4,
-      "tags": ["correlation", "tail-risk", "misconception"],
+      "tags": [
+        "correlation",
+        "tail-risk",
+        "misconception"
+      ],
       "concept": "correlation-causation",
       "stem": "\"This strategy has a correlation of 0.05 with equities over ten years, so it provides genuine diversification against an equity selloff.\" True or false — and why?",
       "isTrue": false,
@@ -156,7 +222,11 @@
       "id": "quant-reg-01-q6",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["alpha", "factor-models", "on-the-job"],
+      "tags": [
+        "alpha",
+        "factor-models",
+        "on-the-job"
+      ],
       "concept": "on-the-job",
       "stem": "A manager reports 4% annual alpha from a regression on the equity market alone. After adding size, value and momentum factors, the alpha falls to 0.5%. What is the best interpretation?",
       "choices": [
@@ -178,7 +248,11 @@
       "id": "quant-reg-01-q7",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["beta", "illiquidity", "on-the-job"],
+      "tags": [
+        "beta",
+        "illiquidity",
+        "on-the-job"
+      ],
       "concept": "on-the-job",
       "stem": "A private equity fund's returns regressed against public equities show a beta of 0.4. Why should you be sceptical?",
       "choices": [

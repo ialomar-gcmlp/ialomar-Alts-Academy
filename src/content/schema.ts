@@ -217,6 +217,26 @@ const mcqSchema = z
   .object({ ...questionBase, type: z.literal("mcq"), stem: proseSchema, ...choiceBlock })
   .superRefine(checkChoiceAlignment);
 
+/**
+ * An alternate parameterisation of a numeric question: same skeleton, fresh figures.
+ *
+ * The stem, answer and explanation travel together because the house style walks the
+ * computation with the actual numbers — an explanation for the wrong figures would be
+ * worse than none. Tolerance and hint fall back to the base question's.
+ *
+ * Every variant's answer is verified in Python before it is written, exactly like the
+ * base question's (CLAUDE.md §9). That is why these are authored tables rather than
+ * runtime formulas: no math engine in the app to get wrong, and no unverifiable figure
+ * anywhere in the content.
+ */
+const numericVariantSchema = z.object({
+  stem: proseSchema,
+  answer: z.number(),
+  explanation: proseSchema,
+  tolerance: z.number().min(0).optional(),
+  inputHint: z.string().optional(),
+});
+
 const numericSchema = z.object({
   ...questionBase,
   type: z.literal("numeric"),
@@ -228,6 +248,13 @@ const numericSchema = z.object({
   unit: z.string().optional(),
   /** Shown under the input, e.g. "answer in years, to 1 decimal place". */
   inputHint: z.string().optional(),
+  /**
+   * Alternate figures, one picked per encounter (engine/prepare.ts) so the number
+   * itself stops being memorisable. One question id, one scheduling state — only the
+   * parameterisation changes. Deliberately NOT on vignette sub-questions: their
+   * figures are fixed by the case's exhibits.
+   */
+  variants: z.array(numericVariantSchema).min(1).max(5).optional(),
 });
 
 /** True/false where picking the right verdict is not enough — the reason must be right too. */

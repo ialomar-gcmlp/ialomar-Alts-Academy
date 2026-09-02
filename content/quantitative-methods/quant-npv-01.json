@@ -5,9 +5,15 @@
   "title": "NPV and IRR",
   "summary": "The two standard ways to judge an investment from its cash flows, and why they can disagree.",
   "level": "core",
-  "prereqs": ["quant-tvm-01"],
+  "prereqs": [
+    "quant-tvm-01"
+  ],
   "estMinutes": 9,
-  "examRelevance": ["CFA-L1", "CAIA-L1", "practical"],
+  "examRelevance": [
+    "CFA-L1",
+    "CAIA-L1",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
@@ -20,8 +26,14 @@
       "latex": "NPV = \\sum_{t=0}^{n} \\frac{CF_t}{(1+r)^t}",
       "plainReading": "Net present value is the sum of every cash flow discounted back to today. The t=0 term is the initial outlay, which is divided by one and so enters at full face value — negative.",
       "variables": [
-        { "symbol": "CF_t", "meaning": "the cash flow at time t, negative for money paid out" },
-        { "symbol": "r", "meaning": "the [[required-return]] — a judgement, not a fact" }
+        {
+          "symbol": "CF_t",
+          "meaning": "the cash flow at time t, negative for money paid out"
+        },
+        {
+          "symbol": "r",
+          "meaning": "the [[required-return]] — a judgement, not a fact"
+        }
       ]
     },
     {
@@ -73,7 +85,10 @@
       "id": "quant-npv-01-q1",
       "type": "numeric",
       "difficulty": 2,
-      "tags": ["npv", "discounting"],
+      "tags": [
+        "npv",
+        "discounting"
+      ],
       "concept": "npv-formula",
       "stem": "An investment costs $1,000 today and returns $400 at the end of each of the next 3 years. At a 10% required return, what is its NPV?",
       "answer": -5.26,
@@ -81,13 +96,30 @@
       "toleranceType": "abs",
       "unit": "$",
       "inputHint": "Answer in dollars, to the nearest cent. Use a minus sign if negative.",
-      "explanation": "Inflows discount to 363.64 + 330.58 + 300.53 = $994.74, against a $1,000 outlay, so NPV = -$5.26. The $1,200 of raw inflows looks profitable until the timing is priced in."
+      "explanation": "Inflows discount to 363.64 + 330.58 + 300.53 = $994.74, against a $1,000 outlay, so NPV = -$5.26. The $1,200 of raw inflows looks profitable until the timing is priced in.",
+      "variants": [
+        {
+          "stem": "An investment costs $2,000 today and returns $900 at the end of each of the next 3 years. At a 12% required return, what is its NPV?",
+          "answer": 161.65,
+          "tolerance": 1,
+          "explanation": "PV of the inflows: $900 discounted at 12% for years 1–3 sums to $2,161.65. NPV = $2,161.65 − $2,000 = **$161.65**. Positive: the project clears its hurdle."
+        },
+        {
+          "stem": "An investment costs $1,500 today and returns $550 at the end of each of the next 3 years. At a 8% required return, what is its NPV?",
+          "answer": -82.6,
+          "tolerance": 1,
+          "explanation": "PV of the inflows: $550 discounted at 8% for years 1–3 sums to $1,417.40. NPV = $1,417.40 − $1,500 = **$-82.60**. Negative: the undiscounted total misleads — at this hurdle the project destroys value."
+        }
+      ]
     },
     {
       "id": "quant-npv-01-q2",
       "type": "mcq",
       "difficulty": 1,
-      "tags": ["npv", "decision-rule"],
+      "tags": [
+        "npv",
+        "decision-rule"
+      ],
       "concept": "npv-what",
       "stem": "What does a positive NPV mean?",
       "choices": [
@@ -109,7 +141,9 @@
       "id": "quant-npv-01-q3",
       "type": "numeric",
       "difficulty": 3,
-      "tags": ["irr"],
+      "tags": [
+        "irr"
+      ],
       "concept": "npv-what",
       "stem": "An investment costs $100 today and pays $60 at the end of year 1 and $60 at the end of year 2. What is its IRR, in percent?",
       "answer": 13.07,
@@ -117,13 +151,31 @@
       "toleranceType": "abs",
       "unit": "%",
       "inputHint": "Answer in percent, to 1 or 2 decimal places.",
-      "explanation": "IRR solves -100 + 60/(1+r) + 60/(1+r)^2 = 0, giving r = 13.07%. There is no clean algebraic route for most cash flow patterns — in practice you let a solver find it, but you should still be able to sanity check the magnitude: $120 back on $100 over two years has to be somewhere in the low teens."
+      "explanation": "IRR solves -100 + 60/(1+r) + 60/(1+r)^2 = 0, giving r = 13.07%. There is no clean algebraic route for most cash flow patterns — in practice you let a solver find it, but you should still be able to sanity check the magnitude: $120 back on $100 over two years has to be somewhere in the low teens.",
+      "variants": [
+        {
+          "stem": "An investment costs $100 today and pays $70 at the end of year 1 and $70 at the end of year 2. What is its IRR, in percent?",
+          "answer": 25.69,
+          "tolerance": 0.3,
+          "explanation": "The IRR is the rate that makes NPV zero: −100 + 70/(1+r) + 70/(1+r)² = 0 gives r ≈ **25.7%**. Check it: 70/1.2569 + 70/1.5798 ≈ 100."
+        },
+        {
+          "stem": "An investment costs $100 today and pays $50 at the end of year 1 and $75 at the end of year 2. What is its IRR, in percent?",
+          "answer": 15.14,
+          "tolerance": 0.3,
+          "explanation": "The IRR is the rate that makes NPV zero: −100 + 50/(1+r) + 75/(1+r)² = 0 gives r ≈ **15.1%**. Check it: 50/1.1514 + 75/1.3257 ≈ 100."
+        }
+      ]
     },
     {
       "id": "quant-npv-01-q4",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["irr", "scale", "decision-rule"],
+      "tags": [
+        "irr",
+        "scale",
+        "decision-rule"
+      ],
       "concept": "why-npv-decides",
       "stem": "Project A: invest $1,000, IRR 60%, NPV $400. Project B: invest $50m, IRR 12%, NPV $6m. You can do both. Which should you do?",
       "choices": [
@@ -145,7 +197,11 @@
       "id": "quant-npv-01-q5",
       "type": "tfj",
       "difficulty": 4,
-      "tags": ["irr", "reinvestment", "misconception"],
+      "tags": [
+        "irr",
+        "reinvestment",
+        "misconception"
+      ],
       "concept": "why-npv-decides",
       "stem": "\"A fund reporting a 30% IRR has compounded its investors' money at 30% a year.\" True or false — and why?",
       "isTrue": false,
@@ -168,7 +224,10 @@
       "id": "quant-npv-01-q6",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["irr", "multiple-irr"],
+      "tags": [
+        "irr",
+        "multiple-irr"
+      ],
       "concept": "when-they-disagree",
       "stem": "A fund's cash flows are: -$100 (year 0), +$230 (year 1), -$132 (year 2). What is notable about its IRR?",
       "choices": [
@@ -190,7 +249,11 @@
       "id": "quant-npv-01-q7",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["irr", "on-the-job", "alternatives"],
+      "tags": [
+        "irr",
+        "on-the-job",
+        "alternatives"
+      ],
       "concept": "on-the-job",
       "stem": "A private equity fund uses a subscription credit line to delay calling investor capital by nine months. Nothing about the underlying investments changes. What happens to the reported net IRR?",
       "choices": [
@@ -212,7 +275,10 @@
       "id": "quant-npv-01-q8",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["npv", "sensitivity"],
+      "tags": [
+        "npv",
+        "sensitivity"
+      ],
       "concept": "npv-formula",
       "stem": "An analyst computes an NPV of +$2m using a 9% discount rate. A colleague argues the correct rate is 12%. What can you say without recomputing?",
       "choices": [
