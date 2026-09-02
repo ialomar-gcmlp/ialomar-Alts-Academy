@@ -19,6 +19,7 @@
  */
 
 import { gradeAnswer } from "../engine/grading";
+import { prepareQuestion } from "../engine/prepare";
 import { pausedClock } from "../engine/activeTime";
 import type { FlatQuestion } from "../content/flatten";
 import type { LessonBlock } from "../content/schema";
@@ -93,7 +94,12 @@ export function fromSaved(
 
   saved.items.forEach((savedItem, position) => {
     const flat = lookup(savedItem.questionId);
-    const question = flat?.question;
+    // Re-dealt with the SAME seed the session was built with (the snapshot's
+    // startedAt), so the choices land in the same order and a saved response index
+    // still points at the choice it was given against. Skipping this — or seeding
+    // with anything else — would silently regrade answers against reshuffled options.
+    const question =
+      flat === undefined ? undefined : prepareQuestion(flat.question, saved.startedAt);
     if (flat === undefined || question === undefined) {
       droppedIds.push(savedItem.questionId);
       if (position < saved.index) indexShift += 1;

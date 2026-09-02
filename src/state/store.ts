@@ -52,6 +52,7 @@ import {
   type DrillDirection,
   type DrillItem,
 } from "../engine/glossary";
+import { prepareQuestion } from "../engine/prepare";
 import { badgeContextFor, domainExams, domainProgress, pendingFreezes, topicProgress } from "./selectors";
 import type { QuestionState } from "../engine/scheduler";
 import {
@@ -306,7 +307,10 @@ export const useApp = create<AppState>((set, get) => ({
       examDomain: spec.examDomain ?? null,
       lessonBlocks: spec.lessonBlocks,
       items: spec.items.map((item) => ({
-        question: item.question,
+        // Dealt fresh for this encounter: choice order is seeded by (question id,
+        // session start), so positions stop being memorisable across sessions while
+        // staying stable within one. See engine/prepare.ts.
+        question: prepareQuestion(item.question, now),
         topicId: item.topicId,
         response: null,
         confidence: null,
