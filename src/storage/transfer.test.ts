@@ -184,7 +184,7 @@ describe("parseImport refusals", () => {
     const result = parseImport(JSON.stringify({ questions: {}, xp: 999 }));
     expect(result.status).toBe("error");
     if (result.status !== "error") return;
-    expect(result.detail).toContain("not exported by Alts Academy");
+    expect(result.detail).toContain("not exported by Arete");
   });
 
   it("refuses an export from a newer build without touching anything", () => {

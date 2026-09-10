@@ -2,7 +2,7 @@
 setlocal
 cd /d "%~dp0"
 
-REM  Alts Academy launcher.
+REM  Arete launcher.
 REM
 REM  Double-click this to study. It serves the built app on http://localhost:5173
 REM  and opens your browser at it.
@@ -27,7 +27,7 @@ if not exist "dist\index.html" (
   )
 )
 
-echo Starting Alts Academy on http://localhost:5173
+echo Starting Arete on http://localhost:5173
 echo.
 echo Leave this window open while you study. Close it to stop the app.
 echo.

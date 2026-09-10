@@ -1,4 +1,6 @@
-# Alts Academy
+# Arete
+
+*Formerly “Alts Academy” — the repository, URL and export format keep the old name so nothing breaks.*
 
 A local-first, gamified self-study app for investment fundamentals and alternatives-industry
 knowledge. Built for study in 5–20 minute fragments, with spaced repetition, confidence-weighted
@@ -53,7 +55,7 @@ and never leaves the device. The published files are the app, not your history.
 
 ### Locally, without a link
 
-**Double-click `Alts Academy.cmd`.** It builds the app if needed, serves it on
+**Double-click `Arete.cmd`.** It builds the app if needed, serves it on
 `http://localhost:5173`, and opens your browser. Leave that window open while you study; closing it
 stops the app. Useful offline, or if you would rather not depend on GitHub being up.
 

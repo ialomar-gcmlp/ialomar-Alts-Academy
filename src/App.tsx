@@ -57,7 +57,7 @@ function Header() {
             <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-[linear-gradient(135deg,var(--p-accent),var(--p-accent-bright))] text-accent-fg">
               <Icon name="layers" size={16} />
             </span>
-            Alts Academy
+            Arete
           </a>
           <StatusBar />
         </div>

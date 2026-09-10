@@ -161,7 +161,7 @@ export function parseImport(text: string): ImportResult {
     return {
       status: "error",
       detail:
-        "That file was not exported by Alts Academy. Import only accepts a file this app produced.",
+        "That file was not exported by Arete. Import only accepts a file this app produced.",
     };
   }
 

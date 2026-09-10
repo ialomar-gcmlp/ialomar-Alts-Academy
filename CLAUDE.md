@@ -1,4 +1,10 @@
-# CLAUDE.md — Alts Academy
+# CLAUDE.md — Arete (formerly Alts Academy)
+
+**The display name is "Arete"; every `alts-academy` machine string is frozen forever** —
+localStorage keys (`alts-academy:progress`, `alts-academy:theme`, backups), the export format
+marker `alts-academy-progress`, the export filename prefix, and the `package.json` name. They are
+identifiers, not branding: changing any of them orphans stored progress or breaks the import of
+old export files. Rename prose freely; never rename those.
 
 Local-first, offline, gamified self-study app for investment fundamentals and alternatives-industry
 knowledge. Single user. No accounts, no backend, no telemetry, no runtime network calls.
@@ -661,7 +667,7 @@ travelled from the M0 plan into `vite.config.ts`, `CLAUDE.md` and the README wit
 the file; relative paths were necessary for it but never sufficient. Hash routing does deliver the
 other half of the promise: any static host, any subdirectory, no rewrite rules.
 
-`Alts Academy.cmd` is the answer for local use: it builds if needed, serves `dist/` on **port 5173**
+`Arete.cmd` is the answer for local use: it builds if needed, serves `dist/` on **port 5173**
 and opens the browser. The port matters — `localStorage` is keyed by origin, so serving on a
 different port would present the user with an empty app and no explanation.
 

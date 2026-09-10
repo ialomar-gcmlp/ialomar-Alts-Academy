@@ -38,7 +38,7 @@ export class ErrorBoundary extends Component<{ children: ReactNode }, State> {
 
   override componentDidCatch(error: Error, info: ErrorInfo): void {
     // Logged as well as rendered: the console keeps the full stack with source maps.
-    console.error("Alts Academy crashed:", error, info.componentStack);
+    console.error("Arete crashed:", error, info.componentStack);
     this.setState({ info });
   }
 
