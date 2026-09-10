@@ -19,6 +19,7 @@ import { ReviewQueue } from "./views/ReviewQueue";
 import { Session } from "./views/Session";
 import { Progress } from "./views/Progress";
 import { Topic } from "./views/Topic";
+import { BrandMark } from "./ui/BrandMark";
 import { EmptyState, Kbd, Ring } from "./ui/primitives";
 import { ErrorBoundary } from "./ui/ErrorBoundary";
 import { Icon } from "./ui/icons";
@@ -54,9 +55,7 @@ function Header() {
               navigate("");
             }}
           >
-            <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-[linear-gradient(135deg,var(--p-accent),var(--p-accent-bright))] text-accent-fg">
-              <Icon name="layers" size={16} />
-            </span>
+            <BrandMark size={26} />
             Arete
           </a>
           <StatusBar />

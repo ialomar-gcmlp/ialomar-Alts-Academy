@@ -50,6 +50,8 @@
   /* accent — GCM navy. Brand blue #4887B2 measures 3.4:1 under white text, so it
      serves as ring and tint base while navy carries every text-bearing role. */
   --p-accent: #09314f; /* brand navy */
+  /* Pillar-mark navy segments; substitutes to white in dark, per the brand board. */
+  --p-logo: #09314f;
   --p-accent-hover: #1b496b; /* navy, one visible step lighter (white on it: 9.5:1) */
   --p-accent-fg: #ffffff;
   --p-accent-soft: #e5eef4; /* white tinted 14% toward brand blue */
@@ -124,6 +126,7 @@
   /* accent — brand cyan carries the accent on navy (8.0:1 on surface); filled
      controls flip to navy text on cyan (6.5:1). */
   --p-accent: #48beff; /* brand cyan */
+  --p-logo: #ffffff;
   --p-accent-hover: #70ccff;
   --p-accent-fg: #09314f; /* brand navy */
   --p-accent-soft: #1d3d53; /* surface tinted 28% toward brand blue */

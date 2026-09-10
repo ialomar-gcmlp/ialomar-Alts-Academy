@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <!-- Arete app icon: the pillar mark on the brand navy tile (hard edges).
+       Static colours on purpose — a favicon renders outside the app's theme
+       system, and the navy tile reads on light and dark browser chrome alike.
+       Navy segments of the mark substitute to white, per the dark lockup. -->
+  <rect width="128" height="128" fill="#09314f" />
+  <g transform="translate(16, 21)">
+    <rect x="0" y="0" width="48" height="10" fill="#ffffff" />
+    <rect x="48" y="0" width="48" height="10" fill="#48beff" />
+    <rect x="11.5" y="15.5" width="36.5" height="9" fill="#7fa9c9" />
+    <rect x="48" y="15.5" width="37" height="9" fill="#48beff" />
+    <rect x="20" y="30" width="13.5" height="56" fill="#ffffff" />
+    <rect x="41" y="30" width="13.5" height="56" fill="#7fa9c9" />
+    <rect x="63" y="30" width="13.5" height="56" fill="#48beff" />
+  </g>
+</svg>
