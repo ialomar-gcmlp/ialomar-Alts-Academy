@@ -15,32 +15,45 @@
  * Raw palette
  * ------------------------------------------------------------------ */
 
+/*
+ * GCM brand: hard edges. Tailwind v4's rounded-* utilities resolve var(--radius-*)
+ * from its @layer theme defaults; this unlayered block wins the cascade and squares
+ * every container corner in one place. `rounded-full` is deliberately untouched —
+ * it compiles to a literal and is used only for indicator shapes (pips, rings,
+ * monograms), which are circles, not corners.
+ */
+:root {
+  --radius-sm: 0;
+  --radius-md: 0;
+  --radius-lg: 0;
+  --radius-xl: 0;
+}
+
 :root,
 .light {
-  /* surfaces */
-  --p-bg: #faf9f7; /* page — warm off-white, not a cool grey */
+  /* surfaces — GCM brand chrome: cool navy-tinted neutrals (brand navy #09314F
+     is the hue anchor for every derived shade in this block) */
+  --p-bg: #f7f9fb; /* page */
   --p-surface: #ffffff; /* cards, panels */
-  --p-surface-2: #f4f2ef; /* subtle fills, table stripes, code */
-  --p-border: #e5e2dd;
-  --p-border-strong: #d2cdc5;
+  --p-surface-2: #edf2f5; /* subtle fills, table stripes, code */
+  --p-border: #d8e0e6;
+  --p-border-strong: #c0ccd5;
 
-  /* text */
-  --p-fg: #1c1917; /* primary */
-  --p-fg-muted: #6b6560; /* secondary, captions */
-  /*
-   * Darkened in M7 from #948f88, which measured 3.21:1 on a card and 2.87:1 on a
-   * well — below the large-text floor, on a token used for 11-13px labels. Now
-   * 5.07:1 and 4.54:1, so it clears AA for normal text on both surfaces.
-   */
-  --p-fg-subtle: #736e67; /* tertiary, disabled */
-  --p-fg-inverse: #faf9f7;
+  /* text — navy-family neutrals, each searched to its AA target rather than eyed:
+     fg 15.5:1 on surface; muted 5.7 / 5.1 (surface / surface-2); subtle 5.2 / 4.6.
+     The M7 rule stands: re-measure after ANY token change. */
+  --p-fg: #142634; /* primary */
+  --p-fg-muted: #566977; /* secondary, captions */
+  --p-fg-subtle: #5f6f7b; /* tertiary, disabled */
+  --p-fg-inverse: #f7f9fb;
 
-  /* accent — muted teal */
-  --p-accent: #0d6068;
-  --p-accent-hover: #0a4d54;
+  /* accent — GCM navy. Brand blue #4887B2 measures 3.4:1 under white text, so it
+     serves as ring and tint base while navy carries every text-bearing role. */
+  --p-accent: #09314f; /* brand navy */
+  --p-accent-hover: #1b496b; /* navy, one visible step lighter (white on it: 9.5:1) */
   --p-accent-fg: #ffffff;
-  --p-accent-soft: #e3efef; /* tinted background */
-  --p-accent-ring: #0d606840;
+  --p-accent-soft: #e5eef4; /* white tinted 14% toward brand blue */
+  --p-accent-ring: #4887b240; /* brand blue at 25% */
 
   /* semantic */
   --p-correct: #2f6b4f;
@@ -51,8 +64,8 @@
   --p-flag: #866723; /* needs-review / caution */
   --p-flag-soft: #f5eede;
 
-  /* confidence tags */
-  --p-conf-confident: #0d6068;
+  /* confidence tags — confident tracks the accent family, as it always has */
+  --p-conf-confident: #09314f;
   --p-conf-unsure: #8a6a24;
   --p-conf-guessing: #6b6560;
 
@@ -63,8 +76,8 @@
   --p-series-2: #c0851f;
   --p-series-3: #3568b2;
   --p-series-4: #bc504c;
-  --p-grid: #e5e2dd;
-  --p-axis: #948f88;
+  --p-grid: #d8e0e6;
+  --p-axis: #5f6f7b;
 
 
   /* Domain identity — see the provenance note at the bottom of this file. */
@@ -86,32 +99,35 @@
   --p-xp-bright: #e3a81f;
   --p-streak: #c2500b;
   --p-streak-bright: #f0872c;
-  --p-accent-bright: #0a7079;
+  /* Gradient partner. NOT pure brand blue: white text on #4887B2 is 3.36:1, so the
+     vivid button's bright end is navy blended 78% toward blue — 4.58:1 under white. */
+  --p-accent-bright: #3f7ba4;
 
-  --p-shadow: 0 1px 2px 0 #1c191710, 0 1px 3px 0 #1c191708;
+  --p-shadow: 0 1px 2px 0 #14263410, 0 1px 3px 0 #14263408;
 }
 
 .dark {
-  /* surfaces */
-  --p-bg: #16150f;
-  --p-surface: #1e1d17;
-  --p-surface-2: #272620;
-  --p-border: #33322a;
-  --p-border-strong: #474539;
+  /* surfaces — deep navy, derived from brand #09314F */
+  --p-bg: #07131d;
+  --p-surface: #0c202e;
+  --p-surface-2: #142c3e;
+  --p-border: #203d53;
+  --p-border-strong: #305570;
 
-  /* text */
-  --p-fg: #ede9e2;
-  --p-fg-muted: #a5a096;
-  /* Lightened in M7 from #77726a (3.54:1 / 3.18:1). Now 5.03:1 and 4.52:1. */
-  --p-fg-subtle: #918c83;
-  --p-fg-inverse: #16150f;
+  /* text — cool off-whites, searched to AA: fg 12.0:1 on surface; muted 5.8 / 5.0;
+     subtle 5.3 / 4.6 (surface / surface-2). */
+  --p-fg: #d5dce2;
+  --p-fg-muted: #8b9ba7;
+  --p-fg-subtle: #84939f;
+  --p-fg-inverse: #07131d;
 
-  /* accent */
-  --p-accent: #5eb8bf;
-  --p-accent-hover: #7ac9cf;
-  --p-accent-fg: #0c2427;
-  --p-accent-soft: #1b3436;
-  --p-accent-ring: #5eb8bf40;
+  /* accent — brand cyan carries the accent on navy (8.0:1 on surface); filled
+     controls flip to navy text on cyan (6.5:1). */
+  --p-accent: #48beff; /* brand cyan */
+  --p-accent-hover: #70ccff;
+  --p-accent-fg: #09314f; /* brand navy */
+  --p-accent-soft: #1d3d53; /* surface tinted 28% toward brand blue */
+  --p-accent-ring: #48beff40;
 
   /* semantic */
   --p-correct: #7fb896;
@@ -122,7 +138,7 @@
   --p-flag-soft: #2c2517;
 
   /* confidence tags */
-  --p-conf-confident: #5eb8bf;
+  --p-conf-confident: #48beff;
   --p-conf-unsure: #cfa856;
   --p-conf-guessing: #a5a096;
 
@@ -132,8 +148,8 @@
   --p-series-2: #ba871e;
   --p-series-3: #5286d3;
   --p-series-4: #d0635d;
-  --p-grid: #33322a;
-  --p-axis: #77726a;
+  --p-grid: #203d53;
+  --p-axis: #84939f;
 
 
   /* Domain identity — chosen for the dark surface, not lightened from the light set. */
@@ -154,9 +170,11 @@
   --p-xp-bright: #ffd166;
   --p-streak: #ff8a3d;
   --p-streak-bright: #ffb066;
-  --p-accent-bright: #7fd3d9;
+  /* Bright end of the dark vivid gradient: cyan lifted toward white until brand
+     navy text clears AA on it (8.0:1). */
+  --p-accent-bright: #7fd2ff;
 
-  --p-shadow: 0 1px 2px 0 #00000040, 0 1px 3px 0 #00000030;
+  --p-shadow: 0 1px 2px 0 #00000050, 0 1px 3px 0 #00000038;
 }
 
 /* ------------------------------------------------------------------ *
@@ -205,9 +223,11 @@
   --color-grid: var(--p-grid);
   --color-axis: var(--p-axis);
 
+  /* GCM font stack. Aptos ships with Windows 11 / Microsoft 365; Segoe UI is the
+     mandated fallback. Still system fonts: nothing is downloaded, offline intact. */
   --font-sans:
-    ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
-    sans-serif;
+    Aptos, "Segoe UI", ui-sans-serif, system-ui, -apple-system, Roboto, "Helvetica Neue",
+    Arial, sans-serif;
   --font-mono: ui-monospace, "Cascadia Code", "Segoe UI Mono", Menlo, Consolas, monospace;
 
   /* Reading measure for lesson prose — long lines are the enemy of retention. */

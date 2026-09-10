@@ -755,6 +755,24 @@ was checked in the browser. Vite folds the branch away in production.
 
 ## 8. UI conventions
 
+### GCM brand chrome (2026-09-09) — current palette
+
+At the user's request the CHROME follows GCM Grosvenor brand guidelines: navy #09314F
+(light accent, dark accent-fg), blue #4887B2 (rings and tint bases only — it measures
+3.4:1 under white text and may never carry a text role), cyan #48BEFF (dark-mode
+accent), cool navy-derived neutrals in both modes, **hard edges** (an unlayered
+`:root` block zeroes `--radius-sm/md/lg/xl`; `rounded-full` indicator circles stay),
+and the **Aptos / Segoe UI** font stack (system fonts, offline intact). Every value
+was derived by measurement — 44 text/surface pairs ≥ 4.5:1, table in the reskin
+commit — and the M7 rule stands: re-measure after any token change.
+
+**Functional colours are NOT brand chrome and stay put**: the 11 domain hues, chart
+series 1–4, correct/incorrect/flag, confidence amber/grey, XP/streak reward colours.
+They are data encoding (re-validated against the new navy surfaces with the dataviz
+six-checks — all pass). Do not fold them into the three brand colours; that decision
+was made explicitly on 2026-09-01 and reconfirmed 2026-09-09.
+
+
 **Colourful and adult — REVISED 2026-08-31 at the user's request.** The original brief asked for a
 restrained palette and no animation. After using the app the user asked for the opposite: *"I have
 ADHD, so adding more color or attention grabbing elements that make the experience more fun."* That

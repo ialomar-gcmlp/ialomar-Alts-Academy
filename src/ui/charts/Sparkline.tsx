@@ -107,7 +107,7 @@ export function Sparkline({
             x2={VIEW.w - PAD.right}
             y1={y(tick)}
             y2={y(tick)}
-            stroke="var(--p-border-base)"
+            stroke="var(--p-border)"
             strokeWidth={1}
             strokeDasharray={i === 1 ? "3 4" : undefined}
           />
