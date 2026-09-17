@@ -7,12 +7,41 @@
   "level": "core",
   "prereqs": [],
   "estMinutes": 10,
-  "examRelevance": ["CAIA-L1", "CAIA-L2", "practical"],
+  "examRelevance": [
+    "CAIA-L1",
+    "CAIA-L2",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
       "id": "what-it-is",
       "body": "A company agrees to be bought for $50 a share. Its stock jumps — but not to $50. It settles at, say, $47.\n\nThat $3 gap is the [[merger-arbitrage]] opportunity, and it exists for a reason: the deal might not complete. Regulators can block it, shareholders can vote it down, financing can fall through, the buyer can walk. The arbitrageur buys at $47 and collects the $3 if the deal closes, having judged that the market is paying them more than the risk warrants.\n\nIn a cash deal that is the whole trade: buy the target, wait, collect. In a stock-for-stock deal the arbitrageur also shorts the acquirer in the exchange ratio (the number of acquirer shares offered per target share), because the consideration is acquirer shares rather than cash and the ratio is what needs locking in."
+    },
+    {
+      "type": "infographic",
+      "id": "spread-anatomy",
+      "caption": "The deal spread: the market pays you to hold completion risk.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Announced cash price",
+            "stat": "$50",
+            "detail": "What the target's holders receive if the deal closes."
+          },
+          {
+            "label": "Where the target trades",
+            "stat": "$47",
+            "detail": "Not $50, because the deal might not complete. Before the announcement it traded at $38 — the downside if it breaks."
+          },
+          {
+            "label": "The spread",
+            "stat": "6.4%",
+            "detail": "$3 collected if the deal closes. The best case is fixed — the trade cannot surprise you to the upside."
+          }
+        ]
+      }
     },
     {
       "type": "concept",
@@ -38,10 +67,39 @@
       "body": "Merger arbitrage is the textbook negatively [[skewness|skewed]] strategy, and the shape follows directly from the arithmetic above rather than from bad luck.\n\nMost months look almost boring: a diversified book of deals closing on schedule, each contributing a small gain, producing a smooth upward line. Then a large deal breaks and gives back a year of those small gains at once.\n\nThe useful mental model is **selling insurance**. The arbitrageur is paid a premium by shareholders who want certainty now rather than an uncertain $50 later. Most of the time no claim is made and the premium is kept. Occasionally there is a claim and it is expensive.\n\nThis has an uncomfortable implication for evaluation. A track record of steady small gains is exactly what you would see from a skilled arbitrageur *and* exactly what you would see from a reckless one who has not yet met a broken deal. Return history alone cannot distinguish them — only understanding which deals they took, and why, can."
     },
     {
+      "type": "infographic",
+      "id": "insurance-shape",
+      "caption": "Selling insurance: premiums most months, an expensive claim occasionally. A smooth record cannot distinguish skill from recklessness.",
+      "spec": {
+        "kind": "comparison",
+        "columns": [
+          {
+            "title": "Most months",
+            "bullets": [
+              "A diversified book of deals closing on schedule",
+              "Each contributes a small gain — a smooth upward line",
+              "The premium is kept"
+            ]
+          },
+          {
+            "title": "When a large deal breaks",
+            "bullets": [
+              "A year of small gains given back at once",
+              "Exactly what you would see from a skilled arbitrageur and from a reckless one who has not yet met a broken deal"
+            ]
+          }
+        ]
+      }
+    },
+    {
       "type": "table",
       "id": "environments",
       "caption": "What helps and what hurts",
-      "headers": ["Environment", "Effect", "Why"],
+      "headers": [
+        "Environment",
+        "Effect",
+        "Why"
+      ],
       "rows": [
         [
           "Heavy deal flow",
@@ -81,9 +139,61 @@
       "body": "**Concentration in one deal.** The arithmetic makes this unforgiving: a single position sized at 10% of the fund, breaking with a 19% loss, costs 1.9% of capital. Sized at 25%, it costs nearly 5%. Position sizing is not a detail in this strategy; it is the strategy.\n\n**Correlated break risk.** Deals look independent and are not. A shift in antitrust posture, a credit market freeze, or a general equity decline raises break probability across the entire book at once. A manager holding thirty deals may hold one risk thirty times.\n\n**Leverage on a small spread.** Because gross spreads are a few percent, managers often use leverage to reach a target return. That multiplies the downside of any break, and margin against a broken deal is called at precisely the wrong moment.\n\n**Mispricing the probability.** The whole edge is judging completion odds better than the market. A manager who is systematically optimistic will look excellent for years — collecting spreads the market considered too risky — and then lose badly when their optimism is tested. **Their good record and their eventual loss have the same cause.**"
     },
     {
+      "type": "infographic",
+      "id": "sizing-arithmetic",
+      "caption": "Position sizing is not a detail in this strategy — it is the strategy.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Sized at 10%, 19% break loss",
+            "stat": "−1.9%",
+            "detail": "A single break at a disciplined size costs under two points of capital."
+          },
+          {
+            "label": "Sized at 25%, same break",
+            "stat": "−4.75%",
+            "detail": "The identical deal, sized for conviction, costs nearly five."
+          },
+          {
+            "label": "Breakeven completion odds",
+            "stat": "75%",
+            "detail": "At a 6.4% spread against a 19% break loss, the market must be right three times in four just to break even."
+          }
+        ]
+      }
+    },
+    {
       "type": "pitfall",
       "id": "annualised-spreads",
       "body": "**Be careful with annualised spread figures.** A 6.4% spread over three months annualises to 25%, which sounds like a wonderful return and is not a return at all — it is a spread on one position, before any break, before financing, and before the position is diversified down to a sensible size.\n\nWhat actually reaches the investor is that spread multiplied by the probability of completion, minus the break losses that do occur, minus costs, across a book where no position can be large. Headline annualised spreads and realised fund returns differ by a wide margin, and the gap is the risk."
+    },
+    {
+      "type": "infographic",
+      "id": "headline-vs-realised",
+      "caption": "An annualised spread is not a return.",
+      "spec": {
+        "kind": "comparison",
+        "columns": [
+          {
+            "title": "The headline",
+            "mark": "cross",
+            "bullets": [
+              "6.4% over three months annualises to 25%",
+              "One position, before any break, before financing, before diversification"
+            ]
+          },
+          {
+            "title": "What reaches the investor",
+            "mark": "check",
+            "bullets": [
+              "The spread times the probability of completion",
+              "Minus the break losses that do occur, minus costs",
+              "Across a book where no position can be large"
+            ]
+          }
+        ]
+      }
     },
     {
       "type": "onTheJob",
@@ -106,7 +216,10 @@
       "id": "alts-merger-01-q1",
       "type": "numeric",
       "difficulty": 2,
-      "tags": ["merger-arbitrage", "spread"],
+      "tags": [
+        "merger-arbitrage",
+        "spread"
+      ],
       "concept": "worked-spread",
       "stem": "A takeover target trades at $47. The announced cash price is $50. What is the gross spread, in percent?",
       "answer": 6.383,
@@ -120,7 +233,11 @@
       "id": "alts-merger-01-q2",
       "type": "numeric",
       "difficulty": 4,
-      "tags": ["merger-arbitrage", "probability", "risk-reward"],
+      "tags": [
+        "merger-arbitrage",
+        "probability",
+        "risk-reward"
+      ],
       "concept": "worked-spread",
       "stem": "Buy at $47 on a $50 deal. If it breaks, the stock returns to its pre-announcement $38. What completion probability makes this a break-even bet? Answer in percent.",
       "answer": 75,
@@ -134,7 +251,10 @@
       "id": "alts-merger-01-q3",
       "type": "mcq",
       "difficulty": 2,
-      "tags": ["merger-arbitrage", "return-driver"],
+      "tags": [
+        "merger-arbitrage",
+        "return-driver"
+      ],
       "concept": "return-driver",
       "stem": "What primarily determines whether a merger arbitrage position makes money?",
       "choices": [
@@ -156,7 +276,11 @@
       "id": "alts-merger-01-q4",
       "type": "tfj",
       "difficulty": 3,
-      "tags": ["merger-arbitrage", "skewness", "misconception"],
+      "tags": [
+        "merger-arbitrage",
+        "skewness",
+        "misconception"
+      ],
       "concept": "the-shape",
       "stem": "\"This merger arb fund has had 34 positive months out of 36 with 3% volatility, so it is low risk.\" True or false — and why?",
       "isTrue": false,
@@ -179,7 +303,11 @@
       "id": "alts-merger-01-q5",
       "type": "numeric",
       "difficulty": 3,
-      "tags": ["merger-arbitrage", "position-sizing", "risk"],
+      "tags": [
+        "merger-arbitrage",
+        "position-sizing",
+        "risk"
+      ],
       "concept": "how-it-blows-up",
       "stem": "A fund holds one deal at 12% of NAV. The deal breaks and the target falls 19%. What is the loss to the fund from this position, in percent of NAV?",
       "answer": 2.28,
@@ -193,7 +321,11 @@
       "id": "alts-merger-01-q6",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["merger-arbitrage", "correlated-risk", "how-it-blows-up"],
+      "tags": [
+        "merger-arbitrage",
+        "correlated-risk",
+        "how-it-blows-up"
+      ],
       "concept": "how-it-blows-up",
       "stem": "A merger arb fund holds 30 deals and argues break risk is well diversified. What most undermines that argument?",
       "choices": [
@@ -215,7 +347,11 @@
       "id": "alts-merger-01-q7",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["merger-arbitrage", "diligence", "on-the-job"],
+      "tags": [
+        "merger-arbitrage",
+        "diligence",
+        "on-the-job"
+      ],
       "concept": "on-the-job",
       "stem": "Spreads across a merger arb manager's book widen sharply, with no change in the deals' regulatory or financing situations. What is the most useful reading?",
       "choices": [

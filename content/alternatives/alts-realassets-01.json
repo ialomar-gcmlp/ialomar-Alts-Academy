@@ -7,7 +7,11 @@
   "level": "core",
   "prereqs": [],
   "estMinutes": 9,
-  "examRelevance": ["CAIA-L1", "CAIA-L2", "practical"],
+  "examRelevance": [
+    "CAIA-L1",
+    "CAIA-L2",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
@@ -20,15 +24,85 @@
       "body": "**A commodity futures return has three components, and most people account for only the first.**\n\n**1. Spot price change.** What the commodity itself did.\n\n**2. [[roll-yield|Roll yield]].** Futures expire, so a continuous position must be rolled into the next contract. If the next contract is more expensive than the one expiring — a market in **[[contango]]** — you sell low and buy high each roll, and the return bleeds. If it is cheaper — **[[backwardation]]** — rolling adds return.\n\n**3. Collateral yield.** Futures require only margin, so the rest of the capital sits in cash earning interest. In a high-rate environment this is a real contributor.\n\nRoll yield is the part that surprises people, and it can dominate. A commodity whose spot price rose over a decade can still have delivered a negative return to a futures investor, because persistent contango bled more than the spot appreciation added. **The commodity went up and the investor lost money** — not through a mistake, but through the cost of maintaining exposure.\n\nFor producing assets — mines, wells, farmland — the picture differs: the investor owns output and bears operating costs, so the return is a margin rather than a price, and cost inflation matters as much as revenue."
     },
     {
+      "type": "infographic",
+      "id": "futures-return-decomposition",
+      "caption": "A commodity futures return has three components — most people account for only the first.",
+      "spec": {
+        "kind": "equation",
+        "terms": [
+          {
+            "label": "Spot price change",
+            "icon": "chartUp",
+            "bullets": [
+              "What the commodity itself did"
+            ]
+          },
+          {
+            "label": "[[roll-yield|Roll yield]]",
+            "icon": "gear",
+            "bullets": [
+              "[[contango|Contango]] bleeds each roll; [[backwardation]] adds — and it can dominate"
+            ]
+          },
+          {
+            "label": "Collateral yield",
+            "icon": "coins",
+            "bullets": [
+              "Futures need only margin; the rest sits in cash earning interest"
+            ]
+          },
+          {
+            "label": "The futures return"
+          }
+        ],
+        "operators": [
+          "+",
+          "+",
+          "="
+        ],
+        "result": "A commodity whose spot price rose over a decade can still have lost money for a futures investor — persistent contango bled more than the spot added."
+      }
+    },
+    {
       "type": "intuition",
       "id": "inflation-hedge-conditionally",
       "body": "Commodities are the most commonly cited inflation hedge, and the relationship is real but conditional in ways worth understanding.\n\n**When commodities *are* the inflation, the hedge works.** An energy price shock raises measured inflation and simultaneously raises the value of energy exposure. This is the case where the hedge performs, and it is the historically important one.\n\n**When inflation comes from elsewhere, it may not.** Inflation driven by wages, services or currency depreciation need not lift commodity prices at all. The hedge is against commodity-driven inflation specifically, which is a narrower claim than \"inflation protection\".\n\n**And the drag is permanent while the protection is occasional.** A portfolio holding commodity futures through a decade of contango pays for the option continuously and collects only when the shock arrives. That may still be worth it — insurance usually costs something — but it should be understood as buying protection rather than as owning an appreciating asset.\n\nThe honest summary: **a real but imperfect hedge against one kind of inflation, with a carrying cost.** That is a defensible thing to own, and it is not the same as what the marketing implies."
     },
     {
+      "type": "infographic",
+      "id": "conditional-hedge",
+      "caption": "A real but imperfect hedge against one kind of inflation, with a carrying cost.",
+      "spec": {
+        "kind": "comparison",
+        "columns": [
+          {
+            "title": "When commodities are the inflation",
+            "mark": "check",
+            "bullets": [
+              "An energy shock raises measured inflation and the value of energy exposure at once",
+              "The case the hedge exists for, and the historically important one"
+            ]
+          },
+          {
+            "title": "When inflation comes from elsewhere",
+            "mark": "cross",
+            "bullets": [
+              "Wages, services or currency depreciation need not lift commodity prices at all",
+              "The drag is permanent while the protection is occasional — insurance, not an appreciating asset"
+            ]
+          }
+        ]
+      }
+    },
+    {
       "type": "table",
       "id": "environments",
       "caption": "What helps and what hurts",
-      "headers": ["Environment", "Effect", "Why"],
+      "headers": [
+        "Environment",
+        "Effect",
+        "Why"
+      ],
       "rows": [
         [
           "Commodity-driven inflation shock",
@@ -73,6 +147,26 @@
       "body": "**A commodity index is a set of specific futures positions with specific roll rules, not the commodities themselves.** Two indices covering the same commodities can produce materially different returns purely from how and when they roll, and how they weight sectors.\n\nSo \"we have commodity exposure\" is an incomplete statement. Which commodities, in what weights, rolled on what schedule, and with what collateral policy? A heavily energy-weighted index and a broadly diversified one will behave quite differently, and neither is the spot price of anything.\n\nThe same caution applies in reverse to producing assets: owning an oil producer is not owning oil. The producer has costs, debt, reserves of finite life and management decisions layered on top of the price."
     },
     {
+      "type": "infographic",
+      "id": "exposure-is-not-spot",
+      "caption": "Neither an index nor a producer is the commodity.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "An index is roll rules",
+            "icon": "docCheck",
+            "detail": "Two indices covering the same commodities can return materially differently purely from how and when they roll, and how they weight sectors."
+          },
+          {
+            "label": "A producer is not the commodity",
+            "icon": "gear",
+            "detail": "Costs, debt, finite reserves and management decisions are layered on top of the price."
+          }
+        ]
+      }
+    },
+    {
       "type": "onTheJob",
       "id": "on-the-job",
       "body": "**Decompose the historical return into spot, roll and collateral.** This is the single most clarifying exercise for a commodity allocation, and it frequently shows that most of the reported return was collateral interest.\n\n**Ask what inflation the hedge is meant to protect against.** If the concern is services or wage inflation, commodities may be the wrong instrument, and it is better to establish that before rather than after.\n\n**Check the correlation in equity drawdowns specifically.** Not the average correlation. Industrial commodities tend to be unhelpful in demand-driven selloffs, which is the common case.\n\n**For producing assets, ask for the cost curve position.** A low-cost producer survives a price collapse; a high-cost one does not. That position matters more than the commodity view.\n\n**For land, ask about water and climate exposure explicitly.** Water rights in particular are becoming a determinant of farmland value rather than a footnote.\n\n**Discount inflation-hedge claims to the mechanism.** As with infrastructure: which prices, transmitted how, with what lag."
@@ -93,7 +187,11 @@
       "id": "alts-realassets-01-q1",
       "type": "mcq",
       "difficulty": 2,
-      "tags": ["real-assets", "commodities", "return-driver"],
+      "tags": [
+        "real-assets",
+        "commodities",
+        "return-driver"
+      ],
       "concept": "return-driver",
       "stem": "What are the three components of a return from holding commodity futures?",
       "choices": [
@@ -115,7 +213,11 @@
       "id": "alts-realassets-01-q2",
       "type": "tfj",
       "difficulty": 3,
-      "tags": ["real-assets", "roll-yield", "contango"],
+      "tags": [
+        "real-assets",
+        "roll-yield",
+        "contango"
+      ],
       "concept": "return-driver",
       "stem": "\"If a commodity's spot price is higher than it was ten years ago, a futures investor holding it throughout must have made money.\" True or false — and why?",
       "isTrue": false,
@@ -138,7 +240,11 @@
       "id": "alts-realassets-01-q3",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["real-assets", "inflation-hedge", "diversification"],
+      "tags": [
+        "real-assets",
+        "inflation-hedge",
+        "diversification"
+      ],
       "concept": "inflation-hedge-conditionally",
       "stem": "Under which kind of inflation is a commodity allocation most likely to provide protection?",
       "choices": [
@@ -160,7 +266,11 @@
       "id": "alts-realassets-01-q4",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["real-assets", "operating-leverage", "producing-assets"],
+      "tags": [
+        "real-assets",
+        "operating-leverage",
+        "producing-assets"
+      ],
       "concept": "how-it-blows-up",
       "stem": "Why is an interest in a producing mine typically more volatile than the price of the metal it produces?",
       "choices": [
@@ -182,7 +292,11 @@
       "id": "alts-realassets-01-q5",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["real-assets", "diversification", "correlation"],
+      "tags": [
+        "real-assets",
+        "diversification",
+        "correlation"
+      ],
       "concept": "how-it-blows-up",
       "stem": "Why can an industrial commodity allocation fail to diversify an equity portfolio in exactly the scenario the investor most fears?",
       "choices": [
@@ -204,7 +318,11 @@
       "id": "alts-realassets-01-q6",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["real-assets", "index-construction", "on-the-job"],
+      "tags": [
+        "real-assets",
+        "index-construction",
+        "on-the-job"
+      ],
       "concept": "index-is-not-exposure",
       "stem": "Two commodity indices cover broadly the same commodities but delivered returns several points apart over a decade. What most likely explains it?",
       "choices": [

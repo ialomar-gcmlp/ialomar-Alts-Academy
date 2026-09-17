@@ -5,14 +5,50 @@
   "title": "Infrastructure",
   "summary": "Long-lived essential assets with contracted or regulated cash flows — bond-like, inflation-linked, and exposed to politics.",
   "level": "core",
-  "prereqs": ["alts-re-01"],
+  "prereqs": [
+    "alts-re-01"
+  ],
   "estMinutes": 9,
-  "examRelevance": ["CAIA-L1", "CAIA-L2", "practical"],
+  "examRelevance": [
+    "CAIA-L1",
+    "CAIA-L2",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
       "id": "what-it-is",
       "body": "[[infrastructure]] means the physical assets an economy needs in order to function: toll roads, airports, ports, water and electricity networks, pipelines, telecom towers, renewable generation.\n\nWhat makes them an asset class rather than just a category of company is a shared set of economic features.\n\n**Essential and hard to replicate.** A second water network is not going to be built next door. Demand is relatively insensitive to price and to the economic cycle, because the service is necessary.\n\n**Very long lives.** Assets that operate for thirty to a hundred years, often under [[concession|concessions]] of similar length.\n\n**Contracted or regulated revenue.** Income comes from a long-term contract, a regulated tariff, or an availability payment — not from competing for customers each year.\n\n**Frequently inflation-linked.** Tariffs and contracts commonly escalate with a published inflation index, which is one of the asset class's most distinctive properties.\n\nPut together, that produces an unusually predictable, very long-dated income stream. Which is why infrastructure is described as bond-like — and why the [[perpetuity]] arithmetic from the annuities topic applies with even more force than it does to real estate."
+    },
+    {
+      "type": "infographic",
+      "id": "shared-features",
+      "caption": "What makes infrastructure an asset class rather than a category of company.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Essential, hard to replicate",
+            "icon": "shield",
+            "detail": "A second water network is not going to be built next door. Demand is insensitive to price and cycle."
+          },
+          {
+            "label": "Very long lives",
+            "icon": "clock",
+            "detail": "Thirty to a hundred years, often under [[concession|concessions]] of similar length."
+          },
+          {
+            "label": "Contracted or regulated revenue",
+            "icon": "docCheck",
+            "detail": "A long-term contract, a regulated tariff, or an availability payment — not competing for customers each year."
+          },
+          {
+            "label": "Frequently inflation-linked",
+            "icon": "chartUp",
+            "detail": "Tariffs commonly escalate with a published index — one of the asset class's most distinctive properties."
+          }
+        ]
+      }
     },
     {
       "type": "concept",
@@ -25,10 +61,40 @@
       "body": "Two things distinguish infrastructure from every other private asset, and they pull in opposite directions.\n\n**The inflation linkage is genuinely valuable and genuinely conditional.** A tariff that escalates with a published index gives real protection against inflation — a rare property. But read the mechanism rather than the claim. Which index? Is the pass-through full or partial? Is there a cap? Does it apply with a lag? Are costs also rising with inflation, and by more? A regulated utility whose revenue rises with one index while its construction costs rise faster is not inflation-protected in any useful sense.\n\n**Political and regulatory risk is the dominant tail risk, and it is not diversifiable.** These are essential services with prices set by, or heavily influenced by, public authorities. When tariffs become politically contentious — as they do when household bills rise sharply — regulated returns can be revised, windfall levies imposed, or concession terms renegotiated.\n\nThat risk has an awkward property: **it is highest exactly when the inflation linkage is paying off.** The mechanism that raises your revenue in a high-inflation period is the same mechanism that raises consumer bills and attracts political attention. The protection and the threat share a cause."
     },
     {
+      "type": "infographic",
+      "id": "linkage-vs-politics",
+      "caption": "The two distinguishing features pull in opposite directions — and the threat is highest exactly when the protection is paying off.",
+      "spec": {
+        "kind": "comparison",
+        "columns": [
+          {
+            "title": "The inflation linkage",
+            "bullets": [
+              "Genuinely valuable and genuinely conditional",
+              "Read the mechanism: which index, full or partial pass-through, caps, lags",
+              "Revenue rising with one index while costs rise faster is not protection"
+            ]
+          },
+          {
+            "title": "The political risk",
+            "bullets": [
+              "Essential services with prices set or influenced by public authorities",
+              "Regulated returns revised, windfall levies, renegotiated concessions",
+              "The mechanism that raises your revenue is the one that raises household bills and attracts attention"
+            ]
+          }
+        ]
+      }
+    },
+    {
       "type": "table",
       "id": "environments",
       "caption": "What helps and what hurts",
-      "headers": ["Environment", "Effect", "Why"],
+      "headers": [
+        "Environment",
+        "Effect",
+        "Why"
+      ],
       "rows": [
         [
           "Moderate inflation with intact tariff linkage",
@@ -73,6 +139,36 @@
       "body": "**\"Infrastructure\" describes assets with radically different risk, and the label conceals more than it conveys.** Compare:\n\n- a regulated water utility with a set allowed return and no volume risk\n- a toll road paid per vehicle, with full traffic risk\n- a greenfield renewable project under construction with a signed offtake contract\n- an airport, whose passenger volumes are cyclical and shock-prone\n\nAll four are marketed as infrastructure. Their sensitivities to recession, inflation, rates and politics differ almost completely. So the useful question is never \"how much infrastructure do we have?\" but **\"contracted, regulated or demand-based — and for how long?\"** That single distinction does more analytical work than the asset class label."
     },
     {
+      "type": "infographic",
+      "id": "four-assets-one-label",
+      "caption": "All four are marketed as infrastructure — “contracted, regulated or demand-based, and for how long?” does more work than the label.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Regulated water utility",
+            "icon": "shield",
+            "detail": "A set allowed return and no volume risk."
+          },
+          {
+            "label": "Toll road",
+            "icon": "chartUp",
+            "detail": "Paid per vehicle — full traffic risk, and traffic forecasts have a poor record."
+          },
+          {
+            "label": "Greenfield renewable",
+            "icon": "gear",
+            "detail": "Under construction with a signed offtake — construction risk, no income until completion."
+          },
+          {
+            "label": "Airport",
+            "icon": "alert",
+            "detail": "Passenger volumes are cyclical and shock-prone."
+          }
+        ]
+      }
+    },
+    {
       "type": "onTheJob",
       "id": "on-the-job",
       "body": "**Classify every asset as contracted, regulated or demand-based.** This is the first thing to establish and it reorganises everything that follows.\n\n**Read the inflation mechanism, not the inflation claim.** Which index, what proportion passes through, is there a cap, is there a lag, and what happens to the cost base at the same time.\n\n**Ask when the next regulatory reset or tariff review falls.** Those dates are known in advance and they are when value is decided. A fund whose assets face resets shortly after its expected exit has a timing problem.\n\n**Ask for the weighted average remaining concession or contract length.** It is the closest thing to a duration figure for the portfolio, and it tells you how much of the value depends on terminal assumptions.\n\n**Separate operating assets from construction assets.** They belong in different risk buckets, however the fund presents them.\n\n**Treat the historical return of the asset class with care.** A large part of it came from a multi-decade decline in long-term rates revaluing very long-duration cash flows. That is not a repeatable source of return."
@@ -93,7 +189,10 @@
       "id": "alts-infra-01-q1",
       "type": "mcq",
       "difficulty": 2,
-      "tags": ["infrastructure", "return-driver"],
+      "tags": [
+        "infrastructure",
+        "return-driver"
+      ],
       "concept": "return-driver",
       "stem": "Why is infrastructure equity often described as bond-like in economic character?",
       "choices": [
@@ -115,7 +214,11 @@
       "id": "alts-infra-01-q2",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["infrastructure", "classification", "risk"],
+      "tags": [
+        "infrastructure",
+        "classification",
+        "risk"
+      ],
       "concept": "not-one-asset-class",
       "stem": "Which distinction does most to explain how two infrastructure assets will behave differently in a recession?",
       "choices": [
@@ -137,7 +240,11 @@
       "id": "alts-infra-01-q3",
       "type": "tfj",
       "difficulty": 4,
-      "tags": ["infrastructure", "inflation", "political-risk"],
+      "tags": [
+        "infrastructure",
+        "inflation",
+        "political-risk"
+      ],
       "concept": "inflation-and-politics",
       "stem": "\"Our tariffs are index-linked, so high inflation is good for this portfolio.\" True or false — and why?",
       "isTrue": false,
@@ -160,7 +267,11 @@
       "id": "alts-infra-01-q4",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["infrastructure", "duration", "rates"],
+      "tags": [
+        "infrastructure",
+        "duration",
+        "rates"
+      ],
       "concept": "return-driver",
       "stem": "Long-term rates rise by 2 percentage points. Why does an infrastructure portfolio typically reprice more than a buyout portfolio?",
       "choices": [
@@ -182,7 +293,11 @@
       "id": "alts-infra-01-q5",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["infrastructure", "regulatory-reset", "on-the-job"],
+      "tags": [
+        "infrastructure",
+        "regulatory-reset",
+        "on-the-job"
+      ],
       "concept": "on-the-job",
       "stem": "Why does the timing of a regulated asset's next tariff review matter so much to a fund's underwriting?",
       "choices": [
@@ -204,7 +319,10 @@
       "id": "alts-infra-01-q6",
       "type": "strategyId",
       "difficulty": 4,
-      "tags": ["infrastructure", "strategy-identification"],
+      "tags": [
+        "infrastructure",
+        "strategy-identification"
+      ],
       "concept": "not-one-asset-class",
       "description": "A fund holds a portfolio whose revenue is 85% set by a national regulator on five-year review cycles, with tariffs escalating at a published inflation index. Assets have 40+ year operating lives, leverage is around 65% of enterprise value on long-dated debt, and volumes barely moved during the last recession.",
       "choices": [

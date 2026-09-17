@@ -5,9 +5,15 @@
   "title": "Venture Capital",
   "summary": "Funding companies that will mostly fail, on the expectation that one or two returns the entire fund.",
   "level": "core",
-  "prereqs": ["alts-pe-01"],
+  "prereqs": [
+    "alts-pe-01"
+  ],
   "estMinutes": 9,
-  "examRelevance": ["CAIA-L1", "CAIA-L2", "practical"],
+  "examRelevance": [
+    "CAIA-L1",
+    "CAIA-L2",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
@@ -15,9 +21,62 @@
       "body": "[[venture-capital]] funds early-stage companies — often pre-revenue, sometimes pre-product — in exchange for a minority equity stake.\n\nThe economics are unlike anything else in this domain, and they follow from one fact: **most investments will lose most of their money, and that is the expected outcome rather than a failure of selection.**\n\nA typical fund holds 20 to 40 companies. A rough shape of outcomes:\n\n- roughly half return little or nothing\n- a further group return capital or a small multiple\n- a small number return several times\n- one or two, if the fund is successful, return a large multiple of the entire fund\n\nSo the fund's result is decided by its best one or two positions. Everything about how venture is practised — portfolio size, reserve policy, willingness to keep funding winners — follows from that."
     },
     {
+      "type": "infographic",
+      "id": "outcome-stack",
+      "caption": "The expected shape of a 20–40 company portfolio: the fund's result is decided by its best one or two positions.",
+      "spec": {
+        "kind": "stack",
+        "axis": "most common → decides the fund",
+        "layers": [
+          {
+            "label": "Return little or nothing",
+            "sublabel": "roughly half the portfolio — the expected outcome, not a failure of selection"
+          },
+          {
+            "label": "Return capital or a small multiple",
+            "sublabel": "a further group"
+          },
+          {
+            "label": "Return several times",
+            "sublabel": "a small number"
+          },
+          {
+            "label": "Return a large multiple of the entire fund",
+            "emphasis": true,
+            "sublabel": "one or two, if the fund is successful"
+          }
+        ]
+      }
+    },
+    {
       "type": "intuition",
       "id": "power-law",
       "body": "This distribution has a name worth knowing: returns follow a **power law** rather than anything resembling a [[normal-distribution]]. The best outcome in a portfolio is not somewhat better than the average — it is often larger than everything else combined.\n\nThe consequences are counterintuitive and worth stating explicitly.\n\n**Avoiding losses is not the objective.** A venture manager who tightened selection to eliminate failures would also eliminate the extreme winners, because the characteristics that make a company capable of returning fifty times are the same ones that make it likely to fail. You cannot select for one without accepting the other.\n\n**Missing a winner costs more than making a loss.** The worst venture error is passing on the company that returns the fund, not investing in one that goes to zero. A loss costs one position; a miss costs the fund's entire result.\n\n**Averages describe almost nothing.** The mean outcome of a venture portfolio is dominated by one observation, so it says little about the typical investment. This is the [[skewness|skew]] and [[fat-tails|fat tail]] material made concrete — and note that here the fat tail is on the *upside*, which is why the strategy is tolerable at all."
+    },
+    {
+      "type": "infographic",
+      "id": "power-law-consequences",
+      "caption": "Power-law returns make the usual intuitions wrong — and here the fat tail is on the upside.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Avoiding losses is not the objective",
+            "icon": "target",
+            "detail": "Tightening selection to eliminate failures also eliminates the extreme winners — the same characteristics produce both."
+          },
+          {
+            "label": "A miss costs more than a loss",
+            "icon": "alert",
+            "detail": "A loss costs one position; passing on the company that returns the fund costs the entire result."
+          },
+          {
+            "label": "Averages describe almost nothing",
+            "icon": "chartUp",
+            "detail": "The mean of a venture portfolio is dominated by one observation."
+          }
+        ]
+      }
     },
     {
       "type": "concept",
@@ -25,10 +84,34 @@
       "body": "**The return driver is access to the small number of companies that become very large, and the ability to keep funding them.**\n\nTwo distinct capabilities sit behind that, and both are genuine.\n\n**Selection and access.** Getting into the right companies at all. The best opportunities are competitive, and founders choose their investors, so reputation and network are economically valuable in a way they are not in public markets. This is why venture returns are unusually persistent by firm: an established firm sees better deals *because* it is established.\n\n**Reserves and follow-on discipline.** Continuing to fund the winners through later rounds, and declining to keep funding the losers. A fund that deploys everything in first cheques and cannot participate in the winner's later rounds gets diluted precisely where the value is being created. Reserve policy is a large part of realised venture returns and is almost invisible from outside."
     },
     {
+      "type": "infographic",
+      "id": "two-capabilities",
+      "caption": "Two genuine capabilities sit behind venture returns — both nearly invisible from outside.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Selection and access",
+            "icon": "lock",
+            "detail": "Founders choose their investors, so reputation and network are economically valuable — which is why venture returns are unusually persistent by firm."
+          },
+          {
+            "label": "Reserves and follow-on discipline",
+            "icon": "coins",
+            "detail": "Funding the winners through later rounds and declining to keep funding the losers. All-first-cheques funds get diluted exactly where the value is created."
+          }
+        ]
+      }
+    },
+    {
       "type": "table",
       "id": "environments",
       "caption": "What helps and what hurts",
-      "headers": ["Environment", "Effect", "Why"],
+      "headers": [
+        "Environment",
+        "Effect",
+        "Why"
+      ],
       "rows": [
         [
           "Technological change creating new markets",
@@ -93,7 +176,11 @@
       "id": "alts-vc-01-q1",
       "type": "mcq",
       "difficulty": 2,
-      "tags": ["venture-capital", "power-law", "return-driver"],
+      "tags": [
+        "venture-capital",
+        "power-law",
+        "return-driver"
+      ],
       "concept": "power-law",
       "stem": "Why would tightening selection to avoid failures likely reduce a venture fund's returns?",
       "choices": [
@@ -115,7 +202,11 @@
       "id": "alts-vc-01-q2",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["venture-capital", "reserves", "return-driver"],
+      "tags": [
+        "venture-capital",
+        "reserves",
+        "return-driver"
+      ],
       "concept": "return-driver",
       "stem": "Why does reserve policy materially affect realised venture returns?",
       "choices": [
@@ -137,7 +228,11 @@
       "id": "alts-vc-01-q3",
       "type": "tfj",
       "difficulty": 4,
-      "tags": ["venture-capital", "marks", "misconception"],
+      "tags": [
+        "venture-capital",
+        "marks",
+        "misconception"
+      ],
       "concept": "interim-marks",
       "stem": "\"This venture fund reports a TVPI of 2.4x at year four, so it is performing very well.\" True or false — and why?",
       "isTrue": false,
@@ -160,7 +255,11 @@
       "id": "alts-vc-01-q4",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["venture-capital", "rates", "duration"],
+      "tags": [
+        "venture-capital",
+        "rates",
+        "duration"
+      ],
       "concept": "how-it-blows-up",
       "stem": "Why does venture reprice more than any other private asset class when interest rates rise?",
       "choices": [
@@ -182,7 +281,11 @@
       "id": "alts-vc-01-q5",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["venture-capital", "concentration", "diligence"],
+      "tags": [
+        "venture-capital",
+        "concentration",
+        "diligence"
+      ],
       "concept": "on-the-job",
       "stem": "In a venture fund at year eight, value is spread fairly evenly across 25 holdings with no position above 8% of fund value. How should you read that?",
       "choices": [
@@ -204,7 +307,11 @@
       "id": "alts-vc-01-q6",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["venture-capital", "access", "on-the-job"],
+      "tags": [
+        "venture-capital",
+        "access",
+        "on-the-job"
+      ],
       "concept": "return-driver",
       "stem": "Why is access considered a genuine and persistent source of venture returns, in a way it rarely is in public markets?",
       "choices": [

@@ -7,7 +7,11 @@
   "level": "core",
   "prereqs": [],
   "estMinutes": 11,
-  "examRelevance": ["CAIA-L1", "CAIA-L2", "practical"],
+  "examRelevance": [
+    "CAIA-L1",
+    "CAIA-L2",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
@@ -20,9 +24,59 @@
       "body": "Here is the thing that takes a while to feel properly: shorting is not the mirror image of going long.\n\nWhen you buy a stock, the worst case is that it goes to zero and you lose what you put in. Your loss is capped and your position shrinks as it goes against you. When you short a stock, there is no ceiling on the price. Your loss is theoretically unlimited and — worse — the position *grows* as it moves against you. A short that doubles goes from 3% of your book to 6% while simultaneously costing you money.\n\nSo the payoff is asymmetric in the uncomfortable direction: losses compound into larger positions, and gains shrink into smaller ones. This single mechanical fact explains most of what is distinctive about the strategy — why short books are usually more diversified than long books, why position sizing discipline matters more than stock picking skill on the short side, and why a manager can be right about a company's fundamentals and still be forced out of the trade before being proved right."
     },
     {
+      "type": "infographic",
+      "id": "long-vs-short",
+      "caption": "Shorting is not the mirror image of going long — the asymmetry runs in the uncomfortable direction.",
+      "spec": {
+        "kind": "comparison",
+        "columns": [
+          {
+            "title": "Long position",
+            "bullets": [
+              "Worst case is the stock goes to zero and you lose what you put in",
+              "Loss is capped, and the position shrinks as it goes against you"
+            ]
+          },
+          {
+            "title": "Short position",
+            "bullets": [
+              "No ceiling on the price — the loss is theoretically unlimited",
+              "The position grows as it moves against you: a short that doubles goes from 3% of the book to 6% while costing you money"
+            ]
+          }
+        ]
+      }
+    },
+    {
       "type": "concept",
       "id": "exposure-concepts",
       "body": "You cannot discuss this strategy without two numbers, both expressed as a percentage of the fund's [[net-asset-value]].\n\n**[[net-exposure]]** is longs minus shorts. It answers: how much market am I actually carrying? A fund 130% long and 60% short has 70% net exposure, so it should behave roughly like 70 cents of equity market for every dollar of capital.\n\n**[[gross-exposure]]** is longs plus shorts. It answers: how much total position am I running? That same fund has 190% gross — nearly two dollars of stock working for every dollar of capital.\n\nTwo funds can have identical net exposure and behave nothing alike. A fund at 70% net via 85% long and 15% short is a mildly hedged long-only fund. A fund at 70% net via 130% long and 60% short is doing something far more active, with more ways to be right and more ways to be wrong. **Net tells you about market risk; gross tells you about selection risk and how hard the portfolio is working.**"
+    },
+    {
+      "type": "infographic",
+      "id": "net-vs-gross",
+      "caption": "Two numbers, two different questions — a 130% long / 60% short book as the worked case.",
+      "spec": {
+        "kind": "comparison",
+        "columns": [
+          {
+            "title": "[[net-exposure|Net exposure]] = L − S",
+            "bullets": [
+              "How much market am I actually carrying?",
+              "130% − 60% = 70%: roughly 70 cents of equity market per dollar of capital",
+              "Tells you about market risk"
+            ]
+          },
+          {
+            "title": "[[gross-exposure|Gross exposure]] = L + S",
+            "bullets": [
+              "How much total position is the portfolio running?",
+              "130% + 60% = 190%: nearly two dollars of stock per dollar of capital",
+              "Tells you about selection risk and how hard the book is working"
+            ]
+          }
+        ]
+      }
     },
     {
       "type": "formula",
@@ -30,8 +84,14 @@
       "latex": "\\text{Net} = L - S \\qquad \\text{Gross} = L + S",
       "plainReading": "Net exposure is long percentage minus short percentage; gross exposure is long percentage plus short percentage. Both are quoted as a percentage of net asset value, and shorts enter as a positive number in the gross calculation even though they are short positions.",
       "variables": [
-        { "symbol": "L", "meaning": "long positions as a percentage of [[net-asset-value]]" },
-        { "symbol": "S", "meaning": "short positions as a percentage of [[net-asset-value]], stated as a positive number" }
+        {
+          "symbol": "L",
+          "meaning": "long positions as a percentage of [[net-asset-value]]"
+        },
+        {
+          "symbol": "S",
+          "meaning": "short positions as a percentage of [[net-asset-value]], stated as a positive number"
+        }
       ]
     },
     {
@@ -54,10 +114,44 @@
       "body": "Unpack a long/short equity return and you find four things, only one of which you are paying fees for.\n\n1. **Market [[beta]]** — net exposure multiplied by the market's return. Real money, but cheaply replicable with an index fund.\n2. **[[factor-exposure]]** — persistent tilts toward things like small caps, growth, momentum or quality. Also real money, also largely replicable, and often unintentional.\n3. **Stock selection** — the genuine [[alpha]] candidate. Longs beating their comparables and shorts lagging theirs.\n4. **Financing and [[short-rebate]]** — the interest earned on short sale proceeds, minus [[stock-borrow]] costs and margin interest. Small in a low-rate world; meaningful when short rates are high.\n\nThe whole discipline of evaluating one of these managers is separating item 3 from items 1 and 2. A manager who returned 18% in a year the market rose 25% at 70% net exposure has not obviously demonstrated anything."
     },
     {
+      "type": "infographic",
+      "id": "four-components",
+      "caption": "Four things inside a long/short return — only one of which you are paying fees for.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Market [[beta]]",
+            "icon": "chartUp",
+            "detail": "Net exposure times the market's return. Real money, cheaply replicable with an index fund."
+          },
+          {
+            "label": "[[factor-exposure|Factor tilts]]",
+            "icon": "layers",
+            "detail": "Persistent tilts to size, growth, momentum or quality. Also largely replicable, and often unintentional."
+          },
+          {
+            "label": "Stock selection",
+            "icon": "target",
+            "detail": "The genuine [[alpha]] candidate: longs beating their comparables and shorts lagging theirs."
+          },
+          {
+            "label": "Financing and rebate",
+            "icon": "coins",
+            "detail": "Interest on short proceeds minus borrow and margin costs. Meaningful when short rates are high."
+          }
+        ]
+      }
+    },
+    {
       "type": "table",
       "id": "environments",
       "caption": "What helps and what hurts",
-      "headers": ["Environment", "Effect", "Why"],
+      "headers": [
+        "Environment",
+        "Effect",
+        "Why"
+      ],
       "rows": [
         [
           "High stock-level dispersion",
@@ -97,6 +191,32 @@
       "body": "Every strategy has characteristic failure modes, and you should be able to name these without notes.\n\n**[[short-squeeze]].** A heavily shorted stock rises sharply, forcing shorts to buy to close, which pushes it higher, which forces more buying. Losses on the short book accelerate non-linearly, and the position grows as it goes wrong.\n\n**[[crowded-trade|Crowding]].** When many managers hold the same longs and the same shorts, they are effectively one giant position. If one large holder is forced to unwind, everyone's book moves against them simultaneously. Crowding turns independent-looking positions into a single correlated risk.\n\n**Excessive [[gross-exposure]].** High gross magnifies everything, including mistakes. At 300% gross, a 5% adverse move across the book is a 15% hit to capital. Gross is where leverage hides in this strategy — a fund can look conservatively positioned on net exposure while running an enormous gross book.\n\n**Unintended [[factor-exposure]].** The manager believes they are running a stock-selection book. In reality the longs are all high-growth and the shorts are all value. When that factor reverses, both legs lose together and the hedge provides nothing.\n\n**[[stock-borrow]] recall and [[margin-call|margin calls]].** The lender of a borrowed share can demand it back, forcing the manager to close a short at the worst moment. Simultaneously, the [[prime-broker]] can raise margin requirements. Both tend to happen in stressed markets, and both force [[deleveraging]] — selling longs and buying back shorts into a market already moving against you. This is the mechanism that turns a bad month into a terminal one."
     },
     {
+      "type": "infographic",
+      "id": "squeeze-loop",
+      "caption": "The short squeeze — losses accelerate non-linearly, and the position grows as it goes wrong.",
+      "spec": {
+        "kind": "cycle",
+        "stages": [
+          {
+            "label": "A heavily shorted stock rises sharply",
+            "detail": "The move can start with news, a buyer, or nothing at all."
+          },
+          {
+            "label": "Shorts buy to close",
+            "detail": "Cutting losses requires buying the stock back."
+          },
+          {
+            "label": "The buying pushes it higher",
+            "detail": "Forced demand moves the price further against the remaining shorts."
+          },
+          {
+            "label": "More shorts are forced out",
+            "detail": "Each round of covering fuels the next."
+          }
+        ]
+      }
+    },
+    {
       "type": "onTheJob",
       "id": "on-the-job",
       "body": "When a long/short equity manager's report crosses your desk, a short list of questions does most of the work.\n\n**Net exposure over time, not just today.** A single number is nearly useless. Plot it. A manager whose net exposure swings from 20% to 90% is making macro timing calls, whether or not they describe themselves that way — and should be evaluated on that skill too.\n\n**Gross exposure alongside it.** Rising gross with flat net means the manager is adding conviction on both sides. Rising gross with rising net means they are simply adding risk.\n\n**[[performance-attribution]], long versus short.** Ask for it separately. Plenty of managers have a good long book and a short book that has cost them money every year — which is a long-only fund with an expensive hedge attached, and should be priced as such.\n\n**Short book concentration and borrow.** A concentrated short book in hard-to-borrow small caps is a different risk profile from a diversified short book in liquid large caps, however similar the headline exposures look.\n\n**[[drawdown]] behaviour.** When did the worst months happen, and what was the market doing? Losses in a falling market are consistent with net long exposure and are forgivable. Large losses in a *rising* market usually mean the short book failed, and that is the more troubling pattern — it suggests the manager was wrong about the thing they are paid to be right about."
@@ -117,7 +237,10 @@
       "id": "alts-lse-01-q1",
       "type": "numeric",
       "difficulty": 1,
-      "tags": ["long-short-equity", "exposure"],
+      "tags": [
+        "long-short-equity",
+        "exposure"
+      ],
       "concept": "exposure-concepts",
       "stem": "A fund is 118% long and 43% short, both as a percentage of net asset value. What is its net exposure, in percent?",
       "answer": 75,
@@ -131,7 +254,11 @@
       "id": "alts-lse-01-q2",
       "type": "numeric",
       "difficulty": 2,
-      "tags": ["long-short-equity", "exposure", "leverage"],
+      "tags": [
+        "long-short-equity",
+        "exposure",
+        "leverage"
+      ],
       "concept": "exposure-concepts",
       "stem": "The same fund is 118% long and 43% short. What is its gross exposure, in percent?",
       "answer": 161,
@@ -145,7 +272,11 @@
       "id": "alts-lse-01-q3",
       "type": "mcq",
       "difficulty": 2,
-      "tags": ["long-short-equity", "exposure", "interpretation"],
+      "tags": [
+        "long-short-equity",
+        "exposure",
+        "interpretation"
+      ],
       "concept": "exposure-concepts",
       "stem": "Fund X is 85% long and 15% short. Fund Y is 130% long and 60% short. What is the most useful thing to say about them?",
       "choices": [
@@ -167,7 +298,11 @@
       "id": "alts-lse-01-q4",
       "type": "numeric",
       "difficulty": 3,
-      "tags": ["long-short-equity", "attribution", "return-math"],
+      "tags": [
+        "long-short-equity",
+        "attribution",
+        "return-math"
+      ],
       "concept": "attribution-example",
       "stem": "A fund is 120% long and 50% short. Over the quarter its long book returns +8% and the stocks it is short return -4%. Ignoring fees and financing, what is the fund's gross return, in percent?",
       "answer": 11.6,
@@ -181,7 +316,11 @@
       "id": "alts-lse-01-q5",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["long-short-equity", "alpha-beta", "evaluation"],
+      "tags": [
+        "long-short-equity",
+        "alpha-beta",
+        "evaluation"
+      ],
       "concept": "return-drivers",
       "stem": "A manager returned +18% for the year. The equity market returned +25%. Average net exposure was 70%. What is the fairest initial read?",
       "choices": [
@@ -203,7 +342,11 @@
       "id": "alts-lse-01-q6",
       "type": "tfj",
       "difficulty": 3,
-      "tags": ["long-short-equity", "shorting", "asymmetry"],
+      "tags": [
+        "long-short-equity",
+        "shorting",
+        "asymmetry"
+      ],
       "concept": "why-shorting-changes-things",
       "stem": "\"Shorting a stock is simply the mirror image of buying it, with the profit and loss reversed.\" True or false — and why?",
       "isTrue": false,
@@ -226,7 +369,10 @@
       "id": "alts-lse-01-q7",
       "type": "strategyId",
       "difficulty": 4,
-      "tags": ["long-short-equity", "strategy-identification"],
+      "tags": [
+        "long-short-equity",
+        "strategy-identification"
+      ],
       "concept": "not-market-neutral",
       "description": "A fund's returns show a correlation of about 0.7 to global equities. It captures roughly 70% of the market's up moves and about 55% of its down moves. Gross exposure has averaged around 180% and net exposure has ranged between 40% and 75%. Its worst two months both occurred in *rising* markets, coinciding with sharp reversals in momentum and growth factors.",
       "choices": [
@@ -248,7 +394,11 @@
       "id": "alts-lse-01-q8",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["long-short-equity", "risk", "blow-up"],
+      "tags": [
+        "long-short-equity",
+        "risk",
+        "blow-up"
+      ],
       "concept": "how-it-blows-up",
       "stem": "A manager's long book and short book both lose money in the same week, while the broad market is roughly flat. What is the most likely explanation?",
       "choices": [
@@ -270,7 +420,12 @@
       "id": "alts-lse-01-q9",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["long-short-equity", "diligence", "on-the-job", "attribution"],
+      "tags": [
+        "long-short-equity",
+        "diligence",
+        "on-the-job",
+        "attribution"
+      ],
       "concept": "on-the-job",
       "stem": "In diligence, a manager shows five years of strong returns but declines to break attribution out between the long and short books. Why does that specific gap matter most?",
       "choices": [
@@ -292,7 +447,12 @@
       "id": "alts-lse-01-q10",
       "type": "mcq",
       "difficulty": 5,
-      "tags": ["long-short-equity", "deleveraging", "risk", "crowding"],
+      "tags": [
+        "long-short-equity",
+        "deleveraging",
+        "risk",
+        "crowding"
+      ],
       "concept": "how-it-blows-up",
       "stem": "During a stressed week, a manager running 250% gross faces a prime broker margin increase and a recall on several borrowed shares. Why is this combination especially dangerous?",
       "choices": [

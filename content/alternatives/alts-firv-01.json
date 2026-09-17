@@ -5,9 +5,15 @@
   "title": "Fixed Income Relative Value",
   "summary": "Tiny spreads between closely related bonds, harvested with large amounts of leverage — and the strategy with the most instructive failure in hedge fund history.",
   "level": "advanced",
-  "prereqs": ["econ-curve-01"],
+  "prereqs": [
+    "econ-curve-01"
+  ],
   "estMinutes": 11,
-  "examRelevance": ["CAIA-L1", "CAIA-L2", "practical"],
+  "examRelevance": [
+    "CAIA-L1",
+    "CAIA-L2",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
@@ -20,9 +26,60 @@
       "body": "**The return driver is convergence of a small spread, multiplied by a large amount of leverage.**\n\nBoth halves are essential. The spreads are genuinely tiny — a few [[basis-point|basis points]] on positions constructed to be neutral to the direction of rates. Unlevered, the strategy would return almost nothing. Applying twenty or thirty times leverage turns a few basis points into a respectable return.\n\nThe legs are usually matched on **[[duration]]** rather than on notional, because the aim is to be indifferent to the level of rates. To hedge $10m of a 10-year bond (duration 8.5) with a 2-year bond (duration 1.9), you need $10m × 8.5/1.9 = **$44.7m** of the 2-year. Same interest rate sensitivity, wildly different notional amounts — which is why notional exposure figures for this strategy are close to meaningless.\n\nThere is also a genuine economic rationale for the return, not merely an inefficiency: the manager is **providing liquidity and warehousing basis risk** that other participants pay to avoid. That is a real service, and it is paid a real, small fee."
     },
     {
+      "type": "infographic",
+      "id": "duration-matching",
+      "caption": "Legs are matched on duration, not notional — which is why notional figures mean little here.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "The 10-year leg",
+            "stat": "$10m",
+            "detail": "Duration 8.5 — the position you want."
+          },
+          {
+            "label": "The 2-year hedge",
+            "stat": "$44.7m",
+            "detail": "Duration 1.9, so $10m × 8.5 / 1.9 of notional buys the same rate sensitivity."
+          },
+          {
+            "label": "The same sensitivity",
+            "icon": "gear",
+            "detail": "Wildly different notional amounts, indifferent to the level of rates — the spread is the position."
+          }
+        ]
+      }
+    },
+    {
       "type": "intuition",
       "id": "leverage-is-the-strategy",
       "body": "In most strategies leverage is a choice. Here it is constitutive: **without heavy leverage there is no strategy**, because the raw spreads are too small to matter. That single fact drives everything about the risk.\n\nConsider what thirty times leverage means. A 1% adverse move in the value of the position wipes out 30% of capital. The spread only has to move a few basis points the wrong way — not to a crazy level, just wider before it converges — to threaten the fund.\n\nAnd here is the mechanism that makes it dangerous rather than merely risky. When the spread widens, the position loses money, which triggers a margin call. Meeting the margin call requires either fresh capital or reducing the position. Reducing means selling the cheap leg and buying back the rich one — **trading in the direction that widens the spread further**. If other funds hold the same trade, and in this strategy they usually do, their forced trading widens it more.\n\nSo the loss mechanism is self-reinforcing. The trade is right, the spread does eventually converge, and the fund is not there to see it. **Being correct and being solvent are separate questions, and leverage is what separates them.**"
+    },
+    {
+      "type": "infographic",
+      "id": "margin-spiral",
+      "caption": "At thirty times leverage a 1% adverse move is 30% of capital — and the loss mechanism is self-reinforcing.",
+      "spec": {
+        "kind": "cycle",
+        "stages": [
+          {
+            "label": "The spread widens; the position loses",
+            "detail": "Not to a crazy level — just wider before it converges."
+          },
+          {
+            "label": "Margin is called",
+            "detail": "Meeting it requires fresh capital or reducing the position."
+          },
+          {
+            "label": "Reducing means trading the wrong way",
+            "detail": "Selling the cheap leg and buying back the rich one widens the spread further."
+          },
+          {
+            "label": "Other funds hold the same trade",
+            "detail": "Their forced trading widens it more. Being correct and being solvent are separate questions."
+          }
+        ]
+      }
     },
     {
       "type": "example",
@@ -40,7 +97,11 @@
       "type": "table",
       "id": "environments",
       "caption": "What helps and what hurts",
-      "headers": ["Environment", "Effect", "Why"],
+      "headers": [
+        "Environment",
+        "Effect",
+        "Why"
+      ],
       "rows": [
         [
           "Stable financing and [[repo]] markets",
@@ -85,6 +146,32 @@
       "body": "**Reported volatility understates this strategy's risk more than almost any other.** Day to day, a duration-neutral spread position barely moves — which is exactly why heavy leverage is applied to it. Long stretches of very low measured volatility are followed by occasional extreme losses.\n\nSo volatility, [[value-at-risk]] calibrated on recent data, and Sharpe ratios all flatter this strategy in normal times and fail together in stress. The measures that matter are leverage, the terms of the financing, and what the position would lose if the spread widened to its historical extreme rather than to its recent range."
     },
     {
+      "type": "infographic",
+      "id": "series-vs-risk",
+      "caption": "Reported volatility flatters this strategy more than almost any other.",
+      "spec": {
+        "kind": "comparison",
+        "columns": [
+          {
+            "title": "What the return series shows",
+            "mark": "cross",
+            "bullets": [
+              "A duration-neutral spread barely moves day to day",
+              "Long stretches of very low volatility, VaR calibrated on recent data, a Sharpe ratio of 3 in calm years"
+            ]
+          },
+          {
+            "title": "What the risk actually is",
+            "mark": "check",
+            "bullets": [
+              "The leverage, and the terms of the financing",
+              "What the position loses if the spread widens to its historical extreme rather than its recent range"
+            ]
+          }
+        ]
+      }
+    },
+    {
       "type": "onTheJob",
       "id": "on-the-job",
       "body": "**Ask for leverage and financing terms in the same breath.** Twenty times leverage on committed term repo is a very different proposition from twenty times on overnight funding that can be withdrawn. The second is the one that fails.\n\n**Ask what the worst historical level of each spread was, not the recent range.** Stress testing to recent history is how a strategy prices itself for a crisis it has not seen.\n\n**Ask about crowding explicitly.** How large is the position relative to the total outstanding of the cheap leg? If the fund is a substantial share of the float, the exit does not exist at the price the model assumes.\n\n**Treat very low volatility as a question rather than a reassurance.** In this strategy a Sharpe ratio of 3 over three calm years is a statement about leverage applied to a quiet spread, not about the manager's skill."
@@ -105,7 +192,11 @@
       "id": "alts-firv-01-q1",
       "type": "numeric",
       "difficulty": 2,
-      "tags": ["fixed-income-relative-value", "duration", "hedging"],
+      "tags": [
+        "fixed-income-relative-value",
+        "duration",
+        "hedging"
+      ],
       "concept": "worked-duration",
       "stem": "You hold $10m of a 10-year bond with duration 8.5. To be duration neutral using a 2-year bond with duration 1.9, what notional of the 2-year do you need? Answer in millions.",
       "answer": 44.74,
@@ -119,7 +210,11 @@
       "id": "alts-firv-01-q2",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["fixed-income-relative-value", "leverage", "return-driver"],
+      "tags": [
+        "fixed-income-relative-value",
+        "leverage",
+        "return-driver"
+      ],
       "concept": "leverage-is-the-strategy",
       "stem": "Why is heavy leverage described as constitutive of this strategy rather than as a choice?",
       "choices": [
@@ -141,7 +236,11 @@
       "id": "alts-firv-01-q3",
       "type": "tfj",
       "difficulty": 4,
-      "tags": ["fixed-income-relative-value", "convergence", "misconception"],
+      "tags": [
+        "fixed-income-relative-value",
+        "convergence",
+        "misconception"
+      ],
       "concept": "leverage-is-the-strategy",
       "stem": "\"These spreads always converge eventually, so a widening is just a better entry point.\" True or false — and why?",
       "isTrue": false,
@@ -164,7 +263,11 @@
       "id": "alts-firv-01-q4",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["fixed-income-relative-value", "flight-to-quality", "how-it-blows-up"],
+      "tags": [
+        "fixed-income-relative-value",
+        "flight-to-quality",
+        "how-it-blows-up"
+      ],
       "concept": "how-it-blows-up",
       "stem": "In a flight to quality, why do on-the-run versus off-the-run positions typically lose money?",
       "choices": [
@@ -186,7 +289,11 @@
       "id": "alts-firv-01-q5",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["fixed-income-relative-value", "volatility", "measurement"],
+      "tags": [
+        "fixed-income-relative-value",
+        "volatility",
+        "measurement"
+      ],
       "concept": "volatility-understates",
       "stem": "A fixed income relative value fund reports a Sharpe ratio of 3.1 over three years. What is the most useful response?",
       "choices": [
@@ -208,7 +315,11 @@
       "id": "alts-firv-01-q6",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["fixed-income-relative-value", "financing", "on-the-job"],
+      "tags": [
+        "fixed-income-relative-value",
+        "financing",
+        "on-the-job"
+      ],
       "concept": "on-the-job",
       "stem": "Two relative value funds both run 20x leverage. One funds via committed term repo, the other via overnight repo. Why does that distinction matter so much?",
       "choices": [

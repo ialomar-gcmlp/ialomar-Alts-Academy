@@ -5,9 +5,15 @@
   "title": "Fund-of-Funds and Multi-Manager Structures",
   "summary": "Paying someone to select and monitor managers for you, and the arithmetic of what a second fee layer costs.",
   "level": "advanced",
-  "prereqs": ["alts-multistrat-01"],
+  "prereqs": [
+    "alts-multistrat-01"
+  ],
   "estMinutes": 10,
-  "examRelevance": ["CAIA-L1", "CAIA-L2", "practical"],
+  "examRelevance": [
+    "CAIA-L1",
+    "CAIA-L2",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
@@ -15,9 +21,67 @@
       "body": "A [[fund-of-funds|fund-of-funds]] invests in other funds rather than directly in securities. The investor buys a portfolio of managers, selected and monitored by the fund-of-funds team.\n\nThere are legitimate reasons this exists, and it is worth stating them properly before getting to the arithmetic.\n\n**Access.** Some strategies and managers are closed, capacity-constrained, or require relationships and minimums an individual investor cannot meet. A fund-of-funds with long-standing relationships can allocate where a newcomer cannot.\n\n**Diversification with a single ticket.** One [[commitment]] produces exposure to fifteen or twenty managers. Building that directly requires the staff to source, diligence, negotiate and monitor each one.\n\n**Operational due diligence.** Verifying a manager's valuation policy, service providers, controls, counterparty arrangements and compliance is specialised, unglamorous work. Doing it badly is how investors meet frauds and operational failures, and most allocators are not resourced for it.\n\n**Manager selection.** The claim that the team can pick better-than-average managers. This is the hardest of the four to demonstrate, and it is usually the one emphasised in marketing."
     },
     {
+      "type": "infographic",
+      "id": "four-reasons",
+      "caption": "The four legitimate reasons the structure exists — the last is the hardest to demonstrate and the one most emphasised in marketing.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Access",
+            "icon": "lock",
+            "detail": "Closed, capacity-constrained managers and minimums a newcomer cannot meet."
+          },
+          {
+            "label": "Diversification with one ticket",
+            "icon": "layers",
+            "detail": "One commitment produces fifteen or twenty managers — building that directly requires a team."
+          },
+          {
+            "label": "Operational due diligence",
+            "icon": "docCheck",
+            "detail": "Valuation policy, controls, counterparties, compliance. Done badly, this is how investors meet frauds."
+          },
+          {
+            "label": "Manager selection",
+            "icon": "target",
+            "detail": "The claim that the team picks better-than-average managers."
+          }
+        ]
+      }
+    },
+    {
       "type": "concept",
       "id": "the-fee-arithmetic",
       "body": "**The central issue is that fees are charged twice, and compounding two layers costs more than intuition suggests.**\n\nWork it through with plausible numbers. Underlying managers charge 1.5% management and 20% performance; the fund-of-funds charges 1% and 10%. Gross return across the underlying managers is 12%.\n\n- **Underlying:** 12% - 1.5% management = 10.5%. Performance fee of 20% on that = 2.1%. **Net 8.4%.**\n- **Fund-of-funds:** 8.4% - 1% management = 7.4%. Performance fee of 10% on that = 0.74%. **Net 6.66%.**\n\nSo 12% gross becomes **6.66%** to the investor. **5.34 percentage points — 44.5% of the gross return — went in fees.**\n\nThat figure is the whole debate about the structure, and it is not an argument-ending one. The question it forces is precise: **does selection, access and operational diligence add more than 5.34 points a year?** For some investors and some allocations the answer is genuinely yes, particularly where the alternative is either no access or unmonitored direct investing. But the bar is high and should be stated in those terms rather than as a fee percentage."
+    },
+    {
+      "type": "infographic",
+      "id": "fee-cascade",
+      "caption": "The double layer, worked through: 12% gross becomes 6.66% net.",
+      "spec": {
+        "kind": "steps",
+        "steps": [
+          {
+            "label": "Gross across underlying managers: 12%",
+            "icon": "coins",
+            "detail": "Underlying terms 1.5% and 20%; fund-of-funds terms 1% and 10%."
+          },
+          {
+            "label": "After underlying fees: 8.4%",
+            "detail": "12% − 1.5% management = 10.5%, then 20% performance on that = 2.1%."
+          },
+          {
+            "label": "After fund-of-funds fees: 6.66%",
+            "detail": "8.4% − 1% = 7.4%, then 10% performance = 0.74%."
+          },
+          {
+            "label": "44.5% of the gross return went in fees",
+            "icon": "alert",
+            "detail": "The question this forces: does selection, access and operational diligence add more than 5.34 points a year?"
+          }
+        ]
+      }
     },
     {
       "type": "intuition",
@@ -25,10 +89,34 @@
       "body": "Two further effects make the arithmetic worse than the headline layering suggests.\n\n**The netting problem.** [[carried-interest|Performance fees]] are paid to each underlying manager on their own results. If one manager gains 20% and another loses 20% on equal capital, the fund-of-funds is flat — and has still paid a full performance fee to the winner. The investor pays for gross gains and absorbs gross losses. This is the same problem as [[pod|pods]] in a [[multi-strategy|multi-strategy]] fund, and it is a real cost with no offsetting benefit.\n\n**Diversification reduces dispersion, and fees do not scale down with it.** Twenty managers produce a return closer to the average of the strategy than any single manager would. That is the point of diversifying — but it means the fund-of-funds return tends toward the industry average, while the fee load is above average. **Diversification narrows the return distribution and leaves the fee fixed**, which compresses the range of outcomes toward and below the underlying average.\n\nThe combined effect: the structure must overcome a large fee load using a return stream it has deliberately made less variable. That is a demanding starting point, and it is why the case has to rest on access and operational work rather than on selection alpha alone."
     },
     {
+      "type": "infographic",
+      "id": "two-quiet-costs",
+      "caption": "Two effects that make the arithmetic worse than the headline layering.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "The netting problem",
+            "icon": "cross",
+            "detail": "One manager gains 20%, another loses 20% — the fund is flat and has still paid a full performance fee to the winner."
+          },
+          {
+            "label": "Dispersion shrinks, fees do not",
+            "icon": "layers",
+            "detail": "Twenty managers produce a return near the strategy average, while the fee load stays above average — compressing outcomes toward and below it."
+          }
+        ]
+      }
+    },
+    {
       "type": "table",
       "id": "environments",
       "caption": "When the structure earns its keep, and when it does not",
-      "headers": ["Situation", "Verdict", "Why"],
+      "headers": [
+        "Situation",
+        "Verdict",
+        "Why"
+      ],
       "rows": [
         [
           "Investor has no team and needs operational diligence",
@@ -93,7 +181,11 @@
       "id": "alts-fof-01-q1",
       "type": "numeric",
       "difficulty": 3,
-      "tags": ["fund-of-funds", "fees", "layering"],
+      "tags": [
+        "fund-of-funds",
+        "fees",
+        "layering"
+      ],
       "concept": "the-fee-arithmetic",
       "stem": "Gross return is 12%. Underlying managers charge 1.5% management and 20% performance. The fund-of-funds charges 1% management and 10% performance. What is the investor's net return, in percent?",
       "answer": 6.66,
@@ -107,7 +199,10 @@
       "id": "alts-fof-01-q2",
       "type": "numeric",
       "difficulty": 2,
-      "tags": ["fund-of-funds", "fees"],
+      "tags": [
+        "fund-of-funds",
+        "fees"
+      ],
       "concept": "the-fee-arithmetic",
       "stem": "Using those figures, what percentage of the gross return was consumed by fees?",
       "answer": 44.5,
@@ -121,7 +216,11 @@
       "id": "alts-fof-01-q3",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["fund-of-funds", "netting", "fees"],
+      "tags": [
+        "fund-of-funds",
+        "netting",
+        "fees"
+      ],
       "concept": "netting-and-dispersion",
       "stem": "One underlying manager gains 20% and another loses 20% on equal capital. What does the investor experience?",
       "choices": [
@@ -143,7 +242,11 @@
       "id": "alts-fof-01-q4",
       "type": "tfj",
       "difficulty": 4,
-      "tags": ["fund-of-funds", "diversification", "fees"],
+      "tags": [
+        "fund-of-funds",
+        "diversification",
+        "fees"
+      ],
       "concept": "netting-and-dispersion",
       "stem": "\"Holding twenty managers reduces risk, so the extra fee layer is justified by lower volatility.\" True or false — and why?",
       "isTrue": false,
@@ -166,7 +269,11 @@
       "id": "alts-fof-01-q5",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["fund-of-funds", "liquidity", "gates"],
+      "tags": [
+        "fund-of-funds",
+        "liquidity",
+        "gates"
+      ],
       "concept": "how-it-blows-up",
       "stem": "A fund-of-funds offers quarterly liquidity while several underlying managers have annual [[lockup|lock-ups]] with [[gate]] provisions. What is the risk?",
       "choices": [
@@ -188,7 +295,11 @@
       "id": "alts-fof-01-q6",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["fund-of-funds", "justification", "on-the-job"],
+      "tags": [
+        "fund-of-funds",
+        "justification",
+        "on-the-job"
+      ],
       "concept": "the-honest-question",
       "stem": "For which investor is a fund-of-funds most defensible, despite the fee arithmetic?",
       "choices": [

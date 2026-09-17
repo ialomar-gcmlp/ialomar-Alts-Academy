@@ -5,9 +5,15 @@
   "title": "Distressed Debt",
   "summary": "Buying the debt of companies in or near default, where the return comes from the recovery process rather than from the market.",
   "level": "advanced",
-  "prereqs": ["alts-event-01"],
+  "prereqs": [
+    "alts-event-01"
+  ],
   "estMinutes": 10,
-  "examRelevance": ["CAIA-L1", "CAIA-L2", "practical"],
+  "examRelevance": [
+    "CAIA-L1",
+    "CAIA-L2",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
@@ -15,9 +21,60 @@
       "body": "[[distressed-debt]] investing means buying the obligations of companies in serious financial trouble — in default, heading there, or restructuring — at prices far below face value.\n\nA bond with a face value of 100 might trade at 42 because the market expects the company to reorganise and the holder to receive rather less than 100. The distressed investor's question is not \"will this company recover?\" but a narrower and more answerable one: **\"what will this specific claim receive when the capital structure is reorganised, and is 42 less than that?\"**\n\nThere are two broad postures, and they are genuinely different businesses.\n\n**Passive or trading distressed.** Buy an undervalued claim, wait for the process to resolve, sell. The edge is analysis of documentation and recovery values.\n\n**Active or control distressed.** Buy enough of a strategic class of debt to influence the reorganisation — sometimes converting into the post-restructuring equity and owning the business. The edge is legal and negotiating skill on top of the analysis, and holding periods run to years."
     },
     {
+      "type": "infographic",
+      "id": "two-postures",
+      "caption": "Two broad postures — and they are genuinely different businesses.",
+      "spec": {
+        "kind": "comparison",
+        "columns": [
+          {
+            "title": "Passive / trading distressed",
+            "bullets": [
+              "Buy an undervalued claim, wait for the process to resolve, sell",
+              "The edge is analysis of documentation and recovery values",
+              "Typically shorter holding periods"
+            ]
+          },
+          {
+            "title": "Active / control distressed",
+            "bullets": [
+              "Buy enough of a strategic class of debt to influence the reorganisation",
+              "Sometimes converting into the post-restructuring equity and owning the business",
+              "The edge is legal and negotiating skill on top of the analysis, and holding periods run to years"
+            ]
+          }
+        ]
+      }
+    },
+    {
       "type": "concept",
       "id": "return-driver",
       "body": "**The return driver is the gap between the price paid and the eventual recovery on that claim.**\n\nBuy at 42 and recover 65 and you have made 54.8%, regardless of what equity markets did while you waited. Buy at 42 and recover 30 and you have lost 28.6%.\n\nWhat determines recovery is not the company's prospects in general but **where your claim sits in the [[capital-structure]]**. [[seniority|Seniority]] decides who is paid first, and in a reorganisation the difference between senior secured and subordinated debt is frequently the difference between near-full recovery and nothing. This is why distressed analysis is more legal than financial: the [[indenture]], the collateral, the intercreditor agreement and the jurisdiction determine the outcome, and two claims on the same failing company can have completely unrelated returns.\n\nA further point that surprises people: **the company failing is not the risk.** The failure is assumed and priced. The risk is being wrong about recovery, about seniority, or about how long the process takes."
+    },
+    {
+      "type": "infographic",
+      "id": "recovery-gap",
+      "caption": "The return is the gap between the price paid and the eventual recovery on that specific claim.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Buy at 42, recover 65",
+            "stat": "+54.8%",
+            "detail": "Regardless of what equity markets did while you waited."
+          },
+          {
+            "label": "Buy at 42, recover 30",
+            "stat": "−28.6%",
+            "detail": "The company failing is not the risk — the failure is assumed and priced."
+          },
+          {
+            "label": "What decides it",
+            "icon": "docCheck",
+            "detail": "Where the claim sits: the [[indenture]], the collateral, the intercreditor agreement and the jurisdiction. More legal than financial."
+          }
+        ]
+      }
     },
     {
       "type": "intuition",
@@ -25,10 +82,39 @@
       "body": "Distressed opportunities exist because of a forced-seller dynamic that is remarkably reliable.\n\nWhen a company deteriorates, a large set of holders become unable to own its debt, regardless of price. Investment grade mandates prohibit defaulted securities. Insurance companies face capital charges. Index funds must sell on exclusion. Banks want the exposure off their books before a reporting date. None of these sellers are making a judgement about value — they are complying with a constraint.\n\nSo the buyer is being paid for three distinct things, and it is worth separating them:\n\n1. **Bearing genuine credit risk** — the company might recover less than expected.\n2. **Providing liquidity** to constrained sellers who must transact.\n3. **Doing difficult, slow work** — reading documents, engaging in a legal process, waiting years.\n\nOnly the first is risk in the usual sense. The second and third are compensation for capabilities and patience, which is why distressed returns have historically been attractive to those who genuinely have both — and why they are poor for anyone who has to sell in a hurry."
     },
     {
+      "type": "infographic",
+      "id": "three-payments",
+      "caption": "The buyer is paid for three distinct things — and only the first is risk in the usual sense.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Bearing genuine credit risk",
+            "icon": "alert",
+            "detail": "The company might recover less than expected."
+          },
+          {
+            "label": "Providing liquidity",
+            "icon": "coins",
+            "detail": "Constrained sellers — mandates, capital charges, index exclusion — must transact for reasons unrelated to value."
+          },
+          {
+            "label": "Doing difficult, slow work",
+            "icon": "clock",
+            "detail": "Reading documents, engaging in a legal process, waiting years. Compensation for capability and patience."
+          }
+        ]
+      }
+    },
+    {
       "type": "table",
       "id": "environments",
       "caption": "What helps and what hurts",
-      "headers": ["Environment", "Effect", "Why"],
+      "headers": [
+        "Environment",
+        "Effect",
+        "Why"
+      ],
       "rows": [
         [
           "Rising default rates",
@@ -68,6 +154,41 @@
       "body": "**Being wrong about seniority or collateral.** The most fundamental error. A claim you believed was secured turns out to be structurally subordinated, or the collateral sits in an entity your claim cannot reach. This is a documentation failure, not a market event, and it is unrecoverable.\n\n**[[liability-management|Liability management exercises]].** Increasingly common and worth understanding: a company and a subset of creditors agree a transaction that moves collateral out of reach, or issues new debt ranking ahead of yours. Creditors who thought they were senior discover they have been subordinated with their own indenture's permission. Analysing this risk means reading the covenants, not the credit metrics.\n\n**Process duration.** A restructuring expected to take eighteen months takes four years. The recovery may be as modelled, but the annualised return collapses and capital was locked the whole time.\n\n**Illiquidity when you need out.** These are thin markets by nature. A distressed fund facing redemptions may have to sell claims at whatever the few available buyers offer — and those buyers know the seller is constrained.\n\n**Correlated timing.** Defaults cluster. A manager who is fully invested when the cycle turns finds every position deteriorating at once, with no capital left to buy the better opportunities the same conditions are creating."
     },
     {
+      "type": "infographic",
+      "id": "failure-modes",
+      "caption": "The main risks are structural, legal and execution risks — not market moves.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Wrong about seniority",
+            "icon": "docCheck",
+            "detail": "A claim believed secured turns out structurally subordinated, or the collateral sits out of reach. A documentation failure, and unrecoverable."
+          },
+          {
+            "label": "[[liability-management|Liability management]]",
+            "icon": "alert",
+            "detail": "A company and a subset of creditors move collateral or issue new debt ranking ahead of yours — with your own indenture's permission."
+          },
+          {
+            "label": "Process duration",
+            "icon": "clock",
+            "detail": "Eighteen months becomes four years. The recovery may be as modelled while the annualised return collapses."
+          },
+          {
+            "label": "Illiquidity when you need out",
+            "icon": "lock",
+            "detail": "Thin markets — and the few available buyers know a redeeming fund is constrained."
+          },
+          {
+            "label": "Correlated timing",
+            "icon": "layers",
+            "detail": "Defaults cluster. Fully invested at the turn means every position deteriorating at once, with no capital for the better opportunities."
+          }
+        ]
+      }
+    },
+    {
       "type": "pitfall",
       "id": "marks",
       "body": "**Reported valuations in distressed books deserve particular scepticism.** Many claims trade rarely, so marks are model-based or drawn from thin quotes. That has two consequences you should expect rather than be surprised by: reported [[volatility]] understates true risk, and reported returns are smoothed relative to what a liquidation would realise.\n\nSo the usual measures mislead in the usual direction. A distressed fund showing lower volatility than a high yield bond fund is telling you about marking practice. The questions worth asking are what fraction of the book has traded recently, who provides the marks, and what an independent valuation would say — not what the volatility figure is."
@@ -93,7 +214,10 @@
       "id": "alts-distressed-01-q1",
       "type": "numeric",
       "difficulty": 2,
-      "tags": ["distressed-debt", "recovery"],
+      "tags": [
+        "distressed-debt",
+        "recovery"
+      ],
       "concept": "return-driver",
       "stem": "You buy a bond at 42 on a face value of 100. The restructuring eventually delivers a recovery of 65. What is your return, in percent?",
       "answer": 54.76,
@@ -107,7 +231,11 @@
       "id": "alts-distressed-01-q2",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["distressed-debt", "seniority", "return-driver"],
+      "tags": [
+        "distressed-debt",
+        "seniority",
+        "return-driver"
+      ],
       "concept": "return-driver",
       "stem": "Two funds both buy debt of the same failing company at similar prices, and one recovers nearly in full while the other recovers almost nothing. What most likely explains it?",
       "choices": [
@@ -129,7 +257,11 @@
       "id": "alts-distressed-01-q3",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["distressed-debt", "forced-sellers", "return-driver"],
+      "tags": [
+        "distressed-debt",
+        "forced-sellers",
+        "return-driver"
+      ],
       "concept": "why-illiquidity-pays",
       "stem": "Why does distressed debt frequently trade below any reasonable estimate of recovery value?",
       "choices": [
@@ -151,7 +283,11 @@
       "id": "alts-distressed-01-q4",
       "type": "tfj",
       "difficulty": 4,
-      "tags": ["distressed-debt", "liability-management", "documentation"],
+      "tags": [
+        "distressed-debt",
+        "liability-management",
+        "documentation"
+      ],
       "concept": "how-it-blows-up",
       "stem": "\"We hold senior secured debt, so our recovery is protected.\" True or false — and why?",
       "isTrue": false,
@@ -174,7 +310,11 @@
       "id": "alts-distressed-01-q5",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["distressed-debt", "liquidity-terms", "on-the-job"],
+      "tags": [
+        "distressed-debt",
+        "liquidity-terms",
+        "on-the-job"
+      ],
       "concept": "on-the-job",
       "stem": "A distressed fund offers quarterly redemption with 30 days' notice. Why is that a concern?",
       "choices": [
@@ -196,7 +336,11 @@
       "id": "alts-distressed-01-q6",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["distressed-debt", "cycle", "on-the-job"],
+      "tags": [
+        "distressed-debt",
+        "cycle",
+        "on-the-job"
+      ],
       "concept": "on-the-job",
       "stem": "A distressed manager reports being fully invested after several years of very low default rates. What should that prompt you to ask?",
       "choices": [

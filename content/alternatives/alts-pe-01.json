@@ -5,9 +5,15 @@
   "title": "Private Equity: Buyout",
   "summary": "Buying whole companies with borrowed money, improving them, and selling them — and where the returns actually come from.",
   "level": "core",
-  "prereqs": ["quant-npv-01"],
+  "prereqs": [
+    "quant-npv-01"
+  ],
   "estMinutes": 12,
-  "examRelevance": ["CAIA-L1", "CAIA-L2", "practical"],
+  "examRelevance": [
+    "CAIA-L1",
+    "CAIA-L2",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
@@ -18,6 +24,48 @@
       "type": "concept",
       "id": "value-creation",
       "body": "Buyout returns decompose into exactly three sources, and knowing which one drove a manager's track record is the single most useful thing you can establish about them.\n\n**1. Operational improvement.** Growing [[ebitda]] — more revenue, better margins, bolt-on acquisitions. This is the source managers most want to claim, because it is the one that requires skill and does not depend on markets.\n\n**2. Multiple expansion.** Selling at a higher [[ev-ebitda|EV/EBITDA multiple]] than you paid. Sometimes earned by making the business genuinely better or larger; often just a rising market. This is the source most likely to be luck dressed as skill.\n\n**3. Debt paydown.** The company's cash flow repays borrowings during the hold, so the equity's share of a constant enterprise value grows. Mechanical, and entirely dependent on the leverage having been available.\n\nA manager whose historical returns came mostly from multiple expansion during a period of falling interest rates has demonstrated good timing rather than repeatable capability. **Ask for the attribution across these three, deal by deal.** It is a standard request and a revealing one."
+    },
+    {
+      "type": "infographic",
+      "id": "three-sources",
+      "caption": "Buyout returns decompose into exactly three sources — ask for the attribution, deal by deal.",
+      "spec": {
+        "kind": "equation",
+        "terms": [
+          {
+            "label": "Operational improvement",
+            "sublabel": "the skill claim",
+            "icon": "gear",
+            "bullets": [
+              "Growing [[ebitda]]: revenue, margins, bolt-ons — the source that does not depend on markets"
+            ]
+          },
+          {
+            "label": "Multiple expansion",
+            "sublabel": "often the market",
+            "icon": "chartUp",
+            "bullets": [
+              "Selling at a higher multiple than you paid — the source most likely to be luck dressed as skill"
+            ]
+          },
+          {
+            "label": "Debt paydown",
+            "sublabel": "mechanical",
+            "icon": "coins",
+            "bullets": [
+              "Cash flow repays borrowings, so the equity's share of a constant enterprise value grows"
+            ]
+          },
+          {
+            "label": "The buyout return"
+          }
+        ],
+        "operators": [
+          "+",
+          "+",
+          "="
+        ]
+      }
     },
     {
       "type": "example",
@@ -38,15 +86,81 @@
       "body": "The worked example contains the whole risk profile of the strategy, and it is worth sitting with.\n\n**Leverage magnifies whatever happens.** It turned 7% into 20%. It would equally turn a modest disappointment into a wipeout: if the enterprise value had fallen to $200m — below the debt — the equity would be worth nothing while the business was still operating and generating cash.\n\n**The exit multiple is largely outside the manager's control.** It depends on what buyers will pay years from now, which depends on interest rates, credit availability and sentiment. A manager can execute an operating plan perfectly and still deliver a poor return because the market repriced.\n\nSo two uncomfortable conclusions follow. A long stretch of falling rates and rising multiples flatters the entire asset class, regardless of skill — and the reverse period punishes it regardless of skill. **Distinguishing manager skill from vintage luck requires comparing against funds of the same [[vintage-year]]**, not against an absolute return target, and even then it is hard."
     },
     {
+      "type": "infographic",
+      "id": "leverage-arithmetic",
+      "caption": "The worked deal: leverage turned 7% into 20% — and the same mechanism runs in reverse.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "The business, unlevered",
+            "stat": "≈7%",
+            "detail": "Enterprise value $500m to $700m over five years."
+          },
+          {
+            "label": "The equity, levered",
+            "stat": "≈20%",
+            "detail": "$200m of equity becomes $500m — 2.5x — because $300m of debt fell to $200m."
+          },
+          {
+            "label": "The reverse case",
+            "stat": "0",
+            "detail": "Had enterprise value fallen to $200m — below the debt — the equity would be worth nothing while the business still generated cash."
+          }
+        ]
+      }
+    },
+    {
       "type": "concept",
       "id": "measuring-it",
       "body": "Private fund performance uses its own vocabulary, and the terms answer different questions.\n\n**[[moic|MOIC]] or gross multiple.** Total value divided by capital invested. Blind to time.\n\n**[[internal-rate-of-return|IRR]].** Annualised, and acutely sensitive to timing — which is why it can be flattered by early distributions and by [[subscription-line|subscription lines]].\n\n**[[dpi|DPI]] — distributions to paid-in.** Cash actually returned, divided by cash actually called. **This is the only one that cannot be argued with**, because it is realised money rather than a valuation.\n\n**[[rvpi|RVPI]] — residual value to paid-in.** The remaining unrealised holdings, at the manager's own valuation.\n\n**[[tvpi|TVPI]] — total value to paid-in.** DPI plus RVPI. The headline number.\n\nA fund reporting TVPI of 1.35x made up of 0.65x DPI and 0.70x RVPI has returned two thirds of its capital and is telling you the rest is worth 0.70x **on its own marks**. Early in a fund's life almost all of TVPI is RVPI, which is to say almost all of it is an opinion."
     },
     {
+      "type": "infographic",
+      "id": "metric-anatomy",
+      "caption": "A 1.35x TVPI, decomposed: two thirds of capital returned, the rest an opinion.",
+      "spec": {
+        "kind": "equation",
+        "terms": [
+          {
+            "label": "[[dpi|DPI]]",
+            "sublabel": "0.65x",
+            "icon": "coins",
+            "bullets": [
+              "Cash actually returned over cash called — the only number that cannot be argued with"
+            ]
+          },
+          {
+            "label": "[[rvpi|RVPI]]",
+            "sublabel": "0.70x",
+            "icon": "gear",
+            "bullets": [
+              "The unrealised remainder, at the manager's own valuation"
+            ]
+          },
+          {
+            "label": "[[tvpi|TVPI]]",
+            "sublabel": "1.35x",
+            "bullets": [
+              "The headline number — early in a fund's life almost all of it is RVPI, which is to say an opinion"
+            ]
+          }
+        ],
+        "operators": [
+          "+",
+          "="
+        ]
+      }
+    },
+    {
       "type": "table",
       "id": "environments",
       "caption": "What helps and what hurts",
-      "headers": ["Environment", "Effect", "Why"],
+      "headers": [
+        "Environment",
+        "Effect",
+        "Why"
+      ],
       "rows": [
         [
           "Falling interest rates",
@@ -111,7 +225,11 @@
       "id": "alts-pe-01-q1",
       "type": "numeric",
       "difficulty": 2,
-      "tags": ["buyout", "moic", "lbo"],
+      "tags": [
+        "buyout",
+        "moic",
+        "lbo"
+      ],
       "concept": "worked-lbo",
       "stem": "A fund invests $200m of equity. At exit the equity is worth $500m. What is the multiple of invested capital (MOIC)?",
       "answer": 2.5,
@@ -125,7 +243,11 @@
       "id": "alts-pe-01-q2",
       "type": "numeric",
       "difficulty": 3,
-      "tags": ["buyout", "irr", "lbo"],
+      "tags": [
+        "buyout",
+        "irr",
+        "lbo"
+      ],
       "concept": "worked-lbo",
       "stem": "That 2.5x was achieved over exactly 5 years, with no interim distributions. What is the IRR, in percent?",
       "answer": 20.11,
@@ -139,7 +261,11 @@
       "id": "alts-pe-01-q3",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["buyout", "value-creation", "attribution"],
+      "tags": [
+        "buyout",
+        "value-creation",
+        "attribution"
+      ],
       "concept": "value-creation",
       "stem": "A buyout manager's historical returns came predominantly from multiple expansion during a decade of falling interest rates. What does that suggest?",
       "choices": [
@@ -161,7 +287,11 @@
       "id": "alts-pe-01-q4",
       "type": "numeric",
       "difficulty": 4,
-      "tags": ["buyout", "exit-multiple", "risk"],
+      "tags": [
+        "buyout",
+        "exit-multiple",
+        "risk"
+      ],
       "concept": "worked-lbo",
       "stem": "Same deal: $70m EBITDA at exit, debt paid down to $200m, equity in was $200m. But the exit multiple is 8x rather than 10x. What is the MOIC?",
       "answer": 1.8,
@@ -175,7 +305,12 @@
       "id": "alts-pe-01-q5",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["buyout", "dpi", "tvpi", "measurement"],
+      "tags": [
+        "buyout",
+        "dpi",
+        "tvpi",
+        "measurement"
+      ],
       "concept": "measuring-it",
       "stem": "A seven-year-old fund reports TVPI of 1.8x and DPI of 0.3x. What is the most useful observation?",
       "choices": [
@@ -197,7 +332,11 @@
       "id": "alts-pe-01-q6",
       "type": "tfj",
       "difficulty": 4,
-      "tags": ["buyout", "volatility", "misconception"],
+      "tags": [
+        "buyout",
+        "volatility",
+        "misconception"
+      ],
       "concept": "marks-are-opinions",
       "stem": "\"This buyout fund's reported volatility is 9%, well below public equities at 16%, so it carries less risk.\" True or false — and why?",
       "isTrue": false,
@@ -220,7 +359,11 @@
       "id": "alts-pe-01-q7",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["buyout", "vintage", "on-the-job"],
+      "tags": [
+        "buyout",
+        "vintage",
+        "on-the-job"
+      ],
       "concept": "leverage-and-multiples",
       "stem": "Why is comparing buyout funds within the same vintage year more informative than comparing absolute returns?",
       "choices": [

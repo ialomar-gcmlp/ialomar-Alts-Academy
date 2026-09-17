@@ -5,14 +5,47 @@
   "title": "Multi-Strategy Funds",
   "summary": "Several strategies inside one vehicle, with capital moved between them — and a single balance sheet that ties them together.",
   "level": "advanced",
-  "prereqs": ["alts-lse-01", "alts-macro-01"],
+  "prereqs": [
+    "alts-lse-01",
+    "alts-macro-01"
+  ],
   "estMinutes": 10,
-  "examRelevance": ["CAIA-L1", "CAIA-L2", "practical"],
+  "examRelevance": [
+    "CAIA-L1",
+    "CAIA-L2",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
       "id": "what-it-is",
       "body": "A [[multi-strategy|multi-strategy]] fund runs several distinct strategies within a single vehicle — long/short equity, [[merger-arbitrage]], credit, [[global-macro]], [[statistical-arbitrage]] — under one risk framework and one balance sheet.\n\nTwo structural models exist and the difference matters more than the label suggests.\n\n**The [[pod]] or platform model.** Many semi-autonomous teams, each running a defined book with its own risk limits and its own economics. The centre allocates capital, sets limits, controls financing, and removes teams that breach or underperform. The centre's skill is capital allocation and risk control, not investing.\n\n**The integrated model.** One investment team operating across strategies, with capital shifted according to a shared view of where opportunity lies. The centre's skill is judgement about relative opportunity.\n\nThe attraction of either is straightforward: diversification across return sources, plus the ability to move capital toward whichever strategy currently has the best opportunity set — something an investor allocating to single-strategy funds cannot do at the same speed."
+    },
+    {
+      "type": "infographic",
+      "id": "two-models",
+      "caption": "Two structural models — and the difference matters more than the label suggests.",
+      "spec": {
+        "kind": "comparison",
+        "columns": [
+          {
+            "title": "The [[pod|pod]] / platform model",
+            "bullets": [
+              "Many semi-autonomous teams, each with its own book, limits and economics",
+              "The centre allocates capital, controls financing, and removes teams",
+              "The centre's skill is capital allocation and risk control, not investing"
+            ]
+          },
+          {
+            "title": "The integrated model",
+            "bullets": [
+              "One investment team operating across strategies",
+              "Capital shifted according to a shared view of where opportunity lies",
+              "The centre's skill is judgement about relative opportunity"
+            ]
+          }
+        ]
+      }
     },
     {
       "type": "concept",
@@ -25,10 +58,42 @@
       "body": "Here is the structural fact that makes multi-strategy different from a portfolio of separate funds, and it cuts both ways.\n\n**It is one balance sheet.** Losses in one strategy consume capital available to all the others.\n\nOn the upside, that is genuinely efficient. Capital not needed by one book supports another; financing is arranged centrally on better terms; the netting of exposures across strategies reduces total margin required. A dollar works harder inside one vehicle than split across five.\n\nOn the downside, it removes the firewall an investor would otherwise have. If you hold five separate funds and one blows up, you lose that allocation. If a multi-strategy fund's credit book blows up, the resulting margin calls and forced deleveraging can require selling positions in the equity book — **liquidating strategies that were performing perfectly well** because the balance sheet needed the capital.\n\nSo the diversification is real at the level of return sources and much weaker at the level of catastrophic risk. **You are diversified across strategies and concentrated in one financing structure and one risk framework.** That is a trade worth making, but it should be made knowingly."
     },
     {
+      "type": "infographic",
+      "id": "balance-sheet-two-faces",
+      "caption": "One balance sheet cuts both ways: diversified across strategies, concentrated in one financing structure.",
+      "spec": {
+        "kind": "comparison",
+        "columns": [
+          {
+            "title": "The efficiency",
+            "mark": "check",
+            "bullets": [
+              "Capital not needed by one book supports another",
+              "Central financing on better terms",
+              "Netting of exposures reduces total margin — a dollar works harder inside one vehicle"
+            ]
+          },
+          {
+            "title": "The missing firewall",
+            "mark": "cross",
+            "bullets": [
+              "Losses in one strategy consume capital available to all the others",
+              "A credit-book blow-up can force selling positions in a healthy equity book",
+              "The diversification is real for return sources and much weaker for catastrophic risk"
+            ]
+          }
+        ]
+      }
+    },
+    {
       "type": "table",
       "id": "environments",
       "caption": "What helps and what hurts",
-      "headers": ["Environment", "Effect", "Why"],
+      "headers": [
+        "Environment",
+        "Effect",
+        "Why"
+      ],
       "rows": [
         [
           "Dispersed opportunity across strategies",
@@ -73,6 +138,31 @@
       "body": "**Smooth multi-strategy returns can reflect diversification or offsetting mistakes.** If one book gains 4% while another loses 4%, the fund reports zero — indistinguishable from a fund that took no risk, and quite different in what it says about the manager.\n\nSo aggregate return and volatility are unusually uninformative for this structure. The useful information is the **attribution by strategy over time**: which books contributed, how consistently, and whether the centre's capital allocation moved toward the ones that worked. A fund unable or unwilling to provide that has removed your ability to assess the thing you are paying for."
     },
     {
+      "type": "infographic",
+      "id": "netting-illusion",
+      "caption": "Aggregate returns are unusually uninformative here — attribution by strategy is the document that matters.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Book A",
+            "stat": "+4%",
+            "detail": "Paid a full performance fee on its gain."
+          },
+          {
+            "label": "Book B",
+            "stat": "−4%",
+            "detail": "Offsets the gain at the fund level."
+          },
+          {
+            "label": "The fund reports",
+            "stat": "0%",
+            "detail": "Indistinguishable from a fund that took no risk — and quite different in what it says about the manager."
+          }
+        ]
+      }
+    },
+    {
       "type": "onTheJob",
       "id": "on-the-job",
       "body": "**Ask for attribution by strategy, over several years.** This is the single most valuable document in multi-strategy diligence. It shows whether returns come from one book or many, and whether allocation changes anticipated or followed performance.\n\n**Ask what the centre has cut, and when.** A centre that has never reduced a strategy has never demonstrated the skill you are paying for. The best answer describes cutting something that was performing, on the judgement that the opportunity had thinned.\n\n**Ask how a large loss in one pod would affect the others.** The answer describes the contagion mechanism. If the manager has not thought about it in those terms, you have learned something important.\n\n**Understand the fee structure completely, including pass-through expenses.** Layered fees and expense pass-throughs can make headline terms misleading by a wide margin, and the netting problem — paying winning pods while losing pods offset them — is real.\n\n**Ask about pod turnover and why people left.** In a platform model this is close to a question about the durability of the returns themselves."
@@ -93,7 +183,11 @@
       "id": "alts-multistrat-01-q1",
       "type": "mcq",
       "difficulty": 2,
-      "tags": ["multi-strategy", "return-driver", "fees"],
+      "tags": [
+        "multi-strategy",
+        "return-driver",
+        "fees"
+      ],
       "concept": "return-driver",
       "stem": "What justifies paying a multi-strategy fee rather than allocating to single-strategy funds yourself?",
       "choices": [
@@ -115,7 +209,11 @@
       "id": "alts-multistrat-01-q2",
       "type": "tfj",
       "difficulty": 3,
-      "tags": ["multi-strategy", "diversification", "misconception"],
+      "tags": [
+        "multi-strategy",
+        "diversification",
+        "misconception"
+      ],
       "concept": "one-balance-sheet",
       "stem": "\"A multi-strategy fund running five diversified strategies is safer than allocating to five separate single-strategy funds.\" True or false — and why?",
       "isTrue": false,
@@ -138,7 +236,11 @@
       "id": "alts-multistrat-01-q3",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["multi-strategy", "attribution", "on-the-job"],
+      "tags": [
+        "multi-strategy",
+        "attribution",
+        "on-the-job"
+      ],
       "concept": "smooth-returns",
       "stem": "A multi-strategy fund reports 0.2% for the quarter. Why is that figure nearly uninformative?",
       "choices": [
@@ -160,7 +262,11 @@
       "id": "alts-multistrat-01-q4",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["multi-strategy", "contagion", "how-it-blows-up"],
+      "tags": [
+        "multi-strategy",
+        "contagion",
+        "how-it-blows-up"
+      ],
       "concept": "how-it-blows-up",
       "stem": "A multi-strategy fund's credit book suffers a severe loss. Why might its well-performing equity book be liquidated as a result?",
       "choices": [
@@ -182,7 +288,11 @@
       "id": "alts-multistrat-01-q5",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["multi-strategy", "fees", "netting"],
+      "tags": [
+        "multi-strategy",
+        "fees",
+        "netting"
+      ],
       "concept": "how-it-blows-up",
       "stem": "In a platform fund, one pod gains 20% and another loses 20% on equal capital. The fund is flat, yet performance fees are paid. Why?",
       "choices": [
@@ -204,7 +314,11 @@
       "id": "alts-multistrat-01-q6",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["multi-strategy", "allocation-skill", "diligence"],
+      "tags": [
+        "multi-strategy",
+        "allocation-skill",
+        "diligence"
+      ],
       "concept": "return-driver",
       "stem": "What would be the strongest evidence that a multi-strategy centre genuinely adds value through capital allocation?",
       "choices": [

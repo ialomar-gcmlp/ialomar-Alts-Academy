@@ -7,7 +7,11 @@
   "level": "core",
   "prereqs": [],
   "estMinutes": 10,
-  "examRelevance": ["CAIA-L1", "CAIA-L2", "practical"],
+  "examRelevance": [
+    "CAIA-L1",
+    "CAIA-L2",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
@@ -15,9 +19,59 @@
       "body": "A [[managed-futures]] fund — often called a CTA — trades liquid futures across equities, bonds, currencies and commodities according to systematic rules. The dominant rule is [[trend-following]]: if a market has been rising, be long; if falling, be short. No forecast, no view on value, no opinion about whether the price is justified.\n\nThe design has three defining features.\n\n**Breadth.** A typical programme trades 50 to 200 markets. No single position matters much; the return comes from the aggregate of many small independent bets.\n\n**Systematic and unemotional.** Rules are specified in advance and followed. The manager's judgement goes into designing and maintaining the system, not into individual trades.\n\n**Long or short with equal ease.** Futures make short exposure as cheap and simple as long. This symmetry is what allows the strategy to profit in sustained declines, which is its most valuable property to an allocator."
     },
     {
+      "type": "infographic",
+      "id": "design-features",
+      "caption": "The three design features of a managed futures programme.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Breadth",
+            "icon": "layers",
+            "detail": "A typical programme trades 50 to 200 markets. No single position matters much; the return is the aggregate of many small independent bets."
+          },
+          {
+            "label": "Systematic and unemotional",
+            "icon": "gear",
+            "detail": "Rules are specified in advance and followed. Judgement goes into designing the system, not into individual trades."
+          },
+          {
+            "label": "Long or short with equal ease",
+            "icon": "arrow",
+            "detail": "Futures make short exposure as cheap as long — which is what lets the strategy profit in sustained declines."
+          }
+        ]
+      }
+    },
+    {
       "type": "concept",
       "id": "return-driver",
       "body": "**The return driver is sustained directional moves — trends that persist long enough to be identified and ridden.**\n\nWhy should trends exist at all? Two explanations are usually offered, and you should be able to state both without endorsing either uncritically. Behavioural: investors underreact to news initially and then overreact, producing drift. Structural: institutional flows, risk management rules and hedging demands produce mechanical price pressure that persists over weeks or months.\n\nWhatever the cause, the empirical pattern the strategy exploits is that price moves have some tendency to continue. The manager does not need to know why.\n\nA second, smaller driver worth knowing: CTAs hold most of their capital as cash margin, so in a high-rate environment the **interest on unencumbered cash** is a real contributor. A CTA returning 6% when cash pays 5% has produced very little from trading, and separating the two is basic diligence."
+    },
+    {
+      "type": "infographic",
+      "id": "why-trends-exist",
+      "caption": "Why should trends exist at all? Two explanations — and the manager does not need to know which is right.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Behavioural",
+            "icon": "target",
+            "detail": "Investors underreact to news initially and then overreact, producing drift."
+          },
+          {
+            "label": "Structural",
+            "icon": "gear",
+            "detail": "Institutional flows, risk management rules and hedging demands produce mechanical price pressure that persists over weeks or months."
+          },
+          {
+            "label": "The quiet third driver",
+            "icon": "coins",
+            "detail": "Most capital sits as cash margin, so interest is a real contributor — a CTA returning 6% when cash pays 5% has produced very little from trading."
+          }
+        ]
+      }
     },
     {
       "type": "intuition",
@@ -25,10 +79,42 @@
       "body": "Trend following has the opposite return shape to almost everything else in a hedge fund portfolio, and that is the entire reason to own it.\n\n**It is positively [[skewness|skewed]]:** many small losses and occasional large gains. In choppy, directionless markets the system is repeatedly stopped out — entering as a move begins, exiting as it reverses, bleeding a little each time. Then a sustained trend arrives and one position pays for a year of those small losses.\n\n**And it tends to do well precisely when equities do badly.** Not because it predicts crises, but because crises are usually *sustained* moves. Equities fall for months, bonds rally for months, currencies move for months. A trend system positioned short equities and long bonds by the third week of a decline profits from the rest of it.\n\nThis is the mirror image of [[merger-arbitrage]] or option selling. Those collect premiums steadily and pay out in crises; trend following bleeds steadily and collects in crises. **Holding both is not diversification by asset class — it is diversification by return shape**, which is more durable, because the two are structurally rather than statistically opposed.\n\nThe cost is that you must tolerate long stretches of losing money for the property you are buying. Most investors say they will and then do not."
     },
     {
+      "type": "infographic",
+      "id": "return-shape",
+      "caption": "Positively skewed: many small losses, occasional large gains — the mirror image of premium-selling strategies.",
+      "spec": {
+        "kind": "comparison",
+        "columns": [
+          {
+            "title": "Choppy, directionless markets",
+            "mark": "cross",
+            "bullets": [
+              "Repeatedly stopped out — entering as a move begins, exiting as it reverses",
+              "Bleeding a little each time",
+              "The cost of the property you are buying"
+            ]
+          },
+          {
+            "title": "Sustained trends and slow crises",
+            "mark": "check",
+            "bullets": [
+              "One position pays for a year of small losses",
+              "Crises are usually sustained moves: equities fall for months, bonds rally for months",
+              "Short equities and long bonds by the third week of a decline, profiting from the rest of it"
+            ]
+          }
+        ]
+      }
+    },
+    {
       "type": "table",
       "id": "environments",
       "caption": "What helps and what hurts",
-      "headers": ["Environment", "Effect", "Why"],
+      "headers": [
+        "Environment",
+        "Effect",
+        "Why"
+      ],
       "rows": [
         [
           "Sustained directional moves in any market",
@@ -73,6 +159,32 @@
       "body": "**Trend following is not crisis insurance, and selling it as such is a mistake.** It protects against *slow* crises — declines that develop over weeks, giving the system time to reverse positioning. It provides little protection against a genuine one-day shock, because it will still be positioned for the previous regime when the shock lands.\n\nThe honest description is that it has historically been long-volatility in character and has often done well during extended equity declines. That is valuable, and it is not the same as a hedge that pays when you need it on any given morning. If a portfolio needs protection against a gap, options do that job; trend following does a different one."
     },
     {
+      "type": "infographic",
+      "id": "slow-vs-fast-crises",
+      "caption": "Trend following protects against slow crises, not fast ones.",
+      "spec": {
+        "kind": "comparison",
+        "columns": [
+          {
+            "title": "Slow crises",
+            "mark": "check",
+            "bullets": [
+              "Declines that develop over weeks give the system time to reverse positioning",
+              "Historically long-volatility in character during extended equity declines"
+            ]
+          },
+          {
+            "title": "One-day shocks",
+            "mark": "cross",
+            "bullets": [
+              "The system is still positioned for the previous regime when the shock lands",
+              "If a portfolio needs protection against a gap, options do that job — trend following does a different one"
+            ]
+          }
+        ]
+      }
+    },
+    {
       "type": "onTheJob",
       "id": "on-the-job",
       "body": "**Strip out the cash return.** With rates at 5%, a large part of a CTA's headline return can be interest on margin. Ask for the trading return separately; a reputable manager will have it.\n\n**Ask about the lookback horizon.** Short-term systems (days to weeks) and long-term ones (months) behave differently and are not substitutes. Short-term programmes trade more, cost more, and turn faster at reversals; long-term ones capture more of a big move and give back more at the turn.\n\n**Judge over a full cycle, and mean it.** A CTA assessed over three quiet years will look like a poor investment, because in three quiet years it is one. The allocation only makes sense if you will still hold it when it is uncomfortable, which is precisely when its diversification is about to be worth something.\n\n**Ask about capacity in the smaller markets.** Aggregate assets across the trend-following industry relative to the liquidity of the less deep contracts is a genuine constraint, and managers vary in how honestly they discuss it."
@@ -93,7 +205,11 @@
       "id": "alts-cta-01-q1",
       "type": "mcq",
       "difficulty": 2,
-      "tags": ["managed-futures", "trend-following", "return-driver"],
+      "tags": [
+        "managed-futures",
+        "trend-following",
+        "return-driver"
+      ],
       "concept": "return-driver",
       "stem": "What does a trend-following system need in order to make money?",
       "choices": [
@@ -115,7 +231,11 @@
       "id": "alts-cta-01-q2",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["trend-following", "skewness", "portfolio-construction"],
+      "tags": [
+        "trend-following",
+        "skewness",
+        "portfolio-construction"
+      ],
       "concept": "the-shape",
       "stem": "Why is holding both trend following and merger arbitrage considered genuine diversification?",
       "choices": [
@@ -137,7 +257,11 @@
       "id": "alts-cta-01-q3",
       "type": "tfj",
       "difficulty": 3,
-      "tags": ["trend-following", "crisis", "misconception"],
+      "tags": [
+        "trend-following",
+        "crisis",
+        "misconception"
+      ],
       "concept": "not-crisis-insurance",
       "stem": "\"Trend following is a hedge against market crashes.\" True or false — and why?",
       "isTrue": false,
@@ -160,7 +284,11 @@
       "id": "alts-cta-01-q4",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["managed-futures", "cash-return", "on-the-job"],
+      "tags": [
+        "managed-futures",
+        "cash-return",
+        "on-the-job"
+      ],
       "concept": "return-driver",
       "stem": "A CTA returned 6% in a year when short-term rates averaged 5%. What should you establish?",
       "choices": [
@@ -182,7 +310,10 @@
       "id": "alts-cta-01-q5",
       "type": "strategyId",
       "difficulty": 4,
-      "tags": ["trend-following", "strategy-identification"],
+      "tags": [
+        "trend-following",
+        "strategy-identification"
+      ],
       "concept": "the-shape",
       "description": "A fund lost 3-6% in each of four consecutive calendar years while equities rose steadily, then gained 38% in a year when equities fell 19% over eight months and bonds sold off persistently. It trades over 100 liquid futures contracts, holds no single position above 3% of risk, and follows rules with no discretionary override.",
       "choices": [
@@ -204,7 +335,11 @@
       "id": "alts-cta-01-q6",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["trend-following", "how-it-blows-up", "reversal"],
+      "tags": [
+        "trend-following",
+        "how-it-blows-up",
+        "reversal"
+      ],
       "concept": "how-it-blows-up",
       "stem": "Why are sharp V-shaped reversals the characteristic worst case for trend following?",
       "choices": [
@@ -226,7 +361,11 @@
       "id": "alts-cta-01-q7",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["trend-following", "investor-behaviour", "on-the-job"],
+      "tags": [
+        "trend-following",
+        "investor-behaviour",
+        "on-the-job"
+      ],
       "concept": "how-it-blows-up",
       "stem": "What is the most common way investors lose money in trend following, even when the manager performs as designed?",
       "choices": [
