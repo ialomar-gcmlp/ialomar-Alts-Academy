@@ -22,10 +22,54 @@
       "heading": "What it is"
     },
     {
+      "type": "infographic",
+      "id": "annuity-vs-perpetuity",
+      "caption": "Recognise the pattern and stop discounting by hand.",
+      "spec": {
+        "kind": "comparison",
+        "columns": [
+          {
+            "title": "[[annuity|Annuity]]",
+            "bullets": [
+              "Equal payments at equal intervals, for a fixed term",
+              "A lease, a bond's coupons, a management fee, a pension payment"
+            ]
+          },
+          {
+            "title": "[[perpetuity|Perpetuity]]",
+            "bullets": [
+              "The same stream, never ending",
+              "PV = PMT / r — one line, and it anchors every terminal value"
+            ]
+          }
+        ]
+      }
+    },
+    {
       "type": "intuition",
       "id": "why-the-shortcut-works",
       "body": "The annuity formula looks arbitrary until you see where it comes from: it is a geometric series. Each payment is worth the previous one divided by (1+r), so the terms shrink by a constant ratio, and geometric series collapse into a single expression.\n\nThe [[perpetuity]] case is the one worth internalising, because it is almost embarrassingly simple: **PV = PMT / r**. At a 5% [[discount-rate]], a payment of $1 forever is worth $20 today. Not $50, not infinity — $20.\n\nThat surprises people, and the reason it should not is [[compounding]] running in reverse. The payment in year 100 is worth almost nothing today, so the far tail of \"forever\" contributes almost nothing to the total. Infinity in the numerator does not produce infinity in the answer, because the discount factor shrinks faster than the payments accumulate.",
       "heading": "Why the annuity shortcut works"
+    },
+    {
+      "type": "infographic",
+      "id": "perpetuity-surprise",
+      "caption": "A dollar a year forever, at a 5% discount rate.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "What it is worth today",
+            "stat": "$20",
+            "detail": "PMT / r = 1 / 0.05. Not $50, not infinity."
+          },
+          {
+            "label": "Why not infinity",
+            "icon": "gear",
+            "detail": "The payment in year 100 is worth almost nothing today — the discount factor shrinks faster than the payments accumulate."
+          }
+        ]
+      }
     },
     {
       "type": "formula",
@@ -65,6 +109,30 @@
         "That timing change is worth $983.30, about 7% of the value. On a $2,000 payment stream it is a rounding error; on a large fee stream it is a real number, and it is decided entirely by whether payments land at the beginning or the end of the period."
       ],
       "heading": "valuing $2,000 a year for ten years"
+    },
+    {
+      "type": "infographic",
+      "id": "annuity-walkthrough",
+      "caption": "$2,000 a year for ten years at 7% — and what shifting the timing is worth.",
+      "spec": {
+        "kind": "steps",
+        "steps": [
+          {
+            "label": "The annuity factor: 7.0236",
+            "detail": "(1 − 1.07⁻¹⁰) / 0.07. Ten payments at 7% are worth about 7.0 payments — if your factor exceeds n, you have made an error."
+          },
+          {
+            "label": "Multiply by the payment: $14,047.16",
+            "icon": "coins",
+            "detail": "$2,000 × 7.0236."
+          },
+          {
+            "label": "Shift payments to period start: $15,030.46",
+            "icon": "clock",
+            "detail": "An [[annuity-due]] sits one period closer, so multiply by 1.07 — the timing change alone is worth $983.30."
+          }
+        ]
+      }
     },
     {
       "type": "pitfall",

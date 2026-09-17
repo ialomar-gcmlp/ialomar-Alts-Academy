@@ -22,6 +22,32 @@
       "heading": "What NPV asks"
     },
     {
+      "type": "infographic",
+      "id": "two-questions",
+      "caption": "The same inputs, two different questions.",
+      "spec": {
+        "kind": "comparison",
+        "columns": [
+          {
+            "title": "[[net-present-value|NPV]]",
+            "bullets": [
+              "“Does this create value?” — answered in money",
+              "Discount every cash flow at your required return, add them up, look at the sign",
+              "Positive means the investment is worth more than it costs. That is the whole test"
+            ]
+          },
+          {
+            "title": "[[internal-rate-of-return|IRR]]",
+            "bullets": [
+              "“What return does this earn?” — answered in percent",
+              "The discount rate at which NPV comes out exactly zero",
+              "The language private markets are conducted in"
+            ]
+          }
+        ]
+      }
+    },
+    {
       "type": "formula",
       "id": "npv-formula",
       "latex": "NPV = \\sum_{t=0}^{n} \\frac{CF_t}{(1+r)^t}",
@@ -58,10 +84,65 @@
       "heading": "$1,000 out, $400 a year back"
     },
     {
+      "type": "infographic",
+      "id": "reject-the-profit",
+      "caption": "$1,200 of inflows on a $1,000 outlay looked like a clear profit — until the money's timing was counted.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "PV of the inflows",
+            "stat": "$994.74",
+            "detail": "363.64 + 330.58 + 300.53 — three $400 payments discounted at 10%."
+          },
+          {
+            "label": "The outlay",
+            "stat": "$1,000",
+            "detail": "Money out today needs no discounting."
+          },
+          {
+            "label": "NPV",
+            "stat": "−$5.26",
+            "detail": "Reject. Marginally — but the sign is the answer. The IRR of about 9.7% says the same thing in percent."
+          }
+        ]
+      }
+    },
+    {
       "type": "concept",
       "id": "when-they-disagree",
       "body": "IRR misleads in four recognisable situations, and it is worth being able to name them.\n\n**Scale.** IRR is blind to size. A small project with a high percentage return can rank above a large one that creates far more value.\n\n**Timing.** IRR rewards getting money back quickly. A fund that returns capital in year two and stops can post a higher IRR than one that compounds patiently for a decade and returns far more in total.\n\n**Multiple sign changes.** If cash flows go negative, positive, then negative again — a fund with a follow-on capital call, say — there can be more than one rate at which NPV equals zero. Two mathematically valid IRRs, neither of them meaningful.\n\n**The reinvestment assumption.** As above: IRR assumes interim distributions were reinvested at the IRR. The more front-loaded the cash flows, the more that assumption is doing the work.",
       "heading": "When NPV and IRR disagree"
+    },
+    {
+      "type": "infographic",
+      "id": "irr-failure-modes",
+      "caption": "The four situations where IRR misleads — worth being able to name.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Scale",
+            "icon": "chartUp",
+            "detail": "Blind to size: 60% on $1,000 is $600, and 12% on $50m is $6m. NPV ranks them correctly."
+          },
+          {
+            "label": "Timing",
+            "icon": "clock",
+            "detail": "Rewards getting money back quickly — a fund that exits early can out-IRR one that compounds far more."
+          },
+          {
+            "label": "Multiple sign changes",
+            "icon": "alert",
+            "detail": "A follow-on capital call can produce two mathematically valid IRRs, neither meaningful."
+          },
+          {
+            "label": "The reinvestment assumption",
+            "icon": "gear",
+            "detail": "IRR assumes interim distributions were reinvested at the IRR itself. Front-loaded cash flows make that assumption do the work."
+          }
+        ]
+      }
     },
     {
       "type": "pitfall",

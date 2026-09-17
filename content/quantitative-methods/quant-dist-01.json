@@ -22,6 +22,31 @@
       "heading": "The normal distribution"
     },
     {
+      "type": "infographic",
+      "id": "normal-bands",
+      "caption": "Two parameters give you every probability — which is the appeal and the danger.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Within one standard deviation",
+            "stat": "68%",
+            "detail": "About two thirds of observations, under normality."
+          },
+          {
+            "label": "Within two",
+            "stat": "95%",
+            "detail": "The basis of the conventional confidence interval."
+          },
+          {
+            "label": "Within three",
+            "stat": "99.7%",
+            "detail": "Almost everything — which is exactly what real markets refuse to honour."
+          }
+        ]
+      }
+    },
+    {
       "type": "formula",
       "id": "z-formula",
       "latex": "z = \\frac{x - \\mu}{\\sigma}",
@@ -49,6 +74,26 @@
         "Hold on to that last number, because the next section is about why it is wrong."
       ],
       "heading": "putting a loss in standard deviations"
+    },
+    {
+      "type": "infographic",
+      "id": "z-ladder",
+      "caption": "Expected return 8%, volatility 12% — what the normal distribution says, before fat tails correct it.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "A −16% year",
+            "stat": "z = −2.0",
+            "detail": "About a 1-in-44 year. Unpleasant but unremarkable — expect one over a long career."
+          },
+          {
+            "label": "A −28% year",
+            "stat": "z = −3.0",
+            "detail": "One year in 740 under the normal — and the fat-tails section is about why that number is wrong."
+          }
+        ]
+      }
     },
     {
       "type": "intuition",
@@ -113,6 +158,30 @@
       "id": "skew-kurt",
       "body": "Two numbers describe how a distribution departs from normal.\n\n**[[skewness]]** measures lopsidedness. Negative skew means a long left tail: mostly modest gains, occasionally a severe loss. Selling options, writing insurance, [[merger-arbitrage]] and carry trades all produce negatively skewed returns — steady until they are not. Positive skew is the opposite shape: many small losses and rare large gains, which is what trend-following and long volatility strategies look like.\n\n**[[kurtosis]]** measures tail weight. A normal distribution has kurtosis of 3, so \"excess kurtosis\" is the amount above 3. Positive excess kurtosis means fat tails — more extreme outcomes than a bell curve allows, in both directions.\n\nBoth matter for the same reason: two strategies with identical mean and volatility can have completely different risk profiles, and skew and kurtosis are where that difference shows up.",
       "heading": "Skewness and kurtosis"
+    },
+    {
+      "type": "infographic",
+      "id": "two-shapes",
+      "caption": "Two strategies can share a mean and a volatility and differ completely — skew is where it shows.",
+      "spec": {
+        "kind": "comparison",
+        "columns": [
+          {
+            "title": "Negative skew",
+            "bullets": [
+              "Mostly modest gains, occasionally a severe loss — steady until they are not",
+              "Option selling, insurance writing, [[merger-arbitrage]], carry trades"
+            ]
+          },
+          {
+            "title": "Positive skew",
+            "bullets": [
+              "Many small losses and rare large gains",
+              "Trend following and long-volatility strategies"
+            ]
+          }
+        ]
+      }
     },
     {
       "type": "pitfall",

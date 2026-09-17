@@ -20,6 +20,31 @@
       "heading": "The three rules"
     },
     {
+      "type": "infographic",
+      "id": "three-operations",
+      "caption": "Three operations cover almost everything.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "“Or” — add",
+            "icon": "layers",
+            "detail": "P(A or B) = P(A) + P(B) − P(A and B). The subtraction stops you counting the overlap twice."
+          },
+          {
+            "label": "“And” — multiply",
+            "icon": "gear",
+            "detail": "P(A) × P(B|A) — plain multiplication only when the events are genuinely [[independent-events|independent]]."
+          },
+          {
+            "label": "“Given” — condition",
+            "icon": "target",
+            "detail": "P(A|B) = P(A and B) / P(B): among the cases where B happened, how often did A?"
+          }
+        ]
+      }
+    },
+    {
       "type": "intuition",
       "id": "independence",
       "body": "The single most expensive mistake in this topic is assuming independence that is not there.\n\nIf two bonds each have a 2% chance of defaulting and the defaults were independent, the chance of both is 0.04% — one in 2,500. Reassuring. But if both borrowers depend on the same customer, the same commodity price, or simply the same economy, the joint probability can be a large multiple of that. The individual probabilities have not changed at all; only the assumed relationship between them has.\n\nThis is not an abstract concern. Multiplying small probabilities together produces very small numbers very quickly, so an independence assumption is doing enormous work in any calculation of a joint event. **Independence is a claim about the world, not a mathematical convenience** — and in finance it is usually the claim that turns out to be wrong.\n\nA useful discipline: whenever you multiply two probabilities, say out loud what would have to be true for those events to be unrelated. If you cannot construct that story, do not multiply.",
@@ -51,10 +76,59 @@
       "heading": "combining deal probabilities"
     },
     {
+      "type": "infographic",
+      "id": "pipeline-arithmetic",
+      "caption": "30% face review, 40% are cross-border, 12% both — the overlap is everything.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "P(review or cross-border)",
+            "stat": "0.58",
+            "detail": "0.30 + 0.40 − 0.12. Forgetting the subtraction gives 0.70 — twelve points too high."
+          },
+          {
+            "label": "P(review | cross-border)",
+            "stat": "0.30",
+            "detail": "0.12 / 0.40 — among cross-border deals, 30% face review."
+          },
+          {
+            "label": "The independence test",
+            "icon": "docCheck",
+            "detail": "P(A) × P(B) = 0.12, exactly the observed joint — so knowing a deal is cross-border tells you nothing about review. Tested, not assumed."
+          }
+        ]
+      }
+    },
+    {
       "type": "pitfall",
       "id": "confusing-conditionals",
       "body": "**P(A|B) and P(B|A) are different numbers**, and swapping them is one of the most common errors in probabilistic reasoning.\n\nMost funds that blew up had high leverage. That does not mean most highly levered funds blow up. The first is P(high leverage | blew up); the second is P(blew up | high leverage). Because there are far more levered funds than blow-ups, the second is far smaller than the first.\n\nThis confusion is behind a great deal of bad inference from post-mortems: a list of traits shared by failures tells you what failures looked like, not what predicts failure. Turning one into the other requires knowing the [[base-rate]] — which is the subject of the next topic.",
       "heading": "swapping the conditionals"
+    },
+    {
+      "type": "infographic",
+      "id": "swapped-conditionals",
+      "caption": "Two different numbers that read like one.",
+      "spec": {
+        "kind": "comparison",
+        "columns": [
+          {
+            "title": "P(high leverage | blew up)",
+            "bullets": [
+              "Most funds that blew up had high leverage",
+              "What failures looked like — a post-mortem fact"
+            ]
+          },
+          {
+            "title": "P(blew up | high leverage)",
+            "bullets": [
+              "Far smaller, because there are far more levered funds than blow-ups",
+              "What predicts failure — turning one into the other requires the [[base-rate]]"
+            ]
+          }
+        ]
+      }
     },
     {
       "type": "onTheJob",

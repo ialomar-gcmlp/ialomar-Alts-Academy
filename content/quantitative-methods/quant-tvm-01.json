@@ -26,6 +26,31 @@
       "heading": "Why money grows"
     },
     {
+      "type": "infographic",
+      "id": "three-reasons",
+      "caption": "Why today's dollar is worth more — three reasons, one rate.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Opportunity",
+            "icon": "coins",
+            "detail": "A dollar in hand can be put to work. Waiting means giving that up, so you should be paid for waiting."
+          },
+          {
+            "label": "Risk",
+            "icon": "alert",
+            "detail": "A promise of money in three years might not be kept — the less certain, the more you demand."
+          },
+          {
+            "label": "Inflation",
+            "icon": "chartUp",
+            "detail": "If prices rise, the same nominal dollar buys less later. The [[discount-rate]] captures all three in one number."
+          }
+        ]
+      }
+    },
+    {
       "type": "formula",
       "id": "fv-formula",
       "latex": "FV = PV \\times (1 + r)^n",
@@ -75,6 +100,30 @@
       "heading": "$5,000 run in both directions"
     },
     {
+      "type": "infographic",
+      "id": "both-directions",
+      "caption": "$5,000 at 6% for three years, run in both directions — forward gets bigger, backwards gets smaller.",
+      "spec": {
+        "kind": "comparison",
+        "columns": [
+          {
+            "title": "Forward: future value",
+            "bullets": [
+              "$5,000 × 1.191016 = $5,955.08",
+              "Simple interest would have added $900 — the extra $55.08 is [[compounding]], interest that earlier interest earned"
+            ]
+          },
+          {
+            "title": "Backwards: present value",
+            "bullets": [
+              "$5,000 ÷ 1.191016 = $4,198.10",
+              "Every dollar arriving in three years is worth about 84 cents today at a 6% discount rate"
+            ]
+          }
+        ]
+      }
+    },
+    {
       "type": "concept",
       "id": "what-r-really-is",
       "body": "The hardest part of this topic is not the algebra, it is knowing what number to use for r. The [[discount-rate]] is not handed to you by nature; it is a judgement about what return you require for taking this particular risk over this particular horizon.\n\nA government bond cash flow gets discounted at something close to a [[risk-free-rate|risk-free rate]]. A late-stage venture company's projected exit gets discounted at something far higher, because the promise is far shakier. Same formula, wildly different r — and because r sits inside an exponent, small disagreements about it produce enormous disagreements about value.",
@@ -122,6 +171,31 @@
       "id": "reading-the-table",
       "body": "Read the bottom-right corner of that table and let it land: at a 12% discount rate, a dollar arriving in twenty years is worth about **ten cents** today.\n\nThis is why long-dated, uncertain cash flows are so hard to value and so easy to argue about. It is also why rising rates hurt long-duration assets most — the far-future cash flows, which carry the largest exponent, get crushed first. Read down any column to see time compounding against you; read across any row to see the rate doing the same thing.",
       "heading": "Why the far corner of the table matters"
+    },
+    {
+      "type": "infographic",
+      "id": "discount-decay",
+      "caption": "What one future dollar is worth today — time and rate compound against you.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "1 year away at 4%",
+            "stat": "96¢",
+            "detail": "Discounting barely bites at short horizons and low rates."
+          },
+          {
+            "label": "10 years at 8%",
+            "stat": "46¢",
+            "detail": "Less than half, from a middling rate and a middling wait."
+          },
+          {
+            "label": "20 years at 12%",
+            "stat": "10¢",
+            "detail": "Why long-dated, uncertain cash flows are so hard to value — and why rising rates crush long-duration assets first."
+          }
+        ]
+      }
     },
     {
       "type": "pitfall",

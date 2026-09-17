@@ -28,6 +28,45 @@
       "heading": "The regression"
     },
     {
+      "type": "infographic",
+      "id": "regression-anatomy",
+      "caption": "The workhorse of manager evaluation, term by term.",
+      "spec": {
+        "kind": "equation",
+        "terms": [
+          {
+            "label": "[[alpha|α]]",
+            "sublabel": "the intercept",
+            "bullets": [
+              "The average return when the market returned zero — where alpha as a number comes from"
+            ]
+          },
+          {
+            "label": "[[beta|β]] × market return",
+            "sublabel": "the slope",
+            "bullets": [
+              "How much the fund moves for a 1% market move"
+            ]
+          },
+          {
+            "label": "ε",
+            "sublabel": "the [[residual]]",
+            "bullets": [
+              "What the line failed to explain, observation by observation"
+            ]
+          },
+          {
+            "label": "The fund's return"
+          }
+        ],
+        "operators": [
+          "+",
+          "+",
+          "="
+        ]
+      }
+    },
+    {
       "type": "formula",
       "id": "beta-formula",
       "latex": "\\beta = \\frac{\\text{Cov}(r_i, r_m)}{\\text{Var}(r_m)} = \\rho_{i,m} \\times \\frac{\\sigma_i}{\\sigma_m}",
@@ -57,10 +96,59 @@
       "heading": "beta from covariance"
     },
     {
+      "type": "infographic",
+      "id": "beta-two-routes",
+      "caption": "Correlation and beta answer different questions — the worked pair makes it concrete.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Beta from covariance",
+            "stat": "0.75",
+            "detail": "0.0108 / 0.0144 — the fund moves 0.75% per 1% market move."
+          },
+          {
+            "label": "A second fund",
+            "stat": "1.125",
+            "detail": "Correlation 0.75 but volatility 18%: it tracks the market only moderately, and amplifies when it moves."
+          },
+          {
+            "label": "R² at ρ = 0.75",
+            "stat": "56%",
+            "detail": "0.75² — the other 44% is everything the one-factor model omitted. Where alpha could live, but only could."
+          }
+        ]
+      }
+    },
+    {
       "type": "intuition",
       "id": "r-squared-warning",
       "body": "A high R² feels like a good model and a low R² feels like a bad one. For risk work, that intuition is close to backwards.\n\nIf you regress a long/short equity fund on the market and get an R² of 0.85, you have learned something uncomfortable: the fund is mostly an expensive market tracker. A *low* R² is what you would hope to see from a manager charging for stock selection — it means their returns are not just market movement in disguise.\n\nSo R² measures how much the model explains, and whether that is good news depends entirely on what you were hoping to find. **When you are looking for evidence of independent skill, unexplained variance is the point rather than the problem.**\n\nThe genuine risk in a low R² is different: it means the single factor you chose is not the driver, so you have not yet found out what is. That is an invitation to add factors, not a conclusion about skill.",
       "heading": "Why a high R² can mislead"
+    },
+    {
+      "type": "infographic",
+      "id": "r-squared-two-readings",
+      "caption": "Whether a high R² is good news depends entirely on what you were hoping to find.",
+      "spec": {
+        "kind": "comparison",
+        "columns": [
+          {
+            "title": "High R² against the market",
+            "bullets": [
+              "The model explains the fund well",
+              "For a manager charging for stock selection: an expensive market tracker"
+            ]
+          },
+          {
+            "title": "Low R²",
+            "bullets": [
+              "The returns are not market movement in disguise — what you hope to see from selection skill",
+              "The genuine risk: the factor you chose is not the driver, and you have not yet found what is. Add factors"
+            ]
+          }
+        ]
+      }
     },
     {
       "type": "pitfall",

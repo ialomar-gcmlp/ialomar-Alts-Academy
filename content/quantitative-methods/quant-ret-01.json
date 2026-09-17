@@ -22,10 +22,60 @@
       "heading": "The two averages"
     },
     {
+      "type": "infographic",
+      "id": "fifty-fifty",
+      "caption": "+50% then −50%: only one average describes what happened to your money.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "[[arithmetic-mean|Arithmetic mean]]",
+            "stat": "0%",
+            "detail": "(50 − 50) / 2 — a description of the two numbers, not of your capital."
+          },
+          {
+            "label": "[[geometric-mean|Geometric mean]]",
+            "stat": "−13.4%",
+            "detail": "The constant compounded rate that reproduces the actual ending value."
+          },
+          {
+            "label": "Your $100",
+            "stat": "$75",
+            "detail": "$100 → $150 → $75. A quarter of the capital is gone."
+          }
+        ]
+      }
+    },
+    {
       "type": "intuition",
       "id": "why-they-diverge",
       "body": "Two facts do all the work here.\n\n**First: the geometric mean is always less than or equal to the arithmetic mean**, and they are equal only when every period's return is identical. This is not a convention — it falls out of the mathematics.\n\n**Second: the gap grows with [[volatility]].** A steady 5% a year and a series that alternates +30% and -20% both have an arithmetic mean of 5%. Over four years the steady one turns $100 into $121.55; the volatile one turns it into $108.16. Same average, thirteen dollars of difference, created entirely by the swings.\n\nThis is why volatility is not merely uncomfortable, it is expensive. A loss requires a larger percentage gain to recover from than the percentage you lost: down 50% needs +100% to get back, not +50%. Every drawdown quietly raises the bar for everything that follows, and the geometric mean is the measure that notices.",
       "heading": "Why the two means diverge"
+    },
+    {
+      "type": "infographic",
+      "id": "volatility-drag",
+      "caption": "The same 5% arithmetic mean, four years — the difference is created entirely by the swings.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Steady 5% a year",
+            "stat": "$121.55",
+            "detail": "1.05⁴ — no drag, the two means coincide."
+          },
+          {
+            "label": "Alternating +30% / −20%",
+            "stat": "$108.16",
+            "detail": "Same arithmetic mean, thirteen dollars less. Volatility is expensive, not merely uncomfortable."
+          },
+          {
+            "label": "The recovery asymmetry",
+            "icon": "alert",
+            "detail": "Down 50% needs +100% to get back. Every drawdown quietly raises the bar for everything that follows."
+          }
+        ]
+      }
     },
     {
       "type": "formula",
@@ -101,6 +151,32 @@
       "id": "twr-vs-irr",
       "body": "The arithmetic/geometric distinction is about averaging returns. A second, separate distinction is about **whose decisions you want to measure**.\n\n**[[time-weighted-return|time-weighted return]] (TWR)** strips out the effect of money moving in and out. It measures the return on a dollar that stayed invested throughout, which isolates the *manager's* performance from the *investor's* timing. It is the geometric chain of period returns, and it is the standard for reporting liquid fund performance.\n\n**[[money-weighted-return|money-weighted return]]** — in practice usually an [[internal-rate-of-return]] — does the opposite. It weights each period by how much capital was actually at risk, so it captures the combined effect of manager skill and the timing of contributions and withdrawals.\n\nNeither is more correct. They answer different questions:\n\n- *How good is this manager?* Time-weighted.\n- *How did I actually do?* Money-weighted.\n\nAnd the reason private markets report IRR is not conventional preference: the manager controls the timing of capital calls and distributions, so timing IS part of what they are being judged on. In a hedge fund, where the investor decides when to subscribe and redeem, time-weighted is the fair measure.",
       "heading": "Time-weighted versus money-weighted"
+    },
+    {
+      "type": "infographic",
+      "id": "twr-vs-mwr",
+      "caption": "Two measures, two questions — and why private markets report IRR.",
+      "spec": {
+        "kind": "comparison",
+        "columns": [
+          {
+            "title": "[[time-weighted-return|Time-weighted]] (TWR)",
+            "bullets": [
+              "Strips out the effect of money moving in and out",
+              "“How good is this manager?”",
+              "The fair measure where the investor controls timing — hedge funds, liquid vehicles"
+            ]
+          },
+          {
+            "title": "[[money-weighted-return|Money-weighted]] (IRR)",
+            "bullets": [
+              "Weights each period by the capital actually at risk",
+              "“How did my capital actually do?”",
+              "Private markets use it because the manager controls the timing of calls and distributions — timing IS part of the job"
+            ]
+          }
+        ]
+      }
     },
     {
       "type": "table",

@@ -22,6 +22,39 @@
       "heading": "What Bayes' rule does"
     },
     {
+      "type": "infographic",
+      "id": "prior-to-posterior",
+      "caption": "Both halves are required — the evidence and the base rate it lands on.",
+      "spec": {
+        "kind": "equation",
+        "terms": [
+          {
+            "label": "[[prior-probability|Prior]]",
+            "sublabel": "the [[base-rate]]",
+            "bullets": [
+              "How common the thing was before the evidence — the neglected number"
+            ]
+          },
+          {
+            "label": "The evidence's diagnosticity",
+            "bullets": [
+              "How much more often it appears when the claim is true than when it is false"
+            ]
+          },
+          {
+            "label": "[[posterior-probability|Posterior]]",
+            "bullets": [
+              "What you should believe now"
+            ]
+          }
+        ],
+        "operators": [
+          "×",
+          "="
+        ]
+      }
+    },
+    {
       "type": "formula",
       "id": "bayes-formula",
       "latex": "P(A|B) = \\frac{P(B|A) \\, P(A)}{P(B)}",
@@ -58,10 +91,63 @@
       "heading": "screening for skill"
     },
     {
+      "type": "infographic",
+      "id": "counting-method",
+      "caption": "The screen advertises 80% — the answer is 40%. Count people, not percentages.",
+      "spec": {
+        "kind": "steps",
+        "steps": [
+          {
+            "label": "1,000 managers: 200 skilled, 800 not",
+            "detail": "The 20% base rate, made into people."
+          },
+          {
+            "label": "The screen flags 160 of the skilled",
+            "icon": "check",
+            "detail": "80% of the 200 — the number the screen advertises."
+          },
+          {
+            "label": "And 240 of the unskilled",
+            "icon": "alert",
+            "detail": "30% of 800 — a modest false-positive rate on a group four times larger."
+          },
+          {
+            "label": "P(skilled | flagged) = 160 / 400 = 40%",
+            "detail": "The screen doubled your belief from 20% — and a flagged manager is still more likely unskilled than skilled."
+          }
+        ]
+      }
+    },
+    {
       "type": "intuition",
       "id": "why-base-rates-win",
       "body": "The trick that makes this reliable is the one used above: **stop thinking in percentages and count actual people.** Take a round population, split it by the base rate, apply the test rates to each group, then compare the boxes you care about. It is almost impossible to get wrong that way, and almost impossible to get right by intuition.\n\nThe general lesson is worth stating plainly: **when the thing you are looking for is rare, even a good test produces mostly false positives.** That is not a flaw in the test; it is arithmetic. A screen can be highly accurate and still leave you with a pool where the majority do not have the quality you screened for.\n\nWhich implies something useful and slightly deflating: the way to improve your hit rate is often not a better test, but a better starting pool. Raising the base rate — by narrowing the universe before screening — does more for the posterior than sharpening the screen.",
       "heading": "Why base rates win"
+    },
+    {
+      "type": "infographic",
+      "id": "base-rate-lessons",
+      "caption": "What the counting method teaches.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Count people, not percentages",
+            "icon": "docCheck",
+            "detail": "Split a round population by the base rate, apply the test to each group, compare the boxes. Almost impossible to get wrong."
+          },
+          {
+            "label": "Rare targets, mostly false positives",
+            "icon": "alert",
+            "detail": "Not a flaw in the test — arithmetic. An accurate screen can still leave a majority-unskilled pool."
+          },
+          {
+            "label": "Improve the pool, not the screen",
+            "icon": "target",
+            "detail": "Raising the base rate — narrowing the universe first — does more for the posterior than sharpening the test."
+          }
+        ]
+      }
     },
     {
       "type": "pitfall",

@@ -26,10 +26,60 @@
       "heading": "Why you need the mean and the median"
     },
     {
+      "type": "infographic",
+      "id": "mean-vs-median",
+      "caption": "The series −8, 2, 3, 5, 6, 6, 14 — the gap between the two middles is itself the finding.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "[[arithmetic-mean|Mean]]",
+            "stat": "4.0",
+            "detail": "Dragged below the median by the single −8 — hostage to every extreme observation."
+          },
+          {
+            "label": "[[median|Median]]",
+            "stat": "5",
+            "detail": "The middle value when sorted — ignores how far away the extremes are."
+          },
+          {
+            "label": "The gap",
+            "icon": "alert",
+            "detail": "Mean below median says the series has a longer downside tail. Go and find the observation doing it — it is usually the interesting part."
+          }
+        ]
+      }
+    },
+    {
       "type": "concept",
       "id": "spread",
       "body": "For spread, the workhorse is [[standard-deviation]] — the square root of [[variance]], which is the average squared distance from the mean.\n\nThe squaring is the part worth understanding. It exists so that distances above and below the mean do not cancel out, but it has a side effect: **large deviations are weighted disproportionately.** A single -20% month contributes sixteen times as much to the variance as a -5% month, not four times. Standard deviation is therefore dominated by the worst and best observations, which is a feature when you care about extremes and a bug when you do not.\n\nIn finance, standard deviation of returns is called [[volatility]] and is quoted annualised. Monthly volatility scales up by the square root of twelve, not by twelve — a consequence of variances adding while standard deviations do not.",
       "heading": "Spread: variance and standard deviation"
+    },
+    {
+      "type": "infographic",
+      "id": "squaring-matters",
+      "caption": "What the squaring inside variance does — and how volatility scales.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Extremes dominate",
+            "stat": "16×",
+            "detail": "A −20% month contributes sixteen times as much variance as a −5% month, not four times."
+          },
+          {
+            "label": "Annualising",
+            "icon": "gear",
+            "detail": "Monthly volatility scales by √12, not 12 — variances add, standard deviations do not."
+          },
+          {
+            "label": "The name",
+            "icon": "chartUp",
+            "detail": "Standard deviation of returns is [[volatility]], the denominator of most risk-adjusted measures."
+          }
+        ]
+      }
     },
     {
       "type": "formula",
@@ -48,6 +98,26 @@
       "id": "n-minus-one",
       "body": "**Sample or population?** Almost all return data is a sample: you have the last five years, not every month that will ever exist. So the divisor is n-1, and the difference is not trivial for short series.\n\nFor the seven-observation series above, dividing by n-1 = 6 gives a standard deviation of 6.56; dividing by n = 7 gives 6.07 — nearly half a point apart. Spreadsheet functions distinguish these with confusingly similar names, so it is worth checking which one a model is using rather than assuming.",
       "heading": "dividing by n instead of n − 1"
+    },
+    {
+      "type": "infographic",
+      "id": "divisor-difference",
+      "caption": "The same seven observations, two divisors — on short series the difference is material.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Divide by n − 1 = 6",
+            "stat": "6.56",
+            "detail": "The sample standard deviation — correct, because five years of returns is a sample."
+          },
+          {
+            "label": "Divide by n = 7",
+            "stat": "6.07",
+            "detail": "Nearly half a point lower. Spreadsheet functions distinguish these with confusingly similar names."
+          }
+        ]
+      }
     },
     {
       "type": "pitfall",

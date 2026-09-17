@@ -22,6 +22,26 @@
       "heading": "Sample versus population"
     },
     {
+      "type": "infographic",
+      "id": "sqrt-n-cost",
+      "caption": "Precision gets expensive very quickly — the square root is the most disappointing fact in statistics.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "To halve the uncertainty",
+            "stat": "4×",
+            "detail": "The standard error falls with √n, so halving it takes four times the data."
+          },
+          {
+            "label": "To cut it to a tenth",
+            "stat": "100×",
+            "detail": "There is no way around it."
+          }
+        ]
+      }
+    },
+    {
       "type": "formula",
       "id": "se-formula",
       "latex": "SE = \\frac{s}{\\sqrt{n}}",
@@ -64,6 +84,34 @@
       "heading": "testing 0.8% a month of alpha"
     },
     {
+      "type": "infographic",
+      "id": "alpha-test-path",
+      "caption": "0.8% a month over three years — nearly 10% a year of excess return, and still not statistically distinguishable from luck.",
+      "spec": {
+        "kind": "steps",
+        "steps": [
+          {
+            "label": "Standard error: 0.5% a month",
+            "detail": "3.0% monthly volatility over √36 observations."
+          },
+          {
+            "label": "t-statistic: 1.6",
+            "icon": "target",
+            "detail": "0.8 / 0.5 — below the conventional threshold of about 2."
+          },
+          {
+            "label": "The interval contains zero — and excellence",
+            "detail": "0.8 ± 1.96 × 0.5 runs from −0.18% to +1.78% a month. The data is not decisive either way."
+          },
+          {
+            "label": "Four and a half years to settle it",
+            "icon": "clock",
+            "detail": "About 54 months at the same mean and volatility — assuming the edge is stable throughout, which is a strong assumption."
+          }
+        ]
+      }
+    },
+    {
       "type": "intuition",
       "id": "why-skill-is-hard",
       "body": "Work through the previous example again and notice what it implies. A manager beating their benchmark by 0.8% a month — nearly 10% a year, a genuinely excellent record — cannot be statistically distinguished from luck after three years.\n\nThat is not a quirk of the numbers chosen. It is the general situation, and it follows from the ratio of signal to noise in returns: monthly volatility of 3% against a monthly edge of 0.8% means the noise is roughly four times the signal in any single observation. Averaging reduces the noise, but only by the square root of n.\n\nSo the honest conclusion is uncomfortable: **for most managers, over most realistic horizons, performance data alone cannot establish skill.** This is not a reason to ignore performance. It is the reason that understanding the *mechanism* of a manager's edge carries so much weight — the statistics will not settle it for you within the time you have to make the decision.",
@@ -74,6 +122,31 @@
       "id": "multiple-testing",
       "body": "**Testing many hypotheses inflates false positives.** At a 5% threshold, one test in twenty produces a significant result by chance. Screen a hundred managers and you should expect around five to look significantly skilled when none of them are.\n\nThis is the same selection problem as in the Bayes topic, seen from the frequentist side. A p-value is only meaningful for a hypothesis specified *before* looking at the data. A significant result found by searching is not evidence of the same strength as a significant result found by prediction — and \"we screened the universe and these five stood out\" is searching.",
       "heading": "testing until something works"
+    },
+    {
+      "type": "infographic",
+      "id": "manufactured-significance",
+      "caption": "Search enough and something will always look significant.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "At a 5% threshold",
+            "stat": "1 in 20",
+            "detail": "Tests produce a significant result by pure chance."
+          },
+          {
+            "label": "Screen 100 managers",
+            "stat": "≈5",
+            "detail": "Will look significantly skilled when none of them are."
+          },
+          {
+            "label": "The rule",
+            "icon": "docCheck",
+            "detail": "A p-value only means something for a hypothesis specified before looking at the data. “These five stood out” is searching."
+          }
+        ]
+      }
     },
     {
       "type": "onTheJob",
