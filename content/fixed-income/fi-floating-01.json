@@ -5,9 +5,16 @@
   "title": "Floating-Rate Notes: Where the Risk Goes Instead",
   "summary": "A coupon that resets removes almost all price sensitivity to rates — and hands the exposure to the borrower, which is where it comes back.",
   "level": "core",
-  "prereqs": ["fi-duration-01", "fi-credit-01"],
+  "prereqs": [
+    "fi-duration-01",
+    "fi-credit-01"
+  ],
   "estMinutes": 9,
-  "examRelevance": ["CFA-L1", "CAIA-L1", "practical"],
+  "examRelevance": [
+    "CFA-L1",
+    "CAIA-L1",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
@@ -20,9 +27,60 @@
       "body": "**A floating-rate loan has two durations, and only one of them is short.**\n\n**Interest rate duration** is near zero, for the reason above. The coupon resets, so the price does not need to.\n\n**[[credit-spread|Spread]] duration** is the full remaining life of the loan. If the market's required spread for this borrower rises from 350bp to 550bp, the loan's value falls by roughly the spread change times the years remaining — the same arithmetic as duration, applied to a different rate.\n\nSo a five-year floating loan has an interest rate duration of about 0.25 and a spread duration of about 4. **Calling it \"low duration\" without saying which is a description of one exposure and a silence about the larger one.**\n\nThis matters because of when each one moves. Interest rates rise in expansions and fall in downturns; spreads do the opposite — they are tightest when conditions are benign and widen violently in stress. **The exposure that was removed is the one that would have helped in a downturn, and the exposure that remains is the one that hurts in exactly that scenario.**\n\nWhich is why a fixed-rate government bond and a floating-rate loan behave so differently in a recession: one rallies as rates fall, the other falls as spreads widen. Both are \"bonds\"."
     },
     {
+      "type": "infographic",
+      "id": "duration-split",
+      "caption": "A floating-rate loan has two durations, and only one of them is short.",
+      "spec": {
+        "kind": "comparison",
+        "columns": [
+          {
+            "title": "Interest rate duration",
+            "bullets": [
+              "Roughly the time to the next reset — about 0.25 years on quarterly resets",
+              "The coupon resets, so the price does not need to",
+              "Removed the exposure that would have helped in a downturn"
+            ]
+          },
+          {
+            "title": "[[credit-spread|Spread]] duration",
+            "bullets": [
+              "The full remaining life of the loan — about 4 on a five-year loan",
+              "A 200bp spread widening costs roughly 8%",
+              "Widens violently in stress — the exposure that remains hurts in exactly that scenario"
+            ]
+          }
+        ]
+      }
+    },
+    {
       "type": "intuition",
       "id": "the-risk-moves",
       "body": "**Interest rate risk in a floating-rate loan does not disappear. It transfers to the borrower, and you own the borrower.**\n\nThis is the sentence that matters for anyone allocating to private credit, and the arithmetic makes it concrete.\n\nTake the worked company: [[ebitda|EBITDA]] of 80 and debt of 400 at reference plus 350.\n\n- Reference at 5.25%, coupon 8.75% → interest 35.0, **coverage 2.29x**\n- Reference at 3.00%, coupon 6.50% → interest 26.0, **coverage 3.08x**\n- Reference at 8.00%, coupon 11.50% → interest 46.0, **coverage 1.74x**\n\n**A 275bp rise in the reference rate took [[interest-coverage|interest coverage]] from 2.29x to 1.74x with no change in the business whatsoever.** For a company with a [[covenant]] at 2.0x, that is a breach caused entirely by [[monetary-policy|monetary policy]].\n\nSo the lender's position in a tightening cycle is genuinely double-edged:\n\n**Income rises**, immediately and mechanically.\n\n**Credit quality falls**, across the whole portfolio at once, because every borrower faces the same reference rate.\n\n**And the second effect is correlated in a way the first is not.** Higher income is a certainty; the defaults arrive together, later, and in the same environment where recoveries are worst. The protection is real and it is narrower than \"we have no duration\" implies."
+    },
+    {
+      "type": "infographic",
+      "id": "coverage-squeeze",
+      "caption": "The rate risk transfers to the borrower — EBITDA 80, debt 400 at reference plus 350, no change in the business.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Reference at 3.00%",
+            "stat": "3.08x",
+            "detail": "Coupon 6.50%, interest 26.0 — coverage is comfortable."
+          },
+          {
+            "label": "Reference at 5.25%",
+            "stat": "2.29x",
+            "detail": "Coupon 8.75%, interest 35.0 — today's position."
+          },
+          {
+            "label": "Reference at 8.00%",
+            "stat": "1.74x",
+            "detail": "Coupon 11.50%, interest 46.0 — a [[covenant]] at 2.0x is breached by [[monetary-policy|monetary policy]] alone."
+          }
+        ]
+      }
     },
     {
       "type": "example",
@@ -43,7 +101,11 @@
       "type": "table",
       "id": "frn-table",
       "caption": "What moves a floating-rate loan, and what it does to the borrower",
-      "headers": ["Event", "Effect on the loan's price", "Effect on the borrower"],
+      "headers": [
+        "Event",
+        "Effect on the loan's price",
+        "Effect on the borrower"
+      ],
       "rows": [
         [
           "Reference rate rises 100bp",
@@ -98,7 +160,10 @@
       "id": "fi-floating-01-q1",
       "type": "numeric",
       "difficulty": 2,
-      "tags": ["floating-rate", "arithmetic"],
+      "tags": [
+        "floating-rate",
+        "arithmetic"
+      ],
       "concept": "worked-frn",
       "stem": "A loan pays the reference rate plus 350bp. The reference falls from 5.25% to 3.00%. What is the new coupon, in percent?",
       "answer": 6.5,
@@ -111,7 +176,11 @@
       "id": "fi-floating-01-q2",
       "type": "numeric",
       "difficulty": 3,
-      "tags": ["floating-rate", "coverage", "arithmetic"],
+      "tags": [
+        "floating-rate",
+        "coverage",
+        "arithmetic"
+      ],
       "concept": "the-risk-moves",
       "stem": "EBITDA 80, debt 400 at a coupon of 11.50%. What is EBITDA interest coverage, in turns? Two decimal places.",
       "answer": 1.74,
@@ -124,7 +193,10 @@
       "id": "fi-floating-01-q3",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["floating-rate", "duration"],
+      "tags": [
+        "floating-rate",
+        "duration"
+      ],
       "concept": "two-durations",
       "stem": "Why is a floating-rate loan's interest rate duration approximately the time until its next reset?",
       "choices": [
@@ -146,7 +218,10 @@
       "id": "fi-floating-01-q4",
       "type": "tfj",
       "difficulty": 4,
-      "tags": ["floating-rate", "misconception"],
+      "tags": [
+        "floating-rate",
+        "misconception"
+      ],
       "concept": "two-durations",
       "stem": "\"Floating-rate loans have almost no duration, so our portfolio marks should be stable.\" True or false — and why?",
       "isTrue": false,
@@ -169,7 +244,11 @@
       "id": "fi-floating-01-q5",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["floating-rate", "credit", "on-the-job"],
+      "tags": [
+        "floating-rate",
+        "credit",
+        "on-the-job"
+      ],
       "concept": "the-risk-moves",
       "stem": "In a tightening cycle, why is a direct lending fund's position double-edged?",
       "choices": [
@@ -191,7 +270,11 @@
       "id": "fi-floating-01-q6",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["floating-rate", "diligence", "on-the-job"],
+      "tags": [
+        "floating-rate",
+        "diligence",
+        "on-the-job"
+      ],
       "concept": "the-resilience-illusion",
       "stem": "A private credit portfolio's marks barely moved while traded loan indices fell several points. What is the most useful follow-up?",
       "choices": [

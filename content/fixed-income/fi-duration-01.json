@@ -5,14 +5,46 @@
   "title": "Duration and Convexity: How Much a Bond Moves",
   "summary": "One number that predicts a bond's price response to rates, a second that corrects it, and the asymmetry that works in the holder's favour.",
   "level": "core",
-  "prereqs": ["fi-bonds-01"],
+  "prereqs": [
+    "fi-bonds-01"
+  ],
   "estMinutes": 10,
-  "examRelevance": ["CFA-L1", "CFA-L2", "practical"],
+  "examRelevance": [
+    "CFA-L1",
+    "CFA-L2",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
       "id": "what-it-is",
       "body": "[[duration]] answers a single question: **if yields move 1%, roughly how much does this bond's price move?**\n\nTwo versions, and the distinction matters more than it looks.\n\n**Macaulay duration** is the weighted average time until the bond's cash flows arrive, weighted by their [[present-value|present values]]. Measured in years. It is a description of *when* you get paid.\n\n**Modified duration** is Macaulay duration divided by one plus the yield per period. It is a sensitivity: a modified duration of 7.57 means a 100bp rise in yield costs roughly 7.57% of price.\n\nThe same number therefore has two readings — a time and a sensitivity — and they are connected for a reason. **A bond that pays you later has more of its value further out, and distant cash flows are more sensitive to the [[discount-rate|discount rate]].** Duration measures both facts at once.\n\nWhat raises duration: **longer maturity, lower coupon, lower yield.** A zero-coupon bond has duration equal to its maturity exactly, because there is only one cash flow — which is the cleanest case and worth using as the anchor."
+    },
+    {
+      "type": "infographic",
+      "id": "two-durations-one-number",
+      "caption": "The same number, two readings — a time and a sensitivity.",
+      "spec": {
+        "kind": "comparison",
+        "columns": [
+          {
+            "title": "Macaulay duration",
+            "bullets": [
+              "The weighted average time until the cash flows arrive, weighted by present value",
+              "Measured in years — a description of when you get paid",
+              "The worked bond: 8.02 years"
+            ]
+          },
+          {
+            "title": "Modified duration",
+            "bullets": [
+              "Macaulay divided by one plus the yield per period",
+              "A sensitivity: 7.57 means a 100bp rise costs roughly 7.57% of price",
+              "The number that belongs in a risk report"
+            ]
+          }
+        ]
+      }
     },
     {
       "type": "concept",
@@ -25,14 +57,48 @@
       "body": "**In a portfolio, duration is not a bond property — it is the risk dial, and it is nearly the only interest rate decision that matters.**\n\nThe reason is that duration is additive in the way you would hope: a portfolio's duration is the weighted average of its holdings' durations. So a manager expressing a view on rates does it by moving portfolio duration, and one number summarises the whole position.\n\nThis makes a few things immediately calculable:\n\n**The size of a rate view.** A portfolio at duration 7 against a benchmark at duration 5 gains or loses roughly 2% for every 100bp move, relative to the benchmark. That is the bet, quantified, and it can be compared with the manager's stated conviction.\n\n**The cost of being wrong.** A 200bp surprise against a duration-7 portfolio is roughly 14% of capital. That number belongs in a risk report and often does not appear.\n\n**Liability matching.** A pension fund with obligations of duration 15 and assets of duration 5 is not conservatively positioned — it is short duration against its liabilities, and a fall in rates makes it worse off despite owning safe bonds. **Duration matching is why apparently cautious portfolios can be badly mismatched, and why \"we hold only government bonds\" is not a statement about risk.**"
     },
     {
+      "type": "infographic",
+      "id": "portfolio-rate-dial",
+      "caption": "Duration is additive, which makes the whole rate position three calculable numbers.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "The size of a rate view",
+            "stat": "≈2%",
+            "detail": "A portfolio at duration 7 against a benchmark at 5 gains or loses roughly 2% per 100bp move, relative to the benchmark."
+          },
+          {
+            "label": "The cost of being wrong",
+            "stat": "≈14%",
+            "detail": "A 200bp surprise against a duration-7 portfolio — a number that belongs in a risk report and often does not appear."
+          },
+          {
+            "label": "Liability mismatch",
+            "stat": "5 vs 15",
+            "detail": "Assets at duration 5 against liabilities at 15 is a large short position dressed as caution — a fall in rates makes it worse off."
+          }
+        ]
+      }
+    },
+    {
       "type": "formula",
       "id": "duration-formula",
       "latex": "\\frac{\\Delta P}{P} \\approx -D_{\\text{mod}} \\times \\Delta y + \\tfrac{1}{2} \\times C \\times (\\Delta y)^2",
       "plainReading": "The percentage price change is roughly minus modified duration times the yield change, plus a half times convexity times the yield change squared. The first term is the straight line; the second is the curve, and it is always positive.",
       "variables": [
-        { "symbol": "D_{\\text{mod}}", "meaning": "modified duration — the first-order sensitivity" },
-        { "symbol": "C", "meaning": "convexity — the second-order correction, positive for conventional bonds" },
-        { "symbol": "\\Delta y", "meaning": "the change in yield, as a decimal" }
+        {
+          "symbol": "D_{\\text{mod}}",
+          "meaning": "modified duration — the first-order sensitivity"
+        },
+        {
+          "symbol": "C",
+          "meaning": "convexity — the second-order correction, positive for conventional bonds"
+        },
+        {
+          "symbol": "\\Delta y",
+          "meaning": "the change in yield, as a decimal"
+        }
       ]
     },
     {
@@ -54,7 +120,11 @@
       "type": "table",
       "id": "duration-drivers",
       "caption": "What moves duration, and by how much",
-      "headers": ["Change", "Effect on duration", "Why"],
+      "headers": [
+        "Change",
+        "Effect on duration",
+        "Why"
+      ],
       "rows": [
         [
           "Longer maturity",
@@ -114,7 +184,10 @@
       "id": "fi-duration-01-q1",
       "type": "numeric",
       "difficulty": 2,
-      "tags": ["duration", "arithmetic"],
+      "tags": [
+        "duration",
+        "arithmetic"
+      ],
       "concept": "worked-duration",
       "stem": "A bond has a modified duration of 7.57. Yields rise 100bp. Approximately what percentage does the price fall? Give a positive number.",
       "answer": 7.57,
@@ -127,7 +200,11 @@
       "id": "fi-duration-01-q2",
       "type": "numeric",
       "difficulty": 4,
-      "tags": ["duration", "convexity", "arithmetic"],
+      "tags": [
+        "duration",
+        "convexity",
+        "arithmetic"
+      ],
       "concept": "worked-duration",
       "stem": "Modified duration 7.57, convexity 72.6, yields rise 100bp. What is the two-term estimate of the price change, in percent? Give the sign.",
       "answer": -7.21,
@@ -141,7 +218,10 @@
       "id": "fi-duration-01-q3",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["duration", "drivers"],
+      "tags": [
+        "duration",
+        "drivers"
+      ],
       "concept": "what-it-is",
       "stem": "Which bond has the highest duration?",
       "choices": [
@@ -163,7 +243,11 @@
       "id": "fi-duration-01-q4",
       "type": "tfj",
       "difficulty": 4,
-      "tags": ["duration", "private-credit", "misconception"],
+      "tags": [
+        "duration",
+        "private-credit",
+        "misconception"
+      ],
       "concept": "duration-in-private-credit",
       "stem": "\"Our direct lending fund has near-zero duration, so rate moves do not affect us.\" True or false — and why?",
       "isTrue": false,
@@ -186,7 +270,11 @@
       "id": "fi-duration-01-q5",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["duration", "liability", "on-the-job"],
+      "tags": [
+        "duration",
+        "liability",
+        "on-the-job"
+      ],
       "concept": "duration-is-the-risk",
       "stem": "A pension fund holds only government bonds with duration 5. Its liabilities have duration 15. Is it conservatively positioned?",
       "choices": [
@@ -208,7 +296,11 @@
       "id": "fi-duration-01-q6",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["duration", "convexity", "on-the-job"],
+      "tags": [
+        "duration",
+        "convexity",
+        "on-the-job"
+      ],
       "concept": "convexity",
       "stem": "Why is negative convexity in a mortgage-backed security unattractive?",
       "choices": [

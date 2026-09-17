@@ -5,9 +5,16 @@
   "title": "Securitisation and Tranching: How One Pool Becomes Four Risks",
   "summary": "Slicing a loan portfolio by seniority creates a AAA claim and a leveraged equity from the same assets — and the equity is 7x levered whether or not anyone calls it that.",
   "level": "advanced",
-  "prereqs": ["fi-credit-01", "fi-floating-01"],
+  "prereqs": [
+    "fi-credit-01",
+    "fi-floating-01"
+  ],
   "estMinutes": 10,
-  "examRelevance": ["CAIA-L1", "CAIA-L2", "practical"],
+  "examRelevance": [
+    "CAIA-L1",
+    "CAIA-L2",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
@@ -20,9 +27,58 @@
       "body": "**The two numbers that define any tranche are where it starts taking losses and where it is wiped out. Everything else is commentary.**\n\nIn the structure above:\n\n**Equity** attaches at 0% and detaches at 14%. It takes the first loss and is gone once portfolio losses reach 14%.\n\n**Mezzanine** attaches at 14% and detaches at 38%. Untouched below 14%; destroyed above 38%.\n\n**AAA** attaches at 38%. Nothing reaches it until more than a third of the entire pool has been lost.\n\nSo the rating is a statement about the attachment point rather than about the loans. **A AAA CLO note is safe because leveraged loans would have to lose 38% for it to lose a cent — not because the borrowers are strong.**\n\nThis reframing does two useful things.\n\n**It makes the rating checkable.** Ask what cumulative portfolio loss would be needed to impair this tranche, and compare it with historical loss experience for that asset class in its worst period. That is a number against a number.\n\n**It explains why mezzanine is the dangerous slice.** It has neither the equity's upside nor the senior's cushion: a modest deterioration passes straight through it, and its returns look bond-like right up to the point where they do not."
     },
     {
+      "type": "infographic",
+      "id": "tranche-stack",
+      "caption": "One pool of 100, three claims — the rating is a statement about the attachment point, not the loans.",
+      "spec": {
+        "kind": "stack",
+        "axis": "paid first → first to absorb losses",
+        "layers": [
+          {
+            "label": "AAA notes — 62",
+            "sublabel": "attaches at 38%: nothing reaches it until more than a third of the pool is lost"
+          },
+          {
+            "label": "Mezzanine notes — 24",
+            "sublabel": "attaches at 14%, detaches at 38% — neither the equity's upside nor the senior's cushion"
+          },
+          {
+            "label": "Equity — 14",
+            "emphasis": true,
+            "sublabel": "attaches at 0%: first loss, gone at 14% — paid last and paid for providing the cushion"
+          }
+        ]
+      }
+    },
+    {
       "type": "intuition",
       "id": "equity-is-levered",
       "body": "**CLO equity is a leveraged bet on corporate credit, and the leverage is arithmetic rather than opinion: 100 of loans supported by 14 of equity is 7.1 times.**\n\nWork the economics. The pool yields the reference rate plus 400bp — call it 9.25% on 100, so 9.25 of income. The liabilities cost less because they are senior and rated: the AAA at reference plus 150 and the mezzanine at reference plus 475 together cost 6.59.\n\n**The residual is 9.25 − 6.59 = 2.66, on 14 of equity: a 19.0% return.** That is the CLO arbitrage — the pool earns more than the notes cost, and the equity keeps the difference on a leveraged base.\n\nNow apply credit losses, which is where the leverage shows its other face:\n\n- **0% annual loss** → residual 2.66 → equity return **19.0%**\n- **2% annual loss** → residual 0.66 → equity return **4.7%**\n- **4% annual loss** → residual −1.34 → equity return **−9.5%**\n\n**Read that carefully: a 2 percentage point rise in the loss rate removed three quarters of the return, and 4% turns it negative.** That is 7x leverage behaving exactly as 7x leverage does.\n\n**Which makes the honest description of CLO equity: a levered [[long-position|long position]] in the corporate credit cycle, with a return that is excellent in benign conditions and negative in a bad one.** It is not a yield product, whatever the distribution schedule suggests."
+    },
+    {
+      "type": "infographic",
+      "id": "leverage-both-faces",
+      "caption": "The pool earns 9.25, the notes cost 6.59, and the residual 2.66 sits on 14 of equity — 7.1x leverage, both faces.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "0% annual loss",
+            "stat": "19.0%",
+            "detail": "The full residual on a leveraged base — the CLO arbitrage in benign conditions."
+          },
+          {
+            "label": "2% annual loss",
+            "stat": "4.7%",
+            "detail": "Two points of loss removed three quarters of the return."
+          },
+          {
+            "label": "4% annual loss",
+            "stat": "−9.5%",
+            "detail": "The residual turns negative — 7x leverage behaving exactly as 7x leverage does."
+          }
+        ]
+      }
     },
     {
       "type": "example",
@@ -42,7 +98,11 @@
       "type": "table",
       "id": "tranche-table",
       "caption": "One pool, four different investments",
-      "headers": ["Tranche", "Attaches / detaches", "What you are really buying"],
+      "headers": [
+        "Tranche",
+        "Attaches / detaches",
+        "What you are really buying"
+      ],
       "rows": [
         [
           "AAA (62%)",
@@ -97,7 +157,11 @@
       "id": "fi-securitisation-01-q1",
       "type": "numeric",
       "difficulty": 2,
-      "tags": ["securitisation", "attachment", "arithmetic"],
+      "tags": [
+        "securitisation",
+        "attachment",
+        "arithmetic"
+      ],
       "concept": "attachment-points",
       "stem": "A CLO has equity of 14% and mezzanine of 24%. At what cumulative portfolio loss does the AAA tranche start taking losses, in percent?",
       "answer": 38,
@@ -110,7 +174,11 @@
       "id": "fi-securitisation-01-q2",
       "type": "numeric",
       "difficulty": 3,
-      "tags": ["securitisation", "leverage", "arithmetic"],
+      "tags": [
+        "securitisation",
+        "leverage",
+        "arithmetic"
+      ],
       "concept": "equity-is-levered",
       "stem": "A CLO holds 100 of loans funded with 14 of equity. What is the leverage on the loan pool, in turns? Two decimal places.",
       "answer": 7.14,
@@ -123,7 +191,11 @@
       "id": "fi-securitisation-01-q3",
       "type": "numeric",
       "difficulty": 4,
-      "tags": ["securitisation", "returns", "arithmetic"],
+      "tags": [
+        "securitisation",
+        "returns",
+        "arithmetic"
+      ],
       "concept": "equity-is-levered",
       "stem": "Pool income 9.25, liability cost 6.59, equity 14. What is the equity return, in percent? One decimal place.",
       "answer": 19.0,
@@ -137,7 +209,10 @@
       "id": "fi-securitisation-01-q4",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["securitisation", "tranching"],
+      "tags": [
+        "securitisation",
+        "tranching"
+      ],
       "concept": "what-it-is",
       "stem": "How can a pool containing no investment-grade loans support a AAA-rated note?",
       "choices": [
@@ -159,7 +234,10 @@
       "id": "fi-securitisation-01-q5",
       "type": "tfj",
       "difficulty": 4,
-      "tags": ["securitisation", "misconception"],
+      "tags": [
+        "securitisation",
+        "misconception"
+      ],
       "concept": "the-arbitrage-is-a-spread",
       "stem": "\"Tranching creates value by turning risky loans into safe securities.\" True or false — and why?",
       "isTrue": false,
@@ -182,7 +260,11 @@
       "id": "fi-securitisation-01-q6",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["securitisation", "correlation", "on-the-job"],
+      "tags": [
+        "securitisation",
+        "correlation",
+        "on-the-job"
+      ],
       "concept": "how-it-goes-wrong",
       "stem": "Which assumption in a tranching model most determines whether senior tranches are genuinely safe?",
       "choices": [
@@ -204,7 +286,11 @@
       "id": "fi-securitisation-01-q7",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["securitisation", "diligence", "on-the-job"],
+      "tags": [
+        "securitisation",
+        "diligence",
+        "on-the-job"
+      ],
       "concept": "the-arbitrage-is-a-spread",
       "stem": "A manager offers CLO equity with a 19% target return. What is the most useful single question?",
       "choices": [

@@ -5,9 +5,15 @@
   "title": "Credit Spreads, Default and Recovery",
   "summary": "What a spread is compensation for, the two numbers that decide whether it is enough, and the default rate at which you break even.",
   "level": "core",
-  "prereqs": ["fi-bonds-01"],
+  "prereqs": [
+    "fi-bonds-01"
+  ],
   "estMinutes": 10,
-  "examRelevance": ["CFA-L1", "CAIA-L1", "practical"],
+  "examRelevance": [
+    "CFA-L1",
+    "CAIA-L1",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
@@ -15,9 +21,76 @@
       "body": "A [[credit-spread|credit spread]] is the extra yield a borrower pays above the [[risk-free-rate|risk-free rate]] of the same maturity. It compensates the lender for four distinct things, and separating them is the whole discipline of credit analysis.\n\n**Expected loss.** The probability of default multiplied by the loss suffered if it happens. This is the part that can be estimated.\n\n**Unexpected loss.** Compensation for the risk that the realised outcome is worse than expected — the reason spreads exceed expected losses on average.\n\n**Illiquidity.** Payment for holding something you may not be able to sell quickly at a fair price.\n\n**Sentiment.** What the market currently demands for taking risk at all, which moves for reasons unrelated to any individual borrower.\n\n**The practical consequence: a spread widening tells you nothing on its own about the borrower.** It might be a deteriorating credit, or a market repricing risk generally, and the two call for opposite responses. Comparing the borrower's spread move with its sector's separates them."
     },
     {
+      "type": "infographic",
+      "id": "spread-components",
+      "caption": "What a credit spread pays for — only the first part can be estimated.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Expected loss",
+            "icon": "target",
+            "detail": "Default probability times the loss if it happens — the part that can be estimated."
+          },
+          {
+            "label": "Unexpected loss",
+            "icon": "alert",
+            "detail": "Compensation for outcomes worse than expected — why spreads exceed expected losses on average."
+          },
+          {
+            "label": "Illiquidity",
+            "icon": "lock",
+            "detail": "Payment for holding something you may not be able to sell quickly at a fair price."
+          },
+          {
+            "label": "Sentiment",
+            "icon": "chartUp",
+            "detail": "What the market demands for taking risk at all — it moves for reasons unrelated to any borrower."
+          }
+        ]
+      }
+    },
+    {
       "type": "concept",
       "id": "pd-and-lgd",
       "body": "**Expected loss has exactly two inputs, and credit analysis is mostly the business of estimating them.**\n\n**[[probability-of-default|Probability of default]]** — the chance the borrower fails to pay as promised within the period. Driven by leverage, coverage, cash flow [[volatility]] and the maturity schedule.\n\n**[[loss-given-default|Loss given default]]** — how much you lose when it happens, expressed as a percentage. The complement of recovery: 40% recovery means 60% loss given default.\n\nExpected loss is their product. A 3% default probability with a 60% loss rate is an expected loss of **1.8% a year**, and against a 4% spread that leaves 2.2% of net compensation.\n\n**What determines recovery is where you sit and what secures you**, which is why [[seniority]] is not a technicality:\n\n**Senior secured** — first claim on specific assets. Historically the highest recoveries.\n\n**Senior unsecured** — a general claim, behind the secured lenders.\n\n**Subordinated** — behind everyone else, and recoveries are frequently near zero.\n\n**Equity** — last, and usually nothing.\n\n**The same company therefore offers several different investments, and the spread differences between them are recovery differences rather than default-probability differences** — the company either fails or it does not, and everyone in the structure faces the same event."
+    },
+    {
+      "type": "infographic",
+      "id": "expected-loss-arithmetic",
+      "caption": "Expected loss has exactly two inputs — credit analysis is mostly the business of estimating them.",
+      "spec": {
+        "kind": "equation",
+        "terms": [
+          {
+            "label": "[[probability-of-default|Probability of default]]",
+            "sublabel": "3% a year",
+            "icon": "alert",
+            "bullets": [
+              "Driven by leverage, coverage, cash flow volatility and the maturity schedule"
+            ]
+          },
+          {
+            "label": "[[loss-given-default|Loss given default]]",
+            "sublabel": "60%",
+            "icon": "shield",
+            "bullets": [
+              "The complement of recovery: 40% recovery means 60% loss given default"
+            ]
+          },
+          {
+            "label": "Expected loss",
+            "sublabel": "1.8% a year",
+            "bullets": [
+              "Against a 4% spread, that leaves 2.2% of net compensation"
+            ]
+          }
+        ],
+        "operators": [
+          "×",
+          "="
+        ]
+      }
     },
     {
       "type": "intuition",
@@ -43,7 +116,11 @@
       "type": "table",
       "id": "seniority-table",
       "caption": "The same borrower, four different investments",
-      "headers": ["Position", "Typical recovery", "What a 400bp spread implies"],
+      "headers": [
+        "Position",
+        "Typical recovery",
+        "What a 400bp spread implies"
+      ],
       "rows": [
         [
           "Senior secured",
@@ -98,7 +175,11 @@
       "id": "fi-credit-01-q1",
       "type": "numeric",
       "difficulty": 2,
-      "tags": ["credit", "expected-loss", "arithmetic"],
+      "tags": [
+        "credit",
+        "expected-loss",
+        "arithmetic"
+      ],
       "concept": "worked-breakeven",
       "stem": "Default probability 3% a year, recovery 40%. What is the expected annual loss, in percent?",
       "answer": 1.8,
@@ -112,7 +193,11 @@
       "id": "fi-credit-01-q2",
       "type": "numeric",
       "difficulty": 3,
-      "tags": ["credit", "breakeven", "arithmetic"],
+      "tags": [
+        "credit",
+        "breakeven",
+        "arithmetic"
+      ],
       "concept": "breakeven-default",
       "stem": "A loan pays a 400bp spread and loss given default is 60%. What annual default rate makes you break even against the risk-free rate? Two decimal places.",
       "answer": 6.67,
@@ -126,7 +211,11 @@
       "id": "fi-credit-01-q3",
       "type": "numeric",
       "difficulty": 3,
-      "tags": ["credit", "recovery", "arithmetic"],
+      "tags": [
+        "credit",
+        "recovery",
+        "arithmetic"
+      ],
       "concept": "worked-breakeven",
       "stem": "Same 400bp spread, but recovery turns out to be 20% rather than 40%. What is the new breakeven default rate, in percent?",
       "answer": 5.0,
@@ -139,7 +228,10 @@
       "id": "fi-credit-01-q4",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["credit", "seniority"],
+      "tags": [
+        "credit",
+        "seniority"
+      ],
       "concept": "pd-and-lgd",
       "stem": "Two instruments issued by the same company pay the same 400bp spread — one senior secured, one subordinated. What differs?",
       "choices": [
@@ -161,7 +253,11 @@
       "id": "fi-credit-01-q5",
       "type": "tfj",
       "difficulty": 4,
-      "tags": ["credit", "diversification", "misconception"],
+      "tags": [
+        "credit",
+        "diversification",
+        "misconception"
+      ],
       "concept": "how-it-goes-wrong",
       "stem": "\"We hold a hundred loans, so idiosyncratic default risk is diversified away.\" True or false — and why?",
       "isTrue": false,
@@ -184,7 +280,11 @@
       "id": "fi-credit-01-q6",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["credit", "vintage", "on-the-job"],
+      "tags": [
+        "credit",
+        "vintage",
+        "on-the-job"
+      ],
       "concept": "spread-per-turn",
       "stem": "A direct lending manager reports stable 600bp spreads across three vintages while average portfolio leverage rose from 4.0x to 6.5x. What has happened?",
       "choices": [

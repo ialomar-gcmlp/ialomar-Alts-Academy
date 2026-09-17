@@ -22,6 +22,36 @@
       "body": "Two different rates get called \"the interest rate\" and confusing them causes real errors.\n\n**A [[spot-rate|spot rate]]** is today's rate for money borrowed today and repaid at one future date. The two-year spot rate is what you earn on a single payment two years out. A curve of spot rates for every maturity is the honest description of the rate environment.\n\n**A [[forward-rate|forward rate]]** is today's rate for a loan that *starts* at a future date. The \"one-year rate, one year from now\" — written 1y1y — is agreed today for a period that has not begun.\n\nThe critical fact, and it is the same one as in currency forwards: **the forward rate is not a forecast. It is arithmetic, forced by the spot curve.**\n\nIf it were anything else, two riskless strategies covering the same period would produce different outcomes, and someone would take the difference. Lock in a two-year rate today, or lock in one year today and one year forward starting in a year — same money, same period, same certainty. **They must return the same, and that equality defines the forward rate.**"
     },
     {
+      "type": "infographic",
+      "id": "forward-arithmetic",
+      "caption": "The forward rate is arithmetic forced by the spot curve, not a forecast.",
+      "spec": {
+        "kind": "equation",
+        "terms": [
+          {
+            "label": "Lock one year today",
+            "sublabel": "1y [[spot-rate|spot]] 4.00%",
+            "icon": "clock"
+          },
+          {
+            "label": "Roll into the forward",
+            "sublabel": "1y1y at 5.00%",
+            "icon": "arrow"
+          },
+          {
+            "label": "Lock two years today",
+            "sublabel": "2y spot 4.50%",
+            "icon": "lock"
+          }
+        ],
+        "operators": [
+          "×",
+          "="
+        ],
+        "result": "Same money, same period, same certainty — the two strategies must return the same, and that equality defines the [[forward-rate|forward rate]]."
+      }
+    },
+    {
       "type": "concept",
       "id": "the-curve-is-a-forecast",
       "body": "**Because forwards are pinned by the spot curve, the curve contains a complete implied path of future short rates. That path is the market's forecast, and it is already in every price.**\n\nThis is the fact that reframes most rates positioning. An upward-sloping curve does not mean \"rates will rise\" is a good trade — it means rates rising is what the curve already assumes. To make money you have to be right about something the curve is wrong about.\n\nSo the useful question is never \"where are rates going?\" It is **\"where do I differ from the forwards, and by how much?\"**\n\nTwo consequences follow directly.\n\n**Every rate view has a breakeven you can compute.** Buying a longer bond rather than rolling short ones wins only if future short rates come in *below* the forwards. That threshold is a number, not an opinion.\n\n**The curve's shape has a portfolio meaning rather than a predictive one.** A steep curve says the market expects meaningful rate rises; a flat one says it does not. Neither tells you what will happen — both tell you what you are being paid to disagree with, which is more useful."
@@ -30,6 +60,31 @@
       "type": "intuition",
       "id": "carry-and-rolldown",
       "body": "**A bond can make money without any rate forecast being right, and the two sources have names worth knowing separately.**\n\n**Carry** is the coupon you collect for holding it. If the coupon exceeds your funding cost, you earn the difference simply by waiting.\n\n**Rolldown** is subtler and often larger. On an upward-sloping curve, a three-year bond becomes a two-year bond after a year — and if the curve has not moved, it is now priced at the *lower* two-year rate. Lower yield means higher price. **You gain without anything changing.**\n\nThe combination is why an upward-sloping curve rewards holding longer bonds even when nobody expects rates to fall. And it is why \"the curve is upward sloping so I should stay short\" is usually wrong: staying short forgoes both carry and rolldown, and you need rates to rise faster than the forwards imply just to break even.\n\n**The honest framing: carry and rolldown are what you earn if you are wrong about nothing. The rate view is what you earn on top of that — or lose.** A strategy whose entire return is carry and rolldown is a legitimate strategy with a specific failure mode, which is a curve that moves against you faster than the accumulated carry can absorb."
+    },
+    {
+      "type": "infographic",
+      "id": "return-without-a-view",
+      "caption": "What a bond earns when you are wrong about nothing — and what sits on top.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Carry",
+            "icon": "coins",
+            "detail": "The coupon collected for holding it. If it exceeds your funding cost, you earn the difference simply by waiting."
+          },
+          {
+            "label": "Rolldown",
+            "icon": "chartUp",
+            "detail": "On an upward-sloping curve, a three-year bond becomes a two-year bond and is priced at the lower rate. You gain without anything changing."
+          },
+          {
+            "label": "The rate view",
+            "icon": "target",
+            "detail": "What you earn on top of carry and rolldown — or lose. Only pays if you are right about something the forwards are wrong about."
+          }
+        ]
+      }
     },
     {
       "type": "formula",
