@@ -180,6 +180,36 @@
       "heading": "Key risks"
     },
     {
+      "type": "infographic",
+      "id": "credit-failure-modes",
+      "caption": "Where credit analysis goes wrong — mostly in the assumptions imported without checking.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Recoveries from a different world",
+            "icon": "docCheck",
+            "detail": "Historical recovery data comes from asset-heavy bonds. A software company with a large secured loan is a different proposition."
+          },
+          {
+            "label": "Correlation ignored",
+            "icon": "layers",
+            "detail": "Defaults cluster — a hundred loans share an economy, and the downturn loss distribution is far worse than the average suggests."
+          },
+          {
+            "label": "Ratings read as forecasts",
+            "icon": "alert",
+            "detail": "A rating is an opinion about relative risk, revised after the fact — a starting point, not an answer."
+          },
+          {
+            "label": "Extend and pretend",
+            "icon": "clock",
+            "detail": "Amendments defer maturities without improving borrowers. Reported defaults stay low while credit quality falls."
+          }
+        ]
+      }
+    },
+    {
       "type": "pitfall",
       "id": "spread-per-turn",
       "body": "**A spread is only interpretable next to the leverage it is lending against, and the useful unit is spread per turn of leverage.**\n\nTwo loans both pay 600bp. One is senior secured at 4.0x leverage; the other is senior secured at 6.5x. The second is being paid the same to take substantially more risk — 150bp per turn against 92bp per turn.\n\nThis single ratio does most of the work in comparing [[private-credit|private credit]] vintages, because it separates the two things a headline yield conflates:\n\n**How much you are paid**, which the market sets.\n\n**How much risk you took to get it**, which the manager chose.\n\nSo a manager reporting stable spreads through a period when average leverage rose has, in substance, cut their price. The yield looks unchanged and the compensation per unit of risk has fallen. **This is the single most useful vintage comparison available in [[direct-lending|direct lending]], and it is not something managers volunteer.**\n\nAsk for spread, leverage and attachment point by vintage. Three columns, and the trend across them describes underwriting discipline more honestly than any statement about it.",

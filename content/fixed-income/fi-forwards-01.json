@@ -185,6 +185,36 @@
       "heading": "Key risks"
     },
     {
+      "type": "infographic",
+      "id": "forwards-failure-modes",
+      "caption": "The recurring errors in reading the curve.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Forwards read as predictions",
+            "icon": "alert",
+            "detail": "They are no-arbitrage prices, and historically poor forecasts — which is exactly why carry strategies earn a long-run return."
+          },
+          {
+            "label": "Direction instead of difference",
+            "icon": "target",
+            "detail": "Being right that rates rise while they rise less than the forwards imply is a losing position."
+          },
+          {
+            "label": "Negative carry ignored",
+            "icon": "coins",
+            "detail": "On an inverted curve a correct view held too long still loses — the bleed can exceed the eventual gain."
+          },
+          {
+            "label": "Rolldown assumed in a selloff",
+            "icon": "chartUp",
+            "detail": "Rolldown requires an unchanged curve. In a selloff the roll gain disappears and the duration loss dominates."
+          }
+        ]
+      }
+    },
+    {
       "type": "pitfall",
       "id": "forwards-in-private-markets",
       "body": "**The same logic applies to any private-market model that assumes a financing cost, and there it is usually invisible.**\n\nA buyout model runs five years with floating-rate debt. Somewhere in the spreadsheet is an assumption about what the reference rate does over those five years. Three possibilities:\n\n**It uses the forward curve.** The disciplined choice — the model assumes the market's implied path and takes no position.\n\n**It holds today's rate flat.** On an inverted curve this overstates the interest bill; on an upward-sloping one it understates it. Either way the model contains an unstated rate view.\n\n**It assumes cuts.** Very common in models written after a tightening cycle, and it is a macro position embedded in an equity underwriting.\n\n**The question to ask is: what rate path is in the model, and how does it compare with the forwards?** If the model assumes cuts the forwards do not, part of the projected return is a rates bet rather than an investment case — and it is being taken with leverage, in an illiquid vehicle, by a team whose expertise is operational.\n\nThat is not necessarily wrong. It should be visible, and it should be sized deliberately rather than inherited from whoever built the template.",

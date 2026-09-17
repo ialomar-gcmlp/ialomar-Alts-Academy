@@ -146,6 +146,36 @@
       "heading": "Key risks"
     },
     {
+      "type": "infographic",
+      "id": "realassets-failure-modes",
+      "caption": "Mostly slow bleeds and wrong-moment correlations, not blow-ups.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Roll cost compounding",
+            "icon": "coins",
+            "detail": "Years of contango can consume the entire spot return — the most common disappointment."
+          },
+          {
+            "label": "Procyclical at the wrong moment",
+            "icon": "alert",
+            "detail": "Industrial commodities fall in recessions, when equities also fall — the diversification is weakest in the common case."
+          },
+          {
+            "label": "Operating leverage in producers",
+            "icon": "gear",
+            "detail": "High fixed costs make the margin swing far more than the price: a 20% fall can erase it entirely."
+          },
+          {
+            "label": "Stranded assets",
+            "icon": "lock",
+            "detail": "For fossil reserves, the risk that they become uneconomic is structural — it does not mean-revert."
+          }
+        ]
+      }
+    },
+    {
       "type": "pitfall",
       "id": "index-is-not-exposure",
       "body": "**A commodity index is a set of specific futures positions with specific roll rules, not the commodities themselves.** Two indices covering the same commodities can produce materially different returns purely from how and when they roll, and how they weight sectors.\n\nSo \"we have commodity exposure\" is an incomplete statement. Which commodities, in what weights, rolled on what schedule, and with what collateral policy? A heavily energy-weighted index and a broadly diversified one will behave quite differently, and neither is the spot price of anything.\n\nThe same caution applies in reverse to producing assets: owning an oil producer is not owning oil. The producer has costs, debt, reserves of finite life and management decisions layered on top of the price.",

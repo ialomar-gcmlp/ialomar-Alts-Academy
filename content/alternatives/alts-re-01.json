@@ -134,6 +134,36 @@
       "heading": "Key risks"
     },
     {
+      "type": "infographic",
+      "id": "re-failure-modes",
+      "caption": "The classic failures — the first is leverage meeting the denominator.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Cap rate expansion, levered",
+            "stat": "−62%",
+            "detail": "A property at 60% loan-to-value that loses 25% of its value loses 62% of its equity — fully let and performing."
+          },
+          {
+            "label": "Refinancing at maturity",
+            "icon": "clock",
+            "detail": "Property debt is shorter than the hold: a loan maturing into higher rates and lower values may not refinance at all."
+          },
+          {
+            "label": "Structural obsolescence",
+            "icon": "alert",
+            "detail": "Some demand shifts do not revert — no cap rate makes an empty building valuable."
+          },
+          {
+            "label": "Valuation lag",
+            "icon": "gear",
+            "detail": "When transactions stop there are no comparables, so marks stay stale exactly when the market reprices fastest."
+          }
+        ]
+      }
+    },
+    {
       "type": "pitfall",
       "id": "noi-quality",
       "body": "**Not all NOI is equal, and the cap rate applied to it is supposed to reflect that.** A building let for fifteen years to a government tenant and one let for two years to a start-up can produce identical NOI today and are not remotely the same asset.\n\nSo look behind the number: **weighted average lease length**, tenant credit quality, how much of the income expires soon, and whether current rents are above or below market. A building let above market rent has NOI that will fall at renewal, and applying a market cap rate to inflated income overstates value twice over.\n\nThis is where the phrase \"the cap rate looks attractive\" most often misleads. A high cap rate can mean a cheap asset or an income stream the market does not believe will persist.",

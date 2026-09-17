@@ -135,6 +135,36 @@
       "heading": "Key risks"
     },
     {
+      "type": "infographic",
+      "id": "macro-failure-modes",
+      "caption": "How macro books fail — mostly by not surviving the wait.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Leverage against a slow thesis",
+            "icon": "clock",
+            "detail": "Cheap notional exposure plus a delayed repricing: financing costs and margin calls force reduction before the thesis pays."
+          },
+          {
+            "label": "Concentration",
+            "icon": "target",
+            "detail": "Few positions means one wrong call can dominate — 20% drawdowns from a single theme are not unusual."
+          },
+          {
+            "label": "Fighting a central bank",
+            "icon": "shield",
+            "detail": "An authority with an unlimited balance sheet can defer a repricing longer than a fund can fund the position."
+          },
+          {
+            "label": "Redemptions at the worst point",
+            "icon": "alert",
+            "detail": "Lumpy returns invite redemption after quiet periods — often just before the thesis pays."
+          }
+        ]
+      }
+    },
+    {
       "type": "pitfall",
       "id": "exposure-figures",
       "body": "**Do not read a macro fund's exposure the way you read an equity fund's.** A 300% notional figure in rate futures is not comparable to 300% gross in equities — the volatility per unit of notional is completely different. A two-year interest rate future moves a fraction of what an equity position does.\n\nThe meaningful measures are risk-based rather than notional: contribution to volatility by theme, or [[value-at-risk]] by risk factor. When a macro manager quotes notional exposure without translating it into risk, that is worth pressing on, and the translation is a reasonable thing to ask them to provide.",

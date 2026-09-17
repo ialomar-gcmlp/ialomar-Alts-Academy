@@ -137,6 +137,41 @@
       "heading": "Key risks"
     },
     {
+      "type": "infographic",
+      "id": "multistrat-failure-modes",
+      "caption": "The failure modes all run through the shared balance sheet.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Correlated stress",
+            "icon": "alert",
+            "detail": "Diversification measured on average conditions thins in stress, and the balance sheet takes the combined hit."
+          },
+          {
+            "label": "Contagion through margin",
+            "icon": "layers",
+            "detail": "Losses in one book force deleveraging in others — healthy positions sold because unhealthy ones needed capital."
+          },
+          {
+            "label": "Leverage at both levels",
+            "icon": "chartUp",
+            "detail": "Pods run leverage and the fund may lever the aggregate — total effective leverage exceeds any single book's figure."
+          },
+          {
+            "label": "Opacity",
+            "icon": "lock",
+            "detail": "Aggregated reports can conceal three books holding correlated exposures. Ask for exposures by strategy."
+          },
+          {
+            "label": "Pod turnover",
+            "icon": "case",
+            "detail": "In the platform model a departing team takes its returns with it — is turnover discipline, or an environment people leave?"
+          }
+        ]
+      }
+    },
+    {
       "type": "pitfall",
       "id": "smooth-returns",
       "body": "**Smooth multi-strategy returns can reflect diversification or offsetting mistakes.** If one book gains 4% while another loses 4%, the fund reports zero — indistinguishable from a fund that took no risk, and quite different in what it says about the manager.\n\nSo aggregate return and volatility are unusually uninformative for this structure. The useful information is the **attribution by strategy over time**: which books contributed, how consistently, and whether the centre's capital allocation moved toward the ones that worked. A fund unable or unwilling to provide that has removed your ability to assess the thing you are paying for.",

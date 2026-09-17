@@ -789,11 +789,14 @@ example renders "Worked example: <what is worked>". Table captions render at hea
 weight — they are section titles. "On the job" and "Worth remembering" keep their
 functional labels. New topics must ship fully headed — no generic or missing titles.
 
-Coverage as of M10 batch 5: 113 diagrams across 33 topics at 2–4 per reading —
-all of alternatives (19 topics), all of fund-structures (8), all of fixed-income (6).
-Those three domains are complete. The user supplied 11 example infographics in two
-rounds defining the wanted style. Remaining 53 topics are open authoring work, one
-domain per batch with user review between, per the M5 discipline.
+Coverage as of M10 batch 11 (2026-09-17): **COMPLETE — every one of the 86 topics
+carries infographics**, ~294 diagrams at 3–5 per reading, all eleven domains. The
+user supplied 11 example infographics across two rounds defining the wanted style.
+Future work here is maintenance: any NEW topic ships with 2–4 diagrams following
+the same rules (restate the topic's own verified prose; verify every figure in
+Python first; ids on every block; glossary slugs only from that lesson's prose;
+steps ALWAYS need a `detail` on every step — two batches failed content:check on
+a detail-less first step).
 
 Known cosmetic nit: the stack kind's vertical axis label reports scrollWidth 4px
 over clientWidth (glyph em-box arithmetic on `[writing-mode:vertical-rl]`); no

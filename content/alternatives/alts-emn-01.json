@@ -138,6 +138,36 @@
       "heading": "Key risks"
     },
     {
+      "type": "infographic",
+      "id": "emn-failure-modes",
+      "caption": "The characteristic failures of a market neutral book.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Unintended factor bets",
+            "icon": "layers",
+            "detail": "A stock-selection book that was in fact a style bet — the most common cause of a surprising loss."
+          },
+          {
+            "label": "Leverage on a small edge",
+            "icon": "chartUp",
+            "detail": "300% or more of gross to reach a target return: a 3% adverse move on a 400% book is 12% of capital."
+          },
+          {
+            "label": "Crowding and deleveraging",
+            "icon": "alert",
+            "detail": "Similar signals, similar positions — the 2007 quant episode hit books that were, on their own terms, correctly hedged."
+          },
+          {
+            "label": "Borrow and margin",
+            "icon": "lock",
+            "detail": "A recall or margin increase forces trading at the worst moment, and high gross means the financing is already in use."
+          }
+        ]
+      }
+    },
+    {
       "type": "pitfall",
       "id": "low-vol-illusion",
       "body": "**Low measured volatility can be leverage waiting to be revealed.** A market neutral fund reporting 4% annualised volatility looks conservative. But if that 4% comes from a 400% gross book on a thin edge, the volatility is low because the *hedges are working*, not because the positions are small.\n\nThe distinction matters because hedges work reliably in normal conditions and fail together in stressed ones. Two funds can both report 4% volatility, one running 100% gross and one running 400%, and they are not remotely the same risk. Always read reported volatility alongside gross exposure, and ask what the worst week looked like rather than what the average month did.",

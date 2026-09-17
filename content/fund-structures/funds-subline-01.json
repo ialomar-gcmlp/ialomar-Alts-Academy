@@ -158,6 +158,36 @@
       "heading": "Key risks"
     },
     {
+      "type": "infographic",
+      "id": "facility-failure-modes",
+      "caption": "Where subscription lines mislead — mostly in comparisons, occasionally in a crunch.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "IRRs compared across usage",
+            "icon": "chartUp",
+            "detail": "Different facility usage can shift a manager between quartiles with no difference in skill."
+          },
+          {
+            "label": "Extended usage around fundraises",
+            "icon": "clock",
+            "detail": "Eighteen months drawn while prospects view the IRR is a presentation decision. Ask for the average drawn period."
+          },
+          {
+            "label": "Interest cost forgotten",
+            "icon": "coins",
+            "detail": "Adjusting for the timing effect without the facility's cost is half a correction — both are needed."
+          },
+          {
+            "label": "The line withdrawn in a crunch",
+            "icon": "alert",
+            "detail": "A GP relying on it for execution must then call capital at short notice — an LP liquidity event at the worst time."
+          }
+        ]
+      }
+    },
+    {
       "type": "pitfall",
       "id": "ask-for-unlevered",
       "body": "**The fix is simple and rarely volunteered: ask for the IRR calculated as if capital had been called on the deal date.** Sometimes called an unlevered or facility-adjusted IRR.\n\nMost GPs can produce this — the data is in their system — and a GP that maintains it as a standard disclosure is signalling something about how it wants to be measured. A GP that declines, or says it is not calculated, has told you something too.\n\nAnd if you cannot get it, the practical substitute is to **lean on the multiple.** [[moic|MOIC]] and [[tvpi|TVPI]] are immune to the timing effect, so ranking managers on multiple and treating IRR as secondary removes the distortion entirely. It is a blunter comparison and an honest one.",

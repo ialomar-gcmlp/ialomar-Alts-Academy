@@ -122,6 +122,36 @@
       "heading": "Key risks"
     },
     {
+      "type": "infographic",
+      "id": "mismatch-failures",
+      "caption": "The central failure is terms more liquid than the assets — and its relatives.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Terms outrun the assets",
+            "icon": "alert",
+            "detail": "Quarterly redemption on assets that take a year to sell: in stress, either gate — or sell the good assets and impair everyone who stays."
+          },
+          {
+            "label": "Gates nobody expected",
+            "icon": "lock",
+            "detail": "Legally available, commercially shocking — the investor learns the terms only when they need them."
+          },
+          {
+            "label": "Side pockets hiding problems",
+            "icon": "layers",
+            "detail": "The legitimate use is unvaluable assets; the illegitimate one is parking positions nobody wants marked down. Ask what proportion is side-pocketed, and its trend."
+          },
+          {
+            "label": "Suspension",
+            "icon": "clock",
+            "detail": "Most agreements permit halting redemptions entirely — the stated terms are conditional in a way few investors price."
+          }
+        ]
+      }
+    },
+    {
       "type": "pitfall",
       "id": "first-mover",
       "body": "**In any fund whose assets are less liquid than its terms, redeeming first is rewarded.** That is not cynicism, it is arithmetic: early redeemers get out at a valuation struck before the illiquid residue is repriced, funded by the sale of the best assets.\n\nWhich creates the incentive that makes runs happen. If you believe others may redeem, redeeming becomes rational regardless of your view on the manager. **Gates exist precisely to break that logic** — by capping what anyone can take, they remove the advantage of going first and make staying a reasonable choice.\n\nSo when you read a gate provision, read it twice: once as a restriction on you, and once as the thing that stops a fund unravelling around you. Whether it is friend or obstacle depends entirely on which side of the queue you are on, and you do not get to choose that in advance.",

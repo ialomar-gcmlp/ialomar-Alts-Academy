@@ -66,6 +66,34 @@
       "heading": "$180m through the four tiers"
     },
     {
+      "type": "infographic",
+      "id": "waterfall-flow",
+      "caption": "The worked $180m through the four tiers — the GP's $16m is exactly 20% of the $80m profit.",
+      "spec": {
+        "kind": "steps",
+        "steps": [
+          {
+            "label": "Tier 1: $100m — capital returned",
+            "detail": "Nothing else happens until this is complete."
+          },
+          {
+            "label": "Tier 2: $20m — the preferred return",
+            "icon": "coins",
+            "detail": "The LP's 8%-a-year minimum, paid before the GP shares in anything."
+          },
+          {
+            "label": "Tier 3: $5m — the catch-up",
+            "icon": "target",
+            "detail": "100% to the GP until it holds 20% of the profit distributed so far. This is the tier where the money is."
+          },
+          {
+            "label": "Tier 4: $55m — the 80/20 split",
+            "detail": "$44m LP, $11m GP. GP total: $16m — and with a hard hurdle instead, $12m. A third of the carry in one clause."
+          }
+        ]
+      }
+    },
+    {
       "type": "intuition",
       "id": "soft-versus-hard",
       "body": "That $4m is the whole reason to understand this properly, and the distinction has a name.\n\n**A soft hurdle (with catch-up)** means the preferred return is a *timing* device, not a giveaway. Once the fund clears 8%, the GP catches up and ends with 20% of everything — including the first 8%. The LP got their preferred return earlier, not permanently.\n\n**A hard hurdle (no catch-up)** means the preferred return is genuinely carved out. The GP never earns carry on the first 8%, so its effective share of total profit is permanently below 20%.\n\nIn the worked example: 20% versus 15% of total profit. **The GP's economics differ by a third and both funds can describe themselves as \"8% hurdle, 20% carry\".** Both descriptions are accurate. Neither is complete.\n\nSo the question \"what is the carry?\" is insufficient. The complete question is: **what is the carry, is the hurdle hard or soft, what is the catch-up rate, and is the preferred return compounding?** Four numbers, and the headline figure is only one of them.",

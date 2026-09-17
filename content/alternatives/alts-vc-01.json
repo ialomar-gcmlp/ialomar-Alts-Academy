@@ -155,6 +155,36 @@
       "heading": "Key risks"
     },
     {
+      "type": "infographic",
+      "id": "vc-failure-modes",
+      "caption": "Venture's failure modes — the most common is quiet, not spectacular.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Missing the winners",
+            "icon": "target",
+            "detail": "A portfolio of reasonable companies with no extreme winner returns roughly capital after fees — a poor outcome for ten illiquid years."
+          },
+          {
+            "label": "Over-diversifying",
+            "icon": "layers",
+            "detail": "Beyond a point, stakes are too small for even a large winner to move the fund."
+          },
+          {
+            "label": "Reserves misallocated",
+            "icon": "coins",
+            "detail": "Everything in first cheques means dilution through the winner's rounds; funding losers out of reluctance consumes what the winners needed."
+          },
+          {
+            "label": "Extreme rate sensitivity",
+            "icon": "alert",
+            "detail": "The longest-duration asset there is — and because marks are infrequent, the repricing arrives late and all at once."
+          }
+        ]
+      }
+    },
+    {
       "type": "pitfall",
       "id": "interim-marks",
       "body": "**Venture interim performance is close to uninformative, and this is structural rather than a criticism of any manager.** Early in a fund's life almost all reported value is [[rvpi|RVPI]] — unrealised, carried at the last financing round, which may be old.\n\nWorse, the last round price is itself a poor guide: rounds are priced with preferences and protections attached, so a headline valuation can overstate what common equity is actually worth. A company that raised at a large valuation with a structured preference may be worth far less to earlier holders than the headline implies.\n\nThe practical upshot: judge a venture fund on [[dpi|DPI]] and on the identity of its winners, not on TVPI. And accept that meaningful judgement is not available until year seven or later.",

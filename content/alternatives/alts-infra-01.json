@@ -58,6 +58,31 @@
       "heading": "The return driver"
     },
     {
+      "type": "infographic",
+      "id": "levered-bond-character",
+      "caption": "A long, stable, often inflation-linked income stream — plus whatever leverage is applied to it.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Leverage is central, not incidental",
+            "icon": "layers",
+            "detail": "The unlevered return on a stable contracted asset is modest — the predictability is precisely what makes lenders comfortable. The equity is largely a levered bond return."
+          },
+          {
+            "label": "Duration is enormous",
+            "icon": "clock",
+            "detail": "Value sits in cash flows stretching decades out — among the longest-duration assets an investor can own, and it reprices accordingly when rates move."
+          },
+          {
+            "label": "No thesis required",
+            "icon": "docCheck",
+            "detail": "No market repricing, no transformation, no deal to complete — the asset produces cash under a contract."
+          }
+        ]
+      }
+    },
+    {
       "type": "intuition",
       "id": "inflation-and-politics",
       "body": "Two things distinguish infrastructure from every other private asset, and they pull in opposite directions.\n\n**The inflation linkage is genuinely valuable and genuinely conditional.** A tariff that escalates with a published index gives real protection against inflation — a rare property. But read the mechanism rather than the claim. Which index? Is the pass-through full or partial? Is there a cap? Does it apply with a lag? Are costs also rising with inflation, and by more? A regulated utility whose revenue rises with one index while its construction costs rise faster is not inflation-protected in any useful sense.\n\n**Political and regulatory risk is the dominant tail risk, and it is not diversifiable.** These are essential services with prices set by, or heavily influenced by, public authorities. When tariffs become politically contentious — as they do when household bills rise sharply — regulated returns can be revised, windfall levies imposed, or concession terms renegotiated.\n\nThat risk has an awkward property: **it is highest exactly when the inflation linkage is paying off.** The mechanism that raises your revenue in a high-inflation period is the same mechanism that raises consumer bills and attracts political attention. The protection and the threat share a cause.",

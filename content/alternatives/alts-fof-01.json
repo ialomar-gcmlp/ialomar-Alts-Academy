@@ -160,6 +160,36 @@
       "heading": "Key risks"
     },
     {
+      "type": "infographic",
+      "id": "fof-failure-modes",
+      "caption": "The structure's failure modes — the first is the base case, not a tail.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Fees overwhelm the return",
+            "icon": "coins",
+            "detail": "Two layers on a diversified portfolio can consume nearly half the gross, as the worked cascade shows."
+          },
+          {
+            "label": "Liquidity mismatch",
+            "icon": "clock",
+            "detail": "Better redemption terms than the underlying holdings — the gap is met by selling the liquid holdings first, leaving the residue."
+          },
+          {
+            "label": "Cascading gates",
+            "icon": "lock",
+            "detail": "When underlying managers restrict, the fund-of-funds cannot meet its own terms — suspensions propagate upward."
+          },
+          {
+            "label": "Diworsification",
+            "icon": "layers",
+            "detail": "Enough managers and the portfolio becomes an expensive index of the strategy — no outperformance possible, fees intact."
+          }
+        ]
+      }
+    },
+    {
       "type": "pitfall",
       "id": "the-honest-question",
       "body": "**The wrong question is \"are the fees too high?\" The right one is \"what is the alternative, and what does that cost?\"**\n\nFor an investor with no dedicated team, the realistic alternatives are: allocate directly without proper operational diligence, hold a liquid substitute instead, or do nothing. Against those, a fee-heavy but competently run fund-of-funds may be the best available option — and \"the fees are 44% of gross return\" is not a rebuttal if the alternative is a fraud loss or no access.\n\nFor an investor with a capable team and scale, the same structure is usually paying twice for work already available in-house, with less control and worse look-through.\n\nSo the answer depends on the investor rather than on the structure. What should not vary is the honesty of the arithmetic: whoever is deciding should see the 44.5% figure and the list of alternatives on the same page.",
