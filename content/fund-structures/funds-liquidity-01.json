@@ -5,9 +5,15 @@
   "title": "Lock-ups, Gates, Notice Periods and Side Pockets",
   "summary": "The terms that decide whether you can get your money out — and why the ones that trap you also protect you.",
   "level": "core",
-  "prereqs": ["funds-gplp-01"],
+  "prereqs": [
+    "funds-gplp-01"
+  ],
   "estMinutes": 10,
-  "examRelevance": ["CAIA-L1", "CAIA-L2", "practical"],
+  "examRelevance": [
+    "CAIA-L1",
+    "CAIA-L2",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
@@ -15,15 +21,75 @@
       "body": "Open-ended funds let investors redeem. The terms governing how and when are among the most consequential in the document, and there are four of them.\n\n**[[lockup|Lock-up]].** A period after investing during which you cannot redeem at all. Commonly one year, sometimes with a fee-based early exit.\n\n**[[redemption-notice|Notice period]].** How far ahead you must announce a redemption. Ninety days is common. It exists so the manager can raise cash in an orderly way — and it means your decision is made three months before your money arrives.\n\n**[[gate]].** A cap on total redemptions in a period, often 25% of fund assets per quarter. If requests exceed it, everyone is scaled back pro rata.\n\n**[[side-pocket]].** A carve-out holding positions that cannot be valued or sold normally. Investors keep their share of it and receive proceeds only as those assets are realised.\n\nAll four restrict you. All four also protect you, and holding both facts at once is the point of this topic."
     },
     {
+      "type": "infographic",
+      "id": "four-terms",
+      "caption": "The four terms that govern getting out.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "[[lockup|Lock-up]]",
+            "icon": "lock",
+            "detail": "No redemption at all for a period after investing — commonly a year."
+          },
+          {
+            "label": "[[redemption-notice|Notice period]]",
+            "icon": "clock",
+            "detail": "Often ninety days: your decision is made three months before your money arrives."
+          },
+          {
+            "label": "[[gate|Gate]]",
+            "icon": "shield",
+            "detail": "Redemptions capped, often at 25% a quarter; excess requests scale back pro rata."
+          },
+          {
+            "label": "[[side-pocket|Side pocket]]",
+            "icon": "case",
+            "detail": "Unvaluable or unsellable positions carved out; proceeds arrive only as they realise."
+          }
+        ]
+      }
+    },
+    {
       "type": "intuition",
       "id": "why-restrictions-protect",
       "body": "The instinct is to treat every liquidity restriction as a term the manager wants and the investor concedes. That is wrong, and understanding why changes how you negotiate.\n\nConsider a fund holding somewhat illiquid assets with no gate. Bad news arrives and a third of investors request redemption. The manager must sell to meet them, and sells **what is easiest to sell** — the most liquid, highest-quality positions. Remaining investors are left holding a portfolio that is worse than the one they owned, at a valuation struck before the damage.\n\nSo **the first redeemers are paid by the ones who stay.** A gate prevents that transfer. It is genuinely protective of whoever remains — which on any given day might be you.\n\nThe same logic applies to notice periods and side pockets. A notice period lets the manager sell in an orderly way rather than at fire-sale prices. A side pocket stops an unsaleable asset either blocking all redemptions or being dumped at a fraction of its worth.\n\n**The real question is therefore not \"how restrictive are the terms?\" but \"do the terms match the liquidity of the assets?\"** A fund holding listed large caps has no business imposing two-year lock-ups. A fund holding [[private-credit|private credit]] offering monthly redemption is making a promise its assets cannot keep — and that mismatch is the actual danger, in either direction."
     },
     {
+      "type": "infographic",
+      "id": "redemption-spiral",
+      "caption": "The first redeemers are paid by the ones who stay — the transfer a gate exists to prevent.",
+      "spec": {
+        "kind": "cycle",
+        "stages": [
+          {
+            "label": "Bad news; redemptions requested",
+            "detail": "A third of investors head for the exit."
+          },
+          {
+            "label": "The manager sells what is easiest",
+            "detail": "The most liquid, highest-quality positions go first."
+          },
+          {
+            "label": "Those who stay hold a worse portfolio",
+            "detail": "Valued as it stood before the damage."
+          },
+          {
+            "label": "More investors redeem",
+            "detail": "Staying looks increasingly expensive."
+          }
+        ]
+      }
+    },
+    {
       "type": "table",
       "id": "matching",
       "caption": "Terms matched to assets",
-      "headers": ["Assets held", "Appropriate terms", "Warning sign"],
+      "headers": [
+        "Assets held",
+        "Appropriate terms",
+        "Warning sign"
+      ],
       "rows": [
         [
           "Listed large-cap equities",
@@ -78,7 +144,11 @@
       "id": "funds-liquidity-01-q1",
       "type": "mcq",
       "difficulty": 2,
-      "tags": ["gate", "liquidity", "structure"],
+      "tags": [
+        "gate",
+        "liquidity",
+        "structure"
+      ],
       "concept": "why-restrictions-protect",
       "stem": "A fund holding somewhat illiquid assets faces redemption requests for a third of its assets, with no gate in place. What happens to investors who stay?",
       "choices": [
@@ -100,7 +170,11 @@
       "id": "funds-liquidity-01-q2",
       "type": "tfj",
       "difficulty": 3,
-      "tags": ["liquidity", "terms", "misconception"],
+      "tags": [
+        "liquidity",
+        "terms",
+        "misconception"
+      ],
       "concept": "why-restrictions-protect",
       "stem": "\"More liquid redemption terms are always better for the investor.\" True or false — and why?",
       "isTrue": false,
@@ -123,7 +197,11 @@
       "id": "funds-liquidity-01-q3",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["side-pocket", "valuation", "warning-signs"],
+      "tags": [
+        "side-pocket",
+        "valuation",
+        "warning-signs"
+      ],
       "concept": "how-it-goes-wrong",
       "stem": "The proportion of a fund held in side pockets has risen from 3% to 22% over eighteen months. What should you ask?",
       "choices": [
@@ -145,7 +223,11 @@
       "id": "funds-liquidity-01-q4",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["gate", "first-mover", "incentives"],
+      "tags": [
+        "gate",
+        "first-mover",
+        "incentives"
+      ],
       "concept": "first-mover",
       "stem": "Why can a gate make an investor more willing to stay in a fund, rather than less?",
       "choices": [
@@ -167,7 +249,11 @@
       "id": "funds-liquidity-01-q5",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["liquidity", "concentration", "on-the-job"],
+      "tags": [
+        "liquidity",
+        "concentration",
+        "on-the-job"
+      ],
       "concept": "on-the-job",
       "stem": "A fund offers quarterly liquidity with 60 days' notice, and three investors hold 60% of its assets. Why might the terms understate your liquidity risk?",
       "choices": [
@@ -189,7 +275,11 @@
       "id": "funds-liquidity-01-q6",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["liquidity", "matching", "diligence"],
+      "tags": [
+        "liquidity",
+        "matching",
+        "diligence"
+      ],
       "concept": "matching",
       "stem": "Which combination should prompt the most scrutiny?",
       "choices": [

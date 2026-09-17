@@ -778,10 +778,13 @@ Authoring rules:
   list (unknown → no icon, never a crash). Current pictograms: coins, chartUp,
   docCheck, gear, shield + the original 14.
 
-Coverage as of M10: 10 diagrams across six flagship topics (alts-convert-01,
-alts-statarb-01, alts-pe-02, alts-event-01, funds-waterfall-01, funds-gplp-01).
-Remaining 80 topics are open authoring work, one domain per batch with user review
-between, per the M5 discipline.
+Coverage as of M10 batch 2: 22 diagrams across 12 topics — the six flagship seeds
+(alts-convert-01, alts-statarb-01, alts-pe-02, alts-event-01, funds-waterfall-01,
+funds-gplp-01) plus the rest of fund-structures (funds-calls-01, funds-fees-01,
+funds-hwm-01, funds-liquidity-01, funds-sideletters-01, funds-subline-01), which
+completes that domain. Remaining 74 topics are open authoring work, one domain per
+batch with user review between, per the M5 discipline; fixed income is the named
+next domain.
 
 ### Dev-only inspection handle
 

@@ -5,9 +5,15 @@
   "title": "Subscription Lines and the IRR Problem",
   "summary": "A credit facility that raises a fund's reported IRR without changing a single investment — and how to see through it.",
   "level": "advanced",
-  "prereqs": ["funds-calls-01", "quant-npv-01"],
+  "prereqs": [
+    "funds-calls-01",
+    "quant-npv-01"
+  ],
   "estMinutes": 9,
-  "examRelevance": ["CAIA-L2", "practical"],
+  "examRelevance": [
+    "CAIA-L2",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
@@ -15,9 +21,60 @@
       "body": "A GP finds a deal and needs $50m on Friday. It has two choices.\n\n**Call the capital.** Issue a [[capital-call]] to LPs, wait ten business days, receive the money, complete the deal. The LPs' capital is now outstanding from that date.\n\n**Draw on a [[subscription-line]].** Borrow $50m from a bank against the security of LP [[commitment|commitments]], complete the deal immediately, and call the capital from LPs some months later to repay the facility.\n\nThe second is the modern default across much of private markets, and it has genuine operational merits: fewer, larger, more predictable capital calls, and the ability to move quickly on a competitive deal.\n\nIt also has an effect on reported performance that has nothing to do with operations. **Because [[internal-rate-of-return|IRR]] measures the return on capital from the moment it is outstanding, delaying the call shortens the measurement period — and a shorter period on the same profit produces a higher annualised rate.**"
     },
     {
+      "type": "infographic",
+      "id": "call-vs-borrow",
+      "caption": "Two ways to fund the same deal on Friday.",
+      "spec": {
+        "kind": "comparison",
+        "columns": [
+          {
+            "title": "Call the capital",
+            "bullets": [
+              "Ten business days' wait",
+              "LP capital outstanding from day one",
+              "IRR measures the full holding period"
+            ]
+          },
+          {
+            "title": "Draw the [[subscription-line]]",
+            "bullets": [
+              "The deal completes immediately",
+              "LPs are called months later, to repay the bank",
+              "Same deal, higher reported IRR — the clock starts later"
+            ]
+          }
+        ]
+      }
+    },
+    {
       "type": "intuition",
       "id": "the-irr-effect",
       "body": "Work through why this happens, because it is a direct application of the IRR mechanics.\n\nSuppose an investment returns 1.5x over four years. Called on day one, the LP's money is outstanding for four years and the IRR is roughly 10.7%. Now hold the deal identical and delay the LP call by twelve months using a facility: the LP's capital is outstanding for three years instead, and the same 1.5x produces an IRR of about 14.5%.\n\n**Same deal. Same profit. Same exit. Nearly four points of additional annual return, created by the calendar.**\n\nThree things follow.\n\n**IRR becomes non-comparable across funds.** A fund using a twelve-month facility and one calling capital immediately cannot be ranked on IRR, because the measure is being applied to different periods.\n\n**The multiple is immune.** [[moic|MOIC]] and [[tvpi|TVPI]] divide value by capital and ignore time entirely, so they are unaffected by the facility. This is why the pairing of IRR and a multiple is not redundant — **the facility moves one and not the other, so the gap between them is diagnostic.**\n\n**The LP is not obviously better off.** They keep their money longer, which has value. They also pay the facility's interest and fees through the fund, and they carry the obligation regardless. Whether it nets positive depends on what the uncalled capital earned in the meantime."
+    },
+    {
+      "type": "infographic",
+      "id": "irr-effect",
+      "caption": "The same 1.5x over the same four-year deal — the difference is created by the calendar.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Called on day one",
+            "stat": "10.7%",
+            "detail": "LP capital outstanding for four years."
+          },
+          {
+            "label": "Called a year later",
+            "stat": "14.5%",
+            "detail": "Same deal, same profit, same exit — capital outstanding for three."
+          },
+          {
+            "label": "The difference",
+            "stat": "+3.8pts",
+            "detail": "Annual return created by timing, not by the investment."
+          }
+        ]
+      }
     },
     {
       "type": "concept",
@@ -28,7 +85,11 @@
       "type": "table",
       "id": "what-moves",
       "caption": "What a subscription line does and does not affect",
-      "headers": ["Measure", "Effect", "Why"],
+      "headers": [
+        "Measure",
+        "Effect",
+        "Why"
+      ],
       "rows": [
         [
           "[[internal-rate-of-return|IRR]]",
@@ -88,7 +149,10 @@
       "id": "funds-subline-01-q1",
       "type": "mcq",
       "difficulty": 2,
-      "tags": ["subscription-line", "irr"],
+      "tags": [
+        "subscription-line",
+        "irr"
+      ],
       "concept": "what-it-is",
       "stem": "How does a subscription line raise a fund's reported IRR?",
       "choices": [
@@ -110,7 +174,11 @@
       "id": "funds-subline-01-q2",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["subscription-line", "moic", "measurement"],
+      "tags": [
+        "subscription-line",
+        "moic",
+        "measurement"
+      ],
       "concept": "the-irr-effect",
       "stem": "Why is the multiple of invested capital unaffected by subscription line usage?",
       "choices": [
@@ -132,7 +200,11 @@
       "id": "funds-subline-01-q3",
       "type": "tfj",
       "difficulty": 4,
-      "tags": ["subscription-line", "lp-outcome", "misconception"],
+      "tags": [
+        "subscription-line",
+        "lp-outcome",
+        "misconception"
+      ],
       "concept": "the-irr-effect",
       "stem": "\"A subscription line is good for LPs because we keep our money longer.\" True or false — and why?",
       "isTrue": false,
@@ -155,7 +227,11 @@
       "id": "funds-subline-01-q4",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["subscription-line", "diligence", "on-the-job"],
+      "tags": [
+        "subscription-line",
+        "diligence",
+        "on-the-job"
+      ],
       "concept": "ask-for-unlevered",
       "stem": "You are comparing two buyout funds with similar strategies. One uses a twelve-month subscription line, the other calls capital immediately. What is the cleanest way to compare them?",
       "choices": [
@@ -177,7 +253,11 @@
       "id": "funds-subline-01-q5",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["subscription-line", "risk", "how-it-goes-wrong"],
+      "tags": [
+        "subscription-line",
+        "risk",
+        "how-it-goes-wrong"
+      ],
       "concept": "how-it-goes-wrong",
       "stem": "Why is heavy reliance on a subscription line a liquidity risk for LPs rather than only a reporting issue?",
       "choices": [
@@ -199,7 +279,11 @@
       "id": "funds-subline-01-q6",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["subscription-line", "duration", "on-the-job"],
+      "tags": [
+        "subscription-line",
+        "duration",
+        "on-the-job"
+      ],
       "concept": "real-costs",
       "stem": "Which single question best distinguishes a facility used as a bridge from one used to manage reported performance?",
       "choices": [

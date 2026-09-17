@@ -5,9 +5,15 @@
   "title": "High Water Marks and Crystallisation",
   "summary": "The rule that stops a hedge fund charging you twice for the same gain — and the ways it gets weakened.",
   "level": "core",
-  "prereqs": ["funds-fees-01"],
+  "prereqs": [
+    "funds-fees-01"
+  ],
   "estMinutes": 9,
-  "examRelevance": ["CAIA-L1", "CAIA-L2", "practical"],
+  "examRelevance": [
+    "CAIA-L1",
+    "CAIA-L2",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
@@ -29,6 +35,32 @@
       ]
     },
     {
+      "type": "infographic",
+      "id": "hwm-walkthrough",
+      "caption": "The worked path: fees are charged only above the highest point you have already reached.",
+      "spec": {
+        "kind": "steps",
+        "steps": [
+          {
+            "label": "Invest at 100",
+            "detail": "Your [[high-water-mark]] starts at 100 — it is yours, not the fund's."
+          },
+          {
+            "label": "Falls to 80",
+            "detail": "No performance fee. The mark stays at 100."
+          },
+          {
+            "label": "Recovers to 95",
+            "detail": "Still below the mark — getting you back to even is not billable."
+          },
+          {
+            "label": "Reaches 110",
+            "detail": "A fee is charged on the 10 above the mark, and the mark moves to 110."
+          }
+        ]
+      }
+    },
+    {
       "type": "intuition",
       "id": "why-it-matters",
       "body": "The high water mark exists because of a genuine asymmetry: **the manager shares the upside and not the downside.**\n\nA performance fee is a call option on the fund's gains, granted by the investor. Options are worth more when the underlying is volatile, so a manager holding one has a structural incentive toward risk that the investor does not share. The high water mark constrains that — it means a manager who loses money has to earn it back before being paid again, which restores some symmetry.\n\nBut notice what it does *not* do, because this is the part people miss. **A high water mark does not make the manager whole for your loss; it merely stops them profiting from the recovery.** If a fund falls 30% and takes three years to recover, you have lost three years and the manager has lost three years of performance fees. Nobody compensates you for the time.\n\nAnd there is a harder problem. A manager deep below their high water mark has a difficult set of incentives: their performance fee is worthless unless the fund recovers substantially, so **taking more risk becomes rational for them and not for you.** Alternatively they close the fund and start a new one with a fresh mark — which is the same outcome as a reset, achieved differently."
@@ -39,10 +71,44 @@
       "body": "**Fund closure and relaunch.** The most complete way around a high water mark. A manager well below their mark closes, returns capital, and launches a new vehicle with the same strategy and a fresh mark. Perfectly legal, and it eliminates the constraint entirely.\n\n**Explicit reset provisions.** Some agreements permit a reset after a defined period below the mark, or a partial reset. Worth reading for, and rare in institutional terms.\n\n**Modified or rolling high water marks.** Variations where the mark amortises over time or resets to a proportion of the shortfall. These are not always unreasonable — a permanent mark can trap a manager after an extreme loss — but they are a weakening and should be priced as one.\n\n**Frequent crystallisation.** Quarterly rather than annual crystallisation means gains in one quarter are charged even if a later quarter reverses them. Over a volatile year with a flat outcome, an investor can pay meaningful fees. **Less frequent crystallisation is straightforwardly better for the investor.**\n\n**Equalisation mechanics.** Where investors subscribe at different times, funds use series accounting or equalisation adjustments so each investor's own mark is respected. These are legitimate and complicated; the risk is a poorly implemented method that quietly charges new investors for gains earned before they arrived.\n\n**Fees on unrealised gains.** If a fund holds illiquid positions marked by the manager, a performance fee crystallised annually is being paid on the manager's own valuations. That is a genuine conflict, and side-pocketing illiquid positions is the usual remedy."
     },
     {
+      "type": "infographic",
+      "id": "hwm-weakenings",
+      "caption": "The four ways a high water mark gets weakened — each should be priced, not just noticed.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Close and relaunch",
+            "icon": "arrow",
+            "detail": "Return capital, start a new vehicle, same strategy, fresh mark. The most complete escape, and legal."
+          },
+          {
+            "label": "Explicit resets",
+            "icon": "gear",
+            "detail": "Permitted after a defined period below the mark. Rare in institutional terms — read for it."
+          },
+          {
+            "label": "Rolling or modified marks",
+            "icon": "layers",
+            "detail": "The mark amortises or resets to a share of the shortfall. Sometimes defensible, always a weakening."
+          },
+          {
+            "label": "Frequent [[crystallisation]]",
+            "icon": "clock",
+            "detail": "Quarterly rather than annual locks in fees that a later loss in the same year would have offset."
+          }
+        ]
+      }
+    },
+    {
       "type": "table",
       "id": "terms-comparison",
       "caption": "Performance fee terms, ranked by investor friendliness",
-      "headers": ["Term", "Better for the investor", "Why"],
+      "headers": [
+        "Term",
+        "Better for the investor",
+        "Why"
+      ],
       "rows": [
         [
           "[[crystallisation]] frequency",
@@ -97,7 +163,10 @@
       "id": "funds-hwm-01-q1",
       "type": "numeric",
       "difficulty": 2,
-      "tags": ["high-water-mark", "performance-fee"],
+      "tags": [
+        "high-water-mark",
+        "performance-fee"
+      ],
       "concept": "worked-hwm",
       "stem": "You invest at 100. The fund goes to 80, then 95, then 110. With a permanent high water mark, what total gain is a performance fee charged on?",
       "answer": 10,
@@ -110,7 +179,10 @@
       "id": "funds-hwm-01-q2",
       "type": "numeric",
       "difficulty": 3,
-      "tags": ["high-water-mark", "reset"],
+      "tags": [
+        "high-water-mark",
+        "reset"
+      ],
       "concept": "worked-hwm",
       "stem": "Same path (100 → 80 → 95 → 110), but the high water mark resets to 80 after the fall. What total gain would fees be charged on?",
       "answer": 30,
@@ -123,7 +195,10 @@
       "id": "funds-hwm-01-q3",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["high-water-mark", "crystallisation"],
+      "tags": [
+        "high-water-mark",
+        "crystallisation"
+      ],
       "concept": "how-it-gets-weakened",
       "stem": "Why is quarterly crystallisation worse for the investor than annual?",
       "choices": [
@@ -145,7 +220,11 @@
       "id": "funds-hwm-01-q4",
       "type": "tfj",
       "difficulty": 4,
-      "tags": ["high-water-mark", "incentives", "misconception"],
+      "tags": [
+        "high-water-mark",
+        "incentives",
+        "misconception"
+      ],
       "concept": "why-it-matters",
       "stem": "\"A high water mark means the manager shares our downside.\" True or false — and why?",
       "isTrue": false,
@@ -168,7 +247,11 @@
       "id": "funds-hwm-01-q5",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["high-water-mark", "relaunch", "diligence"],
+      "tags": [
+        "high-water-mark",
+        "relaunch",
+        "diligence"
+      ],
       "concept": "the-relaunch",
       "stem": "A manager shows a strong three-year record on a fund launched shortly after closing a previous, loss-making vehicle with the same strategy. What have they effectively done?",
       "choices": [
@@ -190,7 +273,11 @@
       "id": "funds-hwm-01-q6",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["high-water-mark", "hurdle", "on-the-job"],
+      "tags": [
+        "high-water-mark",
+        "hurdle",
+        "on-the-job"
+      ],
       "concept": "terms-comparison",
       "stem": "A hedge fund charges 20% performance fees with a high water mark but no hurdle, when cash yields 5%. Why is that worth challenging?",
       "choices": [

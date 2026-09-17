@@ -5,14 +5,59 @@
   "title": "Management Fees and Carried Interest",
   "summary": "What \"2 and 20\" actually costs over a fund's life, and why the fee base matters more than the fee rate.",
   "level": "core",
-  "prereqs": ["funds-gplp-01"],
+  "prereqs": [
+    "funds-gplp-01"
+  ],
   "estMinutes": 10,
-  "examRelevance": ["CAIA-L1", "CAIA-L2", "practical"],
+  "examRelevance": [
+    "CAIA-L1",
+    "CAIA-L2",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
       "id": "what-it-is",
       "body": "A manager is paid two ways, and they do completely different jobs.\n\nThe **[[management-fee]]** is an annual charge, historically around 2%, paid whether the fund performs or not. Its stated purpose is to fund the operation — salaries, offices, diligence costs. It is a certainty.\n\n**[[carried-interest]]** is a share of profits, typically 20%, paid only above a [[hurdle-rate]]. It is contingent, and it is where a successful manager makes most of its money.\n\nThe shorthand is \"2 and 20\". What that shorthand hides is the question that actually determines the cost: **2% of what?**\n\n- 2% of **committed** capital — charged on the full amount promised, whether invested or not\n- 2% of **invested** capital — charged only on money actually deployed\n- 2% of **[[net-asset-value|NAV]]** — charged on current value, so it rises with gains\n\nSame rate, materially different bills. The base is the term that matters and it is not in the headline."
+    },
+    {
+      "type": "infographic",
+      "id": "two-payments",
+      "caption": "Two payments doing completely different jobs — and the question the shorthand hides.",
+      "spec": {
+        "kind": "equation",
+        "terms": [
+          {
+            "label": "[[management-fee|Management fee]]",
+            "sublabel": "≈2% a year, performance or not",
+            "icon": "coins",
+            "bullets": [
+              "Funds the operation — salaries, offices, diligence",
+              "A certainty"
+            ]
+          },
+          {
+            "label": "[[carried-interest|Carried interest]]",
+            "sublabel": "≈20% of profits above the [[hurdle-rate]]",
+            "icon": "chartUp",
+            "bullets": [
+              "Contingent on performance",
+              "Where a successful manager makes most of its money"
+            ]
+          },
+          {
+            "label": "“2 and 20”",
+            "sublabel": "the shorthand",
+            "bullets": [
+              "The question that determines the cost: **2% of what?**"
+            ]
+          }
+        ],
+        "operators": [
+          "+",
+          "="
+        ]
+      }
     },
     {
       "type": "example",
@@ -33,6 +78,37 @@
       "body": "There is a reason the fee *base* gets less attention than the fee *rate*, and it is worth naming: the rate is one number in a marketing document and the base is a definition buried in a legal one.\n\nBut the base is doing more work. A 1.75% fee on committed capital is more expensive than a 2% fee on invested capital for most of a fund's life. **A manager can concede a rate reduction, keep the base, and be better off.** That is a real negotiation dynamic, not a hypothetical.\n\nTwo related terms compound the effect.\n\n**Step-downs.** Many funds reduce the fee, or shift the base from committed to invested, once the investment period ends. Without a step-down, the LP pays a full fee for years on a fund that is only harvesting — doing no new work.\n\n**Fee offsets.** Managers may charge portfolio companies transaction, monitoring or directors' fees. A [[fee-offset]] credits these against the management fee. At 100% offset the LP is made whole; at 50% the manager keeps half of fees the LP indirectly funded.\n\nSo \"what are the fees?\" has at least five answers: rate, base, step-down, offset, and what expenses are charged to the fund separately."
     },
     {
+      "type": "infographic",
+      "id": "fee-bases",
+      "caption": "Same rate, materially different cost — the base is doing more work than the rate.",
+      "spec": {
+        "kind": "comparison",
+        "columns": [
+          {
+            "title": "2% of committed capital",
+            "bullets": [
+              "Charged on the full promise, invested or not",
+              "The most expensive base for most of a fund's life"
+            ]
+          },
+          {
+            "title": "2% of invested capital",
+            "bullets": [
+              "Charged only on money actually deployed",
+              "A 2% rate here can cost less than 1.75% on committed"
+            ]
+          },
+          {
+            "title": "2% of NAV",
+            "bullets": [
+              "Charged on current value, so it rises with gains",
+              "Common in open-ended structures"
+            ]
+          }
+        ]
+      }
+    },
+    {
       "type": "concept",
       "id": "expenses",
       "body": "**Fund expenses are the least examined and fastest-growing part of the cost.** These are charged to the fund in addition to the management fee, and the list has expanded considerably over time:\n\n- deal costs on transactions that did not complete — **broken deal expenses**\n- legal, audit, tax, administration and regulatory filing costs\n- travel and diligence costs\n- technology, data and subscription costs\n- in some structures, a share of the manager's own compliance and personnel costs\n\nIndividually each is defensible. Collectively they can add a meaningful amount a year on top of the stated fee, and unlike the management fee they are not usually expressed as a percentage anywhere.\n\nThe practical consequence: **the management fee is not the cost of the fund.** Total expense ratio — fee plus fund expenses — is the number that matters, and it requires reading the financial statements rather than the term sheet. A manager who will state an expected total expense ratio, and has historically hit it, is telling you something useful."
@@ -41,7 +117,11 @@
       "type": "table",
       "id": "the-five-questions",
       "caption": "The five terms behind \"2 and 20\"",
-      "headers": ["Term", "LP-friendly", "Typical cost of getting it wrong"],
+      "headers": [
+        "Term",
+        "LP-friendly",
+        "Typical cost of getting it wrong"
+      ],
       "rows": [
         [
           "Fee base",
@@ -101,7 +181,10 @@
       "id": "funds-fees-01-q1",
       "type": "numeric",
       "difficulty": 2,
-      "tags": ["management-fee", "fee-base"],
+      "tags": [
+        "management-fee",
+        "fee-base"
+      ],
       "concept": "worked-fee-base",
       "stem": "A $100m fund charges 2% on committed capital. Over a five-year investment period, what do management fees total, in millions?",
       "answer": 10,
@@ -115,7 +198,10 @@
       "id": "funds-fees-01-q2",
       "type": "numeric",
       "difficulty": 3,
-      "tags": ["management-fee", "fee-base"],
+      "tags": [
+        "management-fee",
+        "fee-base"
+      ],
       "concept": "worked-fee-base",
       "stem": "Same fund, but the fee is charged on invested capital, which averaged $60m over the five years. What do fees total, in millions?",
       "answer": 6,
@@ -129,7 +215,10 @@
       "id": "funds-fees-01-q3",
       "type": "numeric",
       "difficulty": 3,
-      "tags": ["management-fee", "break-even"],
+      "tags": [
+        "management-fee",
+        "break-even"
+      ],
       "concept": "worked-fee-base",
       "stem": "A fund charges 2% on committed capital for its full ten-year life. What gross multiple must it achieve simply to return LP capital after management fees?",
       "answer": 1.2,
@@ -143,7 +232,11 @@
       "id": "funds-fees-01-q4",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["management-fee", "negotiation", "fee-base"],
+      "tags": [
+        "management-fee",
+        "negotiation",
+        "fee-base"
+      ],
       "concept": "why-the-base-matters",
       "stem": "A manager offers to cut the fee from 2% to 1.75% but keeps the base as committed capital. Why might this be a poor trade for the LP?",
       "choices": [
@@ -165,7 +258,11 @@
       "id": "funds-fees-01-q5",
       "type": "tfj",
       "difficulty": 4,
-      "tags": ["management-fee", "expenses", "misconception"],
+      "tags": [
+        "management-fee",
+        "expenses",
+        "misconception"
+      ],
       "concept": "expenses",
       "stem": "\"The fund charges 1.75%, so that is our annual cost.\" True or false — and why?",
       "isTrue": false,
@@ -188,7 +285,11 @@
       "id": "funds-fees-01-q6",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["management-fee", "step-down", "on-the-job"],
+      "tags": [
+        "management-fee",
+        "step-down",
+        "on-the-job"
+      ],
       "concept": "how-it-goes-wrong",
       "stem": "A ten-year fund has a five-year investment period and no fee step-down. What is the consequence?",
       "choices": [
