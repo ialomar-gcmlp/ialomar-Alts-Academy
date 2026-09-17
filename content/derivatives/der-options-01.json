@@ -22,16 +22,107 @@
       "heading": "What it is"
     },
     {
+      "type": "infographic",
+      "id": "buyer-vs-seller",
+      "caption": "The asymmetry is the entire instrument.",
+      "spec": {
+        "kind": "comparison",
+        "columns": [
+          {
+            "title": "The buyer",
+            "bullets": [
+              "Pays the premium for a right, not an obligation",
+              "Loss capped at the premium",
+              "Gain unlimited"
+            ]
+          },
+          {
+            "title": "The seller",
+            "bullets": [
+              "Receives the premium and takes on the obligation",
+              "Gain capped at the premium",
+              "Loss unlimited"
+            ]
+          }
+        ]
+      }
+    },
+    {
       "type": "concept",
       "id": "what-you-are-buying",
       "body": "**An option is not primarily a directional bet. It is a purchase of convexity — an asymmetric payoff — and its price is mostly a price for [[volatility]].**\n\nThis is the shift in framing that makes options make sense. Two people can hold the same view on direction and want opposite option positions, because they disagree about *how much* the price will move rather than which way.\n\nFive inputs set an option's value, and only one is a direction:\n\n**Spot relative to strike.** How far in or out of the money.\n\n**Time to expiry.** More time means more chance of movement.\n\n**[[implied-volatility|Volatility]].** The big one — more expected movement makes both calls and puts worth more.\n\n**Interest rates.** The cost of financing the equivalent position.\n\n**Dividends or carry.** Cash flows on the underlying before expiry.\n\n**Notice that volatility raises the value of calls and puts alike.** That is the clearest sign that an option is an instrument about magnitude rather than direction: if you expect a large move and do not know which way, you want to own options; if you expect quiet, you want to have sold them.\n\n**So buying an option because you are bullish is often the wrong instrument.** If the move you expect is smaller than the implied volatility prices in, you can be right about direction and still lose.",
       "heading": "What you are buying: convexity"
     },
     {
+      "type": "infographic",
+      "id": "five-inputs",
+      "caption": "Five inputs set an option's value — and only one is a direction.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Spot relative to strike",
+            "icon": "target",
+            "detail": "How far in or out of the money — the only directional input."
+          },
+          {
+            "label": "Time to expiry",
+            "icon": "clock",
+            "detail": "More time means more chance of movement."
+          },
+          {
+            "label": "[[implied-volatility|Volatility]]",
+            "icon": "chartUp",
+            "detail": "The big one — more expected movement makes calls and puts alike worth more."
+          },
+          {
+            "label": "Interest rates",
+            "icon": "coins",
+            "detail": "The cost of financing the equivalent position."
+          },
+          {
+            "label": "Dividends or carry",
+            "icon": "gear",
+            "detail": "Cash flows on the underlying before expiry."
+          }
+        ]
+      }
+    },
+    {
       "type": "intuition",
       "id": "parity",
       "body": "**[[put-call-parity|Put-call parity]] says a call and a put on the same underlying, strike and expiry are related by an exact arbitrage. It is the single most useful relationship in options.**\n\nThe logic: owning a call and having sold a put at the same strike gives you the underlying at that strike with certainty — upside through the call, downside through the assigned put. That is a [[forward-contract|forward contract]], so:\n\n**Call − Put = Spot − [[present-value|Present value]] of the strike.**\n\nThree things this buys you immediately.\n\n**Any position can be built several ways.** Owning a stock and a protective put is identical to owning a call plus cash. If one is cheaper, use it — this is where execution cost actually lives.\n\n**A price check with no model.** If quoted calls and puts violate parity, one of them is mispriced or your inputs are wrong. It requires no volatility assumption and no Black-Scholes, only arithmetic.\n\n**Synthetic positions.** You can create a short without borrowing stock, or a long without funding it. Useful when the direct route is expensive, restricted, or unavailable.\n\n**And the deeper point: puts and calls are not different products.** They are the same instrument seen from either side of a forward, which is why an intuition about one transfers exactly to the other.",
       "heading": "Why put-call parity must hold"
+    },
+    {
+      "type": "infographic",
+      "id": "parity-arithmetic",
+      "caption": "Put-call parity, checked on the worked numbers — no model, no volatility assumption, only arithmetic.",
+      "spec": {
+        "kind": "equation",
+        "terms": [
+          {
+            "label": "Call",
+            "sublabel": "10.45"
+          },
+          {
+            "label": "Put",
+            "sublabel": "5.69"
+          },
+          {
+            "label": "Spot − PV(strike)",
+            "sublabel": "100 − 95.24 = 4.76",
+            "bullets": [
+              "10.45 − 5.69 = 4.76 — they tie, as they must"
+            ]
+          }
+        ],
+        "operators": [
+          "−",
+          "="
+        ],
+        "result": "If quoted calls and puts violate this, one of them is mispriced or your inputs are wrong. Puts and calls are the same instrument seen from either side of a forward."
+      }
     },
     {
       "type": "example",
@@ -49,6 +140,36 @@
         "Sanity check worth reusing: **compute the breakeven before buying any option, and compare the required move with the underlying's typical move over that horizon.** If breakeven needs a bigger move than the asset usually makes, the premium is asking you to be unusually right."
       ],
       "heading": "a one-year call's payoff"
+    },
+    {
+      "type": "infographic",
+      "id": "payoff-ladder",
+      "caption": "A one-year 100-strike call, premium 10.45, breakeven 110.45 — the underlying rose 10% and the buyer still lost.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Underlying at 80",
+            "stat": "−10.45",
+            "detail": "The whole premium, and no more."
+          },
+          {
+            "label": "At 100",
+            "stat": "−10.45",
+            "detail": "No move — exactly right about direction still loses the premium."
+          },
+          {
+            "label": "At 110",
+            "stat": "−0.45",
+            "detail": "In the money, still a loss."
+          },
+          {
+            "label": "At 130",
+            "stat": "+19.55",
+            "detail": "Only beyond breakeven does the position pay."
+          }
+        ]
+      }
     },
     {
       "type": "table",

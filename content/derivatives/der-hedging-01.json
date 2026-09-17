@@ -22,16 +22,99 @@
       "heading": "What it is"
     },
     {
+      "type": "infographic",
+      "id": "what-remains",
+      "caption": "A hedge exchanges one risk for a smaller, different one — these are what remain.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "[[basis-risk|Basis risk]]",
+            "icon": "layers",
+            "detail": "The instrument is not the exposure — grade, location, maturity, index. The gap widens under stress."
+          },
+          {
+            "label": "Quantity risk",
+            "icon": "gear",
+            "detail": "The exposure changes size and the hedge does not. Sized to a forecast, wrong whenever the forecast is."
+          },
+          {
+            "label": "Timing risk",
+            "icon": "clock",
+            "detail": "The hedge settles on a date; the exposure does not."
+          },
+          {
+            "label": "Liquidity risk",
+            "icon": "alert",
+            "detail": "The hedge demands cash before the exposure delivers it — the most common way a correct hedge produces a failure."
+          }
+        ]
+      }
+    },
+    {
       "type": "concept",
       "id": "correlation-is-not-enough",
       "body": "**A hedge that is 85% correlated with your exposure sounds close to complete, and it removes only about half the [[volatility]].**\n\nThe arithmetic is unforgiving because variance is squared. Hedging an asset with a proxy at correlation ρ leaves residual volatility of **σ × √(1 − ρ²)**:\n\n- **ρ = 0.95** → residual **31%** of the original volatility\n- **ρ = 0.85** → residual **53%**\n- **ρ = 0.70** → residual **71%**\n- **ρ = 0.50** → residual **87%**\n\n**At 85% correlation — which most people would describe as a good hedge — you still hold more than half the volatility you started with.**\n\nTwo things follow, and the second is the more dangerous.\n\n**Proxy hedges are much weaker than they feel.** Hedging a private portfolio with a listed index, or a specific credit with a broad index, leaves most of the risk.\n\n**Correlations fall precisely when hedges are needed.** The 85% measured in calm markets is not the 85% that applies in a dislocation, when idiosyncratic moves dominate and relationships break. **The hedge is weakest at the moment it is being relied on**, which is the opposite of what a risk report computed on historical correlation will suggest.",
       "heading": "Correlation is not enough"
     },
     {
+      "type": "infographic",
+      "id": "residual-risk",
+      "caption": "Residual volatility is σ × √(1 − ρ²) — a “good” hedge leaves more than half the risk.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Correlation 0.95",
+            "stat": "31%",
+            "detail": "Even a near-perfect proxy leaves a third of the volatility."
+          },
+          {
+            "label": "Correlation 0.85",
+            "stat": "53%",
+            "detail": "What most people call a good hedge still holds over half the volatility."
+          },
+          {
+            "label": "Correlation 0.70",
+            "stat": "71%",
+            "detail": "Roughly what an 0.85 hedge becomes in a dislocation — weakest exactly when relied on."
+          }
+        ]
+      }
+    },
+    {
       "type": "intuition",
       "id": "hedges-fail-on-cash",
       "body": "**Almost every hedging failure worth studying was a hedge that worked. The losses came from cash timing, not from the economics.**\n\nThe pattern repeats across decades and markets:\n\n**Metallgesellschaft, 1993.** Long-dated supply contracts hedged with short-dated futures rolled forward. The economics were sound over the contract lives; the futures required margin as prices moved, and the positions were liquidated before the hedge could deliver.\n\n**UK pensions, 2022.** Liability hedges via swaps and repo. Rates rose sharply, the hedges lost value and demanded collateral immediately, while the offsetting liability reduction was an actuarial figure spread over decades.\n\n**Any currency hedge on an illiquid asset.** The currency moves favourably for the asset, the hedge loses, and cash is required against a gain that is only a quarterly mark.\n\n**The common structure: the hedge settles in cash on a short cycle, and the thing it hedges settles slowly or not at all.**\n\nSo the discipline is a cash-flow one rather than a statistical one. **Before putting on any hedge, write down two columns: when the hedge pays or demands cash, and when the exposure does.** If those columns do not match, the position needs a liquidity facility sized to a plausible adverse move — and that sizing is the actual hedging decision.\n\n**A hedge you cannot fund is not a hedge. It is a position that will be closed at the worst possible moment.**",
       "heading": "Why hedges fail on cash, not price"
+    },
+    {
+      "type": "infographic",
+      "id": "cash-timing-failure",
+      "caption": "The recurring failure: a hedge that worked, liquidated before it could deliver.",
+      "spec": {
+        "kind": "steps",
+        "steps": [
+          {
+            "label": "The hedge is economically sound",
+            "detail": "Metallgesellschaft's supply contracts, the UK pension liability hedges — the economics were right."
+          },
+          {
+            "label": "It settles in cash on a short cycle",
+            "icon": "clock",
+            "detail": "Futures margin and swap collateral are demanded daily as prices move."
+          },
+          {
+            "label": "The exposure settles slowly or not at all",
+            "detail": "Contract lives of years; an actuarial liability reduction spread over decades; a quarterly mark."
+          },
+          {
+            "label": "The position is closed at the worst moment",
+            "icon": "alert",
+            "detail": "A hedge you cannot fund is not a hedge."
+          }
+        ]
+      }
     },
     {
       "type": "example",
@@ -97,6 +180,31 @@
       "id": "should-you-hedge",
       "body": "**The decision to hedge is not primarily a view about the risk. It is a question about what you cannot afford.**\n\nHedging costs money — premium, carry, basis, operational complexity — and it removes upside along with downside. An investor with a long horizon, no forced sales and no reporting constraints is frequently better off unhedged, accepting the volatility and keeping the cost.\n\nSo three questions decide it, and none of them is about forecasting:\n\n**Would this loss force an action?** Breaching a [[covenant]], failing a funding test, triggering redemptions, forcing an asset sale. If yes, hedge — the cost buys the avoidance of a forced decision, which is the most expensive kind.\n\n**Is the risk one you are paid to take?** An alternatives portfolio is paid for illiquidity and credit risk. It is not paid for currency exposure, and unpaid risks are the first candidates for hedging.\n\n**Can you fund the hedge in its bad scenario?** If not, the hedge is a liability rather than a protection.\n\n**The answer that follows is usually: hedge the unpaid risks that could force an action, at a size you can fund, and accept the rest.** That is a narrower programme than most institutions run, and it is considerably more likely to survive the event it was built for.",
       "heading": "hedging without checking the cash"
+    },
+    {
+      "type": "infographic",
+      "id": "three-hedge-questions",
+      "caption": "Three questions decide whether to hedge — none of them is a forecast.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Would this loss force an action?",
+            "icon": "alert",
+            "detail": "A covenant breach, a failed funding test, redemptions, a forced sale. If yes, hedge — the cost buys the avoidance of a forced decision."
+          },
+          {
+            "label": "Are you paid to take this risk?",
+            "icon": "coins",
+            "detail": "Alternatives are paid for illiquidity and credit, not for currency. Unpaid risks are the first candidates."
+          },
+          {
+            "label": "Can you fund the bad scenario?",
+            "icon": "shield",
+            "detail": "If not, the hedge is a liability rather than a protection."
+          }
+        ]
+      }
     },
     {
       "type": "onTheJob",

@@ -23,6 +23,31 @@
       "heading": "What it is"
     },
     {
+      "type": "infographic",
+      "id": "swap-mechanics",
+      "caption": "The three facts that define a swap.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "The notional is never exchanged",
+            "icon": "gear",
+            "detail": "It exists only to calculate the payments — why a 100m swap needs no 100m of capital, and why swap markets dwarf the cash markets beneath them."
+          },
+          {
+            "label": "Worth zero on day one",
+            "icon": "docCheck",
+            "detail": "The fixed rate is set from the forward curve so neither side pays to enter."
+          },
+          {
+            "label": "Then value accumulates",
+            "icon": "alert",
+            "detail": "The winning side holds a growing claim on the counterparty — the whole reason swaps are collateralised, and why margin calls consume cash exactly when markets move."
+          }
+        ]
+      }
+    },
+    {
       "type": "concept",
       "id": "why-use-one",
       "body": "**A swap separates an exposure from the funding that would normally carry it, and that separation is what makes it useful.**\n\n**Converting an existing liability.** A borrower with floating-rate debt who wants certainty pays fixed in a swap. They keep the loan and change its economics, without refinancing.\n\n**Expressing a rate view without a bond.** Paying fixed in a swap is economically similar to being short a bond, without borrowing one, funding it, or finding one to sell.\n\n**Matching liabilities.** A pension fund with long-dated obligations receives fixed in long-dated swaps to extend asset duration without buying the bonds — capital-efficient, and it is why swap-based liability-driven investment exists at all.\n\n**[[total-return-swap|Total return swaps]]** go further: one side pays the total return on an asset — price change plus income — and receives a financing rate. **The receiver gets the full economic exposure without owning the asset**, which is a financing arrangement as much as a derivative and is how a great deal of leverage is actually taken in institutional portfolios.\n\n**The efficiency is real, and the exposure is identical to owning the thing.** A total return swap on an equity index is an equity position with a loan attached, and it should appear in a risk report as exactly that.",
@@ -33,6 +58,31 @@
       "id": "the-collateral-problem",
       "body": "**A swap requires almost no capital to enter and can require a great deal of cash to keep, and that asymmetry is where swap-based strategies fail.**\n\nThe mechanics: the swap's value moves with rates, and the losing side posts collateral to the winning side. Daily. In cash or high-quality securities.\n\nSo a position sized to a notional the [[balance-sheet|balance sheet]] could never fund is entirely possible to enter, and its collateral demands scale with market moves rather than with the initial capital committed.\n\nThe consequence is a specific and recurring failure mode:\n\n**The hedge works, and it bankrupts you anyway.** A pension fund receiving fixed to match its liabilities is hedged in economic terms — if rates rise, its liabilities fall by roughly what the swap loses. But the liability reduction is an actuarial calculation and the swap loss is a cash call tomorrow morning.\n\n**That mismatch — economic offset, cash timing difference — is exactly what caused the 2022 liability-driven investment crisis in UK pensions.** The hedges were doing their job. The collateral calls arrived faster than the assets could be sold to meet them, and forced selling into the same move made it worse.\n\n**So the question for any swap-based strategy is not whether the hedge is correct. It is what happens to cash when it moves against you, and how much of it is available within twenty-four hours.**",
       "heading": "Why swaps need cash, not capital"
+    },
+    {
+      "type": "infographic",
+      "id": "offset-vs-timing",
+      "caption": "Economic offset, cash timing difference — the mismatch behind the 2022 UK pension crisis.",
+      "spec": {
+        "kind": "comparison",
+        "columns": [
+          {
+            "title": "The economics",
+            "bullets": [
+              "Rates rise and the liabilities fall by roughly what the swap loses",
+              "The hedge is doing its job"
+            ]
+          },
+          {
+            "title": "The cash",
+            "bullets": [
+              "The liability reduction is an actuarial calculation spread over decades",
+              "The swap loss is a collateral call tomorrow morning",
+              "Collateral calls arrived faster than assets could be sold, and forced selling into the same move made it worse"
+            ]
+          }
+        ]
+      }
     },
     {
       "type": "example",
@@ -48,6 +98,31 @@
         "Sanity check worth reusing: **for any hedge, write down when each leg settles in cash.** If the hedge settles daily and the exposure settles over years, the position needs a liquidity facility — and that requirement should be sized at inception rather than discovered."
       ],
       "heading": "fixing a floating borrower"
+    },
+    {
+      "type": "infographic",
+      "id": "fixed-either-way",
+      "caption": "Pay 4.50% fixed, receive floating, on 100m of floating debt — the all-in cost is 4.50% whichever way rates move.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Reference at 5.25%",
+            "stat": "+0.75m",
+            "detail": "The swap pays; the loan costs more. All-in: 4.50%."
+          },
+          {
+            "label": "Reference at 3.00%",
+            "stat": "−1.50m",
+            "detail": "The swap costs — and the loan is cheaper by exactly the same. All-in: still 4.50%."
+          },
+          {
+            "label": "The reporting trap",
+            "icon": "alert",
+            "detail": "The swap showing a large loss is the hedge functioning, not failing. Reporting only the derivative's mark makes a working hedge look like a bad trade."
+          }
+        ]
+      }
     },
     {
       "type": "table",
@@ -92,6 +167,31 @@
       "id": "synthetic-leverage",
       "body": "**A total return swap is leverage, and it is leverage that does not appear where an allocator normally looks for it.**\n\nThe economics: receive the total return on an index, pay a financing rate. You have the full exposure of owning the index, funded by the counterparty, with only collateral posted. If the index falls 20%, you owe 20% of the notional — on capital that may be a fraction of it.\n\nThe attractions are real: capital efficiency, access to markets where direct ownership is restricted, and operational simplicity.\n\nThe reporting problem is that **the position may show as a small mark rather than as a large exposure.** A fund with modest reported assets can hold multiples of that in economic exposure, and a naive gross-exposure figure will not reveal it.\n\nSo three questions belong in any diligence where swaps appear:\n\n**What is the total economic exposure including all derivative notionals, and how does it compare with [[net-asset-value|net asset value]]?**\n\n**What collateral is posted, in what assets, and what happens if those assets fall in the same event?**\n\n**Who are the counterparties and what is the concentration?** A fund with one swap counterparty has a single point of failure that no amount of position diversification addresses.\n\n**None of this makes synthetic exposure inappropriate.** It makes it a thing that must be measured on its economics rather than on its accounting footprint.",
       "heading": "missing the leverage in a swap"
+    },
+    {
+      "type": "infographic",
+      "id": "trs-questions",
+      "caption": "A total return swap is full economic exposure with only collateral posted — three questions wherever swaps appear.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Economic exposure vs NAV",
+            "icon": "chartUp",
+            "detail": "Total exposure including all derivative notionals — a fund with modest assets can hold multiples of them."
+          },
+          {
+            "label": "What collateral, in what assets?",
+            "icon": "shield",
+            "detail": "And whether those assets fall in the same event that triggers the call."
+          },
+          {
+            "label": "Counterparty concentration",
+            "icon": "alert",
+            "detail": "One swap counterparty is a single point of failure no position diversification addresses."
+          }
+        ]
+      }
     },
     {
       "type": "onTheJob",

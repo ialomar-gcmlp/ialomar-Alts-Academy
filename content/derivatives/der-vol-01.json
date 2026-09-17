@@ -22,6 +22,31 @@
       "heading": "What it is"
     },
     {
+      "type": "infographic",
+      "id": "implied-vs-realised",
+      "caption": "Two volatilities, two questions — implied is what the market charges for movement; realised is what it got.",
+      "spec": {
+        "kind": "comparison",
+        "columns": [
+          {
+            "title": "[[realised-volatility|Realised volatility]]",
+            "bullets": [
+              "Measured from what actually happened",
+              "Backward-looking, computable, unambiguous"
+            ]
+          },
+          {
+            "title": "[[implied-volatility|Implied volatility]]",
+            "bullets": [
+              "Extracted from option prices — the volatility that reproduces the observed premium",
+              "Forward-looking, and a price rather than a measurement",
+              "Exceeds realised on average: the [[variance-risk-premium|variance risk premium]], the price of insurance"
+            ]
+          }
+        ]
+      }
+    },
+    {
       "type": "concept",
       "id": "the-surface",
       "body": "**Implied volatility is not one number. It differs by strike and by expiry, and the pattern is informative.**\n\n**The skew.** Equity index puts trade at higher implied volatilities than calls at equivalent distances. Demand for downside protection exceeds demand for upside participation, and crashes are faster than rallies. The skew is a price for that asymmetry, and it is persistent rather than an anomaly.\n\n**The term structure.** Implied volatility differs by expiry. Usually upward sloping in calm markets — more uncertainty further out — and it inverts in a crisis, when near-term fear exceeds long-term.\n\n**Two practical readings follow.**\n\n**An inverted volatility term structure is a stress signal**, and one of the cleaner ones available: it says the market expects the immediate future to be more violent than the distant one, which is the definition of an acute event.\n\n**Skew steepening indicates rising demand for protection**, often before spot prices move. It is not a timing signal, and it does show where the anxiety is.\n\n**And for anyone selling options: the skew means the options that look most expensive are the ones that pay out in exactly the scenario that hurts your other holdings.** The premium is high because the risk is genuinely correlated with everything else you own.",
@@ -32,6 +57,34 @@
       "id": "insurance-not-anomaly",
       "body": "**Selling volatility is an insurance business, and every insight follows from taking that seriously.**\n\nAn insurer collects premiums that exceed expected claims. They make money most years. Occasionally a hurricane arrives and they pay out a decade of premiums at once. Nobody calls that a failed model — it is the model, and the discipline lies in reserving and sizing rather than in avoiding claims.\n\nOption selling has an identical structure with one important difference: **an insurance company knows it is an insurer.** A fund selling options for \"yield\" frequently does not, and the difference shows up in three specific places.\n\n**Reserving.** An insurer holds capital against the claim. A yield-focused seller often holds capital against the *expected* loss, which is a different and much smaller number.\n\n**Correlation.** Insurers deliberately diversify across uncorrelated perils. Option sellers on equity indices are writing one peril many times — and it is the same peril that damages the rest of the portfolio.\n\n**Reporting.** An insurer reports claims reserves. A fund reports a [[sharpe-ratio|Sharpe ratio]], which describes the premium collection and not the liability accepted.\n\n**So the question to any short volatility strategy is the question you would ask an insurer: what is the maximum claim, what capital is held against it, and how correlated is it with everything else on the book?** Those three questions are answerable, and the answers are the strategy.",
       "heading": "Why selling volatility is insurance"
+    },
+    {
+      "type": "infographic",
+      "id": "insurer-vs-yield-seller",
+      "caption": "Option selling is insurance — and an insurance company knows it is an insurer.",
+      "spec": {
+        "kind": "comparison",
+        "columns": [
+          {
+            "title": "An insurer",
+            "mark": "check",
+            "bullets": [
+              "Holds capital against the claim, not the expected loss",
+              "Deliberately diversifies across uncorrelated perils",
+              "Reports claims reserves"
+            ]
+          },
+          {
+            "title": "A yield-seeking option seller",
+            "mark": "cross",
+            "bullets": [
+              "Often holds capital against the expected loss — a much smaller number",
+              "Writes one peril many times, and it is the peril that damages the rest of the portfolio",
+              "Reports a Sharpe ratio, which describes the premium collection and not the liability"
+            ]
+          }
+        ]
+      }
     },
     {
       "type": "example",
@@ -47,6 +100,31 @@
         "Sanity check worth reusing: **compare implied volatility with the realised volatility of the same asset over a comparable past window.** If implied is far above, you are being paid well to sell — and it is usually high because something is genuinely uncertain."
       ],
       "heading": "the variance risk premium, realised"
+    },
+    {
+      "type": "infographic",
+      "id": "variance-gap",
+      "caption": "Implied 20%, realised 16% — the payoff is in squared terms, so volatility comparisons understate the economics.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "The volatility gap",
+            "stat": "4pts",
+            "detail": "The seller charged for 20% of movement and 16% arrived."
+          },
+          {
+            "label": "The variance gap",
+            "stat": "+56%",
+            "detail": "0.0400 of implied variance against 0.0256 realised — paid for 56% more variance than occurred."
+          },
+          {
+            "label": "Had realised been 30%",
+            "stat": ">2×",
+            "detail": "0.0900 against 0.0400: the seller pays out more than twice what they collected. Gains bounded, losses not."
+          }
+        ]
+      }
     },
     {
       "type": "table",
@@ -91,6 +169,41 @@
       "id": "vol-in-a-portfolio",
       "body": "**Short volatility exposure appears in an alternatives portfolio in more places than anyone has usually counted.**\n\nThe explicit version is a fund that sells options. The implicit versions are more common and rarely aggregated:\n\n**[[merger-arbitrage|Merger arbitrage]]** — collect a small spread; lose a lot if the deal breaks. Short a deal-break option.\n\n**[[fixed-income-relative-value|Fixed income relative value]]** — small convergence gains, large loss if the relationship dislocates.\n\n**Selling credit protection or holding levered credit** — collect the spread, take the default.\n\n**Illiquid strategies with stable marks** — earning a premium for accepting liquidity risk that materialises all at once.\n\n**Covered call overlays** — selling upside for premium.\n\n**Every one of these has the same shape: frequent small gains, infrequent large losses.** Individually each is defensible. **Aggregated without being recognised, they are one position expressed many ways** — and its bad scenario is a single event.\n\nThe practical test is the one that cuts through the labels: **what does each strategy do in a 20% equity drawdown with widening spreads?** Strategies that all answer \"badly\" are the same strategy, whatever their names, and a correlation matrix built on calm periods will not show it.",
       "heading": "underestimating short-vol exposure"
+    },
+    {
+      "type": "infographic",
+      "id": "implicit-short-vol",
+      "caption": "The implicit short-volatility positions — one position expressed many ways, and its bad scenario is a single event.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "[[merger-arbitrage|Merger arbitrage]]",
+            "icon": "case",
+            "detail": "Collect a small spread; lose a lot if the deal breaks. Short a deal-break option."
+          },
+          {
+            "label": "[[fixed-income-relative-value|Relative value]]",
+            "icon": "gear",
+            "detail": "Small convergence gains, large loss if the relationship dislocates."
+          },
+          {
+            "label": "Levered credit",
+            "icon": "coins",
+            "detail": "Collect the spread, take the default."
+          },
+          {
+            "label": "Illiquid strategies, smooth marks",
+            "icon": "lock",
+            "detail": "A premium for liquidity risk that materialises all at once."
+          },
+          {
+            "label": "Covered call overlays",
+            "icon": "chartUp",
+            "detail": "Selling upside for premium."
+          }
+        ]
+      }
     },
     {
       "type": "onTheJob",
