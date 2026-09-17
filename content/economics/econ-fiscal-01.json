@@ -28,10 +28,64 @@
       "heading": "What drives the debt ratio"
     },
     {
+      "type": "infographic",
+      "id": "r-minus-g",
+      "caption": "One subtraction explains most of post-war fiscal history — and the return of positive real rates flipped its sign.",
+      "spec": {
+        "kind": "comparison",
+        "columns": [
+          {
+            "title": "r > g",
+            "bullets": [
+              "Debt compounds faster than the economy",
+              "The ratio rises unless the primary surplus is large enough to offset it"
+            ]
+          },
+          {
+            "title": "r < g",
+            "bullets": [
+              "The economy outgrows its debt",
+              "The ratio falls even alongside modest primary deficits — how post-1945 debt fell without austerity"
+            ]
+          }
+        ]
+      }
+    },
+    {
       "type": "intuition",
       "id": "why-it-matters-to-you",
       "body": "This can look like a macro parlour game. It reaches a portfolio through four specific routes.\n\n**Long yields.** More issuance means more bonds to absorb; a rising [[term-premium|term premium]] raises the [[discount-rate|discount rate]] on every long-dated asset you own. [[infrastructure|Infrastructure]] and long-lease real estate are the most exposed things in an alternatives portfolio to exactly this.\n\n**Policy conflict.** Large deficits add demand while a [[central-bank|central bank]] subtracts it. Rates have to go higher than they otherwise would, for longer.\n\n**Tax risk.** Debt eventually gets addressed, and [[carried-interest|carried interest]], capital gains treatment and fund structures are recurring candidates. This is a live business risk in alternatives rather than an abstraction.\n\n**The government as counterparty.** Infrastructure with regulated or subsidised revenue, defence suppliers, healthcare — a great deal of the private markets universe is paid by a government whose fiscal position has just deteriorated. **A contract with a stressed sovereign is a contract with a renegotiation risk**, and it is rarely priced as one.\n\n**The honest summary: fiscal sustainability is not a moral question about prudence, it is an interest rate question with a subtraction in it.**",
       "heading": "Why fiscal policy reaches your portfolio"
+    },
+    {
+      "type": "infographic",
+      "id": "four-routes",
+      "caption": "How fiscal policy reaches an alternatives portfolio.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Long yields",
+            "icon": "chartUp",
+            "detail": "More issuance lifts the term premium, raising the discount rate on every long-dated asset — infrastructure and long leases most."
+          },
+          {
+            "label": "Policy conflict",
+            "icon": "gear",
+            "detail": "Deficits add demand while the central bank subtracts it — rates higher than otherwise, for longer."
+          },
+          {
+            "label": "Tax risk",
+            "icon": "docCheck",
+            "detail": "[[carried-interest|Carried interest]], capital gains treatment and fund structures are recurring candidates when debt is addressed."
+          },
+          {
+            "label": "The government as counterparty",
+            "icon": "alert",
+            "detail": "Regulated revenue, subsidies, availability payments — a contract with a stressed sovereign carries renegotiation risk, rarely priced."
+          }
+        ]
+      }
     },
     {
       "type": "formula",
@@ -70,6 +124,31 @@
         "Sanity check worth reusing: **the required primary surplus is just d × (r − g).** At 100% debt and a 2pp gap you need 2% of GDP; at 250% debt and the same gap you need 5%. Debt levels do not cause crises on their own — they multiply the cost of an adverse r − g."
       ],
       "heading": "debt dynamics at 100% of GDP"
+    },
+    {
+      "type": "infographic",
+      "id": "dynamics-arithmetic",
+      "caption": "Identical government behaviour, opposite outcomes — the difference was 4 points of r − g.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "r 4%, g 2%, balanced budget",
+            "stat": "+2.0pp/yr",
+            "detail": "Debt rises from 100% of GDP with the government spending exactly what it collects."
+          },
+          {
+            "label": "Flip it: g 4%, r 2%",
+            "stat": "−2.0pp/yr",
+            "detail": "The same country deleverages with no austerity whatsoever."
+          },
+          {
+            "label": "To stand still at r > g",
+            "stat": "2% of GDP",
+            "detail": "A primary surplus of d × (r − g) — every year, permanently. Debt levels multiply the cost of an adverse r − g."
+          }
+        ]
+      }
     },
     {
       "type": "table",

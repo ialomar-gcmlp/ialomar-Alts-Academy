@@ -21,6 +21,36 @@
       "heading": "What it is"
     },
     {
+      "type": "infographic",
+      "id": "indicator-kinds",
+      "caption": "Four kinds of data, and only two of them can tell you anything in advance.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Market prices",
+            "icon": "chartUp",
+            "detail": "The fastest leading indicators available — they aggregate everyone's forecast continuously, which is why releases rarely move markets in the obvious direction."
+          },
+          {
+            "label": "[[leading-indicator|Leading]]",
+            "icon": "target",
+            "detail": "New orders, permits, the curve, expectations surveys. Noisy, and the only ones with forecasting value."
+          },
+          {
+            "label": "Coincident",
+            "icon": "gear",
+            "detail": "Production, retail sales, employment — where you are, revised heavily."
+          },
+          {
+            "label": "[[lagging-indicator|Lagging]]",
+            "icon": "clock",
+            "detail": "Default rates, unemployment duration. They confirm; they never anticipate."
+          }
+        ]
+      }
+    },
+    {
       "type": "concept",
       "id": "surprise-not-level",
       "body": "**Markets trade the difference between the release and the expectation, not the release.**\n\nUnemployment falling to a five-year low sounds unambiguously good. If the consensus was for a bigger fall, bonds may rally and equities may drop on a strong-sounding number, because the *surprise* was weak.\n\nThis has a practical consequence for anyone reading commentary: **a headline describing the data is describing something markets already knew.** The useful facts are the consensus expectation, the surprise, and the revision to the previous month — none of which usually make it into the headline.\n\nA [[purchasing-managers-index|purchasing managers' index]] is the clearest example of the genre. It is a diffusion index: above 50 means more firms reporting expansion than contraction. It says nothing about magnitude, so a PMI at 52 is not \"twice as good\" as 51, and a fall from 58 to 53 is still expansion. Diffusion indices measure breadth, and breadth turns before magnitude — which is exactly what makes them lead.",
@@ -45,6 +75,34 @@
         "Applied to a backtest, the same check becomes: what would this signal have been on the day, using the numbers then available? If that question cannot be answered, the backtest is describing a strategy nobody could have run."
       ],
       "heading": "one print, three versions"
+    },
+    {
+      "type": "infographic",
+      "id": "revision-path",
+      "caption": "The same growth figure, three versions — and both revisions went the same way.",
+      "spec": {
+        "kind": "steps",
+        "steps": [
+          {
+            "label": "First print: 2.8%",
+            "detail": "An estimate built from incomplete returns — the number decisions were taken on."
+          },
+          {
+            "label": "Second estimate: 2.1%",
+            "detail": "The sample filled in."
+          },
+          {
+            "label": "Third: 1.6%",
+            "icon": "alert",
+            "detail": "A −1.2pp total revision — 43% of the original figure."
+          },
+          {
+            "label": "Serial one-directional revisions",
+            "icon": "target",
+            "detail": "The signature of a turning point the initial models had not registered — the data is least reliable exactly when the decision matters most."
+          }
+        ]
+      }
     },
     {
       "type": "table",
@@ -89,6 +147,31 @@
       "id": "single-number-narrative",
       "body": "**One data point is never a story, and yet a story is what gets built.**\n\nThe pattern is recognisable once you look for it. A monthly figure comes in strong; commentary explains why the economy has turned; the following month reverses it and a new explanation appears with the same confidence. Both explanations are constructed after the number, and neither would have predicted it.\n\nThe defence is procedural rather than clever: **look at three-month averages, look at the revision, and look at whether related series agree.** A strong retail sales figure alongside falling credit card volumes and weak consumer sentiment is a strong figure that probably will not survive.\n\nAnd for a portfolio the honest position is usually that **a single release should not change a position at all.** If it can, the position was sized for a level of conviction the evidence never supported.",
       "heading": "building a story on one print"
+    },
+    {
+      "type": "infographic",
+      "id": "print-defence",
+      "caption": "The defence against one-print stories is procedural, not clever.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Three-month averages",
+            "icon": "chartUp",
+            "detail": "Direction over three months beats any single month."
+          },
+          {
+            "label": "The revision to last month",
+            "icon": "docCheck",
+            "detail": "A strong new number beside a large downward revision is a weak release wearing a strong headline."
+          },
+          {
+            "label": "Do related series agree?",
+            "icon": "layers",
+            "detail": "Strong retail sales beside falling card volumes and weak sentiment probably will not survive. A single release should not change a position at all."
+          }
+        ]
+      }
     },
     {
       "type": "onTheJob",

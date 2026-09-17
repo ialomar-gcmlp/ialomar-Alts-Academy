@@ -29,10 +29,68 @@
       "heading": "The toolkit"
     },
     {
+      "type": "infographic",
+      "id": "policy-tools",
+      "caption": "One main tool, and three invented because it ran out.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "The [[policy-rate|policy rate]]",
+            "icon": "target",
+            "detail": "The overnight rate everything else is priced off — expectations, bank funding, discount rates, the currency."
+          },
+          {
+            "label": "Forward guidance",
+            "icon": "docCheck",
+            "detail": "Saying what the rate will be. The ten-year responds to the expected path, so talk is a genuine instrument — while it is believed."
+          },
+          {
+            "label": "[[quantitative-easing|Quantitative easing]]",
+            "icon": "layers",
+            "detail": "Buying long bonds with new reserves to push the term premium down when the short rate is already at zero."
+          },
+          {
+            "label": "Reserve requirements",
+            "icon": "shield",
+            "detail": "Changing what banks must hold, which changes what they can lend."
+          }
+        ]
+      }
+    },
+    {
       "type": "intuition",
       "id": "the-lag",
       "body": "**[[monetary-policy|Monetary policy]] affects the economy with a lag of roughly a year or more, and the lag is the single most important fact about it.**\n\nA rate rise today does not slow spending today. It slows the next mortgage refinancing, the next capital expenditure decision, the next hiring plan. Existing fixed-rate borrowers feel nothing until they refinance. The full effect arrives when the tightening cycle is already over.\n\nThree consequences, all of them uncomfortable:\n\n**A central bank must act on a forecast, not on data.** By the time inflation is visibly falling, the policy that caused it was set a year ago. Waiting for confirmation guarantees being late.\n\n**Overtightening is the normal failure mode.** Rates keep rising while inflation stays high, because the earlier rises have not landed yet — and then all of it lands at once.\n\n**The last hike of a cycle is usually a mistake, and it is unknowable which one it was.** This is not a criticism of central bankers; it is a structural feature of acting through a delay.\n\n**For an investor the practical version is: the risk is not the level of rates, it is the moment the accumulated tightening arrives.** Credit stress, deal volumes and default rates turn well after the last hike, which is exactly when the narrative has moved on to cuts.",
       "heading": "Why the policy lag is the trap"
+    },
+    {
+      "type": "infographic",
+      "id": "lag-path",
+      "caption": "Policy acts through a delay of a year or more — the lag is the single most important fact about it.",
+      "spec": {
+        "kind": "steps",
+        "steps": [
+          {
+            "label": "Rates rise today; spending today does nothing",
+            "detail": "Existing fixed-rate borrowers feel nothing until they refinance."
+          },
+          {
+            "label": "The next decisions slow",
+            "icon": "clock",
+            "detail": "The next refinancing, the next capital expenditure, the next hiring plan."
+          },
+          {
+            "label": "The full effect lands after the cycle ends",
+            "detail": "Which is why overtightening is the normal failure mode — earlier rises have not landed while inflation stays high."
+          },
+          {
+            "label": "The risk is the arrival, not the level",
+            "icon": "alert",
+            "detail": "Credit stress and defaults turn well after the last hike, exactly when the narrative has moved on to cuts."
+          }
+        ]
+      }
     },
     {
       "type": "example",
@@ -48,6 +106,31 @@
         "Sanity check worth reusing: **any implied policy rate below current inflation is a negative real rate, which is stimulus.** If a forecast has the bank cutting to 3% while inflation runs at 4%, it is forecasting deliberate stimulus — that needs a reason, not just an assumption."
       ],
       "heading": "a reaction function's shape"
+    },
+    {
+      "type": "infographic",
+      "id": "reaction-arithmetic",
+      "caption": "The illustrative rule, run twice — the entire cutting cycle was implied before it happened.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Inflation 4%, gap +1%",
+            "stat": "6.0%",
+            "detail": "0.5% neutral real + 4% inflation + 1.0pp for the target miss + 0.5pp for the hot economy."
+          },
+          {
+            "label": "Inflation 2%, gap closed",
+            "stat": "2.5%",
+            "detail": "The same rule with two variables normalised."
+          },
+          {
+            "label": "The implied cutting cycle",
+            "stat": "−350bp",
+            "detail": "A rates view is a view on inflation and the gap, dressed up as a view on the central bank."
+          }
+        ]
+      }
     },
     {
       "type": "table",

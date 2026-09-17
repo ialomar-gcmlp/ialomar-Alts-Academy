@@ -29,10 +29,60 @@
       "heading": "Covered interest parity"
     },
     {
+      "type": "infographic",
+      "id": "two-routes-cip",
+      "caption": "Two riskless routes from euros to dollars — their equality defines the forward rate.",
+      "spec": {
+        "kind": "comparison",
+        "columns": [
+          {
+            "title": "Route one",
+            "bullets": [
+              "Convert to dollars today at spot",
+              "Deposit at the dollar rate"
+            ]
+          },
+          {
+            "title": "Route two",
+            "bullets": [
+              "Deposit in euros at the euro rate",
+              "Sell the proceeds forward into dollars today",
+              "Same start, both riskless — so they must end the same. The higher-rate currency trades at a forward discount, exactly cancelling its advantage"
+            ]
+          }
+        ]
+      }
+    },
+    {
       "type": "intuition",
       "id": "hedging-is-conversion",
       "body": "**Hedging a foreign investment does not remove a risk and leave the return intact. It converts the return into your own currency's interest rate environment.**\n\nWork it through. A euro investor buys a dollar asset yielding the dollar rate and hedges the currency forward. Covered interest parity says the hedged return equals the euro rate — exactly, not approximately. The dollar yield advantage is handed over in the hedge.\n\nSo what is left? **Only the excess return of the asset over its own currency's [[risk-free-rate|risk-free rate]].** That spread — a credit spread, an equity risk premium, an illiquidity premium — travels across the hedge intact. The risk-free component does not.\n\nThree consequences worth carrying:\n\n**The hedge cost is not a fee, it is the rate differential.** When your currency's rates are lower than the asset's, hedging costs you the gap, every year, and no amount of shopping around changes it.\n\n**Currency-hedged share classes with different rates have different returns from the same portfolio.** Nothing is wrong; the differential is showing up.\n\n**Whether to hedge is therefore a question about [[volatility]] and cash flows, not about return.** The expected return effect is arithmetic and known in advance.",
       "heading": "Why hedging converts rather than removes"
+    },
+    {
+      "type": "infographic",
+      "id": "what-survives-the-hedge",
+      "caption": "What a currency hedge keeps, hands over, and turns the decision into.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Handed over: the rate differential",
+            "icon": "coins",
+            "detail": "Not a fee — the gap between the two currencies' rates, every year, and no shopping around changes it."
+          },
+          {
+            "label": "Kept: the asset's spread",
+            "icon": "shield",
+            "detail": "The credit spread, equity risk premium or illiquidity premium travels across the hedge intact."
+          },
+          {
+            "label": "The real decision",
+            "icon": "gear",
+            "detail": "Volatility and cash flows, not return — the expected return effect is arithmetic, known in advance."
+          }
+        ]
+      }
     },
     {
       "type": "formula",
@@ -72,6 +122,34 @@
         "Sanity check worth reusing: **compute the hedged return and confirm it equals your own currency's rate.** If it does not, you have inverted a quote — which is the error, essentially every time."
       ],
       "heading": "hedging a euro investment"
+    },
+    {
+      "type": "infographic",
+      "id": "hedged-return-path",
+      "caption": "€1 through the hedge: the 200bp dollar advantage is handed over entirely.",
+      "spec": {
+        "kind": "steps",
+        "steps": [
+          {
+            "label": "Convert: €1 → $1.10 at spot",
+            "detail": "Write down which currency is on top before any FX arithmetic — the quote is USD per EUR."
+          },
+          {
+            "label": "Earn the dollar rate: $1.1578",
+            "icon": "coins",
+            "detail": "5.25% for one year."
+          },
+          {
+            "label": "Sell forward at 1.1213: €1.0325",
+            "detail": "The forward priced off the rate differential — 1.1000 × 1.0525 / 1.0325."
+          },
+          {
+            "label": "The hedged return is 3.25% — the euro rate",
+            "icon": "target",
+            "detail": "Precisely, not approximately. On $50m the annual hedge cost is the differential: $1.0m — the number for the committee."
+          }
+        ]
+      }
     },
     {
       "type": "table",

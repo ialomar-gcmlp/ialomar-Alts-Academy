@@ -28,6 +28,32 @@
       "heading": "Core versus headline"
     },
     {
+      "type": "infographic",
+      "id": "headline-vs-core",
+      "caption": "A clean division of labour — and an exclusion that only works while the spike really does reverse.",
+      "spec": {
+        "kind": "comparison",
+        "columns": [
+          {
+            "title": "Headline",
+            "bullets": [
+              "Includes everything",
+              "What people experience and what wage demands respond to",
+              "The honest measure of purchasing power"
+            ]
+          },
+          {
+            "title": "Core",
+            "bullets": [
+              "Excludes food and energy — for signal, not comfort",
+              "What policy responds to, because it is a better guide to where inflation goes next",
+              "Second-round effects are why “look through it” is a judgement rather than a rule"
+            ]
+          }
+        ]
+      }
+    },
+    {
       "type": "intuition",
       "id": "real-returns",
       "body": "**Every return figure you will ever be shown is nominal unless it explicitly says otherwise, and inflation is the difference between a return and a result.**\n\nA fund returns 6% in a year when inflation was 4%. The investor is about 2% better off, not 6%. Over a decade, that gap compounds into a completely different outcome: 6% nominal for ten years multiplies capital by 1.79, while the real figure — call it 1.92% — multiplies purchasing power by 1.21.\n\nThis is the [[real-interest-rate|real rate]] logic applied to any return, and it is why **the single most useful question about a long-horizon investment is what it does when inflation is high, not what it returns on average.**\n\nIt also explains an oddity of the alternatives world. [[real-assets|Real assets]], [[infrastructure]] with inflation-linked revenue and [[floating-rate|floating-rate]] credit are all sold on inflation protection, and they are genuinely different from each other: one owns the thing whose price is rising, one has a contractual escalator, and one has a coupon that resets. The first two protect the asset's real value; the third protects income while inflation is high and gives it back when rates fall.",
@@ -67,6 +93,31 @@
         "Sanity check worth reusing: **contributions must sum to the headline.** If someone shows you an inflation decomposition whose parts do not add up to the printed number, something has been dropped — usually the line that undermines the argument."
       ],
       "heading": "building inflation from a basket"
+    },
+    {
+      "type": "infographic",
+      "id": "basket-contributions",
+      "caption": "Weight × price change, item by item — composition beats level.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Housing: 33% weight, +5%",
+            "stat": "1.65pp",
+            "detail": "Two thirds of the total from one third of the basket."
+          },
+          {
+            "label": "Transport: 17%, −3%",
+            "stat": "−0.51pp",
+            "detail": "One favourable line holding the index down — remove it and headline is 3.01%, a different policy conversation."
+          },
+          {
+            "label": "Headline",
+            "stat": "2.50%",
+            "detail": "1.65 − 0.51 + 0.28 + 1.08. Contributions must sum to the headline — if a decomposition does not add up, something was dropped."
+          }
+        ]
+      }
     },
     {
       "type": "table",
@@ -111,6 +162,36 @@
       "id": "inflation-protection-claim",
       "body": "**\"Inflation-protected\" is a marketing phrase covering at least four different mechanisms, and the differences decide whether it works.**\n\n*Contractual linkage* — revenue explicitly indexed to a published index. The strongest form, and it comes with caps, lags and floors that must be read.\n\n*Pricing power* — the firm can raise prices because customers have nowhere else to go. Real but conditional on competition and on demand holding up.\n\n*Owning the thing* — commodities and real assets, where the asset's price is part of the index. Works when the inflation is commodity-driven.\n\n*Rate reset* — floating-rate credit, where coupons rise as policy rates rise. Protects income, not principal, and only while rates stay high.\n\nOne question separates them: **when inflation rose 6% last year, what happened to this asset's revenue, and was it a contract or a hope?**",
       "heading": "taking inflation-protected on faith"
+    },
+    {
+      "type": "infographic",
+      "id": "four-mechanisms",
+      "caption": "“Inflation-protected” covers four different mechanisms — which one, and what did revenue actually do last year?",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Contractual linkage",
+            "icon": "docCheck",
+            "detail": "Revenue explicitly indexed. The strongest form — and it comes with caps, lags and floors that must be read."
+          },
+          {
+            "label": "Pricing power",
+            "icon": "chartUp",
+            "detail": "The firm can raise prices. Real, and conditional on competition and demand holding up."
+          },
+          {
+            "label": "Owning the thing",
+            "icon": "coins",
+            "detail": "Commodities and real assets — works when the inflation is commodity-driven."
+          },
+          {
+            "label": "Rate reset",
+            "icon": "gear",
+            "detail": "Floating coupons rise with policy rates. Protects income, not principal, and only while rates stay high."
+          }
+        ]
+      }
     },
     {
       "type": "onTheJob",

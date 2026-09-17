@@ -20,10 +20,67 @@
       "heading": "What it is"
     },
     {
+      "type": "infographic",
+      "id": "three-routes",
+      "caption": "Three routes to the same total — the same transactions counted from different sides.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Production",
+            "icon": "gear",
+            "detail": "Value added at each stage — the bakery's flour purchases subtracted from its bread sales, so the wheat is not counted three times."
+          },
+          {
+            "label": "Expenditure",
+            "icon": "coins",
+            "detail": "Consumption + investment + government + exports − imports. The version quoted in the news."
+          },
+          {
+            "label": "Income",
+            "icon": "case",
+            "detail": "Wages + profits + rents + taxes less subsidies — every dollar of output is someone's income."
+          }
+        ]
+      }
+    },
+    {
       "type": "concept",
       "id": "the-mechanism",
       "body": "**Growth comes from two places and only two: more inputs, or more output per input.**\n\nMore inputs means more workers and more capital — a bigger workforce, a longer working week, more factories. This kind of growth has a ceiling, because a population and a capital stock can only grow so fast.\n\nMore output per input is **productivity**, and it has no ceiling. It is the entire reason living standards rise over decades rather than staying flat.\n\nThis is why demographics matter so much to long-run return assumptions: a shrinking working-age population subtracts from growth every year, and productivity has to make up the difference before anything is left over. It is also why a country can run a boom for years without productivity improving at all — and why that boom ends.",
       "heading": "Where growth comes from"
+    },
+    {
+      "type": "infographic",
+      "id": "growth-sources",
+      "caption": "Growth comes from two places and only two.",
+      "spec": {
+        "kind": "equation",
+        "terms": [
+          {
+            "label": "More inputs",
+            "sublabel": "has a ceiling",
+            "bullets": [
+              "More workers, more capital — a population and a capital stock can only grow so fast"
+            ]
+          },
+          {
+            "label": "More output per input",
+            "sublabel": "has none",
+            "bullets": [
+              "Productivity — the entire reason living standards rise over decades"
+            ]
+          },
+          {
+            "label": "Growth"
+          }
+        ],
+        "operators": [
+          "+",
+          "="
+        ],
+        "result": "A shrinking working-age population subtracts every year, and productivity has to make up the difference before anything is left over."
+      }
     },
     {
       "type": "intuition",
@@ -60,6 +117,31 @@
         "If instead growth were 4.5%, the gap would close in under two years, and the policy path would look completely different on identical current data."
       ],
       "heading": "computing the output gap"
+    },
+    {
+      "type": "infographic",
+      "id": "gap-arithmetic",
+      "caption": "Growing at 2.3% and still 2.9% below capacity — two facts pointing in opposite policy directions, both true.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "The output gap",
+            "stat": "−2.86%",
+            "detail": "($20.4tn − $21.0tn) / $21.0tn. No inflationary pressure coming from capacity."
+          },
+          {
+            "label": "Real growth",
+            "stat": "2.3%",
+            "detail": "5.4% nominal minus 3.1% deflator — respectable growth from a depressed level."
+          },
+          {
+            "label": "Time for the gap to close",
+            "stat": "≈6 yrs",
+            "detail": "At 2.3% growth against 1.8% potential, the gap narrows about 0.5pp a year — the number a rates view is actually built on."
+          }
+        ]
+      }
     },
     {
       "type": "table",

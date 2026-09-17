@@ -28,6 +28,35 @@
       "heading": "Why the curve normally slopes upward"
     },
     {
+      "type": "infographic",
+      "id": "slope-anatomy",
+      "caption": "The usual upward slope is mostly the term premium doing its job.",
+      "spec": {
+        "kind": "equation",
+        "terms": [
+          {
+            "label": "Expectations",
+            "bullets": [
+              "The long yield must be broadly consistent with the expected path of short rates over its life"
+            ]
+          },
+          {
+            "label": "[[term-premium|Term premium]]",
+            "bullets": [
+              "Payment for thirty years of discomfort — inflation surprise, price swings, needing the money"
+            ]
+          },
+          {
+            "label": "The long yield"
+          }
+        ],
+        "operators": [
+          "+",
+          "="
+        ]
+      }
+    },
+    {
       "type": "chart",
       "id": "shapes-chart",
       "caption": "Three curve shapes (illustrative, not market data)",
@@ -116,6 +145,31 @@
       "heading": "The two ends of the curve"
     },
     {
+      "type": "infographic",
+      "id": "two-owners",
+      "caption": "Two ends with different owners — why the same decision can steepen or flatten the curve.",
+      "spec": {
+        "kind": "comparison",
+        "columns": [
+          {
+            "title": "The short end",
+            "bullets": [
+              "Effectively administered — bills cannot stray far from the [[federal-funds-rate|policy rate]]",
+              "If the front end moved, look at [[monetary-policy]]"
+            ]
+          },
+          {
+            "title": "The long end",
+            "bullets": [
+              "A market: expected future short rates plus the term premium",
+              "Pushed around by inflation and growth expectations, bond supply, and demand for long-dated assets",
+              "Central banks influence it; they do not set it"
+            ]
+          }
+        ]
+      }
+    },
+    {
       "type": "example",
       "id": "spread-example",
       "body": "The slope is usually quoted as a single spread. The most watched is 2s10s: the 10-year yield minus the 2-year yield.",
@@ -127,6 +181,31 @@
         "If the 2-year then fell to 4.05% while the 10-year held at 4.18%, the spread becomes +13 bps — the curve has *disinverted*, and it did so through the front end falling rather than the long end rising. Which end moved is often more informative than the spread itself."
       ],
       "heading": "reading the 2s10s spread"
+    },
+    {
+      "type": "infographic",
+      "id": "spread-reading",
+      "caption": "Long minus short — and which end moved is often more informative than the spread itself.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "10y 4.18% − 2y 4.55%",
+            "stat": "−37bp",
+            "detail": "Negative means inverted. Getting the subtraction backwards inverts your conclusion with your sign."
+          },
+          {
+            "label": "The 2-year falls to 4.05%",
+            "stat": "+13bp",
+            "detail": "Disinverted — through the front end falling, not the long end rising."
+          },
+          {
+            "label": "The habit",
+            "icon": "target",
+            "detail": "Always ask which end moved, and whether the move was real or inflation-driven."
+          }
+        ]
+      }
     },
     {
       "type": "pitfall",
