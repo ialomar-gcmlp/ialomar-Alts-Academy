@@ -7,12 +7,17 @@
   "level": "core",
   "prereqs": [],
   "estMinutes": 9,
-  "examRelevance": ["CFA-L1", "CAIA-L1", "practical"],
+  "examRelevance": [
+    "CFA-L1",
+    "CAIA-L1",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
       "id": "what-it-is",
-      "body": "A country produces goods and services for a year. Add up the market value of everything produced, count each thing once, and you have [[gdp|gross domestic product]].\n\nThree routes to the same total, and they must agree because they are the same transactions counted from different sides:\n\n**Production.** The value added at each stage — a bakery's flour purchases subtracted from its bread sales, so the wheat is not counted three times.\n\n**Expenditure.** Consumption + investment + government spending + exports − imports. The version quoted in the news.\n\n**Income.** Wages + profits + rents + taxes less subsidies. Every dollar of output is someone's income.\n\nThe number that matters is **[[real-gdp|real GDP]]**: output with the effect of price changes stripped out. [[nominal-gdp|Nominal GDP]] rising 5% when prices rose 3% is not 5% more stuff — it is roughly 2% more stuff at higher prices."
+      "body": "A country produces goods and services for a year. Add up the market value of everything produced, count each thing once, and you have [[gdp|gross domestic product]].\n\nThree routes to the same total, and they must agree because they are the same transactions counted from different sides:\n\n**Production.** The value added at each stage — a bakery's flour purchases subtracted from its bread sales, so the wheat is not counted three times.\n\n**Expenditure.** Consumption + investment + government spending + exports − imports. The version quoted in the news.\n\n**Income.** Wages + profits + rents + taxes less subsidies. Every dollar of output is someone's income.\n\nThe number that matters is **[[real-gdp|real GDP]]**: output with the effect of price changes stripped out. [[nominal-gdp|Nominal GDP]] rising 5% when prices rose 3% is not 5% more stuff — it is roughly 2% more stuff at higher prices.",
+      "heading": "What it is"
     },
     {
       "type": "concept",
@@ -22,7 +27,8 @@
     {
       "type": "intuition",
       "id": "the-output-gap",
-      "body": "Here is the concept that turns GDP from a statistic into a forecast.\n\n**[[potential-output|Potential output]] is what an economy can produce with its labour and capital fully but sustainably employed.** Not the maximum — the sustainable level, the one that does not generate accelerating inflation.\n\nThe **[[output-gap|output gap]]** is the difference between actual and potential output, as a percentage of potential:\n\n- **Negative gap** — the economy is running below capacity. Spare workers, idle factories, weak pricing power. Disinflationary.\n- **Positive gap** — the economy is running hot. Labour shortages, bidding for scarce inputs, pricing power. Inflationary.\n\n**The gap, not the growth rate, is what a [[central-bank|central bank]] responds to.** An economy growing 4% while deep below capacity gets encouragement; an economy growing 1% while already above capacity gets tightened. Two very different policy paths from two growth numbers that look the wrong way round.\n\nAnd the awkward part: **potential output is not observable.** It is estimated, revised, and disputed. Every claim about the output gap is a claim about an estimate."
+      "body": "Here is the concept that turns GDP from a statistic into a forecast.\n\n**[[potential-output|Potential output]] is what an economy can produce with its labour and capital fully but sustainably employed.** Not the maximum — the sustainable level, the one that does not generate accelerating inflation.\n\nThe **[[output-gap|output gap]]** is the difference between actual and potential output, as a percentage of potential:\n\n- **Negative gap** — the economy is running below capacity. Spare workers, idle factories, weak pricing power. Disinflationary.\n- **Positive gap** — the economy is running hot. Labour shortages, bidding for scarce inputs, pricing power. Inflationary.\n\n**The gap, not the growth rate, is what a [[central-bank|central bank]] responds to.** An economy growing 4% while deep below capacity gets encouragement; an economy growing 1% while already above capacity gets tightened. Two very different policy paths from two growth numbers that look the wrong way round.\n\nAnd the awkward part: **potential output is not observable.** It is estimated, revised, and disputed. Every claim about the output gap is a claim about an estimate.",
+      "heading": "Why the output gap is the forecast"
     },
     {
       "type": "formula",
@@ -30,8 +36,14 @@
       "latex": "\\text{Output gap} = \\frac{Y_{\\text{actual}} - Y_{\\text{potential}}}{Y_{\\text{potential}}} \\times 100",
       "plainReading": "Take actual output, subtract what the economy could sustainably produce, and express the difference as a percentage of that sustainable level.",
       "variables": [
-        { "symbol": "Y_{\\text{actual}}", "meaning": "measured [[real-gdp|real GDP]]" },
-        { "symbol": "Y_{\\text{potential}}", "meaning": "estimated sustainable output — a model output, not a measurement" }
+        {
+          "symbol": "Y_{\\text{actual}}",
+          "meaning": "measured [[real-gdp|real GDP]]"
+        },
+        {
+          "symbol": "Y_{\\text{potential}}",
+          "meaning": "estimated sustainable output — a model output, not a measurement"
+        }
       ]
     },
     {
@@ -51,7 +63,11 @@
       "type": "table",
       "id": "gap-table",
       "caption": "What the output gap implies",
-      "headers": ["Situation", "Typical pressure", "What tends to follow"],
+      "headers": [
+        "Situation",
+        "Typical pressure",
+        "What tends to follow"
+      ],
       "rows": [
         [
           "Large negative gap",
@@ -78,7 +94,8 @@
     {
       "type": "concept",
       "id": "how-it-goes-wrong",
-      "body": "**Treating potential output as known.** It is estimated from trends that are themselves revised. Estimates of potential were cut sharply after 2008 — which retrospectively turned an apparently huge negative gap into a much smaller one, and rewrote the policy debate of the previous five years.\n\n**Confusing the level with the rate.** \"Growth is back to 2%\" says nothing about whether output has recovered the ground it lost. An economy can grow at trend for years while permanently poorer than its pre-crisis path.\n\n**Reading one quarter as a signal.** Quarterly GDP is [[annualised-rate|annualised]], heavily [[seasonal-adjustment|seasonally adjusted]] and revised repeatedly. A single quarter is mostly noise.\n\n**Forgetting GDP is a flow, not wealth.** It measures production over a period. A country can have high GDP and a wrecked balance sheet.\n\n**Assuming GDP growth means earnings growth.** The relationship is loose and mediated by margins, the mix of listed versus unlisted firms, and where the revenue is actually earned. Plenty of high-growth economies have delivered poor equity returns."
+      "body": "**Treating potential output as known.** It is estimated from trends that are themselves revised. Estimates of potential were cut sharply after 2008 — which retrospectively turned an apparently huge negative gap into a much smaller one, and rewrote the policy debate of the previous five years.\n\n**Confusing the level with the rate.** \"Growth is back to 2%\" says nothing about whether output has recovered the ground it lost. An economy can grow at trend for years while permanently poorer than its pre-crisis path.\n\n**Reading one quarter as a signal.** Quarterly GDP is [[annualised-rate|annualised]], heavily [[seasonal-adjustment|seasonally adjusted]] and revised repeatedly. A single quarter is mostly noise.\n\n**Forgetting GDP is a flow, not wealth.** It measures production over a period. A country can have high GDP and a wrecked balance sheet.\n\n**Assuming GDP growth means earnings growth.** The relationship is loose and mediated by margins, the mix of listed versus unlisted firms, and where the revenue is actually earned. Plenty of high-growth economies have delivered poor equity returns.",
+      "heading": "Key risks"
     },
     {
       "type": "pitfall",
@@ -106,7 +123,11 @@
       "id": "econ-gdp-01-q1",
       "type": "numeric",
       "difficulty": 2,
-      "tags": ["gdp", "output-gap", "arithmetic"],
+      "tags": [
+        "gdp",
+        "output-gap",
+        "arithmetic"
+      ],
       "concept": "the-output-gap",
       "stem": "Real GDP is $20.4tn and potential output is estimated at $21.0tn. What is the output gap, in percent? Give the sign.",
       "answer": -2.86,
@@ -120,7 +141,11 @@
       "id": "econ-gdp-01-q2",
       "type": "numeric",
       "difficulty": 2,
-      "tags": ["gdp", "real-vs-nominal", "arithmetic"],
+      "tags": [
+        "gdp",
+        "real-vs-nominal",
+        "arithmetic"
+      ],
       "concept": "what-it-is",
       "stem": "Nominal GDP grew 5.4% and the GDP deflator rose 3.1%. Approximately what was real growth, in percent?",
       "answer": 2.3,
@@ -134,7 +159,10 @@
       "id": "econ-gdp-01-q3",
       "type": "mcq",
       "difficulty": 2,
-      "tags": ["gdp", "policy"],
+      "tags": [
+        "gdp",
+        "policy"
+      ],
       "concept": "the-output-gap",
       "stem": "Economy A grows 4% with output 3% below potential. Economy B grows 1% with output 2% above potential. Which is more likely to face tightening?",
       "choices": [
@@ -156,10 +184,18 @@
       "id": "econ-gdp-01-q4",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["gdp", "measurement"],
+      "tags": [
+        "gdp",
+        "measurement"
+      ],
       "concept": "what-it-is",
       "stem": "A bakery buys $2m of flour and sells $5m of bread. A mill sold that flour, having bought $1m of wheat. How much do these three stages add to GDP?",
-      "choices": ["$8m", "$5m", "$6m", "$3m"],
+      "choices": [
+        "$8m",
+        "$5m",
+        "$6m",
+        "$3m"
+      ],
       "answerIndex": 1,
       "rationales": [
         "This sums the sales at every stage, which counts the wheat three times and the flour twice. Avoiding exactly this is why GDP measures value added.",
@@ -173,7 +209,10 @@
       "id": "econ-gdp-01-q5",
       "type": "tfj",
       "difficulty": 3,
-      "tags": ["gdp", "misconception"],
+      "tags": [
+        "gdp",
+        "misconception"
+      ],
       "concept": "gdp-is-not-welfare",
       "stem": "\"A natural disaster is bad for the economy, so it reduces GDP.\" True or false — and why?",
       "isTrue": false,
@@ -196,7 +235,11 @@
       "id": "econ-gdp-01-q6",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["gdp", "diligence", "on-the-job"],
+      "tags": [
+        "gdp",
+        "diligence",
+        "on-the-job"
+      ],
       "concept": "on-the-job",
       "stem": "A macro manager shows a model that would have predicted the last four turning points using quarterly GDP. What is the first thing to check?",
       "choices": [
@@ -218,7 +261,11 @@
       "id": "econ-gdp-01-q7",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["gdp", "growth", "on-the-job"],
+      "tags": [
+        "gdp",
+        "growth",
+        "on-the-job"
+      ],
       "concept": "the-mechanism",
       "stem": "A country's working-age population is shrinking 0.5% a year. Its long-run growth potential therefore depends most on which single variable?",
       "choices": [

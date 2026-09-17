@@ -5,14 +5,21 @@
   "title": "When the Rules Run Out",
   "summary": "Most difficult situations are not covered by a rule — they are covered by whether anyone is willing to ask an awkward question early.",
   "level": "core",
-  "prereqs": ["eth-conflicts-01", "eth-valuation-01"],
+  "prereqs": [
+    "eth-conflicts-01",
+    "eth-valuation-01"
+  ],
   "estMinutes": 8,
-  "examRelevance": ["CFA-L1", "practical"],
+  "examRelevance": [
+    "CFA-L1",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
       "id": "what-it-is",
-      "body": "Codes of conduct cover the situations someone anticipated. The situations that end up mattering usually have at least one feature nobody wrote a rule for — a novel structure, an unusual counterparty, a genuinely ambiguous expense, a valuation with no comparable.\n\nSo the practical question is not \"what does the rule say?\" but **\"what does the rule exist to protect, and does that protection apply here?\"**\n\nFour tests do most of the work when no rule fits. None is decisive alone and together they are usually enough:\n\n**The disclosure test.** Would I be comfortable if the affected party saw this decision and my reasoning? Not the outcome — the reasoning.\n\n**The reversal test.** Would I make the same call if the benefit ran the other way? A judgement that always resolves in one direction is not a judgement.\n\n**The newspaper test.** How would this read if described accurately by someone unsympathetic? Crude and a good detector.\n\n**The precedent test.** If this became standard practice at every firm, would the outcome be acceptable? It catches practices that are harmless once and corrosive in aggregate.\n\n**These are not clever. They are questions people skip because asking them slows things down** — which is precisely when they are most useful."
+      "body": "Codes of conduct cover the situations someone anticipated. The situations that end up mattering usually have at least one feature nobody wrote a rule for — a novel structure, an unusual counterparty, a genuinely ambiguous expense, a valuation with no comparable.\n\nSo the practical question is not \"what does the rule say?\" but **\"what does the rule exist to protect, and does that protection apply here?\"**\n\nFour tests do most of the work when no rule fits. None is decisive alone and together they are usually enough:\n\n**The disclosure test.** Would I be comfortable if the affected party saw this decision and my reasoning? Not the outcome — the reasoning.\n\n**The reversal test.** Would I make the same call if the benefit ran the other way? A judgement that always resolves in one direction is not a judgement.\n\n**The newspaper test.** How would this read if described accurately by someone unsympathetic? Crude and a good detector.\n\n**The precedent test.** If this became standard practice at every firm, would the outcome be acceptable? It catches practices that are harmless once and corrosive in aggregate.\n\n**These are not clever. They are questions people skip because asking them slows things down** — which is precisely when they are most useful.",
+      "heading": "What it is"
     },
     {
       "type": "concept",
@@ -22,7 +29,8 @@
     {
       "type": "intuition",
       "id": "asking-early",
-      "body": "**The single highest-value ethical skill is asking an awkward question while it is still a small question.**\n\nThe arithmetic of this is straightforward. Early, the question is cheap: nothing has been committed, no one has publicly taken a position, and the answer is probably a reasonable explanation you did not have. Late, the same question requires someone to reverse a decision, admit a mistake, or unwind a transaction — and the cost of being right has become enormous.\n\nSo the practical form is deliberately modest:\n\n**Ask as a request for understanding.** \"Can you help me see why this is the right treatment?\" People answer that. They defend against accusations.\n\n**Ask about process rather than conclusion.** \"Should this go to the committee?\" is procedural and hard to refuse.\n\n**Put it in writing, neutrally.** A factual question in an email is a contemporaneous record and it protects the person answering as much as the person asking.\n\n**Ask early enough that the answer can change something.** The value decays fast.\n\n**And accept that most of the time the answer will be good.** That is not a failure of the question — it is the normal outcome, and it is how you learn where the real boundaries are. **A person who asks ten questions and gets nine reassuring answers has calibrated their judgement and established a reputation for asking. Both are worth having when the tenth answer is unsatisfactory.**"
+      "body": "**The single highest-value ethical skill is asking an awkward question while it is still a small question.**\n\nThe arithmetic of this is straightforward. Early, the question is cheap: nothing has been committed, no one has publicly taken a position, and the answer is probably a reasonable explanation you did not have. Late, the same question requires someone to reverse a decision, admit a mistake, or unwind a transaction — and the cost of being right has become enormous.\n\nSo the practical form is deliberately modest:\n\n**Ask as a request for understanding.** \"Can you help me see why this is the right treatment?\" People answer that. They defend against accusations.\n\n**Ask about process rather than conclusion.** \"Should this go to the committee?\" is procedural and hard to refuse.\n\n**Put it in writing, neutrally.** A factual question in an email is a contemporaneous record and it protects the person answering as much as the person asking.\n\n**Ask early enough that the answer can change something.** The value decays fast.\n\n**And accept that most of the time the answer will be good.** That is not a failure of the question — it is the normal outcome, and it is how you learn where the real boundaries are. **A person who asks ten questions and gets nine reassuring answers has calibrated their judgement and established a reputation for asking. Both are worth having when the tenth answer is unsatisfactory.**",
+      "heading": "Why asking early is the whole skill"
     },
     {
       "type": "example",
@@ -42,7 +50,11 @@
       "type": "table",
       "id": "test-table",
       "caption": "Four tests, and what each one catches",
-      "headers": ["Test", "Question", "Catches"],
+      "headers": [
+        "Test",
+        "Question",
+        "Catches"
+      ],
       "rows": [
         [
           "Disclosure",
@@ -69,7 +81,8 @@
     {
       "type": "concept",
       "id": "how-it-goes-wrong",
-      "body": "**Waiting for certainty before raising something.** You will rarely be certain, and by the time you are, the decision has been made and the cost of raising it has multiplied.\n\n**Framing a question as an accusation.** It guarantees defensiveness and loses you the explanation you probably needed.\n\n**Assuming someone senior has considered it.** Often they have not, or they have considered a different aspect. The question is usually welcome.\n\n**Believing that the absence of a rule means permission.** Novel structures have no established practice, and the four tests still apply.\n\n**Escalating conclusions rather than facts.** \"I think this is improper\" invites argument; \"the comparable set changed in Q3 and I could not find the reason recorded\" invites investigation.\n\n**Going along and intending to raise it later.** Later is always more expensive, and the record will show you participated."
+      "body": "**Waiting for certainty before raising something.** You will rarely be certain, and by the time you are, the decision has been made and the cost of raising it has multiplied.\n\n**Framing a question as an accusation.** It guarantees defensiveness and loses you the explanation you probably needed.\n\n**Assuming someone senior has considered it.** Often they have not, or they have considered a different aspect. The question is usually welcome.\n\n**Believing that the absence of a rule means permission.** Novel structures have no established practice, and the four tests still apply.\n\n**Escalating conclusions rather than facts.** \"I think this is improper\" invites argument; \"the comparable set changed in Q3 and I could not find the reason recorded\" invites investigation.\n\n**Going along and intending to raise it later.** Later is always more expensive, and the record will show you participated.",
+      "heading": "Key risks"
     },
     {
       "type": "pitfall",
@@ -97,7 +110,10 @@
       "id": "eth-judgement-01-q1",
       "type": "mcq",
       "difficulty": 2,
-      "tags": ["ethics", "judgement"],
+      "tags": [
+        "ethics",
+        "judgement"
+      ],
       "concept": "what-it-is",
       "stem": "A situation arises that no rule in your firm's code addresses. What is the right starting question?",
       "choices": [
@@ -119,7 +135,11 @@
       "id": "eth-judgement-01-q2",
       "type": "numeric",
       "difficulty": 3,
-      "tags": ["ethics", "drift", "arithmetic"],
+      "tags": [
+        "ethics",
+        "drift",
+        "arithmetic"
+      ],
       "concept": "worked-drift",
       "stem": "A valuation drifts 1% optimistic each year for five years, compounding. By what percentage does the reported value exceed the honest one? One decimal place.",
       "answer": 5.1,
@@ -133,7 +153,10 @@
       "id": "eth-judgement-01-q3",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["ethics", "conditions"],
+      "tags": [
+        "ethics",
+        "conditions"
+      ],
       "concept": "pressure",
       "stem": "Which combination of conditions most raises the risk of a poor ethical decision?",
       "choices": [
@@ -155,7 +178,10 @@
       "id": "eth-judgement-01-q4",
       "type": "tfj",
       "difficulty": 4,
-      "tags": ["ethics", "misconception"],
+      "tags": [
+        "ethics",
+        "misconception"
+      ],
       "concept": "asking-early",
       "stem": "\"I should wait until I am sure before raising a concern.\" True or false — and why?",
       "isTrue": false,
@@ -178,7 +204,11 @@
       "id": "eth-judgement-01-q5",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["ethics", "escalation", "on-the-job"],
+      "tags": [
+        "ethics",
+        "escalation",
+        "on-the-job"
+      ],
       "concept": "how-it-goes-wrong",
       "stem": "You decide to raise something with a senior colleague. Which framing is most likely to be productive?",
       "choices": [
@@ -200,7 +230,11 @@
       "id": "eth-judgement-01-q6",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["ethics", "reputation", "on-the-job"],
+      "tags": [
+        "ethics",
+        "reputation",
+        "on-the-job"
+      ],
       "concept": "the-long-game",
       "stem": "What is the strongest practical argument for asking awkward questions early in your career?",
       "choices": [

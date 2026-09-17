@@ -5,14 +5,21 @@
   "title": "Capital Allocation: The Five Choices and the Buyback Illusion",
   "summary": "Every unit of cash has five destinations, and the one that raises earnings per share fastest changes nothing about the business.",
   "level": "core",
-  "prereqs": ["ci-wacc-01"],
+  "prereqs": [
+    "ci-wacc-01"
+  ],
   "estMinutes": 9,
-  "examRelevance": ["CFA-L1", "CAIA-L2", "practical"],
+  "examRelevance": [
+    "CFA-L1",
+    "CAIA-L2",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
       "id": "what-it-is",
-      "body": "A company generating cash has exactly five things it can do with it. Every strategy document ever written is some combination of these:\n\n**Reinvest in the existing business** — capacity, equipment, systems, people.\n\n**Acquire** — buy growth or capability rather than build it.\n\n**Repay debt** — reduce the fixed claim and the risk.\n\n**Pay a dividend** — return cash to shareholders on a recurring, expected basis.\n\n**Buy back shares** — return cash by reducing the share count.\n\n**The test for all five is the same and it comes from the previous topic: does this use of a unit of capital earn more than the capital costs?** Reinvestment at 6% against a 7.8% cost of capital is worse than a dividend, however much it sounds like ambition.\n\nWhich makes capital allocation the most consequential thing a management team does and the least discussed. A team that runs the operations competently and allocates capital badly will underperform one that does the reverse, over a decade, by a wide margin."
+      "body": "A company generating cash has exactly five things it can do with it. Every strategy document ever written is some combination of these:\n\n**Reinvest in the existing business** — capacity, equipment, systems, people.\n\n**Acquire** — buy growth or capability rather than build it.\n\n**Repay debt** — reduce the fixed claim and the risk.\n\n**Pay a dividend** — return cash to shareholders on a recurring, expected basis.\n\n**Buy back shares** — return cash by reducing the share count.\n\n**The test for all five is the same and it comes from the previous topic: does this use of a unit of capital earn more than the capital costs?** Reinvestment at 6% against a 7.8% cost of capital is worse than a dividend, however much it sounds like ambition.\n\nWhich makes capital allocation the most consequential thing a management team does and the least discussed. A team that runs the operations competently and allocates capital badly will underperform one that does the reverse, over a decade, by a wide margin.",
+      "heading": "What it is"
     },
     {
       "type": "concept",
@@ -22,7 +29,8 @@
     {
       "type": "intuition",
       "id": "the-agency-problem",
-      "body": "**Managements systematically prefer to keep and deploy cash rather than return it, and the reason is structural rather than dishonest.**\n\nA larger company brings higher pay, more standing, more interesting work and more optionality. Returning cash shrinks the empire and admits that the best available use of the money is outside the company. Very few people volunteer for that.\n\nSo predictable distortions follow:\n\n**Acquisitions at prices that do not clear the hurdle.** Buying growth is faster than building it and easier to announce.\n\n**Reinvestment in declining businesses.** Defending an existing position feels like prudence and is often value destruction with a longer timeline.\n\n**Cash hoarding.** [[balance-sheet|Balance sheet]] cash earning below the cost of capital is a permanent, quiet drag that never appears as a loss.\n\n**This is exactly the gap [[private-equity|private equity]] exists to close.** Leverage removes the discretion — the interest must be paid — and concentrated ownership means someone with real money at stake decides where the cash goes. **The discipline is the product, not the leverage.**\n\nAnd the same logic explains activist campaigns in public markets: the demand is nearly always \"return the capital or explain why your reinvestment beats the hurdle\", which is a question rather than a strategy, and it is very hard to answer badly in public."
+      "body": "**Managements systematically prefer to keep and deploy cash rather than return it, and the reason is structural rather than dishonest.**\n\nA larger company brings higher pay, more standing, more interesting work and more optionality. Returning cash shrinks the empire and admits that the best available use of the money is outside the company. Very few people volunteer for that.\n\nSo predictable distortions follow:\n\n**Acquisitions at prices that do not clear the hurdle.** Buying growth is faster than building it and easier to announce.\n\n**Reinvestment in declining businesses.** Defending an existing position feels like prudence and is often value destruction with a longer timeline.\n\n**Cash hoarding.** [[balance-sheet|Balance sheet]] cash earning below the cost of capital is a permanent, quiet drag that never appears as a loss.\n\n**This is exactly the gap [[private-equity|private equity]] exists to close.** Leverage removes the discretion — the interest must be paid — and concentrated ownership means someone with real money at stake decides where the cash goes. **The discipline is the product, not the leverage.**\n\nAnd the same logic explains activist campaigns in public markets: the demand is nearly always \"return the capital or explain why your reinvestment beats the hurdle\", which is a question rather than a strategy, and it is very hard to answer badly in public.",
+      "heading": "Why managements prefer to keep the cash"
     },
     {
       "type": "example",
@@ -42,7 +50,11 @@
       "type": "table",
       "id": "allocation-table",
       "caption": "When each use of cash is the right one",
-      "headers": ["Use of cash", "Right when", "Warning sign"],
+      "headers": [
+        "Use of cash",
+        "Right when",
+        "Warning sign"
+      ],
       "rows": [
         [
           "Reinvest",
@@ -74,7 +86,8 @@
     {
       "type": "concept",
       "id": "how-it-goes-wrong",
-      "body": "**EPS targets driving the decision.** A buyback is the fastest way to hit an EPS number, and when incentives are struck on EPS the decision stops being about value. Check whether management's targets are EPS-based before reading their buyback rationale.\n\n**Borrowing to buy back.** Reasonable when leverage is below capacity and shares are cheap; a way of increasing risk to flatter a metric when neither is true.\n\n**Acquisitions justified by accretion.** A high-multiple acquirer buying a low-multiple target is arithmetically accretive whether or not the deal makes sense. Accretion is a function of the multiples, not of the merits.\n\n**Dividend as a promise.** A cut is read as a signal of distress, so companies defend dividends past the point of sense — by borrowing, by selling assets, or by deferring capital spending. The last of those is invisible for years.\n\n**Cash as safety without a number.** Some balance sheet cash is genuine insurance. Beyond that it earns below the cost of capital indefinitely. The question is what the buffer is for and how it was sized, and there is usually no answer."
+      "body": "**EPS targets driving the decision.** A buyback is the fastest way to hit an EPS number, and when incentives are struck on EPS the decision stops being about value. Check whether management's targets are EPS-based before reading their buyback rationale.\n\n**Borrowing to buy back.** Reasonable when leverage is below capacity and shares are cheap; a way of increasing risk to flatter a metric when neither is true.\n\n**Acquisitions justified by accretion.** A high-multiple acquirer buying a low-multiple target is arithmetically accretive whether or not the deal makes sense. Accretion is a function of the multiples, not of the merits.\n\n**Dividend as a promise.** A cut is read as a signal of distress, so companies defend dividends past the point of sense — by borrowing, by selling assets, or by deferring capital spending. The last of those is invisible for years.\n\n**Cash as safety without a number.** Some balance sheet cash is genuine insurance. Beyond that it earns below the cost of capital indefinitely. The question is what the buffer is for and how it was sized, and there is usually no answer.",
+      "heading": "Key risks"
     },
     {
       "type": "pitfall",
@@ -102,7 +115,11 @@
       "id": "ci-allocation-01-q1",
       "type": "numeric",
       "difficulty": 2,
-      "tags": ["buyback", "eps", "arithmetic"],
+      "tags": [
+        "buyback",
+        "eps",
+        "arithmetic"
+      ],
       "concept": "worked-buyback",
       "stem": "100 shares, earnings 100, share price 10. The company spends 100 of cash on a buyback. What is the new earnings per share? Three decimal places.",
       "answer": 1.111,
@@ -115,7 +132,11 @@
       "id": "ci-allocation-01-q2",
       "type": "numeric",
       "difficulty": 4,
-      "tags": ["ma", "accretion", "arithmetic"],
+      "tags": [
+        "ma",
+        "accretion",
+        "arithmetic"
+      ],
       "concept": "accretion-is-arithmetic",
       "stem": "Acquirer: earnings 100, 100 shares, trading at 20x. It buys a target earning 40 for 25x earnings, paying in shares. What is the combined earnings per share? Three decimal places.",
       "answer": 0.933,
@@ -128,7 +149,10 @@
       "id": "ci-allocation-01-q3",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["buyback", "value"],
+      "tags": [
+        "buyback",
+        "value"
+      ],
       "concept": "buybacks",
       "stem": "Under what condition does a buyback create value for the shareholders who remain?",
       "choices": [
@@ -150,7 +174,10 @@
       "id": "ci-allocation-01-q4",
       "type": "tfj",
       "difficulty": 4,
-      "tags": ["ma", "misconception"],
+      "tags": [
+        "ma",
+        "misconception"
+      ],
       "concept": "accretion-is-arithmetic",
       "stem": "\"The acquisition is accretive to earnings per share, so it creates value.\" True or false — and why?",
       "isTrue": false,
@@ -173,7 +200,11 @@
       "id": "ci-allocation-01-q5",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["allocation", "agency", "on-the-job"],
+      "tags": [
+        "allocation",
+        "agency",
+        "on-the-job"
+      ],
       "concept": "the-agency-problem",
       "stem": "Why do management teams systematically prefer reinvesting or acquiring over returning cash?",
       "choices": [
@@ -195,7 +226,11 @@
       "id": "ci-allocation-01-q6",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["allocation", "diligence", "on-the-job"],
+      "tags": [
+        "allocation",
+        "diligence",
+        "on-the-job"
+      ],
       "concept": "on-the-job",
       "stem": "You are assessing whether a management team allocates capital well. Which single piece of evidence is most useful?",
       "choices": [

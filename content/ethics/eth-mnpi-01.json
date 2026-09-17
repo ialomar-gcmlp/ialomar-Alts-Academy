@@ -5,14 +5,21 @@
   "title": "Material Non-Public Information in Private Markets",
   "summary": "Private markets run on information that is not public, which makes the boundary a working problem rather than an occasional one.",
   "level": "advanced",
-  "prereqs": ["eth-duties-01"],
+  "prereqs": [
+    "eth-duties-01"
+  ],
   "estMinutes": 9,
-  "examRelevance": ["CFA-L1", "CAIA-L2", "practical"],
+  "examRelevance": [
+    "CFA-L1",
+    "CAIA-L2",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
       "id": "what-it-is",
-      "body": "**[[mnpi|Material non-public information]]** is information that is not publicly available and that a reasonable investor would consider important in deciding whether to trade a security. Trading on it, or passing it to someone who trades, is unlawful in most jurisdictions and a serious professional matter everywhere.\n\nTwo tests, and both must be met:\n\n**Material.** Would a reasonable investor consider it important? An unannounced acquisition, an earnings result, the loss of a major customer, a regulatory decision, a financing that will not complete.\n\n**Non-public.** Not disseminated in a way that gives the market a fair opportunity to absorb it. Discussed at a conference does not necessarily make it public; a press release does.\n\n**The obvious cases are easy and are not where people get into trouble.** Nobody needs to be told not to trade on an acquisition they were told about in confidence.\n\n**The difficulty in alternatives is structural: the whole business consists of learning things that are not public.** Diligence, board seats, management meetings, lender discussions and portfolio company data are all non-public by design. So the boundary is not an occasional hazard — it is a condition of the work, and it needs a working method rather than a rule of thumb."
+      "body": "**[[mnpi|Material non-public information]]** is information that is not publicly available and that a reasonable investor would consider important in deciding whether to trade a security. Trading on it, or passing it to someone who trades, is unlawful in most jurisdictions and a serious professional matter everywhere.\n\nTwo tests, and both must be met:\n\n**Material.** Would a reasonable investor consider it important? An unannounced acquisition, an earnings result, the loss of a major customer, a regulatory decision, a financing that will not complete.\n\n**Non-public.** Not disseminated in a way that gives the market a fair opportunity to absorb it. Discussed at a conference does not necessarily make it public; a press release does.\n\n**The obvious cases are easy and are not where people get into trouble.** Nobody needs to be told not to trade on an acquisition they were told about in confidence.\n\n**The difficulty in alternatives is structural: the whole business consists of learning things that are not public.** Diligence, board seats, management meetings, lender discussions and portfolio company data are all non-public by design. So the boundary is not an occasional hazard — it is a condition of the work, and it needs a working method rather than a rule of thumb.",
+      "heading": "What it is"
     },
     {
       "type": "concept",
@@ -22,13 +29,18 @@
     {
       "type": "intuition",
       "id": "the-working-test",
-      "body": "**A practical method for the ambiguous cases, in the order to apply it.**\n\n**Where did this come from?** A public filing, a press release, a conference presentation, or a private conversation? Provenance is the first question and it is usually answerable immediately.\n\n**Was the person entitled to tell me?** A management team briefing its own investors under a confidentiality agreement is one thing. A consultant repeating what their current employer is doing is another. **If the source may have breached a duty in telling you, you are on the wrong side of the line regardless of your own intentions.**\n\n**Would it move the price?** If yes, treat it as material. The threshold question is not whether it definitely would — it is whether a reasonable investor would care.\n\n**Would I be comfortable explaining how I came to know this?** Not whether it was legal — whether the account of how you learned it would sound reasonable said out loud.\n\n**And the operational rule that matters most: when unsure, stop and ask before doing anything else.** Not after trading, not after passing it on, and not after deciding for yourself that it is probably fine.\n\n**Because the mistake is nearly always in the first thirty seconds** — repeating something interesting to a colleague who trades, or mentioning it in a meeting. Once information has moved, no subsequent care undoes it. **Silence is free and reversible; disclosure is neither.**"
+      "body": "**A practical method for the ambiguous cases, in the order to apply it.**\n\n**Where did this come from?** A public filing, a press release, a conference presentation, or a private conversation? Provenance is the first question and it is usually answerable immediately.\n\n**Was the person entitled to tell me?** A management team briefing its own investors under a confidentiality agreement is one thing. A consultant repeating what their current employer is doing is another. **If the source may have breached a duty in telling you, you are on the wrong side of the line regardless of your own intentions.**\n\n**Would it move the price?** If yes, treat it as material. The threshold question is not whether it definitely would — it is whether a reasonable investor would care.\n\n**Would I be comfortable explaining how I came to know this?** Not whether it was legal — whether the account of how you learned it would sound reasonable said out loud.\n\n**And the operational rule that matters most: when unsure, stop and ask before doing anything else.** Not after trading, not after passing it on, and not after deciding for yourself that it is probably fine.\n\n**Because the mistake is nearly always in the first thirty seconds** — repeating something interesting to a colleague who trades, or mentioning it in a meeting. Once information has moved, no subsequent care undoes it. **Silence is free and reversible; disclosure is neither.**",
+      "heading": "Why a working test beats instinct"
     },
     {
       "type": "table",
       "id": "mnpi-table",
       "caption": "Situations and their standard handling",
-      "headers": ["Situation", "Risk", "Standard handling"],
+      "headers": [
+        "Situation",
+        "Risk",
+        "Standard handling"
+      ],
       "rows": [
         [
           "Diligence on a listed target",
@@ -60,7 +72,8 @@
     {
       "type": "concept",
       "id": "how-it-goes-wrong",
-      "body": "**Repeating it casually.** The commonest failure by a wide margin. Information mentioned to a colleague who trades has been passed on, whatever your intention was.\n\n**Assuming widely-known means public.** Information circulating among several funds is not public. \"Everyone knows\" is a description of a small group, not of the market.\n\n**Mosaic reasoning taken too far.** Assembling public pieces into a non-public conclusion is legitimate research. Assembling them around one non-public piece is not, and the distinction turns on whether any single input was itself confidential.\n\n**Believing the barrier protects you.** Information barriers work by keeping information from moving. If you carry it across, the barrier has not failed — you have.\n\n**Not documenting the source.** Six months later, being unable to say where something came from is a serious problem in itself, and it is entirely avoidable with a note.\n\n**Assuming private company information is unrestricted.** Loans and bonds trade. Information about a private borrower is inside information about its traded debt."
+      "body": "**Repeating it casually.** The commonest failure by a wide margin. Information mentioned to a colleague who trades has been passed on, whatever your intention was.\n\n**Assuming widely-known means public.** Information circulating among several funds is not public. \"Everyone knows\" is a description of a small group, not of the market.\n\n**Mosaic reasoning taken too far.** Assembling public pieces into a non-public conclusion is legitimate research. Assembling them around one non-public piece is not, and the distinction turns on whether any single input was itself confidential.\n\n**Believing the barrier protects you.** Information barriers work by keeping information from moving. If you carry it across, the barrier has not failed — you have.\n\n**Not documenting the source.** Six months later, being unable to say where something came from is a serious problem in itself, and it is entirely avoidable with a note.\n\n**Assuming private company information is unrestricted.** Loans and bonds trade. Information about a private borrower is inside information about its traded debt.",
+      "heading": "Key risks"
     },
     {
       "type": "pitfall",
@@ -88,7 +101,10 @@
       "id": "eth-mnpi-01-q1",
       "type": "mcq",
       "difficulty": 2,
-      "tags": ["mnpi", "definition"],
+      "tags": [
+        "mnpi",
+        "definition"
+      ],
       "concept": "what-it-is",
       "stem": "Which two tests must both be met for information to be material non-public information?",
       "choices": [
@@ -110,7 +126,10 @@
       "id": "eth-mnpi-01-q2",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["mnpi", "alternatives"],
+      "tags": [
+        "mnpi",
+        "alternatives"
+      ],
       "concept": "the-alts-problem",
       "stem": "Why is the boundary harder to manage in alternatives than in public equity research?",
       "choices": [
@@ -132,7 +151,10 @@
       "id": "eth-mnpi-01-q3",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["mnpi", "private-debt"],
+      "tags": [
+        "mnpi",
+        "private-debt"
+      ],
       "concept": "the-alts-problem",
       "stem": "You sit on the board of a private company whose loans trade in the secondary market. What is your position?",
       "choices": [
@@ -154,7 +176,10 @@
       "id": "eth-mnpi-01-q4",
       "type": "tfj",
       "difficulty": 4,
-      "tags": ["mnpi", "misconception"],
+      "tags": [
+        "mnpi",
+        "misconception"
+      ],
       "concept": "how-it-goes-wrong",
       "stem": "\"Several funds already know this, so it is effectively public.\" True or false — and why?",
       "isTrue": false,
@@ -177,7 +202,11 @@
       "id": "eth-mnpi-01-q5",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["mnpi", "expert-networks", "on-the-job"],
+      "tags": [
+        "mnpi",
+        "expert-networks",
+        "on-the-job"
+      ],
       "concept": "expert-networks",
       "stem": "On an expert network call, the consultant begins describing their current employer's unannounced restructuring. What should you do?",
       "choices": [
@@ -199,7 +228,11 @@
       "id": "eth-mnpi-01-q6",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["mnpi", "practice", "on-the-job"],
+      "tags": [
+        "mnpi",
+        "practice",
+        "on-the-job"
+      ],
       "concept": "the-working-test",
       "stem": "What single habit most reduces the risk of an MNPI problem?",
       "choices": [

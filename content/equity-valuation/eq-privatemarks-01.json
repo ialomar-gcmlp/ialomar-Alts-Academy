@@ -5,14 +5,22 @@
   "title": "Private Marks: Smoothing, Lag and What the Volatility Number Hides",
   "summary": "A quarterly estimate that moves a third of the way toward reality reports a third of the volatility — and the risk that disappears from the statistics does not disappear from the portfolio.",
   "level": "advanced",
-  "prereqs": ["eq-comparables-01", "quant-ret-01"],
+  "prereqs": [
+    "eq-comparables-01",
+    "quant-ret-01"
+  ],
   "estMinutes": 9,
-  "examRelevance": ["CAIA-L1", "CAIA-L2", "practical"],
+  "examRelevance": [
+    "CAIA-L1",
+    "CAIA-L2",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
       "id": "what-it-is",
-      "body": "A listed share has a price every second, set by people transacting. A private company has a **[[fair-value|fair value]] estimate**, produced quarterly, by the manager who owns it.\n\nBoth are called valuations and they are different objects:\n\n**A market price** is what someone actually paid. It incorporates every participant's view and it moves whether anyone likes it or not.\n\n**An estimate** is a considered judgement using comparables, transactions and a discounted cash flow, reviewed by an auditor and sometimes by a third-party valuation firm. It moves when the estimator decides it should.\n\nNeither is inherently better, and they have different failure modes. Market prices overshoot in both directions; estimates lag and smooth. **The problem is not that estimates are wrong — it is that they are then used in statistics that assume they are prices.**\n\nEvery [[volatility]] figure, correlation and Sharpe ratio computed on a private portfolio inherits the properties of the estimation process rather than of the assets. That is the subject of this topic, and it is the most consequential measurement issue in alternatives."
+      "body": "A listed share has a price every second, set by people transacting. A private company has a **[[fair-value|fair value]] estimate**, produced quarterly, by the manager who owns it.\n\nBoth are called valuations and they are different objects:\n\n**A market price** is what someone actually paid. It incorporates every participant's view and it moves whether anyone likes it or not.\n\n**An estimate** is a considered judgement using comparables, transactions and a discounted cash flow, reviewed by an auditor and sometimes by a third-party valuation firm. It moves when the estimator decides it should.\n\nNeither is inherently better, and they have different failure modes. Market prices overshoot in both directions; estimates lag and smooth. **The problem is not that estimates are wrong — it is that they are then used in statistics that assume they are prices.**\n\nEvery [[volatility]] figure, correlation and Sharpe ratio computed on a private portfolio inherits the properties of the estimation process rather than of the assets. That is the subject of this topic, and it is the most consequential measurement issue in alternatives.",
+      "heading": "What it is"
     },
     {
       "type": "concept",
@@ -22,7 +30,8 @@
     {
       "type": "intuition",
       "id": "the-denominator-problem",
-      "body": "**Every risk-adjusted measure has volatility in the denominator, so understating volatility overstates the measure — and the effect is mechanical.**\n\nA strategy returning 12% with 6% reported volatility against a 4% [[risk-free-rate|risk-free rate]] shows a Sharpe ratio of 1.33. If the true volatility is 15%, the honest Sharpe ratio is 0.53. **Same returns, and the apparent quality of the strategy falls by 60% on a measurement correction.**\n\nThe same applies everywhere the number is used:\n\n**Portfolio optimisation** allocates more to assets with lower measured volatility, so smoothing produces an allocation recommendation. This is not a subtle bias; it is the dominant one in most institutional models.\n\n**Risk budgets** understate the capital genuinely at risk.\n\n**Beta and correlation** look low, which supports a diversification claim that has not been tested.\n\n**Drawdown statistics** understate what the portfolio would have realised if sold.\n\nThere are corrections available — unsmoothing techniques that back out the autocorrelation, or using lagged public proxies — and they consistently produce higher volatility and higher correlation. **A manager who has run them and shows the results is doing something unusual and worth noticing.**"
+      "body": "**Every risk-adjusted measure has volatility in the denominator, so understating volatility overstates the measure — and the effect is mechanical.**\n\nA strategy returning 12% with 6% reported volatility against a 4% [[risk-free-rate|risk-free rate]] shows a Sharpe ratio of 1.33. If the true volatility is 15%, the honest Sharpe ratio is 0.53. **Same returns, and the apparent quality of the strategy falls by 60% on a measurement correction.**\n\nThe same applies everywhere the number is used:\n\n**Portfolio optimisation** allocates more to assets with lower measured volatility, so smoothing produces an allocation recommendation. This is not a subtle bias; it is the dominant one in most institutional models.\n\n**Risk budgets** understate the capital genuinely at risk.\n\n**Beta and correlation** look low, which supports a diversification claim that has not been tested.\n\n**Drawdown statistics** understate what the portfolio would have realised if sold.\n\nThere are corrections available — unsmoothing techniques that back out the autocorrelation, or using lagged public proxies — and they consistently produce higher volatility and higher correlation. **A manager who has run them and shows the results is doing something unusual and worth noticing.**",
+      "heading": "Why smoothed marks flatter the ratios"
     },
     {
       "type": "example",
@@ -42,7 +51,11 @@
       "type": "table",
       "id": "artefact-table",
       "caption": "Which reported statistics smoothing distorts",
-      "headers": ["Statistic", "Direction of distortion", "What to do instead"],
+      "headers": [
+        "Statistic",
+        "Direction of distortion",
+        "What to do instead"
+      ],
       "rows": [
         [
           "Volatility",
@@ -74,7 +87,8 @@
     {
       "type": "concept",
       "id": "how-it-goes-wrong",
-      "body": "**Optimisers fed smoothed inputs.** Mean-variance optimisation allocates on volatility and correlation, both understated. The output is a recommendation to hold more private assets, generated by the measurement rather than by the economics.\n\n**Comparing a private Sharpe ratio with a public one.** The two denominators were produced by different processes. It is not a like-for-like comparison and it is made constantly.\n\n**Denominator staleness in a fall.** When public markets fall and private marks do not, the private allocation rises as a share of the portfolio without anyone buying anything. This is a genuine operational problem for investors with allocation limits.\n\n**Reading stable marks as low risk.** Stability of the estimate is not stability of the value. The test is what the assets would fetch, and that is only observable on a sale.\n\n**Assuming the lag is symmetric.** Marks tend to fall more slowly than they rise. Whether that is prudence or reluctance is not determinable from outside, and the asymmetry is measurable."
+      "body": "**Optimisers fed smoothed inputs.** Mean-variance optimisation allocates on volatility and correlation, both understated. The output is a recommendation to hold more private assets, generated by the measurement rather than by the economics.\n\n**Comparing a private Sharpe ratio with a public one.** The two denominators were produced by different processes. It is not a like-for-like comparison and it is made constantly.\n\n**Denominator staleness in a fall.** When public markets fall and private marks do not, the private allocation rises as a share of the portfolio without anyone buying anything. This is a genuine operational problem for investors with allocation limits.\n\n**Reading stable marks as low risk.** Stability of the estimate is not stability of the value. The test is what the assets would fetch, and that is only observable on a sale.\n\n**Assuming the lag is symmetric.** Marks tend to fall more slowly than they rise. Whether that is prudence or reluctance is not determinable from outside, and the asymmetry is measurable.",
+      "heading": "Key risks"
     },
     {
       "type": "pitfall",
@@ -102,7 +116,10 @@
       "id": "eq-privatemarks-01-q1",
       "type": "mcq",
       "difficulty": 2,
-      "tags": ["marks", "smoothing"],
+      "tags": [
+        "marks",
+        "smoothing"
+      ],
       "concept": "smoothing",
       "stem": "Why do private asset return series show low volatility?",
       "choices": [
@@ -124,7 +141,11 @@
       "id": "eq-privatemarks-01-q2",
       "type": "numeric",
       "difficulty": 3,
-      "tags": ["marks", "sharpe", "arithmetic"],
+      "tags": [
+        "marks",
+        "sharpe",
+        "arithmetic"
+      ],
       "concept": "the-denominator-problem",
       "stem": "A strategy returns 12% with a 4% risk-free rate. Reported volatility is 6%. What is the reported Sharpe ratio? Two decimal places.",
       "answer": 1.33,
@@ -136,7 +157,11 @@
       "id": "eq-privatemarks-01-q3",
       "type": "numeric",
       "difficulty": 3,
-      "tags": ["marks", "sharpe", "arithmetic"],
+      "tags": [
+        "marks",
+        "sharpe",
+        "arithmetic"
+      ],
       "concept": "the-denominator-problem",
       "stem": "Same 12% return and 4% risk-free rate, but the unsmoothed volatility is 15%. What is the corrected Sharpe ratio? Two decimal places.",
       "answer": 0.53,
@@ -148,7 +173,11 @@
       "id": "eq-privatemarks-01-q4",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["marks", "optimisation", "on-the-job"],
+      "tags": [
+        "marks",
+        "optimisation",
+        "on-the-job"
+      ],
       "concept": "how-it-goes-wrong",
       "stem": "What happens when smoothed private volatilities are used in a mean-variance optimiser alongside market-priced assets?",
       "choices": [
@@ -170,7 +199,10 @@
       "id": "eq-privatemarks-01-q5",
       "type": "tfj",
       "difficulty": 4,
-      "tags": ["marks", "misconception"],
+      "tags": [
+        "marks",
+        "misconception"
+      ],
       "concept": "the-denominator-defence",
       "stem": "\"We hold to maturity, so interim volatility is irrelevant to us.\" True or false — and why?",
       "isTrue": false,
@@ -193,7 +225,11 @@
       "id": "eq-privatemarks-01-q6",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["marks", "diagnostics", "on-the-job"],
+      "tags": [
+        "marks",
+        "diagnostics",
+        "on-the-job"
+      ],
       "concept": "worked-smoothing",
       "stem": "Which single diagnostic best detects smoothing in a return series?",
       "choices": [

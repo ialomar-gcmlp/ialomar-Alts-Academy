@@ -5,14 +5,21 @@
   "title": "Governance, Control and the Rights You Actually Have",
   "summary": "Who decides, who benefits, and why a minority stake in a private company is worth reading the shareholders' agreement for.",
   "level": "core",
-  "prereqs": ["ci-allocation-01"],
+  "prereqs": [
+    "ci-allocation-01"
+  ],
   "estMinutes": 9,
-  "examRelevance": ["CFA-L1", "CAIA-L1", "practical"],
+  "examRelevance": [
+    "CFA-L1",
+    "CAIA-L1",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
       "id": "what-it-is",
-      "body": "[[corporate-governance|Corporate governance]] is the system determining who makes decisions in a company and on whose behalf. It exists because of a structural problem rather than a moral one.\n\nThe problem is the **[[agency-problem|agency problem]]**: the people running a company are usually not the people who own it. Their interests overlap and do not coincide. A manager wants scale, security and optionality; an owner wants return on capital. Neither is behaving badly — the incentives simply point in different directions, and governance is the machinery for narrowing the gap.\n\nThree mechanisms do most of the work:\n\n**The board.** Appointed to oversee management on shareholders' behalf, with the power to hire, fire and set pay.\n\n**Incentives.** Pay linked to outcomes shareholders care about — which requires choosing the right measure, and the measure chosen shapes behaviour more than any policy statement.\n\n**Rights.** Voting, information, veto and exit rights, defined by law and by contract.\n\n**In public markets governance is largely a matter of law, disclosure and market pressure. In private markets it is a matter of contract — and the contract is negotiable, which means it is also readable.**"
+      "body": "[[corporate-governance|Corporate governance]] is the system determining who makes decisions in a company and on whose behalf. It exists because of a structural problem rather than a moral one.\n\nThe problem is the **[[agency-problem|agency problem]]**: the people running a company are usually not the people who own it. Their interests overlap and do not coincide. A manager wants scale, security and optionality; an owner wants return on capital. Neither is behaving badly — the incentives simply point in different directions, and governance is the machinery for narrowing the gap.\n\nThree mechanisms do most of the work:\n\n**The board.** Appointed to oversee management on shareholders' behalf, with the power to hire, fire and set pay.\n\n**Incentives.** Pay linked to outcomes shareholders care about — which requires choosing the right measure, and the measure chosen shapes behaviour more than any policy statement.\n\n**Rights.** Voting, information, veto and exit rights, defined by law and by contract.\n\n**In public markets governance is largely a matter of law, disclosure and market pressure. In private markets it is a matter of contract — and the contract is negotiable, which means it is also readable.**",
+      "heading": "What it is"
     },
     {
       "type": "concept",
@@ -22,7 +29,8 @@
     {
       "type": "intuition",
       "id": "incentives-are-the-policy",
-      "body": "**Whatever a management team is paid on is what a management team will deliver. Everything else is a preference.**\n\nThis is worth taking literally, because the failures are so predictable that they can be read off the incentive plan in advance:\n\n**Paid on EPS** — expect buybacks and accretive acquisitions, whatever the price.\n\n**Paid on revenue growth** — expect volume at the expense of margin, and acquisitions.\n\n**Paid on [[ebitda|EBITDA]]** — expect cost capitalisation, generous adjustments, and deferred maintenance.\n\n**Paid on total shareholder return over three years** — expect actions that move the share price within three years, which is not the same as building durable value.\n\n**Paid on ROIC or economic profit** — expect capital discipline, and expect the plan to be complained about as too complicated.\n\nThe last one is the closest alignment available and the least common, precisely because it is the hardest to hit by accident.\n\n**In private markets the equivalent question is where the management equity sits and what it vests on.** A team with meaningful money in the deal on the same terms as the fund behaves differently from a team with an option package struck at a low reference price. And a team whose incentive pays out on an exit multiple rather than on cash returned will optimise for the appearance at the exit date — which is exactly when you are least able to check."
+      "body": "**Whatever a management team is paid on is what a management team will deliver. Everything else is a preference.**\n\nThis is worth taking literally, because the failures are so predictable that they can be read off the incentive plan in advance:\n\n**Paid on EPS** — expect buybacks and accretive acquisitions, whatever the price.\n\n**Paid on revenue growth** — expect volume at the expense of margin, and acquisitions.\n\n**Paid on [[ebitda|EBITDA]]** — expect cost capitalisation, generous adjustments, and deferred maintenance.\n\n**Paid on total shareholder return over three years** — expect actions that move the share price within three years, which is not the same as building durable value.\n\n**Paid on ROIC or economic profit** — expect capital discipline, and expect the plan to be complained about as too complicated.\n\nThe last one is the closest alignment available and the least common, precisely because it is the hardest to hit by accident.\n\n**In private markets the equivalent question is where the management equity sits and what it vests on.** A team with meaningful money in the deal on the same terms as the fund behaves differently from a team with an option package struck at a low reference price. And a team whose incentive pays out on an exit multiple rather than on cash returned will optimise for the appearance at the exit date — which is exactly when you are least able to check.",
+      "heading": "Why incentives are the real policy"
     },
     {
       "type": "example",
@@ -42,7 +50,11 @@
       "type": "table",
       "id": "rights-table",
       "caption": "The rights worth negotiating, and what each prevents",
-      "headers": ["Right", "What it prevents", "Cost of not having it"],
+      "headers": [
+        "Right",
+        "What it prevents",
+        "Cost of not having it"
+      ],
       "rows": [
         [
           "Reserved matters consent",
@@ -74,7 +86,8 @@
     {
       "type": "concept",
       "id": "how-it-goes-wrong",
-      "body": "**Related-party transactions.** Sales, purchases, leases or services between the company and entities the majority owns. Sometimes ordinary, always worth a list with amounts and counterparties, because it is the most direct route for value to leave a company without a decision anyone voted on.\n\n**Dual-class shares.** Founders retaining voting control with a small economic stake. A legitimate structure with a specific consequence: the usual market discipline does not apply, so everything depends on the founder's judgement and intentions.\n\n**Board independence in name only.** Directors described as independent who have long commercial relationships with the majority. Check tenure, other roles, and who proposed them.\n\n**Weak audit arrangements.** In private companies the auditor's identity, scope and independence vary widely, and it determines how much weight the numbers can bear.\n\n**Founder concentration.** A business where one person holds the customer relationships, the technical knowledge and the decisions is a governance risk as well as a key-person risk, and the two compound in exactly the same scenario."
+      "body": "**Related-party transactions.** Sales, purchases, leases or services between the company and entities the majority owns. Sometimes ordinary, always worth a list with amounts and counterparties, because it is the most direct route for value to leave a company without a decision anyone voted on.\n\n**Dual-class shares.** Founders retaining voting control with a small economic stake. A legitimate structure with a specific consequence: the usual market discipline does not apply, so everything depends on the founder's judgement and intentions.\n\n**Board independence in name only.** Directors described as independent who have long commercial relationships with the majority. Check tenure, other roles, and who proposed them.\n\n**Weak audit arrangements.** In private companies the auditor's identity, scope and independence vary widely, and it determines how much weight the numbers can bear.\n\n**Founder concentration.** A business where one person holds the customer relationships, the technical knowledge and the decisions is a governance risk as well as a key-person risk, and the two compound in exactly the same scenario.",
+      "heading": "Key risks"
     },
     {
       "type": "pitfall",
@@ -102,7 +115,10 @@
       "id": "ci-governance-01-q1",
       "type": "mcq",
       "difficulty": 2,
-      "tags": ["governance", "agency"],
+      "tags": [
+        "governance",
+        "agency"
+      ],
       "concept": "what-it-is",
       "stem": "What is the agency problem in corporate governance?",
       "choices": [
@@ -124,7 +140,10 @@
       "id": "ci-governance-01-q2",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["governance", "minority-rights"],
+      "tags": [
+        "governance",
+        "minority-rights"
+      ],
       "concept": "control-vs-ownership",
       "stem": "Two investors each own 30% of a private company. What most determines their actual influence?",
       "choices": [
@@ -146,7 +165,10 @@
       "id": "ci-governance-01-q3",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["governance", "incentives"],
+      "tags": [
+        "governance",
+        "incentives"
+      ],
       "concept": "incentives-are-the-policy",
       "stem": "A management team is paid on EBITDA growth. Which behaviour should you expect?",
       "choices": [
@@ -168,7 +190,10 @@
       "id": "ci-governance-01-q4",
       "type": "tfj",
       "difficulty": 4,
-      "tags": ["governance", "misconception"],
+      "tags": [
+        "governance",
+        "misconception"
+      ],
       "concept": "control-vs-ownership",
       "stem": "\"We own 30%, so we can block anything significant.\" True or false — and why?",
       "isTrue": false,
@@ -191,7 +216,11 @@
       "id": "ci-governance-01-q5",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["governance", "gp-conflicts", "on-the-job"],
+      "tags": [
+        "governance",
+        "gp-conflicts",
+        "on-the-job"
+      ],
       "concept": "gp-governance",
       "stem": "A manager proposes selling an asset from Fund III to a continuation vehicle it will also manage. What is the structural issue?",
       "choices": [
@@ -213,7 +242,11 @@
       "id": "ci-governance-01-q6",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["governance", "diligence", "on-the-job"],
+      "tags": [
+        "governance",
+        "diligence",
+        "on-the-job"
+      ],
       "concept": "how-it-goes-wrong",
       "stem": "Which single disclosure request is most efficient at finding value leaking out of a private company?",
       "choices": [

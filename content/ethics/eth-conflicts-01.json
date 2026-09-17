@@ -5,14 +5,21 @@
   "title": "Conflicts of Interest: Identify, Then Decide What to Do About It",
   "summary": "A conflict is a structural fact rather than a moral failing — and the useful question is whether it is being avoided, controlled, or merely written down.",
   "level": "core",
-  "prereqs": ["eth-duties-01"],
+  "prereqs": [
+    "eth-duties-01"
+  ],
   "estMinutes": 9,
-  "examRelevance": ["CFA-L1", "CAIA-L1", "practical"],
+  "examRelevance": [
+    "CFA-L1",
+    "CAIA-L1",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
       "id": "what-it-is",
-      "body": "A conflict of interest exists when someone's own interest could reasonably influence a judgement they make on another's behalf. **It does not require anyone to act on it.** The conflict is the situation, not the behaviour.\n\nThat distinction matters because it removes the defensiveness. Saying \"there is a conflict here\" is a description, not an allegation, and people who understand that are much easier to work with on the subject.\n\nThree responses exist, in descending order of strength:\n\n**Avoid.** Do not take the position, do not accept the arrangement, recuse from the decision. The only response that eliminates the conflict.\n\n**Control.** Keep the conflict and constrain the discretion — an independent decision-maker, a pre-agreed formula, an external price reference, a consent requirement.\n\n**Disclose.** Tell the affected party. Necessary in every case and sufficient in fewer than people assume.\n\n**The failure is usually not choosing badly among the three. It is treating disclosure as the whole answer** — documenting a conflict in a paragraph nobody can act on, and considering the matter closed."
+      "body": "A conflict of interest exists when someone's own interest could reasonably influence a judgement they make on another's behalf. **It does not require anyone to act on it.** The conflict is the situation, not the behaviour.\n\nThat distinction matters because it removes the defensiveness. Saying \"there is a conflict here\" is a description, not an allegation, and people who understand that are much easier to work with on the subject.\n\nThree responses exist, in descending order of strength:\n\n**Avoid.** Do not take the position, do not accept the arrangement, recuse from the decision. The only response that eliminates the conflict.\n\n**Control.** Keep the conflict and constrain the discretion — an independent decision-maker, a pre-agreed formula, an external price reference, a consent requirement.\n\n**Disclose.** Tell the affected party. Necessary in every case and sufficient in fewer than people assume.\n\n**The failure is usually not choosing badly among the three. It is treating disclosure as the whole answer** — documenting a conflict in a paragraph nobody can act on, and considering the matter closed.",
+      "heading": "What it is"
     },
     {
       "type": "concept",
@@ -22,7 +29,8 @@
     {
       "type": "intuition",
       "id": "the-three-questions",
-      "body": "**Three questions establish whether a conflict is genuinely managed, and they work on any conflict in any context.**\n\n**Who decides, and what do they gain from the outcome?** If the decision-maker's compensation depends on the answer, there is no control — only a disclosure. An independent voice means someone whose pay does not move with the decision.\n\n**Is there an external reference?** A market price, a third-party valuation, a competitive process, a pre-agreed formula. Anything that comes from outside the interested party converts a judgement into a comparison. A cross-fund sale with a market-tested price is a different transaction from one priced internally.\n\n**Can the affected party actually act?** A conflict disclosed before an investor commits, where they can decline or negotiate, has been managed. The same conflict disclosed after the decision, in a document that cannot be changed, has been recorded.\n\n**Applied to a continuation vehicle, these three cut straight to the substance:** was the price market-tested, did an independent body consent, and could investors genuinely choose to exit at that price with adequate information?\n\n**If the answers are yes, yes and yes, the conflict was managed** — and the transaction may be entirely in everyone's interest. If any answer is no, the conflict was documented, and the outcome depended on the good faith of an interested party. **Which may have been perfectly sound and is not a control.**"
+      "body": "**Three questions establish whether a conflict is genuinely managed, and they work on any conflict in any context.**\n\n**Who decides, and what do they gain from the outcome?** If the decision-maker's compensation depends on the answer, there is no control — only a disclosure. An independent voice means someone whose pay does not move with the decision.\n\n**Is there an external reference?** A market price, a third-party valuation, a competitive process, a pre-agreed formula. Anything that comes from outside the interested party converts a judgement into a comparison. A cross-fund sale with a market-tested price is a different transaction from one priced internally.\n\n**Can the affected party actually act?** A conflict disclosed before an investor commits, where they can decline or negotiate, has been managed. The same conflict disclosed after the decision, in a document that cannot be changed, has been recorded.\n\n**Applied to a continuation vehicle, these three cut straight to the substance:** was the price market-tested, did an independent body consent, and could investors genuinely choose to exit at that price with adequate information?\n\n**If the answers are yes, yes and yes, the conflict was managed** — and the transaction may be entirely in everyone's interest. If any answer is no, the conflict was documented, and the outcome depended on the good faith of an interested party. **Which may have been perfectly sound and is not a control.**",
+      "heading": "Why three questions are enough"
     },
     {
       "type": "example",
@@ -42,7 +50,11 @@
       "type": "table",
       "id": "conflict-table",
       "caption": "Structural conflicts and what a real control looks like",
-      "headers": ["Conflict", "Weak response", "Real control"],
+      "headers": [
+        "Conflict",
+        "Weak response",
+        "Real control"
+      ],
       "rows": [
         [
           "Self-valuation",
@@ -74,7 +86,8 @@
     {
       "type": "concept",
       "id": "how-it-goes-wrong",
-      "body": "**Disclosure treated as resolution.** The most common failure by a wide margin. A conflict in a document nobody can negotiate has been recorded rather than managed.\n\n**Independence in name only.** A committee whose members are all compensated on fund performance has no independent voice, whatever the charter says.\n\n**Policies written after the fact.** A rule created once the opportunity is known will accommodate the preferred answer.\n\n**Conflicts assessed one at a time.** Individually each may be small. Aggregated, a pattern where every close call favours the manager is the thing an investor eventually notices.\n\n**Personal conflicts overlooked.** Gifts, hospitality, personal investments, a family relationship with a counterparty, a job offer from a company under diligence. Smaller amounts and closer to home, and the disclosure obligations are usually clear and routinely forgotten.\n\n**Assuming a conflict disappears if the outcome was good.** A well-managed conflict and a lucky outcome are different things, and only one of them repeats."
+      "body": "**Disclosure treated as resolution.** The most common failure by a wide margin. A conflict in a document nobody can negotiate has been recorded rather than managed.\n\n**Independence in name only.** A committee whose members are all compensated on fund performance has no independent voice, whatever the charter says.\n\n**Policies written after the fact.** A rule created once the opportunity is known will accommodate the preferred answer.\n\n**Conflicts assessed one at a time.** Individually each may be small. Aggregated, a pattern where every close call favours the manager is the thing an investor eventually notices.\n\n**Personal conflicts overlooked.** Gifts, hospitality, personal investments, a family relationship with a counterparty, a job offer from a company under diligence. Smaller amounts and closer to home, and the disclosure obligations are usually clear and routinely forgotten.\n\n**Assuming a conflict disappears if the outcome was good.** A well-managed conflict and a lucky outcome are different things, and only one of them repeats.",
+      "heading": "Key risks"
     },
     {
       "type": "pitfall",
@@ -102,7 +115,10 @@
       "id": "eth-conflicts-01-q1",
       "type": "mcq",
       "difficulty": 2,
-      "tags": ["conflicts", "definition"],
+      "tags": [
+        "conflicts",
+        "definition"
+      ],
       "concept": "what-it-is",
       "stem": "When does a conflict of interest exist?",
       "choices": [
@@ -124,7 +140,10 @@
       "id": "eth-conflicts-01-q2",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["conflicts", "responses"],
+      "tags": [
+        "conflicts",
+        "responses"
+      ],
       "concept": "the-three-questions",
       "stem": "A manager proposes selling an asset from one of its funds to another fund it manages. Which response constitutes a real control?",
       "choices": [
@@ -146,7 +165,10 @@
       "id": "eth-conflicts-01-q3",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["conflicts", "allocation"],
+      "tags": [
+        "conflicts",
+        "allocation"
+      ],
       "concept": "worked-coinvest",
       "stem": "A scarce co-investment is allocated in a way that favours an investor about to commit to the next fund. What determines whether this is defensible?",
       "choices": [
@@ -168,7 +190,10 @@
       "id": "eth-conflicts-01-q4",
       "type": "tfj",
       "difficulty": 4,
-      "tags": ["conflicts", "misconception"],
+      "tags": [
+        "conflicts",
+        "misconception"
+      ],
       "concept": "how-it-goes-wrong",
       "stem": "\"Every conflict in our funds is disclosed in the partnership agreement, so they are managed.\" True or false — and why?",
       "isTrue": false,
@@ -191,7 +216,11 @@
       "id": "eth-conflicts-01-q5",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["conflicts", "personal", "on-the-job"],
+      "tags": [
+        "conflicts",
+        "personal",
+        "on-the-job"
+      ],
       "concept": "your-own-conflicts",
       "stem": "You receive a job offer from a manager your team is currently conducting diligence on. What should you do?",
       "choices": [
@@ -213,7 +242,11 @@
       "id": "eth-conflicts-01-q6",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["conflicts", "hospitality", "on-the-job"],
+      "tags": [
+        "conflicts",
+        "hospitality",
+        "on-the-job"
+      ],
       "concept": "your-own-conflicts",
       "stem": "You have accepted twelve dinners over a year from one placement agent whose funds you evaluate. Why does this matter?",
       "choices": [

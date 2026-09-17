@@ -5,14 +5,21 @@
   "title": "Implied Versus Realised Volatility",
   "summary": "The market's forecast of movement is persistently higher than the movement that arrives — and that gap is a premium paid for insurance.",
   "level": "advanced",
-  "prereqs": ["der-greeks-01"],
+  "prereqs": [
+    "der-greeks-01"
+  ],
   "estMinutes": 9,
-  "examRelevance": ["CAIA-L2", "CFA-L2", "practical"],
+  "examRelevance": [
+    "CAIA-L2",
+    "CFA-L2",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
       "id": "what-it-is",
-      "body": "Two volatilities get discussed and they answer different questions.\n\n**[[realised-volatility|Realised volatility]]** is measured from what actually happened: the [[standard-deviation|standard deviation]] of returns over a past window. Backward-looking, computable, unambiguous.\n\n**[[implied-volatility|Implied volatility]]** is extracted from option prices: the [[volatility]] that makes a pricing model produce the observed premium. Forward-looking, and it is a price rather than a measurement.\n\n**Implied volatility is what the market charges for movement. Realised is what it got.**\n\nThe consistent empirical finding is that **implied exceeds realised on average**, across markets and decades. The gap is the **[[variance-risk-premium|variance risk premium]]**, and it is the reason systematic option selling has a positive expected return.\n\nThis is not a market inefficiency. It is the price of insurance. Buyers of options are paying above the expected cost of the protection because the protection is worth more to them than its actuarial value — which is exactly why anyone buys insurance at all, and exactly why insurers make money on average."
+      "body": "Two volatilities get discussed and they answer different questions.\n\n**[[realised-volatility|Realised volatility]]** is measured from what actually happened: the [[standard-deviation|standard deviation]] of returns over a past window. Backward-looking, computable, unambiguous.\n\n**[[implied-volatility|Implied volatility]]** is extracted from option prices: the [[volatility]] that makes a pricing model produce the observed premium. Forward-looking, and it is a price rather than a measurement.\n\n**Implied volatility is what the market charges for movement. Realised is what it got.**\n\nThe consistent empirical finding is that **implied exceeds realised on average**, across markets and decades. The gap is the **[[variance-risk-premium|variance risk premium]]**, and it is the reason systematic option selling has a positive expected return.\n\nThis is not a market inefficiency. It is the price of insurance. Buyers of options are paying above the expected cost of the protection because the protection is worth more to them than its actuarial value — which is exactly why anyone buys insurance at all, and exactly why insurers make money on average.",
+      "heading": "What it is"
     },
     {
       "type": "concept",
@@ -22,7 +29,8 @@
     {
       "type": "intuition",
       "id": "insurance-not-anomaly",
-      "body": "**Selling volatility is an insurance business, and every insight follows from taking that seriously.**\n\nAn insurer collects premiums that exceed expected claims. They make money most years. Occasionally a hurricane arrives and they pay out a decade of premiums at once. Nobody calls that a failed model — it is the model, and the discipline lies in reserving and sizing rather than in avoiding claims.\n\nOption selling has an identical structure with one important difference: **an insurance company knows it is an insurer.** A fund selling options for \"yield\" frequently does not, and the difference shows up in three specific places.\n\n**Reserving.** An insurer holds capital against the claim. A yield-focused seller often holds capital against the *expected* loss, which is a different and much smaller number.\n\n**Correlation.** Insurers deliberately diversify across uncorrelated perils. Option sellers on equity indices are writing one peril many times — and it is the same peril that damages the rest of the portfolio.\n\n**Reporting.** An insurer reports claims reserves. A fund reports a [[sharpe-ratio|Sharpe ratio]], which describes the premium collection and not the liability accepted.\n\n**So the question to any short volatility strategy is the question you would ask an insurer: what is the maximum claim, what capital is held against it, and how correlated is it with everything else on the book?** Those three questions are answerable, and the answers are the strategy."
+      "body": "**Selling volatility is an insurance business, and every insight follows from taking that seriously.**\n\nAn insurer collects premiums that exceed expected claims. They make money most years. Occasionally a hurricane arrives and they pay out a decade of premiums at once. Nobody calls that a failed model — it is the model, and the discipline lies in reserving and sizing rather than in avoiding claims.\n\nOption selling has an identical structure with one important difference: **an insurance company knows it is an insurer.** A fund selling options for \"yield\" frequently does not, and the difference shows up in three specific places.\n\n**Reserving.** An insurer holds capital against the claim. A yield-focused seller often holds capital against the *expected* loss, which is a different and much smaller number.\n\n**Correlation.** Insurers deliberately diversify across uncorrelated perils. Option sellers on equity indices are writing one peril many times — and it is the same peril that damages the rest of the portfolio.\n\n**Reporting.** An insurer reports claims reserves. A fund reports a [[sharpe-ratio|Sharpe ratio]], which describes the premium collection and not the liability accepted.\n\n**So the question to any short volatility strategy is the question you would ask an insurer: what is the maximum claim, what capital is held against it, and how correlated is it with everything else on the book?** Those three questions are answerable, and the answers are the strategy.",
+      "heading": "Why selling volatility is insurance"
     },
     {
       "type": "example",
@@ -42,7 +50,11 @@
       "type": "table",
       "id": "vol-table",
       "caption": "Reading the volatility surface",
-      "headers": ["Observation", "What it usually means", "What it is not"],
+      "headers": [
+        "Observation",
+        "What it usually means",
+        "What it is not"
+      ],
       "rows": [
         [
           "Implied well above realised",
@@ -69,7 +81,8 @@
     {
       "type": "concept",
       "id": "how-it-goes-wrong",
-      "body": "**Selling volatility because the premium is high.** Implied volatility rises when uncertainty rises. The compensation is larger because the risk is larger, and the two usually move together.\n\n**Sizing on average outcomes.** The expected loss is not the loss that matters. Position sizing for a short volatility book has to be driven by the tail, or the strategy is a series of good years followed by one that ends it.\n\n**Ignoring correlation with the rest of the portfolio.** Equity index option selling loses precisely when equities fall, which is when everything else in a typical portfolio is also losing. It is negatively diversifying at the worst moment.\n\n**Confusing the VIX with a tradeable asset.** Volatility indices are not investable directly; the instruments that track them hold futures and carry roll costs that can dominate returns over any long holding period.\n\n**Treating realised volatility as the benchmark for a hedge's cost.** A protective put costs the premium, and comparing that with realised volatility after the fact is hindsight — the point of the hedge was the outcome you did not get."
+      "body": "**Selling volatility because the premium is high.** Implied volatility rises when uncertainty rises. The compensation is larger because the risk is larger, and the two usually move together.\n\n**Sizing on average outcomes.** The expected loss is not the loss that matters. Position sizing for a short volatility book has to be driven by the tail, or the strategy is a series of good years followed by one that ends it.\n\n**Ignoring correlation with the rest of the portfolio.** Equity index option selling loses precisely when equities fall, which is when everything else in a typical portfolio is also losing. It is negatively diversifying at the worst moment.\n\n**Confusing the VIX with a tradeable asset.** Volatility indices are not investable directly; the instruments that track them hold futures and carry roll costs that can dominate returns over any long holding period.\n\n**Treating realised volatility as the benchmark for a hedge's cost.** A protective put costs the premium, and comparing that with realised volatility after the fact is hindsight — the point of the hedge was the outcome you did not get.",
+      "heading": "Key risks"
     },
     {
       "type": "pitfall",
@@ -97,7 +110,10 @@
       "id": "der-vol-01-q1",
       "type": "mcq",
       "difficulty": 2,
-      "tags": ["volatility", "definition"],
+      "tags": [
+        "volatility",
+        "definition"
+      ],
       "concept": "what-it-is",
       "stem": "What is implied volatility?",
       "choices": [
@@ -119,7 +135,11 @@
       "id": "der-vol-01-q2",
       "type": "numeric",
       "difficulty": 3,
-      "tags": ["volatility", "variance", "arithmetic"],
+      "tags": [
+        "volatility",
+        "variance",
+        "arithmetic"
+      ],
       "concept": "worked-premium",
       "stem": "Implied volatility is 20% and realised turns out to be 16%. What is the ratio of implied variance to realised variance? Two decimal places.",
       "answer": 1.56,
@@ -132,7 +152,10 @@
       "id": "der-vol-01-q3",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["volatility", "premium"],
+      "tags": [
+        "volatility",
+        "premium"
+      ],
       "concept": "insurance-not-anomaly",
       "stem": "Why does implied volatility persistently exceed realised volatility?",
       "choices": [
@@ -154,7 +177,10 @@
       "id": "der-vol-01-q4",
       "type": "tfj",
       "difficulty": 4,
-      "tags": ["volatility", "misconception"],
+      "tags": [
+        "volatility",
+        "misconception"
+      ],
       "concept": "how-it-goes-wrong",
       "stem": "\"Implied volatility is unusually high, so selling options now is especially attractive.\" True or false — and why?",
       "isTrue": false,
@@ -177,7 +203,11 @@
       "id": "der-vol-01-q5",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["volatility", "portfolio", "on-the-job"],
+      "tags": [
+        "volatility",
+        "portfolio",
+        "on-the-job"
+      ],
       "concept": "vol-in-a-portfolio",
       "stem": "Which of these is NOT an implicit short volatility position?",
       "choices": [
@@ -199,7 +229,11 @@
       "id": "der-vol-01-q6",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["volatility", "stress", "on-the-job"],
+      "tags": [
+        "volatility",
+        "stress",
+        "on-the-job"
+      ],
       "concept": "vol-in-a-portfolio",
       "stem": "What single test best reveals hidden short volatility exposure across a multi-strategy portfolio?",
       "choices": [

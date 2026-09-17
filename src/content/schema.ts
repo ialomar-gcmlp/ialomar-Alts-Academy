@@ -247,11 +247,26 @@ const blockIdSchema = z
   .regex(/^[a-z0-9]+(-[a-z0-9]+)*$/)
   .optional();
 
-export const lessonBlockSchema = z.discriminatedUnion("type", [
-  z.object({ type: z.literal("concept"), id: blockIdSchema, body: proseSchema }),
+/**
+ * Section headings are plain text, never prose: they are rendered without Inline,
+ * so a [[term]] here would print literally AND skip glossary validation (walk.ts
+ * does not visit headings for exactly this reason). The refine keeps both honest.
+ */
+const headingSchema = z
+  .string()
+  .min(1)
+  .refine((s) => !s.includes("[["), "headings are plain text — no [[term]] markup")
+  .optional();
 
-  /** The *why*. At least one required per topic — enforced on the topic schema below. */
-  z.object({ type: z.literal("intuition"), id: blockIdSchema, body: proseSchema }),
+export const lessonBlockSchema = z.discriminatedUnion("type", [
+  z.object({ type: z.literal("concept"), id: blockIdSchema, heading: headingSchema, body: proseSchema }),
+
+  /**
+   * The *why*. At least one required per topic — enforced on the topic schema below.
+   * `heading` replaces the callout's generic "Why this is true" label so the title
+   * says why WHAT is true ("Why the rate risk moves to the borrower").
+   */
+  z.object({ type: z.literal("intuition"), id: blockIdSchema, heading: headingSchema, body: proseSchema }),
 
   z.object({
     type: z.literal("formula"),

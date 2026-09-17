@@ -5,14 +5,21 @@
   "title": "Fiscal Policy, Deficits and Debt Sustainability",
   "summary": "Why a government debt ratio depends on one subtraction — the interest rate minus the growth rate — and what that does to long-dated assets.",
   "level": "core",
-  "prereqs": ["econ-gdp-01"],
+  "prereqs": [
+    "econ-gdp-01"
+  ],
   "estMinutes": 10,
-  "examRelevance": ["CFA-L1", "CAIA-L2", "practical"],
+  "examRelevance": [
+    "CFA-L1",
+    "CAIA-L2",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
       "id": "what-it-is",
-      "body": "[[fiscal-policy|Fiscal policy]] is government spending and taxation. Where [[monetary-policy]] works through the price of money, fiscal policy adds or subtracts demand directly.\n\nThree terms do most of the work:\n\n**The deficit** is spending minus revenue in a year — a flow.\n\n**The debt** is the accumulated stock of past deficits.\n\nThe **[[primary-balance|primary balance]]** is the deficit *excluding* interest payments. This is the one to know, because it separates what the government is doing now from what it owes for what it did before. A country can run a primary surplus and still see its debt grow, purely on interest.\n\nA useful distinction on top: **[[automatic-stabilisers|automatic stabilisers]]** are the parts of the budget that move with the cycle without anyone deciding anything — unemployment benefits rise and tax receipts fall in a downturn. They cushion the cycle automatically, which is why deficits widen in recessions even with no new policy at all."
+      "body": "[[fiscal-policy|Fiscal policy]] is government spending and taxation. Where [[monetary-policy]] works through the price of money, fiscal policy adds or subtracts demand directly.\n\nThree terms do most of the work:\n\n**The deficit** is spending minus revenue in a year — a flow.\n\n**The debt** is the accumulated stock of past deficits.\n\nThe **[[primary-balance|primary balance]]** is the deficit *excluding* interest payments. This is the one to know, because it separates what the government is doing now from what it owes for what it did before. A country can run a primary surplus and still see its debt grow, purely on interest.\n\nA useful distinction on top: **[[automatic-stabilisers|automatic stabilisers]]** are the parts of the budget that move with the cycle without anyone deciding anything — unemployment benefits rise and tax receipts fall in a downturn. They cushion the cycle automatically, which is why deficits widen in recessions even with no new policy at all.",
+      "heading": "What it is"
     },
     {
       "type": "concept",
@@ -22,7 +29,8 @@
     {
       "type": "intuition",
       "id": "why-it-matters-to-you",
-      "body": "This can look like a macro parlour game. It reaches a portfolio through four specific routes.\n\n**Long yields.** More issuance means more bonds to absorb; a rising [[term-premium|term premium]] raises the [[discount-rate|discount rate]] on every long-dated asset you own. [[infrastructure|Infrastructure]] and long-lease real estate are the most exposed things in an alternatives portfolio to exactly this.\n\n**Policy conflict.** Large deficits add demand while a [[central-bank|central bank]] subtracts it. Rates have to go higher than they otherwise would, for longer.\n\n**Tax risk.** Debt eventually gets addressed, and [[carried-interest|carried interest]], capital gains treatment and fund structures are recurring candidates. This is a live business risk in alternatives rather than an abstraction.\n\n**The government as counterparty.** Infrastructure with regulated or subsidised revenue, defence suppliers, healthcare — a great deal of the private markets universe is paid by a government whose fiscal position has just deteriorated. **A contract with a stressed sovereign is a contract with a renegotiation risk**, and it is rarely priced as one.\n\n**The honest summary: fiscal sustainability is not a moral question about prudence, it is an interest rate question with a subtraction in it.**"
+      "body": "This can look like a macro parlour game. It reaches a portfolio through four specific routes.\n\n**Long yields.** More issuance means more bonds to absorb; a rising [[term-premium|term premium]] raises the [[discount-rate|discount rate]] on every long-dated asset you own. [[infrastructure|Infrastructure]] and long-lease real estate are the most exposed things in an alternatives portfolio to exactly this.\n\n**Policy conflict.** Large deficits add demand while a [[central-bank|central bank]] subtracts it. Rates have to go higher than they otherwise would, for longer.\n\n**Tax risk.** Debt eventually gets addressed, and [[carried-interest|carried interest]], capital gains treatment and fund structures are recurring candidates. This is a live business risk in alternatives rather than an abstraction.\n\n**The government as counterparty.** Infrastructure with regulated or subsidised revenue, defence suppliers, healthcare — a great deal of the private markets universe is paid by a government whose fiscal position has just deteriorated. **A contract with a stressed sovereign is a contract with a renegotiation risk**, and it is rarely priced as one.\n\n**The honest summary: fiscal sustainability is not a moral question about prudence, it is an interest rate question with a subtraction in it.**",
+      "heading": "Why fiscal policy reaches your portfolio"
     },
     {
       "type": "formula",
@@ -30,10 +38,22 @@
       "latex": "\\Delta d \\approx d \\times (r - g) - pb",
       "plainReading": "The change in the debt-to-GDP ratio is roughly the existing ratio times the gap between the interest rate and the growth rate, minus the primary balance as a share of GDP.",
       "variables": [
-        { "symbol": "d", "meaning": "debt as a share of GDP, expressed as a decimal or in percentage points consistently" },
-        { "symbol": "r", "meaning": "the effective nominal interest rate on the debt — the average across all outstanding issues, not today's yield" },
-        { "symbol": "g", "meaning": "[[nominal-gdp|nominal GDP]] growth" },
-        { "symbol": "pb", "meaning": "primary balance as a share of GDP; positive means surplus" }
+        {
+          "symbol": "d",
+          "meaning": "debt as a share of GDP, expressed as a decimal or in percentage points consistently"
+        },
+        {
+          "symbol": "r",
+          "meaning": "the effective nominal interest rate on the debt — the average across all outstanding issues, not today's yield"
+        },
+        {
+          "symbol": "g",
+          "meaning": "[[nominal-gdp|nominal GDP]] growth"
+        },
+        {
+          "symbol": "pb",
+          "meaning": "primary balance as a share of GDP; positive means surplus"
+        }
       ]
     },
     {
@@ -53,7 +73,11 @@
       "type": "table",
       "id": "regimes",
       "caption": "The same debt level in four different worlds",
-      "headers": ["Regime", "Debt ratio drifts", "What it typically means for markets"],
+      "headers": [
+        "Regime",
+        "Debt ratio drifts",
+        "What it typically means for markets"
+      ],
       "rows": [
         [
           "r < g, low inflation",
@@ -80,7 +104,8 @@
     {
       "type": "concept",
       "id": "how-it-goes-wrong",
-      "body": "**Assuming today's yield is r.** The effective rate is the average across all outstanding debt. A country with long-dated debt refinances slowly, so a yield spike takes years to become an interest bill. The maturity profile is the shock absorber, and it is the first thing to check.\n\n**Ignoring who holds the debt.** Domestically held, own-currency debt is a different problem from foreign-currency debt held abroad. The second can produce a genuine default; the first is usually resolved through inflation and financial repression.\n\n**Treating debt levels as thresholds.** There is no line above which a crisis follows. Japan has sustained far higher ratios than countries that had crises at half the level. What differs is currency, ownership, credibility and r − g.\n\n**Forgetting contingent liabilities.** Pensions, healthcare commitments and guarantees to state entities are obligations that do not appear in the headline debt figure.\n\n**Assuming consolidation is self-defeating or costless.** Cutting spending reduces demand, which reduces g, which worsens the very ratio being defended — but the opposite claim, that deficits pay for themselves, has an equally poor record. Both arguments get made with more confidence than the evidence supports."
+      "body": "**Assuming today's yield is r.** The effective rate is the average across all outstanding debt. A country with long-dated debt refinances slowly, so a yield spike takes years to become an interest bill. The maturity profile is the shock absorber, and it is the first thing to check.\n\n**Ignoring who holds the debt.** Domestically held, own-currency debt is a different problem from foreign-currency debt held abroad. The second can produce a genuine default; the first is usually resolved through inflation and financial repression.\n\n**Treating debt levels as thresholds.** There is no line above which a crisis follows. Japan has sustained far higher ratios than countries that had crises at half the level. What differs is currency, ownership, credibility and r − g.\n\n**Forgetting contingent liabilities.** Pensions, healthcare commitments and guarantees to state entities are obligations that do not appear in the headline debt figure.\n\n**Assuming consolidation is self-defeating or costless.** Cutting spending reduces demand, which reduces g, which worsens the very ratio being defended — but the opposite claim, that deficits pay for themselves, has an equally poor record. Both arguments get made with more confidence than the evidence supports.",
+      "heading": "Key risks"
     },
     {
       "type": "pitfall",
@@ -108,7 +133,11 @@
       "id": "econ-fiscal-01-q1",
       "type": "numeric",
       "difficulty": 2,
-      "tags": ["fiscal-policy", "debt-dynamics", "arithmetic"],
+      "tags": [
+        "fiscal-policy",
+        "debt-dynamics",
+        "arithmetic"
+      ],
       "concept": "worked-dynamics",
       "stem": "Debt is 100% of GDP, the effective interest rate is 4%, nominal growth is 2%, and the primary balance is zero. By how many percentage points does the debt ratio rise in a year?",
       "answer": 2.0,
@@ -122,7 +151,11 @@
       "id": "econ-fiscal-01-q2",
       "type": "numeric",
       "difficulty": 3,
-      "tags": ["fiscal-policy", "debt-dynamics", "arithmetic"],
+      "tags": [
+        "fiscal-policy",
+        "debt-dynamics",
+        "arithmetic"
+      ],
       "concept": "worked-dynamics",
       "stem": "Same country, same 100% debt and 2pp gap between r and g. What primary surplus, as a percentage of GDP, holds the debt ratio exactly flat?",
       "answer": 2.0,
@@ -136,7 +169,10 @@
       "id": "econ-fiscal-01-q3",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["fiscal-policy", "inflation"],
+      "tags": [
+        "fiscal-policy",
+        "inflation"
+      ],
       "concept": "worked-dynamics",
       "stem": "Why does unexpected inflation improve a government's debt ratio, at least temporarily?",
       "choices": [
@@ -158,7 +194,10 @@
       "id": "econ-fiscal-01-q4",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["fiscal-policy", "sovereign-risk"],
+      "tags": [
+        "fiscal-policy",
+        "sovereign-risk"
+      ],
       "concept": "how-it-goes-wrong",
       "stem": "Two countries both have debt at 130% of GDP. One issues in its own currency to domestic holders; the other issues in foreign currency to overseas holders. What is the key difference?",
       "choices": [
@@ -180,7 +219,10 @@
       "id": "econ-fiscal-01-q5",
       "type": "tfj",
       "difficulty": 4,
-      "tags": ["fiscal-policy", "misconception"],
+      "tags": [
+        "fiscal-policy",
+        "misconception"
+      ],
       "concept": "how-it-goes-wrong",
       "stem": "\"Debt above 100% of GDP means a crisis is coming.\" True or false — and why?",
       "isTrue": false,
@@ -203,7 +245,11 @@
       "id": "econ-fiscal-01-q6",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["fiscal-policy", "infrastructure", "on-the-job"],
+      "tags": [
+        "fiscal-policy",
+        "infrastructure",
+        "on-the-job"
+      ],
       "concept": "on-the-job",
       "stem": "You are reviewing an infrastructure fund whose assets earn availability payments from regional governments. Deficits are widening. What is the sharpest diligence question?",
       "choices": [
@@ -225,7 +271,11 @@
       "id": "econ-fiscal-01-q7",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["fiscal-policy", "fiscal-dominance", "risk"],
+      "tags": [
+        "fiscal-policy",
+        "fiscal-dominance",
+        "risk"
+      ],
       "concept": "fiscal-dominance",
       "stem": "Long yields rise sharply and the currency falls at the same time, while the central bank is still tightening. What does this pattern suggest?",
       "choices": [

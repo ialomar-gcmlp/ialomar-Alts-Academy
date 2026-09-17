@@ -5,14 +5,20 @@
   "title": "Reading Economic Data: Leads, Lags and Revisions",
   "summary": "Which releases carry information, which are already priced, and why the first print of a number is the one nobody should trust.",
   "level": "core",
-  "prereqs": ["econ-gdp-01"],
+  "prereqs": [
+    "econ-gdp-01"
+  ],
   "estMinutes": 8,
-  "examRelevance": ["CFA-L1", "practical"],
+  "examRelevance": [
+    "CFA-L1",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
       "id": "what-it-is",
-      "body": "Economic data comes in three kinds, and mixing them up is the most common way to reach a confident wrong conclusion.\n\n**[[leading-indicator|Leading indicators]]** move before the economy does: new orders, building permits, the [[yield-curve|yield curve]], credit spreads, consumer expectations. Noisier, and the only ones with any forecasting value.\n\n**Coincident indicators** move with the economy: industrial production, retail sales, employment.\n\n**[[lagging-indicator|Lagging indicators]]** move after: unemployment duration, default rates, unit labour costs. These confirm; they never anticipate.\n\nA fourth category matters most in practice. **Market prices are the fastest leading indicators available**, because they aggregate everyone's forecast continuously. Which is precisely why a data release rarely moves markets in the direction the data points — the level was expected, and only the surprise is new."
+      "body": "Economic data comes in three kinds, and mixing them up is the most common way to reach a confident wrong conclusion.\n\n**[[leading-indicator|Leading indicators]]** move before the economy does: new orders, building permits, the [[yield-curve|yield curve]], credit spreads, consumer expectations. Noisier, and the only ones with any forecasting value.\n\n**Coincident indicators** move with the economy: industrial production, retail sales, employment.\n\n**[[lagging-indicator|Lagging indicators]]** move after: unemployment duration, default rates, unit labour costs. These confirm; they never anticipate.\n\nA fourth category matters most in practice. **Market prices are the fastest leading indicators available**, because they aggregate everyone's forecast continuously. Which is precisely why a data release rarely moves markets in the direction the data points — the level was expected, and only the surprise is new.",
+      "heading": "What it is"
     },
     {
       "type": "concept",
@@ -22,7 +28,8 @@
     {
       "type": "intuition",
       "id": "revisions",
-      "body": "**The first print of most series is an estimate built from incomplete returns, and it gets revised for years.**\n\nA payroll figure of +2.8% growth becomes +2.1% at the second estimate and +1.6% at the third. Nothing was falsified; the sample filled in. Quarterly GDP is revised repeatedly and rebenchmarked years later.\n\nTwo consequences that matter far more than they sound.\n\n**Any backtest using final data is cheating, invisibly.** The model saw numbers nobody had. This is why real-time data vintages exist, and why results usually get worse when you use them — which is the honest version.\n\n**Revisions cluster at turning points.** Statistical models embedded in the first estimates assume the recent past continues, so the first prints are systematically too optimistic going into a downturn and too pessimistic coming out. **The data is least reliable exactly when the decision matters most.**\n\nSo the discipline is simple and rarely followed: **treat a first print as one noisy observation, look at the revision to the previous month as carefully as the new number, and never build a signal that could only have been computed afterwards.**"
+      "body": "**The first print of most series is an estimate built from incomplete returns, and it gets revised for years.**\n\nA payroll figure of +2.8% growth becomes +2.1% at the second estimate and +1.6% at the third. Nothing was falsified; the sample filled in. Quarterly GDP is revised repeatedly and rebenchmarked years later.\n\nTwo consequences that matter far more than they sound.\n\n**Any backtest using final data is cheating, invisibly.** The model saw numbers nobody had. This is why real-time data vintages exist, and why results usually get worse when you use them — which is the honest version.\n\n**Revisions cluster at turning points.** Statistical models embedded in the first estimates assume the recent past continues, so the first prints are systematically too optimistic going into a downturn and too pessimistic coming out. **The data is least reliable exactly when the decision matters most.**\n\nSo the discipline is simple and rarely followed: **treat a first print as one noisy observation, look at the revision to the previous month as carefully as the new number, and never build a signal that could only have been computed afterwards.**",
+      "heading": "Why first prints mislead"
     },
     {
       "type": "example",
@@ -41,7 +48,11 @@
       "type": "table",
       "id": "indicator-table",
       "caption": "What each kind of indicator is good for",
-      "headers": ["Kind", "Examples", "Use and limitation"],
+      "headers": [
+        "Kind",
+        "Examples",
+        "Use and limitation"
+      ],
       "rows": [
         [
           "Market prices",
@@ -68,7 +79,8 @@
     {
       "type": "concept",
       "id": "how-it-goes-wrong",
-      "body": "**Over-fitting an indicator to past recessions.** Every downturn has an indicator that called it, selected afterwards from a large field. With enough candidates, some will have called all four of the last four.\n\n**Reading levels off a diffusion index.** PMIs measure breadth, not magnitude. A move from 58 to 53 is a slowdown in an expansion, not a contraction, and that distinction gets lost routinely.\n\n**[[seasonal-adjustment|Seasonal adjustment]] artefacts.** Adjustment factors are estimated from history. When behaviour changes — a shifted holiday, a pandemic, an unusual weather year — the adjusted series can move for entirely mechanical reasons.\n\n**Confusing a survey with a measurement.** A confidence index measures reported sentiment. It correlates with spending loosely and imperfectly, and people's stated expectations are not their behaviour.\n\n**Ignoring the release calendar in [[performance-attribution|performance attribution]].** A month's return in a macro strategy can be dominated by two or three release days. Attribution that ignores when the money was made or lost misses where the risk actually sat."
+      "body": "**Over-fitting an indicator to past recessions.** Every downturn has an indicator that called it, selected afterwards from a large field. With enough candidates, some will have called all four of the last four.\n\n**Reading levels off a diffusion index.** PMIs measure breadth, not magnitude. A move from 58 to 53 is a slowdown in an expansion, not a contraction, and that distinction gets lost routinely.\n\n**[[seasonal-adjustment|Seasonal adjustment]] artefacts.** Adjustment factors are estimated from history. When behaviour changes — a shifted holiday, a pandemic, an unusual weather year — the adjusted series can move for entirely mechanical reasons.\n\n**Confusing a survey with a measurement.** A confidence index measures reported sentiment. It correlates with spending loosely and imperfectly, and people's stated expectations are not their behaviour.\n\n**Ignoring the release calendar in [[performance-attribution|performance attribution]].** A month's return in a macro strategy can be dominated by two or three release days. Attribution that ignores when the money was made or lost misses where the risk actually sat.",
+      "heading": "Key risks"
     },
     {
       "type": "pitfall",
@@ -96,7 +108,11 @@
       "id": "econ-indicators-01-q1",
       "type": "numeric",
       "difficulty": 2,
-      "tags": ["indicators", "revisions", "arithmetic"],
+      "tags": [
+        "indicators",
+        "revisions",
+        "arithmetic"
+      ],
       "concept": "worked-revision",
       "stem": "A growth figure is first published at 2.8% and finally revised to 1.6%. What is the total revision, in percentage points? Give the sign.",
       "answer": -1.2,
@@ -109,7 +125,10 @@
       "id": "econ-indicators-01-q2",
       "type": "mcq",
       "difficulty": 2,
-      "tags": ["indicators", "leading-lagging"],
+      "tags": [
+        "indicators",
+        "leading-lagging"
+      ],
       "concept": "what-it-is",
       "stem": "Which of these is a LEADING indicator?",
       "choices": [
@@ -131,7 +150,10 @@
       "id": "econ-indicators-01-q3",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["indicators", "pmi"],
+      "tags": [
+        "indicators",
+        "pmi"
+      ],
       "concept": "surprise-not-level",
       "stem": "A PMI falls from 58 to 53. What does this indicate?",
       "choices": [
@@ -153,7 +175,10 @@
       "id": "econ-indicators-01-q4",
       "type": "tfj",
       "difficulty": 3,
-      "tags": ["indicators", "misconception"],
+      "tags": [
+        "indicators",
+        "misconception"
+      ],
       "concept": "surprise-not-level",
       "stem": "\"Unemployment fell to a five-year low, so equities should rally on the news.\" True or false — and why?",
       "isTrue": false,
@@ -176,7 +201,11 @@
       "id": "econ-indicators-01-q5",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["indicators", "diligence", "on-the-job"],
+      "tags": [
+        "indicators",
+        "diligence",
+        "on-the-job"
+      ],
       "concept": "revisions",
       "stem": "A manager presents an indicator that has signalled every recession since 1980 with no false positives. What is the strongest reservation?",
       "choices": [
@@ -198,7 +227,11 @@
       "id": "econ-indicators-01-q6",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["indicators", "attribution", "on-the-job"],
+      "tags": [
+        "indicators",
+        "attribution",
+        "on-the-job"
+      ],
       "concept": "on-the-job",
       "stem": "A global macro fund made almost all of one month's return in the hours around two data releases. What does this tell you?",
       "choices": [

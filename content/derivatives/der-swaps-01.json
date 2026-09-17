@@ -5,14 +5,22 @@
   "title": "Swaps: Exchanging One Cash Flow for Another",
   "summary": "An agreement to trade payment streams, worth nothing at inception and a great deal later — which is where the counterparty risk lives.",
   "level": "core",
-  "prereqs": ["der-forwards-01", "fi-floating-01"],
+  "prereqs": [
+    "der-forwards-01",
+    "fi-floating-01"
+  ],
   "estMinutes": 9,
-  "examRelevance": ["CFA-L1", "CAIA-L1", "practical"],
+  "examRelevance": [
+    "CFA-L1",
+    "CAIA-L1",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
       "id": "what-it-is",
-      "body": "A **[[swap|swap]]** is an agreement to exchange one stream of payments for another. The most common is an **[[interest-rate-swap|interest rate swap]]**: one party pays a fixed rate, the other pays a floating rate, both on the same notional amount.\n\n**The notional is never exchanged.** It exists only to calculate the payments, which is why a 100m swap does not require 100m of capital — and why swap markets are enormous relative to the cash markets underneath them.\n\nThe structure at inception is deliberate: **the fixed rate is set so the swap is worth zero to both parties on day one.** Neither side pays the other to enter. That fixed rate is, by construction, the market's expected average of the floating rate over the swap's life — so it comes from the same forward curve as everything else.\n\nAfterwards it stops being worth zero. If rates rise, the fixed payer is paying below market and their side of the swap has positive value. **That accumulated value is an unsecured claim on the counterparty, which is the whole reason swaps are collateralised** — and the reason [[margin-call|margin calls]] on swap positions consume cash exactly when markets move."
+      "body": "A **[[swap|swap]]** is an agreement to exchange one stream of payments for another. The most common is an **[[interest-rate-swap|interest rate swap]]**: one party pays a fixed rate, the other pays a floating rate, both on the same notional amount.\n\n**The notional is never exchanged.** It exists only to calculate the payments, which is why a 100m swap does not require 100m of capital — and why swap markets are enormous relative to the cash markets underneath them.\n\nThe structure at inception is deliberate: **the fixed rate is set so the swap is worth zero to both parties on day one.** Neither side pays the other to enter. That fixed rate is, by construction, the market's expected average of the floating rate over the swap's life — so it comes from the same forward curve as everything else.\n\nAfterwards it stops being worth zero. If rates rise, the fixed payer is paying below market and their side of the swap has positive value. **That accumulated value is an unsecured claim on the counterparty, which is the whole reason swaps are collateralised** — and the reason [[margin-call|margin calls]] on swap positions consume cash exactly when markets move.",
+      "heading": "What it is"
     },
     {
       "type": "concept",
@@ -22,7 +30,8 @@
     {
       "type": "intuition",
       "id": "the-collateral-problem",
-      "body": "**A swap requires almost no capital to enter and can require a great deal of cash to keep, and that asymmetry is where swap-based strategies fail.**\n\nThe mechanics: the swap's value moves with rates, and the losing side posts collateral to the winning side. Daily. In cash or high-quality securities.\n\nSo a position sized to a notional the [[balance-sheet|balance sheet]] could never fund is entirely possible to enter, and its collateral demands scale with market moves rather than with the initial capital committed.\n\nThe consequence is a specific and recurring failure mode:\n\n**The hedge works, and it bankrupts you anyway.** A pension fund receiving fixed to match its liabilities is hedged in economic terms — if rates rise, its liabilities fall by roughly what the swap loses. But the liability reduction is an actuarial calculation and the swap loss is a cash call tomorrow morning.\n\n**That mismatch — economic offset, cash timing difference — is exactly what caused the 2022 liability-driven investment crisis in UK pensions.** The hedges were doing their job. The collateral calls arrived faster than the assets could be sold to meet them, and forced selling into the same move made it worse.\n\n**So the question for any swap-based strategy is not whether the hedge is correct. It is what happens to cash when it moves against you, and how much of it is available within twenty-four hours.**"
+      "body": "**A swap requires almost no capital to enter and can require a great deal of cash to keep, and that asymmetry is where swap-based strategies fail.**\n\nThe mechanics: the swap's value moves with rates, and the losing side posts collateral to the winning side. Daily. In cash or high-quality securities.\n\nSo a position sized to a notional the [[balance-sheet|balance sheet]] could never fund is entirely possible to enter, and its collateral demands scale with market moves rather than with the initial capital committed.\n\nThe consequence is a specific and recurring failure mode:\n\n**The hedge works, and it bankrupts you anyway.** A pension fund receiving fixed to match its liabilities is hedged in economic terms — if rates rise, its liabilities fall by roughly what the swap loses. But the liability reduction is an actuarial calculation and the swap loss is a cash call tomorrow morning.\n\n**That mismatch — economic offset, cash timing difference — is exactly what caused the 2022 liability-driven investment crisis in UK pensions.** The hedges were doing their job. The collateral calls arrived faster than the assets could be sold to meet them, and forced selling into the same move made it worse.\n\n**So the question for any swap-based strategy is not whether the hedge is correct. It is what happens to cash when it moves against you, and how much of it is available within twenty-four hours.**",
+      "heading": "Why swaps need cash, not capital"
     },
     {
       "type": "example",
@@ -42,7 +51,11 @@
       "type": "table",
       "id": "swap-table",
       "caption": "Common swaps and what they are really doing",
-      "headers": ["Type", "Exchange", "Used for"],
+      "headers": [
+        "Type",
+        "Exchange",
+        "Used for"
+      ],
       "rows": [
         [
           "[[interest-rate-swap|Interest rate swap]]",
@@ -69,7 +82,8 @@
     {
       "type": "concept",
       "id": "how-it-goes-wrong",
-      "body": "**Counterparty exposure accumulating quietly.** A swap starts at zero value and becomes a substantial unsecured claim as rates move. Collateral agreements exist for this and they have thresholds, minimum transfer amounts and disputes.\n\n**Notional mistaken for exposure.** A 100m notional swap is not 100m at risk — but reporting only the mark understates it too, because the mark can grow rapidly. Both figures are needed.\n\n**Collateral in the wrong asset.** Posting government bonds is efficient until the bonds fall in the same move that triggers the call, which is exactly what happens when the exposure is to rates.\n\n**Reporting one leg.** A working hedge shows a loss on the derivative and an offsetting gain elsewhere. Risk reports that show derivative marks in isolation make functioning hedges look like failed trades, and invite exactly the wrong intervention.\n\n**Basis between the swap and the hedged item.** A swap referencing one rate hedging a loan priced off another leaves residual exposure. Small in normal times and it widens in stress, which is when the hedge is being relied on."
+      "body": "**Counterparty exposure accumulating quietly.** A swap starts at zero value and becomes a substantial unsecured claim as rates move. Collateral agreements exist for this and they have thresholds, minimum transfer amounts and disputes.\n\n**Notional mistaken for exposure.** A 100m notional swap is not 100m at risk — but reporting only the mark understates it too, because the mark can grow rapidly. Both figures are needed.\n\n**Collateral in the wrong asset.** Posting government bonds is efficient until the bonds fall in the same move that triggers the call, which is exactly what happens when the exposure is to rates.\n\n**Reporting one leg.** A working hedge shows a loss on the derivative and an offsetting gain elsewhere. Risk reports that show derivative marks in isolation make functioning hedges look like failed trades, and invite exactly the wrong intervention.\n\n**Basis between the swap and the hedged item.** A swap referencing one rate hedging a loan priced off another leaves residual exposure. Small in normal times and it widens in stress, which is when the hedge is being relied on.",
+      "heading": "Key risks"
     },
     {
       "type": "pitfall",
@@ -97,7 +111,10 @@
       "id": "der-swaps-01-q1",
       "type": "numeric",
       "difficulty": 2,
-      "tags": ["swaps", "arithmetic"],
+      "tags": [
+        "swaps",
+        "arithmetic"
+      ],
       "concept": "worked-swap",
       "stem": "A 100m swap: pay 4.50% fixed, receive 5.25% floating. What is the annual net cash flow, in millions? Give the sign from the payer's perspective.",
       "answer": 0.75,
@@ -110,7 +127,10 @@
       "id": "der-swaps-01-q2",
       "type": "numeric",
       "difficulty": 3,
-      "tags": ["swaps", "arithmetic"],
+      "tags": [
+        "swaps",
+        "arithmetic"
+      ],
       "concept": "worked-swap",
       "stem": "Same swap. The floating reference falls to 3.00%. What is the annual net cash flow now, in millions? Give the sign.",
       "answer": -1.5,
@@ -123,7 +143,10 @@
       "id": "der-swaps-01-q3",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["swaps", "structure"],
+      "tags": [
+        "swaps",
+        "structure"
+      ],
       "concept": "what-it-is",
       "stem": "Why is an interest rate swap worth zero to both parties at inception?",
       "choices": [
@@ -145,7 +168,11 @@
       "id": "der-swaps-01-q4",
       "type": "tfj",
       "difficulty": 4,
-      "tags": ["swaps", "liquidity", "misconception"],
+      "tags": [
+        "swaps",
+        "liquidity",
+        "misconception"
+      ],
       "concept": "the-collateral-problem",
       "stem": "\"Our liability hedge is economically matched, so a rate move cannot hurt us.\" True or false — and why?",
       "isTrue": false,
@@ -168,7 +195,11 @@
       "id": "der-swaps-01-q5",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["swaps", "leverage", "on-the-job"],
+      "tags": [
+        "swaps",
+        "leverage",
+        "on-the-job"
+      ],
       "concept": "synthetic-leverage",
       "stem": "A fund holds total return swaps giving it exposure well above its net asset value. Where does this show up?",
       "choices": [
@@ -190,7 +221,11 @@
       "id": "der-swaps-01-q6",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["swaps", "collateral", "on-the-job"],
+      "tags": [
+        "swaps",
+        "collateral",
+        "on-the-job"
+      ],
       "concept": "how-it-goes-wrong",
       "stem": "A rate hedge is collateralised with long-dated government bonds. What is the specific danger?",
       "choices": [

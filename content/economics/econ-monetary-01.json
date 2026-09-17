@@ -5,14 +5,22 @@
   "title": "Central Banks: The Policy Rate and the Transmission Lag",
   "summary": "One interest rate, several channels, and a delay long enough that the last hike lands after the damage it was meant to prevent.",
   "level": "core",
-  "prereqs": ["econ-inflation-01", "econ-curve-01"],
+  "prereqs": [
+    "econ-inflation-01",
+    "econ-curve-01"
+  ],
   "estMinutes": 10,
-  "examRelevance": ["CFA-L1", "CAIA-L1", "practical"],
+  "examRelevance": [
+    "CFA-L1",
+    "CAIA-L1",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
       "id": "what-it-is",
-      "body": "A [[central-bank|central bank]] has one main instrument: the [[policy-rate|policy rate]] at which banks lend to and borrow from it overnight. In the United States that rate is the [[federal-funds-rate|federal funds rate]].\n\nOne overnight rate is a peculiar lever for an economy full of thirty-year mortgages and ten-year corporate bonds. It works because everything else is priced off it:\n\n**Expectations.** A ten-year yield is roughly the average expected short rate over ten years, plus a [[term-premium|term premium]]. Change the expected path of the overnight rate and you change the whole [[yield-curve|curve]].\n\n**Bank funding.** Banks fund at rates anchored to the policy rate and lend at a spread over their funding cost.\n\n**Discount rates.** Every valuation is a discounted cash flow, so the [[discount-rate|discount rate]] moves and long-duration assets — growth equities, venture, long-dated [[infrastructure]] — move most.\n\n**Currency.** Higher rates relative to elsewhere attract capital and tend to lift the currency, which imports disinflation.\n\nThe usual mandate is price stability, in practice a stated inflation target, sometimes paired with an employment objective."
+      "body": "A [[central-bank|central bank]] has one main instrument: the [[policy-rate|policy rate]] at which banks lend to and borrow from it overnight. In the United States that rate is the [[federal-funds-rate|federal funds rate]].\n\nOne overnight rate is a peculiar lever for an economy full of thirty-year mortgages and ten-year corporate bonds. It works because everything else is priced off it:\n\n**Expectations.** A ten-year yield is roughly the average expected short rate over ten years, plus a [[term-premium|term premium]]. Change the expected path of the overnight rate and you change the whole [[yield-curve|curve]].\n\n**Bank funding.** Banks fund at rates anchored to the policy rate and lend at a spread over their funding cost.\n\n**Discount rates.** Every valuation is a discounted cash flow, so the [[discount-rate|discount rate]] moves and long-duration assets — growth equities, venture, long-dated [[infrastructure]] — move most.\n\n**Currency.** Higher rates relative to elsewhere attract capital and tend to lift the currency, which imports disinflation.\n\nThe usual mandate is price stability, in practice a stated inflation target, sometimes paired with an employment objective.",
+      "heading": "What it is"
     },
     {
       "type": "concept",
@@ -22,7 +30,8 @@
     {
       "type": "intuition",
       "id": "the-lag",
-      "body": "**[[monetary-policy|Monetary policy]] affects the economy with a lag of roughly a year or more, and the lag is the single most important fact about it.**\n\nA rate rise today does not slow spending today. It slows the next mortgage refinancing, the next capital expenditure decision, the next hiring plan. Existing fixed-rate borrowers feel nothing until they refinance. The full effect arrives when the tightening cycle is already over.\n\nThree consequences, all of them uncomfortable:\n\n**A central bank must act on a forecast, not on data.** By the time inflation is visibly falling, the policy that caused it was set a year ago. Waiting for confirmation guarantees being late.\n\n**Overtightening is the normal failure mode.** Rates keep rising while inflation stays high, because the earlier rises have not landed yet — and then all of it lands at once.\n\n**The last hike of a cycle is usually a mistake, and it is unknowable which one it was.** This is not a criticism of central bankers; it is a structural feature of acting through a delay.\n\n**For an investor the practical version is: the risk is not the level of rates, it is the moment the accumulated tightening arrives.** Credit stress, deal volumes and default rates turn well after the last hike, which is exactly when the narrative has moved on to cuts."
+      "body": "**[[monetary-policy|Monetary policy]] affects the economy with a lag of roughly a year or more, and the lag is the single most important fact about it.**\n\nA rate rise today does not slow spending today. It slows the next mortgage refinancing, the next capital expenditure decision, the next hiring plan. Existing fixed-rate borrowers feel nothing until they refinance. The full effect arrives when the tightening cycle is already over.\n\nThree consequences, all of them uncomfortable:\n\n**A central bank must act on a forecast, not on data.** By the time inflation is visibly falling, the policy that caused it was set a year ago. Waiting for confirmation guarantees being late.\n\n**Overtightening is the normal failure mode.** Rates keep rising while inflation stays high, because the earlier rises have not landed yet — and then all of it lands at once.\n\n**The last hike of a cycle is usually a mistake, and it is unknowable which one it was.** This is not a criticism of central bankers; it is a structural feature of acting through a delay.\n\n**For an investor the practical version is: the risk is not the level of rates, it is the moment the accumulated tightening arrives.** Credit stress, deal volumes and default rates turn well after the last hike, which is exactly when the narrative has moved on to cuts.",
+      "heading": "Why the policy lag is the trap"
     },
     {
       "type": "example",
@@ -42,7 +51,11 @@
       "type": "table",
       "id": "channels",
       "caption": "How one overnight rate reaches the real economy",
-      "headers": ["Channel", "Mechanism", "Roughly how long"],
+      "headers": [
+        "Channel",
+        "Mechanism",
+        "Roughly how long"
+      ],
       "rows": [
         [
           "Market rates",
@@ -74,7 +87,8 @@
     {
       "type": "concept",
       "id": "how-it-goes-wrong",
-      "body": "**Fighting the last cycle.** A bank burned by inflation will tighten too long; one burned by a bust will ease too long. Institutional memory is an input to policy.\n\n**Cost-push shocks.** When inflation comes from an energy shock rather than demand, raising rates cannot fix the cause. The bank tightens anyway to stop second-round effects — accepting weaker output as the price of protecting expectations. It is the least popular thing central banks do and the most defensible.\n\n**Losing the anchor.** If people stop believing in the target, wage and price setting shifts, and getting the anchor back historically costs a recession. This is why credibility gets defended so aggressively over apparently small deviations.\n\n**Fiscal offset.** Large deficits can add demand while the bank subtracts it. The two arms of policy pulling in opposite directions means rates have to go higher than they otherwise would.\n\n**Financial stability collisions.** Rate rises can crack something — a bank's bond portfolio, a leveraged fund, a currency peg. The bank then chooses between its inflation mandate and stability, and the market's assumption is always that stability wins."
+      "body": "**Fighting the last cycle.** A bank burned by inflation will tighten too long; one burned by a bust will ease too long. Institutional memory is an input to policy.\n\n**Cost-push shocks.** When inflation comes from an energy shock rather than demand, raising rates cannot fix the cause. The bank tightens anyway to stop second-round effects — accepting weaker output as the price of protecting expectations. It is the least popular thing central banks do and the most defensible.\n\n**Losing the anchor.** If people stop believing in the target, wage and price setting shifts, and getting the anchor back historically costs a recession. This is why credibility gets defended so aggressively over apparently small deviations.\n\n**Fiscal offset.** Large deficits can add demand while the bank subtracts it. The two arms of policy pulling in opposite directions means rates have to go higher than they otherwise would.\n\n**Financial stability collisions.** Rate rises can crack something — a bank's bond portfolio, a leveraged fund, a currency peg. The bank then chooses between its inflation mandate and stability, and the market's assumption is always that stability wins.",
+      "heading": "Key risks"
     },
     {
       "type": "pitfall",
@@ -102,7 +116,10 @@
       "id": "econ-monetary-01-q1",
       "type": "numeric",
       "difficulty": 2,
-      "tags": ["monetary-policy", "arithmetic"],
+      "tags": [
+        "monetary-policy",
+        "arithmetic"
+      ],
       "concept": "worked-reaction",
       "stem": "Using the lesson's illustrative rule — neutral real rate 0.5%, target 2%, weights 0.5 on both terms — what policy rate is implied by inflation of 4% and an output gap of +1%? Answer in percent.",
       "answer": 6.0,
@@ -116,7 +133,11 @@
       "id": "econ-monetary-01-q2",
       "type": "numeric",
       "difficulty": 3,
-      "tags": ["monetary-policy", "real-rate", "arithmetic"],
+      "tags": [
+        "monetary-policy",
+        "real-rate",
+        "arithmetic"
+      ],
       "concept": "worked-reaction",
       "stem": "Same rule. Inflation falls to 2% and the output gap closes to zero. What policy rate is implied, in percent?",
       "answer": 2.5,
@@ -130,7 +151,10 @@
       "id": "econ-monetary-01-q3",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["monetary-policy", "transmission"],
+      "tags": [
+        "monetary-policy",
+        "transmission"
+      ],
       "concept": "the-lag",
       "stem": "Why is overtightening the normal failure mode of a hiking cycle?",
       "choices": [
@@ -152,7 +176,10 @@
       "id": "econ-monetary-01-q4",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["monetary-policy", "qe"],
+      "tags": [
+        "monetary-policy",
+        "qe"
+      ],
       "concept": "the-toolkit",
       "stem": "Why was quantitative easing introduced when policy rates reached zero?",
       "choices": [
@@ -174,7 +201,11 @@
       "id": "econ-monetary-01-q5",
       "type": "tfj",
       "difficulty": 4,
-      "tags": ["monetary-policy", "misconception", "positioning"],
+      "tags": [
+        "monetary-policy",
+        "misconception",
+        "positioning"
+      ],
       "concept": "priced-in",
       "stem": "\"The central bank will cut rates next year, so long-duration assets will rally.\" True or false — and why?",
       "isTrue": false,
@@ -197,7 +228,11 @@
       "id": "econ-monetary-01-q6",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["monetary-policy", "diligence", "on-the-job"],
+      "tags": [
+        "monetary-policy",
+        "diligence",
+        "on-the-job"
+      ],
       "concept": "on-the-job",
       "stem": "A buyout fund's portfolio companies carry floating-rate debt. Rates rise 200bp. What is the most useful question to ask the GP?",
       "choices": [
@@ -219,7 +254,11 @@
       "id": "econ-monetary-01-q7",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["monetary-policy", "risk", "on-the-job"],
+      "tags": [
+        "monetary-policy",
+        "risk",
+        "on-the-job"
+      ],
       "concept": "on-the-job",
       "stem": "Most levered strategies in a portfolio are positioned for rate cuts. What is the flaw in treating that as diversified?",
       "choices": [

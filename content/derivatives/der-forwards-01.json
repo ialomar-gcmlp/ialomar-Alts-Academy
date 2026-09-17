@@ -5,14 +5,21 @@
   "title": "Forwards and Futures: The Cost of Carry",
   "summary": "A futures price is today's price plus the cost of holding the thing until delivery — not a forecast of what it will cost then.",
   "level": "core",
-  "prereqs": ["quant-tvm-01"],
+  "prereqs": [
+    "quant-tvm-01"
+  ],
   "estMinutes": 9,
-  "examRelevance": ["CFA-L1", "CAIA-L1", "practical"],
+  "examRelevance": [
+    "CFA-L1",
+    "CAIA-L1",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
       "id": "what-it-is",
-      "body": "A **[[forward-contract|forward]]** is an agreement to buy or sell something at a fixed price on a future date. A **[[futures-contract|future]]** is the same economic bargain, standardised and traded on an exchange with daily margining.\n\nThe differences matter operationally rather than economically:\n\n**A forward** is bilateral and customisable, settles once at maturity, and carries counterparty risk.\n\n**A future** is exchange-traded, standardised, marked to market daily with cash flowing between the parties, and the exchange stands between you and your counterparty.\n\n**That daily settlement is the practical difference that catches people out.** A forward that moves against you costs nothing until maturity. A future that moves against you demands cash tomorrow morning — which is why hedging programmes fail on liquidity rather than on logic.\n\nAnd the pricing principle, which is the whole subject: **the forward price is set by arbitrage, not by expectation.** If it were higher, you could buy the asset today, sell it forward, and pocket the difference less the cost of holding it. That trade is what pins the price."
+      "body": "A **[[forward-contract|forward]]** is an agreement to buy or sell something at a fixed price on a future date. A **[[futures-contract|future]]** is the same economic bargain, standardised and traded on an exchange with daily margining.\n\nThe differences matter operationally rather than economically:\n\n**A forward** is bilateral and customisable, settles once at maturity, and carries counterparty risk.\n\n**A future** is exchange-traded, standardised, marked to market daily with cash flowing between the parties, and the exchange stands between you and your counterparty.\n\n**That daily settlement is the practical difference that catches people out.** A forward that moves against you costs nothing until maturity. A future that moves against you demands cash tomorrow morning — which is why hedging programmes fail on liquidity rather than on logic.\n\nAnd the pricing principle, which is the whole subject: **the forward price is set by arbitrage, not by expectation.** If it were higher, you could buy the asset today, sell it forward, and pocket the difference less the cost of holding it. That trade is what pins the price.",
+      "heading": "What it is"
     },
     {
       "type": "concept",
@@ -22,7 +29,8 @@
     {
       "type": "intuition",
       "id": "roll-yield",
-      "body": "**A futures position held for more than one contract's life earns or loses money purely from the shape of the curve, before the price does anything.**\n\nThe mechanism: futures expire, so a continuous exposure requires selling the expiring contract and buying a later one. That is the roll, and the shape of the curve determines whether it costs or pays.\n\n**In contango** — later contracts more expensive — you sell low and buy high at each roll. **Negative [[roll-yield|roll yield]]**, and it compounds. This is why long commodity index positions in persistently contangoed markets have lost money while the spot price rose.\n\n**In backwardation** you sell high and buy low. **Positive roll yield**, earned continuously with no price move at all.\n\nThe practical consequences are large:\n\n**A commodity fund's return has three parts** — spot price change, roll yield, and the interest earned on the collateral. Attribution that shows only the first is missing most of the story.\n\n**\"Commodity exposure\" is not one thing.** An index rolling monthly through a contangoed curve is a different investment from one holding physical or from a producer's equity.\n\n**And the roll cost is knowable in advance.** The curve is observable, so the drag can be computed before the position is taken — which makes it a decision rather than a surprise."
+      "body": "**A futures position held for more than one contract's life earns or loses money purely from the shape of the curve, before the price does anything.**\n\nThe mechanism: futures expire, so a continuous exposure requires selling the expiring contract and buying a later one. That is the roll, and the shape of the curve determines whether it costs or pays.\n\n**In contango** — later contracts more expensive — you sell low and buy high at each roll. **Negative [[roll-yield|roll yield]]**, and it compounds. This is why long commodity index positions in persistently contangoed markets have lost money while the spot price rose.\n\n**In backwardation** you sell high and buy low. **Positive roll yield**, earned continuously with no price move at all.\n\nThe practical consequences are large:\n\n**A commodity fund's return has three parts** — spot price change, roll yield, and the interest earned on the collateral. Attribution that shows only the first is missing most of the story.\n\n**\"Commodity exposure\" is not one thing.** An index rolling monthly through a contangoed curve is a different investment from one holding physical or from a producer's equity.\n\n**And the roll cost is knowable in advance.** The curve is observable, so the drag can be computed before the position is taken — which makes it a decision rather than a surprise.",
+      "heading": "Why roll yield exists"
     },
     {
       "type": "formula",
@@ -30,10 +38,22 @@
       "latex": "F = S \\times (1 + r + c - y)^T",
       "plainReading": "The forward price is the spot price grown at the financing rate, plus storage costs, minus any income or convenience yield, compounded over the time to delivery.",
       "variables": [
-        { "symbol": "S", "meaning": "spot price today" },
-        { "symbol": "r", "meaning": "financing rate — the cost of funding the purchase" },
-        { "symbol": "c", "meaning": "storage and insurance, for physical assets" },
-        { "symbol": "y", "meaning": "income or [[convenience-yield|convenience yield]] received from holding it" }
+        {
+          "symbol": "S",
+          "meaning": "spot price today"
+        },
+        {
+          "symbol": "r",
+          "meaning": "financing rate — the cost of funding the purchase"
+        },
+        {
+          "symbol": "c",
+          "meaning": "storage and insurance, for physical assets"
+        },
+        {
+          "symbol": "y",
+          "meaning": "income or [[convenience-yield|convenience yield]] received from holding it"
+        }
       ]
     },
     {
@@ -54,7 +74,11 @@
       "type": "table",
       "id": "carry-table",
       "caption": "What drives the curve for each asset",
-      "headers": ["Asset", "Curve normally", "Because"],
+      "headers": [
+        "Asset",
+        "Curve normally",
+        "Because"
+      ],
       "rows": [
         [
           "Equity index",
@@ -86,7 +110,8 @@
     {
       "type": "concept",
       "id": "how-it-goes-wrong",
-      "body": "**Reading the curve as a forecast.** A futures curve in contango does not predict rising prices; it reflects carry. Historically, futures curves have been poor forecasters — which is precisely why roll returns exist as a systematic source of gain and loss.\n\n**Ignoring roll cost in a long-horizon position.** A 7% annual roll drag on a commodity index means the spot price must rise 7% a year for a flat return. Over five years that is a very large hurdle.\n\n**Assuming a hedge is free.** Selling futures against a physical position locks the price and hands over the roll. In backwardation, that hedge costs the positive carry you would otherwise have earned.\n\n**[[margin-call|Margin calls]] on a winning hedge.** Futures settle daily. A hedge that is working — because the asset it protects has risen — pays out cash daily against an unrealised gain.\n\n**Forgetting the contract specification.** Grade, delivery location and delivery month all differ between the contract and the exposure. That gap is basis risk, and it has its own topic."
+      "body": "**Reading the curve as a forecast.** A futures curve in contango does not predict rising prices; it reflects carry. Historically, futures curves have been poor forecasters — which is precisely why roll returns exist as a systematic source of gain and loss.\n\n**Ignoring roll cost in a long-horizon position.** A 7% annual roll drag on a commodity index means the spot price must rise 7% a year for a flat return. Over five years that is a very large hurdle.\n\n**Assuming a hedge is free.** Selling futures against a physical position locks the price and hands over the roll. In backwardation, that hedge costs the positive carry you would otherwise have earned.\n\n**[[margin-call|Margin calls]] on a winning hedge.** Futures settle daily. A hedge that is working — because the asset it protects has risen — pays out cash daily against an unrealised gain.\n\n**Forgetting the contract specification.** Grade, delivery location and delivery month all differ between the contract and the exposure. That gap is basis risk, and it has its own topic.",
+      "heading": "Key risks"
     },
     {
       "type": "pitfall",
@@ -114,7 +139,11 @@
       "id": "der-forwards-01-q1",
       "type": "numeric",
       "difficulty": 2,
-      "tags": ["forwards", "carry", "arithmetic"],
+      "tags": [
+        "forwards",
+        "carry",
+        "arithmetic"
+      ],
       "concept": "worked-carry",
       "stem": "A commodity trades at 100. Funding is 5% and storage 2%, with no convenience yield. What is the one-year forward price?",
       "answer": 107,
@@ -127,7 +156,11 @@
       "id": "der-forwards-01-q2",
       "type": "numeric",
       "difficulty": 3,
-      "tags": ["forwards", "carry", "arithmetic"],
+      "tags": [
+        "forwards",
+        "carry",
+        "arithmetic"
+      ],
       "concept": "worked-carry",
       "stem": "An equity index trades at 100 with a 3% dividend yield. Funding is 5%. What is the one-year forward price?",
       "answer": 102,
@@ -139,7 +172,11 @@
       "id": "der-forwards-01-q3",
       "type": "numeric",
       "difficulty": 3,
-      "tags": ["forwards", "backwardation", "arithmetic"],
+      "tags": [
+        "forwards",
+        "backwardation",
+        "arithmetic"
+      ],
       "concept": "worked-carry",
       "stem": "Same commodity at 100, 5% funding, 2% storage, but now an 8% convenience yield. What is the one-year forward price?",
       "answer": 99,
@@ -151,7 +188,10 @@
       "id": "der-forwards-01-q4",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["forwards", "roll-yield"],
+      "tags": [
+        "forwards",
+        "roll-yield"
+      ],
       "concept": "roll-yield",
       "stem": "A commodity index rolls monthly through a persistently contangoed curve. What happens to returns?",
       "choices": [
@@ -173,7 +213,10 @@
       "id": "der-forwards-01-q5",
       "type": "tfj",
       "difficulty": 4,
-      "tags": ["forwards", "misconception"],
+      "tags": [
+        "forwards",
+        "misconception"
+      ],
       "concept": "cost-of-carry",
       "stem": "\"The oil futures curve is in backwardation, so the market expects prices to fall.\" True or false — and why?",
       "isTrue": false,
@@ -196,7 +239,11 @@
       "id": "der-forwards-01-q6",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["forwards", "attribution", "on-the-job"],
+      "tags": [
+        "forwards",
+        "attribution",
+        "on-the-job"
+      ],
       "concept": "carry-in-alts",
       "stem": "A managed futures fund reports strong returns in a period of widespread backwardation. What should you check?",
       "choices": [

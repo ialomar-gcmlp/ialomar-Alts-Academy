@@ -5,14 +5,21 @@
   "title": "Inflation: What Is Measured and What Moves It",
   "summary": "How a price index is built, why core and headline diverge, and the one calculation that decides whether a return was real.",
   "level": "core",
-  "prereqs": ["econ-gdp-01"],
+  "prereqs": [
+    "econ-gdp-01"
+  ],
   "estMinutes": 10,
-  "examRelevance": ["CFA-L1", "CAIA-L1", "practical"],
+  "examRelevance": [
+    "CFA-L1",
+    "CAIA-L1",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
       "id": "what-it-is",
-      "body": "[[inflation|Inflation]] is a sustained rise in the general price level. Not one price going up — the whole level, so that a unit of currency buys less than it did.\n\nMeasuring it means choosing a basket. A [[cpi|consumer price index]] tracks the cost of a fixed basket of what households actually buy, weighted by how much they spend on each item. Housing is a third or so of the basket in most developed economies; food, transport, medical care and everything else split the rest.\n\nThree things follow immediately from \"a weighted basket\":\n\n**The weights decide the answer.** A 5% rise in a 33% weight moves the index more than a 15% rise in a 5% weight.\n\n**Your inflation rate is not the index.** A renter in a city, a car commuter and a retiree have different baskets. The index is an average nobody experiences exactly.\n\n**The basket has to be updated, and updating it changes the series.** Substitution, quality adjustment and new products are all judgement calls with real effects on the printed number."
+      "body": "[[inflation|Inflation]] is a sustained rise in the general price level. Not one price going up — the whole level, so that a unit of currency buys less than it did.\n\nMeasuring it means choosing a basket. A [[cpi|consumer price index]] tracks the cost of a fixed basket of what households actually buy, weighted by how much they spend on each item. Housing is a third or so of the basket in most developed economies; food, transport, medical care and everything else split the rest.\n\nThree things follow immediately from \"a weighted basket\":\n\n**The weights decide the answer.** A 5% rise in a 33% weight moves the index more than a 15% rise in a 5% weight.\n\n**Your inflation rate is not the index.** A renter in a city, a car commuter and a retiree have different baskets. The index is an average nobody experiences exactly.\n\n**The basket has to be updated, and updating it changes the series.** Substitution, quality adjustment and new products are all judgement calls with real effects on the printed number.",
+      "heading": "What it is"
     },
     {
       "type": "concept",
@@ -22,7 +29,8 @@
     {
       "type": "intuition",
       "id": "real-returns",
-      "body": "**Every return figure you will ever be shown is nominal unless it explicitly says otherwise, and inflation is the difference between a return and a result.**\n\nA fund returns 6% in a year when inflation was 4%. The investor is about 2% better off, not 6%. Over a decade, that gap compounds into a completely different outcome: 6% nominal for ten years multiplies capital by 1.79, while the real figure — call it 1.92% — multiplies purchasing power by 1.21.\n\nThis is the [[real-interest-rate|real rate]] logic applied to any return, and it is why **the single most useful question about a long-horizon investment is what it does when inflation is high, not what it returns on average.**\n\nIt also explains an oddity of the alternatives world. [[real-assets|Real assets]], [[infrastructure]] with inflation-linked revenue and [[floating-rate|floating-rate]] credit are all sold on inflation protection, and they are genuinely different from each other: one owns the thing whose price is rising, one has a contractual escalator, and one has a coupon that resets. The first two protect the asset's real value; the third protects income while inflation is high and gives it back when rates fall."
+      "body": "**Every return figure you will ever be shown is nominal unless it explicitly says otherwise, and inflation is the difference between a return and a result.**\n\nA fund returns 6% in a year when inflation was 4%. The investor is about 2% better off, not 6%. Over a decade, that gap compounds into a completely different outcome: 6% nominal for ten years multiplies capital by 1.79, while the real figure — call it 1.92% — multiplies purchasing power by 1.21.\n\nThis is the [[real-interest-rate|real rate]] logic applied to any return, and it is why **the single most useful question about a long-horizon investment is what it does when inflation is high, not what it returns on average.**\n\nIt also explains an oddity of the alternatives world. [[real-assets|Real assets]], [[infrastructure]] with inflation-linked revenue and [[floating-rate|floating-rate]] credit are all sold on inflation protection, and they are genuinely different from each other: one owns the thing whose price is rising, one has a contractual escalator, and one has a coupon that resets. The first two protect the asset's real value; the third protects income while inflation is high and gives it back when rates fall.",
+      "heading": "Why only real returns count"
     },
     {
       "type": "formula",
@@ -30,9 +38,18 @@
       "latex": "1 + r_{\\text{real}} = \\frac{1 + r_{\\text{nominal}}}{1 + \\pi}",
       "plainReading": "One plus the real return equals one plus the nominal return, divided by one plus inflation. Subtracting inflation from the nominal rate is the shortcut, and it is close enough only while both numbers are small.",
       "variables": [
-        { "symbol": "r_{\\text{nominal}}", "meaning": "the return or interest rate as quoted" },
-        { "symbol": "\\pi", "meaning": "the inflation rate over the same period" },
-        { "symbol": "r_{\\text{real}}", "meaning": "the return in purchasing power" }
+        {
+          "symbol": "r_{\\text{nominal}}",
+          "meaning": "the return or interest rate as quoted"
+        },
+        {
+          "symbol": "\\pi",
+          "meaning": "the inflation rate over the same period"
+        },
+        {
+          "symbol": "r_{\\text{real}}",
+          "meaning": "the return in purchasing power"
+        }
       ]
     },
     {
@@ -53,7 +70,11 @@
       "type": "table",
       "id": "causes",
       "caption": "Where inflation comes from, and what each kind implies",
-      "headers": ["Type", "Mechanism", "What it means for policy"],
+      "headers": [
+        "Type",
+        "Mechanism",
+        "What it means for policy"
+      ],
       "rows": [
         [
           "Demand-pull",
@@ -80,7 +101,8 @@
     {
       "type": "concept",
       "id": "how-it-goes-wrong",
-      "body": "**Reading a [[base-effect|base effect]] as news.** An annual rate compares this month with the same month a year ago. If that month was unusually low, the annual rate jumps with nothing happening now. Base effects are arithmetic, not information, and they are entirely predictable in advance.\n\n**Annualising a monthly print.** A 0.4% month is roughly 4.9% annualised — a real signal, but one month of a noisy series. The convention flatters big numbers in both directions.\n\n**Confusing a price level with a rate.** Inflation falling from 9% to 3% does not mean prices fell. The level is still far above where it started, which is why \"inflation is beaten\" and \"everything is expensive\" are both true at once and constantly talked past each other.\n\n**Assuming an inflation hedge works at all horizons.** Equities are a decent long-run inflation hedge and a poor short-run one; they fall when inflation surprises upward, then grow into it. Commodities work when commodities *are* the inflation and not otherwise. [[deflation|Deflation]] breaks other assumptions entirely — debt gets heavier in real terms rather than lighter.\n\n**Ignoring the hedged currency of your inflation.** A European investor's purchasing power depends on European prices. A US-focused inflation hedge protects against the wrong index."
+      "body": "**Reading a [[base-effect|base effect]] as news.** An annual rate compares this month with the same month a year ago. If that month was unusually low, the annual rate jumps with nothing happening now. Base effects are arithmetic, not information, and they are entirely predictable in advance.\n\n**Annualising a monthly print.** A 0.4% month is roughly 4.9% annualised — a real signal, but one month of a noisy series. The convention flatters big numbers in both directions.\n\n**Confusing a price level with a rate.** Inflation falling from 9% to 3% does not mean prices fell. The level is still far above where it started, which is why \"inflation is beaten\" and \"everything is expensive\" are both true at once and constantly talked past each other.\n\n**Assuming an inflation hedge works at all horizons.** Equities are a decent long-run inflation hedge and a poor short-run one; they fall when inflation surprises upward, then grow into it. Commodities work when commodities *are* the inflation and not otherwise. [[deflation|Deflation]] breaks other assumptions entirely — debt gets heavier in real terms rather than lighter.\n\n**Ignoring the hedged currency of your inflation.** A European investor's purchasing power depends on European prices. A US-focused inflation hedge protects against the wrong index.",
+      "heading": "Key risks"
     },
     {
       "type": "pitfall",
@@ -108,7 +130,11 @@
       "id": "econ-inflation-01-q1",
       "type": "numeric",
       "difficulty": 2,
-      "tags": ["inflation", "cpi", "arithmetic"],
+      "tags": [
+        "inflation",
+        "cpi",
+        "arithmetic"
+      ],
       "concept": "worked-basket",
       "stem": "Basket weights: housing 33%, transport 17%, food 14%, other 36%. Housing +5%, transport −3%, food +2%, other +3%. What is headline inflation, in percent?",
       "answer": 2.5,
@@ -122,7 +148,11 @@
       "id": "econ-inflation-01-q2",
       "type": "numeric",
       "difficulty": 3,
-      "tags": ["inflation", "real-return", "arithmetic"],
+      "tags": [
+        "inflation",
+        "real-return",
+        "arithmetic"
+      ],
       "concept": "real-returns",
       "stem": "A fund returned 6.0% in a year when inflation was 4.0%. What was the real return, in percent, using the exact relationship?",
       "answer": 1.92,
@@ -136,7 +166,10 @@
       "id": "econ-inflation-01-q3",
       "type": "mcq",
       "difficulty": 2,
-      "tags": ["inflation", "core"],
+      "tags": [
+        "inflation",
+        "core"
+      ],
       "concept": "core-vs-headline",
       "stem": "Why do central banks watch core inflation rather than headline?",
       "choices": [
@@ -158,7 +191,10 @@
       "id": "econ-inflation-01-q4",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["inflation", "base-effect"],
+      "tags": [
+        "inflation",
+        "base-effect"
+      ],
       "concept": "how-it-goes-wrong",
       "stem": "Annual inflation jumps from 2.1% to 3.4% in one month, but the monthly price change was in line with the previous six months. What is the most likely explanation?",
       "choices": [
@@ -180,7 +216,10 @@
       "id": "econ-inflation-01-q5",
       "type": "tfj",
       "difficulty": 3,
-      "tags": ["inflation", "misconception"],
+      "tags": [
+        "inflation",
+        "misconception"
+      ],
       "concept": "how-it-goes-wrong",
       "stem": "\"Inflation has fallen from 9% to 3%, so prices are coming back down.\" True or false — and why?",
       "isTrue": false,
@@ -203,7 +242,11 @@
       "id": "econ-inflation-01-q6",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["inflation", "diligence", "on-the-job"],
+      "tags": [
+        "inflation",
+        "diligence",
+        "on-the-job"
+      ],
       "concept": "on-the-job",
       "stem": "An infrastructure fund is marketed as inflation-protected through CPI-linked contracts. Inflation was 7%. What is the most revealing question?",
       "choices": [
@@ -225,7 +268,11 @@
       "id": "econ-inflation-01-q7",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["inflation", "floating-rate", "risk"],
+      "tags": [
+        "inflation",
+        "floating-rate",
+        "risk"
+      ],
       "concept": "inflation-protection-claim",
       "stem": "A direct lending fund argues floating-rate loans make it inflation-protected. What is the strongest objection?",
       "choices": [

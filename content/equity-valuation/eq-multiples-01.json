@@ -5,14 +5,22 @@
   "title": "Multiples: Shorthand for a Discounted Cash Flow",
   "summary": "A multiple is not an alternative to a valuation model — it is one, compressed, with the assumptions hidden.",
   "level": "core",
-  "prereqs": ["eq-dcf-01", "fsa-ebitda-01"],
+  "prereqs": [
+    "eq-dcf-01",
+    "fsa-ebitda-01"
+  ],
   "estMinutes": 9,
-  "examRelevance": ["CFA-L1", "CAIA-L1", "practical"],
+  "examRelevance": [
+    "CFA-L1",
+    "CAIA-L1",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
       "id": "what-it-is",
-      "body": "A [[valuation-multiple|multiple]] divides a measure of value by a measure of profit. **EV/[[ebitda|EBITDA]]** puts enterprise value over operating earnings; **P/E** puts the share price over earnings per share.\n\nThe critical distinction is what each side of the ratio belongs to, and mismatching them is the commonest error in the subject:\n\n**[[enterprise-value|Enterprise value]] belongs to everyone** — lenders and shareholders. So it pairs with profit measures before interest: EBITDA, EBIT, sales.\n\n**Equity value belongs to shareholders alone.** So it pairs with profit measures after interest: net income, earnings per share, equity [[free-cash-flow|free cash flow]].\n\n**EV/net income is meaningless.** So is P/EBITDA. The numerator and denominator must belong to the same claimants.\n\nThe bridge between the two is [[net-debt|net debt]]:\n\n**Enterprise value = equity value + net debt.**\n\nWhich has a consequence worth internalising early. A company with 800 of enterprise value and 400 of net debt has 400 of equity. **One turn of EBITDA multiple on 80 of EBITDA is 80 of enterprise value — and 20% of the equity.** In a levered structure, multiples move the equity far more than they move the enterprise."
+      "body": "A [[valuation-multiple|multiple]] divides a measure of value by a measure of profit. **EV/[[ebitda|EBITDA]]** puts enterprise value over operating earnings; **P/E** puts the share price over earnings per share.\n\nThe critical distinction is what each side of the ratio belongs to, and mismatching them is the commonest error in the subject:\n\n**[[enterprise-value|Enterprise value]] belongs to everyone** — lenders and shareholders. So it pairs with profit measures before interest: EBITDA, EBIT, sales.\n\n**Equity value belongs to shareholders alone.** So it pairs with profit measures after interest: net income, earnings per share, equity [[free-cash-flow|free cash flow]].\n\n**EV/net income is meaningless.** So is P/EBITDA. The numerator and denominator must belong to the same claimants.\n\nThe bridge between the two is [[net-debt|net debt]]:\n\n**Enterprise value = equity value + net debt.**\n\nWhich has a consequence worth internalising early. A company with 800 of enterprise value and 400 of net debt has 400 of equity. **One turn of EBITDA multiple on 80 of EBITDA is 80 of enterprise value — and 20% of the equity.** In a levered structure, multiples move the equity far more than they move the enterprise.",
+      "heading": "What it is"
     },
     {
       "type": "concept",
@@ -22,7 +30,8 @@
     {
       "type": "intuition",
       "id": "leverage-and-multiples",
-      "body": "**P/E and EV/EBITDA disagree about leverage, and the disagreement is the reason to use both.**\n\nTake two identical businesses: same EBITDA of 80, same enterprise value of 800, so both at **10.0x EV/EBITDA**. One has no debt; the other has 400.\n\n- **Unlevered.** EBIT 50, no interest, tax 25% → net income 37.5. Equity value 800. **P/E = 21.3x.**\n- **Levered.** EBIT 50, interest 20, tax 25% → net income 22.5. Equity value 400. **P/E = 17.8x.**\n\n**Identical businesses, identical EV/EBITDA, and P/E ratios nearly four turns apart.** The levered company looks \"cheaper\" on P/E purely because of its [[capital-structure|capital structure]].\n\nWhich tells you when to use each:\n\n**EV/EBITDA for comparing operations** across companies financed differently — the reason [[private-equity|private equity]] quotes everything this way, since a buyer intends to change the financing anyway.\n\n**P/E for what a shareholder receives**, given the structure as it stands.\n\n**And the practical warning: any peer comparison on P/E across companies with different leverage is partly a comparison of [[balance-sheet|balance sheets]].** If a screen throws up a company on a conspicuously low P/E, check its net debt before concluding anything."
+      "body": "**P/E and EV/EBITDA disagree about leverage, and the disagreement is the reason to use both.**\n\nTake two identical businesses: same EBITDA of 80, same enterprise value of 800, so both at **10.0x EV/EBITDA**. One has no debt; the other has 400.\n\n- **Unlevered.** EBIT 50, no interest, tax 25% → net income 37.5. Equity value 800. **P/E = 21.3x.**\n- **Levered.** EBIT 50, interest 20, tax 25% → net income 22.5. Equity value 400. **P/E = 17.8x.**\n\n**Identical businesses, identical EV/EBITDA, and P/E ratios nearly four turns apart.** The levered company looks \"cheaper\" on P/E purely because of its [[capital-structure|capital structure]].\n\nWhich tells you when to use each:\n\n**EV/EBITDA for comparing operations** across companies financed differently — the reason [[private-equity|private equity]] quotes everything this way, since a buyer intends to change the financing anyway.\n\n**P/E for what a shareholder receives**, given the structure as it stands.\n\n**And the practical warning: any peer comparison on P/E across companies with different leverage is partly a comparison of [[balance-sheet|balance sheets]].** If a screen throws up a company on a conspicuously low P/E, check its net debt before concluding anything.",
+      "heading": "Why P/E and EV/EBITDA disagree"
     },
     {
       "type": "example",
@@ -42,7 +51,11 @@
       "type": "table",
       "id": "multiple-table",
       "caption": "Which multiple, and what it is blind to",
-      "headers": ["Multiple", "Best for", "Blind to"],
+      "headers": [
+        "Multiple",
+        "Best for",
+        "Blind to"
+      ],
       "rows": [
         [
           "EV/EBITDA",
@@ -74,7 +87,8 @@
     {
       "type": "concept",
       "id": "how-it-goes-wrong",
-      "body": "**Mismatched numerator and denominator.** EV over net income, or price over EBITDA. Both produce a number and neither means anything.\n\n**Net debt measured inconsistently.** If the multiple's comparables net cash differently, or exclude leases and pensions, the bridge from enterprise to equity is not comparable. This is the most common source of spurious multiple gaps.\n\n**Comparing a levered P/E with an unlevered one.** As above — the low P/E may be entirely a capital structure difference.\n\n**Trailing versus forward multiples mixed.** A company at 12x trailing may be at 9x forward. Peer sets frequently blend the two without saying.\n\n**Adjusted EBITDA in the denominator.** A multiple on adjusted earnings is a multiple on a negotiated number. Always ask which EBITDA, then recompute on the reported figure.\n\n**Multiples applied across cycles.** Peak-cycle EBITDA at a peak-cycle multiple values a business twice on the same optimism, and the two errors compound rather than offset."
+      "body": "**Mismatched numerator and denominator.** EV over net income, or price over EBITDA. Both produce a number and neither means anything.\n\n**Net debt measured inconsistently.** If the multiple's comparables net cash differently, or exclude leases and pensions, the bridge from enterprise to equity is not comparable. This is the most common source of spurious multiple gaps.\n\n**Comparing a levered P/E with an unlevered one.** As above — the low P/E may be entirely a capital structure difference.\n\n**Trailing versus forward multiples mixed.** A company at 12x trailing may be at 9x forward. Peer sets frequently blend the two without saying.\n\n**Adjusted EBITDA in the denominator.** A multiple on adjusted earnings is a multiple on a negotiated number. Always ask which EBITDA, then recompute on the reported figure.\n\n**Multiples applied across cycles.** Peak-cycle EBITDA at a peak-cycle multiple values a business twice on the same optimism, and the two errors compound rather than offset.",
+      "heading": "Key risks"
     },
     {
       "type": "pitfall",
@@ -102,7 +116,11 @@
       "id": "eq-multiples-01-q1",
       "type": "numeric",
       "difficulty": 2,
-      "tags": ["multiples", "bridge", "arithmetic"],
+      "tags": [
+        "multiples",
+        "bridge",
+        "arithmetic"
+      ],
       "concept": "worked-bridge",
       "stem": "EBITDA is 80, the EV/EBITDA multiple is 10x and net debt is 400. What is the equity value?",
       "answer": 400,
@@ -114,7 +132,11 @@
       "id": "eq-multiples-01-q2",
       "type": "numeric",
       "difficulty": 3,
-      "tags": ["multiples", "leverage", "arithmetic"],
+      "tags": [
+        "multiples",
+        "leverage",
+        "arithmetic"
+      ],
       "concept": "worked-bridge",
       "stem": "Same company. The multiple falls from 10x to 9x. By what percentage does the equity value fall?",
       "answer": 20,
@@ -128,7 +150,10 @@
       "id": "eq-multiples-01-q3",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["multiples", "consistency"],
+      "tags": [
+        "multiples",
+        "consistency"
+      ],
       "concept": "what-it-is",
       "stem": "Why is EV/net income not a meaningful multiple?",
       "choices": [
@@ -150,7 +175,10 @@
       "id": "eq-multiples-01-q4",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["multiples", "leverage"],
+      "tags": [
+        "multiples",
+        "leverage"
+      ],
       "concept": "leverage-and-multiples",
       "stem": "Two identical businesses trade at 10.0x EV/EBITDA. One is unlevered with a P/E of 21.3x; the other carries 400 of debt and has a P/E of 17.8x. What does the lower P/E indicate?",
       "choices": [
@@ -172,7 +200,10 @@
       "id": "eq-multiples-01-q5",
       "type": "tfj",
       "difficulty": 4,
-      "tags": ["multiples", "misconception"],
+      "tags": [
+        "multiples",
+        "misconception"
+      ],
       "concept": "what-a-multiple-encodes",
       "stem": "\"It trades at 8x where peers trade at 12x, so it is undervalued.\" True or false — and why?",
       "isTrue": false,
@@ -195,7 +226,11 @@
       "id": "eq-multiples-01-q6",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["multiples", "attribution", "on-the-job"],
+      "tags": [
+        "multiples",
+        "attribution",
+        "on-the-job"
+      ],
       "concept": "multiple-expansion",
       "stem": "A buyout manager's returns came mostly from multiple expansion. What is the sharpest follow-up question?",
       "choices": [

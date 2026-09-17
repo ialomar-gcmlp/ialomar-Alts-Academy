@@ -18,12 +18,14 @@
     {
       "type": "concept",
       "id": "what-it-is",
-      "body": "You already know how to discount one cash flow. Now suppose there are forty of them, all the same size, arriving at regular intervals — a lease, a bond's coupons, a management fee, a pension payment. Discounting each one separately works, but it is forty lines of arithmetic for a pattern that has a closed-form answer.\n\nA stream of equal payments at equal intervals is an [[annuity]]. If it never ends, it is a [[perpetuity]]. Both have one-line formulas, and both are worth recognising on sight — the moment you see \"the same amount, every period\", you should stop reaching for a column of discount factors."
+      "body": "You already know how to discount one cash flow. Now suppose there are forty of them, all the same size, arriving at regular intervals — a lease, a bond's coupons, a management fee, a pension payment. Discounting each one separately works, but it is forty lines of arithmetic for a pattern that has a closed-form answer.\n\nA stream of equal payments at equal intervals is an [[annuity]]. If it never ends, it is a [[perpetuity]]. Both have one-line formulas, and both are worth recognising on sight — the moment you see \"the same amount, every period\", you should stop reaching for a column of discount factors.",
+      "heading": "What it is"
     },
     {
       "type": "intuition",
       "id": "why-the-shortcut-works",
-      "body": "The annuity formula looks arbitrary until you see where it comes from: it is a geometric series. Each payment is worth the previous one divided by (1+r), so the terms shrink by a constant ratio, and geometric series collapse into a single expression.\n\nThe [[perpetuity]] case is the one worth internalising, because it is almost embarrassingly simple: **PV = PMT / r**. At a 5% [[discount-rate]], a payment of $1 forever is worth $20 today. Not $50, not infinity — $20.\n\nThat surprises people, and the reason it should not is [[compounding]] running in reverse. The payment in year 100 is worth almost nothing today, so the far tail of \"forever\" contributes almost nothing to the total. Infinity in the numerator does not produce infinity in the answer, because the discount factor shrinks faster than the payments accumulate."
+      "body": "The annuity formula looks arbitrary until you see where it comes from: it is a geometric series. Each payment is worth the previous one divided by (1+r), so the terms shrink by a constant ratio, and geometric series collapse into a single expression.\n\nThe [[perpetuity]] case is the one worth internalising, because it is almost embarrassingly simple: **PV = PMT / r**. At a 5% [[discount-rate]], a payment of $1 forever is worth $20 today. Not $50, not infinity — $20.\n\nThat surprises people, and the reason it should not is [[compounding]] running in reverse. The payment in year 100 is worth almost nothing today, so the far tail of \"forever\" contributes almost nothing to the total. Infinity in the numerator does not produce infinity in the answer, because the discount factor shrinks faster than the payments accumulate.",
+      "heading": "Why the annuity shortcut works"
     },
     {
       "type": "formula",

@@ -5,14 +5,22 @@
   "title": "Cost of Capital and the ROIC Test",
   "summary": "The hurdle every investment has to clear, and the single comparison that separates growth that creates value from growth that destroys it.",
   "level": "core",
-  "prereqs": ["ci-capitalstructure-01", "quant-npv-01"],
+  "prereqs": [
+    "ci-capitalstructure-01",
+    "quant-npv-01"
+  ],
   "estMinutes": 10,
-  "examRelevance": ["CFA-L1", "CFA-L2", "practical"],
+  "examRelevance": [
+    "CFA-L1",
+    "CFA-L2",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
       "id": "what-it-is",
-      "body": "The [[wacc|weighted average cost of capital]] is the blended return a business must earn to satisfy everyone who funded it. It is the hurdle, and it is the [[discount-rate|discount rate]] in almost every valuation.\n\nThree inputs, each with a different degree of reliability:\n\n**Cost of debt.** The most observable — roughly the yield the company pays on its borrowings, after tax, because interest is deductible.\n\n**Cost of equity.** Not observable at all. It is the return shareholders require, estimated with a model: typically the [[risk-free-rate|risk-free rate]] plus [[beta]] times an equity risk premium.\n\n**The weights.** Market values of debt and equity, not book values. Book equity reflects historical accounting; the cost of capital is about what investors require on what they own today.\n\n**Which sets up the central honesty problem with WACC: one input is a market price, one is an estimate with a plausible range of several percentage points, and the answer is usually quoted to one decimal place.**"
+      "body": "The [[wacc|weighted average cost of capital]] is the blended return a business must earn to satisfy everyone who funded it. It is the hurdle, and it is the [[discount-rate|discount rate]] in almost every valuation.\n\nThree inputs, each with a different degree of reliability:\n\n**Cost of debt.** The most observable — roughly the yield the company pays on its borrowings, after tax, because interest is deductible.\n\n**Cost of equity.** Not observable at all. It is the return shareholders require, estimated with a model: typically the [[risk-free-rate|risk-free rate]] plus [[beta]] times an equity risk premium.\n\n**The weights.** Market values of debt and equity, not book values. Book equity reflects historical accounting; the cost of capital is about what investors require on what they own today.\n\n**Which sets up the central honesty problem with WACC: one input is a market price, one is an estimate with a plausible range of several percentage points, and the answer is usually quoted to one decimal place.**",
+      "heading": "What it is"
     },
     {
       "type": "concept",
@@ -22,7 +30,8 @@
     {
       "type": "intuition",
       "id": "wacc-is-a-range",
-      "body": "**WACC is an estimate with error bars, and the honest way to use it is as a range rather than a point.**\n\nThe cost of equity is the problem. Beta is measured over a chosen window against a chosen index; the equity risk premium is argued over by serious people across a two-point range; the risk-free rate depends on which maturity you pick. Reasonable choices routinely produce cost of equity estimates two or three points apart, and a two-point move in WACC can change a valuation by a third for a long-duration asset.\n\nSo three practical habits:\n\n**Quote a range and check whether the decision changes across it.** A project attractive at 7% and unattractive at 9% is a project whose answer is \"we do not know\".\n\n**Distrust precision.** \"Our WACC is 8.4%\" implies a measurement. It is a construction, and the two-decimal version is the surest sign that nobody has tested the inputs.\n\n**Use the same WACC consistently or justify the difference.** A single company-wide rate applied to businesses of very different risk quietly subsidises the risky division and starves the safe one. That is a real capital allocation error and it is entirely invisible in the model.\n\n**And in private markets, note that a fund's own return target is not the company's cost of capital.** A 20% target IRR is a statement about the fund's economics and its investors' expectations. Using it to discount a company's cash flow answers a different question."
+      "body": "**WACC is an estimate with error bars, and the honest way to use it is as a range rather than a point.**\n\nThe cost of equity is the problem. Beta is measured over a chosen window against a chosen index; the equity risk premium is argued over by serious people across a two-point range; the risk-free rate depends on which maturity you pick. Reasonable choices routinely produce cost of equity estimates two or three points apart, and a two-point move in WACC can change a valuation by a third for a long-duration asset.\n\nSo three practical habits:\n\n**Quote a range and check whether the decision changes across it.** A project attractive at 7% and unattractive at 9% is a project whose answer is \"we do not know\".\n\n**Distrust precision.** \"Our WACC is 8.4%\" implies a measurement. It is a construction, and the two-decimal version is the surest sign that nobody has tested the inputs.\n\n**Use the same WACC consistently or justify the difference.** A single company-wide rate applied to businesses of very different risk quietly subsidises the risky division and starves the safe one. That is a real capital allocation error and it is entirely invisible in the model.\n\n**And in private markets, note that a fund's own return target is not the company's cost of capital.** A 20% target IRR is a statement about the fund's economics and its investors' expectations. Using it to discount a company's cash flow answers a different question.",
+      "heading": "Why WACC is a range, not a point"
     },
     {
       "type": "formula",
@@ -30,10 +39,22 @@
       "latex": "\\text{WACC} = \\frac{E}{V} \\times k_e + \\frac{D}{V} \\times k_d \\times (1 - t)",
       "plainReading": "Weight the cost of equity by equity's share of total capital, add the cost of debt weighted by debt's share and reduced for the tax deduction, and the result is the blended [[hurdle-rate|hurdle rate]].",
       "variables": [
-        { "symbol": "E, D, V", "meaning": "market values of equity, debt, and their total" },
-        { "symbol": "k_e", "meaning": "cost of equity — estimated, not observed" },
-        { "symbol": "k_d", "meaning": "pre-tax cost of debt, roughly the yield on the company's borrowings" },
-        { "symbol": "t", "meaning": "marginal tax rate, and only worth its face value if tax is actually paid" }
+        {
+          "symbol": "E, D, V",
+          "meaning": "market values of equity, debt, and their total"
+        },
+        {
+          "symbol": "k_e",
+          "meaning": "cost of equity — estimated, not observed"
+        },
+        {
+          "symbol": "k_d",
+          "meaning": "pre-tax cost of debt, roughly the yield on the company's borrowings"
+        },
+        {
+          "symbol": "t",
+          "meaning": "marginal tax rate, and only worth its face value if tax is actually paid"
+        }
       ]
     },
     {
@@ -56,7 +77,11 @@
       "type": "table",
       "id": "value-table",
       "caption": "The four combinations of growth and returns",
-      "headers": ["ROIC vs WACC", "Growing", "Not growing"],
+      "headers": [
+        "ROIC vs WACC",
+        "Growing",
+        "Not growing"
+      ],
       "rows": [
         [
           "ROIC above WACC",
@@ -73,7 +98,8 @@
     {
       "type": "concept",
       "id": "how-it-goes-wrong",
-      "body": "**Using book weights.** Book equity is an accounting residue. A company whose shares trade at three times book has a very different equity weight in market terms, and the WACC changes accordingly.\n\n**One rate for every division.** A conglomerate applying a single hurdle to a utility and a software venture will systematically over-invest in the risky one. The correction — a divisional cost of capital — is standard practice and frequently skipped.\n\n**Circularity ignored.** The weights depend on the market value of equity, which depends on the valuation, which depends on the WACC. In practice this is resolved by iteration or by target weights, and it should be stated rather than hidden.\n\n**A stale rate.** A WACC set when the risk-free rate was near zero is not a WACC. Rate regimes change and the number needs revisiting, and dated assumptions live for years inside spreadsheets.\n\n**Confusing the hurdle with the target.** A fund's target return, a management incentive threshold and the company's cost of capital are three different numbers. Using one where another belongs is a common and expensive substitution."
+      "body": "**Using book weights.** Book equity is an accounting residue. A company whose shares trade at three times book has a very different equity weight in market terms, and the WACC changes accordingly.\n\n**One rate for every division.** A conglomerate applying a single hurdle to a utility and a software venture will systematically over-invest in the risky one. The correction — a divisional cost of capital — is standard practice and frequently skipped.\n\n**Circularity ignored.** The weights depend on the market value of equity, which depends on the valuation, which depends on the WACC. In practice this is resolved by iteration or by target weights, and it should be stated rather than hidden.\n\n**A stale rate.** A WACC set when the risk-free rate was near zero is not a WACC. Rate regimes change and the number needs revisiting, and dated assumptions live for years inside spreadsheets.\n\n**Confusing the hurdle with the target.** A fund's target return, a management incentive threshold and the company's cost of capital are three different numbers. Using one where another belongs is a common and expensive substitution.",
+      "heading": "Key risks"
     },
     {
       "type": "pitfall",
@@ -101,7 +127,10 @@
       "id": "ci-wacc-01-q1",
       "type": "numeric",
       "difficulty": 2,
-      "tags": ["wacc", "arithmetic"],
+      "tags": [
+        "wacc",
+        "arithmetic"
+      ],
       "concept": "worked-wacc",
       "stem": "Equity 600 at a 10% cost, debt 400 at 6% pre-tax, tax 25%. What is WACC, in percent?",
       "answer": 7.8,
@@ -115,7 +144,10 @@
       "id": "ci-wacc-01-q2",
       "type": "numeric",
       "difficulty": 3,
-      "tags": ["roic", "arithmetic"],
+      "tags": [
+        "roic",
+        "arithmetic"
+      ],
       "concept": "worked-wacc",
       "stem": "EBIT is 120, tax 25%, invested capital 1,000. What is ROIC, in percent?",
       "answer": 9.0,
@@ -129,7 +161,11 @@
       "id": "ci-wacc-01-q3",
       "type": "numeric",
       "difficulty": 3,
-      "tags": ["roic", "value-creation", "arithmetic"],
+      "tags": [
+        "roic",
+        "value-creation",
+        "arithmetic"
+      ],
       "concept": "the-roic-test",
       "stem": "ROIC is 9.0%, WACC is 7.8%, invested capital is 1,000. What is annual economic profit?",
       "answer": 12,
@@ -141,7 +177,10 @@
       "id": "ci-wacc-01-q4",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["roic", "growth"],
+      "tags": [
+        "roic",
+        "growth"
+      ],
       "concept": "growth-without-returns",
       "stem": "A company grows revenue 8% a year and earns 6% on new capital against a 7.8% WACC. What is happening?",
       "choices": [
@@ -163,7 +202,10 @@
       "id": "ci-wacc-01-q5",
       "type": "tfj",
       "difficulty": 4,
-      "tags": ["wacc", "misconception"],
+      "tags": [
+        "wacc",
+        "misconception"
+      ],
       "concept": "wacc-is-a-range",
       "stem": "\"Our WACC is 8.4%, so we accept projects returning above 8.4%.\" True or false as a decision rule — and why?",
       "isTrue": false,
@@ -186,7 +228,11 @@
       "id": "ci-wacc-01-q6",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["wacc", "allocation", "on-the-job"],
+      "tags": [
+        "wacc",
+        "allocation",
+        "on-the-job"
+      ],
       "concept": "how-it-goes-wrong",
       "stem": "A group applies one company-wide WACC to both a regulated utility division and a software venture. What is the consequence?",
       "choices": [

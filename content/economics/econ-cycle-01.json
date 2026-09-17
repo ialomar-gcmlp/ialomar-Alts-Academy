@@ -5,14 +5,21 @@
   "title": "The Business Cycle and What Works in Each Phase",
   "summary": "Four phases, the order things turn in, and why almost every strategy's track record is really a record of the phases it lived through.",
   "level": "core",
-  "prereqs": ["econ-monetary-01"],
+  "prereqs": [
+    "econ-monetary-01"
+  ],
   "estMinutes": 9,
-  "examRelevance": ["CFA-L1", "CAIA-L1", "practical"],
+  "examRelevance": [
+    "CFA-L1",
+    "CAIA-L1",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
       "id": "what-it-is",
-      "body": "The [[business-cycle|business cycle]] is the repeated pattern of expansion and contraction in activity around the economy's trend. Four phases, though the boundaries are only clear afterwards:\n\n**Early expansion.** Recovery from a trough. Spare capacity, falling unemployment, easy policy, rising confidence.\n\n**Late expansion.** Capacity tightening, wages rising, policy turning restrictive, credit standards loose and getting looser.\n\n**Slowdown.** Growth decelerating, earnings revisions turning down, credit spreads widening from very tight levels.\n\n**Contraction.** A [[recession]]: falling output, rising unemployment, defaults, policy easing hard.\n\nCycles are not regular. Post-war expansions have run from one year to more than ten. Anyone claiming a cycle is \"due\" to end on age alone is describing a calendar, not an economy."
+      "body": "The [[business-cycle|business cycle]] is the repeated pattern of expansion and contraction in activity around the economy's trend. Four phases, though the boundaries are only clear afterwards:\n\n**Early expansion.** Recovery from a trough. Spare capacity, falling unemployment, easy policy, rising confidence.\n\n**Late expansion.** Capacity tightening, wages rising, policy turning restrictive, credit standards loose and getting looser.\n\n**Slowdown.** Growth decelerating, earnings revisions turning down, credit spreads widening from very tight levels.\n\n**Contraction.** A [[recession]]: falling output, rising unemployment, defaults, policy easing hard.\n\nCycles are not regular. Post-war expansions have run from one year to more than ten. Anyone claiming a cycle is \"due\" to end on age alone is describing a calendar, not an economy.",
+      "heading": "What it is"
     },
     {
       "type": "concept",
@@ -22,13 +29,18 @@
     {
       "type": "intuition",
       "id": "track-records-are-cycles",
-      "body": "Here is the point that makes this a diligence topic rather than an economics topic.\n\n**A five-year track record is a record of a five-year stretch of the cycle.** A [[direct-lending|direct lending]] fund launched into a decade of falling defaults and cheap financing produced excellent numbers, and almost none of that was skill in the sense a selector cares about. A trend-following fund's flat decade was not incompetence — it was a decade without the sustained trends the strategy needs.\n\nSo the question is never \"what did they return?\" It is **\"which phases has this strategy actually lived through, and what happened in the ones it has not?\"**\n\nThree specific traps follow.\n\n**A strategy with no bad-phase data is untested, not proven.** Absence of a [[drawdown]] is absence of evidence.\n\n**The strategies that look most attractive late in an expansion are usually the most cycle-dependent.** Levered credit, momentum, anything harvesting a spread that has been narrowing for years.\n\n**A manager who explains their good years with skill and their bad years with the environment has told you they cannot tell the difference.** The honest version cites both."
+      "body": "Here is the point that makes this a diligence topic rather than an economics topic.\n\n**A five-year track record is a record of a five-year stretch of the cycle.** A [[direct-lending|direct lending]] fund launched into a decade of falling defaults and cheap financing produced excellent numbers, and almost none of that was skill in the sense a selector cares about. A trend-following fund's flat decade was not incompetence — it was a decade without the sustained trends the strategy needs.\n\nSo the question is never \"what did they return?\" It is **\"which phases has this strategy actually lived through, and what happened in the ones it has not?\"**\n\nThree specific traps follow.\n\n**A strategy with no bad-phase data is untested, not proven.** Absence of a [[drawdown]] is absence of evidence.\n\n**The strategies that look most attractive late in an expansion are usually the most cycle-dependent.** Levered credit, momentum, anything harvesting a spread that has been narrowing for years.\n\n**A manager who explains their good years with skill and their bad years with the environment has told you they cannot tell the difference.** The honest version cites both.",
+      "heading": "Why track records are cycle samples"
     },
     {
       "type": "table",
       "id": "phase-table",
       "caption": "What tends to help and hurt, by phase",
-      "headers": ["Phase", "Tends to work", "Tends to struggle"],
+      "headers": [
+        "Phase",
+        "Tends to work",
+        "Tends to struggle"
+      ],
       "rows": [
         [
           "Early expansion",
@@ -68,7 +80,8 @@
     {
       "type": "concept",
       "id": "how-it-goes-wrong",
-      "body": "**Phase-labelling after the fact.** Recessions are dated retrospectively, sometimes years later. Any claim to know the current phase in real time is a forecast wearing a label's clothing.\n\n**Assuming the last cycle's playbook.** The 2010s rewarded duration, growth and leverage continuously. A process tuned on that decade is tuned on one regime.\n\n**Ignoring the private markets lag.** Private valuations move quarters after public ones, so a private portfolio looks resilient in a drawdown and then catches up. The resilience is a reporting artefact and gets mistaken for diversification.\n\n**Timing commitments.** Trying to deploy only into good vintages usually means committing late — after the dislocation has passed. Consistent commitment across vintages beats vintage timing for almost everyone, which is unsatisfying and well evidenced.\n\n**Reading a single indicator as the cycle.** Every recession has a favourite indicator that called it, chosen after the fact from dozens that did not."
+      "body": "**Phase-labelling after the fact.** Recessions are dated retrospectively, sometimes years later. Any claim to know the current phase in real time is a forecast wearing a label's clothing.\n\n**Assuming the last cycle's playbook.** The 2010s rewarded duration, growth and leverage continuously. A process tuned on that decade is tuned on one regime.\n\n**Ignoring the private markets lag.** Private valuations move quarters after public ones, so a private portfolio looks resilient in a drawdown and then catches up. The resilience is a reporting artefact and gets mistaken for diversification.\n\n**Timing commitments.** Trying to deploy only into good vintages usually means committing late — after the dislocation has passed. Consistent commitment across vintages beats vintage timing for almost everyone, which is unsatisfying and well evidenced.\n\n**Reading a single indicator as the cycle.** Every recession has a favourite indicator that called it, chosen after the fact from dozens that did not.",
+      "heading": "Key risks"
     },
     {
       "type": "pitfall",
@@ -96,7 +109,10 @@
       "id": "econ-cycle-01-q1",
       "type": "mcq",
       "difficulty": 2,
-      "tags": ["business-cycle", "indicators"],
+      "tags": [
+        "business-cycle",
+        "indicators"
+      ],
       "concept": "the-order",
       "stem": "Which of these typically turns LAST in a cycle?",
       "choices": [
@@ -118,10 +134,18 @@
       "id": "econ-cycle-01-q2",
       "type": "mcq",
       "difficulty": 2,
-      "tags": ["business-cycle", "policy"],
+      "tags": [
+        "business-cycle",
+        "policy"
+      ],
       "concept": "what-it-is",
       "stem": "In which phase is a central bank most likely to be tightening while growth still looks healthy?",
-      "choices": ["Early expansion", "Late expansion", "Slowdown", "Contraction"],
+      "choices": [
+        "Early expansion",
+        "Late expansion",
+        "Slowdown",
+        "Contraction"
+      ],
       "answerIndex": 1,
       "rationales": [
         "Early expansion has spare capacity, so policy is still supportive.",
@@ -135,7 +159,10 @@
       "id": "econ-cycle-01-q3",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["business-cycle", "private-credit"],
+      "tags": [
+        "business-cycle",
+        "private-credit"
+      ],
       "concept": "worked-vintage",
       "stem": "Two private credit funds with the same team deploy eighteen months apart, one late in an expansion and one in a contraction. Which reports better returns in its first two years, and which has the better economics?",
       "choices": [
@@ -157,7 +184,10 @@
       "id": "econ-cycle-01-q4",
       "type": "tfj",
       "difficulty": 3,
-      "tags": ["business-cycle", "misconception"],
+      "tags": [
+        "business-cycle",
+        "misconception"
+      ],
       "concept": "how-it-goes-wrong",
       "stem": "\"This expansion has run for nine years, so a recession is due.\" True or false — and why?",
       "isTrue": false,
@@ -180,7 +210,11 @@
       "id": "econ-cycle-01-q5",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["business-cycle", "correlation", "risk"],
+      "tags": [
+        "business-cycle",
+        "correlation",
+        "risk"
+      ],
       "concept": "correlation-in-stress",
       "stem": "A portfolio shows low correlation between its private equity, private credit and real estate sleeves over ten years. What is the most likely explanation?",
       "choices": [
@@ -202,7 +236,11 @@
       "id": "econ-cycle-01-q6",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["business-cycle", "diligence", "on-the-job"],
+      "tags": [
+        "business-cycle",
+        "diligence",
+        "on-the-job"
+      ],
       "concept": "track-records-are-cycles",
       "stem": "A manager attributes strong years to their process and weak years to the market environment. What does this most likely indicate?",
       "choices": [
@@ -224,7 +262,11 @@
       "id": "econ-cycle-01-q7",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["business-cycle", "allocation", "on-the-job"],
+      "tags": [
+        "business-cycle",
+        "allocation",
+        "on-the-job"
+      ],
       "concept": "how-it-goes-wrong",
       "stem": "An investment committee proposes pausing private market commitments until the cycle turns, then deploying into the dislocation. What is the strongest objection?",
       "choices": [

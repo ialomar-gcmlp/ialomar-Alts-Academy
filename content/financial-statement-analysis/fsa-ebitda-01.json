@@ -5,14 +5,22 @@
   "title": "EBITDA, Adjusted EBITDA and What the Adjustments Cost You",
   "summary": "The measure the whole leveraged finance industry runs on, why it exists, and how 15 of add-backs moves a purchase price by 75.",
   "level": "core",
-  "prereqs": ["fsa-statements-01", "fsa-cashflow-01"],
+  "prereqs": [
+    "fsa-statements-01",
+    "fsa-cashflow-01"
+  ],
   "estMinutes": 9,
-  "examRelevance": ["CAIA-L1", "CAIA-L2", "practical"],
+  "examRelevance": [
+    "CAIA-L1",
+    "CAIA-L2",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
       "id": "what-it-is",
-      "body": "[[ebitda|EBITDA]] is earnings before interest, taxes, [[depreciation]] and amortisation. Each exclusion answers a specific question, and the measure is only defensible for the question it was built for.\n\n**Before interest** — so two companies with different debt levels can be compared on operations.\n\n**Before taxes** — so different tax positions and jurisdictions do not distort the comparison.\n\n**Before depreciation and amortisation** — so a company with old written-down assets is comparable with one that has just rebuilt its plant.\n\nWhat is left is an approximation of operating profitability independent of how the business is financed and how old its assets are. **That is a genuinely useful thing, and it is the reason EBITDA became the unit of account for leveraged finance:** a buyer proposing to change the [[capital-structure|capital structure]] entirely needs a measure that is neutral to the capital structure.\n\nIt is not a cash flow measure, it is not a profit measure, and it flatters capital-intensive businesses systematically — because the assets do need replacing, and depreciation is the accountant's estimate of that cost."
+      "body": "[[ebitda|EBITDA]] is earnings before interest, taxes, [[depreciation]] and amortisation. Each exclusion answers a specific question, and the measure is only defensible for the question it was built for.\n\n**Before interest** — so two companies with different debt levels can be compared on operations.\n\n**Before taxes** — so different tax positions and jurisdictions do not distort the comparison.\n\n**Before depreciation and amortisation** — so a company with old written-down assets is comparable with one that has just rebuilt its plant.\n\nWhat is left is an approximation of operating profitability independent of how the business is financed and how old its assets are. **That is a genuinely useful thing, and it is the reason EBITDA became the unit of account for leveraged finance:** a buyer proposing to change the [[capital-structure|capital structure]] entirely needs a measure that is neutral to the capital structure.\n\nIt is not a cash flow measure, it is not a profit measure, and it flatters capital-intensive businesses systematically — because the assets do need replacing, and depreciation is the accountant's estimate of that cost.",
+      "heading": "What it is"
     },
     {
       "type": "concept",
@@ -22,7 +30,8 @@
     {
       "type": "intuition",
       "id": "the-adjustment-ladder",
-      "body": "Adjustments run from clearly legitimate to clearly aspirational, and it is a spectrum rather than a line. Ordered from most to least defensible:\n\n**Owner compensation normalisation.** A founder paying themselves 2m where the market rate for the role is 400k genuinely overstates the cost base for any new owner. Verifiable against market data. Legitimate.\n\n**Genuine one-off costs.** A litigation settlement, a single restructuring, the fees of the transaction itself. Legitimate — provided \"one-off\" costs are not appearing every year, which they frequently do.\n\n**Run-rate effects of completed actions.** A factory closed in September, with nine months of its costs still in the reported year. Defensible arithmetic, if the closure is complete and the savings are evidenced.\n\n**Pro forma acquisitions.** Full-year effect of a business owned for four months. Defensible with real numbers, and it imports someone else's accounting.\n\n**Run-rate synergies not yet delivered.** A forecast. Presented as history because it sits in the EBITDA line.\n\n**Add-backs for costs that will recur.** \"Exceptional\" recruitment costs in a business with high turnover. Not an adjustment; a cost.\n\n**The diagnostic that cuts through all of it: how many of last year's adjustments turned out to be real?** A seller who has bridged adjusted to actual for three prior years has evidence. One who has not is asking for trust, and the request is worth naming."
+      "body": "Adjustments run from clearly legitimate to clearly aspirational, and it is a spectrum rather than a line. Ordered from most to least defensible:\n\n**Owner compensation normalisation.** A founder paying themselves 2m where the market rate for the role is 400k genuinely overstates the cost base for any new owner. Verifiable against market data. Legitimate.\n\n**Genuine one-off costs.** A litigation settlement, a single restructuring, the fees of the transaction itself. Legitimate — provided \"one-off\" costs are not appearing every year, which they frequently do.\n\n**Run-rate effects of completed actions.** A factory closed in September, with nine months of its costs still in the reported year. Defensible arithmetic, if the closure is complete and the savings are evidenced.\n\n**Pro forma acquisitions.** Full-year effect of a business owned for four months. Defensible with real numbers, and it imports someone else's accounting.\n\n**Run-rate synergies not yet delivered.** A forecast. Presented as history because it sits in the EBITDA line.\n\n**Add-backs for costs that will recur.** \"Exceptional\" recruitment costs in a business with high turnover. Not an adjustment; a cost.\n\n**The diagnostic that cuts through all of it: how many of last year's adjustments turned out to be real?** A seller who has bridged adjusted to actual for three prior years has evidence. One who has not is asking for trust, and the request is worth naming.",
+      "heading": "Why adjustments are a ladder"
     },
     {
       "type": "example",
@@ -42,7 +51,11 @@
       "type": "table",
       "id": "adjustment-table",
       "caption": "Grading an adjustment",
-      "headers": ["Adjustment", "Test that settles it", "Usual verdict"],
+      "headers": [
+        "Adjustment",
+        "Test that settles it",
+        "Usual verdict"
+      ],
       "rows": [
         [
           "Owner compensation",
@@ -74,7 +87,8 @@
     {
       "type": "concept",
       "id": "how-it-goes-wrong",
-      "body": "**EBITDA-based covenants with adjustment rights.** Loan documents increasingly permit borrower-defined add-backs, sometimes uncapped, sometimes including projected synergies. A covenant measured against a number the borrower can adjust is a covenant that does not bind — and this is documented rather than hidden, which means it is a reading problem rather than a discovery problem.\n\n**Multiple arbitrage described as value creation.** Buying at 8x and selling at 10x produces a return that has nothing to do with the business. It is a real source of profit and it is not an operational achievement, and the distinction disappears in most attribution.\n\n**Capital intensity ignored.** EBITDA treats a business needing 8% of revenue in annual capex identically to one needing 1%. Over a hold period the difference is enormous, and it is invisible at the EBITDA line.\n\n**Comparing across accounting standards.** Lease treatment alone can shift EBITDA materially, because rent below the EBITDA line becomes depreciation and interest above it.\n\n**Anchoring on the seller's number.** Once adjusted EBITDA becomes the base of every subsequent model, the argument has been conceded. Rebuild from the audited figure and rebuild your own bridge."
+      "body": "**EBITDA-based covenants with adjustment rights.** Loan documents increasingly permit borrower-defined add-backs, sometimes uncapped, sometimes including projected synergies. A covenant measured against a number the borrower can adjust is a covenant that does not bind — and this is documented rather than hidden, which means it is a reading problem rather than a discovery problem.\n\n**Multiple arbitrage described as value creation.** Buying at 8x and selling at 10x produces a return that has nothing to do with the business. It is a real source of profit and it is not an operational achievement, and the distinction disappears in most attribution.\n\n**Capital intensity ignored.** EBITDA treats a business needing 8% of revenue in annual capex identically to one needing 1%. Over a hold period the difference is enormous, and it is invisible at the EBITDA line.\n\n**Comparing across accounting standards.** Lease treatment alone can shift EBITDA materially, because rent below the EBITDA line becomes depreciation and interest above it.\n\n**Anchoring on the seller's number.** Once adjusted EBITDA becomes the base of every subsequent model, the argument has been conceded. Rebuild from the audited figure and rebuild your own bridge.",
+      "heading": "Key risks"
     },
     {
       "type": "pitfall",
@@ -102,7 +116,11 @@
       "id": "fsa-ebitda-01-q1",
       "type": "numeric",
       "difficulty": 2,
-      "tags": ["ebitda", "leverage", "arithmetic"],
+      "tags": [
+        "ebitda",
+        "leverage",
+        "arithmetic"
+      ],
       "concept": "worked-adjustment",
       "stem": "Debt is 400 and adjusted EBITDA is 95. What is leverage, in turns? Give two decimal places.",
       "answer": 4.21,
@@ -115,7 +133,11 @@
       "id": "fsa-ebitda-01-q2",
       "type": "numeric",
       "difficulty": 3,
-      "tags": ["ebitda", "valuation", "arithmetic"],
+      "tags": [
+        "ebitda",
+        "valuation",
+        "arithmetic"
+      ],
       "concept": "worked-adjustment",
       "stem": "The seller's 15 of adjustments are accepted and the price is 5x EBITDA. By how much does the enterprise value rise?",
       "answer": 75,
@@ -127,7 +149,10 @@
       "id": "fsa-ebitda-01-q3",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["ebitda", "adjustments"],
+      "tags": [
+        "ebitda",
+        "adjustments"
+      ],
       "concept": "the-adjustment-ladder",
       "stem": "Which adjustment is least defensible?",
       "choices": [
@@ -149,7 +174,10 @@
       "id": "fsa-ebitda-01-q4",
       "type": "tfj",
       "difficulty": 3,
-      "tags": ["ebitda", "misconception"],
+      "tags": [
+        "ebitda",
+        "misconception"
+      ],
       "concept": "what-it-is",
       "stem": "\"EBITDA lets you compare any two companies' operating performance fairly.\" True or false — and why?",
       "isTrue": false,
@@ -172,7 +200,11 @@
       "id": "fsa-ebitda-01-q5",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["ebitda", "covenants", "on-the-job"],
+      "tags": [
+        "ebitda",
+        "covenants",
+        "on-the-job"
+      ],
       "concept": "how-it-goes-wrong",
       "stem": "A loan document defines covenant EBITDA to include borrower-determined add-backs for projected synergies, uncapped. What is the consequence?",
       "choices": [
@@ -194,7 +226,11 @@
       "id": "fsa-ebitda-01-q6",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["ebitda", "attribution", "on-the-job"],
+      "tags": [
+        "ebitda",
+        "attribution",
+        "on-the-job"
+      ],
       "concept": "how-it-goes-wrong",
       "stem": "A buyout fund reports a 2.5x return on a deal where EBITDA grew 20%, debt was repaid, and the exit multiple was 10x against an entry of 8x. What deserves the most scrutiny in the attribution?",
       "choices": [

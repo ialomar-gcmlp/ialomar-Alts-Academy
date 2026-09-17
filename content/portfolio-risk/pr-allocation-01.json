@@ -5,14 +5,22 @@
   "title": "Asset Allocation and the Alternatives Sleeve",
   "summary": "The allocation decision explains most of a portfolio's outcome, and the optimiser that produces it is fed inputs that guarantee more private assets.",
   "level": "advanced",
-  "prereqs": ["pr-diversification-01", "eq-privatemarks-01"],
+  "prereqs": [
+    "pr-diversification-01",
+    "eq-privatemarks-01"
+  ],
   "estMinutes": 9,
-  "examRelevance": ["CFA-L2", "CAIA-L2", "practical"],
+  "examRelevance": [
+    "CFA-L2",
+    "CAIA-L2",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
       "id": "what-it-is",
-      "body": "Asset allocation is the decision about how much to hold of each broad exposure. It comes before manager selection and it matters more.\n\nThe conventional process has three steps:\n\n**Capital market assumptions.** Expected return, volatility and correlation for each asset class. All three are estimates; the first is nearly unknowable and the other two are measured on history.\n\n**Optimisation or judgement.** A mean-variance optimiser, a risk-parity approach, or a committee. All produce weights.\n\n**Constraints.** Liquidity needs, policy limits, governance tolerance, regulatory requirements.\n\n**The third step usually determines the answer, and it is treated as an afterthought.** An optimiser without constraints recommends portfolios no institution could hold; with realistic constraints, the optimisation is mostly choosing between a small number of feasible options.\n\nWhich is worth knowing before spending weeks on the inputs. **The high-value work in allocation is defining the constraints honestly** — what liquidity is genuinely needed, what drawdown the governance can survive, what the actual time horizon is — because those decide the outcome."
+      "body": "Asset allocation is the decision about how much to hold of each broad exposure. It comes before manager selection and it matters more.\n\nThe conventional process has three steps:\n\n**Capital market assumptions.** Expected return, volatility and correlation for each asset class. All three are estimates; the first is nearly unknowable and the other two are measured on history.\n\n**Optimisation or judgement.** A mean-variance optimiser, a risk-parity approach, or a committee. All produce weights.\n\n**Constraints.** Liquidity needs, policy limits, governance tolerance, regulatory requirements.\n\n**The third step usually determines the answer, and it is treated as an afterthought.** An optimiser without constraints recommends portfolios no institution could hold; with realistic constraints, the optimisation is mostly choosing between a small number of feasible options.\n\nWhich is worth knowing before spending weeks on the inputs. **The high-value work in allocation is defining the constraints honestly** — what liquidity is genuinely needed, what drawdown the governance can survive, what the actual time horizon is — because those decide the outcome.",
+      "heading": "What it is"
     },
     {
       "type": "concept",
@@ -22,13 +30,18 @@
     {
       "type": "intuition",
       "id": "what-alts-are-for",
-      "body": "**The case for an alternatives allocation is not that it produces higher returns. It is that it accesses return sources a public portfolio cannot.**\n\nStated plainly, there are four:\n\n**The illiquidity premium.** Compensation for accepting that you cannot sell. Real, and only earned by investors who genuinely do not need to sell — for anyone else it is a risk taken without the corresponding payment.\n\n**Access to a different opportunity set.** Most companies are private. Some sectors and stages exist only there.\n\n**Control and influence.** A buyout owner can change management, [[capital-structure|capital structure]] and strategy. A minority public shareholder cannot.\n\n**Genuinely different payoff shapes.** Trend following and some macro strategies behave unlike everything else, and that is worth more than their standalone returns suggest.\n\n**What is not on the list: lower volatility.** That is a measurement artefact. Nor is \"diversification\" in the abstract — [[private-equity|private equity]] is levered equity, and its true correlation with public equity is high once the smoothing is removed.\n\n**So the honest sizing question is: how much illiquidity can this portfolio genuinely bear, given its liabilities and its governance?** That number is a liquidity calculation rather than an optimisation, and it is the binding constraint for almost every institution."
+      "body": "**The case for an alternatives allocation is not that it produces higher returns. It is that it accesses return sources a public portfolio cannot.**\n\nStated plainly, there are four:\n\n**The illiquidity premium.** Compensation for accepting that you cannot sell. Real, and only earned by investors who genuinely do not need to sell — for anyone else it is a risk taken without the corresponding payment.\n\n**Access to a different opportunity set.** Most companies are private. Some sectors and stages exist only there.\n\n**Control and influence.** A buyout owner can change management, [[capital-structure|capital structure]] and strategy. A minority public shareholder cannot.\n\n**Genuinely different payoff shapes.** Trend following and some macro strategies behave unlike everything else, and that is worth more than their standalone returns suggest.\n\n**What is not on the list: lower volatility.** That is a measurement artefact. Nor is \"diversification\" in the abstract — [[private-equity|private equity]] is levered equity, and its true correlation with public equity is high once the smoothing is removed.\n\n**So the honest sizing question is: how much illiquidity can this portfolio genuinely bear, given its liabilities and its governance?** That number is a liquidity calculation rather than an optimisation, and it is the binding constraint for almost every institution.",
+      "heading": "Why the case is access, not higher returns"
     },
     {
       "type": "table",
       "id": "alloc-table",
       "caption": "What each allocation actually buys",
-      "headers": ["Allocation", "Return source", "What it costs"],
+      "headers": [
+        "Allocation",
+        "Return source",
+        "What it costs"
+      ],
       "rows": [
         [
           "Public equity",
@@ -79,7 +92,8 @@
     {
       "type": "concept",
       "id": "how-it-goes-wrong",
-      "body": "**Optimising on smoothed inputs.** The single largest error in institutional allocation, and it is invisible because the arithmetic is correct.\n\n**Expected returns extrapolated from the recent past.** A decade of falling rates produced excellent returns for long-duration and levered assets. Assuming that continues is a rate forecast disguised as an assumption.\n\n**Constraints applied after optimisation.** Optimise first, then constrain, and the result is an unconstrained portfolio trimmed to fit. Better to define the feasible set first.\n\n**Ignoring the fee difference in expected returns.** A 10% gross private return with 2-and-20 is not 10%. Comparisons have to be net of everything, and the gross figure is what usually appears in the assumptions.\n\n**Rebalancing rules that cannot be executed.** A policy requiring quarterly rebalancing to target cannot rebalance illiquid assets, so it rebalances the liquid ones — which changes the portfolio in ways nobody chose.\n\n**Treating a target as achievable immediately.** A private markets target takes years to reach through commitments, so the portfolio spends most of its life away from its target by construction."
+      "body": "**Optimising on smoothed inputs.** The single largest error in institutional allocation, and it is invisible because the arithmetic is correct.\n\n**Expected returns extrapolated from the recent past.** A decade of falling rates produced excellent returns for long-duration and levered assets. Assuming that continues is a rate forecast disguised as an assumption.\n\n**Constraints applied after optimisation.** Optimise first, then constrain, and the result is an unconstrained portfolio trimmed to fit. Better to define the feasible set first.\n\n**Ignoring the fee difference in expected returns.** A 10% gross private return with 2-and-20 is not 10%. Comparisons have to be net of everything, and the gross figure is what usually appears in the assumptions.\n\n**Rebalancing rules that cannot be executed.** A policy requiring quarterly rebalancing to target cannot rebalance illiquid assets, so it rebalances the liquid ones — which changes the portfolio in ways nobody chose.\n\n**Treating a target as achievable immediately.** A private markets target takes years to reach through commitments, so the portfolio spends most of its life away from its target by construction.",
+      "heading": "Key risks"
     },
     {
       "type": "pitfall",
@@ -107,7 +121,10 @@
       "id": "pr-allocation-01-q1",
       "type": "mcq",
       "difficulty": 2,
-      "tags": ["allocation", "process"],
+      "tags": [
+        "allocation",
+        "process"
+      ],
       "concept": "what-it-is",
       "stem": "Which step in the allocation process usually determines the final answer?",
       "choices": [
@@ -129,7 +146,11 @@
       "id": "pr-allocation-01-q2",
       "type": "numeric",
       "difficulty": 3,
-      "tags": ["allocation", "sharpe", "arithmetic"],
+      "tags": [
+        "allocation",
+        "sharpe",
+        "arithmetic"
+      ],
       "concept": "worked-inputs",
       "stem": "A private strategy returns 10% with 8% reported volatility, against a 3% risk-free rate. What is its reported Sharpe ratio? Two decimal places.",
       "answer": 0.88,
@@ -141,7 +162,11 @@
       "id": "pr-allocation-01-q3",
       "type": "numeric",
       "difficulty": 3,
-      "tags": ["allocation", "sharpe", "arithmetic"],
+      "tags": [
+        "allocation",
+        "sharpe",
+        "arithmetic"
+      ],
       "concept": "worked-inputs",
       "stem": "Same 10% return and 3% risk-free rate, but unsmoothed volatility is 16%. What is the corrected Sharpe ratio? Two decimal places.",
       "answer": 0.44,
@@ -153,7 +178,10 @@
       "id": "pr-allocation-01-q4",
       "type": "tfj",
       "difficulty": 4,
-      "tags": ["allocation", "misconception"],
+      "tags": [
+        "allocation",
+        "misconception"
+      ],
       "concept": "what-alts-are-for",
       "stem": "\"Private equity diversifies a portfolio because its correlation with public equity is low.\" True or false — and why?",
       "isTrue": false,
@@ -176,7 +204,11 @@
       "id": "pr-allocation-01-q5",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["allocation", "governance", "on-the-job"],
+      "tags": [
+        "allocation",
+        "governance",
+        "on-the-job"
+      ],
       "concept": "the-governance-constraint",
       "stem": "A pension fund states a twenty-year horizon but reviews managers against annual benchmarks and has terminated three managers after two bad years each. What is its effective horizon?",
       "choices": [
@@ -198,7 +230,11 @@
       "id": "pr-allocation-01-q6",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["allocation", "optimiser", "on-the-job"],
+      "tags": [
+        "allocation",
+        "optimiser",
+        "on-the-job"
+      ],
       "concept": "the-optimiser-problem",
       "stem": "What single check should precede any optimisation involving private assets?",
       "choices": [

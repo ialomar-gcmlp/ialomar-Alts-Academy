@@ -5,14 +5,21 @@
   "title": "Risk Measures: Volatility, VaR and Drawdown",
   "summary": "Three numbers that answer different questions, and each one is silent about exactly the thing you most want to know.",
   "level": "core",
-  "prereqs": ["pr-diversification-01"],
+  "prereqs": [
+    "pr-diversification-01"
+  ],
   "estMinutes": 9,
-  "examRelevance": ["CFA-L1", "CAIA-L1", "practical"],
+  "examRelevance": [
+    "CFA-L1",
+    "CAIA-L1",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
       "id": "what-it-is",
-      "body": "Three measures dominate risk reporting, and each answers a genuinely different question.\n\n**[[volatility|Volatility]]** — how much returns vary around their average. Symmetric: it treats an unexpected gain exactly like an unexpected loss.\n\n**[[value-at-risk|Value at risk]]** — the loss that will not be exceeded with a stated probability over a stated period. \"95% one-day VaR of 1.55%\" means a worse day than that is expected one time in twenty.\n\n**[[drawdown|Maximum drawdown]]** — the largest peak-to-trough fall actually experienced. The only one of the three that describes something that happened rather than a distributional property.\n\n**Each is silent about something important.** Volatility says nothing about the shape of the distribution. VaR says nothing about how bad the losses beyond the threshold are. Drawdown says nothing about the probability of a worse one, because it is a single historical realisation.\n\n**So a risk report with one of them is not a risk report.** The three together, plus a stress scenario, is roughly the minimum honest set."
+      "body": "Three measures dominate risk reporting, and each answers a genuinely different question.\n\n**[[volatility|Volatility]]** — how much returns vary around their average. Symmetric: it treats an unexpected gain exactly like an unexpected loss.\n\n**[[value-at-risk|Value at risk]]** — the loss that will not be exceeded with a stated probability over a stated period. \"95% one-day VaR of 1.55%\" means a worse day than that is expected one time in twenty.\n\n**[[drawdown|Maximum drawdown]]** — the largest peak-to-trough fall actually experienced. The only one of the three that describes something that happened rather than a distributional property.\n\n**Each is silent about something important.** Volatility says nothing about the shape of the distribution. VaR says nothing about how bad the losses beyond the threshold are. Drawdown says nothing about the probability of a worse one, because it is a single historical realisation.\n\n**So a risk report with one of them is not a risk report.** The three together, plus a stress scenario, is roughly the minimum honest set.",
+      "heading": "What it is"
     },
     {
       "type": "concept",
@@ -22,7 +29,8 @@
     {
       "type": "intuition",
       "id": "drawdown-asymmetry",
-      "body": "**Drawdowns are arithmetically asymmetric, and the asymmetry is why they dominate how investing actually feels.**\n\nTo recover:\n\n- a **10%** fall needs **+11.1%**\n- a **20%** fall needs **+25.0%**\n- a **30%** fall needs **+42.9%**\n- a **50%** fall needs **+100.0%**\n- a **70%** fall needs **+233.3%**\n\n**A 50% loss requires doubling to get back to level.** Volatility, being symmetric, treats the 50% fall and a 50% gain as equally informative. Compounding does not.\n\nTwo consequences follow, and the second is the one that decides outcomes.\n\n**Large drawdowns are disproportionately destructive to compound returns**, which is why volatility drag matters and why a strategy with a lower average return and shallower drawdowns can compound to more.\n\n**Drawdowns cause decisions.** A 30% fall triggers redemptions, breaches limits, forces sales and ends careers. **The risk that matters is rarely the risk of a bad outcome — it is the risk of being forced to act at the bottom.** That is a liquidity and governance question, and no distributional measure captures it.\n\nWhich is why maximum drawdown, despite being a single unrepeatable observation with no statistical standing, is often the most useful of the three."
+      "body": "**Drawdowns are arithmetically asymmetric, and the asymmetry is why they dominate how investing actually feels.**\n\nTo recover:\n\n- a **10%** fall needs **+11.1%**\n- a **20%** fall needs **+25.0%**\n- a **30%** fall needs **+42.9%**\n- a **50%** fall needs **+100.0%**\n- a **70%** fall needs **+233.3%**\n\n**A 50% loss requires doubling to get back to level.** Volatility, being symmetric, treats the 50% fall and a 50% gain as equally informative. Compounding does not.\n\nTwo consequences follow, and the second is the one that decides outcomes.\n\n**Large drawdowns are disproportionately destructive to compound returns**, which is why volatility drag matters and why a strategy with a lower average return and shallower drawdowns can compound to more.\n\n**Drawdowns cause decisions.** A 30% fall triggers redemptions, breaches limits, forces sales and ends careers. **The risk that matters is rarely the risk of a bad outcome — it is the risk of being forced to act at the bottom.** That is a liquidity and governance question, and no distributional measure captures it.\n\nWhich is why maximum drawdown, despite being a single unrepeatable observation with no statistical standing, is often the most useful of the three.",
+      "heading": "Why drawdowns are asymmetric"
     },
     {
       "type": "example",
@@ -42,7 +50,11 @@
       "type": "table",
       "id": "measure-table",
       "caption": "What each measure is for and what it misses",
-      "headers": ["Measure", "Answers", "Blind to"],
+      "headers": [
+        "Measure",
+        "Answers",
+        "Blind to"
+      ],
       "rows": [
         [
           "[[volatility|Volatility]]",
@@ -74,7 +86,8 @@
     {
       "type": "concept",
       "id": "how-it-goes-wrong",
-      "body": "**Volatility computed on smoothed marks.** Private assets' reported volatility is an artefact of quarterly estimation. Comparing it with a market-priced series is not a comparison.\n\n**VaR from a quiet sample.** A historical VaR estimated over a calm period describes a calm period. The model is not wrong; the sample is.\n\n**Treating a VaR limit as a risk framework.** It creates an incentive to hold positions with small daily moves and large rare losses, which is the opposite of the intent.\n\n**Annualising volatility from short samples.** Scaling daily volatility by √252 assumes independence. Trending or mean-reverting series violate it, in opposite directions.\n\n**Reporting drawdown from marks rather than realisable value.** A private portfolio's reported drawdown is the drawdown of its estimates. What it would have fetched is a different and larger number.\n\n**One measure in isolation.** Volatility alone misses tails, VaR alone misses their size, drawdown alone misses probability. The set is the point."
+      "body": "**Volatility computed on smoothed marks.** Private assets' reported volatility is an artefact of quarterly estimation. Comparing it with a market-priced series is not a comparison.\n\n**VaR from a quiet sample.** A historical VaR estimated over a calm period describes a calm period. The model is not wrong; the sample is.\n\n**Treating a VaR limit as a risk framework.** It creates an incentive to hold positions with small daily moves and large rare losses, which is the opposite of the intent.\n\n**Annualising volatility from short samples.** Scaling daily volatility by √252 assumes independence. Trending or mean-reverting series violate it, in opposite directions.\n\n**Reporting drawdown from marks rather than realisable value.** A private portfolio's reported drawdown is the drawdown of its estimates. What it would have fetched is a different and larger number.\n\n**One measure in isolation.** Volatility alone misses tails, VaR alone misses their size, drawdown alone misses probability. The set is the point.",
+      "heading": "Key risks"
     },
     {
       "type": "pitfall",
@@ -102,7 +115,10 @@
       "id": "pr-riskmeasures-01-q1",
       "type": "numeric",
       "difficulty": 3,
-      "tags": ["var", "arithmetic"],
+      "tags": [
+        "var",
+        "arithmetic"
+      ],
       "concept": "worked-var",
       "stem": "A portfolio has 15% annualised volatility. Using 252 trading days and a normal distribution, what is the 95% one-day VaR as a percentage of value? Two decimal places.",
       "answer": 1.55,
@@ -116,7 +132,10 @@
       "id": "pr-riskmeasures-01-q2",
       "type": "numeric",
       "difficulty": 2,
-      "tags": ["drawdown", "arithmetic"],
+      "tags": [
+        "drawdown",
+        "arithmetic"
+      ],
       "concept": "drawdown-asymmetry",
       "stem": "A portfolio falls 30%. What percentage gain is needed to return to the previous peak? One decimal place.",
       "answer": 42.9,
@@ -130,7 +149,10 @@
       "id": "pr-riskmeasures-01-q3",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["var", "limits"],
+      "tags": [
+        "var",
+        "limits"
+      ],
       "concept": "what-var-hides",
       "stem": "What does a 95% one-day VaR of 1.55% tell you about the worst 5% of days?",
       "choices": [
@@ -152,7 +174,10 @@
       "id": "pr-riskmeasures-01-q4",
       "type": "tfj",
       "difficulty": 4,
-      "tags": ["var", "misconception"],
+      "tags": [
+        "var",
+        "misconception"
+      ],
       "concept": "what-var-hides",
       "stem": "\"Our VaR limit keeps portfolio risk controlled.\" True or false — and why?",
       "isTrue": false,
@@ -175,7 +200,11 @@
       "id": "pr-riskmeasures-01-q5",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["risk", "forced-action", "on-the-job"],
+      "tags": [
+        "risk",
+        "forced-action",
+        "on-the-job"
+      ],
       "concept": "risk-of-being-forced",
       "stem": "What do LTCM, the 2022 UK pension crisis and March 2020 forced sellers have in common?",
       "choices": [
@@ -197,7 +226,11 @@
       "id": "pr-riskmeasures-01-q6",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["risk", "private-markets", "on-the-job"],
+      "tags": [
+        "risk",
+        "private-markets",
+        "on-the-job"
+      ],
       "concept": "how-it-goes-wrong",
       "stem": "A private portfolio reports a maximum drawdown of 8% while public equities fell 25% over the same period. What is the most likely explanation?",
       "choices": [

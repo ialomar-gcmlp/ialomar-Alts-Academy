@@ -5,14 +5,21 @@
   "title": "Ratio Analysis and the DuPont Decomposition",
   "summary": "Four families of ratio, and the identity that splits a return on equity into margin, efficiency and leverage.",
   "level": "core",
-  "prereqs": ["fsa-statements-01"],
+  "prereqs": [
+    "fsa-statements-01"
+  ],
   "estMinutes": 9,
-  "examRelevance": ["CFA-L1", "CAIA-L1", "practical"],
+  "examRelevance": [
+    "CFA-L1",
+    "CAIA-L1",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
       "id": "what-it-is",
-      "body": "A ratio turns two numbers into a comparison. On its own it says almost nothing; against the same company's history, or against a genuine peer, it can say a great deal.\n\nFour families cover most of the work:\n\n**Profitability.** Gross, EBITDA, operating and net margin; return on equity and return on capital. *Is the business earning enough on what it does?*\n\n**Efficiency.** Asset turnover, inventory turns, receivable days. *How hard is the asset base working?*\n\n**Leverage.** Debt to EBITDA, debt to equity, [[net-debt|net debt]] to capital. *How much of this is borrowed?*\n\n**Coverage and liquidity.** [[interest-coverage|Interest coverage]], the [[current-ratio|current ratio]], fixed charge cover. *Can it pay what falls due?*\n\n**The families answer different questions and a business can be excellent in one and fatal in another.** High margins with no coverage is the classic profile of a company about to have a very bad conversation with its lenders."
+      "body": "A ratio turns two numbers into a comparison. On its own it says almost nothing; against the same company's history, or against a genuine peer, it can say a great deal.\n\nFour families cover most of the work:\n\n**Profitability.** Gross, EBITDA, operating and net margin; return on equity and return on capital. *Is the business earning enough on what it does?*\n\n**Efficiency.** Asset turnover, inventory turns, receivable days. *How hard is the asset base working?*\n\n**Leverage.** Debt to EBITDA, debt to equity, [[net-debt|net debt]] to capital. *How much of this is borrowed?*\n\n**Coverage and liquidity.** [[interest-coverage|Interest coverage]], the [[current-ratio|current ratio]], fixed charge cover. *Can it pay what falls due?*\n\n**The families answer different questions and a business can be excellent in one and fatal in another.** High margins with no coverage is the classic profile of a company about to have a very bad conversation with its lenders.",
+      "heading": "What it is"
     },
     {
       "type": "concept",
@@ -22,7 +29,8 @@
     {
       "type": "intuition",
       "id": "dupont",
-      "body": "**Return on equity is one number hiding three, and the DuPont identity separates them.**\n\nROE = net margin × asset turnover × equity multiplier.\n\n- **Net margin** — profit per unit of revenue. Pricing power and cost control.\n- **Asset turnover** — revenue per unit of assets. How hard the asset base works.\n- **Equity multiplier** — assets per unit of equity. Leverage.\n\nThe identity holds by construction: the revenues and assets cancel algebraically, leaving profit over equity. Which is exactly what makes it useful — **two companies can report the same ROE for completely different reasons, and only one of them is a good business.**\n\nA specialist manufacturer might reach 15% ROE on high margins and low turnover. A distributor reaches the same 15% on thin margins and rapid turnover. A third gets there on ordinary margins and three times the leverage.\n\n**The third one's ROE will fall apart in a downturn and the other two will not.** So the practical rule is that ROE without its decomposition is not evidence of quality — it is evidence that somebody multiplied three numbers together. Ask which of the three did the work."
+      "body": "**Return on equity is one number hiding three, and the DuPont identity separates them.**\n\nROE = net margin × asset turnover × equity multiplier.\n\n- **Net margin** — profit per unit of revenue. Pricing power and cost control.\n- **Asset turnover** — revenue per unit of assets. How hard the asset base works.\n- **Equity multiplier** — assets per unit of equity. Leverage.\n\nThe identity holds by construction: the revenues and assets cancel algebraically, leaving profit over equity. Which is exactly what makes it useful — **two companies can report the same ROE for completely different reasons, and only one of them is a good business.**\n\nA specialist manufacturer might reach 15% ROE on high margins and low turnover. A distributor reaches the same 15% on thin margins and rapid turnover. A third gets there on ordinary margins and three times the leverage.\n\n**The third one's ROE will fall apart in a downturn and the other two will not.** So the practical rule is that ROE without its decomposition is not evidence of quality — it is evidence that somebody multiplied three numbers together. Ask which of the three did the work.",
+      "heading": "Why ROE is three numbers"
     },
     {
       "type": "formula",
@@ -30,9 +38,18 @@
       "latex": "\\text{ROE} = \\frac{\\text{Net income}}{\\text{Revenue}} \\times \\frac{\\text{Revenue}}{\\text{Assets}} \\times \\frac{\\text{Assets}}{\\text{Equity}}",
       "plainReading": "Return on equity equals net margin, times how much revenue each unit of assets produces, times how many units of assets each unit of equity supports. Revenue and assets cancel, so the whole thing reduces to net income over equity.",
       "variables": [
-        { "symbol": "\\frac{\\text{Net income}}{\\text{Revenue}}", "meaning": "net margin — pricing power and cost discipline" },
-        { "symbol": "\\frac{\\text{Revenue}}{\\text{Assets}}", "meaning": "asset turnover — how hard the [[balance-sheet|balance sheet]] works" },
-        { "symbol": "\\frac{\\text{Assets}}{\\text{Equity}}", "meaning": "equity multiplier — leverage, and the term that flatters without improving" }
+        {
+          "symbol": "\\frac{\\text{Net income}}{\\text{Revenue}}",
+          "meaning": "net margin — pricing power and cost discipline"
+        },
+        {
+          "symbol": "\\frac{\\text{Revenue}}{\\text{Assets}}",
+          "meaning": "asset turnover — how hard the [[balance-sheet|balance sheet]] works"
+        },
+        {
+          "symbol": "\\frac{\\text{Assets}}{\\text{Equity}}",
+          "meaning": "equity multiplier — leverage, and the term that flatters without improving"
+        }
       ]
     },
     {
@@ -54,7 +71,11 @@
       "type": "table",
       "id": "ratio-table",
       "caption": "What each family is for, and how each is gamed",
-      "headers": ["Family", "Best used for", "Common distortion"],
+      "headers": [
+        "Family",
+        "Best used for",
+        "Common distortion"
+      ],
       "rows": [
         [
           "Profitability",
@@ -81,7 +102,8 @@
     {
       "type": "concept",
       "id": "how-it-goes-wrong",
-      "body": "**Peer groups chosen to flatter.** \"Comparable\" is a judgement, and a peer set assembled after the ratio is calculated will show whatever is wanted. Ask how the peer set was constructed, and by whom.\n\n**Mixing stocks and flows inconsistently.** A ratio using a year's profit over a year-end balance is comparing a flow with a snapshot. Average balances are more honest and less common.\n\n**Ratios without their own history.** A 4.5% net margin means nothing until you know it was 7% three years ago. The trend usually carries more information than the level.\n\n**Ignoring the business model.** Software and supermarkets have utterly different natural ranges for every ratio here. Cross-sector comparison of asset turnover is meaningless.\n\n**Averaging ratios.** The average of two companies' margins is not the margin of the two combined. Aggregate the numerators and denominators separately, then divide — the shortcut is wrong whenever the companies differ in size."
+      "body": "**Peer groups chosen to flatter.** \"Comparable\" is a judgement, and a peer set assembled after the ratio is calculated will show whatever is wanted. Ask how the peer set was constructed, and by whom.\n\n**Mixing stocks and flows inconsistently.** A ratio using a year's profit over a year-end balance is comparing a flow with a snapshot. Average balances are more honest and less common.\n\n**Ratios without their own history.** A 4.5% net margin means nothing until you know it was 7% three years ago. The trend usually carries more information than the level.\n\n**Ignoring the business model.** Software and supermarkets have utterly different natural ranges for every ratio here. Cross-sector comparison of asset turnover is meaningless.\n\n**Averaging ratios.** The average of two companies' margins is not the margin of the two combined. Aggregate the numerators and denominators separately, then divide — the shortcut is wrong whenever the companies differ in size.",
+      "heading": "Key risks"
     },
     {
       "type": "pitfall",
@@ -109,7 +131,11 @@
       "id": "fsa-ratios-01-q1",
       "type": "numeric",
       "difficulty": 2,
-      "tags": ["ratios", "coverage", "arithmetic"],
+      "tags": [
+        "ratios",
+        "coverage",
+        "arithmetic"
+      ],
       "concept": "worked-ratios",
       "stem": "EBIT is 50 and interest is 20. What is EBIT interest coverage, in turns?",
       "answer": 2.5,
@@ -122,7 +148,11 @@
       "id": "fsa-ratios-01-q2",
       "type": "numeric",
       "difficulty": 3,
-      "tags": ["ratios", "dupont", "arithmetic"],
+      "tags": [
+        "ratios",
+        "dupont",
+        "arithmetic"
+      ],
       "concept": "worked-ratios",
       "stem": "Net income 22.5, revenue 500, assets 600, equity 200. What is ROE, in percent?",
       "answer": 11.25,
@@ -136,7 +166,11 @@
       "id": "fsa-ratios-01-q3",
       "type": "numeric",
       "difficulty": 3,
-      "tags": ["ratios", "return-on-assets", "arithmetic"],
+      "tags": [
+        "ratios",
+        "return-on-assets",
+        "arithmetic"
+      ],
       "concept": "leverage-flatters",
       "stem": "Same company. What is return on assets — net income over total assets — in percent?",
       "answer": 3.75,
@@ -149,7 +183,10 @@
       "id": "fsa-ratios-01-q4",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["ratios", "dupont"],
+      "tags": [
+        "ratios",
+        "dupont"
+      ],
       "concept": "dupont",
       "stem": "Two companies both report 15% ROE. One has a 12% net margin and 1.2x leverage; the other a 3% net margin and 4x leverage. What does this tell you?",
       "choices": [
@@ -171,7 +208,10 @@
       "id": "fsa-ratios-01-q5",
       "type": "tfj",
       "difficulty": 4,
-      "tags": ["ratios", "misconception"],
+      "tags": [
+        "ratios",
+        "misconception"
+      ],
       "concept": "how-it-goes-wrong",
       "stem": "\"Our portfolio's average net margin is 8%, which is above the sector's 6%.\" True or false as a valid comparison — and why?",
       "isTrue": false,
@@ -194,7 +234,11 @@
       "id": "fsa-ratios-01-q6",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["ratios", "stress", "on-the-job"],
+      "tags": [
+        "ratios",
+        "stress",
+        "on-the-job"
+      ],
       "concept": "coverage-first",
       "stem": "EBITDA falls 20% to 64 and floating-rate interest rises from 20 to 28. What happens to EBITDA interest coverage?",
       "choices": [
@@ -216,7 +260,11 @@
       "id": "fsa-ratios-01-q7",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["ratios", "benchmarking", "on-the-job"],
+      "tags": [
+        "ratios",
+        "benchmarking",
+        "on-the-job"
+      ],
       "concept": "how-it-goes-wrong",
       "stem": "A manager shows portfolio companies outperforming a peer set on every ratio. What should you ask first?",
       "choices": [

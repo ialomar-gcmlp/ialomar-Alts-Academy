@@ -23,7 +23,8 @@
     {
       "type": "intuition",
       "id": "why-they-diverge",
-      "body": "Two facts do all the work here.\n\n**First: the geometric mean is always less than or equal to the arithmetic mean**, and they are equal only when every period's return is identical. This is not a convention — it falls out of the mathematics.\n\n**Second: the gap grows with [[volatility]].** A steady 5% a year and a series that alternates +30% and -20% both have an arithmetic mean of 5%. Over four years the steady one turns $100 into $121.55; the volatile one turns it into $108.16. Same average, thirteen dollars of difference, created entirely by the swings.\n\nThis is why volatility is not merely uncomfortable, it is expensive. A loss requires a larger percentage gain to recover from than the percentage you lost: down 50% needs +100% to get back, not +50%. Every drawdown quietly raises the bar for everything that follows, and the geometric mean is the measure that notices."
+      "body": "Two facts do all the work here.\n\n**First: the geometric mean is always less than or equal to the arithmetic mean**, and they are equal only when every period's return is identical. This is not a convention — it falls out of the mathematics.\n\n**Second: the gap grows with [[volatility]].** A steady 5% a year and a series that alternates +30% and -20% both have an arithmetic mean of 5%. Over four years the steady one turns $100 into $121.55; the volatile one turns it into $108.16. Same average, thirteen dollars of difference, created entirely by the swings.\n\nThis is why volatility is not merely uncomfortable, it is expensive. A loss requires a larger percentage gain to recover from than the percentage you lost: down 50% needs +100% to get back, not +50%. Every drawdown quietly raises the bar for everything that follows, and the geometric mean is the measure that notices.",
+      "heading": "Why the two means diverge"
     },
     {
       "type": "formula",

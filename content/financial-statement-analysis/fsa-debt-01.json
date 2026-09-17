@@ -5,14 +5,21 @@
   "title": "Net Debt, Leases and the Obligations Outside the Debt Line",
   "summary": "What counts as debt, what looks like debt without being called it, and why capitalising the rent moved leverage by 0.7 turns.",
   "level": "advanced",
-  "prereqs": ["fsa-ebitda-01"],
+  "prereqs": [
+    "fsa-ebitda-01"
+  ],
   "estMinutes": 9,
-  "examRelevance": ["CFA-L2", "CAIA-L2", "practical"],
+  "examRelevance": [
+    "CFA-L2",
+    "CAIA-L2",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
       "id": "what-it-is",
-      "body": "**[[net-debt|Net debt]] is gross borrowings less cash.** The logic is that cash on the [[balance-sheet|balance sheet]] could repay debt tomorrow, so the economic obligation is the difference.\n\nSensible, with two qualifications that get skipped.\n\n**Not all cash is available.** Cash held in a subsidiary in a country with capital controls, cash required for daily operations, cash inside a joint venture you do not control — none of it can repay group debt on demand. \"Restricted\" and \"trapped\" cash are ordinary features of a group balance sheet, and netting them is optimistic.\n\n**Not all obligations sit in the debt line.** Leases, pension deficits, deferred consideration, factored receivables and supplier financing all commit the company to future payments. Whether accounting calls them debt varies; the payments are equally compulsory.\n\n**So the working definition is behavioural rather than accounting: anything the company must pay regardless of how trading goes is debt for analytical purposes.** The label follows the standard; the cash flow does not care."
+      "body": "**[[net-debt|Net debt]] is gross borrowings less cash.** The logic is that cash on the [[balance-sheet|balance sheet]] could repay debt tomorrow, so the economic obligation is the difference.\n\nSensible, with two qualifications that get skipped.\n\n**Not all cash is available.** Cash held in a subsidiary in a country with capital controls, cash required for daily operations, cash inside a joint venture you do not control — none of it can repay group debt on demand. \"Restricted\" and \"trapped\" cash are ordinary features of a group balance sheet, and netting them is optimistic.\n\n**Not all obligations sit in the debt line.** Leases, pension deficits, deferred consideration, factored receivables and supplier financing all commit the company to future payments. Whether accounting calls them debt varies; the payments are equally compulsory.\n\n**So the working definition is behavioural rather than accounting: anything the company must pay regardless of how trading goes is debt for analytical purposes.** The label follows the standard; the cash flow does not care.",
+      "heading": "What it is"
     },
     {
       "type": "concept",
@@ -22,7 +29,8 @@
     {
       "type": "intuition",
       "id": "maturity-is-the-risk",
-      "body": "**The amount of debt determines the interest bill. The maturity profile determines whether the company survives.**\n\nThis distinction does more work than any leverage multiple. A company at 6x with no maturity for six years and a fixed rate has time to grow into its balance sheet. A company at 3x with everything due in fourteen months is dependent on the credit market being open on a specific date — and it may not be.\n\nSo the questions that actually matter about a debt stack:\n\n**When does it mature, and how much at once?** A concentrated maturity is a single point of failure with a date attached.\n\n**Fixed or floating?** Floating passes rate rises straight into the interest bill; fixed defers them to refinancing.\n\n**Secured or unsecured, and where does it sit?** [[seniority|Seniority]] decides who gets paid in a restructuring, which decides who controls it.\n\n**What has to be true for the refinancing to happen?** A [[covenant]] that must be met, a rating that must hold, an asset sale that must complete.\n\n**The honest summary: a debt stack is a schedule of dates, and the analysis is about the dates rather than the total.** Leverage tells you how heavy the load is; maturity tells you when you have to carry it up the stairs."
+      "body": "**The amount of debt determines the interest bill. The maturity profile determines whether the company survives.**\n\nThis distinction does more work than any leverage multiple. A company at 6x with no maturity for six years and a fixed rate has time to grow into its balance sheet. A company at 3x with everything due in fourteen months is dependent on the credit market being open on a specific date — and it may not be.\n\nSo the questions that actually matter about a debt stack:\n\n**When does it mature, and how much at once?** A concentrated maturity is a single point of failure with a date attached.\n\n**Fixed or floating?** Floating passes rate rises straight into the interest bill; fixed defers them to refinancing.\n\n**Secured or unsecured, and where does it sit?** [[seniority|Seniority]] decides who gets paid in a restructuring, which decides who controls it.\n\n**What has to be true for the refinancing to happen?** A [[covenant]] that must be met, a rating that must hold, an asset sale that must complete.\n\n**The honest summary: a debt stack is a schedule of dates, and the analysis is about the dates rather than the total.** Leverage tells you how heavy the load is; maturity tells you when you have to carry it up the stairs.",
+      "heading": "Why maturity is the risk"
     },
     {
       "type": "example",
@@ -43,7 +51,11 @@
       "type": "table",
       "id": "debt-like",
       "caption": "Obligations that behave like debt",
-      "headers": ["Item", "Why it is debt-like", "How to size it quickly"],
+      "headers": [
+        "Item",
+        "Why it is debt-like",
+        "How to size it quickly"
+      ],
       "rows": [
         [
           "Operating leases",
@@ -75,7 +87,8 @@
     {
       "type": "concept",
       "id": "how-it-goes-wrong",
-      "body": "**Netting cash that cannot travel.** Group net debt looks lower when subsidiary cash is subtracted, and the debt sits at a different entity. In a stress event the cash and the obligation are in separate places.\n\n**Missing supplier finance.** Programmes that pay suppliers early through a bank, with the company settling later, sit in payables rather than in debt. Economically they are borrowing, and they have been at the centre of several notable failures.\n\n**Ignoring the pension.** A deficit is a real claim with a funding agreement attached, and the recovery payments compete directly with debt service.\n\n**Reading only the total.** A single maturity wall matters more than half a turn of leverage. Ask for the schedule by year.\n\n**Assuming a refinancing.** Every levered structure assumes access to credit at a future date. That is a legitimate plan and it is a dependency, and it should be stated as one rather than embedded silently in a model's terminal assumptions."
+      "body": "**Netting cash that cannot travel.** Group net debt looks lower when subsidiary cash is subtracted, and the debt sits at a different entity. In a stress event the cash and the obligation are in separate places.\n\n**Missing supplier finance.** Programmes that pay suppliers early through a bank, with the company settling later, sit in payables rather than in debt. Economically they are borrowing, and they have been at the centre of several notable failures.\n\n**Ignoring the pension.** A deficit is a real claim with a funding agreement attached, and the recovery payments compete directly with debt service.\n\n**Reading only the total.** A single maturity wall matters more than half a turn of leverage. Ask for the schedule by year.\n\n**Assuming a refinancing.** Every levered structure assumes access to credit at a future date. That is a legitimate plan and it is a dependency, and it should be stated as one rather than embedded silently in a model's terminal assumptions.",
+      "heading": "Key risks"
     },
     {
       "type": "pitfall",
@@ -103,7 +116,11 @@
       "id": "fsa-debt-01-q1",
       "type": "numeric",
       "difficulty": 2,
-      "tags": ["debt", "leases", "arithmetic"],
+      "tags": [
+        "debt",
+        "leases",
+        "arithmetic"
+      ],
       "concept": "worked-leases",
       "stem": "Annual rent is 24. Capitalised at 8x, what debt-equivalent obligation does this represent?",
       "answer": 192,
@@ -115,7 +132,11 @@
       "id": "fsa-debt-01-q2",
       "type": "numeric",
       "difficulty": 3,
-      "tags": ["debt", "leverage", "arithmetic"],
+      "tags": [
+        "debt",
+        "leverage",
+        "arithmetic"
+      ],
       "concept": "worked-leases",
       "stem": "Debt 400, capitalised leases 192, EBITDA 80 before rent of 24. What is lease-adjusted leverage, in turns? Two decimal places.",
       "answer": 5.69,
@@ -129,7 +150,11 @@
       "id": "fsa-debt-01-q3",
       "type": "numeric",
       "difficulty": 3,
-      "tags": ["debt", "coverage", "arithmetic"],
+      "tags": [
+        "debt",
+        "coverage",
+        "arithmetic"
+      ],
       "concept": "worked-leases",
       "stem": "EBITDA before rent is 104, interest is 20 and rent is 24. What is fixed-charge coverage, in turns? Two decimal places.",
       "answer": 2.36,
@@ -142,7 +167,10 @@
       "id": "fsa-debt-01-q4",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["debt", "net-debt"],
+      "tags": [
+        "debt",
+        "net-debt"
+      ],
       "concept": "what-it-is",
       "stem": "A group reports net debt of 350 after netting 50 of cash. Half that cash sits in a subsidiary subject to capital controls. What is the analytical consequence?",
       "choices": [
@@ -164,7 +192,11 @@
       "id": "fsa-debt-01-q5",
       "type": "tfj",
       "difficulty": 4,
-      "tags": ["debt", "maturity", "misconception"],
+      "tags": [
+        "debt",
+        "maturity",
+        "misconception"
+      ],
       "concept": "maturity-is-the-risk",
       "stem": "\"Company A at 3x leverage is safer than Company B at 6x.\" True or false — and why?",
       "isTrue": false,
@@ -187,7 +219,11 @@
       "id": "fsa-debt-01-q6",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["debt", "covenants", "on-the-job"],
+      "tags": [
+        "debt",
+        "covenants",
+        "on-the-job"
+      ],
       "concept": "covenant-mechanics",
       "stem": "What is the practical consequence of a covenant-lite loan for a lender?",
       "choices": [
@@ -209,7 +245,11 @@
       "id": "fsa-debt-01-q7",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["debt", "hidden-obligations", "on-the-job"],
+      "tags": [
+        "debt",
+        "hidden-obligations",
+        "on-the-job"
+      ],
       "concept": "how-it-goes-wrong",
       "stem": "Which debt-like obligation is most often omitted from a leverage calculation?",
       "choices": [

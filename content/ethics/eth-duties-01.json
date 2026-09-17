@@ -7,7 +7,11 @@
   "level": "core",
   "prereqs": [],
   "estMinutes": 8,
-  "examRelevance": ["CFA-L1", "CAIA-L1", "practical"],
+  "examRelevance": [
+    "CFA-L1",
+    "CAIA-L1",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
@@ -17,18 +21,24 @@
     {
       "type": "concept",
       "id": "what-it-is",
-      "body": "**The whole of investment ethics follows from one fact: you are making decisions about money that is not yours, and the owner cannot watch you.**\n\nThat asymmetry — you know more, they cannot check, and they rely on you — is what creates obligations beyond ordinary commercial dealing. Four of them do most of the work.\n\n**Loyalty.** The client's interest comes before yours and before your employer's. Where they conflict, the client wins — and \"the client\" means the actual fund investors, not the person who introduced them.\n\n**Care.** A reasonable basis for a recommendation, and enough work to have one. This is a diligence obligation rather than a good-intentions one.\n\n**Fair dealing.** Clients in the same situation get treated the same. Not identically — different mandates justify different actions — but no client gets systematically worse treatment because they are smaller or less attentive.\n\n**Candour.** Disclose what a reasonable client would want to know, particularly about conflicts, fees, risks and how you are paid.\n\n**None of these depends on the client noticing.** That is the point: the duties exist precisely because the client cannot verify, so \"nobody complained\" is not evidence of compliance."
+      "body": "**The whole of investment ethics follows from one fact: you are making decisions about money that is not yours, and the owner cannot watch you.**\n\nThat asymmetry — you know more, they cannot check, and they rely on you — is what creates obligations beyond ordinary commercial dealing. Four of them do most of the work.\n\n**Loyalty.** The client's interest comes before yours and before your employer's. Where they conflict, the client wins — and \"the client\" means the actual fund investors, not the person who introduced them.\n\n**Care.** A reasonable basis for a recommendation, and enough work to have one. This is a diligence obligation rather than a good-intentions one.\n\n**Fair dealing.** Clients in the same situation get treated the same. Not identically — different mandates justify different actions — but no client gets systematically worse treatment because they are smaller or less attentive.\n\n**Candour.** Disclose what a reasonable client would want to know, particularly about conflicts, fees, risks and how you are paid.\n\n**None of these depends on the client noticing.** That is the point: the duties exist precisely because the client cannot verify, so \"nobody complained\" is not evidence of compliance.",
+      "heading": "What it is"
     },
     {
       "type": "intuition",
       "id": "why-rules-arent-enough",
-      "body": "**Almost nobody fails ethically by breaking a rule they knew applied. They fail by not recognising the situation as one a rule governs.**\n\nThe failure mode is a series of small, defensible steps:\n\n**A conversation.** A management team mentions something interesting at a site visit that is not yet public. It felt like colour, not information.\n\n**An expense.** A cost that could plausibly be the fund's or the manager's, charged to the fund. Everyone does it. It is 5bp.\n\n**A mark.** A comparable set that supports 10x rather than 9x. Both are defensible, and one is a better quarter.\n\n**An allocation.** A scarce [[co-investment|co-investment]] offered to the investor who is about to commit to the next fund rather than pro rata to everyone.\n\n**Each one alone is arguable.** Together they describe a pattern in which the manager's interest wins each close call, and the pattern is what a regulator, an investor or a journalist eventually sees.\n\nSo the practical discipline is not memorising prohibitions. It is a habit of noticing:\n\n**Whose interest does this serve?** If mine or my firm's, more care is required.\n\n**Would I be comfortable if the client saw this decision and my reasoning?** Not the outcome — the reasoning.\n\n**Would I make the same call if it went the other way?** A judgement that always resolves in the same direction is not a judgement.\n\n**And the most useful one: what would this look like written down by someone unsympathetic?** It is uncomfortable and it is a reliable detector."
+      "body": "**Almost nobody fails ethically by breaking a rule they knew applied. They fail by not recognising the situation as one a rule governs.**\n\nThe failure mode is a series of small, defensible steps:\n\n**A conversation.** A management team mentions something interesting at a site visit that is not yet public. It felt like colour, not information.\n\n**An expense.** A cost that could plausibly be the fund's or the manager's, charged to the fund. Everyone does it. It is 5bp.\n\n**A mark.** A comparable set that supports 10x rather than 9x. Both are defensible, and one is a better quarter.\n\n**An allocation.** A scarce [[co-investment|co-investment]] offered to the investor who is about to commit to the next fund rather than pro rata to everyone.\n\n**Each one alone is arguable.** Together they describe a pattern in which the manager's interest wins each close call, and the pattern is what a regulator, an investor or a journalist eventually sees.\n\nSo the practical discipline is not memorising prohibitions. It is a habit of noticing:\n\n**Whose interest does this serve?** If mine or my firm's, more care is required.\n\n**Would I be comfortable if the client saw this decision and my reasoning?** Not the outcome — the reasoning.\n\n**Would I make the same call if it went the other way?** A judgement that always resolves in the same direction is not a judgement.\n\n**And the most useful one: what would this look like written down by someone unsympathetic?** It is uncomfortable and it is a reliable detector.",
+      "heading": "Why rules are not enough"
     },
     {
       "type": "table",
       "id": "duty-table",
       "caption": "Where each duty bites in an alternatives role",
-      "headers": ["Duty", "Situation", "What it requires"],
+      "headers": [
+        "Duty",
+        "Situation",
+        "What it requires"
+      ],
       "rows": [
         [
           "Loyalty",
@@ -74,7 +84,8 @@
     {
       "type": "concept",
       "id": "how-it-goes-wrong",
-      "body": "**\"Everyone does it.\"** Market practice is evidence about what is common, not about what is permitted or right. Several practices that were universal are now the subject of enforcement.\n\n**\"The documents allow it.\"** A permission in a partnership agreement is a defence and not a justification. Investors who signed a broad expense clause did not necessarily agree to any particular use of it.\n\n**\"No one complained.\"** The duties exist because clients cannot verify. Absence of complaint is absence of detection.\n\n**\"It was immaterial.\"** Materiality is judged against the client's interest rather than the firm's revenue. 25bp is immaterial to a manager and it is 12% of their fee.\n\n**Assuming disclosure cures everything.** Disclosure makes a conflict visible; it does not make an unfair arrangement fair. Some conflicts must be avoided rather than disclosed.\n\n**Deferring to seniority.** \"I raised it and was told it was fine\" is a reasonable position for a junior person and it is not a complete one. Ask who else could look at it, and write down that you asked."
+      "body": "**\"Everyone does it.\"** Market practice is evidence about what is common, not about what is permitted or right. Several practices that were universal are now the subject of enforcement.\n\n**\"The documents allow it.\"** A permission in a partnership agreement is a defence and not a justification. Investors who signed a broad expense clause did not necessarily agree to any particular use of it.\n\n**\"No one complained.\"** The duties exist because clients cannot verify. Absence of complaint is absence of detection.\n\n**\"It was immaterial.\"** Materiality is judged against the client's interest rather than the firm's revenue. 25bp is immaterial to a manager and it is 12% of their fee.\n\n**Assuming disclosure cures everything.** Disclosure makes a conflict visible; it does not make an unfair arrangement fair. Some conflicts must be avoided rather than disclosed.\n\n**Deferring to seniority.** \"I raised it and was told it was fine\" is a reasonable position for a junior person and it is not a complete one. Ask who else could look at it, and write down that you asked.",
+      "heading": "Key risks"
     },
     {
       "type": "pitfall",
@@ -102,7 +113,10 @@
       "id": "eth-duties-01-q1",
       "type": "mcq",
       "difficulty": 2,
-      "tags": ["ethics", "duties"],
+      "tags": [
+        "ethics",
+        "duties"
+      ],
       "concept": "what-it-is",
       "stem": "Why does managing someone else's money create obligations beyond ordinary commercial dealing?",
       "choices": [
@@ -124,7 +138,11 @@
       "id": "eth-duties-01-q2",
       "type": "numeric",
       "difficulty": 3,
-      "tags": ["ethics", "expenses", "arithmetic"],
+      "tags": [
+        "ethics",
+        "expenses",
+        "arithmetic"
+      ],
       "concept": "worked-expense",
       "stem": "A 500 fund is charged 25bp a year of arguable expenses. What is the annual amount?",
       "answer": 1.25,
@@ -136,7 +154,10 @@
       "id": "eth-duties-01-q3",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["ethics", "disclosure"],
+      "tags": [
+        "ethics",
+        "disclosure"
+      ],
       "concept": "how-it-goes-wrong",
       "stem": "A conflict of interest has been fully disclosed to investors. What does that achieve?",
       "choices": [
@@ -158,7 +179,10 @@
       "id": "eth-duties-01-q4",
       "type": "tfj",
       "difficulty": 4,
-      "tags": ["ethics", "misconception"],
+      "tags": [
+        "ethics",
+        "misconception"
+      ],
       "concept": "how-it-goes-wrong",
       "stem": "\"This is standard market practice, so it is acceptable.\" True or false — and why?",
       "isTrue": false,
@@ -181,7 +205,11 @@
       "id": "eth-duties-01-q5",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["ethics", "junior", "on-the-job"],
+      "tags": [
+        "ethics",
+        "junior",
+        "on-the-job"
+      ],
       "concept": "junior-position",
       "stem": "You notice an assumption changed between two drafts of a model in a way that improves the outcome. What is the best first step?",
       "choices": [
@@ -203,7 +231,11 @@
       "id": "eth-duties-01-q6",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["ethics", "materiality", "on-the-job"],
+      "tags": [
+        "ethics",
+        "materiality",
+        "on-the-job"
+      ],
       "concept": "how-it-goes-wrong",
       "stem": "A manager describes a practice as immaterial because it affects only 25bp a year. How should materiality be judged?",
       "choices": [

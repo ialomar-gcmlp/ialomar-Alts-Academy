@@ -7,12 +7,17 @@
   "level": "core",
   "prereqs": [],
   "estMinutes": 9,
-  "examRelevance": ["CFA-L1", "CAIA-L1", "practical"],
+  "examRelevance": [
+    "CFA-L1",
+    "CAIA-L1",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
       "id": "what-it-is",
-      "body": "A company reports three statements. They are not three subjects — they are three views of the same business, and each answers a different question.\n\n**The [[income-statement|income statement]]** asks *did it make money over the period?* Revenue down to profit, on an accrual basis, so it records revenue when earned rather than when the cash arrives.\n\n**The [[balance-sheet|balance sheet]]** asks *what does it own and owe at one instant?* Assets on one side, liabilities and equity on the other, always equal by construction.\n\n**The [[cash-flow-statement|cash flow statement]]** asks *where did the cash actually go?* Split into operating, investing and financing.\n\nThe income statement and cash flow statement are flows over a period. The balance sheet is a stock at a point in time. **Almost every confusion in financial analysis comes from mixing a flow with a stock** — comparing a year's profit with a balance sheet figure, or reading a debt balance as though it were an expense."
+      "body": "A company reports three statements. They are not three subjects — they are three views of the same business, and each answers a different question.\n\n**The [[income-statement|income statement]]** asks *did it make money over the period?* Revenue down to profit, on an accrual basis, so it records revenue when earned rather than when the cash arrives.\n\n**The [[balance-sheet|balance sheet]]** asks *what does it own and owe at one instant?* Assets on one side, liabilities and equity on the other, always equal by construction.\n\n**The [[cash-flow-statement|cash flow statement]]** asks *where did the cash actually go?* Split into operating, investing and financing.\n\nThe income statement and cash flow statement are flows over a period. The balance sheet is a stock at a point in time. **Almost every confusion in financial analysis comes from mixing a flow with a stock** — comparing a year's profit with a balance sheet figure, or reading a debt balance as though it were an expense.",
+      "heading": "What it is"
     },
     {
       "type": "concept",
@@ -22,7 +27,8 @@
     {
       "type": "intuition",
       "id": "profit-is-an-opinion",
-      "body": "**Profit is an opinion; cash is a fact.** The most useful sentence in financial analysis, and it is not cynicism — it is a description of how [[accrual-accounting|accrual accounting]] works.\n\nProfit requires judgements: when revenue is earned, how quickly an asset wears out, which costs are capitalised rather than expensed, how much of a receivable will never be collected. Reasonable people make these differently, and the same underlying business can report materially different profits under different but defensible assumptions.\n\nCash movements are recorded, not judged. The bank statement is what it is.\n\n**This is why the cash flow statement is the one to read first**, and why the gap between profit and operating cash flow over several years is the single most informative diagnostic in a set of accounts. If profit consistently exceeds cash generation, something is being recognised earlier than it is being collected — which may be perfectly legitimate, and needs an explanation.\n\nThe reverse also matters. A business with heavy [[depreciation]] of assets bought years ago can generate far more cash than profit, which is exactly why lenders to capital-intensive businesses look at [[ebitda]] rather than at net income."
+      "body": "**Profit is an opinion; cash is a fact.** The most useful sentence in financial analysis, and it is not cynicism — it is a description of how [[accrual-accounting|accrual accounting]] works.\n\nProfit requires judgements: when revenue is earned, how quickly an asset wears out, which costs are capitalised rather than expensed, how much of a receivable will never be collected. Reasonable people make these differently, and the same underlying business can report materially different profits under different but defensible assumptions.\n\nCash movements are recorded, not judged. The bank statement is what it is.\n\n**This is why the cash flow statement is the one to read first**, and why the gap between profit and operating cash flow over several years is the single most informative diagnostic in a set of accounts. If profit consistently exceeds cash generation, something is being recognised earlier than it is being collected — which may be perfectly legitimate, and needs an explanation.\n\nThe reverse also matters. A business with heavy [[depreciation]] of assets bought years ago can generate far more cash than profit, which is exactly why lenders to capital-intensive businesses look at [[ebitda]] rather than at net income.",
+      "heading": "Why profit is an opinion"
     },
     {
       "type": "example",
@@ -42,7 +48,11 @@
       "type": "table",
       "id": "statement-table",
       "caption": "Which statement answers which question",
-      "headers": ["Statement", "Question", "Main limitation"],
+      "headers": [
+        "Statement",
+        "Question",
+        "Main limitation"
+      ],
       "rows": [
         [
           "[[income-statement|Income statement]]",
@@ -69,7 +79,8 @@
     {
       "type": "concept",
       "id": "how-it-goes-wrong",
-      "body": "**Reading one statement alone.** Profitable companies fail from running out of cash, and cash-generative companies destroy value by earning less than their cost of capital. Either statement read alone will mislead.\n\n**Ignoring the notes.** The statements are a summary; the notes hold the contingent liabilities, the lease [[commitment|commitments]], the debt maturity profile, the revenue recognition policy and the related-party transactions. In a diligence pack the notes are where the work is.\n\n**Comparing across accounting standards.** Treatment of leases, development costs, goodwill and revenue timing differ between IFRS and US GAAP. Cross-border comparisons need adjustment before they mean anything.\n\n**Trusting a single period.** One year can be flattered by a delayed payment, a released provision or a pulled-forward sale. Three to five years of the same statements, side by side, is the minimum honest unit of analysis.\n\n**Treating a management-prepared statement as audited.** In private markets much of what circulates is unaudited management accounts. Not necessarily wrong, and a different evidentiary standard — and the difference is rarely labelled."
+      "body": "**Reading one statement alone.** Profitable companies fail from running out of cash, and cash-generative companies destroy value by earning less than their cost of capital. Either statement read alone will mislead.\n\n**Ignoring the notes.** The statements are a summary; the notes hold the contingent liabilities, the lease [[commitment|commitments]], the debt maturity profile, the revenue recognition policy and the related-party transactions. In a diligence pack the notes are where the work is.\n\n**Comparing across accounting standards.** Treatment of leases, development costs, goodwill and revenue timing differ between IFRS and US GAAP. Cross-border comparisons need adjustment before they mean anything.\n\n**Trusting a single period.** One year can be flattered by a delayed payment, a released provision or a pulled-forward sale. Three to five years of the same statements, side by side, is the minimum honest unit of analysis.\n\n**Treating a management-prepared statement as audited.** In private markets much of what circulates is unaudited management accounts. Not necessarily wrong, and a different evidentiary standard — and the difference is rarely labelled.",
+      "heading": "Key risks"
     },
     {
       "type": "pitfall",
@@ -97,7 +108,10 @@
       "id": "fsa-statements-01-q1",
       "type": "numeric",
       "difficulty": 2,
-      "tags": ["income-statement", "arithmetic"],
+      "tags": [
+        "income-statement",
+        "arithmetic"
+      ],
       "concept": "worked-statements",
       "stem": "Revenue 500, cost of goods sold 300, selling and administrative costs 120, D&A 30. What is EBITDA?",
       "answer": 80,
@@ -110,7 +124,10 @@
       "id": "fsa-statements-01-q2",
       "type": "numeric",
       "difficulty": 2,
-      "tags": ["income-statement", "arithmetic"],
+      "tags": [
+        "income-statement",
+        "arithmetic"
+      ],
       "concept": "worked-statements",
       "stem": "Same company. EBIT is 50, interest is 20 and tax is 25% of pre-tax profit. What is net income?",
       "answer": 22.5,
@@ -122,7 +139,10 @@
       "id": "fsa-statements-01-q3",
       "type": "mcq",
       "difficulty": 2,
-      "tags": ["statements", "links"],
+      "tags": [
+        "statements",
+        "links"
+      ],
       "concept": "the-two-links",
       "stem": "Where does net income appear on the balance sheet?",
       "choices": [
@@ -144,7 +164,10 @@
       "id": "fsa-statements-01-q4",
       "type": "tfj",
       "difficulty": 3,
-      "tags": ["statements", "misconception"],
+      "tags": [
+        "statements",
+        "misconception"
+      ],
       "concept": "profit-is-an-opinion",
       "stem": "\"A profitable company cannot run out of cash.\" True or false — and why?",
       "isTrue": false,
@@ -167,7 +190,10 @@
       "id": "fsa-statements-01-q5",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["statements", "analysis"],
+      "tags": [
+        "statements",
+        "analysis"
+      ],
       "concept": "worked-statements",
       "stem": "In the worked company, depreciation and interest together consume 50 of the 80 of EBITDA. What does that tell you?",
       "choices": [
@@ -189,7 +215,11 @@
       "id": "fsa-statements-01-q6",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["statements", "diligence", "on-the-job"],
+      "tags": [
+        "statements",
+        "diligence",
+        "on-the-job"
+      ],
       "concept": "quality-of-earnings",
       "stem": "A seller presents adjusted EBITDA of 95 against reported EBITDA of 80. What is the most useful single request?",
       "choices": [
@@ -211,7 +241,11 @@
       "id": "fsa-statements-01-q7",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["statements", "diligence", "on-the-job"],
+      "tags": [
+        "statements",
+        "diligence",
+        "on-the-job"
+      ],
       "concept": "how-it-goes-wrong",
       "stem": "You receive a single year of statements with management commentary. What is the most important missing item?",
       "choices": [

@@ -5,14 +5,21 @@
   "title": "Raising Capital: What the Choice of Instrument Tells You",
   "summary": "Companies raise money in a rough order of preference, and departures from that order are informative.",
   "level": "core",
-  "prereqs": ["ci-capitalstructure-01"],
+  "prereqs": [
+    "ci-capitalstructure-01"
+  ],
   "estMinutes": 8,
-  "examRelevance": ["CFA-L1", "CAIA-L1", "practical"],
+  "examRelevance": [
+    "CFA-L1",
+    "CAIA-L1",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
       "id": "what-it-is",
-      "body": "A company needing capital has a menu, ordered roughly from cheapest and least intrusive to most expensive and most dilutive.\n\n**Internal cash.** No issuance costs, no disclosure, no new claims. Always first if available.\n\n**Bank debt.** A relationship lender, a small number of counterparties, covenants, and speed. Renegotiable if things go wrong, which is a real advantage.\n\n**Bond issuance.** Larger, longer, usually looser covenants, and a dispersed group of holders. Cheaper for a good credit and far harder to renegotiate — coordinating hundreds of bondholders is a genuine obstacle in a restructuring.\n\n**Private credit.** A single lender or small club, faster and more flexible than a bond, more expensive, and increasingly the default for mid-sized borrowers.\n\n**Equity.** Most expensive in [[required-return|required return]], permanently dilutive, and the only form that absorbs losses without a covenant. In a crisis it is often the only option available.\n\n**The order matters because departures from it are informative.** A company issuing equity when it could have borrowed is telling you something — about its own view of its share price, about its debt capacity, or about what its lenders said."
+      "body": "A company needing capital has a menu, ordered roughly from cheapest and least intrusive to most expensive and most dilutive.\n\n**Internal cash.** No issuance costs, no disclosure, no new claims. Always first if available.\n\n**Bank debt.** A relationship lender, a small number of counterparties, covenants, and speed. Renegotiable if things go wrong, which is a real advantage.\n\n**Bond issuance.** Larger, longer, usually looser covenants, and a dispersed group of holders. Cheaper for a good credit and far harder to renegotiate — coordinating hundreds of bondholders is a genuine obstacle in a restructuring.\n\n**Private credit.** A single lender or small club, faster and more flexible than a bond, more expensive, and increasingly the default for mid-sized borrowers.\n\n**Equity.** Most expensive in [[required-return|required return]], permanently dilutive, and the only form that absorbs losses without a covenant. In a crisis it is often the only option available.\n\n**The order matters because departures from it are informative.** A company issuing equity when it could have borrowed is telling you something — about its own view of its share price, about its debt capacity, or about what its lenders said.",
+      "heading": "What it is"
     },
     {
       "type": "concept",
@@ -22,13 +29,18 @@
     {
       "type": "intuition",
       "id": "who-you-owe",
-      "body": "**The identity of the lender matters as much as the terms, and it is decided at issuance rather than in a crisis.**\n\nThis is the practical lesson of the last two credit cycles, and it is easy to miss because it sounds administrative.\n\n**A relationship bank** has an incentive to work with a borrower through a difficult period, because it wants the future business and it holds the loan on its own book. Renegotiation is a conversation.\n\n**A syndicate of bondholders** has no relationship and no shared interest. Some bought at par and some at 60. Their incentives differ, and getting a consent threshold is slow and expensive.\n\n**A private credit fund** is one counterparty with the authority to amend and a strong interest in avoiding a write-down. Amendments are fast — and the fund also holds the equity's fate in a very small number of hands.\n\n**A distressed buyer who bought your debt in the secondary market** wants the company, not the coupon. Their optimal outcome may be a restructuring that wipes out the equity, and nothing prevents them buying in.\n\n**So the question at issuance is: if this goes wrong, who is on the other side of the table, and what do they want?** That answer is chosen when the debt is raised and cannot be changed afterwards — the debt can be traded to anyone."
+      "body": "**The identity of the lender matters as much as the terms, and it is decided at issuance rather than in a crisis.**\n\nThis is the practical lesson of the last two credit cycles, and it is easy to miss because it sounds administrative.\n\n**A relationship bank** has an incentive to work with a borrower through a difficult period, because it wants the future business and it holds the loan on its own book. Renegotiation is a conversation.\n\n**A syndicate of bondholders** has no relationship and no shared interest. Some bought at par and some at 60. Their incentives differ, and getting a consent threshold is slow and expensive.\n\n**A private credit fund** is one counterparty with the authority to amend and a strong interest in avoiding a write-down. Amendments are fast — and the fund also holds the equity's fate in a very small number of hands.\n\n**A distressed buyer who bought your debt in the secondary market** wants the company, not the coupon. Their optimal outcome may be a restructuring that wipes out the equity, and nothing prevents them buying in.\n\n**So the question at issuance is: if this goes wrong, who is on the other side of the table, and what do they want?** That answer is chosen when the debt is raised and cannot be changed afterwards — the debt can be traded to anyone.",
+      "heading": "Why the lender's identity matters"
     },
     {
       "type": "table",
       "id": "instrument-table",
       "caption": "What each instrument costs and constrains",
-      "headers": ["Instrument", "Main advantage", "What you give up"],
+      "headers": [
+        "Instrument",
+        "Main advantage",
+        "What you give up"
+      ],
       "rows": [
         [
           "Bank debt",
@@ -73,7 +85,8 @@
     {
       "type": "concept",
       "id": "how-it-goes-wrong",
-      "body": "**Pro forma leverage that assumes the synergies.** A structure sized on post-synergy EBITDA is levered on a forecast. If the synergies are late, the leverage is real and the earnings are not.\n\n**Refinancing risk clustered on one date.** Raising everything at once is efficient and creates a single point of failure. Laddered maturities cost a little more and remove that.\n\n**Ignoring who can buy the debt.** Publicly traded loans and bonds can be accumulated by a distressed investor whose objective is the equity. This is a known route to control and it is available to anyone.\n\n**Equity issued at the bottom.** Companies that most need equity can raise it least attractively. The cheapest time to raise equity is when it is not needed, and that argument rarely wins against dilution objections.\n\n**Covenant-lite as an unambiguous win for the borrower.** Fewer tests means fewer early conversations, and it also means a lender who first engages when the situation is much worse — and with less goodwill.\n\n**Currency mismatch.** Borrowing in a currency the revenue is not earned in adds an exposure that has nothing to do with the business, and it has ended more emerging-market companies than any operational failure."
+      "body": "**Pro forma leverage that assumes the synergies.** A structure sized on post-synergy EBITDA is levered on a forecast. If the synergies are late, the leverage is real and the earnings are not.\n\n**Refinancing risk clustered on one date.** Raising everything at once is efficient and creates a single point of failure. Laddered maturities cost a little more and remove that.\n\n**Ignoring who can buy the debt.** Publicly traded loans and bonds can be accumulated by a distressed investor whose objective is the equity. This is a known route to control and it is available to anyone.\n\n**Equity issued at the bottom.** Companies that most need equity can raise it least attractively. The cheapest time to raise equity is when it is not needed, and that argument rarely wins against dilution objections.\n\n**Covenant-lite as an unambiguous win for the borrower.** Fewer tests means fewer early conversations, and it also means a lender who first engages when the situation is much worse — and with less goodwill.\n\n**Currency mismatch.** Borrowing in a currency the revenue is not earned in adds an exposure that has nothing to do with the business, and it has ended more emerging-market companies than any operational failure.",
+      "heading": "Key risks"
     },
     {
       "type": "pitfall",
@@ -101,7 +114,11 @@
       "id": "ci-issuance-01-q1",
       "type": "numeric",
       "difficulty": 2,
-      "tags": ["issuance", "leverage", "arithmetic"],
+      "tags": [
+        "issuance",
+        "leverage",
+        "arithmetic"
+      ],
       "concept": "worked-choice",
       "stem": "EBITDA 80, existing debt 400. The company borrows another 100. What is pro forma leverage, in turns, before any acquired earnings?",
       "answer": 6.25,
@@ -114,7 +131,11 @@
       "id": "ci-issuance-01-q2",
       "type": "numeric",
       "difficulty": 3,
-      "tags": ["issuance", "coverage", "arithmetic"],
+      "tags": [
+        "issuance",
+        "coverage",
+        "arithmetic"
+      ],
       "concept": "worked-choice",
       "stem": "Interest was 20 and the new 100 of debt costs 5%. What is EBITDA interest coverage after the raise, using EBITDA of 80? Two decimal places.",
       "answer": 3.2,
@@ -127,7 +148,10 @@
       "id": "ci-issuance-01-q3",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["issuance", "signalling"],
+      "tags": [
+        "issuance",
+        "signalling"
+      ],
       "concept": "the-signal",
       "stem": "Why do share prices often fall when a company announces an equity issue?",
       "choices": [
@@ -149,7 +173,10 @@
       "id": "ci-issuance-01-q4",
       "type": "tfj",
       "difficulty": 4,
-      "tags": ["issuance", "misconception"],
+      "tags": [
+        "issuance",
+        "misconception"
+      ],
       "concept": "certainty-of-funds",
       "stem": "\"Private credit is more expensive, so a rational borrower would always choose the syndicated market.\" True or false — and why?",
       "isTrue": false,
@@ -172,7 +199,11 @@
       "id": "ci-issuance-01-q5",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["issuance", "creditors", "on-the-job"],
+      "tags": [
+        "issuance",
+        "creditors",
+        "on-the-job"
+      ],
       "concept": "who-you-owe",
       "stem": "Why does the identity of a company's lenders matter more in a downturn than the coupon does?",
       "choices": [
@@ -194,7 +225,11 @@
       "id": "ci-issuance-01-q6",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["issuance", "diligence", "on-the-job"],
+      "tags": [
+        "issuance",
+        "diligence",
+        "on-the-job"
+      ],
       "concept": "how-it-goes-wrong",
       "stem": "A structure is sized at 5.5x leverage using post-synergy EBITDA. What is the risk?",
       "choices": [

@@ -21,11 +21,20 @@ import { Inline, Prose } from "../Prose";
 export function LessonBlockView({ block }: { block: LessonBlock }) {
   switch (block.type) {
     case "concept":
-      return <Prose text={block.body} />;
+      return block.heading !== undefined ? (
+        <section>
+          <h3 className="mb-2 mt-2 text-[17px] font-bold tracking-tight text-fg">
+            {block.heading}
+          </h3>
+          <Prose text={block.body} />
+        </section>
+      ) : (
+        <Prose text={block.body} />
+      );
 
     case "intuition":
       return (
-        <Callout label="Why this is true" tone="accent" icon="bulb">
+        <Callout label={block.heading ?? "Why this is true"} tone="accent" icon="bulb">
           <Prose text={block.body} />
         </Callout>
       );
@@ -102,7 +111,9 @@ export function LessonBlockView({ block }: { block: LessonBlock }) {
       return (
         <figure className="my-6">
           <table className="w-full border-collapse text-[14px]">
-            <caption className="mb-2 text-left text-[13px] text-fg-muted">
+            {/* The caption is the table's section title — "What helps and what hurts",
+                "Reading a bond quote" — so it wears heading weight, not footnote grey. */}
+            <caption className="mb-2 text-left text-[17px] font-bold tracking-tight text-fg">
               {block.caption}
             </caption>
             <thead>

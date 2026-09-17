@@ -5,14 +5,21 @@
   "title": "The Cash Flow Statement and Free Cash Flow",
   "summary": "Three sections, one reconciliation, and the company that was profitable and cash-negative in the same year.",
   "level": "core",
-  "prereqs": ["fsa-statements-01"],
+  "prereqs": [
+    "fsa-statements-01"
+  ],
   "estMinutes": 9,
-  "examRelevance": ["CFA-L1", "CAIA-L1", "practical"],
+  "examRelevance": [
+    "CFA-L1",
+    "CAIA-L1",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
       "id": "what-it-is",
-      "body": "The [[cash-flow-statement|cash flow statement]] splits every cash movement into three sections, and the split is the point.\n\n**Operating.** Cash from running the business — collections from customers less payments to suppliers, staff and tax. Sustainable cash generation lives here.\n\n**Investing.** Buying and selling long-lived assets. [[capex|Capital expenditure]] is the big line; acquisitions and disposals sit here too.\n\n**Financing.** Cash from and to the providers of capital — drawing or repaying debt, issuing or buying back shares, paying dividends.\n\n**Why the split matters: cash from operations and cash from a bond issue both increase the bank balance, and they mean completely opposite things.** One is the business working; the other is a claim on the business growing. A company whose cash balance rose entirely through financing had a bad year with a good ending.\n\nThe indirect presentation, which is standard, starts from net income and adds back non-cash items — [[depreciation|depreciation]] first — then adjusts for [[working-capital|working capital]] movements. It is a reconciliation from accounting profit to cash, which is exactly what makes it informative."
+      "body": "The [[cash-flow-statement|cash flow statement]] splits every cash movement into three sections, and the split is the point.\n\n**Operating.** Cash from running the business — collections from customers less payments to suppliers, staff and tax. Sustainable cash generation lives here.\n\n**Investing.** Buying and selling long-lived assets. [[capex|Capital expenditure]] is the big line; acquisitions and disposals sit here too.\n\n**Financing.** Cash from and to the providers of capital — drawing or repaying debt, issuing or buying back shares, paying dividends.\n\n**Why the split matters: cash from operations and cash from a bond issue both increase the bank balance, and they mean completely opposite things.** One is the business working; the other is a claim on the business growing. A company whose cash balance rose entirely through financing had a bad year with a good ending.\n\nThe indirect presentation, which is standard, starts from net income and adds back non-cash items — [[depreciation|depreciation]] first — then adjusts for [[working-capital|working capital]] movements. It is a reconciliation from accounting profit to cash, which is exactly what makes it informative.",
+      "heading": "What it is"
     },
     {
       "type": "concept",
@@ -22,7 +29,8 @@
     {
       "type": "intuition",
       "id": "growth-eats-cash",
-      "body": "**Growth consumes cash, and the faster the growth the more it consumes. This is not a problem to be fixed — it is arithmetic.**\n\nSelling more means carrying more inventory and waiting on more receivables before the cash arrives. Both are cash out now against cash in later. So a business growing 30% a year with a 70-day cash cycle is financing its own expansion out of working capital, whatever its margins look like.\n\nThe consequences are worth holding together:\n\n**A fast-growing profitable business can be a cash consumer for years.** Perfectly healthy, and it needs funding.\n\n**A declining business can throw off cash as working capital unwinds.** Receivables collect, inventory sells down, and the cash flow statement looks excellent in the year the business shrinks. **A one-year cash flow improvement in a shrinking company is often the [[balance-sheet|balance sheet]] liquidating, not the operations improving.**\n\n**Which is why cash flow needs to be read next to revenue growth, always.** The same operating cash flow figure means opposite things at +30% and −10%.\n\nThe honest version for diligence: **strong cash conversion in a growing business is genuinely impressive; strong cash conversion in a shrinking one needs a second look.**"
+      "body": "**Growth consumes cash, and the faster the growth the more it consumes. This is not a problem to be fixed — it is arithmetic.**\n\nSelling more means carrying more inventory and waiting on more receivables before the cash arrives. Both are cash out now against cash in later. So a business growing 30% a year with a 70-day cash cycle is financing its own expansion out of working capital, whatever its margins look like.\n\nThe consequences are worth holding together:\n\n**A fast-growing profitable business can be a cash consumer for years.** Perfectly healthy, and it needs funding.\n\n**A declining business can throw off cash as working capital unwinds.** Receivables collect, inventory sells down, and the cash flow statement looks excellent in the year the business shrinks. **A one-year cash flow improvement in a shrinking company is often the [[balance-sheet|balance sheet]] liquidating, not the operations improving.**\n\n**Which is why cash flow needs to be read next to revenue growth, always.** The same operating cash flow figure means opposite things at +30% and −10%.\n\nThe honest version for diligence: **strong cash conversion in a growing business is genuinely impressive; strong cash conversion in a shrinking one needs a second look.**",
+      "heading": "Why growth eats cash"
     },
     {
       "type": "example",
@@ -43,7 +51,11 @@
       "type": "table",
       "id": "patterns",
       "caption": "Reading the three sections together",
-      "headers": ["Pattern", "Likely story", "What to check"],
+      "headers": [
+        "Pattern",
+        "Likely story",
+        "What to check"
+      ],
       "rows": [
         [
           "Operating positive, investing negative, financing negative",
@@ -70,7 +82,8 @@
     {
       "type": "concept",
       "id": "how-it-goes-wrong",
-      "body": "**Deferring payments at the period end.** Paying suppliers a week later moves cash across the reporting date and flatters operating cash flow with no change in the business. Visible in [[dpo|payable days]] jumping in the final quarter.\n\n**Capitalising what should be expensed.** Costs moved from the [[income-statement|income statement]] to the balance sheet raise both profit and operating cash flow, because the spending is reclassified as investing. Two flattered numbers from one decision — which is why capitalisation policy sits in the notes and is worth reading.\n\n**Selling receivables.** [[factoring|Factoring]] converts a receivable into cash now, improving operating cash flow, at a cost that sits in financing or in interest. Legitimate financing; not improved operations.\n\n**Reading one year.** Any of the above works for a period and reverses. Multi-year cumulative comparison defeats all of them.\n\n**Confusing [[ebitda|EBITDA]] with cash flow.** EBITDA ignores working capital, capex, interest and tax. In a working-capital-hungry, capital-intensive, levered business, that is most of the cash. The worked example above had 80 of EBITDA and −2.5 of free cash flow."
+      "body": "**Deferring payments at the period end.** Paying suppliers a week later moves cash across the reporting date and flatters operating cash flow with no change in the business. Visible in [[dpo|payable days]] jumping in the final quarter.\n\n**Capitalising what should be expensed.** Costs moved from the [[income-statement|income statement]] to the balance sheet raise both profit and operating cash flow, because the spending is reclassified as investing. Two flattered numbers from one decision — which is why capitalisation policy sits in the notes and is worth reading.\n\n**Selling receivables.** [[factoring|Factoring]] converts a receivable into cash now, improving operating cash flow, at a cost that sits in financing or in interest. Legitimate financing; not improved operations.\n\n**Reading one year.** Any of the above works for a period and reverses. Multi-year cumulative comparison defeats all of them.\n\n**Confusing [[ebitda|EBITDA]] with cash flow.** EBITDA ignores working capital, capex, interest and tax. In a working-capital-hungry, capital-intensive, levered business, that is most of the cash. The worked example above had 80 of EBITDA and −2.5 of free cash flow.",
+      "heading": "Key risks"
     },
     {
       "type": "pitfall",
@@ -98,7 +111,10 @@
       "id": "fsa-cashflow-01-q1",
       "type": "numeric",
       "difficulty": 2,
-      "tags": ["cash-flow", "arithmetic"],
+      "tags": [
+        "cash-flow",
+        "arithmetic"
+      ],
       "concept": "worked-fcf",
       "stem": "Net income 22.5, D&A 30, working capital increased by 20. What is operating cash flow?",
       "answer": 32.5,
@@ -111,7 +127,11 @@
       "id": "fsa-cashflow-01-q2",
       "type": "numeric",
       "difficulty": 2,
-      "tags": ["cash-flow", "free-cash-flow", "arithmetic"],
+      "tags": [
+        "cash-flow",
+        "free-cash-flow",
+        "arithmetic"
+      ],
       "concept": "worked-fcf",
       "stem": "Operating cash flow is 32.5 and capital expenditure is 35. What is free cash flow? Give the sign.",
       "answer": -2.5,
@@ -123,7 +143,11 @@
       "id": "fsa-cashflow-01-q3",
       "type": "numeric",
       "difficulty": 3,
-      "tags": ["cash-flow", "capex", "arithmetic"],
+      "tags": [
+        "cash-flow",
+        "capex",
+        "arithmetic"
+      ],
       "concept": "worked-fcf",
       "stem": "Of the 35 of capex, 15 is maintenance. What is free cash flow before growth capital expenditure?",
       "answer": 17.5,
@@ -135,7 +159,10 @@
       "id": "fsa-cashflow-01-q4",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["cash-flow", "analysis"],
+      "tags": [
+        "cash-flow",
+        "analysis"
+      ],
       "concept": "growth-eats-cash",
       "stem": "A company's revenue fell 10% and its operating cash flow improved sharply. What is the most likely explanation?",
       "choices": [
@@ -157,7 +184,11 @@
       "id": "fsa-cashflow-01-q5",
       "type": "tfj",
       "difficulty": 4,
-      "tags": ["cash-flow", "ebitda", "misconception"],
+      "tags": [
+        "cash-flow",
+        "ebitda",
+        "misconception"
+      ],
       "concept": "ebitda-is-not-cash",
       "stem": "\"Debt of 5x EBITDA means about five years of cash flow would repay it.\" True or false — and why?",
       "isTrue": false,
@@ -180,7 +211,11 @@
       "id": "fsa-cashflow-01-q6",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["cash-flow", "diligence", "on-the-job"],
+      "tags": [
+        "cash-flow",
+        "diligence",
+        "on-the-job"
+      ],
       "concept": "how-it-goes-wrong",
       "stem": "Operating cash flow was strong in Q4 and payable days jumped from 45 to 70 in the same quarter. What happened?",
       "choices": [
@@ -202,7 +237,11 @@
       "id": "fsa-cashflow-01-q7",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["cash-flow", "diligence", "on-the-job"],
+      "tags": [
+        "cash-flow",
+        "diligence",
+        "on-the-job"
+      ],
       "concept": "on-the-job",
       "stem": "Which single comparison is most efficient at detecting aggressive revenue recognition over time?",
       "choices": [

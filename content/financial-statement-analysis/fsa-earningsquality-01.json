@@ -5,14 +5,22 @@
   "title": "Accruals, Revenue Recognition and Earnings Quality",
   "summary": "Where judgement enters the accounts, which judgements flatter profit, and the handful of checks that find them.",
   "level": "advanced",
-  "prereqs": ["fsa-cashflow-01", "fsa-ratios-01"],
+  "prereqs": [
+    "fsa-cashflow-01",
+    "fsa-ratios-01"
+  ],
   "estMinutes": 10,
-  "examRelevance": ["CFA-L1", "CFA-L2", "practical"],
+  "examRelevance": [
+    "CFA-L1",
+    "CFA-L2",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
       "id": "what-it-is",
-      "body": "[[accrual-accounting|Accrual accounting]] records revenue when it is earned and costs when they are incurred, rather than when cash moves. This is a feature, not a flaw: a business that delivers in December and is paid in February genuinely earned that revenue in December, and matching the cost of delivery to it gives a truer picture of the period.\n\nThe price of that truer picture is judgement. Four judgements do most of the work:\n\n**When is revenue earned?** On shipment, on delivery, on installation, over the life of a contract, on achieving a milestone.\n\n**What is an asset rather than a cost?** Development spending, software, customer acquisition costs — capitalise and they sit on the [[balance-sheet|balance sheet]]; expense and they hit profit now.\n\n**How fast do assets wear out?** [[depreciation|Depreciation]] lives depend on estimates of useful life.\n\n**What will not be collected or will be returned?** Provisions against receivables, warranties, returns and litigation.\n\n**Every one of those is a legitimate estimate with a defensible range, and every one moves profit.** Earnings quality is the question of where in that range a company chooses to sit, and whether it stays there."
+      "body": "[[accrual-accounting|Accrual accounting]] records revenue when it is earned and costs when they are incurred, rather than when cash moves. This is a feature, not a flaw: a business that delivers in December and is paid in February genuinely earned that revenue in December, and matching the cost of delivery to it gives a truer picture of the period.\n\nThe price of that truer picture is judgement. Four judgements do most of the work:\n\n**When is revenue earned?** On shipment, on delivery, on installation, over the life of a contract, on achieving a milestone.\n\n**What is an asset rather than a cost?** Development spending, software, customer acquisition costs — capitalise and they sit on the [[balance-sheet|balance sheet]]; expense and they hit profit now.\n\n**How fast do assets wear out?** [[depreciation|Depreciation]] lives depend on estimates of useful life.\n\n**What will not be collected or will be returned?** Provisions against receivables, warranties, returns and litigation.\n\n**Every one of those is a legitimate estimate with a defensible range, and every one moves profit.** Earnings quality is the question of where in that range a company chooses to sit, and whether it stays there.",
+      "heading": "What it is"
     },
     {
       "type": "concept",
@@ -22,7 +30,8 @@
     {
       "type": "intuition",
       "id": "why-in-private-markets",
-      "body": "This all sounds like a listed-equity concern. It matters more in private markets, for three reasons that compound.\n\n**Fewer eyes.** No analysts, no short sellers, no quarterly market reaction. In private companies the accounts are read by a handful of people who mostly want the deal to happen.\n\n**Management often prepares the numbers.** Unaudited management accounts circulate widely in diligence, and the person preparing them frequently has equity in the outcome.\n\n**The incentive arrives on a date.** A sale process, an earnout measurement, a [[covenant]] test, a valuation for a continuation fund. **Judgement gets exercised hardest in the period before something is measured**, which is exactly when the least verification is possible.\n\nSo the sequence to apply is short and unglamorous:\n\n**Compare cumulative profit and cumulative operating cash flow.** Five years defeats most timing games.\n\n**Look at receivable days and inventory days by quarter.** Deterioration shows up here before it shows up in profit.\n\n**Read the revenue recognition policy and ask if it changed.** A policy change in a diligence year deserves a specific explanation.\n\n**Ask what proportion of revenue is recurring, contracted and cash-collected.** These are three different claims and they are routinely conflated in one sentence."
+      "body": "This all sounds like a listed-equity concern. It matters more in private markets, for three reasons that compound.\n\n**Fewer eyes.** No analysts, no short sellers, no quarterly market reaction. In private companies the accounts are read by a handful of people who mostly want the deal to happen.\n\n**Management often prepares the numbers.** Unaudited management accounts circulate widely in diligence, and the person preparing them frequently has equity in the outcome.\n\n**The incentive arrives on a date.** A sale process, an earnout measurement, a [[covenant]] test, a valuation for a continuation fund. **Judgement gets exercised hardest in the period before something is measured**, which is exactly when the least verification is possible.\n\nSo the sequence to apply is short and unglamorous:\n\n**Compare cumulative profit and cumulative operating cash flow.** Five years defeats most timing games.\n\n**Look at receivable days and inventory days by quarter.** Deterioration shows up here before it shows up in profit.\n\n**Read the revenue recognition policy and ask if it changed.** A policy change in a diligence year deserves a specific explanation.\n\n**Ask what proportion of revenue is recurring, contracted and cash-collected.** These are three different claims and they are routinely conflated in one sentence.",
+      "heading": "Why it matters more in private markets"
     },
     {
       "type": "example",
@@ -42,7 +51,11 @@
       "type": "table",
       "id": "flags",
       "caption": "Flags, and what each actually means",
-      "headers": ["Observation", "Innocent explanation", "What to check"],
+      "headers": [
+        "Observation",
+        "Innocent explanation",
+        "What to check"
+      ],
       "rows": [
         [
           "Profit rising, operating cash flow flat",
@@ -74,7 +87,8 @@
     {
       "type": "concept",
       "id": "how-it-goes-wrong",
-      "body": "**Channel stuffing.** Shipping more to distributors than they can sell, recognising revenue on shipment. Revenue arrives early and returns arrive later.\n\n**Pulling forward.** Offering discounts or extended terms at the period end to close sales that belonged to next quarter. Revenue is real and the timing was bought, usually at the cost of margin.\n\n**Capitalising aggressively.** Moving costs to the balance sheet raises profit and operating cash flow simultaneously, because the spending is reclassified as investing. Two flattered metrics from one choice.\n\n**Cookie-jar provisions.** Over-providing in a good year, releasing in a bad one. It smooths reported earnings and it obscures the [[volatility]] a reader needs to see.\n\n**Changing depreciation lives.** Extending useful lives lowers the annual charge and raises profit with no operational change. Disclosed in the notes, rarely highlighted.\n\n**Related-party revenue.** Sales to entities connected to the owner. May be genuine and needs to be identified, because it may not survive a change of ownership."
+      "body": "**Channel stuffing.** Shipping more to distributors than they can sell, recognising revenue on shipment. Revenue arrives early and returns arrive later.\n\n**Pulling forward.** Offering discounts or extended terms at the period end to close sales that belonged to next quarter. Revenue is real and the timing was bought, usually at the cost of margin.\n\n**Capitalising aggressively.** Moving costs to the balance sheet raises profit and operating cash flow simultaneously, because the spending is reclassified as investing. Two flattered metrics from one choice.\n\n**Cookie-jar provisions.** Over-providing in a good year, releasing in a bad one. It smooths reported earnings and it obscures the [[volatility]] a reader needs to see.\n\n**Changing depreciation lives.** Extending useful lives lowers the annual charge and raises profit with no operational change. Disclosed in the notes, rarely highlighted.\n\n**Related-party revenue.** Sales to entities connected to the owner. May be genuine and needs to be identified, because it may not survive a change of ownership.",
+      "heading": "Key risks"
     },
     {
       "type": "pitfall",
@@ -102,7 +116,10 @@
       "id": "fsa-earningsquality-01-q1",
       "type": "numeric",
       "difficulty": 2,
-      "tags": ["accruals", "arithmetic"],
+      "tags": [
+        "accruals",
+        "arithmetic"
+      ],
       "concept": "worked-accrual",
       "stem": "A company delivers a system for 120, incurring 90 of cash cost, and collects 80 in the period. What is the cash flow from the transaction? Give the sign.",
       "answer": -10,
@@ -114,7 +131,10 @@
       "id": "fsa-earningsquality-01-q2",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["accruals", "persistence"],
+      "tags": [
+        "accruals",
+        "persistence"
+      ],
       "concept": "accruals-mean-revert",
       "stem": "Why does profit that is not backed by cash tend not to persist?",
       "choices": [
@@ -136,7 +156,10 @@
       "id": "fsa-earningsquality-01-q3",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["accruals", "capitalisation"],
+      "tags": [
+        "accruals",
+        "capitalisation"
+      ],
       "concept": "how-it-goes-wrong",
       "stem": "A company begins capitalising costs it previously expensed. What is the effect on its reported figures?",
       "choices": [
@@ -158,7 +181,10 @@
       "id": "fsa-earningsquality-01-q4",
       "type": "tfj",
       "difficulty": 4,
-      "tags": ["accruals", "misconception"],
+      "tags": [
+        "accruals",
+        "misconception"
+      ],
       "concept": "worked-accrual",
       "stem": "\"Profit exceeded operating cash flow again this year, so the accounts are being managed.\" True or false — and why?",
       "isTrue": false,
@@ -181,7 +207,11 @@
       "id": "fsa-earningsquality-01-q5",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["accruals", "recurring-revenue", "on-the-job"],
+      "tags": [
+        "accruals",
+        "recurring-revenue",
+        "on-the-job"
+      ],
       "concept": "recurring-revenue",
       "stem": "A software business claims 90% recurring revenue. Which single question best tests it?",
       "choices": [
@@ -203,7 +233,11 @@
       "id": "fsa-earningsquality-01-q6",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["accruals", "private-markets", "on-the-job"],
+      "tags": [
+        "accruals",
+        "private-markets",
+        "on-the-job"
+      ],
       "concept": "why-in-private-markets",
       "stem": "Why does earnings quality analysis matter more for a private company than a listed one?",
       "choices": [

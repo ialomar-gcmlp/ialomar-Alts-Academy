@@ -5,14 +5,21 @@
   "title": "Comparables and Precedent Transactions",
   "summary": "The peer set is the answer. Whoever chooses it has already decided the valuation, and the choice is rarely shown.",
   "level": "core",
-  "prereqs": ["eq-multiples-01"],
+  "prereqs": [
+    "eq-multiples-01"
+  ],
   "estMinutes": 8,
-  "examRelevance": ["CFA-L1", "CAIA-L1", "practical"],
+  "examRelevance": [
+    "CFA-L1",
+    "CAIA-L1",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
       "id": "what-it-is",
-      "body": "Two market-based valuation methods sit alongside a [[dcf|discounted cash flow]], and they answer subtly different questions.\n\n**[[comparable-companies|Comparable company analysis]]** — what do similar listed businesses trade at? This gives a *minority* market value: the price of a share, not of control.\n\n**[[precedent-transactions|Precedent transaction analysis]]** — what have buyers actually paid to acquire similar businesses? This gives a *control* value, and it includes whatever [[control-premium|premium]] and synergies those buyers were willing to pay for.\n\nSo the two methods normally produce different answers, and the gap is informative rather than a problem: **precedent transactions sit above trading comparables by roughly the control premium.**\n\nWhich you use depends on what is being valued. A minority stake with no control rights is closer to the trading comparable; an acquisition of the whole business is closer to the precedent transaction. **Valuing a control stake off trading multiples understates it, and marking a minority position at transaction multiples overstates it** — and the second error is the more common one in private portfolios."
+      "body": "Two market-based valuation methods sit alongside a [[dcf|discounted cash flow]], and they answer subtly different questions.\n\n**[[comparable-companies|Comparable company analysis]]** — what do similar listed businesses trade at? This gives a *minority* market value: the price of a share, not of control.\n\n**[[precedent-transactions|Precedent transaction analysis]]** — what have buyers actually paid to acquire similar businesses? This gives a *control* value, and it includes whatever [[control-premium|premium]] and synergies those buyers were willing to pay for.\n\nSo the two methods normally produce different answers, and the gap is informative rather than a problem: **precedent transactions sit above trading comparables by roughly the control premium.**\n\nWhich you use depends on what is being valued. A minority stake with no control rights is closer to the trading comparable; an acquisition of the whole business is closer to the precedent transaction. **Valuing a control stake off trading multiples understates it, and marking a minority position at transaction multiples overstates it** — and the second error is the more common one in private portfolios.",
+      "heading": "What it is"
     },
     {
       "type": "concept",
@@ -22,7 +29,8 @@
     {
       "type": "intuition",
       "id": "adjust-then-compare",
-      "body": "**Comparables are only meaningful after adjusting for the things that legitimately differ, and there are exactly four that matter.**\n\n**Growth.** A peer growing 15% should trade above one growing 3%. Compare multiples against growth rates, not in isolation.\n\n**Profitability.** Return on capital and margin drive how much of the growth is free cash. Two companies at the same multiple with different ROIC are not equally priced.\n\n**Risk.** Cyclicality, customer concentration, regulatory exposure. Higher risk means a higher [[discount-rate|discount rate]] and a lower deserved multiple.\n\n**Capital intensity.** [[ebitda|EBITDA]] multiples treat a business needing 8% of revenue in [[capex|capital expenditure]] identically to one needing 1%. Over a hold period that gap is enormous.\n\nThe practical version is a small table: for each peer, the multiple next to its growth rate, its ROIC and its capex intensity. **A company on a lower multiple than peers with lower growth, lower returns and heavier capex is not cheap. It is correctly priced.**\n\n**And the inverse is the actual opportunity: a company on a peer-average multiple with above-peer growth and returns.** That is a mispricing rather than a discount, and it only becomes visible once the comparison has been adjusted."
+      "body": "**Comparables are only meaningful after adjusting for the things that legitimately differ, and there are exactly four that matter.**\n\n**Growth.** A peer growing 15% should trade above one growing 3%. Compare multiples against growth rates, not in isolation.\n\n**Profitability.** Return on capital and margin drive how much of the growth is free cash. Two companies at the same multiple with different ROIC are not equally priced.\n\n**Risk.** Cyclicality, customer concentration, regulatory exposure. Higher risk means a higher [[discount-rate|discount rate]] and a lower deserved multiple.\n\n**Capital intensity.** [[ebitda|EBITDA]] multiples treat a business needing 8% of revenue in [[capex|capital expenditure]] identically to one needing 1%. Over a hold period that gap is enormous.\n\nThe practical version is a small table: for each peer, the multiple next to its growth rate, its ROIC and its capex intensity. **A company on a lower multiple than peers with lower growth, lower returns and heavier capex is not cheap. It is correctly priced.**\n\n**And the inverse is the actual opportunity: a company on a peer-average multiple with above-peer growth and returns.** That is a mispricing rather than a discount, and it only becomes visible once the comparison has been adjusted.",
+      "heading": "Why you adjust before comparing"
     },
     {
       "type": "example",
@@ -43,7 +51,11 @@
       "type": "table",
       "id": "method-table",
       "caption": "Which method for which question",
-      "headers": ["Method", "Answers", "Systematic bias"],
+      "headers": [
+        "Method",
+        "Answers",
+        "Systematic bias"
+      ],
       "rows": [
         [
           "Trading comparables",
@@ -70,7 +82,8 @@
     {
       "type": "concept",
       "id": "how-it-goes-wrong",
-      "body": "**Stale transaction comparables.** Deals done in a different rate environment are a record of what was paid then. In private markets this cuts both ways: transaction multiples from a hot market support marks long after the market cooled.\n\n**Averaging away the information.** A mean across a heterogeneous set produces a number with no economic meaning. Report the range and the distribution.\n\n**Peer multiples on inconsistent definitions.** If some peers' [[enterprise-value|enterprise values]] include leases and pensions and others' do not, the comparison is between differently constructed numbers.\n\n**Ignoring size.** Smaller companies typically trade at lower multiples for liquidity and risk reasons. Comparing a mid-market private business with listed large caps overstates its value systematically.\n\n**Circularity in private markets.** Marks based on comparable transactions, which are themselves priced off marks, produce a valuation system with no external anchor. It works until it is tested by a sale.\n\n**Using the method that gives the answer you need.** Trading comparables when they are low and transactions when they are high. The tell is a method choice that changes between reporting periods."
+      "body": "**Stale transaction comparables.** Deals done in a different rate environment are a record of what was paid then. In private markets this cuts both ways: transaction multiples from a hot market support marks long after the market cooled.\n\n**Averaging away the information.** A mean across a heterogeneous set produces a number with no economic meaning. Report the range and the distribution.\n\n**Peer multiples on inconsistent definitions.** If some peers' [[enterprise-value|enterprise values]] include leases and pensions and others' do not, the comparison is between differently constructed numbers.\n\n**Ignoring size.** Smaller companies typically trade at lower multiples for liquidity and risk reasons. Comparing a mid-market private business with listed large caps overstates its value systematically.\n\n**Circularity in private markets.** Marks based on comparable transactions, which are themselves priced off marks, produce a valuation system with no external anchor. It works until it is tested by a sale.\n\n**Using the method that gives the answer you need.** Trading comparables when they are low and transactions when they are high. The tell is a method choice that changes between reporting periods.",
+      "heading": "Key risks"
     },
     {
       "type": "pitfall",
@@ -98,7 +111,10 @@
       "id": "eq-comparables-01-q1",
       "type": "mcq",
       "difficulty": 2,
-      "tags": ["comparables", "method"],
+      "tags": [
+        "comparables",
+        "method"
+      ],
       "concept": "what-it-is",
       "stem": "Why do precedent transaction multiples typically exceed trading comparables?",
       "choices": [
@@ -120,7 +136,10 @@
       "id": "eq-comparables-01-q2",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["comparables", "selection"],
+      "tags": [
+        "comparables",
+        "selection"
+      ],
       "concept": "selection-is-the-answer",
       "stem": "A peer set produces multiples from 6x to 16x with a median of 11x. What should you conclude?",
       "choices": [
@@ -142,7 +161,10 @@
       "id": "eq-comparables-01-q3",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["comparables", "adjustment"],
+      "tags": [
+        "comparables",
+        "adjustment"
+      ],
       "concept": "adjust-then-compare",
       "stem": "A company trades at 8x where peers average 11x. It grows more slowly, earns lower returns on capital and spends more on capex. What is the conclusion?",
       "choices": [
@@ -164,7 +186,11 @@
       "id": "eq-comparables-01-q4",
       "type": "tfj",
       "difficulty": 4,
-      "tags": ["comparables", "marks", "misconception"],
+      "tags": [
+        "comparables",
+        "marks",
+        "misconception"
+      ],
       "concept": "marks-and-comparables",
       "stem": "\"Our portfolio is marked using listed comparables, so the marks are objective.\" True or false — and why?",
       "isTrue": false,
@@ -187,7 +213,11 @@
       "id": "eq-comparables-01-q5",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["comparables", "diligence", "on-the-job"],
+      "tags": [
+        "comparables",
+        "diligence",
+        "on-the-job"
+      ],
       "concept": "marks-and-comparables",
       "stem": "Which single question best tests a private manager's valuation discipline?",
       "choices": [
@@ -209,7 +239,11 @@
       "id": "eq-comparables-01-q6",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["comparables", "circularity", "on-the-job"],
+      "tags": [
+        "comparables",
+        "circularity",
+        "on-the-job"
+      ],
       "concept": "how-it-goes-wrong",
       "stem": "Private marks are set from comparable transactions, which are themselves priced partly off prevailing marks. What is the risk?",
       "choices": [

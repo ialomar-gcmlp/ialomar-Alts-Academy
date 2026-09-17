@@ -778,6 +778,14 @@ Authoring rules:
   list (unknown → no icon, never a crash). Current pictograms: coins, chartUp,
   docCheck, gear, shield + the original 14.
 
+Section headings (user review feedback, 2026-09-17): concept and intuition blocks
+take an optional plain-text `heading` (schema forbids `[[` — headings bypass Inline
+and the glossary walk). Every `what-it-is` is headed "What it is", `return-driver`
+"The return driver", `how-it-blows-up`/`how-it-goes-wrong` "Key risks"; every
+intuition block carries a specific "why WHAT is true" heading replacing the generic
+callout label. Table captions render at heading weight — they are section titles.
+New topics must follow all of this.
+
 Coverage as of M10 batch 5: 113 diagrams across 33 topics at 2–4 per reading —
 all of alternatives (19 topics), all of fund-structures (8), all of fixed-income (6).
 Those three domains are complete. The user supplied 11 example infographics in two

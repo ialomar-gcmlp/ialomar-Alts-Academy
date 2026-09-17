@@ -5,19 +5,27 @@
   "title": "The Yield Curve: Shapes and What They Signal",
   "summary": "What the curve actually plots, why it usually slopes up, and what a flat or inverted curve is really telling you.",
   "level": "core",
-  "prereqs": ["quant-tvm-01"],
+  "prereqs": [
+    "quant-tvm-01"
+  ],
   "estMinutes": 9,
-  "examRelevance": ["CFA-L1", "CAIA-L1", "practical"],
+  "examRelevance": [
+    "CFA-L1",
+    "CAIA-L1",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
       "id": "what-it-is",
-      "body": "A [[yield-curve]] is a snapshot. Take one issuer — almost always the US Treasury, because its bonds are the most liquid and closest to risk-free — and plot the [[yield-to-maturity]] of its bonds against their [[maturity]]. Three months on the left, thirty years on the right. Join the dots.\n\nThat is the whole construction. One issuer, one moment in time, many maturities. The reason it earns so much attention is that it is the cleanest available picture of the price of time and, indirectly, of what the market thinks is coming.\n\nMoves in the curve are quoted in [[basis-point|basis points]] — hundredths of a percentage point. When someone says \"the ten-year is up eight basis points\", they mean its yield rose by 0.08 percentage points."
+      "body": "A [[yield-curve]] is a snapshot. Take one issuer — almost always the US Treasury, because its bonds are the most liquid and closest to risk-free — and plot the [[yield-to-maturity]] of its bonds against their [[maturity]]. Three months on the left, thirty years on the right. Join the dots.\n\nThat is the whole construction. One issuer, one moment in time, many maturities. The reason it earns so much attention is that it is the cleanest available picture of the price of time and, indirectly, of what the market thinks is coming.\n\nMoves in the curve are quoted in [[basis-point|basis points]] — hundredths of a percentage point. When someone says \"the ten-year is up eight basis points\", they mean its yield rose by 0.08 percentage points.",
+      "heading": "What it is"
     },
     {
       "type": "intuition",
       "id": "why-it-slopes",
-      "body": "Why should a thirty-year bond normally yield more than a three-month bill? Two forces, and it is worth keeping them separate because they behave differently.\n\n**Expectations.** A long bond's yield has to be broadly consistent with the path of short rates investors expect over its life. If the market thinks the [[central-bank|central bank]] will be raising rates for years, long yields must sit above today's short yield or nobody would bother buying long.\n\n**Term premium.** Even with no expected change in short rates, lending for thirty years is more uncomfortable than lending for three months. Inflation could surprise; you might need the money; the price will swing far more in the meantime. The extra yield demanded for that discomfort is the [[term-premium]], and it is normally positive.\n\nSo the usual upward slope is not a forecast of anything dramatic. It is mostly just the term premium doing its job. The interesting information is in the *changes*, and above all in the moments the slope disappears or reverses."
+      "body": "Why should a thirty-year bond normally yield more than a three-month bill? Two forces, and it is worth keeping them separate because they behave differently.\n\n**Expectations.** A long bond's yield has to be broadly consistent with the path of short rates investors expect over its life. If the market thinks the [[central-bank|central bank]] will be raising rates for years, long yields must sit above today's short yield or nobody would bother buying long.\n\n**Term premium.** Even with no expected change in short rates, lending for thirty years is more uncomfortable than lending for three months. Inflation could surprise; you might need the money; the price will swing far more in the meantime. The extra yield demanded for that discomfort is the [[term-premium]], and it is normally positive.\n\nSo the usual upward slope is not a forecast of anything dramatic. It is mostly just the term premium doing its job. The interesting information is in the *changes*, and above all in the moments the slope disappears or reverses.",
+      "heading": "Why the curve normally slopes upward"
     },
     {
       "type": "chart",
@@ -25,11 +33,44 @@
       "caption": "Three curve shapes (illustrative, not market data)",
       "spec": {
         "kind": "line",
-        "xLabels": ["3m", "2y", "5y", "10y", "30y"],
+        "xLabels": [
+          "3m",
+          "2y",
+          "5y",
+          "10y",
+          "30y"
+        ],
         "series": [
-          { "name": "Normal", "values": [3.0, 3.6, 4.0, 4.3, 4.6] },
-          { "name": "Flat", "values": [4.2, 4.25, 4.3, 4.3, 4.35] },
-          { "name": "Inverted", "values": [5.2, 4.7, 4.3, 4.1, 4.15] }
+          {
+            "name": "Normal",
+            "values": [
+              3.0,
+              3.6,
+              4.0,
+              4.3,
+              4.6
+            ]
+          },
+          {
+            "name": "Flat",
+            "values": [
+              4.2,
+              4.25,
+              4.3,
+              4.3,
+              4.35
+            ]
+          },
+          {
+            "name": "Inverted",
+            "values": [
+              5.2,
+              4.7,
+              4.3,
+              4.1,
+              4.15
+            ]
+          }
         ],
         "yLabel": "Yield",
         "yUnit": "%"
@@ -40,7 +81,11 @@
       "type": "table",
       "id": "shapes-table",
       "caption": "Reading the four shapes",
-      "headers": ["Shape", "What it looks like", "What it usually reflects"],
+      "headers": [
+        "Shape",
+        "What it looks like",
+        "What it usually reflects"
+      ],
       "rows": [
         [
           "Normal / upward",
@@ -112,7 +157,10 @@
       "id": "econ-curve-01-q1",
       "type": "mcq",
       "difficulty": 1,
-      "tags": ["yield-curve", "definition"],
+      "tags": [
+        "yield-curve",
+        "definition"
+      ],
       "concept": "what-it-is",
       "stem": "What does a yield curve plot?",
       "choices": [
@@ -134,7 +182,10 @@
       "id": "econ-curve-01-q2",
       "type": "mcq",
       "difficulty": 2,
-      "tags": ["yield-curve", "term-premium"],
+      "tags": [
+        "yield-curve",
+        "term-premium"
+      ],
       "concept": "why-it-slopes",
       "stem": "A yield curve is upward sloping, with no expectation of central bank rate changes priced in. What best explains the slope?",
       "choices": [
@@ -156,7 +207,11 @@
       "id": "econ-curve-01-q3",
       "type": "numeric",
       "difficulty": 2,
-      "tags": ["yield-curve", "spread", "basis-points"],
+      "tags": [
+        "yield-curve",
+        "spread",
+        "basis-points"
+      ],
       "concept": "spread-example",
       "stem": "The 2-year Treasury yields 4.55% and the 10-year yields 4.18%. What is the 2s10s spread, in basis points?",
       "answer": -37,
@@ -170,12 +225,33 @@
       "id": "econ-curve-01-q4",
       "type": "chartRead",
       "difficulty": 3,
-      "tags": ["yield-curve", "chart-reading", "inversion"],
+      "tags": [
+        "yield-curve",
+        "chart-reading",
+        "inversion"
+      ],
       "concept": "shapes-chart",
       "spec": {
         "kind": "line",
-        "xLabels": ["3m", "2y", "5y", "10y", "30y"],
-        "series": [{ "name": "Curve A", "values": [5.3, 4.8, 4.35, 4.15, 4.2] }],
+        "xLabels": [
+          "3m",
+          "2y",
+          "5y",
+          "10y",
+          "30y"
+        ],
+        "series": [
+          {
+            "name": "Curve A",
+            "values": [
+              5.3,
+              4.8,
+              4.35,
+              4.15,
+              4.2
+            ]
+          }
+        ],
         "yLabel": "Yield",
         "yUnit": "%"
       },
@@ -199,7 +275,11 @@
       "id": "econ-curve-01-q5",
       "type": "tfj",
       "difficulty": 3,
-      "tags": ["yield-curve", "inversion", "misconception"],
+      "tags": [
+        "yield-curve",
+        "inversion",
+        "misconception"
+      ],
       "concept": "not-a-timer",
       "stem": "\"The curve has inverted, so a recession will begin within the next twelve months.\" True or false — and why?",
       "isTrue": false,
@@ -224,7 +304,11 @@
       "id": "econ-curve-01-q6",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["yield-curve", "monetary-policy", "curve-mechanics"],
+      "tags": [
+        "yield-curve",
+        "monetary-policy",
+        "curve-mechanics"
+      ],
       "concept": "the-two-ends",
       "stem": "A central bank raises its policy rate by 25 basis points. The 3-month yield rises by roughly 25 bps but the 10-year yield falls by 10 bps. What is the most reasonable reading?",
       "choices": [
@@ -246,7 +330,12 @@
       "id": "econ-curve-01-q7",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["yield-curve", "private-credit", "on-the-job", "floating-rate"],
+      "tags": [
+        "yield-curve",
+        "private-credit",
+        "on-the-job",
+        "floating-rate"
+      ],
       "concept": "on-the-job",
       "stem": "A private credit fund holds floating-rate loans priced at a spread over a short-term reference rate. The front end of the curve rises 100 bps while the 10-year is unchanged. What happens, and to whom?",
       "choices": [
@@ -268,7 +357,11 @@
       "id": "econ-curve-01-q8",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["yield-curve", "real-rates", "inflation"],
+      "tags": [
+        "yield-curve",
+        "real-rates",
+        "inflation"
+      ],
       "concept": "nominal-vs-real",
       "stem": "The 10-year nominal yield rises from 4.0% to 4.6%. Over the same period, 10-year expected inflation rises from 2.2% to 2.9%. What has happened to the real 10-year rate?",
       "choices": [
@@ -290,7 +383,12 @@
       "id": "econ-curve-01-q9",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["yield-curve", "duration", "valuation", "on-the-job"],
+      "tags": [
+        "yield-curve",
+        "duration",
+        "valuation",
+        "on-the-job"
+      ],
       "concept": "on-the-job",
       "stem": "Long-end yields rise sharply. Across a diversified alternatives portfolio, which holding should you expect to reprice downward the most, all else equal?",
       "choices": [

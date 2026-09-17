@@ -5,14 +5,21 @@
   "title": "Capital Structure: Why Debt Is Cheaper and Where It Stops Being Free",
   "summary": "The tax shield, the cost of distress, and why the optimal mix depends on how predictable the cash flow is.",
   "level": "core",
-  "prereqs": ["fsa-ratios-01"],
+  "prereqs": [
+    "fsa-ratios-01"
+  ],
   "estMinutes": 9,
-  "examRelevance": ["CFA-L1", "CAIA-L1", "practical"],
+  "examRelevance": [
+    "CFA-L1",
+    "CAIA-L1",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
       "id": "what-it-is",
-      "body": "[[capital-structure|Capital structure]] is the mix of debt and equity funding a business. The choice matters because the two claims are fundamentally different instruments.\n\n**Debt** is a contract. Fixed payments, a maturity date, [[seniority|priority]] in a wind-up, no ownership. The lender's upside is the coupon and nothing more.\n\n**Equity** is a residual. Paid last, entitled to everything left over, with control rights and no repayment date.\n\nThree consequences follow directly, and they explain almost everything about how the two behave:\n\n**Debt is cheaper.** Lower risk to the holder means a lower [[required-return|required return]], and interest is usually tax deductible while dividends are not.\n\n**Debt is inflexible.** The payments fall due whatever happens to trading. That inflexibility is the entire risk.\n\n**Debt is disciplining.** A fixed obligation constrains management's freedom to spend cash on marginal projects. That is genuinely a benefit, and it is the argument [[leveraged-buyout|leveraged buyouts]] have always rested on."
+      "body": "[[capital-structure|Capital structure]] is the mix of debt and equity funding a business. The choice matters because the two claims are fundamentally different instruments.\n\n**Debt** is a contract. Fixed payments, a maturity date, [[seniority|priority]] in a wind-up, no ownership. The lender's upside is the coupon and nothing more.\n\n**Equity** is a residual. Paid last, entitled to everything left over, with control rights and no repayment date.\n\nThree consequences follow directly, and they explain almost everything about how the two behave:\n\n**Debt is cheaper.** Lower risk to the holder means a lower [[required-return|required return]], and interest is usually tax deductible while dividends are not.\n\n**Debt is inflexible.** The payments fall due whatever happens to trading. That inflexibility is the entire risk.\n\n**Debt is disciplining.** A fixed obligation constrains management's freedom to spend cash on marginal projects. That is genuinely a benefit, and it is the argument [[leveraged-buyout|leveraged buyouts]] have always rested on.",
+      "heading": "What it is"
     },
     {
       "type": "concept",
@@ -22,7 +29,8 @@
     {
       "type": "intuition",
       "id": "predictability-decides",
-      "body": "**The single best predictor of how much debt a business can carry is not its margin or its growth. It is the predictability of its cash flow.**\n\nA regulated water utility with inflation-linked revenue can carry leverage that would destroy a fashion retailer with the same margins. Not because it is more profitable, but because the range of possible outcomes is narrower — and debt only fails in the bad tail.\n\nThis reframes leverage as a question about a distribution rather than a level. Two questions do most of the work:\n\n**How far can revenue fall before the interest cannot be paid?** In the worked company from the financial statements domain, [[ebitda|EBITDA]] of 80 against interest of 20 means EBITDA can fall 75% before interest is uncovered — which sounds comfortable until you note that capital spending and tax also have to be paid.\n\n**How correlated is the bad case with the credit market being closed?** A business whose revenue falls in a recession needs to refinance in a recession. That correlation is the mechanism behind most credit failures, and it is invisible in any single-scenario model.\n\n**So the useful sentence is: leverage is a bet that the cash flow distribution is narrower than the lender's [[covenant]] assumes.** Sometimes an excellent bet. Never a free one."
+      "body": "**The single best predictor of how much debt a business can carry is not its margin or its growth. It is the predictability of its cash flow.**\n\nA regulated water utility with inflation-linked revenue can carry leverage that would destroy a fashion retailer with the same margins. Not because it is more profitable, but because the range of possible outcomes is narrower — and debt only fails in the bad tail.\n\nThis reframes leverage as a question about a distribution rather than a level. Two questions do most of the work:\n\n**How far can revenue fall before the interest cannot be paid?** In the worked company from the financial statements domain, [[ebitda|EBITDA]] of 80 against interest of 20 means EBITDA can fall 75% before interest is uncovered — which sounds comfortable until you note that capital spending and tax also have to be paid.\n\n**How correlated is the bad case with the credit market being closed?** A business whose revenue falls in a recession needs to refinance in a recession. That correlation is the mechanism behind most credit failures, and it is invisible in any single-scenario model.\n\n**So the useful sentence is: leverage is a bet that the cash flow distribution is narrower than the lender's [[covenant]] assumes.** Sometimes an excellent bet. Never a free one.",
+      "heading": "Why predictability decides debt capacity"
     },
     {
       "type": "example",
@@ -42,7 +50,11 @@
       "type": "table",
       "id": "capacity",
       "caption": "What determines debt capacity",
-      "headers": ["Factor", "Supports more debt", "Supports less"],
+      "headers": [
+        "Factor",
+        "Supports more debt",
+        "Supports less"
+      ],
       "rows": [
         [
           "Cash flow predictability",
@@ -74,7 +86,8 @@
     {
       "type": "concept",
       "id": "how-it-goes-wrong",
-      "body": "**Valuing the tax shield at a company that pays no tax.** A business with carried-forward losses gets no benefit from deductibility. The shield is worth the tax rate only if the tax is actually being paid.\n\n**Ignoring interest deductibility caps.** Many jurisdictions now cap deductible interest as a share of EBITDA. Beyond the cap the shield stops, and highly levered structures are precisely the ones that hit it.\n\n**Assuming the mix is a free choice.** A business with no tangible assets and volatile revenue cannot borrow at attractive terms regardless of what a model recommends. Capacity is set by lenders, not by theory.\n\n**Treating distress as insolvency only.** The costs start when customers, suppliers and staff begin to price in the possibility. That is long before any default and rarely modelled at all.\n\n**Forgetting who benefits from leverage.** More debt raises expected equity returns and raises the chance of losing everything. For a diversified fund that trade may be sensible; for a founder with one asset it is a different decision, and the two parties often sit on opposite sides of the same table."
+      "body": "**Valuing the tax shield at a company that pays no tax.** A business with carried-forward losses gets no benefit from deductibility. The shield is worth the tax rate only if the tax is actually being paid.\n\n**Ignoring interest deductibility caps.** Many jurisdictions now cap deductible interest as a share of EBITDA. Beyond the cap the shield stops, and highly levered structures are precisely the ones that hit it.\n\n**Assuming the mix is a free choice.** A business with no tangible assets and volatile revenue cannot borrow at attractive terms regardless of what a model recommends. Capacity is set by lenders, not by theory.\n\n**Treating distress as insolvency only.** The costs start when customers, suppliers and staff begin to price in the possibility. That is long before any default and rarely modelled at all.\n\n**Forgetting who benefits from leverage.** More debt raises expected equity returns and raises the chance of losing everything. For a diversified fund that trade may be sensible; for a founder with one asset it is a different decision, and the two parties often sit on opposite sides of the same table.",
+      "heading": "Key risks"
     },
     {
       "type": "pitfall",
@@ -102,7 +115,11 @@
       "id": "ci-capitalstructure-01-q1",
       "type": "numeric",
       "difficulty": 2,
-      "tags": ["capital-structure", "tax-shield", "arithmetic"],
+      "tags": [
+        "capital-structure",
+        "tax-shield",
+        "arithmetic"
+      ],
       "concept": "worked-shield",
       "stem": "A company pays 20 of interest and the tax rate is 25%. What is the annual tax shield?",
       "answer": 5,
@@ -115,7 +132,10 @@
       "id": "ci-capitalstructure-01-q2",
       "type": "numeric",
       "difficulty": 3,
-      "tags": ["capital-structure", "arithmetic"],
+      "tags": [
+        "capital-structure",
+        "arithmetic"
+      ],
       "concept": "worked-shield",
       "stem": "EBIT is 50, interest 20, tax 25%. What is the total paid to all capital providers — interest plus after-tax profit?",
       "answer": 42.5,
@@ -127,7 +147,10 @@
       "id": "ci-capitalstructure-01-q3",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["capital-structure", "capacity"],
+      "tags": [
+        "capital-structure",
+        "capacity"
+      ],
       "concept": "predictability-decides",
       "stem": "Two companies have identical margins and growth. One sells regulated water services; the other sells fashion apparel. Which can carry more debt, and why?",
       "choices": [
@@ -149,7 +172,10 @@
       "id": "ci-capitalstructure-01-q4",
       "type": "tfj",
       "difficulty": 3,
-      "tags": ["capital-structure", "misconception"],
+      "tags": [
+        "capital-structure",
+        "misconception"
+      ],
       "concept": "leverage-is-not-value",
       "stem": "\"Our model shows a higher equity IRR with more debt, so the deal is better.\" True or false — and why?",
       "isTrue": false,
@@ -172,7 +198,11 @@
       "id": "ci-capitalstructure-01-q5",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["capital-structure", "tax", "on-the-job"],
+      "tags": [
+        "capital-structure",
+        "tax",
+        "on-the-job"
+      ],
       "concept": "how-it-goes-wrong",
       "stem": "A model values the tax shield at the full statutory rate. What would make that overstated?",
       "choices": [
@@ -194,7 +224,11 @@
       "id": "ci-capitalstructure-01-q6",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["capital-structure", "distress", "on-the-job"],
+      "tags": [
+        "capital-structure",
+        "distress",
+        "on-the-job"
+      ],
       "concept": "the-tradeoff",
       "stem": "Which distress cost is largest and least often modelled?",
       "choices": [
