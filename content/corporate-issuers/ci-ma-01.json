@@ -23,6 +23,31 @@
       "heading": "What it is"
     },
     {
+      "type": "infographic",
+      "id": "synergy-kinds",
+      "caption": "Three kinds of synergy, in descending order of reliability.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Cost synergies",
+            "icon": "gear",
+            "detail": "Duplicated overhead, procurement, facilities — countable and within the acquirer's control. Most credible."
+          },
+          {
+            "label": "Revenue synergies",
+            "icon": "chartUp",
+            "detail": "Cross-selling, distribution, pricing — they require customers to behave in a particular way. Least credible."
+          },
+          {
+            "label": "Financial synergies",
+            "icon": "coins",
+            "detail": "Cost of capital, tax, debt capacity — real, and often a redistribution rather than a creation."
+          }
+        ]
+      }
+    },
+    {
       "type": "concept",
       "id": "who-captures-it",
       "body": "**The premium is certain and the synergies are a forecast. That asymmetry is the whole story of M&A value distribution.**\n\nWork through the structure. An acquirer pays a 30% premium to buy a target. That 30% goes to the target's shareholders on completion, in cash or in shares — irreversibly. In exchange the acquirer receives control and a plan.\n\nFor the acquirer's shareholders to gain, the synergies must be worth **more** than the premium, net of the cost of achieving them, discounted for the risk that they do not arrive.\n\nSo three questions decide the outcome, and all three are answerable before signing:\n\n**How much of the synergy value did we hand over in the premium?** If the premium equals the expected synergies, the acquirer has paid the target's shareholders for the acquirer's own future work.\n\n**What does it cost to achieve them?** Integration, redundancy, systems, management attention. Frequently a year or more of the annual synergy figure.\n\n**What probability applies?** Cost synergies land at high rates. Revenue synergies land far less often, and later, and smaller.\n\n**The practical discipline: take the announced synergy number, subtract the cost to achieve, apply a probability by category, and compare what is left with the premium.** If the answer is negative, the deal transfers value from the acquirer's shareholders to the target's — which may still be a defensible strategic decision, and should be described as the trade it is.",
@@ -49,6 +74,34 @@
         "Sanity check worth reusing: **capitalise the synergies, weight them by category, subtract the cost to achieve, and compare with the premium.** Four lines of arithmetic, and it turns an announcement into a decision. If the answer needs revenue synergies to work, the deal needs customers to cooperate."
       ],
       "heading": "a 30% premium versus the synergies"
+    },
+    {
+      "type": "infographic",
+      "id": "synergy-grading",
+      "caption": "The announced version showed 600 against 300. Graded honestly, the deal is roughly a coin flip.",
+      "spec": {
+        "kind": "steps",
+        "steps": [
+          {
+            "label": "Premium paid: 300",
+            "icon": "coins",
+            "detail": "30% over the 1,000 standalone value — certain, immediate, irreversible."
+          },
+          {
+            "label": "Announced synergies: 600",
+            "detail": "60 a year, capitalised at ten times — comfortably above the premium, which is how the deal gets approved."
+          },
+          {
+            "label": "Graded: 380",
+            "detail": "Cost synergies 40 × 80% × 10 = 320; revenue synergies 20 × 30% × 10 = 60. The revenue probability alone removed 140."
+          },
+          {
+            "label": "Less 70 to achieve: 310 against 300",
+            "icon": "alert",
+            "detail": "Four lines of arithmetic, and an announcement becomes a decision."
+          }
+        ]
+      }
     },
     {
       "type": "table",
@@ -98,6 +151,34 @@
       "id": "buy-and-build",
       "body": "**\"Buy and build\" is a real strategy and also the most flattering label available in [[private-equity|private equity]], so it is worth separating the two.**\n\nThe genuine version: a platform acquires smaller businesses at lower multiples, integrates them properly, and the enlarged group is worth a higher multiple because it is bigger, more diversified and more professional. Value comes from the multiple gap *and* from the integration.\n\nThe flattering version: a platform buys revenue at lower multiples, does not integrate, and reports rising [[ebitda|EBITDA]] and an implied uplift because the group is now larger. Value comes from arithmetic.\n\nThey look identical in a quarterly report and differ completely in what happens at exit, when a buyer examines the group rather than the spreadsheet.\n\n**Three questions separate them.** What is organic growth, excluding acquisitions, for each of the last three years? What integration has actually been completed — shared systems, single management, combined procurement? And has the group been sold at the higher multiple, or is the uplift still an assumption in the model?\n\n**The third question is the one that matters, because unrealised multiple expansion is the most common form of unrealised return in private markets.**",
       "heading": "taking buy-and-build at face value"
+    },
+    {
+      "type": "infographic",
+      "id": "two-buy-and-builds",
+      "caption": "Identical in a quarterly report, completely different at exit.",
+      "spec": {
+        "kind": "comparison",
+        "columns": [
+          {
+            "title": "The genuine version",
+            "mark": "check",
+            "bullets": [
+              "Smaller businesses bought at lower multiples and actually integrated",
+              "Shared systems, single management, combined procurement",
+              "Value from the multiple gap AND the integration"
+            ]
+          },
+          {
+            "title": "The flattering version",
+            "mark": "cross",
+            "bullets": [
+              "Revenue bought at lower multiples, not integrated",
+              "Rising EBITDA and an implied uplift because the group is larger",
+              "Unrealised multiple expansion — the most common form of unrealised return in private markets"
+            ]
+          }
+        ]
+      }
     },
     {
       "type": "onTheJob",

@@ -29,10 +29,60 @@
       "heading": "The ROIC test"
     },
     {
+      "type": "infographic",
+      "id": "growth-test",
+      "caption": "Growth is only good if the new capital earns more than it costs.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Invest 200 at 9% ROIC",
+            "stat": "+2.4",
+            "detail": "Against the 7.8% WACC — value created each year."
+          },
+          {
+            "label": "The same 200 at 6%",
+            "stat": "−3.6",
+            "detail": "Revenue grows, profit grows, EPS may grow — and the company is worth less than before it invested."
+          },
+          {
+            "label": "The sentence",
+            "icon": "target",
+            "detail": "Growth is not a strategy; growth above the cost of capital is."
+          }
+        ]
+      }
+    },
+    {
       "type": "intuition",
       "id": "wacc-is-a-range",
       "body": "**WACC is an estimate with error bars, and the honest way to use it is as a range rather than a point.**\n\nThe cost of equity is the problem. Beta is measured over a chosen window against a chosen index; the equity risk premium is argued over by serious people across a two-point range; the risk-free rate depends on which maturity you pick. Reasonable choices routinely produce cost of equity estimates two or three points apart, and a two-point move in WACC can change a valuation by a third for a long-duration asset.\n\nSo three practical habits:\n\n**Quote a range and check whether the decision changes across it.** A project attractive at 7% and unattractive at 9% is a project whose answer is \"we do not know\".\n\n**Distrust precision.** \"Our WACC is 8.4%\" implies a measurement. It is a construction, and the two-decimal version is the surest sign that nobody has tested the inputs.\n\n**Use the same WACC consistently or justify the difference.** A single company-wide rate applied to businesses of very different risk quietly subsidises the risky division and starves the safe one. That is a real capital allocation error and it is entirely invisible in the model.\n\n**And in private markets, note that a fund's own return target is not the company's cost of capital.** A 20% target IRR is a statement about the fund's economics and its investors' expectations. Using it to discount a company's cash flow answers a different question.",
       "heading": "Why WACC is a range, not a point"
+    },
+    {
+      "type": "infographic",
+      "id": "range-habits",
+      "caption": "One input is a market price, one is an estimate spanning points — three habits for using WACC honestly.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Quote a range",
+            "icon": "gear",
+            "detail": "A project attractive at 7% and unattractive at 9% is a project whose answer is “we do not know”."
+          },
+          {
+            "label": "Distrust precision",
+            "icon": "alert",
+            "detail": "“Our WACC is 8.4%” implies a measurement. It is a construction, and two decimals mean nobody tested the inputs."
+          },
+          {
+            "label": "One rate, or justified differences",
+            "icon": "layers",
+            "detail": "A single company-wide rate across divisions of different risk quietly subsidises the risky one and starves the safe one."
+          }
+        ]
+      }
     },
     {
       "type": "formula",
@@ -74,6 +124,33 @@
         "Sanity check worth reusing: **compute ROIC and WACC to the nearest half point and compare the spread with the width of your own uncertainty.** A 1.2-point spread against a 2-point uncertainty in the cost of equity means the honest answer is that you cannot tell."
       ],
       "heading": "computing WACC and testing ROIC"
+    },
+    {
+      "type": "infographic",
+      "id": "wacc-build",
+      "caption": "From two costs of capital to one hurdle — and the ROIC that clears it.",
+      "spec": {
+        "kind": "steps",
+        "steps": [
+          {
+            "label": "Weights: 60% equity, 40% debt",
+            "detail": "Market values — 600 of equity and 400 of debt."
+          },
+          {
+            "label": "After-tax cost of debt: 4.5%",
+            "detail": "6% × (1 − 25%), because interest is deductible."
+          },
+          {
+            "label": "WACC: 7.8%",
+            "detail": "0.60 × 10% + 0.40 × 4.5%."
+          },
+          {
+            "label": "ROIC: 9.0% — value is being created",
+            "icon": "check",
+            "detail": "After-tax operating profit of 90 on 1,000 of invested capital, against the 7.8% hurdle."
+          }
+        ]
+      }
     },
     {
       "type": "table",

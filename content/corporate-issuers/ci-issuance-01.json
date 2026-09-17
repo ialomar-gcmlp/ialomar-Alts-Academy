@@ -22,6 +22,38 @@
       "heading": "What it is"
     },
     {
+      "type": "infographic",
+      "id": "financing-ladder",
+      "caption": "The menu, in order — departures from it are informative.",
+      "spec": {
+        "kind": "stack",
+        "axis": "cheapest, least intrusive → most expensive, most dilutive",
+        "layers": [
+          {
+            "label": "Internal cash",
+            "sublabel": "no issuance costs, no disclosure, no new claims — always first if available"
+          },
+          {
+            "label": "Bank debt",
+            "sublabel": "a relationship lender, covenants, speed — renegotiable when things go wrong"
+          },
+          {
+            "label": "Bonds",
+            "sublabel": "larger, longer, looser covenants — and near-impossible to renegotiate"
+          },
+          {
+            "label": "[[private-credit|Private credit]]",
+            "sublabel": "faster and more flexible than a bond, more expensive, one counterparty"
+          },
+          {
+            "label": "Equity",
+            "emphasis": true,
+            "sublabel": "most expensive, permanently dilutive — and the only claim that absorbs losses without a covenant"
+          }
+        ]
+      }
+    },
+    {
       "type": "concept",
       "id": "the-signal",
       "body": "**Issuance is a signal, because management knows more about the company than the market does.**\n\nThe logic is clean. Managers who believe their shares are undervalued will not want to issue them cheaply — they will borrow instead. Managers who believe their shares are overvalued face the opposite incentive.\n\nSo the market reasonably reads an equity issue as a statement about price, which is why announcements of new equity are so often met with a falling share price. The company may have excellent reasons; the market applies the inference anyway.\n\nThree readings worth knowing:\n\n**Equity raised at a low price for growth** — either a genuine opportunity the company cannot fund otherwise, or debt capacity that has run out. Ask which.\n\n**Equity raised into a strong share price** — reasonable capital management, and the timing rewards the company at the expense of new holders.\n\n**Equity raised in a hurry after a covenant discussion** — the lenders required it. The most informative of the three, and rarely described that way.\n\n**And the same logic applies to a private company's funding round.** A flat or down round is not just a valuation event; it is information about what better-informed parties would pay.",
@@ -32,6 +64,36 @@
       "id": "who-you-owe",
       "body": "**The identity of the lender matters as much as the terms, and it is decided at issuance rather than in a crisis.**\n\nThis is the practical lesson of the last two credit cycles, and it is easy to miss because it sounds administrative.\n\n**A relationship bank** has an incentive to work with a borrower through a difficult period, because it wants the future business and it holds the loan on its own book. Renegotiation is a conversation.\n\n**A syndicate of bondholders** has no relationship and no shared interest. Some bought at par and some at 60. Their incentives differ, and getting a consent threshold is slow and expensive.\n\n**A private credit fund** is one counterparty with the authority to amend and a strong interest in avoiding a write-down. Amendments are fast — and the fund also holds the equity's fate in a very small number of hands.\n\n**A distressed buyer who bought your debt in the secondary market** wants the company, not the coupon. Their optimal outcome may be a restructuring that wipes out the equity, and nothing prevents them buying in.\n\n**So the question at issuance is: if this goes wrong, who is on the other side of the table, and what do they want?** That answer is chosen when the debt is raised and cannot be changed afterwards — the debt can be traded to anyone.",
       "heading": "Why the lender's identity matters"
+    },
+    {
+      "type": "infographic",
+      "id": "lender-identity",
+      "caption": "The counterparty in a crisis is chosen at issuance — and the debt can be traded to anyone.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "A relationship bank",
+            "icon": "case",
+            "detail": "Wants the future business and holds the loan on its own book — renegotiation is a conversation."
+          },
+          {
+            "label": "A bond syndicate",
+            "icon": "layers",
+            "detail": "No relationship, differing entry prices, slow and expensive consent thresholds."
+          },
+          {
+            "label": "A private credit fund",
+            "icon": "gear",
+            "detail": "One counterparty with authority to amend — fast, and it holds the equity's fate in very few hands."
+          },
+          {
+            "label": "A distressed buyer",
+            "icon": "alert",
+            "detail": "Bought at 60 and wants the company, not the coupon. Their optimal outcome may wipe out the equity."
+          }
+        ]
+      }
     },
     {
       "type": "table",
@@ -83,6 +145,31 @@
         "Sanity check worth reusing: **compute pro forma leverage including the acquired EBITDA, then compute it excluding the acquired EBITDA.** The gap is how much of the structure's safety depends on the acquisition performing as promised — which is the risk being taken, stated as a number."
       ],
       "heading": "funding a 100 acquisition"
+    },
+    {
+      "type": "infographic",
+      "id": "funding-arithmetic",
+      "caption": "The same 100 of debt takes leverage to 6.25x or leaves it at 5.0x — depending entirely on what is being bought.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "100 more debt, nothing acquired",
+            "stat": "6.25x",
+            "detail": "500 over 80, with coverage falling from 4.0x to 3.2x."
+          },
+          {
+            "label": "With the acquired EBITDA of 20",
+            "stat": "5.0x",
+            "detail": "500 over 100 — unchanged from today; the deal is self-financing in leverage terms."
+          },
+          {
+            "label": "The check",
+            "icon": "docCheck",
+            "detail": "Compute pro forma leverage with and without the acquired EBITDA. The gap is how much of the structure's safety depends on the plan."
+          }
+        ]
+      }
     },
     {
       "type": "concept",

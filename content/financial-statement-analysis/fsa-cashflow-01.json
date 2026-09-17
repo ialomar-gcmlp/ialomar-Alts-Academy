@@ -22,6 +22,31 @@
       "heading": "What it is"
     },
     {
+      "type": "infographic",
+      "id": "three-sections",
+      "caption": "The split is the point: cash from operations and cash from a bond issue both raise the bank balance, and they mean opposite things.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Operating",
+            "icon": "gear",
+            "detail": "Collections less payments to suppliers, staff and tax. Sustainable cash generation lives here."
+          },
+          {
+            "label": "Investing",
+            "icon": "chartUp",
+            "detail": "Buying and selling long-lived assets — [[capex|capital expenditure]] is the big line."
+          },
+          {
+            "label": "Financing",
+            "icon": "coins",
+            "detail": "Cash from and to capital providers. A balance that rose entirely through financing had a bad year with a good ending."
+          }
+        ]
+      }
+    },
+    {
       "type": "concept",
       "id": "free-cash-flow",
       "body": "**[[free-cash-flow|Free cash flow]] is the cash left after the business has paid to keep itself running and to maintain its assets. It is the money that can actually service debt or reach an owner.**\n\nThe common version: operating cash flow minus capital expenditure. Simple, and it hides one important judgement — how much of the capex was *maintenance* (replacing what wore out) and how much was *growth* (adding capacity).\n\nThat distinction changes the number materially. A business spending 35 of capex, of which 15 is maintenance and 20 is expansion, has far more discretionary cash than the headline suggests: growth capex can be stopped, maintenance capex cannot for long.\n\n**Which is why the split is worth asking for even though it is a judgement.** Managements are usually willing to give it, and the answer tells you what the business looks like if it stops growing — which is precisely the scenario a lender cares about.\n\nBeware the variant question of *whose* free cash flow. Cash flow available to all capital providers is before interest; cash flow to equity is after. Comparing one company's pre-interest figure with another's post-interest figure produces nonsense, and it happens constantly.",
@@ -48,6 +73,38 @@
         "Sanity check worth reusing: **compare cumulative net income with cumulative operating cash flow over three to five years.** They should be roughly comparable in a stable business. A persistent gap means revenue is being recognised well before it is collected, or costs capitalised rather than expensed — either needs an explanation."
       ],
       "heading": "from net income to free cash flow"
+    },
+    {
+      "type": "infographic",
+      "id": "fcf-walk",
+      "caption": "22.5 of profit, −2.5 of cash, in the same year — and the maintenance split turns the story around.",
+      "spec": {
+        "kind": "steps",
+        "steps": [
+          {
+            "label": "Net income: 22.5",
+            "detail": "The accounting bottom line — the starting point, not the answer."
+          },
+          {
+            "label": "Add back D&A: 52.5",
+            "detail": "A real cost, not a cash payment this period."
+          },
+          {
+            "label": "Less working capital growth: 32.5",
+            "detail": "Growth tied up 20 of cash in receivables and inventory — operating cash flow."
+          },
+          {
+            "label": "Less capex 35: free cash flow −2.5",
+            "icon": "alert",
+            "detail": "Nothing improper happened. Growth absorbed the cash."
+          },
+          {
+            "label": "Split the capex: +17.5 before growth spending",
+            "icon": "coins",
+            "detail": "If 15 of the 35 was maintenance, the business is discretionary-cash-positive and choosing to invest. Ask for the split."
+          }
+        ]
+      }
     },
     {
       "type": "table",
@@ -92,6 +149,31 @@
       "id": "ebitda-is-not-cash",
       "body": "**\"EBITDA is a proxy for cash flow\" is the most expensive shorthand in finance.**\n\nWalk the gap in the worked company: EBITDA 80, less working capital 20, less capex 35, less interest 20, less tax 7.5 — and the free cash flow to equity is negative. **Every one of those deductions is a real payment that has to be made in cash.**\n\nEBITDA is genuinely useful for what it is: a comparison of operating performance across companies with different [[capital-structure|capital structures]], tax positions and asset ages. That is a real job and it is why the measure exists.\n\nWhat it is not is available money. A leverage multiple of 5.0x EBITDA sounds like five years of cash flow to repay the debt; in this company, at these numbers, it is never — because free cash flow is negative and the debt gets refinanced rather than repaid, which is the actual plan in most leveraged structures and is rarely stated as one.",
       "heading": "using EBITDA as cash flow"
+    },
+    {
+      "type": "infographic",
+      "id": "ebitda-to-cash",
+      "caption": "“EBITDA is a proxy for cash flow” is the most expensive shorthand in finance — walked on the worked company.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "EBITDA",
+            "stat": "80",
+            "detail": "Useful for comparing operations across capital structures — that is its real job."
+          },
+          {
+            "label": "The real payments",
+            "stat": "−82.5",
+            "detail": "Working capital 20, capex 35, interest 20, tax 7.5 — every one a payment that must be made in cash."
+          },
+          {
+            "label": "Free cash flow to equity",
+            "stat": "−2.5",
+            "detail": "5.0x EBITDA sounds like five years of repayment; at these numbers it is never — the debt gets refinanced, which is the actual plan."
+          }
+        ]
+      }
     },
     {
       "type": "onTheJob",

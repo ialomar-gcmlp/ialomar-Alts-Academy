@@ -22,6 +22,32 @@
       "heading": "What it is"
     },
     {
+      "type": "infographic",
+      "id": "debt-vs-equity",
+      "caption": "Two fundamentally different claims on the same business.",
+      "spec": {
+        "kind": "comparison",
+        "columns": [
+          {
+            "title": "Debt",
+            "bullets": [
+              "A contract: fixed payments, a maturity date, priority in a wind-up, no ownership",
+              "Cheaper — lower risk to the holder, and interest is usually deductible",
+              "Inflexible, and disciplining: the payments fall due whatever happens"
+            ]
+          },
+          {
+            "title": "Equity",
+            "bullets": [
+              "A residual: paid last, entitled to everything left over",
+              "Control rights and no repayment date",
+              "The only claim that absorbs losses without a covenant"
+            ]
+          }
+        ]
+      }
+    },
+    {
       "type": "concept",
       "id": "the-tradeoff",
       "body": "**The trade-off theory: debt adds value through the tax shield and subtracts it through the expected cost of financial distress. The optimum is where the next unit of debt costs more in distress risk than it saves in tax.**\n\nThe tax shield is arithmetic. Interest reduces taxable profit, so a company paying 20 of interest at a 25% tax rate saves 5 of tax a year. Real money, and the reason the after-tax cost of debt is what appears in a cost of capital calculation.\n\nDistress costs are less visible and larger than most models allow, and they begin well before insolvency:\n\n**Direct costs** — advisers, refinancing fees, the fees of a restructuring.\n\n**Indirect costs** — customers who will not sign long contracts with a company they think may fail, suppliers who tighten terms, staff who leave, competitors who exploit the constraint.\n\n**Opportunity costs** — the acquisition that could not be made, the capital spending deferred, the price cut that could not be matched.\n\n**Which is why the honest way to state the trade-off is not \"how much debt can we service?\" but \"how much debt can we service in a bad year while still competing normally?\"**",
@@ -32,6 +58,31 @@
       "id": "predictability-decides",
       "body": "**The single best predictor of how much debt a business can carry is not its margin or its growth. It is the predictability of its cash flow.**\n\nA regulated water utility with inflation-linked revenue can carry leverage that would destroy a fashion retailer with the same margins. Not because it is more profitable, but because the range of possible outcomes is narrower — and debt only fails in the bad tail.\n\nThis reframes leverage as a question about a distribution rather than a level. Two questions do most of the work:\n\n**How far can revenue fall before the interest cannot be paid?** In the worked company from the financial statements domain, [[ebitda|EBITDA]] of 80 against interest of 20 means EBITDA can fall 75% before interest is uncovered — which sounds comfortable until you note that capital spending and tax also have to be paid.\n\n**How correlated is the bad case with the credit market being closed?** A business whose revenue falls in a recession needs to refinance in a recession. That correlation is the mechanism behind most credit failures, and it is invisible in any single-scenario model.\n\n**So the useful sentence is: leverage is a bet that the cash flow distribution is narrower than the lender's [[covenant]] assumes.** Sometimes an excellent bet. Never a free one.",
       "heading": "Why predictability decides debt capacity"
+    },
+    {
+      "type": "infographic",
+      "id": "capacity-questions",
+      "caption": "Two questions do most of the debt-capacity work.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "How far can revenue fall?",
+            "icon": "chartUp",
+            "detail": "EBITDA of 80 against interest of 20 sounds comfortable — until capex and tax also have to be paid."
+          },
+          {
+            "label": "Is the bad case correlated with closed credit markets?",
+            "icon": "alert",
+            "detail": "A business whose revenue falls in a recession refinances in a recession — the mechanism behind most credit failures."
+          },
+          {
+            "label": "The honest sentence",
+            "icon": "docCheck",
+            "detail": "Leverage is a bet that the cash flow distribution is narrower than the lender's covenant assumes. Sometimes excellent, never free."
+          }
+        ]
+      }
     },
     {
       "type": "example",
@@ -47,6 +98,31 @@
         "Sanity check worth reusing: **the annual tax shield is interest times the tax rate.** At 20 of interest and 25% tax it is 5 a year. Compare it with the extra spread the company pays for being levered: if the debt costs 200bp more than an unlevered peer's would, that is 8 a year on 400 — and the shield has already been consumed."
       ],
       "heading": "the tax shield at work"
+    },
+    {
+      "type": "infographic",
+      "id": "shield-arithmetic",
+      "caption": "The same 50 of EBIT, two structures — the extra 5 came entirely from the tax authority.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "All equity",
+            "stat": "37.5",
+            "detail": "Tax at 25% on the full 50; everything after tax goes to shareholders."
+          },
+          {
+            "label": "With 400 of debt at 5%",
+            "stat": "42.5",
+            "detail": "20 of interest to lenders plus 22.5 to shareholders."
+          },
+          {
+            "label": "The tax shield",
+            "stat": "+5",
+            "detail": "Interest times the tax rate. Taken literally the arithmetic recommends 100% debt — what stops it is distress cost: near zero for a long stretch, then very large."
+          }
+        ]
+      }
     },
     {
       "type": "table",

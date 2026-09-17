@@ -28,10 +28,75 @@
       "heading": "The cash conversion cycle"
     },
     {
+      "type": "infographic",
+      "id": "cycle-equation",
+      "caption": "The worked company funds 73 days of its own operations — about 100 of cash, comparable to a year's EBITDA of 80.",
+      "spec": {
+        "kind": "equation",
+        "terms": [
+          {
+            "label": "[[dso|DSO]]",
+            "sublabel": "54.8 days",
+            "bullets": [
+              "Customers take about eight weeks to pay"
+            ]
+          },
+          {
+            "label": "[[dio|DIO]]",
+            "sublabel": "73.0 days",
+            "bullets": [
+              "Stock sits ten weeks — carried at cost, so the denominator is cost of goods sold"
+            ]
+          },
+          {
+            "label": "[[dpo|DPO]]",
+            "sublabel": "54.8 days",
+            "bullets": [
+              "The company takes the same eight weeks to pay its own suppliers"
+            ]
+          },
+          {
+            "label": "The cycle",
+            "sublabel": "73.0 days"
+          }
+        ],
+        "operators": [
+          "+",
+          "−",
+          "="
+        ]
+      }
+    },
+    {
       "type": "intuition",
       "id": "days-are-money",
       "body": "**Every day of the cycle has a price, and the conversion is one line of arithmetic: one day of revenue.**\n\nIn the worked company, revenue of 500 means one day is 500 ÷ 365 = 1.37 of cash. So a ten-day improvement in collection releases about 13.7 of cash — permanently, and without selling anything extra.\n\nThat reframing is what makes working capital a value creation lever rather than an accounting topic:\n\n**It is often the cheapest cash available.** No capital spending, no acquisition, no price increase. Just collecting faster or holding less stock.\n\n**It is the first thing a [[private-equity|private equity]] owner attacks**, precisely because it converts operational change into cash within one cycle rather than over years.\n\n**And it has a floor.** Pushing DSO down by refusing credit loses customers; stretching payables damages supplier relationships and eventually pricing; cutting inventory too far causes stockouts. **Every working capital improvement is a trade, and the honest question is what was given up to get it.**\n\nWhich leads to the diligence version: a business showing a sudden working capital improvement in the year before a sale has either found genuine efficiency or borrowed cash from its own future. The two look identical for about two quarters.",
       "heading": "Why days are money"
+    },
+    {
+      "type": "infographic",
+      "id": "day-conversion",
+      "caption": "Every day of the cycle has a price — one day of revenue.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "One day of revenue",
+            "stat": "1.37",
+            "detail": "500 ÷ 365 — compute this first, and every day-count converts into cash instantly."
+          },
+          {
+            "label": "Ten days of faster collection",
+            "stat": "13.7",
+            "detail": "About 17% of EBITDA, released permanently, without selling anything extra — the cheapest cash available."
+          },
+          {
+            "label": "The floor",
+            "icon": "alert",
+            "detail": "Refusing credit loses customers; stretching payables damages suppliers; cutting stock causes stockouts. Every improvement is a trade."
+          }
+        ]
+      }
     },
     {
       "type": "example",
@@ -92,6 +157,31 @@
       "id": "completion-mechanism",
       "body": "**Working capital is settled at every deal close, and it is where a surprising amount of money changes hands after the price is agreed.**\n\nThe mechanism: the parties agree a *normalised* level of working capital, usually a twelve-month average. At completion the actual level is measured. If it is below the target, the buyer pays less; above, the buyer pays more. The logic is that the buyer is entitled to receive the business with its usual amount of operating cash inside it.\n\nSo two things become worth real money. **The target level**, which is negotiated on historical data that the seller has prepared. And **the definition** of which items count — is accrued bonus working capital or debt? Is deferred revenue a liability that reduces the price or a normal operating item?\n\n**A 5 disagreement over the definition is 5 of cash on completion day**, and it is argued about long after the headline multiple has been signed off in a committee paper. This is why deal lawyers spend more time on the completion mechanism than on the price, and it is one of the most reliable places for an analyst to add value early.",
       "heading": "ignoring the completion mechanism"
+    },
+    {
+      "type": "infographic",
+      "id": "completion-money",
+      "caption": "Working capital is settled at every deal close — where money changes hands after the price is agreed.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "The target level",
+            "icon": "target",
+            "detail": "A normalised twelve-month average — negotiated on historical data the seller prepared."
+          },
+          {
+            "label": "The definition",
+            "icon": "docCheck",
+            "detail": "Is accrued bonus working capital or debt? Is deferred revenue a price reduction or a normal item?"
+          },
+          {
+            "label": "The stake",
+            "icon": "coins",
+            "detail": "A 5 disagreement over the definition is 5 of cash on completion day — argued long after the multiple was signed off."
+          }
+        ]
+      }
     },
     {
       "type": "onTheJob",

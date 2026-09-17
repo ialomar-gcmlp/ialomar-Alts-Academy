@@ -28,10 +28,80 @@
       "heading": "Control versus ownership"
     },
     {
+      "type": "infographic",
+      "id": "influence-kit",
+      "caption": "What determines actual influence — the question is never “how much do we own?” but “what can happen without our consent?”",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Board composition",
+            "icon": "case",
+            "detail": "Seats and who appoints the chair — a seat is worth more than several percent of equity."
+          },
+          {
+            "label": "Reserved matters",
+            "icon": "docCheck",
+            "detail": "Decisions needing your consent: new debt, acquisitions, share issuance, related-party transactions."
+          },
+          {
+            "label": "Anti-dilution",
+            "icon": "shield",
+            "detail": "Without it, the majority can issue cheap shares to itself and reduce you to insignificance."
+          },
+          {
+            "label": "Information rights",
+            "icon": "target",
+            "detail": "No information means no ability to exercise any other right."
+          },
+          {
+            "label": "Exit rights",
+            "icon": "arrow",
+            "detail": "[[tag-along|Tag-along]] protects you; [[drag-along|drag-along]] constrains you. They usually appear together."
+          }
+        ]
+      }
+    },
+    {
       "type": "intuition",
       "id": "incentives-are-the-policy",
       "body": "**Whatever a management team is paid on is what a management team will deliver. Everything else is a preference.**\n\nThis is worth taking literally, because the failures are so predictable that they can be read off the incentive plan in advance:\n\n**Paid on EPS** — expect buybacks and accretive acquisitions, whatever the price.\n\n**Paid on revenue growth** — expect volume at the expense of margin, and acquisitions.\n\n**Paid on [[ebitda|EBITDA]]** — expect cost capitalisation, generous adjustments, and deferred maintenance.\n\n**Paid on total shareholder return over three years** — expect actions that move the share price within three years, which is not the same as building durable value.\n\n**Paid on ROIC or economic profit** — expect capital discipline, and expect the plan to be complained about as too complicated.\n\nThe last one is the closest alignment available and the least common, precisely because it is the hardest to hit by accident.\n\n**In private markets the equivalent question is where the management equity sits and what it vests on.** A team with meaningful money in the deal on the same terms as the fund behaves differently from a team with an option package struck at a low reference price. And a team whose incentive pays out on an exit multiple rather than on cash returned will optimise for the appearance at the exit date — which is exactly when you are least able to check.",
       "heading": "Why incentives are the real policy"
+    },
+    {
+      "type": "infographic",
+      "id": "pay-predicts",
+      "caption": "Whatever a team is paid on is what it will deliver — readable off the incentive plan in advance.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Paid on EPS",
+            "icon": "chartUp",
+            "detail": "Expect buybacks and accretive acquisitions, whatever the price."
+          },
+          {
+            "label": "Paid on revenue growth",
+            "icon": "arrow",
+            "detail": "Expect volume at the expense of margin, and acquisitions."
+          },
+          {
+            "label": "Paid on EBITDA",
+            "icon": "gear",
+            "detail": "Expect cost capitalisation, generous adjustments, and deferred maintenance."
+          },
+          {
+            "label": "Paid on three-year TSR",
+            "icon": "clock",
+            "detail": "Expect what moves the share price within three years — not the same as durable value."
+          },
+          {
+            "label": "Paid on ROIC",
+            "icon": "check",
+            "detail": "Expect capital discipline — the closest alignment available and the least common."
+          }
+        ]
+      }
     },
     {
       "type": "example",
@@ -47,6 +117,32 @@
         "Sanity check worth reusing: **for any minority position, list what the majority can do without asking you.** If that list includes new debt, share issuance or related-party transactions, the percentage of equity you own is not the protection you think it is."
       ],
       "heading": "two 30% stakes, different rights"
+    },
+    {
+      "type": "infographic",
+      "id": "two-thirty-percents",
+      "caption": "Identical 30% stakes, identical price — one has a veto, the other has a vote in a minute.",
+      "spec": {
+        "kind": "comparison",
+        "columns": [
+          {
+            "title": "Fund A: the governance package",
+            "bullets": [
+              "Two of five board seats; consent over debt, acquisitions, issuance and plan changes",
+              "Monthly accounts, tag-along, pre-emption",
+              "Can block the related-party deal — or price its consent"
+            ]
+          },
+          {
+            "title": "Fund B: the standard documents",
+            "bullets": [
+              "One of five seats, an annual report, no consent rights",
+              "Objects at a board meeting and is outvoted",
+              "Finds out about the deterioration in an annual report, after the debt is drawn"
+            ]
+          }
+        ]
+      }
     },
     {
       "type": "table",

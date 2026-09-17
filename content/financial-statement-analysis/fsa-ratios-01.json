@@ -22,16 +22,114 @@
       "heading": "What it is"
     },
     {
+      "type": "infographic",
+      "id": "four-families",
+      "caption": "Four families, four questions — a business can be excellent in one and fatal in another.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Profitability",
+            "icon": "chartUp",
+            "detail": "Margins, ROE, return on capital — is the business earning enough on what it does?"
+          },
+          {
+            "label": "Efficiency",
+            "icon": "gear",
+            "detail": "Asset turnover, inventory turns, receivable days — how hard is the asset base working?"
+          },
+          {
+            "label": "Leverage",
+            "icon": "layers",
+            "detail": "Debt to EBITDA, debt to equity — how much of this is borrowed?"
+          },
+          {
+            "label": "Coverage and liquidity",
+            "icon": "shield",
+            "detail": "[[interest-coverage|Interest coverage]], the current ratio — can it pay what falls due? High margins with no coverage is the classic pre-crisis profile."
+          }
+        ]
+      }
+    },
+    {
       "type": "concept",
       "id": "coverage-first",
       "body": "**If you only have time for one ratio on a levered business, take interest coverage.**\n\nCoverage is operating earnings divided by the interest bill. It answers the only question that has a deadline: can this company pay its lenders out of what it earns?\n\nThere are two common versions and the difference is not cosmetic. **EBITDA / interest** is the lender's headline. **EBIT / interest** is stricter, because it takes account of the assets being consumed. In the worked company these are 4.0x and 2.5x — the same business, and one of those numbers would pass a [[covenant]] test the other would fail.\n\nWhy coverage beats leverage as a first read: a leverage multiple compares a stock of debt with a flow of earnings, so it implies a repayment period that usually is not the plan. Coverage compares a flow with a flow, and it maps directly onto a payment that must be made this quarter.\n\n**And it degrades fast.** In the worked company, a 20% fall in EBITDA takes coverage from 4.0x to 3.2x; a 200bp rise in the cost of floating-rate debt takes it lower again. Both at once is how covenant breaches happen, and both were foreseeable arithmetic.",
       "heading": "Coverage first"
     },
     {
+      "type": "infographic",
+      "id": "coverage-versions",
+      "caption": "If you only have time for one ratio on a levered business, take coverage — and note which version.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "EBITDA / interest",
+            "stat": "4.0x",
+            "detail": "The lender's headline — 80 over 20."
+          },
+          {
+            "label": "EBIT / interest",
+            "stat": "2.5x",
+            "detail": "Stricter, because it counts the assets being consumed. The same business, and one of these passes a covenant test the other fails."
+          },
+          {
+            "label": "EBITDA down 20%",
+            "stat": "3.2x",
+            "detail": "Coverage degrades fast — add a 200bp rise on floating debt and that is how covenant breaches happen, foreseeably."
+          }
+        ]
+      }
+    },
+    {
       "type": "intuition",
       "id": "dupont",
       "body": "**Return on equity is one number hiding three, and the DuPont identity separates them.**\n\nROE = net margin × asset turnover × equity multiplier.\n\n- **Net margin** — profit per unit of revenue. Pricing power and cost control.\n- **Asset turnover** — revenue per unit of assets. How hard the asset base works.\n- **Equity multiplier** — assets per unit of equity. Leverage.\n\nThe identity holds by construction: the revenues and assets cancel algebraically, leaving profit over equity. Which is exactly what makes it useful — **two companies can report the same ROE for completely different reasons, and only one of them is a good business.**\n\nA specialist manufacturer might reach 15% ROE on high margins and low turnover. A distributor reaches the same 15% on thin margins and rapid turnover. A third gets there on ordinary margins and three times the leverage.\n\n**The third one's ROE will fall apart in a downturn and the other two will not.** So the practical rule is that ROE without its decomposition is not evidence of quality — it is evidence that somebody multiplied three numbers together. Ask which of the three did the work.",
       "heading": "Why ROE is three numbers"
+    },
+    {
+      "type": "infographic",
+      "id": "dupont-decomposition",
+      "caption": "The worked company's 11.25% ROE, decomposed — the multiplier did the work.",
+      "spec": {
+        "kind": "equation",
+        "terms": [
+          {
+            "label": "Net margin",
+            "sublabel": "4.50%",
+            "bullets": [
+              "Pricing power and cost control"
+            ]
+          },
+          {
+            "label": "Asset turnover",
+            "sublabel": "0.833",
+            "bullets": [
+              "Revenue per unit of assets"
+            ]
+          },
+          {
+            "label": "Equity multiplier",
+            "sublabel": "3.0",
+            "bullets": [
+              "Leverage — assets per unit of equity"
+            ]
+          },
+          {
+            "label": "ROE",
+            "sublabel": "11.25%",
+            "bullets": [
+              "Strip the leverage and return on assets is 3.75%"
+            ]
+          }
+        ],
+        "operators": [
+          "×",
+          "×",
+          "="
+        ]
+      }
     },
     {
       "type": "formula",

@@ -20,10 +20,55 @@
       "heading": "What it is"
     },
     {
+      "type": "infographic",
+      "id": "three-views",
+      "caption": "Three views of the same business — and almost every confusion comes from mixing a flow with a stock.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "[[income-statement|Income statement]]",
+            "icon": "chartUp",
+            "detail": "Did it make money over the period? A flow, on an accrual basis — revenue when earned, not when the cash arrives."
+          },
+          {
+            "label": "[[balance-sheet|Balance sheet]]",
+            "icon": "layers",
+            "detail": "What does it own and owe at one instant? A stock, always equal by construction."
+          },
+          {
+            "label": "[[cash-flow-statement|Cash flow statement]]",
+            "icon": "coins",
+            "detail": "Where did the cash actually go? Operating, investing, financing — the one to read first."
+          }
+        ]
+      }
+    },
+    {
       "type": "concept",
       "id": "the-two-links",
       "body": "**Two links join the statements, and they are what makes the set a system rather than three reports.**\n\n**Link one: profit flows into equity.** Net income for the period increases [[retained-earnings|retained earnings]] on the balance sheet, less any dividend paid. So the balance sheet at the end of the year is the balance sheet at the start plus everything that happened in between.\n\n**Link two: the cash flow statement explains the change in the cash balance.** Opening cash plus operating plus investing plus financing equals closing cash. That closing figure appears on the balance sheet.\n\nThose two links let you check any set of statements for internal consistency, and — much more usefully — they let you *build* the statements forward. Every financial model in existence is these two links applied repeatedly.\n\nThe practical version: **if someone shows you a projection where profit rises and the balance sheet does not change, the model is not joined up.** Growth consumes [[working-capital|working capital]] and assets. Profit has to land somewhere.",
       "heading": "The two links between statements"
+    },
+    {
+      "type": "infographic",
+      "id": "two-links-diagram",
+      "caption": "Two links make the statements a system — every financial model is these two applied repeatedly.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Profit flows into equity",
+            "icon": "arrow",
+            "detail": "Net income increases [[retained-earnings|retained earnings]], less dividends — the closing balance sheet is the opening one plus everything between."
+          },
+          {
+            "label": "Cash flow explains the cash balance",
+            "icon": "coins",
+            "detail": "Opening cash + operating + investing + financing = closing cash, which appears on the balance sheet."
+          }
+        ]
+      }
     },
     {
       "type": "intuition",
@@ -45,6 +90,33 @@
         "Sanity check worth reusing: **work out what proportion of EBITDA is consumed by depreciation and interest.** Here it is 30 + 20 = 50 of 80, or 62%. A business handing over most of its operating cash flow to its assets and its lenders has very little margin for a bad year, and that ratio makes it visible in one line."
       ],
       "heading": "one company, three statements"
+    },
+    {
+      "type": "infographic",
+      "id": "pnl-cascade",
+      "caption": "Revenue 500 to net income 22.5 — 16% profitable at EBITDA, 4.5% at the bottom, and both are true.",
+      "spec": {
+        "kind": "steps",
+        "steps": [
+          {
+            "label": "Gross profit: 200",
+            "detail": "500 of revenue less 300 of cost of goods sold — a 40% gross margin."
+          },
+          {
+            "label": "EBITDA: 80",
+            "detail": "Less 120 of selling and administrative costs. A 16% margin, before the assets are paid for."
+          },
+          {
+            "label": "EBIT: 50",
+            "detail": "Less 30 of depreciation — operating profit after the cost of using up assets."
+          },
+          {
+            "label": "Net income: 22.5",
+            "icon": "coins",
+            "detail": "Less 20 of interest and 7.5 of tax. Depreciation and interest consumed 62% of EBITDA — very little margin for a bad year."
+          }
+        ]
+      }
     },
     {
       "type": "table",

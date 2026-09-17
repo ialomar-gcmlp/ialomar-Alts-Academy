@@ -22,6 +22,31 @@
       "heading": "What it is"
     },
     {
+      "type": "infographic",
+      "id": "net-debt-qualifications",
+      "caption": "Net debt is gross borrowings less cash — with two qualifications that get skipped.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Not all cash is available",
+            "icon": "lock",
+            "detail": "Restricted, trapped in subsidiaries, or needed for operations — netting it against group debt is optimistic."
+          },
+          {
+            "label": "Not all obligations are in the debt line",
+            "icon": "layers",
+            "detail": "Leases, pension deficits, deferred consideration, factored receivables, supplier finance — the payments are equally compulsory."
+          },
+          {
+            "label": "The working definition",
+            "icon": "docCheck",
+            "detail": "Anything the company must pay regardless of how trading goes is debt for analytical purposes."
+          }
+        ]
+      }
+    },
+    {
       "type": "concept",
       "id": "leases",
       "body": "**A long lease is a financing arrangement wearing an operating costume.**\n\nA company that signs a fifteen-year lease on a distribution centre has committed to a stream of payments as surely as if it had borrowed to buy the building. Under current standards most such leases appear on the balance sheet as a right-of-use asset and a lease liability, which is a considerable improvement on the era when they sat only in the notes.\n\nBut it produces an effect worth understanding, because it moves [[ebitda|EBITDA]]. **Rent used to be an operating cost, deducted before EBITDA. A capitalised lease splits into [[depreciation]] and interest, both below the EBITDA line.** So the same business reports higher EBITDA under lease capitalisation, with identical cash payments.\n\nThe consequences:\n\n**Leverage multiples fall mechanically** unless the lease liability is added to debt — which is why comparisons across the transition, or across standards, need care.\n\n**Lease-heavy sectors are most affected.** Retail, restaurants, logistics, healthcare facilities. In these, the lease liability can rival or exceed the borrowings.\n\n**And the old rule of thumb survives for a reason.** Capitalising rent at a multiple — commonly 8x — gives a quick debt-equivalent when the disclosure is thin or non-comparable, and it is close enough to be useful in a first pass.",
@@ -32,6 +57,36 @@
       "id": "maturity-is-the-risk",
       "body": "**The amount of debt determines the interest bill. The maturity profile determines whether the company survives.**\n\nThis distinction does more work than any leverage multiple. A company at 6x with no maturity for six years and a fixed rate has time to grow into its balance sheet. A company at 3x with everything due in fourteen months is dependent on the credit market being open on a specific date — and it may not be.\n\nSo the questions that actually matter about a debt stack:\n\n**When does it mature, and how much at once?** A concentrated maturity is a single point of failure with a date attached.\n\n**Fixed or floating?** Floating passes rate rises straight into the interest bill; fixed defers them to refinancing.\n\n**Secured or unsecured, and where does it sit?** [[seniority|Seniority]] decides who gets paid in a restructuring, which decides who controls it.\n\n**What has to be true for the refinancing to happen?** A [[covenant]] that must be met, a rating that must hold, an asset sale that must complete.\n\n**The honest summary: a debt stack is a schedule of dates, and the analysis is about the dates rather than the total.** Leverage tells you how heavy the load is; maturity tells you when you have to carry it up the stairs.",
       "heading": "Why maturity is the risk"
+    },
+    {
+      "type": "infographic",
+      "id": "debt-stack-questions",
+      "caption": "A debt stack is a schedule of dates — the analysis is about the dates, not the total.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "When does it mature, and how much at once?",
+            "icon": "clock",
+            "detail": "A concentrated maturity is a single point of failure with a date attached."
+          },
+          {
+            "label": "Fixed or floating?",
+            "icon": "gear",
+            "detail": "Floating passes rate rises straight into the interest bill; fixed defers them to refinancing."
+          },
+          {
+            "label": "Secured, and where does it sit?",
+            "icon": "shield",
+            "detail": "[[seniority|Seniority]] decides who is paid in a restructuring — which decides who controls it."
+          },
+          {
+            "label": "What must be true to refinance?",
+            "icon": "alert",
+            "detail": "A covenant met, a rating held, an asset sale completed."
+          }
+        ]
+      }
     },
     {
       "type": "example",
@@ -48,6 +103,33 @@
         "Sanity check worth reusing: **in any lease-heavy business, compute fixed-charge cover including rent before believing an [[interest-coverage|interest coverage]] ratio.** Rent is as compulsory as interest and is far easier to overlook, because it never appears in a debt schedule."
       ],
       "heading": "leverage with the leases back in"
+    },
+    {
+      "type": "infographic",
+      "id": "lease-adjustment",
+      "caption": "The same company, the same payments — and 0.69 of a turn more leverage once the leases are visible.",
+      "spec": {
+        "kind": "steps",
+        "steps": [
+          {
+            "label": "Reported leverage: 5.00x",
+            "detail": "400 of debt over 80 of EBITDA — with 24 a year of rent invisible in the debt line."
+          },
+          {
+            "label": "Capitalise the rent at 8x: 192",
+            "detail": "The quick debt-equivalent when disclosure is thin."
+          },
+          {
+            "label": "Adjusted leverage: 5.69x",
+            "detail": "(400 + 192) over 104 — rent added back to EBITDA since the obligation is now financing."
+          },
+          {
+            "label": "Fixed-charge cover: 2.36x",
+            "icon": "alert",
+            "detail": "104 over interest plus rent of 44 — against a 4.00x headline. Rent is as compulsory as interest and far easier to overlook."
+          }
+        ]
+      }
     },
     {
       "type": "table",
