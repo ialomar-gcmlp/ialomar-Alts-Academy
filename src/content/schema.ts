@@ -106,6 +106,138 @@ export const chartSpecSchema = z
   );
 
 /* ------------------------------------------------------------------ *
+ * Infographics
+ *
+ * Declarative structures rendered as themed DOM (src/ui/blocks/Infographic.tsx) —
+ * never images, so dark mode, the brand, offline and glossary popovers all keep
+ * working. The seven kinds were extracted from the user's example infographics;
+ * every text field here is prose (may carry [[term]] refs and **bold**) and MUST be
+ * walked in collectProse (walk.ts) — that switch is not exhaustiveness-checked, so
+ * forgetting it silently disables glossary validation for diagram labels.
+ * ------------------------------------------------------------------ */
+
+const infographicIconSchema = z.string().min(1);
+
+export const infographicSpecSchema = z.discriminatedUnion("kind", [
+  /** A = B + C, optionally expanded into component panels with bullets, optionally
+   *  followed by a result banner ("returns come from ... completing"). */
+  z.object({
+    kind: z.literal("equation"),
+    terms: z
+      .array(
+        z.object({
+          label: proseSchema,
+          sublabel: proseSchema.optional(),
+          icon: infographicIconSchema.optional(),
+          bullets: z.array(proseSchema).min(1).max(4).optional(),
+        }),
+      )
+      .min(2)
+      .max(4),
+    /** One glyph between each pair of terms: =, +, −, ×, →. */
+    operators: z.array(z.enum(["=", "+", "−", "×", "→"])).min(1),
+    result: proseSchema.optional(),
+  }).superRefine((spec, ctx) => {
+    if (spec.operators.length !== spec.terms.length - 1) {
+      ctx.addIssue({
+        code: "custom",
+        path: ["operators"],
+        message: `an equation with ${spec.terms.length} terms needs exactly ${spec.terms.length - 1} operators`,
+      });
+    }
+  }),
+
+  /** Numbered sequence with arrows — "how it works", orders of operations. */
+  z.object({
+    kind: z.literal("steps"),
+    steps: z
+      .array(
+        z.object({
+          label: proseSchema,
+          detail: proseSchema,
+          icon: infographicIconSchema.optional(),
+        }),
+      )
+      .min(2)
+      .max(6),
+  }),
+
+  /** Grid of tiles: key characteristics, risk families, structural choices. A tile
+   *  carries an icon OR a big stat string ("20–40%"), not both. */
+  z.object({
+    kind: z.literal("facts"),
+    tiles: z
+      .array(
+        z.object({
+          label: proseSchema,
+          detail: proseSchema.optional(),
+          icon: infographicIconSchema.optional(),
+          stat: z.string().min(1).optional(),
+        }),
+      )
+      .min(2)
+      .max(6),
+  }),
+
+  /** Labelled points on a line, exactly one highlighted (VC — GROWTH — buyout). */
+  z.object({
+    kind: z.literal("spectrum"),
+    points: z
+      .array(
+        z.object({
+          label: proseSchema,
+          sublabel: proseSchema.optional(),
+          highlight: z.boolean().optional(),
+        }),
+      )
+      .min(3)
+      .max(5),
+  }),
+
+  /** Side-by-side columns; a column may carry a ✓/✗ mark or a mini chart. */
+  z.object({
+    kind: z.literal("comparison"),
+    columns: z
+      .array(
+        z.object({
+          title: proseSchema,
+          bullets: z.array(proseSchema).min(1).max(5),
+          mark: z.enum(["check", "cross"]).optional(),
+          spec: chartSpecSchema.optional(),
+        }),
+      )
+      .min(2)
+      .max(3),
+  }),
+
+  /** Stages around a loop — feedback loops, the economic cycle. */
+  z.object({
+    kind: z.literal("cycle"),
+    stages: z
+      .array(z.object({ label: proseSchema, detail: proseSchema.optional() }))
+      .min(3)
+      .max(6),
+  }),
+
+  /** Ordered layers — waterfall tiers, capital-structure seniority. */
+  z.object({
+    kind: z.literal("stack"),
+    layers: z
+      .array(
+        z.object({
+          label: proseSchema,
+          sublabel: proseSchema.optional(),
+          emphasis: z.boolean().optional(),
+        }),
+      )
+      .min(2)
+      .max(6),
+    /** Reading direction, e.g. "paid first → paid last". */
+    axis: z.string().min(1).optional(),
+  }),
+]);
+
+/* ------------------------------------------------------------------ *
  * Lesson blocks
  * ------------------------------------------------------------------ */
 
@@ -156,6 +288,14 @@ export const lessonBlockSchema = z.discriminatedUnion("type", [
     id: blockIdSchema,
     caption: z.string().min(1),
     spec: chartSpecSchema,
+    annotation: proseSchema.optional(),
+  }),
+
+  z.object({
+    type: z.literal("infographic"),
+    id: blockIdSchema,
+    caption: z.string().min(1),
+    spec: infographicSpecSchema,
     annotation: proseSchema.optional(),
   }),
 
@@ -512,6 +652,7 @@ export type ChartSpec = z.infer<typeof chartSpecSchema>;
 export type LessonBlock = z.infer<typeof lessonBlockSchema>;
 export type LessonBlockType = LessonBlock["type"];
 export type Question = z.infer<typeof questionSchema>;
+export type InfographicSpec = z.infer<typeof infographicSpecSchema>;
 export type QuestionType = Question["type"];
 export type ImplementedQuestionType = (typeof IMPLEMENTED_QUESTION_TYPES)[number];
 export type VignetteSubQuestion = z.infer<typeof vignetteSubSchema>;

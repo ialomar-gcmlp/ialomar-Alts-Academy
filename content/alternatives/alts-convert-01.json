@@ -5,9 +5,15 @@
   "title": "Convertible Arbitrage",
   "summary": "Buy the convertible bond, short the stock it converts into, and get paid for the volatility the market underprices.",
   "level": "advanced",
-  "prereqs": ["alts-lse-01"],
+  "prereqs": [
+    "alts-lse-01"
+  ],
   "estMinutes": 10,
-  "examRelevance": ["CAIA-L1", "CAIA-L2", "practical"],
+  "examRelevance": [
+    "CAIA-L1",
+    "CAIA-L2",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
@@ -15,9 +21,74 @@
       "body": "A [[convertible-bond]] is a bond that the holder can exchange for a fixed number of the issuer's shares. It is therefore two things at once: a bond paying interest, and a call option on the equity.\n\n[[convertible-arbitrage]] separates them. The manager buys the convertible and shorts the underlying stock in a ratio chosen so that small share price moves have little net effect. What remains is the parts of the bond the market has priced badly — typically its volatility component and its credit component.\n\nThe hedge ratio is the option's [[delta]]: the sensitivity of the convertible's value to the share price. If a bond converts into 20 shares and its delta is 0.60, the manager shorts 20 × 0.60 = **12 shares per bond**. For 500 bonds, that is 6,000 shares short.\n\nCrucially, delta changes as the share price moves, so the hedge must be adjusted continuously. That adjustment is not an administrative chore — as the next section explains, it is where a large part of the return comes from."
     },
     {
+      "type": "infographic",
+      "id": "anatomy-diagram",
+      "caption": "The anatomy of a convertible arbitrage position.",
+      "spec": {
+        "kind": "equation",
+        "terms": [
+          {
+            "label": "Long the [[convertible-bond]]",
+            "sublabel": "a bond plus a call option",
+            "icon": "coins",
+            "bullets": [
+              "Pays interest while held",
+              "Contains a call option on the issuer's equity"
+            ]
+          },
+          {
+            "label": "Short the stock",
+            "sublabel": "[[delta]] × conversion ratio",
+            "icon": "chartUp",
+            "bullets": [
+              "Sized so small share moves have little net effect",
+              "Adjusted continuously as delta changes"
+            ]
+          },
+          {
+            "label": "What remains",
+            "sublabel": "the position the manager wants",
+            "bullets": [
+              "The volatility component, often issued cheap",
+              "The credit component — hedged separately or retained"
+            ]
+          }
+        ],
+        "operators": [
+          "+",
+          "="
+        ]
+      }
+    },
+    {
       "type": "concept",
       "id": "return-driver",
       "body": "**The primary return driver is being long volatility cheaply.** Convertible bonds are often issued at [[implied-volatility|implied volatilities]] below what the stock actually delivers, because the issuer is selling the option as part of a financing package rather than pricing it competitively as an option.\n\nHow does long volatility turn into cash? Through **[[gamma]] trading**. Because delta rises as the stock rises and falls as it falls, a delta-hedged position mechanically sells shares into strength and buys them back into weakness. Each round trip banks a small profit, and the more the stock moves — in either direction — the more round trips occur. The manager is paid for realised movement, not for direction.\n\nTwo further components:\n\n- **[[carry|Carry]].** The bond pays a coupon while the short stock position earns a [[short-rebate]], less borrow costs. In a high-rate environment this is meaningful.\n- **Credit.** The bond is a corporate obligation, so some of the return is credit spread. Managers may hedge this separately or deliberately retain it.\n\nAnd note what is absent: **the manager has no view on the share price.** They want it to move."
+    },
+    {
+      "type": "infographic",
+      "id": "strategy-steps",
+      "caption": "How the strategy works.",
+      "spec": {
+        "kind": "steps",
+        "steps": [
+          {
+            "label": "Buy the convertible",
+            "icon": "coins",
+            "detail": "Often issued at [[implied-volatility]] below what the stock delivers — the issuer is financing, not pricing an option competitively."
+          },
+          {
+            "label": "Short the underlying",
+            "icon": "chartUp",
+            "detail": "Delta times the conversion ratio: 20 shares at a delta of 0.60 means 12 shares short per bond."
+          },
+          {
+            "label": "Trade the hedge",
+            "icon": "gear",
+            "detail": "[[gamma]] trading: rebalancing sells into strength and buys into weakness, so the position is paid for movement, not direction."
+          }
+        ]
+      }
     },
     {
       "type": "example",
@@ -41,7 +112,11 @@
       "type": "table",
       "id": "environments",
       "caption": "What helps and what hurts",
-      "headers": ["Environment", "Effect", "Why"],
+      "headers": [
+        "Environment",
+        "Effect",
+        "Why"
+      ],
       "rows": [
         [
           "High realised volatility with stable credit",
@@ -106,7 +181,11 @@
       "id": "alts-convert-01-q1",
       "type": "numeric",
       "difficulty": 2,
-      "tags": ["convertible-arbitrage", "delta", "hedging"],
+      "tags": [
+        "convertible-arbitrage",
+        "delta",
+        "hedging"
+      ],
       "concept": "worked-hedge",
       "stem": "A convertible bond converts into 20 shares and has a delta of 0.60. How many shares should be shorted per bond to be delta neutral?",
       "answer": 12,
@@ -120,7 +199,11 @@
       "id": "alts-convert-01-q2",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["convertible-arbitrage", "gamma", "return-driver"],
+      "tags": [
+        "convertible-arbitrage",
+        "gamma",
+        "return-driver"
+      ],
       "concept": "return-driver",
       "stem": "How does a delta-hedged convertible position actually convert volatility into profit?",
       "choices": [
@@ -142,7 +225,11 @@
       "id": "alts-convert-01-q3",
       "type": "tfj",
       "difficulty": 3,
-      "tags": ["convertible-arbitrage", "hedging", "misconception"],
+      "tags": [
+        "convertible-arbitrage",
+        "hedging",
+        "misconception"
+      ],
       "concept": "delta-neutral-illusion",
       "stem": "\"The book is delta neutral, so it is hedged.\" True or false — and why?",
       "isTrue": false,
@@ -165,7 +252,11 @@
       "id": "alts-convert-01-q4",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["convertible-arbitrage", "credit", "how-it-blows-up"],
+      "tags": [
+        "convertible-arbitrage",
+        "credit",
+        "how-it-blows-up"
+      ],
       "concept": "why-it-breaks",
       "stem": "Credit spreads widen sharply. Why does a delta-hedged convertible book lose money?",
       "choices": [
@@ -187,7 +278,11 @@
       "id": "alts-convert-01-q5",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["convertible-arbitrage", "borrow", "how-it-blows-up"],
+      "tags": [
+        "convertible-arbitrage",
+        "borrow",
+        "how-it-blows-up"
+      ],
       "concept": "how-it-blows-up",
       "stem": "A regulator temporarily bans short selling in financial stocks. What does that do to a convertible arbitrage book holding bank convertibles?",
       "choices": [
@@ -209,7 +304,11 @@
       "id": "alts-convert-01-q6",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["convertible-arbitrage", "issuance", "environments"],
+      "tags": [
+        "convertible-arbitrage",
+        "issuance",
+        "environments"
+      ],
       "concept": "environments",
       "stem": "Why does heavy new convertible issuance tend to help the strategy?",
       "choices": [

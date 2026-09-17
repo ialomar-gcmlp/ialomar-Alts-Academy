@@ -14,6 +14,7 @@ import type { LessonBlock } from "../../content/schema";
 import { Callout } from "../primitives";
 import { Icon } from "../icons";
 import { Chart } from "../charts/Chart";
+import { Infographic } from "./Infographic";
 import { Formula } from "../Formula";
 import { Inline, Prose } from "../Prose";
 
@@ -144,6 +145,21 @@ export function LessonBlockView({ block }: { block: LessonBlock }) {
         </div>
       );
 
+    case "infographic":
+      return (
+        <figure className="my-6">
+          <Infographic spec={block.spec} />
+          <figcaption className="mt-2 max-w-measure text-[13px] text-fg-muted">
+            {block.caption}
+          </figcaption>
+          {block.annotation !== undefined && (
+            <p className="mt-2 max-w-measure text-[14px] leading-relaxed text-fg-muted">
+              <Inline text={block.annotation} />
+            </p>
+          )}
+        </figure>
+      );
+
     case "keyTakeaways":
       return (
         <div className="my-6 overflow-hidden rounded-xl border border-correct/30 bg-correct-soft/40">
@@ -163,6 +179,15 @@ export function LessonBlockView({ block }: { block: LessonBlock }) {
           </ul>
         </div>
       );
+
+    default: {
+      // A new block type that reaches here would render nothing, silently. This
+      // turns that into a compile error the moment the schema variant exists —
+      // the switch's ReactNode return type admits undefined, so TS does not
+      // enforce coverage on its own (M10 finding).
+      const unhandled: never = block;
+      return unhandled;
+    }
   }
 }
 

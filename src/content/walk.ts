@@ -49,6 +49,61 @@ export function collectProse(topic: Topic): ProseField[] {
         push(`${at}.caption`, block.caption);
         push(`${at}.annotation`, block.annotation);
         break;
+      case "infographic": {
+        // Every human-readable field, or its [[terms]] silently skip validation AND
+        // can make a term look orphaned — this switch is not exhaustiveness-checked,
+        // so this case exists by discipline, not by compiler (see schema comment).
+        push(`${at}.caption`, block.caption);
+        push(`${at}.annotation`, block.annotation);
+        const spec = block.spec;
+        switch (spec.kind) {
+          case "equation":
+            spec.terms.forEach((t, j) => {
+              push(`${at}.terms[${j}].label`, t.label);
+              push(`${at}.terms[${j}].sublabel`, t.sublabel);
+              t.bullets?.forEach((b, k) => push(`${at}.terms[${j}].bullets[${k}]`, b));
+            });
+            push(`${at}.result`, spec.result);
+            break;
+          case "steps":
+            spec.steps.forEach((st, j) => {
+              push(`${at}.steps[${j}].label`, st.label);
+              push(`${at}.steps[${j}].detail`, st.detail);
+            });
+            break;
+          case "facts":
+            spec.tiles.forEach((t, j) => {
+              push(`${at}.tiles[${j}].label`, t.label);
+              push(`${at}.tiles[${j}].detail`, t.detail);
+            });
+            break;
+          case "spectrum":
+            spec.points.forEach((pt, j) => {
+              push(`${at}.points[${j}].label`, pt.label);
+              push(`${at}.points[${j}].sublabel`, pt.sublabel);
+            });
+            break;
+          case "comparison":
+            spec.columns.forEach((c, j) => {
+              push(`${at}.columns[${j}].title`, c.title);
+              c.bullets.forEach((b, k) => push(`${at}.columns[${j}].bullets[${k}]`, b));
+            });
+            break;
+          case "cycle":
+            spec.stages.forEach((st, j) => {
+              push(`${at}.stages[${j}].label`, st.label);
+              push(`${at}.stages[${j}].detail`, st.detail);
+            });
+            break;
+          case "stack":
+            spec.layers.forEach((l, j) => {
+              push(`${at}.layers[${j}].label`, l.label);
+              push(`${at}.layers[${j}].sublabel`, l.sublabel);
+            });
+            break;
+        }
+        break;
+      }
       case "keyTakeaways":
         block.items.forEach((s, j) => push(`${at}.items[${j}]`, s));
         break;

@@ -5,9 +5,15 @@
   "title": "Quantitative and Statistical Arbitrage",
   "summary": "Thousands of tiny systematic bets with a small edge each, where the risk is that everyone found the same signal.",
   "level": "advanced",
-  "prereqs": ["alts-emn-01"],
+  "prereqs": [
+    "alts-emn-01"
+  ],
   "estMinutes": 10,
-  "examRelevance": ["CAIA-L1", "CAIA-L2", "practical"],
+  "examRelevance": [
+    "CAIA-L1",
+    "CAIA-L2",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
@@ -20,15 +26,75 @@
       "body": "**The return driver is a small statistical edge applied across a very large number of independent bets.**\n\nThe arithmetic is the appeal. A 52% hit rate on one trade is indistinguishable from noise. The same edge across 5,000 trades is highly reliable — the same logic that makes a casino's small house edge a dependable business.\n\nThat framing makes the two genuine risks obvious:\n\n1. **The edge decays.** Signals stop working as others discover them, as markets change, or as the inefficiency is arbitraged away. A statistical edge is not a law of nature; it is a temporary feature of a market's structure.\n2. **The bets are not as independent as assumed.** Breadth only delivers reliability if outcomes are genuinely unrelated. When positions share a hidden common factor, 5,000 bets behave like one bet, and the arithmetic that made the strategy attractive stops applying.\n\nAlmost every serious statistical arbitrage failure is one of those two, and the second is the one that happens suddenly."
     },
     {
+      "type": "infographic",
+      "id": "edge-arithmetic",
+      "caption": "The arithmetic of the edge — and the two ways it fails.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "A small edge per position",
+            "stat": "52%",
+            "detail": "A 52% hit rate on one trade is indistinguishable from noise."
+          },
+          {
+            "label": "Enormous breadth",
+            "stat": "5,000",
+            "detail": "The same edge across 5,000 trades is highly reliable — a casino's house edge."
+          },
+          {
+            "label": "The edge decays",
+            "icon": "alert",
+            "detail": "Signals stop working as others discover them or the inefficiency is arbitraged away."
+          },
+          {
+            "label": "Hidden common factors",
+            "icon": "layers",
+            "detail": "When positions share a factor, 5,000 bets behave like one bet."
+          }
+        ]
+      }
+    },
+    {
       "type": "intuition",
       "id": "crowding",
       "body": "The distinctive risk of this strategy is **crowding**, and it deserves stating precisely because it is not obvious.\n\nSuppose ten funds independently analyse the same public data with similar techniques and reasonable competence. They will discover similar signals — not because they copied each other, but because the data supports a limited number of findings. So they hold similar positions without any coordination.\n\nNow one of them suffers losses elsewhere and must reduce risk. Their selling pushes prices against the shared positions. The other nine now show losses, so their risk systems reduce too. That selling moves prices further. **A mechanical feedback loop, with no fundamental news at all.**\n\nThis is what happened in the quant deleveraging of August 2007: several days of severe losses across market neutral quantitative funds whose individual positions were, on their own terms, correctly hedged and within limits.\n\nThe lesson generalises beyond this strategy. **Risk systems that measure your own positions cannot see how many other people hold them.** Position-level risk management is blind to exactly the risk that matters most here, which is why crowding has to be assessed separately and qualitatively."
     },
     {
+      "type": "infographic",
+      "id": "crowding-loop",
+      "caption": "The mechanical feedback loop of crowding — the August 2007 quant deleveraging, with no fundamental news at all.",
+      "spec": {
+        "kind": "cycle",
+        "stages": [
+          {
+            "label": "One fund must reduce risk",
+            "detail": "Losses elsewhere force it to sell its positions."
+          },
+          {
+            "label": "Prices move against the shared positions",
+            "detail": "Ten funds found the same signals in the same public data."
+          },
+          {
+            "label": "Other funds show losses",
+            "detail": "Their risk systems now force selling too."
+          },
+          {
+            "label": "More selling moves prices further",
+            "detail": "Position-level risk systems cannot see who else holds the trade."
+          }
+        ]
+      }
+    },
+    {
       "type": "table",
       "id": "environments",
       "caption": "What helps and what hurts",
-      "headers": ["Environment", "Effect", "Why"],
+      "headers": [
+        "Environment",
+        "Effect",
+        "Why"
+      ],
       "rows": [
         [
           "High dispersion with mean-reverting prices",
@@ -93,7 +159,11 @@
       "id": "alts-statarb-01-q1",
       "type": "numeric",
       "difficulty": 2,
-      "tags": ["statistical-arbitrage", "pairs-trading", "z-score"],
+      "tags": [
+        "statistical-arbitrage",
+        "pairs-trading",
+        "z-score"
+      ],
       "concept": "what-it-is",
       "stem": "A pair's spread normally averages zero with a standard deviation of 1.5%. It currently stands at 3.3%. What is the z-score?",
       "answer": 2.2,
@@ -106,7 +176,11 @@
       "id": "alts-statarb-01-q2",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["statistical-arbitrage", "return-driver", "breadth"],
+      "tags": [
+        "statistical-arbitrage",
+        "return-driver",
+        "breadth"
+      ],
       "concept": "return-driver",
       "stem": "A quant manager reports a hit rate of 52% on individual trades. What should you conclude?",
       "choices": [
@@ -128,7 +202,11 @@
       "id": "alts-statarb-01-q3",
       "type": "tfj",
       "difficulty": 4,
-      "tags": ["statistical-arbitrage", "crowding", "risk-management"],
+      "tags": [
+        "statistical-arbitrage",
+        "crowding",
+        "risk-management"
+      ],
       "concept": "crowding",
       "stem": "\"Every position was within risk limits and the book was factor neutral, so the four-day 9% loss was unforeseeable.\" True or false — and why?",
       "isTrue": false,
@@ -151,7 +229,11 @@
       "id": "alts-statarb-01-q4",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["statistical-arbitrage", "backtest", "overfitting"],
+      "tags": [
+        "statistical-arbitrage",
+        "backtest",
+        "overfitting"
+      ],
       "concept": "backtest",
       "stem": "A manager shows a 15-year backtest with a Sharpe ratio of 2.4, developed by testing several thousand signal variants. What does the backtest tell you?",
       "choices": [
@@ -173,7 +255,10 @@
       "id": "alts-statarb-01-q5",
       "type": "strategyId",
       "difficulty": 4,
-      "tags": ["statistical-arbitrage", "strategy-identification"],
+      "tags": [
+        "statistical-arbitrage",
+        "strategy-identification"
+      ],
       "concept": "crowding",
       "description": "A fund holds around 3,000 equity positions, roughly half long and half short, with sector and market exposures constrained near zero and average holding periods of about six days. Gross exposure runs near 500%. Over five years it returned a steady 9% annualised with 6% volatility — then lost 9% in four days during which the equity market was flat and no company-specific news affected its holdings.",
       "choices": [
@@ -195,7 +280,11 @@
       "id": "alts-statarb-01-q6",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["statistical-arbitrage", "capacity", "on-the-job"],
+      "tags": [
+        "statistical-arbitrage",
+        "capacity",
+        "on-the-job"
+      ],
       "concept": "how-it-blows-up",
       "stem": "Why can growth in assets under management destroy a statistical arbitrage strategy's edge?",
       "choices": [

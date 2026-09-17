@@ -7,7 +7,11 @@
   "level": "foundation",
   "prereqs": [],
   "estMinutes": 9,
-  "examRelevance": ["CAIA-L1", "CAIA-L2", "practical"],
+  "examRelevance": [
+    "CAIA-L1",
+    "CAIA-L2",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
@@ -20,6 +24,32 @@
       "body": "**The GP controls almost everything that determines the outcome.** Worth being explicit about the list, because it is longer than people expect:\n\n- which investments to make, at what price, and with how much leverage\n- when to sell, and therefore when the LP gets money back\n- when to call capital, and therefore how long the LP's money is outstanding\n- **the valuation of everything not yet sold** — which is what the LP's reported performance is based on\n\n**The LP controls two things.** The decision to commit in the first place, and the terms agreed at that point.\n\nThat asymmetry is not a scandal; it is the deal. The LP is buying access to a capability it does not have, and delegation is the mechanism. But it explains why the terms matter so much more here than in a public market investment. If you buy a listed share and dislike what management does, you sell. If you commit to a ten-year fund and dislike what the GP does, you wait."
     },
     {
+      "type": "infographic",
+      "id": "who-decides",
+      "caption": "The asymmetry is the deal: the LP is buying access to a capability it does not have, and delegation is the mechanism.",
+      "spec": {
+        "kind": "comparison",
+        "columns": [
+          {
+            "title": "The [[general-partner]] decides",
+            "bullets": [
+              "Which investments, at what price, with how much leverage",
+              "When to sell — and therefore when the LP gets money back",
+              "When to call capital — and so how long the LP's money is outstanding",
+              "**The valuation of everything not yet sold**"
+            ]
+          },
+          {
+            "title": "The [[limited-partner]] decides",
+            "bullets": [
+              "Whether to commit in the first place",
+              "The terms agreed at that point — then it waits, for up to ten years"
+            ]
+          }
+        ]
+      }
+    },
+    {
       "type": "intuition",
       "id": "where-alignment-breaks",
       "body": "GPs and LPs are described as aligned, and mostly they are: the GP earns most of its money from [[carried-interest]], which requires the fund to perform. That is a genuine alignment and it is stronger than in most of finance.\n\nBut **alignment is not identity**, and the gaps are predictable. Learn them as a list, because each one has a term designed to address it.\n\n**Fund size versus returns.** [[management-fee|Management fees]] scale with assets; returns usually do not. A GP raising a fund three times larger earns three times the fees whether or not the larger fund performs. The LP wants the fund sized to the opportunity; the GP has a reason to want it larger.\n\n**Deployment pace.** Fees are often charged on committed capital, so a GP earns whether or not money is working. But an unspent fund also cannot raise the next one — which pushes the other way, toward deploying even when prices are high.\n\n**Timing of exits.** A GP approaching a fundraise has a reason to realise something and show [[dpi|DPI]]. That may or may not be the right moment for the asset.\n\n**Valuation of what is unsold.** The GP marks its own portfolio, and those marks affect its ability to raise the next fund. There is no suggestion of dishonesty in noting that the person being measured is holding the ruler.\n\n**The core insight: every major term in a partnership agreement exists because of one of these gaps.** Read the terms as a list of the ways the two sides' interests diverge, and the document stops being boilerplate."
@@ -28,7 +58,11 @@
       "type": "table",
       "id": "the-terms-map",
       "caption": "Which term addresses which misalignment",
-      "headers": ["Misalignment", "The term that addresses it", "How"],
+      "headers": [
+        "Misalignment",
+        "The term that addresses it",
+        "How"
+      ],
       "rows": [
         [
           "GP earns fees regardless of performance",
@@ -93,7 +127,10 @@
       "id": "funds-gplp-01-q1",
       "type": "mcq",
       "difficulty": 1,
-      "tags": ["gp-lp", "structure"],
+      "tags": [
+        "gp-lp",
+        "structure"
+      ],
       "concept": "what-it-is",
       "stem": "In a limited partnership fund, what does the limited partner control?",
       "choices": [
@@ -115,7 +152,11 @@
       "id": "funds-gplp-01-q2",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["gp-lp", "alignment", "fund-size"],
+      "tags": [
+        "gp-lp",
+        "alignment",
+        "fund-size"
+      ],
       "concept": "where-alignment-breaks",
       "stem": "A manager who performed well running $500m raises a $3bn fund. Why is this the most common way a good manager becomes a poor investment?",
       "choices": [
@@ -137,7 +178,11 @@
       "id": "funds-gplp-01-q3",
       "type": "tfj",
       "difficulty": 3,
-      "tags": ["gp-lp", "alignment", "misconception"],
+      "tags": [
+        "gp-lp",
+        "alignment",
+        "misconception"
+      ],
       "concept": "where-alignment-breaks",
       "stem": "\"The GP earns most of its money from carried interest, so its interests are fully aligned with ours.\" True or false — and why?",
       "isTrue": false,
@@ -160,7 +205,11 @@
       "id": "funds-gplp-01-q4",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["gp-lp", "fee-offset", "terms"],
+      "tags": [
+        "gp-lp",
+        "fee-offset",
+        "terms"
+      ],
       "concept": "the-terms-map",
       "stem": "A GP charges portfolio companies transaction and monitoring fees. Why does the LP care how those are treated?",
       "choices": [
@@ -182,7 +231,11 @@
       "id": "funds-gplp-01-q5",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["gp-lp", "valuation", "conflicts"],
+      "tags": [
+        "gp-lp",
+        "valuation",
+        "conflicts"
+      ],
       "concept": "how-it-goes-wrong",
       "stem": "Why is GP self-valuation a structural issue rather than an accusation of dishonesty?",
       "choices": [
@@ -204,7 +257,11 @@
       "id": "funds-gplp-01-q6",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["gp-lp", "key-person", "on-the-job"],
+      "tags": [
+        "gp-lp",
+        "key-person",
+        "on-the-job"
+      ],
       "concept": "how-it-goes-wrong",
       "stem": "A fund's returns are clearly attributable to three named individuals, and the partnership agreement contains no key person provision. What is the practical consequence for an LP?",
       "choices": [

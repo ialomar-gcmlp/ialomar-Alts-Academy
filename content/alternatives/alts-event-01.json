@@ -7,7 +7,11 @@
   "level": "core",
   "prereqs": [],
   "estMinutes": 9,
-  "examRelevance": ["CAIA-L1", "CAIA-L2", "practical"],
+  "examRelevance": [
+    "CAIA-L1",
+    "CAIA-L2",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
@@ -15,9 +19,61 @@
       "body": "[[event-driven]] is the umbrella covering strategies whose returns depend on a specific corporate action rather than on a market view. [[merger-arbitrage]] is the best-known member; the family is wider.\n\n**Spin-offs and demergers.** A conglomerate separates a division. The pieces are often mispriced around the split, because the shareholder bases of the parent and the spun-out entity differ and forced selling follows.\n\n**[[capital-structure|Capital structure]] events.** Refinancings, recapitalisations, rights issues, tender offers — each creates a temporary dislocation between securities of the same issuer.\n\n**Activist situations.** A shareholder pushes for a change: a sale, a break-up, a buyback, new management. The position pays if the campaign succeeds.\n\n**Restructurings and bankruptcies.** Covered separately under distressed, but structurally part of the same family.\n\nWhat unites them is that a **date and a decision**, not a price level, determines the outcome."
     },
     {
+      "type": "infographic",
+      "id": "event-family",
+      "caption": "The event driven family: what unites them is that a date and a decision determine the outcome.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Spin-offs and demergers",
+            "icon": "layers",
+            "detail": "Pieces mispriced around the split, as shareholder bases differ and forced selling follows."
+          },
+          {
+            "label": "Capital structure events",
+            "icon": "coins",
+            "detail": "Refinancings, recapitalisations, rights issues, tender offers — dislocations within one issuer."
+          },
+          {
+            "label": "Activist situations",
+            "icon": "target",
+            "detail": "A shareholder pushes for change; the position pays if the campaign succeeds."
+          },
+          {
+            "label": "Restructurings and bankruptcies",
+            "icon": "docCheck",
+            "detail": "Covered separately under distressed, but structurally part of the same family."
+          }
+        ]
+      }
+    },
+    {
       "type": "concept",
       "id": "return-driver",
       "body": "**The return driver is a mispricing that a specific event will resolve, plus the manager's judgement that the event happens.**\n\nWhy do these mispricings exist? Usually because of a structural reason rather than market inefficiency in the abstract:\n\n- **Forced or indiscriminate selling.** Index funds must sell a spun-off entity that does not fit their mandate, regardless of its value.\n- **Analyst coverage gaps.** A newly separated business has no research history and no natural shareholder base for a while.\n- **Complexity.** Situations requiring legal, regulatory or documentation work are avoided by generalists, which reduces competition for them.\n\nThat last point is important. **Much of the return in event driven is compensation for doing unglamorous work** — reading documents, understanding an indenture, modelling a regulatory process — rather than for insight about value. It is a strategy where diligence effort is the edge."
+    },
+    {
+      "type": "infographic",
+      "id": "return-driver-diagram",
+      "caption": "What drives returns.",
+      "spec": {
+        "kind": "equation",
+        "terms": [
+          {
+            "label": "A mispricing a specific event will resolve",
+            "sublabel": "forced selling, coverage gaps, complexity"
+          },
+          {
+            "label": "Judgement that the event completes",
+            "sublabel": "much of the return pays for unglamorous diligence work"
+          }
+        ],
+        "operators": [
+          "+"
+        ],
+        "result": "Returns come from a corporate action completing — a date and a decision, not a price level."
+      }
     },
     {
       "type": "intuition",
@@ -28,7 +84,11 @@
       "type": "table",
       "id": "environments",
       "caption": "What helps and what hurts",
-      "headers": ["Environment", "Effect", "Why"],
+      "headers": [
+        "Environment",
+        "Effect",
+        "Why"
+      ],
       "rows": [
         [
           "High corporate activity",
@@ -93,7 +153,10 @@
       "id": "alts-event-01-q1",
       "type": "mcq",
       "difficulty": 2,
-      "tags": ["event-driven", "return-driver"],
+      "tags": [
+        "event-driven",
+        "return-driver"
+      ],
       "concept": "return-driver",
       "stem": "Why do mispricings persist around corporate events like spin-offs?",
       "choices": [
@@ -115,7 +178,11 @@
       "id": "alts-event-01-q2",
       "type": "tfj",
       "difficulty": 3,
-      "tags": ["event-driven", "correlation", "misconception"],
+      "tags": [
+        "event-driven",
+        "correlation",
+        "misconception"
+      ],
       "concept": "idiosyncratic-claim",
       "stem": "\"Our returns are idiosyncratic, driven by individual corporate events rather than markets.\" True or false as a description of an event-driven portfolio?",
       "isTrue": false,
@@ -138,7 +205,11 @@
       "id": "alts-event-01-q3",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["event-driven", "how-it-blows-up", "credit"],
+      "tags": [
+        "event-driven",
+        "how-it-blows-up",
+        "credit"
+      ],
       "concept": "how-it-blows-up",
       "stem": "A credit market freeze hits an event-driven fund holding 25 unrelated situations. Why is the damage larger than diversification would suggest?",
       "choices": [
@@ -160,7 +231,11 @@
       "id": "alts-event-01-q4",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["event-driven", "timeline", "returns"],
+      "tags": [
+        "event-driven",
+        "timeline",
+        "returns"
+      ],
       "concept": "how-it-blows-up",
       "stem": "An event expected to resolve in 6 months takes 18 months instead, with the same eventual payoff. What is the effect?",
       "choices": [
@@ -182,7 +257,10 @@
       "id": "alts-event-01-q5",
       "type": "strategyId",
       "difficulty": 4,
-      "tags": ["event-driven", "strategy-identification"],
+      "tags": [
+        "event-driven",
+        "strategy-identification"
+      ],
       "concept": "idiosyncratic-until-it-isnt",
       "description": "A fund holds around 25 positions, each tied to an announced corporate action — two spin-offs, several tender offers, a handful of announced acquisitions and three activist stakes. Correlation to equities is 0.35 over five years. Its two worst quarters coincided with the widest credit spread quarters in the period, in which it fell 9% and 12%.",
       "choices": [
@@ -204,7 +282,11 @@
       "id": "alts-event-01-q6",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["event-driven", "activism", "concentration"],
+      "tags": [
+        "event-driven",
+        "activism",
+        "concentration"
+      ],
       "concept": "how-it-blows-up",
       "stem": "Why does activist exposure carry a different risk profile from a book of announced transactions, even within the same fund?",
       "choices": [

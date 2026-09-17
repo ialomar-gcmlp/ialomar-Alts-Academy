@@ -21,6 +21,34 @@
       "body": "A fund sells an investment. Cash arrives. Who gets it, and in what order?\n\nThe answer is the [[waterfall]], and it is called that because money fills each tier before any spills into the next. A standard four-tier structure:\n\n**Tier 1 — return of capital.** LPs get back what they put in. Nothing else happens until this is complete.\n\n**Tier 2 — [[preferred-return]].** LPs receive a minimum return on that capital, commonly 8% a year, before the GP shares in anything. The threshold itself is the [[hurdle-rate]].\n\n**Tier 3 — [[catch-up|catch-up]].** The GP now receives a high share, often 100%, of further distributions until it has caught up to its full profit share on *all* profits including the preferred return.\n\n**Tier 4 — the split.** Everything remaining divides in the agreed ratio, typically 80% LP and 20% GP.\n\nThe first two tiers are widely understood. **Tier 3 is where the money is**, and it is the one most often skimmed."
     },
     {
+      "type": "infographic",
+      "id": "tier-stack",
+      "caption": "The four tiers: money fills each before any spills into the next. Tier 3 is where the money is.",
+      "spec": {
+        "kind": "stack",
+        "axis": "paid first → paid last",
+        "layers": [
+          {
+            "label": "Tier 1 — return of capital",
+            "sublabel": "LPs get back what they put in"
+          },
+          {
+            "label": "Tier 2 — [[preferred-return]]",
+            "sublabel": "commonly 8% a year; the threshold is the [[hurdle-rate]]"
+          },
+          {
+            "label": "Tier 3 — [[catch-up|catch-up]]",
+            "sublabel": "often 100% to the GP until it reaches its full profit share",
+            "emphasis": true
+          },
+          {
+            "label": "Tier 4 — the split",
+            "sublabel": "typically 80% LP / 20% GP"
+          }
+        ]
+      }
+    },
+    {
       "type": "example",
       "id": "worked-waterfall",
       "body": "A fund called $100m and returns $180m in total. The preferred return accrued is $20m. Carry is 20% with a 100% catch-up.",

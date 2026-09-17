@@ -745,6 +745,44 @@ One id, one scheduling state; only the figures rotate. Rules:
 Coverage as of M9b: all 27 quantitative-methods numerics carry two variants each.
 The other domains' 122 numerics are open work — same generation discipline.
 
+### Infographic lesson blocks — BUILT (M10). `src/ui/blocks/Infographic.tsx`
+
+Lessons may carry `{ "type": "infographic", "id", "caption", "spec", "annotation?" }`
+blocks — declarative visual explainers rendered as themed DOM + the app's SVG icons,
+never images and never one big SVG (popovers are HTML; `.d-*` tints are CSS
+background/colour; text must wrap and stack at phone width). Seven `spec.kind`s,
+extracted from the user's example infographics: `equation` (terms + operators
+= + − × →, optional bullets per term, optional `result` banner), `steps`, `facts`
+(tiles with `icon` OR big `stat`), `spectrum` (one `highlight` point), `comparison`
+(columns with optional ✓/✗ `mark` and optional embedded `chartSpecSchema`), `cycle`,
+`stack` (layers + `axis`, `emphasis` flag).
+
+Authoring rules:
+
+- **Every diagram claim restates the topic's existing verified prose.** A diagram is a
+  re-presentation, not a place for new figures — so it inherits the lesson's
+  verification instead of needing its own.
+- Labels/bullets/details are prose: `[[term]]` refs and `**bold**` work and are
+  REQUIRED to be walked. **walk.ts's block switch is NOT exhaustiveness-checked** —
+  a new field or kind that is not pushed there silently skips glossary validation and
+  can make a term look orphaned. `src/content/infographic.test.ts` pins every prose
+  field of every kind to `collectProse` output; extend it with any schema change, and
+  prove new walking by injecting a bad slug (the M10 commit did).
+- `LessonBlockView` now has an exhaustiveness `default` (`never` guard) because its
+  ReactNode return type never enforced coverage — the "TS forces the case" assumption
+  in earlier notes was wrong.
+- Give diagrams `id`s: they are legal `concept` re-teach targets (alts-pe-02-q5
+  points at `structural-choices`), and they render in the narrow re-teach panels, so
+  layouts must stack in ~320px — all seven kinds do.
+- Icon names in content are plain strings validated only against the renderer's known
+  list (unknown → no icon, never a crash). Current pictograms: coins, chartUp,
+  docCheck, gear, shield + the original 14.
+
+Coverage as of M10: 10 diagrams across six flagship topics (alts-convert-01,
+alts-statarb-01, alts-pe-02, alts-event-01, funds-waterfall-01, funds-gplp-01).
+Remaining 80 topics are open authoring work, one domain per batch with user review
+between, per the M5 discipline.
+
 ### Dev-only inspection handle
 
 `main.tsx` exposes the store as `window.__alts` under `import.meta.env.DEV`. Time accounting has to

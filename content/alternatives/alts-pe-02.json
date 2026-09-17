@@ -5,14 +5,68 @@
   "title": "Growth Equity",
   "summary": "Minority stakes in companies that are already working, with little or no leverage — returns come from growth alone.",
   "level": "core",
-  "prereqs": ["alts-pe-01"],
+  "prereqs": [
+    "alts-pe-01"
+  ],
   "estMinutes": 8,
-  "examRelevance": ["CAIA-L1", "CAIA-L2", "practical"],
+  "examRelevance": [
+    "CAIA-L1",
+    "CAIA-L2",
+    "practical"
+  ],
   "lesson": [
     {
       "type": "concept",
       "id": "what-it-is",
       "body": "[[growth-equity]] sits between [[buyout]] and [[venture-capital]], and it is defined less by company size than by three structural choices.\n\n**Minority stakes.** The fund usually takes 20-40% rather than control. It gets board representation and contractual protections, not the ability to replace management unilaterally.\n\n**Little or no leverage.** The businesses are typically growing fast and often not yet consistently profitable, so they cannot support [[buyout]] debt. The [[commitment|committed capital]] goes into the company to fund expansion rather than to the selling shareholder.\n\n**Proven model, unproven scale.** Unlike venture, the product works and customers pay. Unlike buyout, the question is not efficiency but how large this can get.\n\nThat combination has a direct consequence: **remove leverage and remove control, and the return has to come almost entirely from the company growing.**"
+    },
+    {
+      "type": "infographic",
+      "id": "where-it-sits",
+      "caption": "Where growth equity sits.",
+      "spec": {
+        "kind": "spectrum",
+        "points": [
+          {
+            "label": "[[venture-capital]]",
+            "sublabel": "earlier stage, higher risk"
+          },
+          {
+            "label": "[[growth-equity]]",
+            "sublabel": "proven model, unproven scale",
+            "highlight": true
+          },
+          {
+            "label": "[[buyout]]",
+            "sublabel": "larger, mature companies"
+          }
+        ]
+      }
+    },
+    {
+      "type": "infographic",
+      "id": "structural-choices",
+      "caption": "The three structural choices that define the strategy.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Minority stakes",
+            "stat": "20–40%",
+            "detail": "Board representation and contractual protections, not the ability to replace management unilaterally."
+          },
+          {
+            "label": "Little or no leverage",
+            "icon": "shield",
+            "detail": "Fast-growing, often not yet consistently profitable — capital funds expansion, not the selling shareholder."
+          },
+          {
+            "label": "Proven model, unproven scale",
+            "icon": "chartUp",
+            "detail": "The product works and customers pay; the question is how large this can get."
+          }
+        ]
+      }
     },
     {
       "type": "concept",
@@ -28,7 +82,11 @@
       "type": "table",
       "id": "environments",
       "caption": "What helps and what hurts",
-      "headers": ["Environment", "Effect", "Why"],
+      "headers": [
+        "Environment",
+        "Effect",
+        "Why"
+      ],
       "rows": [
         [
           "Abundant capital seeking growth",
@@ -88,7 +146,10 @@
       "id": "alts-pe-02-q1",
       "type": "mcq",
       "difficulty": 2,
-      "tags": ["growth-equity", "return-driver"],
+      "tags": [
+        "growth-equity",
+        "return-driver"
+      ],
       "concept": "return-driver",
       "stem": "Which buyout value-creation source is largely unavailable to a growth equity fund?",
       "choices": [
@@ -110,7 +171,11 @@
       "id": "alts-pe-02-q2",
       "type": "mcq",
       "difficulty": 3,
-      "tags": ["growth-equity", "minority", "protections"],
+      "tags": [
+        "growth-equity",
+        "minority",
+        "protections"
+      ],
       "concept": "minority-protections",
       "stem": "Two funds buy identical 25% stakes in the same company at the same price. Why might their downside outcomes differ substantially?",
       "choices": [
@@ -132,7 +197,11 @@
       "id": "alts-pe-02-q3",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["growth-equity", "valuation", "how-it-blows-up"],
+      "tags": [
+        "growth-equity",
+        "valuation",
+        "how-it-blows-up"
+      ],
       "concept": "how-it-blows-up",
       "stem": "A holding growing 50% a year decelerates to 15%. Why is the valuation impact typically worse than the growth reduction alone suggests?",
       "choices": [
@@ -154,7 +223,11 @@
       "id": "alts-pe-02-q4",
       "type": "tfj",
       "difficulty": 3,
-      "tags": ["growth-equity", "rates", "duration"],
+      "tags": [
+        "growth-equity",
+        "rates",
+        "duration"
+      ],
       "concept": "how-it-blows-up",
       "stem": "\"Growth equity is insulated from interest rates because the companies carry no debt.\" True or false — and why?",
       "isTrue": false,
@@ -177,8 +250,11 @@
       "id": "alts-pe-02-q5",
       "type": "strategyId",
       "difficulty": 4,
-      "tags": ["growth-equity", "strategy-identification"],
-      "concept": "what-it-is",
+      "tags": [
+        "growth-equity",
+        "strategy-identification"
+      ],
+      "concept": "structural-choices",
       "description": "A fund takes 25-35% stakes in software businesses with $30-80m of revenue growing 40%+ a year, mostly unprofitable. It uses no fund-level or deal-level leverage, holds two board seats per company, negotiates liquidation preferences, and expects exits via trade sale or IPO in four to six years.",
       "choices": [
         "Growth equity",
@@ -199,7 +275,11 @@
       "id": "alts-pe-02-q6",
       "type": "mcq",
       "difficulty": 4,
-      "tags": ["growth-equity", "diligence", "on-the-job"],
+      "tags": [
+        "growth-equity",
+        "diligence",
+        "on-the-job"
+      ],
       "concept": "on-the-job",
       "stem": "Why do subsequent financing rounds at flat or lower valuations matter more than a manager's current marks?",
       "choices": [
