@@ -22,6 +22,30 @@
       "heading": "What it is"
     },
     {
+      "type": "infographic",
+      "id": "two-tests",
+      "caption": "Both tests must be met — and in alternatives, non-public information is the raw material of the job.",
+      "spec": {
+        "kind": "comparison",
+        "columns": [
+          {
+            "title": "Material",
+            "bullets": [
+              "Would a reasonable investor consider it important?",
+              "An unannounced acquisition, an earnings result, a lost customer, a failing financing"
+            ]
+          },
+          {
+            "title": "Non-public",
+            "bullets": [
+              "Not disseminated so the market could fairly absorb it",
+              "Discussed at a conference does not necessarily make it public; a press release does"
+            ]
+          }
+        ]
+      }
+    },
+    {
       "type": "concept",
       "id": "the-alts-problem",
       "body": "**The specific situations where private-market work collides with public securities are worth knowing by name, because each has an established handling.**\n\n**A portfolio company transacts with a listed company.** Diligence on a customer, supplier or acquisition target that is public. You now hold non-public information about a listed issuer.\n\n**A board seat at a company with listed debt.** Even a private company's bonds or loans may trade, and information from the board is inside information about them.\n\n**Cross-holdings between strategies.** A credit team lending to a company whose equity another part of the firm holds, or is considering.\n\n**Distressed and restructuring work.** Creditor committees receive detailed non-public information, and joining one usually restricts trading in the issuer's securities.\n\n**Expert networks and industry consultants.** Legitimate research channels that can and do transmit information the consultant should not be sharing.\n\n**Public-to-private discussions.** Considering a take-private of a listed company is by definition holding material non-public information about it.\n\n**The standard controls are information barriers, restricted lists and pre-clearance** — and they only work if the person holding the information tells someone they hold it. **The control depends on self-reporting, which is why understanding the boundary matters more than trusting the system.**",
@@ -32,6 +56,37 @@
       "id": "the-working-test",
       "body": "**A practical method for the ambiguous cases, in the order to apply it.**\n\n**Where did this come from?** A public filing, a press release, a conference presentation, or a private conversation? Provenance is the first question and it is usually answerable immediately.\n\n**Was the person entitled to tell me?** A management team briefing its own investors under a confidentiality agreement is one thing. A consultant repeating what their current employer is doing is another. **If the source may have breached a duty in telling you, you are on the wrong side of the line regardless of your own intentions.**\n\n**Would it move the price?** If yes, treat it as material. The threshold question is not whether it definitely would — it is whether a reasonable investor would care.\n\n**Would I be comfortable explaining how I came to know this?** Not whether it was legal — whether the account of how you learned it would sound reasonable said out loud.\n\n**And the operational rule that matters most: when unsure, stop and ask before doing anything else.** Not after trading, not after passing it on, and not after deciding for yourself that it is probably fine.\n\n**Because the mistake is nearly always in the first thirty seconds** — repeating something interesting to a colleague who trades, or mentioning it in a meeting. Once information has moved, no subsequent care undoes it. **Silence is free and reversible; disclosure is neither.**",
       "heading": "Why a working test beats instinct"
+    },
+    {
+      "type": "infographic",
+      "id": "working-test-steps",
+      "caption": "The method for ambiguous cases, in order — and the operational rule: when unsure, stop first.",
+      "spec": {
+        "kind": "steps",
+        "steps": [
+          {
+            "label": "Where did this come from?",
+            "detail": "A filing, a press release, a conference — or a private conversation. Provenance is usually answerable immediately."
+          },
+          {
+            "label": "Was the person entitled to tell me?",
+            "detail": "If the source may have breached a duty in telling you, you are on the wrong side of the line regardless of your intentions."
+          },
+          {
+            "label": "Would it move the price?",
+            "detail": "Not whether it definitely would — whether a reasonable investor would care."
+          },
+          {
+            "label": "Could I explain how I came to know it?",
+            "detail": "Not whether it was legal — whether the account sounds reasonable said out loud."
+          },
+          {
+            "label": "When unsure, stop and ask first",
+            "icon": "alert",
+            "detail": "The mistake is nearly always in the first thirty seconds. Silence is free and reversible; disclosure is neither."
+          }
+        ]
+      }
     },
     {
       "type": "table",
@@ -81,6 +136,36 @@
       "id": "expert-networks",
       "body": "**Expert network calls are a legitimate research channel and the most common route by which a well-intentioned analyst acquires information they should not have.**\n\nThe structure creates the risk. A consultant is paid for their time and wants to be useful. Being useful means being specific. Specificity about a current employer's unannounced plans is exactly the boundary.\n\nSo the controls are procedural and worth following even when they feel excessive:\n\n**Use compliance-approved providers**, which screen for current employment at relevant issuers.\n\n**Have a written question list.** It keeps the call on industry dynamics rather than on the consultant's employer's specifics.\n\n**State the boundary at the start.** \"Please do not share anything confidential to your employer\" is not a formality — it establishes the framing and it makes stopping the call easier.\n\n**Stop the call if it strays.** Immediately, and note that you did. This is the moment that matters, and it is genuinely awkward — which is why deciding in advance that you will do it is worth more than intending to.\n\n**Do not use these calls at all where your firm holds or is considering the relevant security**, unless compliance has cleared it.\n\n**The uncomfortable reality is that a consultant volunteering something specific and unannounced has already created the problem**, and your only remaining decisions are whether you stop, whether you report it, and whether you refrain from acting. All three are available, and all three are much easier if you were expecting the possibility.",
       "heading": "treating expert calls as safe"
+    },
+    {
+      "type": "infographic",
+      "id": "expert-call-controls",
+      "caption": "A consultant paid to be useful will be specific — the controls are procedural, and worth following when they feel excessive.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Approved providers",
+            "icon": "shield",
+            "detail": "Compliance-screened for current employment at relevant issuers."
+          },
+          {
+            "label": "A written question list",
+            "icon": "docCheck",
+            "detail": "Keeps the call on industry dynamics rather than the consultant's employer."
+          },
+          {
+            "label": "State the boundary at the start",
+            "icon": "target",
+            "detail": "“Please do not share anything confidential to your employer” establishes the framing."
+          },
+          {
+            "label": "Stop the call if it strays",
+            "icon": "alert",
+            "detail": "Immediately, and note that you did. Deciding in advance is worth more than intending to."
+          }
+        ]
+      }
     },
     {
       "type": "onTheJob",

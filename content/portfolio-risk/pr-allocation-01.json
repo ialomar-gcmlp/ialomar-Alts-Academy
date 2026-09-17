@@ -35,6 +35,36 @@
       "heading": "Why the case is access, not higher returns"
     },
     {
+      "type": "infographic",
+      "id": "four-purchases",
+      "caption": "What an alternatives allocation actually buys — and lower volatility is not on the list.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "The illiquidity premium",
+            "icon": "lock",
+            "detail": "Compensation for not being able to sell — only earned by investors who genuinely never need to."
+          },
+          {
+            "label": "A different opportunity set",
+            "icon": "layers",
+            "detail": "Most companies are private; some sectors and stages exist only there."
+          },
+          {
+            "label": "Control and influence",
+            "icon": "gear",
+            "detail": "A buyout owner can change management, structure and strategy. A minority public holder cannot."
+          },
+          {
+            "label": "Different payoff shapes",
+            "icon": "chartUp",
+            "detail": "Trend and some macro behave unlike everything else — worth more than their standalone returns suggest."
+          }
+        ]
+      }
+    },
+    {
       "type": "table",
       "id": "alloc-table",
       "caption": "What each allocation actually buys",
@@ -92,6 +122,31 @@
       "heading": "what the optimiser is fed"
     },
     {
+      "type": "infographic",
+      "id": "optimiser-correction",
+      "caption": "The same strategy, before and after unsmoothing — the allocation constraint moves to the honest place.",
+      "spec": {
+        "kind": "comparison",
+        "columns": [
+          {
+            "title": "As reported",
+            "bullets": [
+              "10% return, 8% volatility, 0.4 correlation — the optimiser allocates heavily",
+              "Sharpe 0.88 against public equity's 0.31"
+            ]
+          },
+          {
+            "title": "Unsmoothed",
+            "bullets": [
+              "Roughly 16% volatility and 0.75 correlation: levered equity with a 2% advantage and a lock-up",
+              "Sharpe 0.44 — still wins, by a sensible margin rather than an implausible one",
+              "The sizing constraint becomes the lock-up rather than the optimiser"
+            ]
+          }
+        ]
+      }
+    },
+    {
       "type": "concept",
       "id": "how-it-goes-wrong",
       "body": "**Optimising on smoothed inputs.** The single largest error in institutional allocation, and it is invisible because the arithmetic is correct.\n\n**Expected returns extrapolated from the recent past.** A decade of falling rates produced excellent returns for long-duration and levered assets. Assuming that continues is a rate forecast disguised as an assumption.\n\n**Constraints applied after optimisation.** Optimise first, then constrain, and the result is an unconstrained portfolio trimmed to fit. Better to define the feasible set first.\n\n**Ignoring the fee difference in expected returns.** A 10% gross private return with 2-and-20 is not 10%. Comparisons have to be net of everything, and the gross figure is what usually appears in the assumptions.\n\n**Rebalancing rules that cannot be executed.** A policy requiring quarterly rebalancing to target cannot rebalance illiquid assets, so it rebalances the liquid ones — which changes the portfolio in ways nobody chose.\n\n**Treating a target as achievable immediately.** A private markets target takes years to reach through commitments, so the portfolio spends most of its life away from its target by construction.",
@@ -102,6 +157,36 @@
       "id": "the-governance-constraint",
       "body": "**The binding constraint on most institutional portfolios is not liquidity or risk tolerance. It is what the governing body will tolerate seeing.**\n\nThis is rarely written down and it decides outcomes. A committee that will not sit through a 25% drawdown has an effective stop-loss at 25%, whether or not a document says so. A portfolio built on a twenty-year horizon and reviewed against annual benchmarks is being managed to one year.\n\nThe mismatch produces predictable behaviour:\n\n**Selling at the bottom.** Not because the strategy failed, but because the drawdown exceeded tolerance.\n\n**Chasing recent performance.** Allocating to whatever has worked, which is a decision about the last cycle.\n\n**Manager turnover at the worst time.** Terminating after three bad years, which for most strategies is a normal sample.\n\n**Illiquidity as a commitment device.** The uncomfortable truth is that a lock-up prevents the panic sale — which is part of why private market returns have exceeded public ones for the same investors. Some of the illiquidity premium is compensation for a constraint, and some of it is protection from ourselves.\n\n**So the honest allocation process states the governance tolerance as an explicit constraint** — \"we can survive a 20% drawdown and not a 35% one\" — and builds within it. **A portfolio the committee cannot hold through a bad year is not a long-horizon portfolio, whatever the policy says.**",
       "heading": "ignoring the governance constraint"
+    },
+    {
+      "type": "infographic",
+      "id": "governance-behaviour",
+      "caption": "An unstated drawdown tolerance operates as a stop-loss nobody chose — the mismatch produces predictable behaviour.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Selling at the bottom",
+            "icon": "alert",
+            "detail": "Not because the strategy failed — because the drawdown exceeded tolerance."
+          },
+          {
+            "label": "Chasing recent performance",
+            "icon": "chartUp",
+            "detail": "Allocating to whatever worked, which is a decision about the last cycle."
+          },
+          {
+            "label": "Terminating at the worst time",
+            "icon": "clock",
+            "detail": "Firing after three bad years, which for most strategies is a normal sample."
+          },
+          {
+            "label": "Illiquidity as a commitment device",
+            "icon": "lock",
+            "detail": "The lock-up prevents the panic sale — part of the illiquidity premium is protection from ourselves."
+          }
+        ]
+      }
     },
     {
       "type": "onTheJob",

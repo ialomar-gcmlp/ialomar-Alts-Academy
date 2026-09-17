@@ -35,6 +35,31 @@
       "heading": "Why smoothed marks flatter the ratios"
     },
     {
+      "type": "infographic",
+      "id": "sharpe-correction",
+      "caption": "Volatility is the denominator of every risk-adjusted measure, so understating it overstates them all.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "On reported 6% volatility",
+            "stat": "1.33",
+            "detail": "A 12% return over a 4% risk-free rate looks exceptional."
+          },
+          {
+            "label": "On a true 15%",
+            "stat": "0.53",
+            "detail": "The same returns — apparent quality fell 60% on a measurement correction."
+          },
+          {
+            "label": "Where it propagates",
+            "icon": "alert",
+            "detail": "Optimisers, risk budgets, correlations and drawdowns all inherit the smoothing — and all flatter the private allocation."
+          }
+        ]
+      }
+    },
+    {
       "type": "example",
       "id": "worked-smoothing",
       "body": "A public market falls and recovers over five quarters: cumulative returns of 0%, −8%, −18%, −10%, +2%. A private portfolio with identical underlying exposure marks a third of the way toward the true value each quarter.",
@@ -48,6 +73,31 @@
         "Sanity check worth reusing: **compute the autocorrelation of a private return series.** Genuine market returns are close to zero; a strongly positive figure is the signature of smoothing, and its size indicates how much."
       ],
       "heading": "smoothing a drawdown"
+    },
+    {
+      "type": "infographic",
+      "id": "smoothing-paths",
+      "caption": "Identical underlying exposure — one series reports a third of the risk of the other, and nothing was misstated.",
+      "spec": {
+        "kind": "comparison",
+        "columns": [
+          {
+            "title": "The public path",
+            "bullets": [
+              "Cumulative: 0%, −8%, −18%, −10%, +2%",
+              "Quarterly volatility 9.63%; the trough is −18%"
+            ]
+          },
+          {
+            "title": "Marks, a third of the way each quarter",
+            "bullets": [
+              "0%, −2.7%, −7.9%, −8.6%, −5.0%",
+              "Volatility 3.23% — a ratio of 0.34; the worst point is −8.6%, a quarter late",
+              "Still falling while the public market has already turned — why private portfolios report their worst quarters after the bottom"
+            ]
+          }
+        ]
+      }
     },
     {
       "type": "table",
@@ -97,6 +147,30 @@
       "id": "the-denominator-defence",
       "body": "**There is a real argument on the other side, and taking it seriously makes the critique sharper rather than weaker.**\n\nThe argument: for an investor who genuinely holds to maturity, interim volatility is noise. A daily price series measures the market's changing sentiment, not the asset's value. If you will not sell, the path is irrelevant and only the terminal value matters. On this view, smoothed marks are closer to economic reality than a public price is, and private assets' apparent stability reflects a genuine absence of forced repricing.\n\nThat argument is substantially right, and it has two specific limits.\n\n**You might have to sell.** Capital calls, rebalancing, a change of strategy, a secondary sale for liquidity. The moment a sale is possible, the realisable price matters and the mark does not.\n\n**Even if you never sell, the statistics are still being used.** A Sharpe ratio computed on smoothed marks and compared with a public one produces a wrong conclusion regardless of your holding intention.\n\n**So the defensible position is narrow and worth stating precisely: smoothed marks may be a reasonable estimate of value, and they are not a measure of risk.** Use them for reporting and never as an input to a risk model that also contains market-priced assets.",
       "heading": "dismissing the smoothing defence"
+    },
+    {
+      "type": "infographic",
+      "id": "defence-and-limits",
+      "caption": "The defensible position is narrow: a reasonable estimate of value, and not a measure of risk.",
+      "spec": {
+        "kind": "comparison",
+        "columns": [
+          {
+            "title": "The defence",
+            "bullets": [
+              "For a genuine hold-to-maturity investor, interim volatility is noise",
+              "A daily price measures sentiment, not value — smoothed marks reflect an absence of forced repricing"
+            ]
+          },
+          {
+            "title": "Its two limits",
+            "bullets": [
+              "You might have to sell — calls, rebalancing, a secondary. The moment a sale is possible, the realisable price matters",
+              "Even if you never sell, the statistics are still being used — a smoothed Sharpe next to a public one produces a wrong conclusion regardless of intention"
+            ]
+          }
+        ]
+      }
     },
     {
       "type": "onTheJob",

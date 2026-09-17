@@ -22,16 +22,119 @@
       "heading": "What it is"
     },
     {
+      "type": "infographic",
+      "id": "four-tests",
+      "caption": "When no rule fits: what does the rule exist to protect, and four tests that usually settle it.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "The disclosure test",
+            "icon": "docCheck",
+            "detail": "Would I be comfortable if the affected party saw the reasoning? Catches decisions relying on the client not knowing."
+          },
+          {
+            "label": "The reversal test",
+            "icon": "gear",
+            "detail": "Same call if the benefit ran the other way? Catches bias wearing analysis."
+          },
+          {
+            "label": "The newspaper test",
+            "icon": "alert",
+            "detail": "Described accurately by someone unsympathetic — crude and a good detector."
+          },
+          {
+            "label": "The precedent test",
+            "icon": "layers",
+            "detail": "If every firm did this as standard? Catches practices harmless once and corrosive in aggregate."
+          }
+        ]
+      }
+    },
+    {
       "type": "concept",
       "id": "pressure",
       "body": "**Ethical failures happen under specific, recognisable conditions. Knowing the conditions is more useful than knowing the rules.**\n\n**Time pressure.** A competitive process with a deadline tonight. Care is the first thing that gets compressed, and \"we didn't have time\" is the most common explanation for inadequate diligence.\n\n**Money on the line.** A fund near its hurdle, a bonus determined this quarter, a fundraise depending on a mark.\n\n**Everyone agreeing.** Unanimity in a room is often the absence of anyone willing to be the dissenter rather than the presence of genuine consensus.\n\n**Seniority.** \"This has been decided\" ends most junior objections, and it is frequently said by someone who would rather have been asked.\n\n**Incrementalism.** The step in front of you is small because the previous nine steps already happened. Each one was defensible relative to the last.\n\n**Novelty.** A structure nobody has seen has no established practice, so the absence of a rule gets read as permission.\n\n**When two or more of these are present at once, the probability of a bad decision rises sharply** — and recognising the combination is something you can do in the moment, where evaluating the ethics of a novel structure often is not.",
       "heading": "The conditions that produce failures"
     },
     {
+      "type": "infographic",
+      "id": "failure-conditions",
+      "caption": "Failures cluster under recognisable conditions — two or more at once is the signal to slow down.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Time pressure",
+            "icon": "clock",
+            "detail": "Care is the first thing compressed by a deadline tonight."
+          },
+          {
+            "label": "Money on the line",
+            "icon": "coins",
+            "detail": "A fund near its hurdle, a bonus this quarter, a fundraise on a mark."
+          },
+          {
+            "label": "Everyone agreeing",
+            "icon": "layers",
+            "detail": "Unanimity is often the absence of a willing dissenter."
+          },
+          {
+            "label": "Seniority",
+            "icon": "case",
+            "detail": "“This has been decided” — frequently said by someone who would rather have been asked."
+          },
+          {
+            "label": "Incrementalism",
+            "icon": "arrow",
+            "detail": "The step is small because nine steps already happened."
+          },
+          {
+            "label": "Novelty",
+            "icon": "alert",
+            "detail": "No established practice, so the absence of a rule reads as permission."
+          }
+        ]
+      }
+    },
+    {
       "type": "intuition",
       "id": "asking-early",
       "body": "**The single highest-value ethical skill is asking an awkward question while it is still a small question.**\n\nThe arithmetic of this is straightforward. Early, the question is cheap: nothing has been committed, no one has publicly taken a position, and the answer is probably a reasonable explanation you did not have. Late, the same question requires someone to reverse a decision, admit a mistake, or unwind a transaction — and the cost of being right has become enormous.\n\nSo the practical form is deliberately modest:\n\n**Ask as a request for understanding.** \"Can you help me see why this is the right treatment?\" People answer that. They defend against accusations.\n\n**Ask about process rather than conclusion.** \"Should this go to the committee?\" is procedural and hard to refuse.\n\n**Put it in writing, neutrally.** A factual question in an email is a contemporaneous record and it protects the person answering as much as the person asking.\n\n**Ask early enough that the answer can change something.** The value decays fast.\n\n**And accept that most of the time the answer will be good.** That is not a failure of the question — it is the normal outcome, and it is how you learn where the real boundaries are. **A person who asks ten questions and gets nine reassuring answers has calibrated their judgement and established a reputation for asking. Both are worth having when the tenth answer is unsatisfactory.**",
       "heading": "Why asking early is the whole skill"
+    },
+    {
+      "type": "infographic",
+      "id": "asking-method",
+      "caption": "Early, the question is cheap; late, being right becomes enormously expensive.",
+      "spec": {
+        "kind": "steps",
+        "steps": [
+          {
+            "label": "Ask as a request for understanding",
+            "detail": "“Can you help me see why this is the right treatment?” People answer that; they defend against accusations."
+          },
+          {
+            "label": "Ask about process, not conclusion",
+            "detail": "“Should this go to the committee?” is procedural and hard to refuse."
+          },
+          {
+            "label": "In writing, neutrally",
+            "icon": "docCheck",
+            "detail": "A contemporaneous record that protects the person answering as much as the person asking."
+          },
+          {
+            "label": "Early enough that the answer can change something",
+            "icon": "clock",
+            "detail": "The value decays fast."
+          },
+          {
+            "label": "Expect reassuring answers",
+            "icon": "check",
+            "detail": "Nine good answers in ten calibrates your judgement and builds a reputation for asking — both worth having for the tenth."
+          }
+        ]
+      }
     },
     {
       "type": "example",

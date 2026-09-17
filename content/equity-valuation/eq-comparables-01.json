@@ -34,6 +34,36 @@
       "heading": "Why you adjust before comparing"
     },
     {
+      "type": "infographic",
+      "id": "four-adjustments",
+      "caption": "Exactly four things legitimately differ between peers — adjust before comparing.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Growth",
+            "icon": "chartUp",
+            "detail": "A peer growing 15% should trade above one growing 3%."
+          },
+          {
+            "label": "Profitability",
+            "icon": "coins",
+            "detail": "Two companies at the same multiple with different ROIC are not equally priced."
+          },
+          {
+            "label": "Risk",
+            "icon": "alert",
+            "detail": "Cyclicality, customer concentration, regulation — higher risk deserves a lower multiple."
+          },
+          {
+            "label": "Capital intensity",
+            "icon": "gear",
+            "detail": "EBITDA multiples treat 8%-of-revenue capex and 1% identically. Over a hold, the gap is enormous."
+          }
+        ]
+      }
+    },
+    {
       "type": "example",
       "id": "worked-peers",
       "body": "A target trades at 8x EV/EBITDA. Three peer sets are proposed for the same business.",
@@ -48,6 +78,31 @@
         "Sanity check worth reusing: **look at the range before the median.** A tight range around a median is a real signal. A wide range means the peer set is heterogeneous, and its central figure is a number rather than a valuation."
       ],
       "heading": "three peer sets, three answers"
+    },
+    {
+      "type": "infographic",
+      "id": "three-peer-sets",
+      "caption": "Identical facts about the target, three defensible peer sets, three conclusions.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Narrow niche (3 companies)",
+            "stat": "8x",
+            "detail": "Conclusion: fairly valued. Small enough that one company's quirk moves the median — and the most economically comparable."
+          },
+          {
+            "label": "Broad sector (12)",
+            "stat": "11x",
+            "detail": "Conclusion: 38% undervalued. A 6x–16x range means the set contains different economics — its median is arithmetic, not evidence."
+          },
+          {
+            "label": "Growth-and-margin matched (5)",
+            "stat": "9x",
+            "detail": "Conclusion: mildly undervalued. The honest presentation is all three, with ranges and a stated preference."
+          }
+        ]
+      }
     },
     {
       "type": "table",
@@ -92,6 +147,36 @@
       "id": "marks-and-comparables",
       "body": "**Private portfolio marks are usually built from comparables, which means the peer set is doing the valuing — and it is chosen by the party being measured.**\n\nThe mechanics are ordinary and the incentive is structural. A manager marks a portfolio company using listed comparables or recent transactions. The manager selects the comparables. Those marks determine reported performance, which determines the next fundraise.\n\nNone of that implies bad faith. It does mean the questions worth asking are about consistency over time:\n\n**Has the peer set changed since entry?** A set that changes when the original peers de-rate is the clearest available signal.\n\n**Is the discount to listed comparables consistent?** Applying a 20% illiquidity discount in one period and 10% in another moves marks without any change in the business.\n\n**Does the mark exceed the entry multiple?** That is a claim of multiple expansion which has not been realised. It may be right and it should be stated as a claim.\n\n**What did assets sold in the last two years fetch relative to their final marks?** This is the only external test available, and it is the best single question in this topic. A manager whose realisations consistently clear above their last marks has demonstrated conservatism; consistently below is the opposite, and both are simple facts.",
       "heading": "forgetting marks are comparables"
+    },
+    {
+      "type": "infographic",
+      "id": "mark-consistency-tests",
+      "caption": "The peer set does the valuing, and the measured party chooses it — so the tests are about consistency.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Has the peer set changed since entry?",
+            "icon": "docCheck",
+            "detail": "A set that changes when the original peers de-rate is the clearest available signal."
+          },
+          {
+            "label": "Is the illiquidity discount consistent?",
+            "icon": "gear",
+            "detail": "20% one period and 10% the next moves marks without any change in the business."
+          },
+          {
+            "label": "Does the mark exceed the entry multiple?",
+            "icon": "chartUp",
+            "detail": "A claim of unrealised multiple expansion — it may be right and it should be stated as a claim."
+          },
+          {
+            "label": "What did realisations fetch vs final marks?",
+            "icon": "target",
+            "detail": "The only external test available, and the best single question in this topic."
+          }
+        ]
+      }
     },
     {
       "type": "onTheJob",

@@ -32,6 +32,36 @@
       "heading": "Why rules are not enough"
     },
     {
+      "type": "infographic",
+      "id": "noticing-habits",
+      "caption": "The discipline is not memorising prohibitions — it is a habit of noticing.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Whose interest does this serve?",
+            "icon": "target",
+            "detail": "If mine or my firm's, more care is required — not less."
+          },
+          {
+            "label": "Could the client see the reasoning?",
+            "icon": "docCheck",
+            "detail": "Not the outcome — the reasoning."
+          },
+          {
+            "label": "Same call the other way?",
+            "icon": "gear",
+            "detail": "A judgement that always resolves in one direction is not a judgement."
+          },
+          {
+            "label": "Written down by someone unsympathetic?",
+            "icon": "alert",
+            "detail": "Uncomfortable, and a reliable detector."
+          }
+        ]
+      }
+    },
+    {
       "type": "table",
       "id": "duty-table",
       "caption": "Where each duty bites in an alternatives role",
@@ -84,6 +114,31 @@
       "heading": "who pays which costs"
     },
     {
+      "type": "infographic",
+      "id": "expense-arithmetic",
+      "caption": "Individually arguable items, converted into a number — and the number is the substance.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "25bp on a 500 fund",
+            "stat": "1.25/yr",
+            "detail": "Costs that could plausibly sit with the fund or the manager, charged to the fund."
+          },
+          {
+            "label": "Over a ten-year life",
+            "stat": "12.5",
+            "detail": "Transferred without a fee increase."
+          },
+          {
+            "label": "Share of the management fee",
+            "stat": "12%",
+            "detail": "Disclosed and consistently applied, a commercial term; vague and unreported, a governance failure — identical arithmetic either way."
+          }
+        ]
+      }
+    },
+    {
       "type": "concept",
       "id": "how-it-goes-wrong",
       "body": "**\"Everyone does it.\"** Market practice is evidence about what is common, not about what is permitted or right. Several practices that were universal are now the subject of enforcement.\n\n**\"The documents allow it.\"** A permission in a partnership agreement is a defence and not a justification. Investors who signed a broad expense clause did not necessarily agree to any particular use of it.\n\n**\"No one complained.\"** The duties exist because clients cannot verify. Absence of complaint is absence of detection.\n\n**\"It was immaterial.\"** Materiality is judged against the client's interest rather than the firm's revenue. 25bp is immaterial to a manager and it is 12% of their fee.\n\n**Assuming disclosure cures everything.** Disclosure makes a conflict visible; it does not make an unfair arrangement fair. Some conflicts must be avoided rather than disclosed.\n\n**Deferring to seniority.** \"I raised it and was told it was fine\" is a reasonable position for a junior person and it is not a complete one. Ask who else could look at it, and write down that you asked.",
@@ -94,6 +149,34 @@
       "id": "junior-position",
       "body": "**A first-year analyst has less authority than anyone in the room and better information than most, and that combination is genuinely difficult.**\n\nYou see the raw data, you build the model, and you notice when an assumption changed between drafts. You also have the least standing to challenge it and the most to lose.\n\nSo the practical options, ordered by cost:\n\n**Ask a question rather than making an allegation.** \"Can you help me understand why the comparable set changed?\" is a request for education, and it is answerable. It also creates a record.\n\n**Put it in writing, neutrally.** An email asking a factual question is a contemporaneous record of when you noticed and what you were told. It protects everyone, including the person who answers well.\n\n**Escalate on process rather than on conclusion.** \"Should this go to the valuation committee?\" is procedural and hard to refuse.\n\n**Use the channels that exist.** Compliance functions are frequently helpful and consulting them is not disloyalty.\n\n**And know the limit.** If the answer is unsatisfactory and the amount is material, the question stops being about the model and starts being about whether you can sign your name to it. **That is a genuinely hard place to be, and the people who navigate it well are the ones who noticed early and asked in writing while it was still a small question.**",
       "heading": "assuming the duty scales with seniority"
+    },
+    {
+      "type": "infographic",
+      "id": "junior-options",
+      "caption": "Better information than most, less authority than anyone — the options, ordered by cost.",
+      "spec": {
+        "kind": "steps",
+        "steps": [
+          {
+            "label": "Ask a question, not an allegation",
+            "detail": "“Can you help me understand why the comparable set changed?” is answerable, and it creates a record."
+          },
+          {
+            "label": "Put it in writing, neutrally",
+            "icon": "docCheck",
+            "detail": "A factual email is a contemporaneous record of when you noticed and what you were told."
+          },
+          {
+            "label": "Escalate on process, not conclusion",
+            "detail": "“Should this go to the valuation committee?” is procedural and hard to refuse."
+          },
+          {
+            "label": "Use the channels, and know the limit",
+            "icon": "shield",
+            "detail": "Compliance is not disloyalty. If the answer is unsatisfactory and the amount material, the question becomes whether you can sign your name to it."
+          }
+        ]
+      }
     },
     {
       "type": "onTheJob",

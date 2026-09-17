@@ -34,6 +34,31 @@
       "heading": "Why drift is the real failure"
     },
     {
+      "type": "infographic",
+      "id": "drift-compounding",
+      "caption": "Nobody fabricates a mark — small defensible choices that all point the same way do the damage.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "1% a year of optimism",
+            "stat": "+5.1%",
+            "detail": "Over five years — undetectable in any single quarter, material to a fundraise."
+          },
+          {
+            "label": "2% a year",
+            "stat": "+10.4%",
+            "detail": "Each individual decision made on its merits by people acting in good faith."
+          },
+          {
+            "label": "The detection",
+            "icon": "target",
+            "detail": "Do the discretionary choices ever go the other way? What did realisations achieve against final marks?"
+          }
+        ]
+      }
+    },
+    {
       "type": "example",
       "id": "worked-carry",
       "body": "A fund with 1,000 of cost. One portfolio company: 80 of EBITDA, 400 of debt. The rest of the portfolio is held at cost, 700. Carry is 20% over cost.",
@@ -48,6 +73,31 @@
         "Sanity check worth reusing: **before accepting any valuation change, compute its effect on accrued carry rather than on NAV.** The NAV effect is usually modest and the carry effect can be a multiple. That comparison identifies which valuation decisions carry real incentive pressure."
       ],
       "heading": "one mark, the carry it moves"
+    },
+    {
+      "type": "infographic",
+      "id": "carry-amplifier-arithmetic",
+      "caption": "One turn of multiple on one holding: the valuation moved 8% and the manager's accrual moved 400%.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "At 9x: accrued carry",
+            "stat": "4.0",
+            "detail": "Equity 320, fund NAV 1,020, gain over cost 20."
+          },
+          {
+            "label": "At 10x: accrued carry",
+            "stat": "20.0",
+            "detail": "Equity 400, NAV 1,100, gain 100 — carry is levered to the gain above the threshold."
+          },
+          {
+            "label": "The governance implication",
+            "icon": "alert",
+            "detail": "Valuation control should be tightest when a fund is near its hurdle — exactly when the sensitivity is extreme."
+          }
+        ]
+      }
     },
     {
       "type": "table",
@@ -97,6 +147,36 @@
       "id": "the-honest-version",
       "body": "**The most useful thing to understand about valuation ethics is that most of the people involved are honest, and the outcome can still be systematically wrong.**\n\nThat is uncomfortable, and it is why the framing \"are they honest?\" is the wrong question. Honest people, each making a defensible call in a system where every call has an incentive attached, will produce a biased aggregate. No individual has done anything they would be ashamed of.\n\nSo the questions worth asking are structural, and they are all answerable:\n\n**Who can say no?** A valuation committee whose members are compensated on fund performance has no independent member.\n\n**What is the record of being wrong?** A process that produces markdowns has demonstrated it can.\n\n**Is the incentive visible to the person deciding?** A deal partner who knows their carry depends on this mark is in a difficult position, and acknowledging that is better than pretending otherwise.\n\n**And what happens when a mark is challenged?** The response to a challenge tells you more about the culture than any policy document.\n\n**For an allocator, the practical version is narrow: track realisations against final marks over several years.** It is the only external evidence, it requires no trust, and it accumulates into a genuine measurement of valuation discipline. **A manager who exits consistently above their last marks has proven something no policy statement can.**",
       "heading": "assuming bad marks need bad people"
+    },
+    {
+      "type": "infographic",
+      "id": "structural-questions",
+      "caption": "Honest people in a system where every call has an incentive attached produce a biased aggregate — so ask structural questions.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Who can say no?",
+            "icon": "shield",
+            "detail": "A committee compensated on fund performance has no independent member."
+          },
+          {
+            "label": "The record of being wrong",
+            "icon": "docCheck",
+            "detail": "A process that has produced markdowns has demonstrated it can."
+          },
+          {
+            "label": "Is the incentive visible?",
+            "icon": "alert",
+            "detail": "Acknowledging that a deal partner's carry depends on the mark beats pretending otherwise."
+          },
+          {
+            "label": "What happens to a challenge?",
+            "icon": "gear",
+            "detail": "The response tells you more about the culture than any policy document."
+          }
+        ]
+      }
     },
     {
       "type": "onTheJob",

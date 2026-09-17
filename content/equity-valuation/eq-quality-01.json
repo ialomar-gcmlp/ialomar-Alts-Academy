@@ -29,6 +29,41 @@
       "heading": "The moat"
     },
     {
+      "type": "infographic",
+      "id": "durable-mechanisms",
+      "caption": "The default is that excess returns fade — a high multiple is a claim they will not, and the claim needs one of these mechanisms.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Switching costs",
+            "icon": "lock",
+            "detail": "Changing supplier is expensive, risky or disruptive — software embedded in operations."
+          },
+          {
+            "label": "Network effects",
+            "icon": "layers",
+            "detail": "The product improves as more people use it, so scale self-reinforces."
+          },
+          {
+            "label": "Cost advantage",
+            "icon": "gear",
+            "detail": "Structurally lower costs from scale, location or process."
+          },
+          {
+            "label": "Intangibles",
+            "icon": "shield",
+            "detail": "Brands people pay more for, patents, licences."
+          },
+          {
+            "label": "Efficient scale",
+            "icon": "case",
+            "detail": "A market only large enough for one or two profitable operators. NOT moats: talent, being first, growing quickly."
+          }
+        ]
+      }
+    },
+    {
       "type": "intuition",
       "id": "fade-is-the-assumption",
       "body": "**Every valuation contains an implicit assumption about how long excess returns last, and almost nobody states it.**\n\nA multiple of 20x on a business earning 30% on capital is not primarily a bet on growth. It is a bet that 30% returns persist for a long time. If they fade to the cost of capital over five years, the same business is worth a fraction of that price even if revenue grows exactly as forecast.\n\nWhich reframes the diligence question in a useful way. Instead of \"how fast will it grow?\", ask:\n\n**How long can it earn these returns, and what stops competitors from arriving?**\n\nThe evidence for durability is historical and specific:\n\n**How long has the return on capital been high?** Ten years of high returns through a competitive market is evidence. Three years after a favourable market shift is not.\n\n**What happened when a competitor tried?** Concrete history beats any theory about barriers.\n\n**Has pricing held in a downturn?** Pricing power is claimed constantly and revealed only under pressure.\n\n**And the asymmetry worth remembering: a business with a genuine moat and moderate growth compounds value quietly for decades. A business with fast growth and no moat converts capital into competitors' entry tickets** — it proves the market is attractive and invites everyone in.",
@@ -48,6 +83,31 @@
         "Sanity check worth reusing: **compute the reinvestment rate from growth and ROIC before believing any growth story.** If it comes out near or above 100%, the growth is being funded rather than generated, and the business needs capital from somewhere — usually you."
       ],
       "heading": "10% versus 30% returns on capital"
+    },
+    {
+      "type": "infographic",
+      "id": "reinvestment-arithmetic",
+      "caption": "growth = ROIC × reinvestment: the same 10% growth, opposite cash generation.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "10% ROIC, 10% growth",
+            "stat": "100%",
+            "detail": "Every unit of profit reinvested — no distributable cash at all."
+          },
+          {
+            "label": "30% ROIC, same growth",
+            "stat": "33%",
+            "detail": "Two thirds of profit is free — and each reinvested unit earns a 22-point spread over the 8% cost of capital."
+          },
+          {
+            "label": "At 5% growth",
+            "stat": "17% vs 50%",
+            "detail": "The high-return business distributes 83% of its earnings. This identity is most of what “quality” means."
+          }
+        ]
+      }
     },
     {
       "type": "table",
@@ -102,6 +162,36 @@
       "id": "quality-in-private-markets",
       "body": "**In private markets the quality question has a specific and uncomfortable form: how much of the return on capital belongs to the business, and how much belongs to the owner?**\n\nA founder-run company might earn high returns partly because the founder personally holds the customer relationships, prices the work, and works unreasonable hours. That return is real and it is not transferable — and the price being asked is a multiple of it.\n\nSo the diligence questions are about separability rather than about performance:\n\n**Customer concentration and ownership.** What share of revenue is with customers whose relationship is personal to the seller? What happens to those in year two?\n\n**Pricing discipline.** Is pricing systematic, or does one person decide each job? Systematic pricing survives a handover; judgement often does not.\n\n**Management depth.** Is there a team, or a person with assistants? The second is a key-person risk priced as a business.\n\n**Normalised costs.** A founder taking below-market pay, using their own property, or absorbing functions the business will have to hire for — all inflate the returns being sold.\n\n**The honest framing: you are buying the part of the business that survives the seller's departure, and the price should reflect that part.** This is exactly what an earnout is for, and it is why the negotiation over it is really a negotiation about whose returns these are.",
       "heading": "skipping the quality question in private deals"
+    },
+    {
+      "type": "infographic",
+      "id": "separability-tests",
+      "caption": "Whose returns are these — the business's or the founder's? You are buying the part that survives the departure.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Customer relationships",
+            "icon": "case",
+            "detail": "What share of revenue is with customers whose relationship is personal to the seller?"
+          },
+          {
+            "label": "Pricing discipline",
+            "icon": "gear",
+            "detail": "Systematic pricing survives a handover; one person's judgement often does not."
+          },
+          {
+            "label": "Management depth",
+            "icon": "layers",
+            "detail": "A team, or a person with assistants — the second is key-person risk priced as a business."
+          },
+          {
+            "label": "Normalised costs",
+            "icon": "coins",
+            "detail": "Below-market founder pay and absorbed functions inflate the returns being sold."
+          }
+        ]
+      }
     },
     {
       "type": "onTheJob",

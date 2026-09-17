@@ -22,6 +22,31 @@
       "heading": "What it is"
     },
     {
+      "type": "infographic",
+      "id": "correlation-ladder",
+      "caption": "60/40 in 18% and 10% volatility assets — the only input that changes is the correlation.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Correlation +1.0",
+            "stat": "14.80%",
+            "detail": "The weighted average — no diversification at all."
+          },
+          {
+            "label": "Correlation 0.0",
+            "stat": "11.52%",
+            "detail": "The gap to 14.80% is the benefit, and no return was given up to get it."
+          },
+          {
+            "label": "Correlation −0.5",
+            "stat": "9.46%",
+            "detail": "Genuinely opposed assets — the rarest and most valuable case."
+          }
+        ]
+      }
+    },
+    {
       "type": "concept",
       "id": "the-floor",
       "body": "**Adding more positions reduces risk only up to a floor, and the floor is set by what the positions share.**\n\nFor equally weighted assets each with volatility σ and average pairwise correlation ρ, portfolio volatility falls as you add names — and converges to **√ρ × σ**.\n\nWith 20% volatility assets:\n\n- **ρ = 0.0** → 20% at one name, 8.9% at five, 4.5% at twenty, 2.0% at a hundred, approaching **zero**.\n- **ρ = 0.3** → 20%, then 13.3%, 11.6%, 11.1% — converging to **11.0%** and never going lower.\n- **ρ = 0.6** → converging to **15.5%**.\n\n**At 30% average correlation, a portfolio of ten thousand positions has 11% volatility. So does a portfolio of a hundred.** The last 9,900 names bought nothing.\n\nTwo consequences that recur constantly in practice:\n\n**Most of the benefit arrives early.** Going from one holding to twenty captures nearly all of it. Going from twenty to two hundred is mostly administration.\n\n**The floor is the systematic risk, and no amount of counting reduces it.** A portfolio of a hundred leveraged loans to sponsor-backed mid-market companies is not a hundred bets. It is one bet on that financing environment, expressed a hundred times — and the correlation, not the count, is what says so.",
@@ -71,6 +96,31 @@
       "heading": "the floor at 0.3 correlation"
     },
     {
+      "type": "infographic",
+      "id": "floor-arithmetic",
+      "caption": "Portfolio volatility converges to √ρ × σ — at 0.3 correlation and 20% volatility, the floor is 10.95%.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "One position",
+            "stat": "20.0%",
+            "detail": "All idiosyncratic and all diversifiable — in principle."
+          },
+          {
+            "label": "Twenty positions",
+            "stat": "11.6%",
+            "detail": "Already within a whisker of the floor. Most of the benefit arrives early."
+          },
+          {
+            "label": "Ten thousand positions",
+            "stat": "11.0%",
+            "detail": "Sixty basis points for 9,980 additional names. The floor is the systematic risk, and no amount of counting reduces it."
+          }
+        ]
+      }
+    },
+    {
       "type": "table",
       "id": "div-table",
       "caption": "What diversification can and cannot remove",
@@ -118,6 +168,31 @@
       "id": "manager-vs-strategy",
       "body": "**Manager diversification and strategy diversification are different things, and institutional portfolios routinely buy the first while believing they bought the second.**\n\nFive [[direct-lending|direct lending]] managers reduce the risk that any one of them underwrites badly. That is real and it is worth something.\n\nThey do not reduce the risk that mid-market leveraged credit performs poorly — and that is the larger risk by some distance. **Manager selection is a small dispersion around a large common outcome.**\n\nThe test is simple and rarely applied: **in the worst quarter available, how did the five managers' returns compare?** If they moved together, the diversification was across paperwork rather than across risk.\n\nWhich reframes the allocation question. The useful diversification decisions are between things with genuinely different return drivers:\n\n**Illiquidity premium** — [[private-equity|private equity]], private credit, [[real-assets|real assets]].\n\n**Insurance premium** — selling volatility, reinsurance, certain credit strategies.\n\n**Trend and momentum** — payoffs shaped opposite to most of the above.\n\n**Genuine cash and government bonds** — the only reliable diversifiers in a deleveraging, and the ones an allocator is most tempted to minimise because they yield least.\n\n**A portfolio can hold thirty managers and two return drivers.** Counting the second number is the harder and more useful exercise.",
       "heading": "confusing manager and strategy diversification"
+    },
+    {
+      "type": "infographic",
+      "id": "two-diversification-kinds",
+      "caption": "Five direct-lending managers is manager diversification — the larger risk is untouched.",
+      "spec": {
+        "kind": "comparison",
+        "columns": [
+          {
+            "title": "Manager diversification",
+            "bullets": [
+              "Reduces the risk that any one underwrites badly",
+              "Real, and worth something"
+            ]
+          },
+          {
+            "title": "Strategy diversification",
+            "bullets": [
+              "Mid-market leveraged credit performing poorly is the larger risk by some distance",
+              "The test: in the worst quarter available, how did the five managers' returns compare?",
+              "A portfolio can hold thirty managers and two return drivers — only the second number matters"
+            ]
+          }
+        ]
+      }
     },
     {
       "type": "onTheJob",

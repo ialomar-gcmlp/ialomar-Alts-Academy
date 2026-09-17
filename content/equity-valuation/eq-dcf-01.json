@@ -29,6 +29,31 @@
       "heading": "The terminal value problem"
     },
     {
+      "type": "infographic",
+      "id": "terminal-disciplines",
+      "caption": "Two numbers carry the valuation, and they enter as a difference — the disciplines are not optional.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "The denominator trap",
+            "icon": "alert",
+            "detail": "At an 8% discount rate, moving perpetual growth from 2% to 3% shrinks the divisor 20% — from one point of an unverifiable assumption."
+          },
+          {
+            "label": "The growth ceiling",
+            "icon": "chartUp",
+            "detail": "Perpetual growth above nominal GDP means the business eventually becomes the economy — impossible, not aggressive."
+          },
+          {
+            "label": "The cross-check",
+            "stat": "15.3x",
+            "detail": "The worked terminal value on year-5 EBITDA of 180. If comparables change hands at 9x, the perpetuity is asserting something the market does not."
+          }
+        ]
+      }
+    },
+    {
       "type": "intuition",
       "id": "sensitivity-is-the-output",
       "body": "**The single number a DCF produces is the least useful thing it produces. The sensitivity table is the output.**\n\nIn the worked example below, plausible ranges on two assumptions — a percentage point either way on the discount rate and on perpetual growth — produce a valuation range from 26% below the base case to 62% above it.\n\nThat is not a defect in the method. **It is the honest width of what can be known about a business's value**, and any single figure quoted to the nearest million is concealing it.\n\nSo the practical use of a DCF inverts the usual presentation:\n\n**Run it backwards.** Instead of asking what the business is worth, ask what has to be true to justify the current price. What growth rate, what margin, what discount rate? Then argue about whether those are plausible. This is a far more productive conversation than comparing two point estimates.\n\n**Report the range and the drivers.** \"Between 1,700 and 3,800 depending mostly on the cost of capital\" is more useful and more honest than 2,349.\n\n**Use it to find the disagreement.** When two people value the same business differently, the DCF locates exactly which assumption they differ on — and that is usually a question with evidence attached, where \"it's worth more than that\" is not.",
@@ -72,6 +97,31 @@
       "heading": "valuing 100 of free cash flow"
     },
     {
+      "type": "infographic",
+      "id": "value-location",
+      "caption": "Where the worked valuation's 2,349 actually sits.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Five years of explicit forecast",
+            "stat": "472.9",
+            "detail": "The part everyone spends their time on — a fifth of the answer."
+          },
+          {
+            "label": "The terminal value, discounted",
+            "stat": "1,876.2",
+            "detail": "Everything after year five, collapsed into one perpetuity."
+          },
+          {
+            "label": "The terminal share",
+            "stat": "79.9%",
+            "detail": "Above about 70% — which is most models — the analysis is mostly two assumptions and the forecast is decoration."
+          }
+        ]
+      }
+    },
+    {
       "type": "table",
       "id": "sensitivity-table",
       "caption": "Enterprise value at different discount and growth rates",
@@ -113,6 +163,31 @@
       "id": "reverse-dcf",
       "body": "**The most useful way to run a DCF is backwards, and almost nobody does it.**\n\nInstead of forecasting cash flows to produce a value, take the observed price and solve for the assumptions that justify it. What perpetual growth rate does this price imply? What margin? What return on capital?\n\nThe advantage is that it converts an unfalsifiable exercise into a testable one. \"This business is worth 2,349\" invites disagreement with no resolution. **\"This price implies 4% perpetual growth and margins expanding 300bp\" invites a specific argument about whether either is likely** — and both are questions with evidence attached.\n\nIt is particularly useful in two situations an alternatives analyst meets constantly.\n\n**Assessing an entry price.** What does the sponsor's model need to believe? If it needs above-market growth *and* margin expansion *and* multiple expansion, those are three bets, not one, and they need to be sized as three.\n\n**Assessing a mark.** A portfolio company held at 12x when comparable transactions clear at 9x is a claim. Reverse the valuation and the claim becomes specific: this mark requires the business to be worth a third more than its peers, and here is the reason offered.\n\n**The general principle: a valuation you cannot argue with is a valuation nobody has tested.**",
       "heading": "never running the DCF backwards"
+    },
+    {
+      "type": "infographic",
+      "id": "forwards-vs-backwards",
+      "caption": "A valuation you cannot argue with is a valuation nobody has tested.",
+      "spec": {
+        "kind": "comparison",
+        "columns": [
+          {
+            "title": "Run forwards",
+            "bullets": [
+              "Forecast cash flows to produce a value: “worth 2,349”",
+              "Invites disagreement with no resolution — unfalsifiable"
+            ]
+          },
+          {
+            "title": "Run backwards",
+            "bullets": [
+              "Take the price and solve for what justifies it",
+              "“This price implies 4% perpetual growth and 300bp of margin expansion” — a specific, arguable claim",
+              "For a sponsor model: above-market growth AND margin expansion AND multiple expansion is three bets, sized as three"
+            ]
+          }
+        ]
+      }
     },
     {
       "type": "onTheJob",

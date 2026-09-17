@@ -22,6 +22,30 @@
       "heading": "What it is"
     },
     {
+      "type": "infographic",
+      "id": "three-responses",
+      "caption": "Three responses, in descending order of strength — the failure is treating the weakest as the whole answer.",
+      "spec": {
+        "kind": "stack",
+        "axis": "eliminates the conflict → records it",
+        "layers": [
+          {
+            "label": "Avoid",
+            "emphasis": true,
+            "sublabel": "do not take the position, recuse — the only response that eliminates the conflict"
+          },
+          {
+            "label": "Control",
+            "sublabel": "keep the conflict and constrain the discretion: an independent decision-maker, a formula, an external price, a consent"
+          },
+          {
+            "label": "Disclose",
+            "sublabel": "necessary in every case, and sufficient in fewer than people assume"
+          }
+        ]
+      }
+    },
+    {
       "type": "concept",
       "id": "structural-conflicts",
       "body": "**In alternatives the significant conflicts are structural and permanent, so they cannot be resolved once and forgotten.**\n\n**Self-valuation.** The manager marks its own portfolio, and those marks drive reported performance, fundraising and accrued carry.\n\n**Cross-fund transactions.** Selling an asset from one of the manager's funds to another. The manager sets the price and represents both sides.\n\n**Continuation vehicles.** Moving an asset into a new vehicle with new investors, advising both sides and earning fees on both.\n\n**Allocation of scarce opportunities.** Which fund gets the deal, and which investors get co-investment. Commercially valuable investors are an obvious temptation.\n\n**Fee and expense allocation.** Which costs sit with the manager and which with the fund.\n\n**Multiple funds with different economics.** A manager running funds at different fee levels or different points in their carry has an interest in where a deal lands.\n\n**Successor fund fundraising.** The period before a new fund launch creates pressure on marks, on realisation timing and on how performance is presented.\n\n**None of these can be avoided while running the business.** So every one has to be controlled, and the quality of the control is the entire question. **\"Disclosed in the partnership agreement\" is the weakest possible answer to any of them.**",
@@ -32,6 +56,31 @@
       "id": "the-three-questions",
       "body": "**Three questions establish whether a conflict is genuinely managed, and they work on any conflict in any context.**\n\n**Who decides, and what do they gain from the outcome?** If the decision-maker's compensation depends on the answer, there is no control — only a disclosure. An independent voice means someone whose pay does not move with the decision.\n\n**Is there an external reference?** A market price, a third-party valuation, a competitive process, a pre-agreed formula. Anything that comes from outside the interested party converts a judgement into a comparison. A cross-fund sale with a market-tested price is a different transaction from one priced internally.\n\n**Can the affected party actually act?** A conflict disclosed before an investor commits, where they can decline or negotiate, has been managed. The same conflict disclosed after the decision, in a document that cannot be changed, has been recorded.\n\n**Applied to a continuation vehicle, these three cut straight to the substance:** was the price market-tested, did an independent body consent, and could investors genuinely choose to exit at that price with adequate information?\n\n**If the answers are yes, yes and yes, the conflict was managed** — and the transaction may be entirely in everyone's interest. If any answer is no, the conflict was documented, and the outcome depended on the good faith of an interested party. **Which may have been perfectly sound and is not a control.**",
       "heading": "Why three questions are enough"
+    },
+    {
+      "type": "infographic",
+      "id": "conflict-tests",
+      "caption": "Three questions test any conflict in any context — yes, yes and yes means managed; any no means documented.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Who decides, and what do they gain?",
+            "icon": "target",
+            "detail": "If the decision-maker's pay depends on the answer, there is no control — only a disclosure."
+          },
+          {
+            "label": "Is there an external reference?",
+            "icon": "docCheck",
+            "detail": "A market price, a third-party valuation, a pre-agreed formula — anything from outside the interested party."
+          },
+          {
+            "label": "Can the affected party act?",
+            "icon": "gear",
+            "detail": "Disclosed before commitment, with the ability to decline, is managed. Disclosed after, in an unchangeable document, is recorded."
+          }
+        ]
+      }
     },
     {
       "type": "example",
@@ -47,6 +96,32 @@
         "Sanity check worth reusing: **for any discretionary allocation, ask when the policy was written.** Before the opportunity is a control; after is a rationalisation."
       ],
       "heading": "allocating a scarce co-investment"
+    },
+    {
+      "type": "infographic",
+      "id": "policy-timing",
+      "caption": "The ethical content is entirely in when the rule was written.",
+      "spec": {
+        "kind": "comparison",
+        "columns": [
+          {
+            "title": "A policy written before the opportunity",
+            "mark": "check",
+            "bullets": [
+              "Pro rata, or any pre-agreed rule — a control",
+              "Policies may legitimately favour larger or longer-standing investors, as a term accepted in advance"
+            ]
+          },
+          {
+            "title": "Decided case by case",
+            "mark": "cross",
+            "bullets": [
+              "A judgement that happened to favour the commercially valuable investor",
+              "A rule created once the opportunity is known will accommodate the preferred answer — a rationalisation"
+            ]
+          }
+        ]
+      }
     },
     {
       "type": "table",

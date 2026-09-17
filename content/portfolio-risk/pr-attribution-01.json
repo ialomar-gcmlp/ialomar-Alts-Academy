@@ -29,6 +29,31 @@
       "heading": "How long skill takes to prove"
     },
     {
+      "type": "infographic",
+      "id": "years-to-prove",
+      "caption": "Years of data needed to distinguish skill from luck: (1.96 / information ratio)².",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "IR 1.0 — exceptional",
+            "stat": "4 yrs",
+            "detail": "The best case, and rarer than track records suggest."
+          },
+          {
+            "label": "IR 0.5 — very good",
+            "stat": "15 yrs",
+            "detail": "Longer than most manager relationships."
+          },
+          {
+            "label": "IR 0.3 — good",
+            "stat": "43 yrs",
+            "detail": "Longer than most careers. A short record is evidence about exposures and almost none about skill."
+          }
+        ]
+      }
+    },
+    {
       "type": "intuition",
       "id": "alts-attribution",
       "body": "**In alternatives the exposures are harder to see, which makes the beta look like alpha for much longer.**\n\nA [[long-short-equity|long/short equity]] fund's return decomposes reasonably well against equity indices. A buyout fund's does not, and the absence of an obvious benchmark is frequently treated as evidence that the return is skill.\n\nIt is not. The exposures are there and they need naming:\n\n**Buyout** — equity beta, leverage, the multiple environment, and a small-cap tilt. A levered small-cap index is a rough but honest benchmark, and it explains a great deal.\n\n**[[private-credit|Private credit]]** — credit beta, illiquidity, and the reference rate. Most of the return is spread that was available to anyone lending on those terms.\n\n**Real estate** — property beta, leverage, and rates. Cap rate compression over a decade of falling rates was not a skill.\n\n**[[hedge-fund|Hedge funds]]** — often equity beta plus short volatility, and both are cheaper to buy directly.\n\n**The specific question that does the most work: what would a passive investor with the same exposures have earned over the same period?** If the answer is close to the manager's return, the fee bought access rather than performance.\n\n**And the alternatives version of the beta problem is worse than in public markets**, because the fee is higher, the term is longer and the benchmark is contested. Which is exactly why the exposure question deserves to be asked before the return question.",
@@ -49,6 +74,38 @@
         "Sanity check worth reusing: **compute beta × market return before looking at anything else.** It gives the passive equivalent immediately, and the gap is the only part that requires a manager."
       ],
       "heading": "decomposing a 12% year"
+    },
+    {
+      "type": "infographic",
+      "id": "return-decomposition-eq",
+      "caption": "A 12% year, decomposed — 78% of what the investor received was available passively.",
+      "spec": {
+        "kind": "equation",
+        "terms": [
+          {
+            "label": "Risk-free",
+            "sublabel": "3%"
+          },
+          {
+            "label": "β × market premium",
+            "sublabel": "0.9 × 7% = 6.3%",
+            "bullets": [
+              "The return earned by holding the exposure — and by everyone else who held it"
+            ]
+          },
+          {
+            "label": "The passive equivalent",
+            "sublabel": "9.30%",
+            "bullets": [
+              "Alpha is the remaining 2.70 points — the only part that required a manager"
+            ]
+          }
+        ],
+        "operators": [
+          "+",
+          "="
+        ]
+      }
     },
     {
       "type": "table",
@@ -98,6 +155,31 @@
       "id": "what-fees-buy",
       "body": "**Once the return is decomposed, the fee conversation changes from \"is this expensive?\" to \"what is this fee being charged on?\"**\n\nTake the worked example: 12% delivered, 9.30% of it beta, 2.70% alpha. On a 2-and-20 structure the fee is charged against the whole 12%.\n\nSo the arithmetic is stark. **The [[management-fee|management fee]] alone consumes most of the alpha, and the performance fee takes a fifth of a return that was three-quarters passive.** That is not necessarily unreasonable — access, diligence and operational infrastructure cost money — but it should be stated in those terms rather than as a share of performance.\n\nThree questions follow, all answerable:\n\n**Is the fee charged on total return or on return above a benchmark?** A performance fee over a cash hurdle in a rising equity market pays for beta. A fee over an appropriate index pays for alpha.\n\n**What would the same exposure have cost passively?** For most alternatives there is an approximate passive equivalent, and the difference is the price of the access and the alpha together.\n\n**Is the alpha large enough to survive the fee?** Gross alpha of 2.70% against fees of 2% plus 20% of everything leaves very little, and that calculation is arithmetic rather than opinion.\n\n**The best-structured funds address this directly** — benchmark-relative performance fees, hurdles set above cash, [[fee-offset|fee offsets]]. Those are structural answers, and their presence or absence tells you what the manager thinks they are selling.",
       "heading": "debating fees without attribution"
+    },
+    {
+      "type": "infographic",
+      "id": "fee-questions",
+      "caption": "Once the return is decomposed, the fee question becomes specific — three answerable questions.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Fee on total return, or above a benchmark?",
+            "icon": "docCheck",
+            "detail": "A performance fee over a cash hurdle in a rising market pays for beta."
+          },
+          {
+            "label": "What would the exposure cost passively?",
+            "icon": "coins",
+            "detail": "The difference is the price of access and alpha together."
+          },
+          {
+            "label": "Does the alpha survive the fee?",
+            "icon": "target",
+            "detail": "Gross alpha of 2.70% against 2-and-20 leaves very little — arithmetic, not opinion."
+          }
+        ]
+      }
     },
     {
       "type": "onTheJob",

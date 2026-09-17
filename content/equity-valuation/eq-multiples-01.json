@@ -23,6 +23,31 @@
       "heading": "What it is"
     },
     {
+      "type": "infographic",
+      "id": "claimant-matching",
+      "caption": "The numerator and denominator must belong to the same claimants.",
+      "spec": {
+        "kind": "comparison",
+        "columns": [
+          {
+            "title": "[[enterprise-value|Enterprise value]] multiples",
+            "bullets": [
+              "EV belongs to everyone — lenders and shareholders",
+              "Pairs with pre-interest profit: EBITDA, EBIT, sales"
+            ]
+          },
+          {
+            "title": "Equity multiples",
+            "bullets": [
+              "Equity belongs to shareholders alone",
+              "Pairs with post-interest profit: net income, EPS",
+              "EV/net income and P/EBITDA are not conservative or aggressive — they are meaningless"
+            ]
+          }
+        ]
+      }
+    },
+    {
       "type": "concept",
       "id": "what-a-multiple-encodes",
       "body": "**A multiple is a compressed discounted cash flow. Every multiple implies a growth rate, a [[discount-rate|discount rate]] and a reinvestment requirement — it simply does not say which.**\n\nThis follows directly from the [[perpetuity]] arithmetic. If value equals cash flow divided by discount rate minus growth, then the multiple *is* one over that difference. A business at 10x is being priced as though the gap between its cost of capital and its growth rate is about 10%; one at 20x, about 5%.\n\nSo three things justify a higher multiple and only three:\n\n**Higher growth**, sustained.\n\n**Lower risk**, meaning a lower discount rate.\n\n**Less capital needed to produce the growth**, so more of the profit is actually free.\n\n**Anything else offered as a justification is one of these three in disguise, or it is not a reason.**\n\nThis is why the phrase \"it trades at 8x and peers trade at 12x, so it is cheap\" is incomplete rather than wrong. The gap is a starting question: **which of growth, risk or capital intensity differs, and by enough to explain four turns?** Sometimes the answer is nothing, and it is genuinely cheap. Often the market has noticed something the comparison has not.",
@@ -33,6 +58,31 @@
       "id": "leverage-and-multiples",
       "body": "**P/E and EV/EBITDA disagree about leverage, and the disagreement is the reason to use both.**\n\nTake two identical businesses: same EBITDA of 80, same enterprise value of 800, so both at **10.0x EV/EBITDA**. One has no debt; the other has 400.\n\n- **Unlevered.** EBIT 50, no interest, tax 25% → net income 37.5. Equity value 800. **P/E = 21.3x.**\n- **Levered.** EBIT 50, interest 20, tax 25% → net income 22.5. Equity value 400. **P/E = 17.8x.**\n\n**Identical businesses, identical EV/EBITDA, and P/E ratios nearly four turns apart.** The levered company looks \"cheaper\" on P/E purely because of its [[capital-structure|capital structure]].\n\nWhich tells you when to use each:\n\n**EV/EBITDA for comparing operations** across companies financed differently — the reason [[private-equity|private equity]] quotes everything this way, since a buyer intends to change the financing anyway.\n\n**P/E for what a shareholder receives**, given the structure as it stands.\n\n**And the practical warning: any peer comparison on P/E across companies with different leverage is partly a comparison of [[balance-sheet|balance sheets]].** If a screen throws up a company on a conspicuously low P/E, check its net debt before concluding anything.",
       "heading": "Why P/E and EV/EBITDA disagree"
+    },
+    {
+      "type": "infographic",
+      "id": "same-ev-different-pe",
+      "caption": "Identical businesses, identical 10.0x EV/EBITDA — and P/E ratios nearly four turns apart.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Unlevered: P/E",
+            "stat": "21.3x",
+            "detail": "EBIT 50, no interest, net income 37.5 on 800 of equity."
+          },
+          {
+            "label": "With 400 of debt: P/E",
+            "stat": "17.8x",
+            "detail": "Interest 20, net income 22.5 on 400 of equity — “cheaper” purely from the capital structure."
+          },
+          {
+            "label": "The rule",
+            "icon": "docCheck",
+            "detail": "EV/EBITDA compares operations; P/E compares what a shareholder receives. A low P/E on a screen needs a net debt check first."
+          }
+        ]
+      }
     },
     {
       "type": "example",
@@ -48,6 +98,31 @@
         "Sanity check worth reusing: **convert any multiple change into its effect on the equity, not the enterprise.** The formula is one turn of EBITDA divided by the equity value — here 80/400 = 20% per turn. That is the number that belongs in an investment memo."
       ],
       "heading": "from EV to equity value"
+    },
+    {
+      "type": "infographic",
+      "id": "turn-amplification",
+      "caption": "One turn of multiple moved enterprise value 10% — and the equity 20%.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "At 9x",
+            "stat": "320",
+            "detail": "EV 720 less 400 of net debt."
+          },
+          {
+            "label": "At 10x",
+            "stat": "400",
+            "detail": "The base case: EV 800."
+          },
+          {
+            "label": "At 11x",
+            "stat": "480",
+            "detail": "Entering at 9x and exiting at 11x adds 50% to the equity with the business unchanged — one turn of EBITDA over the equity value is the memo number."
+          }
+        ]
+      }
     },
     {
       "type": "table",
