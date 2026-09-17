@@ -63,12 +63,14 @@
         "Sanity check the size of that factor. Ten payments discounted at 7% are worth about 7.0 times one payment — less than 10, obviously, but not dramatically less. That ratio is a quick way to catch an error: if your annuity factor exceeds n, you have made a mistake.",
         "**Now shift the timing.** If those payments arrive at the *start* of each year instead — an [[annuity-due]] — every payment sits one period closer to today, so multiply the whole thing by 1.07: $14,047.16 x 1.07 = **$15,030.46**.",
         "That timing change is worth $983.30, about 7% of the value. On a $2,000 payment stream it is a rounding error; on a large fee stream it is a real number, and it is decided entirely by whether payments land at the beginning or the end of the period."
-      ]
+      ],
+      "heading": "valuing $2,000 a year for ten years"
     },
     {
       "type": "pitfall",
       "id": "timing",
-      "body": "**The formula assumes the first payment arrives one period from now.** That is an *ordinary* annuity. If the first payment is today — rent, insurance premiums, most subscription arrangements — you have an [[annuity-due]], and every payment is one period closer, so the value is higher by exactly a factor of (1+r).\n\nSpreadsheet functions make this easy to get wrong, because the timing argument is optional and defaults to ordinary. If a valuation looks about 5-10% low and the cash flows arrive at period start, check that argument before you check anything else."
+      "body": "**The formula assumes the first payment arrives one period from now.** That is an *ordinary* annuity. If the first payment is today — rent, insurance premiums, most subscription arrangements — you have an [[annuity-due]], and every payment is one period closer, so the value is higher by exactly a factor of (1+r).\n\nSpreadsheet functions make this easy to get wrong, because the timing argument is optional and defaults to ordinary. If a valuation looks about 5-10% low and the cash flows arrive at period start, check that argument before you check anything else.",
+      "heading": "missing the payment-timing assumption"
     },
     {
       "type": "onTheJob",

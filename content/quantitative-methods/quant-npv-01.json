@@ -18,7 +18,8 @@
     {
       "type": "concept",
       "id": "npv-what",
-      "body": "You have a set of cash flows: money out at the start, money in later. Two questions follow, and they are not the same question.\n\n**\"Does this create value?\"** is answered by [[net-present-value]]. Discount every cash flow to today at your [[required-return]], add them up including the negative ones, and look at the sign. Positive means the investment is worth more than it costs. That is the whole test.\n\n**\"What return does this earn?\"** is answered by [[internal-rate-of-return]]. It is the discount rate at which NPV comes out to exactly zero — the rate the investment itself implies, expressed as a percentage.\n\nBoth use the same inputs. They answer different questions, and when they disagree the disagreement is informative rather than a problem to be resolved."
+      "body": "You have a set of cash flows: money out at the start, money in later. Two questions follow, and they are not the same question.\n\n**\"Does this create value?\"** is answered by [[net-present-value]]. Discount every cash flow to today at your [[required-return]], add them up including the negative ones, and look at the sign. Positive means the investment is worth more than it costs. That is the whole test.\n\n**\"What return does this earn?\"** is answered by [[internal-rate-of-return]]. It is the discount rate at which NPV comes out to exactly zero — the rate the investment itself implies, expressed as a percentage.\n\nBoth use the same inputs. They answer different questions, and when they disagree the disagreement is informative rather than a problem to be resolved.",
+      "heading": "What NPV asks"
     },
     {
       "type": "formula",
@@ -53,17 +54,20 @@
         "**So reject it.** Marginally — but the sign is the answer, and it is negative. The $1,200 of total inflows against a $1,000 outlay looks like a clear profit until you account for when the money arrives.",
         "Now find the [[internal-rate-of-return]]: the rate that would make this exactly break even. It is about **9.7%**, just below the 10% required return — which is the same conclusion the NPV reached, stated as a percentage instead of a dollar amount.",
         "Notice the two agree here, and notice *why*: it is a single project with one sign change in its cash flows and no scale comparison involved. That is the case where IRR is well behaved."
-      ]
+      ],
+      "heading": "$1,000 out, $400 a year back"
     },
     {
       "type": "concept",
       "id": "when-they-disagree",
-      "body": "IRR misleads in four recognisable situations, and it is worth being able to name them.\n\n**Scale.** IRR is blind to size. A small project with a high percentage return can rank above a large one that creates far more value.\n\n**Timing.** IRR rewards getting money back quickly. A fund that returns capital in year two and stops can post a higher IRR than one that compounds patiently for a decade and returns far more in total.\n\n**Multiple sign changes.** If cash flows go negative, positive, then negative again — a fund with a follow-on capital call, say — there can be more than one rate at which NPV equals zero. Two mathematically valid IRRs, neither of them meaningful.\n\n**The reinvestment assumption.** As above: IRR assumes interim distributions were reinvested at the IRR. The more front-loaded the cash flows, the more that assumption is doing the work."
+      "body": "IRR misleads in four recognisable situations, and it is worth being able to name them.\n\n**Scale.** IRR is blind to size. A small project with a high percentage return can rank above a large one that creates far more value.\n\n**Timing.** IRR rewards getting money back quickly. A fund that returns capital in year two and stops can post a higher IRR than one that compounds patiently for a decade and returns far more in total.\n\n**Multiple sign changes.** If cash flows go negative, positive, then negative again — a fund with a follow-on capital call, say — there can be more than one rate at which NPV equals zero. Two mathematically valid IRRs, neither of them meaningful.\n\n**The reinvestment assumption.** As above: IRR assumes interim distributions were reinvested at the IRR. The more front-loaded the cash flows, the more that assumption is doing the work.",
+      "heading": "When NPV and IRR disagree"
     },
     {
       "type": "pitfall",
       "id": "sign-convention",
-      "body": "**The initial outlay must be negative.** It is the most common NPV error and it is silent — the arithmetic produces a plausible number, just the wrong one.\n\nA good habit: before computing anything, write the cash flows out as a row with explicit signs and check the pattern looks like the investment you think you are valuing. Money out first, money in later, one sign change. If you see a different pattern than you expected, find out why before you compute a rate."
+      "body": "**The initial outlay must be negative.** It is the most common NPV error and it is silent — the arithmetic produces a plausible number, just the wrong one.\n\nA good habit: before computing anything, write the cash flows out as a row with explicit signs and check the pattern looks like the investment you think you are valuing. Money out first, money in later, one sign change. If you see a different pattern than you expected, find out why before you compute a rate.",
+      "heading": "getting the sign convention wrong"
     },
     {
       "type": "onTheJob",

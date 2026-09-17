@@ -103,7 +103,8 @@
         "**Now the stock rises.** Delta rises with it — say to 0.70. The position is now under-hedged, so the manager shorts more shares to restore neutrality, selling into strength.",
         "**Then the stock falls back.** Delta falls to 0.60 again, the position is over-hedged, and the manager buys shares back — at a lower price than they sold them.",
         "**That round trip was profitable, and no view was required.** The manager sold high and bought low purely by maintaining the hedge. That is gamma trading, and it is why the strategy wants volatility rather than direction."
-      ]
+      ],
+      "heading": "sizing the hedge"
     },
     {
       "type": "intuition",
@@ -190,7 +191,8 @@
     {
       "type": "pitfall",
       "id": "delta-neutral-illusion",
-      "body": "**\"Delta neutral\" means neutral to small share price moves, and nothing more.** It is not neutral to credit spreads, to a change in [[vega|implied volatility]], to a jump in the share price too large for the linear approximation, to interest rates, or to financing availability.\n\nEach of those is a separate exposure with its own Greek or its own name, and a delta-hedged book carries all of them. When a manager describes the book as hedged, the useful follow-up is: hedged against which variable? The answer is usually one variable out of five."
+      "body": "**\"Delta neutral\" means neutral to small share price moves, and nothing more.** It is not neutral to credit spreads, to a change in [[vega|implied volatility]], to a jump in the share price too large for the linear approximation, to interest rates, or to financing availability.\n\nEach of those is a separate exposure with its own Greek or its own name, and a delta-hedged book carries all of them. When a manager describes the book as hedged, the useful follow-up is: hedged against which variable? The answer is usually one variable out of five.",
+      "heading": "reading delta neutral as hedged"
     },
     {
       "type": "infographic",

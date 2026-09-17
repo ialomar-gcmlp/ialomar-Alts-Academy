@@ -22,7 +22,8 @@
     {
       "type": "concept",
       "id": "the-two-links",
-      "body": "**Two links join the statements, and they are what makes the set a system rather than three reports.**\n\n**Link one: profit flows into equity.** Net income for the period increases [[retained-earnings|retained earnings]] on the balance sheet, less any dividend paid. So the balance sheet at the end of the year is the balance sheet at the start plus everything that happened in between.\n\n**Link two: the cash flow statement explains the change in the cash balance.** Opening cash plus operating plus investing plus financing equals closing cash. That closing figure appears on the balance sheet.\n\nThose two links let you check any set of statements for internal consistency, and — much more usefully — they let you *build* the statements forward. Every financial model in existence is these two links applied repeatedly.\n\nThe practical version: **if someone shows you a projection where profit rises and the balance sheet does not change, the model is not joined up.** Growth consumes [[working-capital|working capital]] and assets. Profit has to land somewhere."
+      "body": "**Two links join the statements, and they are what makes the set a system rather than three reports.**\n\n**Link one: profit flows into equity.** Net income for the period increases [[retained-earnings|retained earnings]] on the balance sheet, less any dividend paid. So the balance sheet at the end of the year is the balance sheet at the start plus everything that happened in between.\n\n**Link two: the cash flow statement explains the change in the cash balance.** Opening cash plus operating plus investing plus financing equals closing cash. That closing figure appears on the balance sheet.\n\nThose two links let you check any set of statements for internal consistency, and — much more usefully — they let you *build* the statements forward. Every financial model in existence is these two links applied repeatedly.\n\nThe practical version: **if someone shows you a projection where profit rises and the balance sheet does not change, the model is not joined up.** Growth consumes [[working-capital|working capital]] and assets. Profit has to land somewhere.",
+      "heading": "The two links between statements"
     },
     {
       "type": "intuition",
@@ -42,7 +43,8 @@
         "Tax at 25% = 7.5, so **net income = 22.5** — a 4.5% net margin on 500 of revenue.",
         "**Read that carefully. The same company is 16% profitable at the EBITDA line and 4.5% profitable at the bottom. Neither figure is wrong; they answer different questions.** EBITDA describes the operations, net income describes what is left for shareholders after the lenders and the tax authority.",
         "Sanity check worth reusing: **work out what proportion of EBITDA is consumed by depreciation and interest.** Here it is 30 + 20 = 50 of 80, or 62%. A business handing over most of its operating cash flow to its assets and its lenders has very little margin for a bad year, and that ratio makes it visible in one line."
-      ]
+      ],
+      "heading": "one company, three statements"
     },
     {
       "type": "table",
@@ -85,7 +87,8 @@
     {
       "type": "pitfall",
       "id": "quality-of-earnings",
-      "body": "**In private markets the statements you receive are usually adjusted, and the adjustments are the negotiation.**\n\nA seller presents \"adjusted EBITDA\" including run-rate synergies, normalised owner compensation, one-off costs added back and pro forma effects of acquisitions. Some adjustments are legitimate — an owner paying themselves above market rate genuinely overstates the cost base for a new owner. Others are aspiration recorded as history.\n\nThis is why a [[quality-of-earnings|quality of earnings]] review exists as a distinct exercise: an independent look at how much of the reported profit is recurring, cash-generating and attributable to the business rather than to its presentation.\n\n**The single most useful question: show me the reported audited figure, then walk me from there to your adjusted number, line by line.** Each step is then arguable on its merits. A pitch that starts at the adjusted figure has skipped the argument, and the bridge is usually available on request — which tells you something either way."
+      "body": "**In private markets the statements you receive are usually adjusted, and the adjustments are the negotiation.**\n\nA seller presents \"adjusted EBITDA\" including run-rate synergies, normalised owner compensation, one-off costs added back and pro forma effects of acquisitions. Some adjustments are legitimate — an owner paying themselves above market rate genuinely overstates the cost base for a new owner. Others are aspiration recorded as history.\n\nThis is why a [[quality-of-earnings|quality of earnings]] review exists as a distinct exercise: an independent look at how much of the reported profit is recurring, cash-generating and attributable to the business rather than to its presentation.\n\n**The single most useful question: show me the reported audited figure, then walk me from there to your adjusted number, line by line.** Each step is then arguable on its merits. A pitch that starts at the adjusted figure has skipped the argument, and the bridge is usually available on request — which tells you something either way.",
+      "heading": "accepting adjusted statements as given"
     },
     {
       "type": "onTheJob",

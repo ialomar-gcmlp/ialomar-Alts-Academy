@@ -24,7 +24,8 @@
     {
       "type": "concept",
       "id": "the-order",
-      "body": "**The phases are less useful than the ORDER in which things turn. That order is remarkably stable even when the timing is not.**\n\nRoughly, from earliest to latest:\n\n**Financial conditions** move first — the [[yield-curve|curve]], credit spreads, equity prices. They are forecasts, which is exactly why they lead.\n\n**Surveys and new orders** turn next. A [[purchasing-managers-index|purchasing managers' index]] asks firms about direction, so it turns before the activity it describes.\n\n**Hard activity data** — production, retail sales, capital expenditure — follows.\n\n**Employment** turns late. Firms cut hours before people, and hire back only once the recovery is convincing.\n\n**Defaults and write-offs** turn last of all, well into the recovery, because a borrower fails after its revenue does.\n\n**The investment consequence is direct: the data confirming a recession arrives after markets have bottomed, and the data confirming a boom arrives after markets have peaked.** Waiting for confirmation is systematically expensive, and it feels like prudence every time."
+      "body": "**The phases are less useful than the ORDER in which things turn. That order is remarkably stable even when the timing is not.**\n\nRoughly, from earliest to latest:\n\n**Financial conditions** move first — the [[yield-curve|curve]], credit spreads, equity prices. They are forecasts, which is exactly why they lead.\n\n**Surveys and new orders** turn next. A [[purchasing-managers-index|purchasing managers' index]] asks firms about direction, so it turns before the activity it describes.\n\n**Hard activity data** — production, retail sales, capital expenditure — follows.\n\n**Employment** turns late. Firms cut hours before people, and hire back only once the recovery is convincing.\n\n**Defaults and write-offs** turn last of all, well into the recovery, because a borrower fails after its revenue does.\n\n**The investment consequence is direct: the data confirming a recession arrives after markets have bottomed, and the data confirming a boom arrives after markets have peaked.** Waiting for confirmation is systematically expensive, and it feels like prudence every time.",
+      "heading": "The order in which things turn"
     },
     {
       "type": "intuition",
@@ -75,7 +76,8 @@
         "Now the bit that catches people out: the late-expansion fund will report better numbers *first*, because its loans are performing and nothing has defaulted yet. The contraction fund is deploying while headlines are terrible and its early marks may be poor.",
         "**Read that carefully — the fund with the worse economics reports better results for the first two years.** By the time the ranking inverts, the allocation decision was made years earlier.",
         "Sanity check worth reusing: **when comparing two private funds, compare deployment periods before comparing returns.** If the [[vintage-year|vintages]] differ, a return comparison is mostly a comparison of entry conditions."
-      ]
+      ],
+      "heading": "two identical funds, two vintages"
     },
     {
       "type": "concept",
@@ -86,7 +88,8 @@
     {
       "type": "pitfall",
       "id": "correlation-in-stress",
-      "body": "**Diversification is measured in normal times and consumed in bad ones.**\n\nCorrelations between risk assets rise in a contraction. Strategies that looked independent for years — equity long/short, credit, real estate, [[private-equity|private equity]] — turn out to share one exposure: the price of risk. When that reprices, everything with a [[discount-rate|discount rate]] in it moves the same way.\n\nThis is not a reason to abandon diversification. It is a reason to distinguish two kinds: **diversification of return sources, which is real, and diversification of measured correlation, which is often an artefact of infrequent marks.**\n\nThe test is unglamorous and unavoidable: **what did each holding do in the worst quarter available, on the same dates?** Not average correlation over ten years — the same quarter, aligned. Most portfolios that look diversified on a correlation matrix look considerably less so under that test."
+      "body": "**Diversification is measured in normal times and consumed in bad ones.**\n\nCorrelations between risk assets rise in a contraction. Strategies that looked independent for years — equity long/short, credit, real estate, [[private-equity|private equity]] — turn out to share one exposure: the price of risk. When that reprices, everything with a [[discount-rate|discount rate]] in it moves the same way.\n\nThis is not a reason to abandon diversification. It is a reason to distinguish two kinds: **diversification of return sources, which is real, and diversification of measured correlation, which is often an artefact of infrequent marks.**\n\nThe test is unglamorous and unavoidable: **what did each holding do in the worst quarter available, on the same dates?** Not average correlation over ten years — the same quarter, aligned. Most portfolios that look diversified on a correlation matrix look considerably less so under that test.",
+      "heading": "trusting calm-market correlations"
     },
     {
       "type": "onTheJob",

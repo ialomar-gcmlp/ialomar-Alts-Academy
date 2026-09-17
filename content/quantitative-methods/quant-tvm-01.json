@@ -16,7 +16,8 @@
     {
       "type": "concept",
       "id": "why-time-matters",
-      "body": "Offer almost anyone $1,000 today or $1,000 in three years and they take the money now. That instinct is the entire subject of [[time-value-of-money]]: a dollar has a date attached to it, and dollars with different dates are different things. You cannot add them, compare them, or average them until you have moved them to a common point in time.\n\nMoving money forward in time gives you a [[future-value]]. Moving it backwards gives you a [[present-value]]. Every valuation you will ever see — a bond, a company, a fund's projected distributions — is some version of moving future money back to today and adding it up."
+      "body": "Offer almost anyone $1,000 today or $1,000 in three years and they take the money now. That instinct is the entire subject of [[time-value-of-money]]: a dollar has a date attached to it, and dollars with different dates are different things. You cannot add them, compare them, or average them until you have moved them to a common point in time.\n\nMoving money forward in time gives you a [[future-value]]. Moving it backwards gives you a [[present-value]]. Every valuation you will ever see — a bond, a company, a fund's projected distributions — is some version of moving future money back to today and adding it up.",
+      "heading": "Why time matters"
     },
     {
       "type": "intuition",
@@ -70,12 +71,14 @@
         "**Backwards, three years.** Now ask what $5,000 received in three years is worth today. Divide instead of multiply: $5,000 / 1.191016 = **$4,198.10**.",
         "The [[discount-factor]] here is 1 / 1.191016 = 0.8394. Every dollar arriving in three years is worth about 84 cents today at a 6% discount rate.",
         "Sanity check the direction of both answers. Money moved *forward* got bigger; money moved *backwards* got smaller. If your answer goes the other way, you have divided when you meant to multiply — which is the single most common arithmetic slip in this topic."
-      ]
+      ],
+      "heading": "$5,000 run in both directions"
     },
     {
       "type": "concept",
       "id": "what-r-really-is",
-      "body": "The hardest part of this topic is not the algebra, it is knowing what number to use for r. The [[discount-rate]] is not handed to you by nature; it is a judgement about what return you require for taking this particular risk over this particular horizon.\n\nA government bond cash flow gets discounted at something close to a [[risk-free-rate|risk-free rate]]. A late-stage venture company's projected exit gets discounted at something far higher, because the promise is far shakier. Same formula, wildly different r — and because r sits inside an exponent, small disagreements about it produce enormous disagreements about value."
+      "body": "The hardest part of this topic is not the algebra, it is knowing what number to use for r. The [[discount-rate]] is not handed to you by nature; it is a judgement about what return you require for taking this particular risk over this particular horizon.\n\nA government bond cash flow gets discounted at something close to a [[risk-free-rate|risk-free rate]]. A late-stage venture company's projected exit gets discounted at something far higher, because the promise is far shakier. Same formula, wildly different r — and because r sits inside an exponent, small disagreements about it produce enormous disagreements about value.",
+      "heading": "What r really is"
     },
     {
       "type": "table",
@@ -123,7 +126,8 @@
     {
       "type": "pitfall",
       "id": "period-mismatch",
-      "body": "**Your rate and your periods must speak the same language.** A 6% annual rate over 3 years means r = 0.06 and n = 3. If cash flows are quarterly, you need a quarterly rate and a quarterly count: r = 0.015 and n = 12, not r = 0.06 and n = 12.\n\nMixing them is the most common wrong answer on exam questions of this type, and it is a real error in spreadsheets too — a monthly model wired to an annual rate overstates value by a wide margin. Before you compute anything, say out loud what one period is."
+      "body": "**Your rate and your periods must speak the same language.** A 6% annual rate over 3 years means r = 0.06 and n = 3. If cash flows are quarterly, you need a quarterly rate and a quarterly count: r = 0.015 and n = 12, not r = 0.06 and n = 12.\n\nMixing them is the most common wrong answer on exam questions of this type, and it is a real error in spreadsheets too — a monthly model wired to an annual rate overstates value by a wide margin. Before you compute anything, say out loud what one period is.",
+      "heading": "mismatching rate and period"
     },
     {
       "type": "onTheJob",

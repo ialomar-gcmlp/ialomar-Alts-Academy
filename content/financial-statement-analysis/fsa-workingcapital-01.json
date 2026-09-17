@@ -24,7 +24,8 @@
     {
       "type": "concept",
       "id": "the-cycle",
-      "body": "**The [[cash-conversion-cycle|cash conversion cycle]] turns those three balances into one number: how many days the company's cash is tied up.**\n\nThree components, each a balance converted into days:\n\n**[[dso|Days sales outstanding]]** — how long customers take to pay. Receivables ÷ revenue × 365.\n\n**[[dio|Days inventory outstanding]]** — how long stock sits before being sold. Inventory ÷ cost of goods sold × 365.\n\n**[[dpo|Days payables outstanding]]** — how long the company takes to pay suppliers. Payables ÷ cost of goods sold × 365.\n\nThe cycle is **DSO + DIO − DPO**. Positive means the company funds a gap; negative means suppliers and customers fund the business.\n\n**A negative cycle is a genuinely powerful position.** A retailer that sells stock in three weeks, collects at the till instantly and pays suppliers in sixty days is financed by its own suppliers — and it generates cash faster as it grows, which is the opposite of the usual pattern. That is a structural advantage, not an operational one, and it survives management changes."
+      "body": "**The [[cash-conversion-cycle|cash conversion cycle]] turns those three balances into one number: how many days the company's cash is tied up.**\n\nThree components, each a balance converted into days:\n\n**[[dso|Days sales outstanding]]** — how long customers take to pay. Receivables ÷ revenue × 365.\n\n**[[dio|Days inventory outstanding]]** — how long stock sits before being sold. Inventory ÷ cost of goods sold × 365.\n\n**[[dpo|Days payables outstanding]]** — how long the company takes to pay suppliers. Payables ÷ cost of goods sold × 365.\n\nThe cycle is **DSO + DIO − DPO**. Positive means the company funds a gap; negative means suppliers and customers fund the business.\n\n**A negative cycle is a genuinely powerful position.** A retailer that sells stock in three weeks, collects at the till instantly and pays suppliers in sixty days is financed by its own suppliers — and it generates cash faster as it grows, which is the opposite of the usual pattern. That is a structural advantage, not an operational one, and it survives management changes.",
+      "heading": "The cash conversion cycle"
     },
     {
       "type": "intuition",
@@ -45,7 +46,8 @@
         "**Read that carefully: 100 of cash is invested in the business without appearing as an asset anyone would describe as an investment.** It is the same order of magnitude as a year's [[ebitda|EBITDA]] at 80.",
         "Now the improvement case: cut DSO by 10 days and the business releases 10 × 1.37 = **13.7 of cash**, roughly 17% of EBITDA, from nothing but collecting faster.",
         "Sanity check worth reusing: **compute one day of revenue first, before looking at any working capital figure.** Every subsequent day-count converts into money instantly, and the conversation moves from days to cash — which is where decisions get made."
-      ]
+      ],
+      "heading": "the cycle in days"
     },
     {
       "type": "table",
@@ -88,7 +90,8 @@
     {
       "type": "pitfall",
       "id": "completion-mechanism",
-      "body": "**Working capital is settled at every deal close, and it is where a surprising amount of money changes hands after the price is agreed.**\n\nThe mechanism: the parties agree a *normalised* level of working capital, usually a twelve-month average. At completion the actual level is measured. If it is below the target, the buyer pays less; above, the buyer pays more. The logic is that the buyer is entitled to receive the business with its usual amount of operating cash inside it.\n\nSo two things become worth real money. **The target level**, which is negotiated on historical data that the seller has prepared. And **the definition** of which items count — is accrued bonus working capital or debt? Is deferred revenue a liability that reduces the price or a normal operating item?\n\n**A 5 disagreement over the definition is 5 of cash on completion day**, and it is argued about long after the headline multiple has been signed off in a committee paper. This is why deal lawyers spend more time on the completion mechanism than on the price, and it is one of the most reliable places for an analyst to add value early."
+      "body": "**Working capital is settled at every deal close, and it is where a surprising amount of money changes hands after the price is agreed.**\n\nThe mechanism: the parties agree a *normalised* level of working capital, usually a twelve-month average. At completion the actual level is measured. If it is below the target, the buyer pays less; above, the buyer pays more. The logic is that the buyer is entitled to receive the business with its usual amount of operating cash inside it.\n\nSo two things become worth real money. **The target level**, which is negotiated on historical data that the seller has prepared. And **the definition** of which items count — is accrued bonus working capital or debt? Is deferred revenue a liability that reduces the price or a normal operating item?\n\n**A 5 disagreement over the definition is 5 of cash on completion day**, and it is argued about long after the headline multiple has been signed off in a committee paper. This is why deal lawyers spend more time on the completion mechanism than on the price, and it is one of the most reliable places for an analyst to add value early.",
+      "heading": "ignoring the completion mechanism"
     },
     {
       "type": "onTheJob",

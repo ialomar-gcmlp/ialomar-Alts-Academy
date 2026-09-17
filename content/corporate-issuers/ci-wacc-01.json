@@ -25,7 +25,8 @@
     {
       "type": "concept",
       "id": "the-roic-test",
-      "body": "**A business creates value when its [[roic|return on invested capital]] exceeds its cost of capital, and destroys value when it does not. Everything else in corporate finance is detail on top of that sentence.**\n\nROIC is after-tax operating profit divided by the capital invested to produce it. It answers: what does this business earn on the money put into it? WACC answers: what does that money cost?\n\nThe spread between them, multiplied by invested capital, is economic profit. A company earning 9% ROIC on 1,000 of capital against a 7.8% WACC creates 12 a year of value beyond its cost of capital.\n\n**The consequence that catches people out is what this says about growth.** Growth is only good if the new capital earns more than it costs:\n\n- Invest 200 more at 9% ROIC against a 7.8% WACC: **+2.4 of value.**\n- Invest the same 200 at 6% ROIC: **−3.6 of value.**\n\nSecond case: revenue grows, profit grows, earnings per share may well grow — **and the company is worth less than before it invested.** Growth is not a strategy; growth above the cost of capital is."
+      "body": "**A business creates value when its [[roic|return on invested capital]] exceeds its cost of capital, and destroys value when it does not. Everything else in corporate finance is detail on top of that sentence.**\n\nROIC is after-tax operating profit divided by the capital invested to produce it. It answers: what does this business earn on the money put into it? WACC answers: what does that money cost?\n\nThe spread between them, multiplied by invested capital, is economic profit. A company earning 9% ROIC on 1,000 of capital against a 7.8% WACC creates 12 a year of value beyond its cost of capital.\n\n**The consequence that catches people out is what this says about growth.** Growth is only good if the new capital earns more than it costs:\n\n- Invest 200 more at 9% ROIC against a 7.8% WACC: **+2.4 of value.**\n- Invest the same 200 at 6% ROIC: **−3.6 of value.**\n\nSecond case: revenue grows, profit grows, earnings per share may well grow — **and the company is worth less than before it invested.** Growth is not a strategy; growth above the cost of capital is.",
+      "heading": "The ROIC test"
     },
     {
       "type": "intuition",
@@ -71,7 +72,8 @@
         "Now stress the leverage. Take debt to 600 and equity to 400. Both costs rise with risk — say equity to 12% and debt to 7.5%. WACC = 0.40 × 12% + 0.60 × 5.625% = **8.18%**, higher than before.",
         "**More debt did not reduce the cost of capital, because the risk that was added to both claims outweighed the extra tax shield.** This is the trade-off from the previous topic, appearing as a number.",
         "Sanity check worth reusing: **compute ROIC and WACC to the nearest half point and compare the spread with the width of your own uncertainty.** A 1.2-point spread against a 2-point uncertainty in the cost of equity means the honest answer is that you cannot tell."
-      ]
+      ],
+      "heading": "computing WACC and testing ROIC"
     },
     {
       "type": "table",
@@ -104,7 +106,8 @@
     {
       "type": "pitfall",
       "id": "growth-without-returns",
-      "body": "**The most common way a well-run company destroys value is by growing profitably at a return below its cost of capital.**\n\nEvery signal looks positive. Revenue rises. Absolute profit rises. Earnings per share may rise, especially if the growth is debt-funded. Management is rewarded on all three. Nothing in the reported figures says anything is wrong.\n\nAnd the enterprise is worth less each year, because capital is being converted into assets earning less than the capital costs.\n\nThe detection is unglamorous: **compute ROIC on incremental capital, not on the whole base.** Take the change in after-tax operating profit and divide by the change in invested capital over the same period. That is the return on what management actually decided to do recently, and it is often far below the blended figure that includes a legacy business earning well.\n\n**Incremental ROIC below WACC while revenue grows is the clearest quantitative case for a change of strategy or of owner** — and it is precisely the situation an activist or a [[private-equity|private equity]] buyer looks for, because the fix is a decision rather than an invention."
+      "body": "**The most common way a well-run company destroys value is by growing profitably at a return below its cost of capital.**\n\nEvery signal looks positive. Revenue rises. Absolute profit rises. Earnings per share may rise, especially if the growth is debt-funded. Management is rewarded on all three. Nothing in the reported figures says anything is wrong.\n\nAnd the enterprise is worth less each year, because capital is being converted into assets earning less than the capital costs.\n\nThe detection is unglamorous: **compute ROIC on incremental capital, not on the whole base.** Take the change in after-tax operating profit and divide by the change in invested capital over the same period. That is the return on what management actually decided to do recently, and it is often far below the blended figure that includes a legacy business earning well.\n\n**Incremental ROIC below WACC while revenue grows is the clearest quantitative case for a change of strategy or of owner** — and it is precisely the situation an activist or a [[private-equity|private equity]] buyer looks for, because the fix is a decision rather than an invention.",
+      "heading": "growing below the cost of capital"
     },
     {
       "type": "onTheJob",

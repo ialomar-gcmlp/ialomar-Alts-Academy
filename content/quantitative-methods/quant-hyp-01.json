@@ -18,7 +18,8 @@
     {
       "type": "concept",
       "id": "sample-vs-population",
-      "body": "You never have all the data. You have a [[sample]] — five years of monthly returns, say — and you want to say something about the underlying [[population]], meaning the manager's true long-run behaviour.\n\nThe gap between the two is measured by the [[standard-error]]: how much a sample average would bounce around if you drew a different sample. It falls with the square root of the sample size, which is the most important and most disappointing fact in this topic.\n\n**Square root, not linear.** To halve your uncertainty you need four times the data. To cut it to a tenth, a hundred times. Precision gets expensive very quickly, and there is no way around it."
+      "body": "You never have all the data. You have a [[sample]] — five years of monthly returns, say — and you want to say something about the underlying [[population]], meaning the manager's true long-run behaviour.\n\nThe gap between the two is measured by the [[standard-error]]: how much a sample average would bounce around if you drew a different sample. It falls with the square root of the sample size, which is the most important and most disappointing fact in this topic.\n\n**Square root, not linear.** To halve your uncertainty you need four times the data. To cut it to a tenth, a hundred times. Precision gets expensive very quickly, and there is no way around it.",
+      "heading": "Sample versus population"
     },
     {
       "type": "formula",
@@ -39,12 +40,14 @@
     {
       "type": "concept",
       "id": "confidence-intervals",
-      "body": "A [[confidence-interval]] turns a point estimate into an honest range. For a 95% interval you take the estimate and go roughly two standard errors either side.\n\nWhat it means is narrower than people assume. A 95% confidence interval means: **if you repeated this sampling process many times, about 95% of the intervals constructed this way would contain the true value.** It is a statement about the reliability of the procedure, not a probability distribution over the truth.\n\nWhat it is genuinely good for is discipline. Reporting \"the manager's alpha was 0.8% a month\" invites a confidence the data does not support. Reporting \"0.8% a month, 95% interval from -0.2% to +1.8%\" says the same thing while making clear that zero has not been ruled out."
+      "body": "A [[confidence-interval]] turns a point estimate into an honest range. For a 95% interval you take the estimate and go roughly two standard errors either side.\n\nWhat it means is narrower than people assume. A 95% confidence interval means: **if you repeated this sampling process many times, about 95% of the intervals constructed this way would contain the true value.** It is a statement about the reliability of the procedure, not a probability distribution over the truth.\n\nWhat it is genuinely good for is discipline. Reporting \"the manager's alpha was 0.8% a month\" invites a confidence the data does not support. Reporting \"0.8% a month, 95% interval from -0.2% to +1.8%\" says the same thing while making clear that zero has not been ruled out.",
+      "heading": "Confidence intervals"
     },
     {
       "type": "concept",
       "id": "hypothesis-testing",
-      "body": "A hypothesis test asks a deliberately narrow question: **could this result plausibly have arisen by chance?**\n\nThe structure is always the same. State a [[null-hypothesis]] — the boring explanation, usually \"the true value is zero\". Compute how far the observed result sits from that null, measured in standard errors: the [[t-statistic|t-statistic]]. Then ask how often you would see a result that extreme if the null were true — the [[p-value|p-value]].\n\nA small p-value means the data would be surprising under the null, so you reject it. The conventional threshold is 5%, corresponding to a t-statistic of about 2.\n\nTwo things this framework cannot do, and both are routinely claimed of it:\n\n- **Failing to reject is not proving the null.** \"We cannot show this manager has skill\" is not \"this manager has no skill\". Usually it means the sample is too small to tell.\n- **[[statistical-significance]] is not importance.** With enough data, a trivially small effect becomes significant. With little data, a large effect may not be."
+      "body": "A hypothesis test asks a deliberately narrow question: **could this result plausibly have arisen by chance?**\n\nThe structure is always the same. State a [[null-hypothesis]] — the boring explanation, usually \"the true value is zero\". Compute how far the observed result sits from that null, measured in standard errors: the [[t-statistic|t-statistic]]. Then ask how often you would see a result that extreme if the null were true — the [[p-value|p-value]].\n\nA small p-value means the data would be surprising under the null, so you reject it. The conventional threshold is 5%, corresponding to a t-statistic of about 2.\n\nTwo things this framework cannot do, and both are routinely claimed of it:\n\n- **Failing to reject is not proving the null.** \"We cannot show this manager has skill\" is not \"this manager has no skill\". Usually it means the sample is too small to tell.\n- **[[statistical-significance]] is not importance.** With enough data, a trivially small effect becomes significant. With little data, a large effect may not be.",
+      "heading": "Hypothesis testing"
     },
     {
       "type": "example",
@@ -57,7 +60,8 @@
         "**Verdict.** 1.6 is below the conventional threshold of about 2, so at the 5% level you cannot reject the null that the true excess return is zero.",
         "**The confidence interval says the same thing more usefully.** 0.8 ± (1.96 x 0.5) gives an interval from **-0.18% to +1.78%** a month. It contains zero, so zero remains a live possibility — but note that it also contains +1.7%, which would be an outstanding manager. The data is simply not decisive either way.",
         "**How much more data would settle it?** Holding the mean and volatility fixed, you would need n of about **54 months** — four and a half years — to reach significance. And that assumes the manager's edge is stable throughout, which is a strong assumption over that horizon."
-      ]
+      ],
+      "heading": "testing 0.8% a month of alpha"
     },
     {
       "type": "intuition",
@@ -68,7 +72,8 @@
     {
       "type": "pitfall",
       "id": "multiple-testing",
-      "body": "**Testing many hypotheses inflates false positives.** At a 5% threshold, one test in twenty produces a significant result by chance. Screen a hundred managers and you should expect around five to look significantly skilled when none of them are.\n\nThis is the same selection problem as in the Bayes topic, seen from the frequentist side. A p-value is only meaningful for a hypothesis specified *before* looking at the data. A significant result found by searching is not evidence of the same strength as a significant result found by prediction — and \"we screened the universe and these five stood out\" is searching."
+      "body": "**Testing many hypotheses inflates false positives.** At a 5% threshold, one test in twenty produces a significant result by chance. Screen a hundred managers and you should expect around five to look significantly skilled when none of them are.\n\nThis is the same selection problem as in the Bayes topic, seen from the frequentist side. A p-value is only meaningful for a hypothesis specified *before* looking at the data. A significant result found by searching is not evidence of the same strength as a significant result found by prediction — and \"we screened the universe and these five stood out\" is searching.",
+      "heading": "testing until something works"
     },
     {
       "type": "onTheJob",

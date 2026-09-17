@@ -25,7 +25,8 @@
     {
       "type": "concept",
       "id": "the-multiple-machine",
-      "body": "**In private markets EBITDA is not just a metric, it is the denominator of almost everything.**\n\nA purchase price is quoted as a multiple of EBITDA. Debt is sized as a multiple of EBITDA. [[covenant|Covenants]] are set as ratios to EBITDA. Management incentives are struck on EBITDA growth.\n\nWhich produces a structural consequence worth stating plainly: **every participant has an interest in a higher EBITDA figure, and the figure requires judgement.** The seller gets a higher price, the management team gets a lower hurdle, the lender gets a larger loan to book, and the buyer gets to justify the price it paid.\n\nThe arithmetic is unforgiving. At a 5x multiple, one unit of EBITDA is five units of enterprise value. A 15-unit adjustment moves the price by 75 — and moves reported leverage from 5.0x to 4.2x on identical debt.\n\n**So the adjustments are not presentational. They are the negotiation, conducted in accounting language.**"
+      "body": "**In private markets EBITDA is not just a metric, it is the denominator of almost everything.**\n\nA purchase price is quoted as a multiple of EBITDA. Debt is sized as a multiple of EBITDA. [[covenant|Covenants]] are set as ratios to EBITDA. Management incentives are struck on EBITDA growth.\n\nWhich produces a structural consequence worth stating plainly: **every participant has an interest in a higher EBITDA figure, and the figure requires judgement.** The seller gets a higher price, the management team gets a lower hurdle, the lender gets a larger loan to book, and the buyer gets to justify the price it paid.\n\nThe arithmetic is unforgiving. At a 5x multiple, one unit of EBITDA is five units of enterprise value. A 15-unit adjustment moves the price by 75 — and moves reported leverage from 5.0x to 4.2x on identical debt.\n\n**So the adjustments are not presentational. They are the negotiation, conducted in accounting language.**",
+      "heading": "The multiple machine"
     },
     {
       "type": "intuition",
@@ -45,7 +46,8 @@
         "The 5 of unrealised synergies is a forecast. If you accept it, you pay 25 today for savings that have not happened, and you take the delivery risk.",
         "**Read that carefully: accepting 5 of unproven synergies at a 5x multiple means paying 25 of cash now for a plan.** Sellers are entitled to argue for it. Buyers are entitled to price it as a plan rather than as history.",
         "Sanity check worth reusing: **multiply every disputed adjustment by the multiple.** It converts an accounting argument into a cash number, which is the form in which it should reach an investment committee."
-      ]
+      ],
+      "heading": "80 reported, 95 adjusted"
     },
     {
       "type": "table",
@@ -93,7 +95,8 @@
     {
       "type": "pitfall",
       "id": "leverage-on-adjusted",
-      "body": "**A leverage multiple is only as meaningful as its denominator, and the denominator is usually adjusted.**\n\n\"Conservatively levered at 4.2x\" and \"levered at 5.0x\" describe the identical loan on the identical company. The difference is which EBITDA sits underneath, and the adjusted figure is the one that appears in the marketing.\n\nSo any leverage figure needs one question attached: **4.2x of what?** Reported, adjusted, pro forma, or run-rate. The four can differ by more than a turn, and a turn of leverage is the difference between an investment-grade-adjacent structure and an aggressive one.\n\nThe practical discipline for a portfolio: **recompute leverage on reported EBITDA yourself and keep both numbers.** The gap between them is a measure of how much of the structure's comfort is accounting rather than cash — and it is also the first thing that closes when the business misses its plan, because the add-backs stop being credible at exactly the same moment."
+      "body": "**A leverage multiple is only as meaningful as its denominator, and the denominator is usually adjusted.**\n\n\"Conservatively levered at 4.2x\" and \"levered at 5.0x\" describe the identical loan on the identical company. The difference is which EBITDA sits underneath, and the adjusted figure is the one that appears in the marketing.\n\nSo any leverage figure needs one question attached: **4.2x of what?** Reported, adjusted, pro forma, or run-rate. The four can differ by more than a turn, and a turn of leverage is the difference between an investment-grade-adjacent structure and an aggressive one.\n\nThe practical discipline for a portfolio: **recompute leverage on reported EBITDA yourself and keep both numbers.** The gap between them is a measure of how much of the structure's comfort is accounting rather than cash — and it is also the first thing that closes when the business misses its plan, because the add-backs stop being credible at exactly the same moment.",
+      "heading": "levering off adjusted EBITDA"
     },
     {
       "type": "onTheJob",

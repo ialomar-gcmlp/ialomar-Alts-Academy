@@ -164,7 +164,8 @@
     {
       "type": "pitfall",
       "id": "backtest",
-      "body": "**Treat an in-sample backtest as close to uninformative.** A strategy chosen from a large space of candidates on the basis of historical performance has been selected precisely for having looked good — which is what searching does, whether or not any real edge exists.\n\nThe questions that carry information: what has happened *since* the model was fixed, how many variants were tried before this one, and did the manager keep a genuine holdout period untouched during development? Live out-of-sample record after the strategy was locked down is worth more than any length of backtest, and a manager who understands that will say so before you ask."
+      "body": "**Treat an in-sample backtest as close to uninformative.** A strategy chosen from a large space of candidates on the basis of historical performance has been selected precisely for having looked good — which is what searching does, whether or not any real edge exists.\n\nThe questions that carry information: what has happened *since* the model was fixed, how many variants were tried before this one, and did the manager keep a genuine holdout period untouched during development? Live out-of-sample record after the strategy was locked down is worth more than any length of backtest, and a manager who understands that will say so before you ask.",
+      "heading": "believing the backtest"
     },
     {
       "type": "infographic",

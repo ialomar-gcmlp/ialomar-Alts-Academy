@@ -62,7 +62,8 @@
         "**Result: LPs receive $164m, the GP receives $16m.** Check it: $16m / $80m profit = exactly 20%. The catch-up did its job — it delivered the GP its full 20% of everything.",
         "**Now remove the catch-up.** With a *hard* hurdle, the GP earns 20% only of profits above the preferred return: 20% x $60m = **$12m**. LPs receive $168m.",
         "**So the catch-up clause is worth $4m to the GP — 33% more carry — on identical fund performance.** Same deals, same exits, same $180m. One clause."
-      ]
+      ],
+      "heading": "$180m through the four tiers"
     },
     {
       "type": "intuition",
@@ -99,7 +100,8 @@
     {
       "type": "concept",
       "id": "european-vs-american",
-      "body": "A second, equally consequential distinction: **is the waterfall applied to the whole fund, or deal by deal?**\n\n**[[european-waterfall|European, or whole-fund]].** No carry is paid until LPs have received all their capital plus the preferred return across the *entire* fund. The GP waits, sometimes many years, and the LP's downside protection is strong because the netting happens before any carry is paid.\n\n**[[american-waterfall|American, or deal-by-deal]].** Carry is paid on each successful exit as it happens, without waiting for the rest of the portfolio. The GP is paid much earlier — which is the point — and the LP now carries a real risk: **carry paid on early winners may turn out to be unjustified once the losers are realised.**\n\nThat risk is why deal-by-deal structures include a [[clawback]]: an obligation to return excess carry at the end of the fund's life. And a clawback is only as good as its enforceability. Ask whether it is joint and several across the GP's individuals, whether it is net of the tax the recipients already paid, whether any of it is escrowed, and whether the entity that owes it will still exist in eight years. **An unsecured, tax-adjusted clawback against a dissolved entity is a sentence in a document rather than a protection.**"
+      "body": "A second, equally consequential distinction: **is the waterfall applied to the whole fund, or deal by deal?**\n\n**[[european-waterfall|European, or whole-fund]].** No carry is paid until LPs have received all their capital plus the preferred return across the *entire* fund. The GP waits, sometimes many years, and the LP's downside protection is strong because the netting happens before any carry is paid.\n\n**[[american-waterfall|American, or deal-by-deal]].** Carry is paid on each successful exit as it happens, without waiting for the rest of the portfolio. The GP is paid much earlier — which is the point — and the LP now carries a real risk: **carry paid on early winners may turn out to be unjustified once the losers are realised.**\n\nThat risk is why deal-by-deal structures include a [[clawback]]: an obligation to return excess carry at the end of the fund's life. And a clawback is only as good as its enforceability. Ask whether it is joint and several across the GP's individuals, whether it is net of the tax the recipients already paid, whether any of it is escrowed, and whether the entity that owes it will still exist in eight years. **An unsecured, tax-adjusted clawback against a dissolved entity is a sentence in a document rather than a protection.**",
+      "heading": "European versus American waterfalls"
     },
     {
       "type": "infographic",
@@ -182,7 +184,8 @@
     {
       "type": "pitfall",
       "id": "model-it",
-      "body": "**Do not read a waterfall — model it.** The clauses interact, and their combined effect is not obvious from reading them in sequence. A catch-up rate, a hurdle type and a compounding basis together can move the LP's net outcome by several percentage points a year, and no amount of careful reading substitutes for running the numbers.\n\nThe practical method: take three fund outcomes — poor (1.2x), middling (1.7x), strong (2.5x) — and compute LP net proceeds under the actual terms and under a plain vanilla alternative. The difference at each outcome is what the terms cost, expressed in money. That is a table you can put in front of an investment committee, and it makes a document argument into a numbers argument."
+      "body": "**Do not read a waterfall — model it.** The clauses interact, and their combined effect is not obvious from reading them in sequence. A catch-up rate, a hurdle type and a compounding basis together can move the LP's net outcome by several percentage points a year, and no amount of careful reading substitutes for running the numbers.\n\nThe practical method: take three fund outcomes — poor (1.2x), middling (1.7x), strong (2.5x) — and compute LP net proceeds under the actual terms and under a plain vanilla alternative. The difference at each outcome is what the terms cost, expressed in money. That is a table you can put in front of an investment committee, and it makes a document argument into a numbers argument.",
+      "heading": "reading the waterfall instead of modelling it"
     },
     {
       "type": "onTheJob",

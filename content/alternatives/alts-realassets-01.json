@@ -148,7 +148,8 @@
     {
       "type": "pitfall",
       "id": "index-is-not-exposure",
-      "body": "**A commodity index is a set of specific futures positions with specific roll rules, not the commodities themselves.** Two indices covering the same commodities can produce materially different returns purely from how and when they roll, and how they weight sectors.\n\nSo \"we have commodity exposure\" is an incomplete statement. Which commodities, in what weights, rolled on what schedule, and with what collateral policy? A heavily energy-weighted index and a broadly diversified one will behave quite differently, and neither is the spot price of anything.\n\nThe same caution applies in reverse to producing assets: owning an oil producer is not owning oil. The producer has costs, debt, reserves of finite life and management decisions layered on top of the price."
+      "body": "**A commodity index is a set of specific futures positions with specific roll rules, not the commodities themselves.** Two indices covering the same commodities can produce materially different returns purely from how and when they roll, and how they weight sectors.\n\nSo \"we have commodity exposure\" is an incomplete statement. Which commodities, in what weights, rolled on what schedule, and with what collateral policy? A heavily energy-weighted index and a broadly diversified one will behave quite differently, and neither is the spot price of anything.\n\nThe same caution applies in reverse to producing assets: owning an oil producer is not owning oil. The producer has costs, debt, reserves of finite life and management decisions layered on top of the price.",
+      "heading": "treating an index as the commodity"
     },
     {
       "type": "infographic",

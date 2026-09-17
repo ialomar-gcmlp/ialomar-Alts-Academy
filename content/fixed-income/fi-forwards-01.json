@@ -55,7 +55,8 @@
     {
       "type": "concept",
       "id": "the-curve-is-a-forecast",
-      "body": "**Because forwards are pinned by the spot curve, the curve contains a complete implied path of future short rates. That path is the market's forecast, and it is already in every price.**\n\nThis is the fact that reframes most rates positioning. An upward-sloping curve does not mean \"rates will rise\" is a good trade — it means rates rising is what the curve already assumes. To make money you have to be right about something the curve is wrong about.\n\nSo the useful question is never \"where are rates going?\" It is **\"where do I differ from the forwards, and by how much?\"**\n\nTwo consequences follow directly.\n\n**Every rate view has a breakeven you can compute.** Buying a longer bond rather than rolling short ones wins only if future short rates come in *below* the forwards. That threshold is a number, not an opinion.\n\n**The curve's shape has a portfolio meaning rather than a predictive one.** A steep curve says the market expects meaningful rate rises; a flat one says it does not. Neither tells you what will happen — both tell you what you are being paid to disagree with, which is more useful."
+      "body": "**Because forwards are pinned by the spot curve, the curve contains a complete implied path of future short rates. That path is the market's forecast, and it is already in every price.**\n\nThis is the fact that reframes most rates positioning. An upward-sloping curve does not mean \"rates will rise\" is a good trade — it means rates rising is what the curve already assumes. To make money you have to be right about something the curve is wrong about.\n\nSo the useful question is never \"where are rates going?\" It is **\"where do I differ from the forwards, and by how much?\"**\n\nTwo consequences follow directly.\n\n**Every rate view has a breakeven you can compute.** Buying a longer bond rather than rolling short ones wins only if future short rates come in *below* the forwards. That threshold is a number, not an opinion.\n\n**The curve's shape has a portfolio meaning rather than a predictive one.** A steep curve says the market expects meaningful rate rises; a flat one says it does not. Neither tells you what will happen — both tell you what you are being paid to disagree with, which is more useful.",
+      "heading": "The curve is a forecast"
     },
     {
       "type": "infographic",
@@ -142,7 +143,8 @@
         "Now carry and rolldown on the three-year. Buy at par with a 4.70% coupon. A year later, with the curve unchanged, it is a two-year bond with a 4.70% coupon priced at the 4.50% two-year rate: **100.375**.",
         "Total return = 4.70 of coupon + 0.375 of price gain = **5.075%** — from a bond yielding 4.70%, with the curve completely unchanged.",
         "Sanity check worth reusing: **before taking any duration position, compute the forward and state your view as a difference from it.** \"I think the one-year rate will be 4.25% when the forward says 5.00%\" is a position. \"I think rates will fall\" is a sentiment."
-      ]
+      ],
+      "heading": "extracting the 1y1y forward"
     },
     {
       "type": "table",
@@ -185,7 +187,8 @@
     {
       "type": "pitfall",
       "id": "forwards-in-private-markets",
-      "body": "**The same logic applies to any private-market model that assumes a financing cost, and there it is usually invisible.**\n\nA buyout model runs five years with floating-rate debt. Somewhere in the spreadsheet is an assumption about what the reference rate does over those five years. Three possibilities:\n\n**It uses the forward curve.** The disciplined choice — the model assumes the market's implied path and takes no position.\n\n**It holds today's rate flat.** On an inverted curve this overstates the interest bill; on an upward-sloping one it understates it. Either way the model contains an unstated rate view.\n\n**It assumes cuts.** Very common in models written after a tightening cycle, and it is a macro position embedded in an equity underwriting.\n\n**The question to ask is: what rate path is in the model, and how does it compare with the forwards?** If the model assumes cuts the forwards do not, part of the projected return is a rates bet rather than an investment case — and it is being taken with leverage, in an illiquid vehicle, by a team whose expertise is operational.\n\nThat is not necessarily wrong. It should be visible, and it should be sized deliberately rather than inherited from whoever built the template."
+      "body": "**The same logic applies to any private-market model that assumes a financing cost, and there it is usually invisible.**\n\nA buyout model runs five years with floating-rate debt. Somewhere in the spreadsheet is an assumption about what the reference rate does over those five years. Three possibilities:\n\n**It uses the forward curve.** The disciplined choice — the model assumes the market's implied path and takes no position.\n\n**It holds today's rate flat.** On an inverted curve this overstates the interest bill; on an upward-sloping one it understates it. Either way the model contains an unstated rate view.\n\n**It assumes cuts.** Very common in models written after a tightening cycle, and it is a macro position embedded in an equity underwriting.\n\n**The question to ask is: what rate path is in the model, and how does it compare with the forwards?** If the model assumes cuts the forwards do not, part of the projected return is a rates bet rather than an investment case — and it is being taken with leverage, in an illiquid vehicle, by a team whose expertise is operational.\n\nThat is not necessarily wrong. It should be visible, and it should be sized deliberately rather than inherited from whoever built the template.",
+      "heading": "leaving a rate view inside the model"
     },
     {
       "type": "onTheJob",

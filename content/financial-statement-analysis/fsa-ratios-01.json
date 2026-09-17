@@ -24,7 +24,8 @@
     {
       "type": "concept",
       "id": "coverage-first",
-      "body": "**If you only have time for one ratio on a levered business, take interest coverage.**\n\nCoverage is operating earnings divided by the interest bill. It answers the only question that has a deadline: can this company pay its lenders out of what it earns?\n\nThere are two common versions and the difference is not cosmetic. **EBITDA / interest** is the lender's headline. **EBIT / interest** is stricter, because it takes account of the assets being consumed. In the worked company these are 4.0x and 2.5x — the same business, and one of those numbers would pass a [[covenant]] test the other would fail.\n\nWhy coverage beats leverage as a first read: a leverage multiple compares a stock of debt with a flow of earnings, so it implies a repayment period that usually is not the plan. Coverage compares a flow with a flow, and it maps directly onto a payment that must be made this quarter.\n\n**And it degrades fast.** In the worked company, a 20% fall in EBITDA takes coverage from 4.0x to 3.2x; a 200bp rise in the cost of floating-rate debt takes it lower again. Both at once is how covenant breaches happen, and both were foreseeable arithmetic."
+      "body": "**If you only have time for one ratio on a levered business, take interest coverage.**\n\nCoverage is operating earnings divided by the interest bill. It answers the only question that has a deadline: can this company pay its lenders out of what it earns?\n\nThere are two common versions and the difference is not cosmetic. **EBITDA / interest** is the lender's headline. **EBIT / interest** is stricter, because it takes account of the assets being consumed. In the worked company these are 4.0x and 2.5x — the same business, and one of those numbers would pass a [[covenant]] test the other would fail.\n\nWhy coverage beats leverage as a first read: a leverage multiple compares a stock of debt with a flow of earnings, so it implies a repayment period that usually is not the plan. Coverage compares a flow with a flow, and it maps directly onto a payment that must be made this quarter.\n\n**And it degrades fast.** In the worked company, a 20% fall in EBITDA takes coverage from 4.0x to 3.2x; a 200bp rise in the cost of floating-rate debt takes it lower again. Both at once is how covenant breaches happen, and both were foreseeable arithmetic.",
+      "heading": "Coverage first"
     },
     {
       "type": "intuition",
@@ -65,7 +66,8 @@
         "Coverage: EBITDA / interest = 80 / 20 = **4.0x**; EBIT / interest = 50 / 20 = **2.5x**.",
         "**Read that carefully: the ROE looks respectable and the coverage says the business has limited room.** Both are true, and they are the same three numbers arranged differently.",
         "Sanity check worth reusing: **multiply the three DuPont terms and confirm they reproduce net income over equity.** If they do not, an inconsistent set of figures has been mixed — average versus year-end balances is the usual culprit."
-      ]
+      ],
+      "heading": "the worked company's ratios"
     },
     {
       "type": "table",
@@ -108,7 +110,8 @@
     {
       "type": "pitfall",
       "id": "leverage-flatters",
-      "body": "**Leverage improves ROE in good times by construction, which makes ROE a poor measure of quality on its own.**\n\nThe mechanism is not subtle: borrow to fund assets, earn more on the assets than the debt costs, and the surplus belongs to a smaller equity base. Higher ROE, same operations.\n\nThe uncomfortable part is that it works in reverse with equal force. In the worked company, equity is 200 against assets of 600. A 10% fall in asset value is 60 — **30% of the equity, from a 10% move.**\n\nSo when comparing two businesses on ROE, the question is which one would still be standing after a bad year. Return on assets, or return on invested capital, strips the financing out and asks about the operations alone. **A manager who quotes ROE and cannot immediately give you ROA has not separated the two, and the difference is the entire risk discussion.**\n\nThis is not an argument against leverage — it is the whole basis of [[private-equity|private equity]]. It is an argument against reading a levered return as evidence of an unlevered skill."
+      "body": "**Leverage improves ROE in good times by construction, which makes ROE a poor measure of quality on its own.**\n\nThe mechanism is not subtle: borrow to fund assets, earn more on the assets than the debt costs, and the surplus belongs to a smaller equity base. Higher ROE, same operations.\n\nThe uncomfortable part is that it works in reverse with equal force. In the worked company, equity is 200 against assets of 600. A 10% fall in asset value is 60 — **30% of the equity, from a 10% move.**\n\nSo when comparing two businesses on ROE, the question is which one would still be standing after a bad year. Return on assets, or return on invested capital, strips the financing out and asks about the operations alone. **A manager who quotes ROE and cannot immediately give you ROA has not separated the two, and the difference is the entire risk discussion.**\n\nThis is not an argument against leverage — it is the whole basis of [[private-equity|private equity]]. It is an argument against reading a levered return as evidence of an unlevered skill.",
+      "heading": "reading levered ROE as quality"
     },
     {
       "type": "onTheJob",

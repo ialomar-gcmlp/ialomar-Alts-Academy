@@ -149,7 +149,8 @@
         "So a parallel shift in rates leaves the position roughly flat, and only a change in the *shape* of the curve produces P&L. That is the trade.",
         "**Note the notional figures.** $10m against $44.7m — a ratio of nearly 4.5 to 1. Anyone reading gross notional exposure here would badly misjudge the risk in both directions.",
         "**And note what this hedge does not cover.** It is neutral to a parallel shift. It is not neutral to the curve moving in an unexpected shape, nor to a change in the liquidity premium between the two bonds, nor to financing costs rising. Each is a separate exposure."
-      ]
+      ],
+      "heading": "the 2s10s duration match"
     },
     {
       "type": "table",
@@ -202,7 +203,8 @@
     {
       "type": "pitfall",
       "id": "volatility-understates",
-      "body": "**Reported volatility understates this strategy's risk more than almost any other.** Day to day, a duration-neutral spread position barely moves — which is exactly why heavy leverage is applied to it. Long stretches of very low measured volatility are followed by occasional extreme losses.\n\nSo volatility, [[value-at-risk]] calibrated on recent data, and Sharpe ratios all flatter this strategy in normal times and fail together in stress. The measures that matter are leverage, the terms of the financing, and what the position would lose if the spread widened to its historical extreme rather than to its recent range."
+      "body": "**Reported volatility understates this strategy's risk more than almost any other.** Day to day, a duration-neutral spread position barely moves — which is exactly why heavy leverage is applied to it. Long stretches of very low measured volatility are followed by occasional extreme losses.\n\nSo volatility, [[value-at-risk]] calibrated on recent data, and Sharpe ratios all flatter this strategy in normal times and fail together in stress. The measures that matter are leverage, the terms of the financing, and what the position would lose if the spread widened to its historical extreme rather than to its recent range.",
+      "heading": "trusting the volatility figure"
     },
     {
       "type": "infographic",

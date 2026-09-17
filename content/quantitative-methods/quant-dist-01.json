@@ -18,7 +18,8 @@
     {
       "type": "concept",
       "id": "the-normal",
-      "body": "A distribution describes how likely each outcome is. The [[normal-distribution]] — the bell curve — is the one finance reaches for by default, because it needs only two numbers to specify completely: a mean and a [[standard-deviation]].\n\nThat economy is its appeal and its danger. Two parameters give you every probability you could ask for:\n\n- about **68%** of observations fall within one standard deviation of the mean\n- about **95%** within two\n- about **99.7%** within three\n\nA [[z-score|z-score]] converts any observation into standard deviations from the mean, which lets you read those probabilities off directly. It is the bridge between a specific return and a general statement about likelihood."
+      "body": "A distribution describes how likely each outcome is. The [[normal-distribution]] — the bell curve — is the one finance reaches for by default, because it needs only two numbers to specify completely: a mean and a [[standard-deviation]].\n\nThat economy is its appeal and its danger. Two parameters give you every probability you could ask for:\n\n- about **68%** of observations fall within one standard deviation of the mean\n- about **95%** within two\n- about **99.7%** within three\n\nA [[z-score|z-score]] converts any observation into standard deviations from the mean, which lets you read those probabilities off directly. It is the bridge between a specific return and a general statement about likelihood.",
+      "heading": "The normal distribution"
     },
     {
       "type": "formula",
@@ -46,7 +47,8 @@
         "So roughly a **1-in-44** year. Unpleasant but unremarkable — you should expect one over a long career.",
         "**Now go further out.** A -28% year is z = -3.0, which a normal distribution puts at 0.135% — about **one year in 740**, or one in 62 careers.",
         "Hold on to that last number, because the next section is about why it is wrong."
-      ]
+      ],
+      "heading": "putting a loss in standard deviations"
     },
     {
       "type": "intuition",
@@ -109,12 +111,14 @@
     {
       "type": "concept",
       "id": "skew-kurt",
-      "body": "Two numbers describe how a distribution departs from normal.\n\n**[[skewness]]** measures lopsidedness. Negative skew means a long left tail: mostly modest gains, occasionally a severe loss. Selling options, writing insurance, [[merger-arbitrage]] and carry trades all produce negatively skewed returns — steady until they are not. Positive skew is the opposite shape: many small losses and rare large gains, which is what trend-following and long volatility strategies look like.\n\n**[[kurtosis]]** measures tail weight. A normal distribution has kurtosis of 3, so \"excess kurtosis\" is the amount above 3. Positive excess kurtosis means fat tails — more extreme outcomes than a bell curve allows, in both directions.\n\nBoth matter for the same reason: two strategies with identical mean and volatility can have completely different risk profiles, and skew and kurtosis are where that difference shows up."
+      "body": "Two numbers describe how a distribution departs from normal.\n\n**[[skewness]]** measures lopsidedness. Negative skew means a long left tail: mostly modest gains, occasionally a severe loss. Selling options, writing insurance, [[merger-arbitrage]] and carry trades all produce negatively skewed returns — steady until they are not. Positive skew is the opposite shape: many small losses and rare large gains, which is what trend-following and long volatility strategies look like.\n\n**[[kurtosis]]** measures tail weight. A normal distribution has kurtosis of 3, so \"excess kurtosis\" is the amount above 3. Positive excess kurtosis means fat tails — more extreme outcomes than a bell curve allows, in both directions.\n\nBoth matter for the same reason: two strategies with identical mean and volatility can have completely different risk profiles, and skew and kurtosis are where that difference shows up.",
+      "heading": "Skewness and kurtosis"
     },
     {
       "type": "pitfall",
       "id": "smooth-not-safe",
-      "body": "**A long run of small positive returns is not evidence of low risk.** It is the *signature* of negative skew — the shape looks best just before it looks worst.\n\nA strategy that has produced 40 consecutive small gains might be genuinely low risk, or might be one that has not yet met the event it is exposed to. Volatility and drawdown history cannot distinguish these, because neither has anything to work with until the event happens. The only way through is to understand the exposure structurally: what would have to happen for this to lose a lot, and how likely is that?"
+      "body": "**A long run of small positive returns is not evidence of low risk.** It is the *signature* of negative skew — the shape looks best just before it looks worst.\n\nA strategy that has produced 40 consecutive small gains might be genuinely low risk, or might be one that has not yet met the event it is exposed to. Volatility and drawdown history cannot distinguish these, because neither has anything to work with until the event happens. The only way through is to understand the exposure structurally: what would have to happen for this to lose a lot, and how likely is that?",
+      "heading": "reading smooth as safe"
     },
     {
       "type": "onTheJob",

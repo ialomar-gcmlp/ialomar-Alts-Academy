@@ -22,7 +22,8 @@
     {
       "type": "concept",
       "id": "the-mechanism",
-      "body": "**Growth comes from two places and only two: more inputs, or more output per input.**\n\nMore inputs means more workers and more capital — a bigger workforce, a longer working week, more factories. This kind of growth has a ceiling, because a population and a capital stock can only grow so fast.\n\nMore output per input is **productivity**, and it has no ceiling. It is the entire reason living standards rise over decades rather than staying flat.\n\nThis is why demographics matter so much to long-run return assumptions: a shrinking working-age population subtracts from growth every year, and productivity has to make up the difference before anything is left over. It is also why a country can run a boom for years without productivity improving at all — and why that boom ends."
+      "body": "**Growth comes from two places and only two: more inputs, or more output per input.**\n\nMore inputs means more workers and more capital — a bigger workforce, a longer working week, more factories. This kind of growth has a ceiling, because a population and a capital stock can only grow so fast.\n\nMore output per input is **productivity**, and it has no ceiling. It is the entire reason living standards rise over decades rather than staying flat.\n\nThis is why demographics matter so much to long-run return assumptions: a shrinking working-age population subtracts from growth every year, and productivity has to make up the difference before anything is left over. It is also why a country can run a boom for years without productivity improving at all — and why that boom ends.",
+      "heading": "Where growth comes from"
     },
     {
       "type": "intuition",
@@ -57,7 +58,8 @@
         "**Read that carefully — those two facts point in opposite policy directions and both are true.** Growth is respectable. The level is depressed. A central bank facing this keeps policy loose despite decent growth, because the gap says there is no inflationary pressure coming from capacity.",
         "Now the sanity check worth reusing: **a negative output gap plus positive growth means the gap is closing, and the closing speed is what matters.** At 2.3% growth against, say, 1.8% potential growth, the gap narrows by about 0.5pp a year — roughly six years to close. That is the number a rates view is actually built on.",
         "If instead growth were 4.5%, the gap would close in under two years, and the policy path would look completely different on identical current data."
-      ]
+      ],
+      "heading": "computing the output gap"
     },
     {
       "type": "table",
@@ -100,7 +102,8 @@
     {
       "type": "pitfall",
       "id": "gdp-is-not-welfare",
-      "body": "**GDP counts activity, not benefit, and the distinction bites in specific ways.**\n\nA hurricane that destroys $10bn of housing and generates $10bn of rebuilding *adds* to GDP. Unpaid care work adds nothing. Environmental damage does not subtract. A country can raise GDP by depleting a resource it will not have next decade.\n\nNone of this makes GDP useless — it is the best single measure of economic activity we have, and activity is what drives revenues, employment and tax receipts. But when someone argues that a policy is good because it raises GDP, the honest question is *whose income rose, and was anything consumed to produce it?*"
+      "body": "**GDP counts activity, not benefit, and the distinction bites in specific ways.**\n\nA hurricane that destroys $10bn of housing and generates $10bn of rebuilding *adds* to GDP. Unpaid care work adds nothing. Environmental damage does not subtract. A country can raise GDP by depleting a resource it will not have next decade.\n\nNone of this makes GDP useless — it is the best single measure of economic activity we have, and activity is what drives revenues, employment and tax receipts. But when someone argues that a policy is good because it raises GDP, the honest question is *whose income rose, and was anything consumed to produce it?*",
+      "heading": "reading GDP as welfare"
     },
     {
       "type": "onTheJob",

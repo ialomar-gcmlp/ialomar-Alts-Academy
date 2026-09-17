@@ -18,7 +18,8 @@
     {
       "type": "concept",
       "id": "what-bayes-does",
-      "body": "You believe something with some confidence. Evidence arrives. What should you believe now?\n\n[[bayes-rule|Bayes' rule]] answers that precisely. It takes your [[prior-probability]] — what you believed before — combines it with how diagnostic the new evidence is, and returns a [[posterior-probability]]: what you should believe after.\n\nThe reason it matters is that human intuition is systematically bad at this in one specific way. **We attend to how impressive the evidence is and neglect how rare the thing was to begin with.** The rarity of the thing is its [[base-rate]], and it turns out to dominate the answer far more often than the strength of the evidence does."
+      "body": "You believe something with some confidence. Evidence arrives. What should you believe now?\n\n[[bayes-rule|Bayes' rule]] answers that precisely. It takes your [[prior-probability]] — what you believed before — combines it with how diagnostic the new evidence is, and returns a [[posterior-probability]]: what you should believe after.\n\nThe reason it matters is that human intuition is systematically bad at this in one specific way. **We attend to how impressive the evidence is and neglect how rare the thing was to begin with.** The rarity of the thing is its [[base-rate]], and it turns out to dominate the answer far more often than the strength of the evidence does.",
+      "heading": "What Bayes' rule does"
     },
     {
       "type": "formula",
@@ -53,7 +54,8 @@
         "**So P(skilled | flagged) = 160 / 400 = 40%.**",
         "Forty percent, not eighty. The screen is genuinely informative — it has doubled your belief from the 20% base rate — but a flagged manager is still more likely unskilled than skilled.",
         "**Why?** Because the unskilled group is four times larger, so even a modest 30% false positive rate on that group produces more flags in absolute terms than the 80% true positive rate on the small skilled group. The base rate does the damage."
-      ]
+      ],
+      "heading": "screening for skill"
     },
     {
       "type": "intuition",
@@ -64,7 +66,8 @@
     {
       "type": "pitfall",
       "id": "ignoring-the-prior",
-      "body": "**The neglected number is almost always the base rate.** When someone presents evidence for a conclusion, the question that most often improves the analysis is not \"how strong is this evidence?\" but \"how common is the thing you are claiming, before the evidence?\"\n\nA manager with three consecutive strong years is real evidence of skill. But if you screened a thousand managers, you would expect a good number of three-year runs by chance alone, whatever the base rate of skill. The evidence has to be weighed against how often it would show up anyway — and that is exactly what the denominator P(B) in Bayes' rule is."
+      "body": "**The neglected number is almost always the base rate.** When someone presents evidence for a conclusion, the question that most often improves the analysis is not \"how strong is this evidence?\" but \"how common is the thing you are claiming, before the evidence?\"\n\nA manager with three consecutive strong years is real evidence of skill. But if you screened a thousand managers, you would expect a good number of three-year runs by chance alone, whatever the base rate of skill. The evidence has to be weighed against how often it would show up anyway — and that is exactly what the denominator P(B) in Bayes' rule is.",
+      "heading": "ignoring the base rate"
     },
     {
       "type": "onTheJob",

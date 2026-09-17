@@ -195,7 +195,8 @@
     {
       "type": "pitfall",
       "id": "marks",
-      "body": "**Reported valuations in distressed books deserve particular scepticism.** Many claims trade rarely, so marks are model-based or drawn from thin quotes. That has two consequences you should expect rather than be surprised by: reported [[volatility]] understates true risk, and reported returns are smoothed relative to what a liquidation would realise.\n\nSo the usual measures mislead in the usual direction. A distressed fund showing lower volatility than a high yield bond fund is telling you about marking practice. The questions worth asking are what fraction of the book has traded recently, who provides the marks, and what an independent valuation would say — not what the volatility figure is."
+      "body": "**Reported valuations in distressed books deserve particular scepticism.** Many claims trade rarely, so marks are model-based or drawn from thin quotes. That has two consequences you should expect rather than be surprised by: reported [[volatility]] understates true risk, and reported returns are smoothed relative to what a liquidation would realise.\n\nSo the usual measures mislead in the usual direction. A distressed fund showing lower volatility than a high yield bond fund is telling you about marking practice. The questions worth asking are what fraction of the book has traded recently, who provides the marks, and what an independent valuation would say — not what the volatility figure is.",
+      "heading": "trusting reported marks"
     },
     {
       "type": "onTheJob",

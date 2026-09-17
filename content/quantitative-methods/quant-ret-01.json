@@ -18,7 +18,8 @@
     {
       "type": "concept",
       "id": "two-averages",
-      "body": "A fund returned +50% one year and -50% the next. What was its average annual return?\n\nThe [[arithmetic-mean]] says zero: (50 - 50) / 2. The [[geometric-mean]] says about **-13.4%** a year. Only one of these describes what happened to your money, and it is not the zero.\n\nStart with $100. After +50% you have $150. After -50% you have $75. You lost a quarter of your capital, so an \"average return of zero\" is not a description of your experience — it is a description of the two numbers, averaged as if they were unrelated measurements rather than a sequence applied to a shrinking balance.\n\nThe geometric mean fixes this by asking a different question: what single constant rate, compounded, would have produced the same ending value? That is the number that describes your money."
+      "body": "A fund returned +50% one year and -50% the next. What was its average annual return?\n\nThe [[arithmetic-mean]] says zero: (50 - 50) / 2. The [[geometric-mean]] says about **-13.4%** a year. Only one of these describes what happened to your money, and it is not the zero.\n\nStart with $100. After +50% you have $150. After -50% you have $75. You lost a quarter of your capital, so an \"average return of zero\" is not a description of your experience — it is a description of the two numbers, averaged as if they were unrelated measurements rather than a sequence applied to a shrinking balance.\n\nThe geometric mean fixes this by asking a different question: what single constant rate, compounded, would have produced the same ending value? That is the number that describes your money.",
+      "heading": "The two averages"
     },
     {
       "type": "intuition",
@@ -52,7 +53,8 @@
         "**Compare with the arithmetic mean:** (10 - 5 + 8) / 3 = **4.333%**.",
         "The gap is only 0.22 percentage points, because these returns are not very volatile. Run the same exercise on a series with 30% swings and the gap becomes several points a year.",
         "**Check it the other way round.** 1.04115^3 = 1.1286, which recovers the cumulative return exactly. That reversibility is the definition: the geometric mean is the constant rate that reproduces the actual ending value."
-      ]
+      ],
+      "heading": "+10%, −5%, +8% averaged properly"
     },
     {
       "type": "chart",
@@ -97,7 +99,8 @@
     {
       "type": "concept",
       "id": "twr-vs-irr",
-      "body": "The arithmetic/geometric distinction is about averaging returns. A second, separate distinction is about **whose decisions you want to measure**.\n\n**[[time-weighted-return|time-weighted return]] (TWR)** strips out the effect of money moving in and out. It measures the return on a dollar that stayed invested throughout, which isolates the *manager's* performance from the *investor's* timing. It is the geometric chain of period returns, and it is the standard for reporting liquid fund performance.\n\n**[[money-weighted-return|money-weighted return]]** — in practice usually an [[internal-rate-of-return]] — does the opposite. It weights each period by how much capital was actually at risk, so it captures the combined effect of manager skill and the timing of contributions and withdrawals.\n\nNeither is more correct. They answer different questions:\n\n- *How good is this manager?* Time-weighted.\n- *How did I actually do?* Money-weighted.\n\nAnd the reason private markets report IRR is not conventional preference: the manager controls the timing of capital calls and distributions, so timing IS part of what they are being judged on. In a hedge fund, where the investor decides when to subscribe and redeem, time-weighted is the fair measure."
+      "body": "The arithmetic/geometric distinction is about averaging returns. A second, separate distinction is about **whose decisions you want to measure**.\n\n**[[time-weighted-return|time-weighted return]] (TWR)** strips out the effect of money moving in and out. It measures the return on a dollar that stayed invested throughout, which isolates the *manager's* performance from the *investor's* timing. It is the geometric chain of period returns, and it is the standard for reporting liquid fund performance.\n\n**[[money-weighted-return|money-weighted return]]** — in practice usually an [[internal-rate-of-return]] — does the opposite. It weights each period by how much capital was actually at risk, so it captures the combined effect of manager skill and the timing of contributions and withdrawals.\n\nNeither is more correct. They answer different questions:\n\n- *How good is this manager?* Time-weighted.\n- *How did I actually do?* Money-weighted.\n\nAnd the reason private markets report IRR is not conventional preference: the manager controls the timing of capital calls and distributions, so timing IS part of what they are being judged on. In a hedge fund, where the investor decides when to subscribe and redeem, time-weighted is the fair measure.",
+      "heading": "Time-weighted versus money-weighted"
     },
     {
       "type": "table",
@@ -134,7 +137,8 @@
     {
       "type": "pitfall",
       "id": "which-to-use",
-      "body": "**Do not use an arithmetic mean to describe a track record.** It overstates, always, and it overstates most for the most volatile managers — which is exactly the wrong direction for the error to run.\n\nBut the reverse mistake is real too: **the arithmetic mean is the right input for forward-looking single-period work.** If you are estimating next month's expected return, or running a one-period regression, the arithmetic mean is what the mathematics calls for. The rule is not \"geometric is better\"; it is *describe the past geometrically, estimate a single future period arithmetically.*"
+      "body": "**Do not use an arithmetic mean to describe a track record.** It overstates, always, and it overstates most for the most volatile managers — which is exactly the wrong direction for the error to run.\n\nBut the reverse mistake is real too: **the arithmetic mean is the right input for forward-looking single-period work.** If you are estimating next month's expected return, or running a one-period regression, the arithmetic mean is what the mathematics calls for. The rule is not \"geometric is better\"; it is *describe the past geometrically, estimate a single future period arithmetically.*",
+      "heading": "describing records with arithmetic means"
     },
     {
       "type": "onTheJob",

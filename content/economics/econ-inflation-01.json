@@ -24,7 +24,8 @@
     {
       "type": "concept",
       "id": "core-vs-headline",
-      "body": "**Headline inflation includes everything. Core inflation excludes food and energy.**\n\nThe exclusion looks like a dodge — those are the prices people notice most. The reason is signal, not comfort: energy and food prices are volatile and driven by weather, harvests and geopolitics rather than by domestic demand. A spike that reverses in six months tells a [[central-bank|central bank]] nothing about the pressure it can actually influence.\n\nSo the split has a clean division of labour:\n\n**Headline is what people experience** and what wage demands respond to. It is the honest measure of purchasing power.\n\n**Core is what policy responds to**, because it is a better guide to where inflation goes next.\n\n**The trap is that the exclusion only works if the spike really does reverse.** When energy stays high long enough to feed into transport costs, food production and wage bargaining, it stops being noise and becomes exactly what core was trying to measure. Second-round effects are the reason \"look through it\" is a judgement rather than a rule."
+      "body": "**Headline inflation includes everything. Core inflation excludes food and energy.**\n\nThe exclusion looks like a dodge — those are the prices people notice most. The reason is signal, not comfort: energy and food prices are volatile and driven by weather, harvests and geopolitics rather than by domestic demand. A spike that reverses in six months tells a [[central-bank|central bank]] nothing about the pressure it can actually influence.\n\nSo the split has a clean division of labour:\n\n**Headline is what people experience** and what wage demands respond to. It is the honest measure of purchasing power.\n\n**Core is what policy responds to**, because it is a better guide to where inflation goes next.\n\n**The trap is that the exclusion only works if the spike really does reverse.** When energy stays high long enough to feed into transport costs, food production and wage bargaining, it stops being noise and becomes exactly what core was trying to measure. Second-round effects are the reason \"look through it\" is a judgement rather than a rule.",
+      "heading": "Core versus headline"
     },
     {
       "type": "intuition",
@@ -64,7 +65,8 @@
         "**Read that carefully: the headline number is one line item away from a different policy conversation.** This is why the composition of an inflation print matters more than its level, and why the market reaction to a print often ignores the headline entirely.",
         "Against the 5.25% policy rate, the real policy rate is 1.0525 / 1.0250 − 1 = **2.68%**. The quick subtraction gives 2.75%, close enough here and not at higher inflation.",
         "Sanity check worth reusing: **contributions must sum to the headline.** If someone shows you an inflation decomposition whose parts do not add up to the printed number, something has been dropped — usually the line that undermines the argument."
-      ]
+      ],
+      "heading": "building inflation from a basket"
     },
     {
       "type": "table",
@@ -107,7 +109,8 @@
     {
       "type": "pitfall",
       "id": "inflation-protection-claim",
-      "body": "**\"Inflation-protected\" is a marketing phrase covering at least four different mechanisms, and the differences decide whether it works.**\n\n*Contractual linkage* — revenue explicitly indexed to a published index. The strongest form, and it comes with caps, lags and floors that must be read.\n\n*Pricing power* — the firm can raise prices because customers have nowhere else to go. Real but conditional on competition and on demand holding up.\n\n*Owning the thing* — commodities and real assets, where the asset's price is part of the index. Works when the inflation is commodity-driven.\n\n*Rate reset* — floating-rate credit, where coupons rise as policy rates rise. Protects income, not principal, and only while rates stay high.\n\nOne question separates them: **when inflation rose 6% last year, what happened to this asset's revenue, and was it a contract or a hope?**"
+      "body": "**\"Inflation-protected\" is a marketing phrase covering at least four different mechanisms, and the differences decide whether it works.**\n\n*Contractual linkage* — revenue explicitly indexed to a published index. The strongest form, and it comes with caps, lags and floors that must be read.\n\n*Pricing power* — the firm can raise prices because customers have nowhere else to go. Real but conditional on competition and on demand holding up.\n\n*Owning the thing* — commodities and real assets, where the asset's price is part of the index. Works when the inflation is commodity-driven.\n\n*Rate reset* — floating-rate credit, where coupons rise as policy rates rise. Protects income, not principal, and only while rates stay high.\n\nOne question separates them: **when inflation rose 6% last year, what happened to this asset's revenue, and was it a contract or a hope?**",
+      "heading": "taking inflation-protected on faith"
     },
     {
       "type": "onTheJob",

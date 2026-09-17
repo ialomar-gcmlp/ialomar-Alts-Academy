@@ -33,7 +33,8 @@
         "**Total fee base across the whole path: 10.** Which matches your actual gain of 10. That is the high water mark working exactly as intended.",
         "**Now suppose the mark had been reset to 80 after the fall.** Fees would be charged on 95 - 80 = 15, then on 110 - 95 = 15. **A fee base of 30 against an actual gain of 10 — three times over.**",
         "Read that carefully. The reset is not a small adjustment. It triples what you pay on the same performance."
-      ]
+      ],
+      "heading": "the 100 → 80 → 95 → 110 path"
     },
     {
       "type": "infographic",
@@ -118,7 +119,8 @@
     {
       "type": "concept",
       "id": "how-it-gets-weakened",
-      "body": "**Fund closure and relaunch.** The most complete way around a high water mark. A manager well below their mark closes, returns capital, and launches a new vehicle with the same strategy and a fresh mark. Perfectly legal, and it eliminates the constraint entirely.\n\n**Explicit reset provisions.** Some agreements permit a reset after a defined period below the mark, or a partial reset. Worth reading for, and rare in institutional terms.\n\n**Modified or rolling high water marks.** Variations where the mark amortises over time or resets to a proportion of the shortfall. These are not always unreasonable — a permanent mark can trap a manager after an extreme loss — but they are a weakening and should be priced as one.\n\n**Frequent crystallisation.** Quarterly rather than annual crystallisation means gains in one quarter are charged even if a later quarter reverses them. Over a volatile year with a flat outcome, an investor can pay meaningful fees. **Less frequent crystallisation is straightforwardly better for the investor.**\n\n**Equalisation mechanics.** Where investors subscribe at different times, funds use series accounting or equalisation adjustments so each investor's own mark is respected. These are legitimate and complicated; the risk is a poorly implemented method that quietly charges new investors for gains earned before they arrived.\n\n**Fees on unrealised gains.** If a fund holds illiquid positions marked by the manager, a performance fee crystallised annually is being paid on the manager's own valuations. That is a genuine conflict, and side-pocketing illiquid positions is the usual remedy."
+      "body": "**Fund closure and relaunch.** The most complete way around a high water mark. A manager well below their mark closes, returns capital, and launches a new vehicle with the same strategy and a fresh mark. Perfectly legal, and it eliminates the constraint entirely.\n\n**Explicit reset provisions.** Some agreements permit a reset after a defined period below the mark, or a partial reset. Worth reading for, and rare in institutional terms.\n\n**Modified or rolling high water marks.** Variations where the mark amortises over time or resets to a proportion of the shortfall. These are not always unreasonable — a permanent mark can trap a manager after an extreme loss — but they are a weakening and should be priced as one.\n\n**Frequent crystallisation.** Quarterly rather than annual crystallisation means gains in one quarter are charged even if a later quarter reverses them. Over a volatile year with a flat outcome, an investor can pay meaningful fees. **Less frequent crystallisation is straightforwardly better for the investor.**\n\n**Equalisation mechanics.** Where investors subscribe at different times, funds use series accounting or equalisation adjustments so each investor's own mark is respected. These are legitimate and complicated; the risk is a poorly implemented method that quietly charges new investors for gains earned before they arrived.\n\n**Fees on unrealised gains.** If a fund holds illiquid positions marked by the manager, a performance fee crystallised annually is being paid on the manager's own valuations. That is a genuine conflict, and side-pocketing illiquid positions is the usual remedy.",
+      "heading": "How the mark gets weakened"
     },
     {
       "type": "infographic",
@@ -190,7 +192,8 @@
     {
       "type": "pitfall",
       "id": "the-relaunch",
-      "body": "**Ask what happened to the manager's previous funds, not just how this one performed.** A manager with a strong three-year record on a fund launched shortly after closing a loss-making predecessor has, in economic substance, reset their high water mark — and the new record does not include the loss you would have suffered had you been there throughout.\n\nThis is not usually deceptive. Fund closures happen for many reasons and a relaunch can be entirely legitimate. But the track record you are being shown starts at a convenient point, and establishing whether an earlier vehicle exists is a factual question with a factual answer. **The relevant history is the manager's, not the fund's.**"
+      "body": "**Ask what happened to the manager's previous funds, not just how this one performed.** A manager with a strong three-year record on a fund launched shortly after closing a loss-making predecessor has, in economic substance, reset their high water mark — and the new record does not include the loss you would have suffered had you been there throughout.\n\nThis is not usually deceptive. Fund closures happen for many reasons and a relaunch can be entirely legitimate. But the track record you are being shown starts at a convenient point, and establishing whether an earlier vehicle exists is a factual question with a factual answer. **The relevant history is the manager's, not the fund's.**",
+      "heading": "judging the fund, not the manager"
     },
     {
       "type": "onTheJob",

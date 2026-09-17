@@ -24,7 +24,8 @@
     {
       "type": "concept",
       "id": "value-creation",
-      "body": "Buyout returns decompose into exactly three sources, and knowing which one drove a manager's track record is the single most useful thing you can establish about them.\n\n**1. Operational improvement.** Growing [[ebitda]] — more revenue, better margins, bolt-on acquisitions. This is the source managers most want to claim, because it is the one that requires skill and does not depend on markets.\n\n**2. Multiple expansion.** Selling at a higher [[ev-ebitda|EV/EBITDA multiple]] than you paid. Sometimes earned by making the business genuinely better or larger; often just a rising market. This is the source most likely to be luck dressed as skill.\n\n**3. Debt paydown.** The company's cash flow repays borrowings during the hold, so the equity's share of a constant enterprise value grows. Mechanical, and entirely dependent on the leverage having been available.\n\nA manager whose historical returns came mostly from multiple expansion during a period of falling interest rates has demonstrated good timing rather than repeatable capability. **Ask for the attribution across these three, deal by deal.** It is a standard request and a revealing one."
+      "body": "Buyout returns decompose into exactly three sources, and knowing which one drove a manager's track record is the single most useful thing you can establish about them.\n\n**1. Operational improvement.** Growing [[ebitda]] — more revenue, better margins, bolt-on acquisitions. This is the source managers most want to claim, because it is the one that requires skill and does not depend on markets.\n\n**2. Multiple expansion.** Selling at a higher [[ev-ebitda|EV/EBITDA multiple]] than you paid. Sometimes earned by making the business genuinely better or larger; often just a rising market. This is the source most likely to be luck dressed as skill.\n\n**3. Debt paydown.** The company's cash flow repays borrowings during the hold, so the equity's share of a constant enterprise value grows. Mechanical, and entirely dependent on the leverage having been available.\n\nA manager whose historical returns came mostly from multiple expansion during a period of falling interest rates has demonstrated good timing rather than repeatable capability. **Ask for the attribution across these three, deal by deal.** It is a standard request and a revealing one.",
+      "heading": "The three sources of value"
     },
     {
       "type": "infographic",
@@ -79,7 +80,8 @@
         "**Now decompose the $300m equity gain.** EBITDA growth of $20m at the entry multiple = $200m. Multiple expansion = $0, since the multiple did not change. Debt paydown = $100m. Total $300m — the three sources account for all of it exactly.",
         "**And here is the leverage effect.** Unlevered, the same deal would be $500m in and $700m out: 1.4x over five years, an IRR of **7.0%**. The debt turned a 7% return into a 20% return.",
         "**Which cuts both ways.** Hold everything else and assume the exit multiple falls to 8x. Equity out = $560m - $200m = $360m, so 1.8x and an IRR of 12.5%. At 7x it is 1.45x and 7.7%. The business performed exactly as planned in all three cases; the return was decided by the exit multiple."
-      ]
+      ],
+      "heading": "a 10x buyout, held five years"
     },
     {
       "type": "intuition",
@@ -115,7 +117,8 @@
     {
       "type": "concept",
       "id": "measuring-it",
-      "body": "Private fund performance uses its own vocabulary, and the terms answer different questions.\n\n**[[moic|MOIC]] or gross multiple.** Total value divided by capital invested. Blind to time.\n\n**[[internal-rate-of-return|IRR]].** Annualised, and acutely sensitive to timing — which is why it can be flattered by early distributions and by [[subscription-line|subscription lines]].\n\n**[[dpi|DPI]] — distributions to paid-in.** Cash actually returned, divided by cash actually called. **This is the only one that cannot be argued with**, because it is realised money rather than a valuation.\n\n**[[rvpi|RVPI]] — residual value to paid-in.** The remaining unrealised holdings, at the manager's own valuation.\n\n**[[tvpi|TVPI]] — total value to paid-in.** DPI plus RVPI. The headline number.\n\nA fund reporting TVPI of 1.35x made up of 0.65x DPI and 0.70x RVPI has returned two thirds of its capital and is telling you the rest is worth 0.70x **on its own marks**. Early in a fund's life almost all of TVPI is RVPI, which is to say almost all of it is an opinion."
+      "body": "Private fund performance uses its own vocabulary, and the terms answer different questions.\n\n**[[moic|MOIC]] or gross multiple.** Total value divided by capital invested. Blind to time.\n\n**[[internal-rate-of-return|IRR]].** Annualised, and acutely sensitive to timing — which is why it can be flattered by early distributions and by [[subscription-line|subscription lines]].\n\n**[[dpi|DPI]] — distributions to paid-in.** Cash actually returned, divided by cash actually called. **This is the only one that cannot be argued with**, because it is realised money rather than a valuation.\n\n**[[rvpi|RVPI]] — residual value to paid-in.** The remaining unrealised holdings, at the manager's own valuation.\n\n**[[tvpi|TVPI]] — total value to paid-in.** DPI plus RVPI. The headline number.\n\nA fund reporting TVPI of 1.35x made up of 0.65x DPI and 0.70x RVPI has returned two thirds of its capital and is telling you the rest is worth 0.70x **on its own marks**. Early in a fund's life almost all of TVPI is RVPI, which is to say almost all of it is an opinion.",
+      "heading": "Measuring performance: MOIC, IRR, DPI, TVPI"
     },
     {
       "type": "infographic",
@@ -205,7 +208,8 @@
     {
       "type": "pitfall",
       "id": "marks-are-opinions",
-      "body": "**An unrealised private mark is an opinion, and reported volatility for [[private-equity|private equity]] is close to meaningless.** Quarterly valuations are model-based and lag public markets, so measured [[volatility]] is low and measured correlation to equities is low. Neither reflects the underlying economic risk.\n\nThe correct reading of a low private equity beta is that the marking process is slow, not that the assets are insulated. Comparing a private fund's reported volatility with a public equity fund's is not a comparison — it is a category error, and it flatters the private fund on both risk and, through the same mechanism, apparent alpha."
+      "body": "**An unrealised private mark is an opinion, and reported volatility for [[private-equity|private equity]] is close to meaningless.** Quarterly valuations are model-based and lag public markets, so measured [[volatility]] is low and measured correlation to equities is low. Neither reflects the underlying economic risk.\n\nThe correct reading of a low private equity beta is that the marking process is slow, not that the assets are insulated. Comparing a private fund's reported volatility with a public equity fund's is not a comparison — it is a category error, and it flatters the private fund on both risk and, through the same mechanism, apparent alpha.",
+      "heading": "treating marks as prices"
     },
     {
       "type": "onTheJob",

@@ -172,7 +172,8 @@
     {
       "type": "pitfall",
       "id": "yield-is-not-return",
-      "body": "**A stated yield is not a return.** A portfolio yielding 11% delivers 11% only if nothing defaults. Return equals yield minus credit losses minus fees, and the loss term is unknown until the cycle turns.\n\nThis matters because private credit's reported track records are heavily concentrated in benign credit periods. A fund that has never operated through a genuine default cycle has a track record that mostly demonstrates that the coupons arrived. **The relevant question is not what the portfolio yields but what it would recover** — which requires looking at security, seniority and documentation rather than at the income statement."
+      "body": "**A stated yield is not a return.** A portfolio yielding 11% delivers 11% only if nothing defaults. Return equals yield minus credit losses minus fees, and the loss term is unknown until the cycle turns.\n\nThis matters because private credit's reported track records are heavily concentrated in benign credit periods. A fund that has never operated through a genuine default cycle has a track record that mostly demonstrates that the coupons arrived. **The relevant question is not what the portfolio yields but what it would recover** — which requires looking at security, seniority and documentation rather than at the income statement.",
+      "heading": "reading a stated yield as a return"
     },
     {
       "type": "infographic",

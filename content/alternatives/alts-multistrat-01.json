@@ -139,7 +139,8 @@
     {
       "type": "pitfall",
       "id": "smooth-returns",
-      "body": "**Smooth multi-strategy returns can reflect diversification or offsetting mistakes.** If one book gains 4% while another loses 4%, the fund reports zero — indistinguishable from a fund that took no risk, and quite different in what it says about the manager.\n\nSo aggregate return and volatility are unusually uninformative for this structure. The useful information is the **attribution by strategy over time**: which books contributed, how consistently, and whether the centre's capital allocation moved toward the ones that worked. A fund unable or unwilling to provide that has removed your ability to assess the thing you are paying for."
+      "body": "**Smooth multi-strategy returns can reflect diversification or offsetting mistakes.** If one book gains 4% while another loses 4%, the fund reports zero — indistinguishable from a fund that took no risk, and quite different in what it says about the manager.\n\nSo aggregate return and volatility are unusually uninformative for this structure. The useful information is the **attribution by strategy over time**: which books contributed, how consistently, and whether the centre's capital allocation moved toward the ones that worked. A fund unable or unwilling to provide that has removed your ability to assess the thing you are paying for.",
+      "heading": "reading smooth returns as skill"
     },
     {
       "type": "infographic",

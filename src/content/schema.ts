@@ -282,12 +282,15 @@ export const lessonBlockSchema = z.discriminatedUnion("type", [
   z.object({
     type: z.literal("example"),
     id: blockIdSchema,
+    /** Renders as "Worked example: <heading>" — say what is being worked. */
+    heading: headingSchema,
     body: proseSchema,
     walkthrough: z.array(proseSchema).min(1),
   }),
 
   z.object({ type: z.literal("onTheJob"), id: blockIdSchema, body: proseSchema }),
-  z.object({ type: z.literal("pitfall"), id: blockIdSchema, body: proseSchema }),
+  /** `heading` renders as "Common mistake: <heading>" — name the mistake. */
+  z.object({ type: z.literal("pitfall"), id: blockIdSchema, heading: headingSchema, body: proseSchema }),
   z.object({ type: z.literal("analogy"), id: blockIdSchema, body: proseSchema }),
 
   z.object({

@@ -24,7 +24,8 @@
     {
       "type": "concept",
       "id": "the-tradeoff",
-      "body": "**The trade-off theory: debt adds value through the tax shield and subtracts it through the expected cost of financial distress. The optimum is where the next unit of debt costs more in distress risk than it saves in tax.**\n\nThe tax shield is arithmetic. Interest reduces taxable profit, so a company paying 20 of interest at a 25% tax rate saves 5 of tax a year. Real money, and the reason the after-tax cost of debt is what appears in a cost of capital calculation.\n\nDistress costs are less visible and larger than most models allow, and they begin well before insolvency:\n\n**Direct costs** — advisers, refinancing fees, the fees of a restructuring.\n\n**Indirect costs** — customers who will not sign long contracts with a company they think may fail, suppliers who tighten terms, staff who leave, competitors who exploit the constraint.\n\n**Opportunity costs** — the acquisition that could not be made, the capital spending deferred, the price cut that could not be matched.\n\n**Which is why the honest way to state the trade-off is not \"how much debt can we service?\" but \"how much debt can we service in a bad year while still competing normally?\"**"
+      "body": "**The trade-off theory: debt adds value through the tax shield and subtracts it through the expected cost of financial distress. The optimum is where the next unit of debt costs more in distress risk than it saves in tax.**\n\nThe tax shield is arithmetic. Interest reduces taxable profit, so a company paying 20 of interest at a 25% tax rate saves 5 of tax a year. Real money, and the reason the after-tax cost of debt is what appears in a cost of capital calculation.\n\nDistress costs are less visible and larger than most models allow, and they begin well before insolvency:\n\n**Direct costs** — advisers, refinancing fees, the fees of a restructuring.\n\n**Indirect costs** — customers who will not sign long contracts with a company they think may fail, suppliers who tighten terms, staff who leave, competitors who exploit the constraint.\n\n**Opportunity costs** — the acquisition that could not be made, the capital spending deferred, the price cut that could not be matched.\n\n**Which is why the honest way to state the trade-off is not \"how much debt can we service?\" but \"how much debt can we service in a bad year while still competing normally?\"**",
+      "heading": "The trade-off: tax shield versus distress"
     },
     {
       "type": "intuition",
@@ -44,7 +45,8 @@
         "So debt genuinely creates value in a tax system that deducts interest, and that value is available at any level of leverage in this arithmetic.",
         "Which is why the arithmetic alone cannot find an optimum: **taken literally, it recommends 100% debt.** What stops it is the distress cost, which does not appear in the calculation and is not linear — it is near zero for a long stretch and then very large.",
         "Sanity check worth reusing: **the annual tax shield is interest times the tax rate.** At 20 of interest and 25% tax it is 5 a year. Compare it with the extra spread the company pays for being levered: if the debt costs 200bp more than an unlevered peer's would, that is 8 a year on 400 — and the shield has already been consumed."
-      ]
+      ],
+      "heading": "the tax shield at work"
     },
     {
       "type": "table",
@@ -92,7 +94,8 @@
     {
       "type": "pitfall",
       "id": "leverage-is-not-value",
-      "body": "**Leverage changes how the pie is divided far more than it changes the size of the pie.**\n\nThe classic result — that in a world without taxes, distress costs or information asymmetry the capital structure does not affect firm value — is not a description of reality. It is a statement of where value creation *cannot* come from, and that makes it useful: if a transaction claims to create value, the value has to come from the tax shield, from reduced agency costs, from better operations, or from buying the asset cheaply. **It cannot come from the financing arithmetic itself.**\n\nWhich is worth remembering when a model shows a higher equity return purely because the debt assumption went up. That is not a better investment; it is the same investment with a narrower equity slice and a wider outcome distribution.\n\nThe test to apply: **at the same leverage, is this deal still attractive?** If the answer depends on the debt, the thesis is a financing thesis. Those exist and can work, and they should be labelled — because they depend on credit market conditions that have nothing to do with the company."
+      "body": "**Leverage changes how the pie is divided far more than it changes the size of the pie.**\n\nThe classic result — that in a world without taxes, distress costs or information asymmetry the capital structure does not affect firm value — is not a description of reality. It is a statement of where value creation *cannot* come from, and that makes it useful: if a transaction claims to create value, the value has to come from the tax shield, from reduced agency costs, from better operations, or from buying the asset cheaply. **It cannot come from the financing arithmetic itself.**\n\nWhich is worth remembering when a model shows a higher equity return purely because the debt assumption went up. That is not a better investment; it is the same investment with a narrower equity slice and a wider outcome distribution.\n\nThe test to apply: **at the same leverage, is this deal still attractive?** If the answer depends on the debt, the thesis is a financing thesis. Those exist and can work, and they should be labelled — because they depend on credit market conditions that have nothing to do with the company.",
+      "heading": "reading leverage as value"
     },
     {
       "type": "onTheJob",

@@ -41,7 +41,13 @@ export function LessonBlockView({ block }: { block: LessonBlock }) {
 
     case "pitfall":
       return (
-        <Callout label="Common mistake" tone="incorrect" icon="alert">
+        <Callout
+          label={
+            block.heading !== undefined ? `Common mistake: ${block.heading}` : "Common mistake"
+          }
+          tone="incorrect"
+          icon="alert"
+        >
           <Prose text={block.body} />
         </Callout>
       );
@@ -89,7 +95,7 @@ export function LessonBlockView({ block }: { block: LessonBlock }) {
         <div className="my-6 rounded-lg border border-accent/25 bg-accent-soft/25 p-4">
           <div className="mb-1.5 flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-accent">
             <Icon name="target" size={13} />
-            Worked example
+            {block.heading !== undefined ? `Worked example: ${block.heading}` : "Worked example"}
           </div>
           <Prose text={block.body} />
           <ol className="mt-3 max-w-measure space-y-2.5">

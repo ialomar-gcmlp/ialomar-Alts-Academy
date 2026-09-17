@@ -24,7 +24,8 @@
     {
       "type": "concept",
       "id": "price-and-yield",
-      "body": "**Price and yield are two ways of saying the same thing, and the relationship is inverse by construction.**\n\nA bond's price is the [[present-value|present value]] of its promised cash flows, discounted at the market's required return. That required return, expressed as the single rate that makes the present value equal the observed price, is the **[[ytm|yield to maturity]]**.\n\nSo:\n\n- **Yield above coupon** → price below par. The bond trades at a **discount**.\n- **Yield equal to coupon** → price at par.\n- **Yield below coupon** → price above par. A **premium**.\n\nWhich makes the direction easy to reconstruct rather than memorise: **if you need more return than the coupon provides, you must pay less than 100.**\n\nOne subtlety worth carrying. **A bond quoted at a yield is quoted at a price, and the two contain identical information.** Traders quote yields because they are comparable across bonds with different coupons and maturities; risk systems care about prices because that is what appears in a portfolio value. Neither is more fundamental."
+      "body": "**Price and yield are two ways of saying the same thing, and the relationship is inverse by construction.**\n\nA bond's price is the [[present-value|present value]] of its promised cash flows, discounted at the market's required return. That required return, expressed as the single rate that makes the present value equal the observed price, is the **[[ytm|yield to maturity]]**.\n\nSo:\n\n- **Yield above coupon** → price below par. The bond trades at a **discount**.\n- **Yield equal to coupon** → price at par.\n- **Yield below coupon** → price above par. A **premium**.\n\nWhich makes the direction easy to reconstruct rather than memorise: **if you need more return than the coupon provides, you must pay less than 100.**\n\nOne subtlety worth carrying. **A bond quoted at a yield is quoted at a price, and the two contain identical information.** Traders quote yields because they are comparable across bonds with different coupons and maturities; risk systems care about prices because that is what appears in a portfolio value. Neither is more fundamental.",
+      "heading": "Price and yield"
     },
     {
       "type": "infographic",
@@ -116,7 +117,8 @@
         "Now look at the moves rather than the levels. From 6%, a rise of 100bp takes the price from 92.64 to 85.95 — a fall of **7.22%**. A fall of 100bp takes it to 100.00 — a rise of **7.94%**.",
         "**Read that carefully: the same 100bp move produced a bigger gain than loss. Bond price responses are asymmetric in the holder's favour**, and that asymmetry has a name — convexity — and its own topic.",
         "Sanity check worth reusing: **before computing anything, check the direction from the coupon against the yield.** Coupon 5%, yield 6%, so the price must be below 100. If a calculation says 104, a sign or a period count is wrong — and that check catches most bond arithmetic errors in one second."
-      ]
+      ],
+      "heading": "one bond at four yields"
     },
     {
       "type": "infographic",
@@ -184,7 +186,8 @@
     {
       "type": "pitfall",
       "id": "rates-vs-credit",
-      "body": "**When a bond's price falls, exactly two things can have happened, and confusing them leads to opposite decisions.**\n\n**Rates rose.** The risk-free curve moved and every bond of that maturity fell. Nothing changed about the issuer. Hold to maturity and you receive everything promised — the loss is a mark, not a permanent impairment.\n\n**The spread widened.** The market now demands more compensation for this issuer's risk. Something changed about the borrower, or about the market's appetite for its kind of risk. Held to maturity, you might not receive everything promised.\n\n**The diagnostic takes one minute: compare the bond's yield change with the change in a government bond of the same maturity.** The difference is the spread move. That single subtraction separates a mark-to-market event from a credit event.\n\nAnd it matters because the responses are opposite. A rate-driven fall in a bond you intend to hold is, if anything, an opportunity to buy more of the same. A spread-driven fall is a signal to re-underwrite the issuer. **Portfolio reports that show only price changes make this distinction impossible, which is why any credit report worth reading decomposes the move into rates and spread.**"
+      "body": "**When a bond's price falls, exactly two things can have happened, and confusing them leads to opposite decisions.**\n\n**Rates rose.** The risk-free curve moved and every bond of that maturity fell. Nothing changed about the issuer. Hold to maturity and you receive everything promised — the loss is a mark, not a permanent impairment.\n\n**The spread widened.** The market now demands more compensation for this issuer's risk. Something changed about the borrower, or about the market's appetite for its kind of risk. Held to maturity, you might not receive everything promised.\n\n**The diagnostic takes one minute: compare the bond's yield change with the change in a government bond of the same maturity.** The difference is the spread move. That single subtraction separates a mark-to-market event from a credit event.\n\nAnd it matters because the responses are opposite. A rate-driven fall in a bond you intend to hold is, if anything, an opportunity to buy more of the same. A spread-driven fall is a signal to re-underwrite the issuer. **Portfolio reports that show only price changes make this distinction impossible, which is why any credit report worth reading decomposes the move into rates and spread.**",
+      "heading": "confusing a rate move with a credit move"
     },
     {
       "type": "infographic",

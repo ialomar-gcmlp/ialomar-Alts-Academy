@@ -160,7 +160,8 @@
     {
       "type": "pitfall",
       "id": "not-crisis-insurance",
-      "body": "**Trend following is not crisis insurance, and selling it as such is a mistake.** It protects against *slow* crises — declines that develop over weeks, giving the system time to reverse positioning. It provides little protection against a genuine one-day shock, because it will still be positioned for the previous regime when the shock lands.\n\nThe honest description is that it has historically been long-volatility in character and has often done well during extended equity declines. That is valuable, and it is not the same as a hedge that pays when you need it on any given morning. If a portfolio needs protection against a gap, options do that job; trend following does a different one."
+      "body": "**Trend following is not crisis insurance, and selling it as such is a mistake.** It protects against *slow* crises — declines that develop over weeks, giving the system time to reverse positioning. It provides little protection against a genuine one-day shock, because it will still be positioned for the previous regime when the shock lands.\n\nThe honest description is that it has historically been long-volatility in character and has often done well during extended equity declines. That is valuable, and it is not the same as a hedge that pays when you need it on any given morning. If a portfolio needs protection against a gap, options do that job; trend following does a different one.",
+      "heading": "selling trend following as crisis insurance"
     },
     {
       "type": "infographic",

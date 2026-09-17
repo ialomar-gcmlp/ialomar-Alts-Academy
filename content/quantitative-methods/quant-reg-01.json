@@ -18,12 +18,14 @@
     {
       "type": "concept",
       "id": "covariance-correlation",
-      "body": "[[covariance]] measures whether two series tend to move in the same direction. Positive means they rise and fall together; negative means they offset. Its problem is the units: covariance is expressed in the product of the two variables' units, so its magnitude means nothing on its own.\n\n[[correlation]] fixes that by dividing covariance by the two standard deviations. The result is bounded between -1 and +1, which makes it comparable across any pair of series. -1 is perfect opposition, 0 is no linear relationship, +1 is perfect lockstep.\n\nOne word in that last sentence does a great deal of work: **linear**. Correlation measures the strength of a *straight-line* relationship, and it can be near zero for two variables that are tightly related in a non-linear way."
+      "body": "[[covariance]] measures whether two series tend to move in the same direction. Positive means they rise and fall together; negative means they offset. Its problem is the units: covariance is expressed in the product of the two variables' units, so its magnitude means nothing on its own.\n\n[[correlation]] fixes that by dividing covariance by the two standard deviations. The result is bounded between -1 and +1, which makes it comparable across any pair of series. -1 is perfect opposition, 0 is no linear relationship, +1 is perfect lockstep.\n\nOne word in that last sentence does a great deal of work: **linear**. Correlation measures the strength of a *straight-line* relationship, and it can be near zero for two variables that are tightly related in a non-linear way.",
+      "heading": "Covariance and correlation"
     },
     {
       "type": "concept",
       "id": "the-regression",
-      "body": "A simple [[regression]] fits the best straight line through a scatter of two variables. In finance the canonical version regresses a fund's returns on the market's:\n\n**fund return = α + β × (market return) + ε**\n\nEach term has a name you already know:\n\n- **[[beta]]** is the slope: how much the fund moves for a 1% market move. It is the sensitivity, and it comes straight out of the regression.\n- **[[alpha]]** is the intercept: the average return when the market returned zero. This is where alpha as a *number* comes from — it is a regression intercept, not a vague claim of skill.\n- **ε** is the [[residual]]: what the line failed to explain, observation by observation.\n\n[[r-squared|R-squared]] tells you what fraction of the fund's variance the line explains. An R² of 0.56 means 56% of the fund's movement is attributable to the market and 44% is something else."
+      "body": "A simple [[regression]] fits the best straight line through a scatter of two variables. In finance the canonical version regresses a fund's returns on the market's:\n\n**fund return = α + β × (market return) + ε**\n\nEach term has a name you already know:\n\n- **[[beta]]** is the slope: how much the fund moves for a 1% market move. It is the sensitivity, and it comes straight out of the regression.\n- **[[alpha]]** is the intercept: the average return when the market returned zero. This is where alpha as a *number* comes from — it is a regression intercept, not a vague claim of skill.\n- **ε** is the [[residual]]: what the line failed to explain, observation by observation.\n\n[[r-squared|R-squared]] tells you what fraction of the fund's variance the line explains. An R² of 0.56 means 56% of the fund's movement is attributable to the market and 44% is something else.",
+      "heading": "The regression"
     },
     {
       "type": "formula",
@@ -51,7 +53,8 @@
         "**That second fund is instructive.** Correlation 0.75 with beta 1.125: it moves *with* the market only moderately closely, but when it does move it amplifies. Correlation and beta are answering different questions.",
         "**R² for a correlation of 0.75** is 0.75² = **0.5625**. So 56% of that fund's variance is explained by the market and 44% is not.",
         "**And that 44% is where alpha could live** — but only *could*. Unexplained variance is not skill; it is merely everything the single-factor model omitted, which includes sector bets, style tilts, leverage changes and luck."
-      ]
+      ],
+      "heading": "beta from covariance"
     },
     {
       "type": "intuition",
@@ -62,7 +65,8 @@
     {
       "type": "pitfall",
       "id": "correlation-causation",
-      "body": "**Correlation is not causation**, which everyone knows, and **correlation is not the only kind of relationship**, which fewer people act on.\n\nCorrelation measures linear association only. A strategy whose returns are flat in normal markets and sharply negative in crashes — selling tail protection — can show a correlation near zero with equities across a full sample, while being catastrophically exposed to them in exactly the states that matter. The relationship is real and strong; it is simply not a straight line.\n\nTwo defences. First, look at correlation *conditionally* — in the worst decile of market months, not on average. Second, understand the exposure structurally rather than statistically: what would have to happen for this to lose money?"
+      "body": "**Correlation is not causation**, which everyone knows, and **correlation is not the only kind of relationship**, which fewer people act on.\n\nCorrelation measures linear association only. A strategy whose returns are flat in normal markets and sharply negative in crashes — selling tail protection — can show a correlation near zero with equities across a full sample, while being catastrophically exposed to them in exactly the states that matter. The relationship is real and strong; it is simply not a straight line.\n\nTwo defences. First, look at correlation *conditionally* — in the worst decile of market months, not on average. Second, understand the exposure structurally rather than statistically: what would have to happen for this to lose money?",
+      "heading": "misreading correlation"
     },
     {
       "type": "onTheJob",

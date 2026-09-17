@@ -140,7 +140,8 @@
     {
       "type": "pitfall",
       "id": "not-one-asset-class",
-      "body": "**\"Infrastructure\" describes assets with radically different risk, and the label conceals more than it conveys.** Compare:\n\n- a regulated water utility with a set allowed return and no volume risk\n- a toll road paid per vehicle, with full traffic risk\n- a greenfield renewable project under construction with a signed offtake contract\n- an airport, whose passenger volumes are cyclical and shock-prone\n\nAll four are marketed as infrastructure. Their sensitivities to recession, inflation, rates and politics differ almost completely. So the useful question is never \"how much infrastructure do we have?\" but **\"contracted, regulated or demand-based — and for how long?\"** That single distinction does more analytical work than the asset class label."
+      "body": "**\"Infrastructure\" describes assets with radically different risk, and the label conceals more than it conveys.** Compare:\n\n- a regulated water utility with a set allowed return and no volume risk\n- a toll road paid per vehicle, with full traffic risk\n- a greenfield renewable project under construction with a signed offtake contract\n- an airport, whose passenger volumes are cyclical and shock-prone\n\nAll four are marketed as infrastructure. Their sensitivities to recession, inflation, rates and politics differ almost completely. So the useful question is never \"how much infrastructure do we have?\" but **\"contracted, regulated or demand-based — and for how long?\"** That single distinction does more analytical work than the asset class label.",
+      "heading": "treating infrastructure as one asset class"
     },
     {
       "type": "infographic",

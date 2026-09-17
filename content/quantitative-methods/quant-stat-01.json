@@ -16,7 +16,8 @@
     {
       "type": "concept",
       "id": "centre",
-      "body": "Given a column of monthly returns, the first two questions are always the same: where is the middle, and how spread out is it?\n\nThree measures of the middle, each answering a slightly different question:\n\n- The [[arithmetic-mean]] is the total divided by the count. Simple, and sensitive to every observation including the extreme ones.\n- The [[median]] is the middle value when sorted. It ignores how far away the extremes are, only that they are on one side or the other.\n- The [[mode]] is the most frequent value. Rarely useful for returns, which are near-continuous.\n\nWhen mean and median differ substantially, that gap is itself the finding. It says the distribution is lopsided, and it tells you which way."
+      "body": "Given a column of monthly returns, the first two questions are always the same: where is the middle, and how spread out is it?\n\nThree measures of the middle, each answering a slightly different question:\n\n- The [[arithmetic-mean]] is the total divided by the count. Simple, and sensitive to every observation including the extreme ones.\n- The [[median]] is the middle value when sorted. It ignores how far away the extremes are, only that they are on one side or the other.\n- The [[mode]] is the most frequent value. Rarely useful for returns, which are near-continuous.\n\nWhen mean and median differ substantially, that gap is itself the finding. It says the distribution is lopsided, and it tells you which way.",
+      "heading": "Centre: mean and median"
     },
     {
       "type": "intuition",
@@ -27,7 +28,8 @@
     {
       "type": "concept",
       "id": "spread",
-      "body": "For spread, the workhorse is [[standard-deviation]] — the square root of [[variance]], which is the average squared distance from the mean.\n\nThe squaring is the part worth understanding. It exists so that distances above and below the mean do not cancel out, but it has a side effect: **large deviations are weighted disproportionately.** A single -20% month contributes sixteen times as much to the variance as a -5% month, not four times. Standard deviation is therefore dominated by the worst and best observations, which is a feature when you care about extremes and a bug when you do not.\n\nIn finance, standard deviation of returns is called [[volatility]] and is quoted annualised. Monthly volatility scales up by the square root of twelve, not by twelve — a consequence of variances adding while standard deviations do not."
+      "body": "For spread, the workhorse is [[standard-deviation]] — the square root of [[variance]], which is the average squared distance from the mean.\n\nThe squaring is the part worth understanding. It exists so that distances above and below the mean do not cancel out, but it has a side effect: **large deviations are weighted disproportionately.** A single -20% month contributes sixteen times as much to the variance as a -5% month, not four times. Standard deviation is therefore dominated by the worst and best observations, which is a feature when you care about extremes and a bug when you do not.\n\nIn finance, standard deviation of returns is called [[volatility]] and is quoted annualised. Monthly volatility scales up by the square root of twelve, not by twelve — a consequence of variances adding while standard deviations do not.",
+      "heading": "Spread: variance and standard deviation"
     },
     {
       "type": "formula",
@@ -44,12 +46,14 @@
     {
       "type": "pitfall",
       "id": "n-minus-one",
-      "body": "**Sample or population?** Almost all return data is a sample: you have the last five years, not every month that will ever exist. So the divisor is n-1, and the difference is not trivial for short series.\n\nFor the seven-observation series above, dividing by n-1 = 6 gives a standard deviation of 6.56; dividing by n = 7 gives 6.07 — nearly half a point apart. Spreadsheet functions distinguish these with confusingly similar names, so it is worth checking which one a model is using rather than assuming."
+      "body": "**Sample or population?** Almost all return data is a sample: you have the last five years, not every month that will ever exist. So the divisor is n-1, and the difference is not trivial for short series.\n\nFor the seven-observation series above, dividing by n-1 = 6 gives a standard deviation of 6.56; dividing by n = 7 gives 6.07 — nearly half a point apart. Spreadsheet functions distinguish these with confusingly similar names, so it is worth checking which one a model is using rather than assuming.",
+      "heading": "dividing by n instead of n − 1"
     },
     {
       "type": "pitfall",
       "id": "survivorship",
-      "body": "**The dataset itself is usually the bigger problem.** [[survivorship-bias]] means the funds that closed are missing from the index you are looking at, so the average survivor flatters the strategy as a whole. Hedge fund index returns are systematically affected by this.\n\nNo amount of care with the arithmetic fixes a biased sample. Before computing a mean, ask what is *not* in the data — and in performance data, what is missing is almost always the bad outcomes."
+      "body": "**The dataset itself is usually the bigger problem.** [[survivorship-bias]] means the funds that closed are missing from the index you are looking at, so the average survivor flatters the strategy as a whole. Hedge fund index returns are systematically affected by this.\n\nNo amount of care with the arithmetic fixes a biased sample. Before computing a mean, ask what is *not* in the data — and in performance data, what is missing is almost always the bad outcomes.",
+      "heading": "trusting a survivor-only dataset"
     },
     {
       "type": "onTheJob",

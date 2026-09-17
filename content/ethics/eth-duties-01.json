@@ -16,7 +16,8 @@
     {
       "type": "concept",
       "id": "scope-note",
-      "body": "**A note on what this domain is and is not.**\n\nIf you sit the CFA or CAIA exams, ethics is examined against a specific published code — CFA Institute's Code of Ethics and Standards of Professional Conduct, or the CAIA equivalent. **This app deliberately does not reproduce or paraphrase those documents.** You will need the official text for the exam, and no summary substitutes for it.\n\nWhat these topics do instead is work through the situations an alternatives analyst actually meets, from first principles: why the obligations exist, what they require in practice, and how they show up in a diligence meeting or a valuation committee.\n\n**The two are complementary.** The codes tell you what the rules are. These topics are about recognising the situation in front of you as the one the rule is about — which is the part that is genuinely hard, and the part where careers are ended by people who knew the rules perfectly well."
+      "body": "**A note on what this domain is and is not.**\n\nIf you sit the CFA or CAIA exams, ethics is examined against a specific published code — CFA Institute's Code of Ethics and Standards of Professional Conduct, or the CAIA equivalent. **This app deliberately does not reproduce or paraphrase those documents.** You will need the official text for the exam, and no summary substitutes for it.\n\nWhat these topics do instead is work through the situations an alternatives analyst actually meets, from first principles: why the obligations exist, what they require in practice, and how they show up in a diligence meeting or a valuation committee.\n\n**The two are complementary.** The codes tell you what the rules are. These topics are about recognising the situation in front of you as the one the rule is about — which is the part that is genuinely hard, and the part where careers are ended by people who knew the rules perfectly well.",
+      "heading": "Scope: exams versus practice"
     },
     {
       "type": "concept",
@@ -79,7 +80,8 @@
         "Now the disclosure test. If the [[limited-partnership-agreement|limited partnership agreement]] permits it and the policy is disclosed and consistently applied, this is a commercial term investors accepted.",
         "If the policy is vague, applied inconsistently, or the amounts are not separately reported, the same 25bp is a governance failure — **and the arithmetic is identical in both cases.**",
         "Sanity check worth reusing: **for any expense practice, ask what it costs in [[basis-point|basis points]] and what percentage of the management fee that represents.** It converts a debate about categories into a number, and the number is usually larger than anyone expected."
-      ]
+      ],
+      "heading": "who pays which costs"
     },
     {
       "type": "concept",
@@ -90,7 +92,8 @@
     {
       "type": "pitfall",
       "id": "junior-position",
-      "body": "**A first-year analyst has less authority than anyone in the room and better information than most, and that combination is genuinely difficult.**\n\nYou see the raw data, you build the model, and you notice when an assumption changed between drafts. You also have the least standing to challenge it and the most to lose.\n\nSo the practical options, ordered by cost:\n\n**Ask a question rather than making an allegation.** \"Can you help me understand why the comparable set changed?\" is a request for education, and it is answerable. It also creates a record.\n\n**Put it in writing, neutrally.** An email asking a factual question is a contemporaneous record of when you noticed and what you were told. It protects everyone, including the person who answers well.\n\n**Escalate on process rather than on conclusion.** \"Should this go to the valuation committee?\" is procedural and hard to refuse.\n\n**Use the channels that exist.** Compliance functions are frequently helpful and consulting them is not disloyalty.\n\n**And know the limit.** If the answer is unsatisfactory and the amount is material, the question stops being about the model and starts being about whether you can sign your name to it. **That is a genuinely hard place to be, and the people who navigate it well are the ones who noticed early and asked in writing while it was still a small question.**"
+      "body": "**A first-year analyst has less authority than anyone in the room and better information than most, and that combination is genuinely difficult.**\n\nYou see the raw data, you build the model, and you notice when an assumption changed between drafts. You also have the least standing to challenge it and the most to lose.\n\nSo the practical options, ordered by cost:\n\n**Ask a question rather than making an allegation.** \"Can you help me understand why the comparable set changed?\" is a request for education, and it is answerable. It also creates a record.\n\n**Put it in writing, neutrally.** An email asking a factual question is a contemporaneous record of when you noticed and what you were told. It protects everyone, including the person who answers well.\n\n**Escalate on process rather than on conclusion.** \"Should this go to the valuation committee?\" is procedural and hard to refuse.\n\n**Use the channels that exist.** Compliance functions are frequently helpful and consulting them is not disloyalty.\n\n**And know the limit.** If the answer is unsatisfactory and the amount is material, the question stops being about the model and starts being about whether you can sign your name to it. **That is a genuinely hard place to be, and the people who navigate it well are the ones who noticed early and asked in writing while it was still a small question.**",
+      "heading": "assuming the duty scales with seniority"
     },
     {
       "type": "onTheJob",

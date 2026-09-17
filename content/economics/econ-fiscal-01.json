@@ -24,7 +24,8 @@
     {
       "type": "concept",
       "id": "the-driver",
-      "body": "**The debt-to-GDP ratio is a fraction, and both parts move.**\n\nDebt grows at roughly the interest rate on it. GDP grows at the nominal growth rate. So the ratio drifts up or down depending on which is larger — the famous **r − g**.\n\n- **r > g**: debt compounds faster than the economy. The ratio rises unless the government runs a primary surplus large enough to offset it.\n- **r < g**: the economy outgrows its debt. The ratio falls even while the government runs modest primary deficits.\n\nThis single subtraction explains most of post-war fiscal history. Debt ratios fell for decades after 1945 with growth above rates and inflation eroding the real value of fixed-rate debt — not through austerity. They rose after 2008 with weak growth, and the 2010s were survivable at very high debt levels only because r was close to zero.\n\n**Which is why the return of positive real rates is a fiscal event, not just a market one.** Nothing about the debt changed; the sign of r − g did."
+      "body": "**The debt-to-GDP ratio is a fraction, and both parts move.**\n\nDebt grows at roughly the interest rate on it. GDP grows at the nominal growth rate. So the ratio drifts up or down depending on which is larger — the famous **r − g**.\n\n- **r > g**: debt compounds faster than the economy. The ratio rises unless the government runs a primary surplus large enough to offset it.\n- **r < g**: the economy outgrows its debt. The ratio falls even while the government runs modest primary deficits.\n\nThis single subtraction explains most of post-war fiscal history. Debt ratios fell for decades after 1945 with growth above rates and inflation eroding the real value of fixed-rate debt — not through austerity. They rose after 2008 with weak growth, and the 2010s were survivable at very high debt levels only because r was close to zero.\n\n**Which is why the return of positive real rates is a fiscal event, not just a market one.** Nothing about the debt changed; the sign of r − g did.",
+      "heading": "What drives the debt ratio"
     },
     {
       "type": "intuition",
@@ -67,7 +68,8 @@
         "**Read that carefully. The difference between a debt spiral and a painless [[deleveraging]] was 4 percentage points of r − g, and the government's own behaviour was identical in both cases.**",
         "This is why inflation is fiscally convenient. Inflation raises nominal g immediately and raises r only as debt matures and is refinanced — so a country with long-dated fixed-rate debt gets a window where r − g is sharply negative.",
         "Sanity check worth reusing: **the required primary surplus is just d × (r − g).** At 100% debt and a 2pp gap you need 2% of GDP; at 250% debt and the same gap you need 5%. Debt levels do not cause crises on their own — they multiply the cost of an adverse r − g."
-      ]
+      ],
+      "heading": "debt dynamics at 100% of GDP"
     },
     {
       "type": "table",
@@ -110,7 +112,8 @@
     {
       "type": "pitfall",
       "id": "fiscal-dominance",
-      "body": "**The scenario worth naming is fiscal dominance: when the debt burden constrains what the central bank can do.**\n\nThe mechanism is simple. Raise rates, and the interest bill on a large debt stock rises. Raise them enough and the fiscal position deteriorates enough that the bank faces a choice between its inflation target and the government's solvency. The market's expectation of how that choice is resolved becomes the inflation expectation.\n\nThe signature is distinctive and worth being able to recognise: **long yields and the currency selling off together while the central bank is still tightening.** In an ordinary tightening cycle, higher rates support the currency. When both fall as rates rise, the market has stopped reading the rate as a policy signal and started reading it as a solvency signal.\n\nThis is a tail, not a forecast. But it is the tail in which a portfolio's inflation hedges are most needed and its long-duration assets do worst, so it is worth having thought about before it is topical."
+      "body": "**The scenario worth naming is fiscal dominance: when the debt burden constrains what the central bank can do.**\n\nThe mechanism is simple. Raise rates, and the interest bill on a large debt stock rises. Raise them enough and the fiscal position deteriorates enough that the bank faces a choice between its inflation target and the government's solvency. The market's expectation of how that choice is resolved becomes the inflation expectation.\n\nThe signature is distinctive and worth being able to recognise: **long yields and the currency selling off together while the central bank is still tightening.** In an ordinary tightening cycle, higher rates support the currency. When both fall as rates rise, the market has stopped reading the rate as a policy signal and started reading it as a solvency signal.\n\nThis is a tail, not a forecast. But it is the tail in which a portfolio's inflation hedges are most needed and its long-duration assets do worst, so it is worth having thought about before it is topical.",
+      "heading": "ignoring fiscal dominance"
     },
     {
       "type": "onTheJob",

@@ -62,12 +62,14 @@
         "The fund has done nothing wrong. It bought assets at what it considers fair value and paid the fees it disclosed. And it is down 10%.",
         "**This is the [[j-curve|J-curve]]**, and it is arithmetic rather than performance: fees are charged from day one, while value takes years to be created and recognised.",
         "**Which means an early-life private fund IRR is close to meaningless.** A fund reporting -15% in year two is behaving normally. One reporting +25% in year two has usually revalued something upward, which is a marking decision rather than a realisation."
-      ]
+      ],
+      "heading": "year one of a $100m fund"
     },
     {
       "type": "concept",
       "id": "reading-the-curve",
-      "body": "The J-curve has a predictable shape, and knowing where a fund sits on it tells you which numbers to trust.\n\n**Years 1-2: deep negative.** Fees on called capital, assets at cost. IRR is meaningless. [[dpi|DPI]] is zero.\n\n**Years 3-5: recovering.** Some assets marked up, perhaps a first exit. IRR turns positive and is dominated by [[rvpi|RVPI]] — the manager's own valuations.\n\n**Years 5-8: realisations.** Exits convert marks into cash. DPI climbs. **This is the first point at which performance is genuinely evidenced.**\n\n**Years 8+: harvest.** Remaining assets sold, final numbers settle. Often extended beyond the stated life.\n\nTwo practical consequences. First, **comparing funds of different ages is comparing different points on a curve**, not different levels of skill — which is another reason [[vintage-year]] comparison matters. Second, an IRR quoted for a young fund can be inflated simply by having called capital late, because IRR is sensitive to timing. A [[subscription-line]] does exactly that."
+      "body": "The J-curve has a predictable shape, and knowing where a fund sits on it tells you which numbers to trust.\n\n**Years 1-2: deep negative.** Fees on called capital, assets at cost. IRR is meaningless. [[dpi|DPI]] is zero.\n\n**Years 3-5: recovering.** Some assets marked up, perhaps a first exit. IRR turns positive and is dominated by [[rvpi|RVPI]] — the manager's own valuations.\n\n**Years 5-8: realisations.** Exits convert marks into cash. DPI climbs. **This is the first point at which performance is genuinely evidenced.**\n\n**Years 8+: harvest.** Remaining assets sold, final numbers settle. Often extended beyond the stated life.\n\nTwo practical consequences. First, **comparing funds of different ages is comparing different points on a curve**, not different levels of skill — which is another reason [[vintage-year]] comparison matters. Second, an IRR quoted for a young fund can be inflated simply by having called capital late, because IRR is sensitive to timing. A [[subscription-line]] does exactly that.",
+      "heading": "Reading the J-curve"
     },
     {
       "type": "infographic",
@@ -168,7 +170,8 @@
     {
       "type": "pitfall",
       "id": "irr-on-committed",
-      "body": "**A fund's IRR is calculated on called capital, not on your commitment.** So it answers \"how did the money perform once it was working?\" and not \"how did this allocation perform?\"\n\nBoth questions are legitimate and the second is the one that determines your portfolio return. Answering it requires tracking the whole commitment — including what the uncalled portion earned while it waited — which almost nobody reports and which is entirely computable.\n\nThe honest framing: **fund IRR measures the manager; commitment-level return measures the allocation.** If you only ever look at the first, you will systematically overestimate what private markets contributed."
+      "body": "**A fund's IRR is calculated on called capital, not on your commitment.** So it answers \"how did the money perform once it was working?\" and not \"how did this allocation perform?\"\n\nBoth questions are legitimate and the second is the one that determines your portfolio return. Answering it requires tracking the whole commitment — including what the uncalled portion earned while it waited — which almost nobody reports and which is entirely computable.\n\nThe honest framing: **fund IRR measures the manager; commitment-level return measures the allocation.** If you only ever look at the first, you will systematically overestimate what private markets contributed.",
+      "heading": "reading fund IRR as your return"
     },
     {
       "type": "infographic",

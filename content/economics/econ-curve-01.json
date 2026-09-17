@@ -112,7 +112,8 @@
     {
       "type": "concept",
       "id": "the-two-ends",
-      "body": "It helps enormously to treat the curve as two ends with different owners.\n\nThe **short end** is effectively administered. The central bank sets the [[federal-funds-rate]], and bills maturing in weeks or months cannot stray far from it. If you want to know why the front end moved, look at [[monetary-policy]].\n\nThe **long end** is a market. It reflects the average of expected future short rates plus the [[term-premium]], and it is pushed around by inflation expectations, growth expectations, government bond supply, and demand from investors who need long-dated assets. Central banks influence it; they do not set it.\n\nThis is why the same policy decision can steepen or flatten the curve depending on what it does to expectations. A rate rise lifts the front end mechanically. Whether the long end follows depends entirely on whether the market believes the rise will need to be undone later."
+      "body": "It helps enormously to treat the curve as two ends with different owners.\n\nThe **short end** is effectively administered. The central bank sets the [[federal-funds-rate]], and bills maturing in weeks or months cannot stray far from it. If you want to know why the front end moved, look at [[monetary-policy]].\n\nThe **long end** is a market. It reflects the average of expected future short rates plus the [[term-premium]], and it is pushed around by inflation expectations, growth expectations, government bond supply, and demand from investors who need long-dated assets. Central banks influence it; they do not set it.\n\nThis is why the same policy decision can steepen or flatten the curve depending on what it does to expectations. A rate rise lifts the front end mechanically. Whether the long end follows depends entirely on whether the market believes the rise will need to be undone later.",
+      "heading": "The two ends of the curve"
     },
     {
       "type": "example",
@@ -124,17 +125,20 @@
         "Convert to [[basis-point|basis points]] by multiplying by 100: **-37 bps**. The curve is inverted by 37 basis points.",
         "Note the convention: long minus short. A negative number means inversion. Getting the subtraction backwards is a common slip, and it inverts your conclusion along with your sign.",
         "If the 2-year then fell to 4.05% while the 10-year held at 4.18%, the spread becomes +13 bps — the curve has *disinverted*, and it did so through the front end falling rather than the long end rising. Which end moved is often more informative than the spread itself."
-      ]
+      ],
+      "heading": "reading the 2s10s spread"
     },
     {
       "type": "pitfall",
       "id": "not-a-timer",
-      "body": "**An inversion is a signal, not a stopwatch.** The historical association between [[yield-curve-inversion|inversions]] and subsequent recessions is one of the better-known regularities in macro, and it is genuinely worth respecting. But the lag has been long and highly variable, and the curve has inverted without a recession promptly following.\n\nSo \"the curve inverted\" does not license \"a [[recession]] starts next quarter\". What it does tell you reliably is what the market currently expects: that policy is tight now and will need to be looser later. Treat it as a read on expectations, which it certainly is, rather than a forecast with a date attached."
+      "body": "**An inversion is a signal, not a stopwatch.** The historical association between [[yield-curve-inversion|inversions]] and subsequent recessions is one of the better-known regularities in macro, and it is genuinely worth respecting. But the lag has been long and highly variable, and the curve has inverted without a recession promptly following.\n\nSo \"the curve inverted\" does not license \"a [[recession]] starts next quarter\". What it does tell you reliably is what the market currently expects: that policy is tight now and will need to be looser later. Treat it as a read on expectations, which it certainly is, rather than a forecast with a date attached.",
+      "heading": "using inversion as a stopwatch"
     },
     {
       "type": "pitfall",
       "id": "nominal-vs-real",
-      "body": "Treasury yields are **nominal** — they include expected inflation. A 4.5% nominal yield with 3% expected inflation is a very different proposition from 4.5% with 1% expected inflation, because the [[real-interest-rate]] is roughly 1.5% in the first case and 3.5% in the second.\n\nWhen a curve steepens, always ask which component moved. Steepening driven by rising inflation expectations means something quite different from steepening driven by rising real rates — the first is a story about prices, the second about growth or the supply of savings."
+      "body": "Treasury yields are **nominal** — they include expected inflation. A 4.5% nominal yield with 3% expected inflation is a very different proposition from 4.5% with 1% expected inflation, because the [[real-interest-rate]] is roughly 1.5% in the first case and 3.5% in the second.\n\nWhen a curve steepens, always ask which component moved. Steepening driven by rising inflation expectations means something quite different from steepening driven by rising real rates — the first is a story about prices, the second about growth or the supply of savings.",
+      "heading": "confusing nominal and real yields"
     },
     {
       "type": "onTheJob",

@@ -16,7 +16,8 @@
     {
       "type": "concept",
       "id": "the-rules",
-      "body": "Three operations cover almost everything you will need.\n\n**\"Or\" — the addition rule.** P(A or B) = P(A) + P(B) - P(A and B). The subtraction is the important part: without it you count the overlap twice. If the two events cannot both happen — [[mutually-exclusive]] — the overlap is zero and the rule simplifies to plain addition.\n\n**\"And\" — the multiplication rule.** P(A and B) = P(A) × P(B|A). Only when the events are [[independent-events|independent]] does this become the familiar P(A) × P(B).\n\n**\"Given\" — [[conditional-probability]].** P(A|B) = P(A and B) / P(B). Read as: among the cases where B happened, how often did A?"
+      "body": "Three operations cover almost everything you will need.\n\n**\"Or\" — the addition rule.** P(A or B) = P(A) + P(B) - P(A and B). The subtraction is the important part: without it you count the overlap twice. If the two events cannot both happen — [[mutually-exclusive]] — the overlap is zero and the rule simplifies to plain addition.\n\n**\"And\" — the multiplication rule.** P(A and B) = P(A) × P(B|A). Only when the events are [[independent-events|independent]] does this become the familiar P(A) × P(B).\n\n**\"Given\" — [[conditional-probability]].** P(A|B) = P(A and B) / P(B). Read as: among the cases where B happened, how often did A?",
+      "heading": "The three rules"
     },
     {
       "type": "intuition",
@@ -46,12 +47,14 @@
         "**Are they independent?** Check: P(A) × P(B) = 0.30 × 0.40 = 0.12, which is exactly the observed joint probability. So yes — these two happen to be independent.",
         "The cleaner way to see the same thing: P(A|B) = 0.30 equals P(A) = 0.30. Knowing a deal is cross-border tells you nothing about whether it faces review. **That equality is what independence means.**",
         "Note we *tested* independence rather than assuming it. Had the joint probability been 0.20, the events would be positively related and every calculation treating them as independent would have understated the overlap."
-      ]
+      ],
+      "heading": "combining deal probabilities"
     },
     {
       "type": "pitfall",
       "id": "confusing-conditionals",
-      "body": "**P(A|B) and P(B|A) are different numbers**, and swapping them is one of the most common errors in probabilistic reasoning.\n\nMost funds that blew up had high leverage. That does not mean most highly levered funds blow up. The first is P(high leverage | blew up); the second is P(blew up | high leverage). Because there are far more levered funds than blow-ups, the second is far smaller than the first.\n\nThis confusion is behind a great deal of bad inference from post-mortems: a list of traits shared by failures tells you what failures looked like, not what predicts failure. Turning one into the other requires knowing the [[base-rate]] — which is the subject of the next topic."
+      "body": "**P(A|B) and P(B|A) are different numbers**, and swapping them is one of the most common errors in probabilistic reasoning.\n\nMost funds that blew up had high leverage. That does not mean most highly levered funds blow up. The first is P(high leverage | blew up); the second is P(blew up | high leverage). Because there are far more levered funds than blow-ups, the second is far smaller than the first.\n\nThis confusion is behind a great deal of bad inference from post-mortems: a list of traits shared by failures tells you what failures looked like, not what predicts failure. Turning one into the other requires knowing the [[base-rate]] — which is the subject of the next topic.",
+      "heading": "swapping the conditionals"
     },
     {
       "type": "onTheJob",

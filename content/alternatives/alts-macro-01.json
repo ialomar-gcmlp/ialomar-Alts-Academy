@@ -137,7 +137,8 @@
     {
       "type": "pitfall",
       "id": "exposure-figures",
-      "body": "**Do not read a macro fund's exposure the way you read an equity fund's.** A 300% notional figure in rate futures is not comparable to 300% gross in equities — the volatility per unit of notional is completely different. A two-year interest rate future moves a fraction of what an equity position does.\n\nThe meaningful measures are risk-based rather than notional: contribution to volatility by theme, or [[value-at-risk]] by risk factor. When a macro manager quotes notional exposure without translating it into risk, that is worth pressing on, and the translation is a reasonable thing to ask them to provide."
+      "body": "**Do not read a macro fund's exposure the way you read an equity fund's.** A 300% notional figure in rate futures is not comparable to 300% gross in equities — the volatility per unit of notional is completely different. A two-year interest rate future moves a fraction of what an equity position does.\n\nThe meaningful measures are risk-based rather than notional: contribution to volatility by theme, or [[value-at-risk]] by risk factor. When a macro manager quotes notional exposure without translating it into risk, that is worth pressing on, and the translation is a reasonable thing to ask them to provide.",
+      "heading": "reading notional as exposure"
     },
     {
       "type": "infographic",

@@ -25,7 +25,8 @@
     {
       "type": "concept",
       "id": "the-toolkit",
-      "body": "**The policy rate is the main tool. Three others matter, and each was invented because the main one ran out.**\n\n**Forward guidance.** Saying what the rate will be, because the ten-year responds to the expected path rather than to today's level. Talk is a genuine instrument here, and its power comes entirely from being believed.\n\n**[[quantitative-easing|Quantitative easing]].** Buying long-dated bonds with newly created reserves to push long yields down when the short rate is already at zero. It works on the term premium rather than on expectations.\n\n**Reserve and regulatory requirements.** Changing what banks must hold, which changes what they can lend.\n\nAnd the constraint behind all of it: **once the policy rate is at zero, the conventional tool is exhausted.** Everything invented after 2008 exists to answer \"what do you do when you cannot cut?\" — which is also why the return of positive rates was, for central banks, a restoration of capability rather than merely a tightening."
+      "body": "**The policy rate is the main tool. Three others matter, and each was invented because the main one ran out.**\n\n**Forward guidance.** Saying what the rate will be, because the ten-year responds to the expected path rather than to today's level. Talk is a genuine instrument here, and its power comes entirely from being believed.\n\n**[[quantitative-easing|Quantitative easing]].** Buying long-dated bonds with newly created reserves to push long yields down when the short rate is already at zero. It works on the term premium rather than on expectations.\n\n**Reserve and regulatory requirements.** Changing what banks must hold, which changes what they can lend.\n\nAnd the constraint behind all of it: **once the policy rate is at zero, the conventional tool is exhausted.** Everything invented after 2008 exists to answer \"what do you do when you cannot cut?\" — which is also why the return of positive rates was, for central banks, a restoration of capability rather than merely a tightening.",
+      "heading": "The toolkit"
     },
     {
       "type": "intuition",
@@ -45,7 +46,8 @@
         "Now the part that matters. If inflation falls to 2% and the gap closes to zero, the same rule gives 0.5 + 2 + 0 + 0 = **2.5%** — a 350bp fall in the implied rate from two variables normalising.",
         "**Read that carefully: the entire cutting cycle was already implied by the rule before it happened.** A rates view is a view on inflation and the gap, dressed up as a view on the central bank.",
         "Sanity check worth reusing: **any implied policy rate below current inflation is a negative real rate, which is stimulus.** If a forecast has the bank cutting to 3% while inflation runs at 4%, it is forecasting deliberate stimulus — that needs a reason, not just an assumption."
-      ]
+      ],
+      "heading": "a reaction function's shape"
     },
     {
       "type": "table",
@@ -93,7 +95,8 @@
     {
       "type": "pitfall",
       "id": "priced-in",
-      "body": "**A rate cut that everyone expects is already in the price. What moves markets is the surprise, not the event.**\n\nThis is why an apparently dovish cut can be followed by yields rising: the cut was expected, and the accompanying language implied fewer cuts to come than the market had assumed. The decision was the announced part; the path was the news.\n\nThe practical form for a portfolio: **do not read your positioning off the expected policy path, read it off where you differ from that path.** If your view matches the forward curve, you have no view — you have a carry position. And the question to ask of any macro manager positioned for cuts is not \"why do you expect cuts?\" but \"why do you expect more cuts than the curve does, and what would prove you wrong?\""
+      "body": "**A rate cut that everyone expects is already in the price. What moves markets is the surprise, not the event.**\n\nThis is why an apparently dovish cut can be followed by yields rising: the cut was expected, and the accompanying language implied fewer cuts to come than the market had assumed. The decision was the announced part; the path was the news.\n\nThe practical form for a portfolio: **do not read your positioning off the expected policy path, read it off where you differ from that path.** If your view matches the forward curve, you have no view — you have a carry position. And the question to ask of any macro manager positioned for cuts is not \"why do you expect cuts?\" but \"why do you expect more cuts than the curve does, and what would prove you wrong?\"",
+      "heading": "trading what is already priced in"
     },
     {
       "type": "onTheJob",

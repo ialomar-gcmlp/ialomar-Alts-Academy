@@ -184,7 +184,8 @@
     {
       "type": "pitfall",
       "id": "idiosyncratic-claim",
-      "body": "**Treat \"our returns are idiosyncratic\" as a hypothesis rather than a description.** It is true of individual positions and frequently false of the portfolio, because the funding environment is a common factor running through every event.\n\nThe test is conditional, not average: what did this fund do in the worst quarter for credit spreads, and in the worst quarter for equities? If the answer is \"we were down meaningfully both times\", the book has a common factor, whatever the long-run correlation statistic says."
+      "body": "**Treat \"our returns are idiosyncratic\" as a hypothesis rather than a description.** It is true of individual positions and frequently false of the portfolio, because the funding environment is a common factor running through every event.\n\nThe test is conditional, not average: what did this fund do in the worst quarter for credit spreads, and in the worst quarter for equities? If the answer is \"we were down meaningfully both times\", the book has a common factor, whatever the long-run correlation statistic says.",
+      "heading": "taking the idiosyncratic claim on faith"
     },
     {
       "type": "onTheJob",

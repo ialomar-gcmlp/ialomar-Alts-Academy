@@ -71,7 +71,8 @@
         "**Now extend to the full fund life.** 2% on committed capital for ten years = **$20m — 20% of the fund**.",
         "Which means the fund must generate a **1.20x gross multiple simply to return LP capital after management fees**, before any carry, before any transaction costs, and before making a single dollar of profit.",
         "**Read that carefully.** The hurdle a fund must clear before it has created anything for its investors is not zero and it is not small. Every fee discussion should start from that number rather than from the percentage."
-      ]
+      ],
+      "heading": "the same 2% on three bases"
     },
     {
       "type": "intuition",
@@ -113,7 +114,8 @@
     {
       "type": "concept",
       "id": "expenses",
-      "body": "**Fund expenses are the least examined and fastest-growing part of the cost.** These are charged to the fund in addition to the management fee, and the list has expanded considerably over time:\n\n- deal costs on transactions that did not complete — **broken deal expenses**\n- legal, audit, tax, administration and regulatory filing costs\n- travel and diligence costs\n- technology, data and subscription costs\n- in some structures, a share of the manager's own compliance and personnel costs\n\nIndividually each is defensible. Collectively they can add a meaningful amount a year on top of the stated fee, and unlike the management fee they are not usually expressed as a percentage anywhere.\n\nThe practical consequence: **the management fee is not the cost of the fund.** Total expense ratio — fee plus fund expenses — is the number that matters, and it requires reading the financial statements rather than the term sheet. A manager who will state an expected total expense ratio, and has historically hit it, is telling you something useful."
+      "body": "**Fund expenses are the least examined and fastest-growing part of the cost.** These are charged to the fund in addition to the management fee, and the list has expanded considerably over time:\n\n- deal costs on transactions that did not complete — **broken deal expenses**\n- legal, audit, tax, administration and regulatory filing costs\n- travel and diligence costs\n- technology, data and subscription costs\n- in some structures, a share of the manager's own compliance and personnel costs\n\nIndividually each is defensible. Collectively they can add a meaningful amount a year on top of the stated fee, and unlike the management fee they are not usually expressed as a percentage anywhere.\n\nThe practical consequence: **the management fee is not the cost of the fund.** Total expense ratio — fee plus fund expenses — is the number that matters, and it requires reading the financial statements rather than the term sheet. A manager who will state an expected total expense ratio, and has historically hit it, is telling you something useful.",
+      "heading": "Fund expenses"
     },
     {
       "type": "infographic",
@@ -191,7 +193,8 @@
     {
       "type": "pitfall",
       "id": "percent-of-return",
-      "body": "**Express fees as a share of expected return, not as a share of assets.** The two framings feel completely different and only one supports a decision.\n\n\"2% and 20%\" sounds like a rate. \"Management fees alone will consume 20% of committed capital over the fund's life, so we need a 1.20x gross multiple to break even, and at a 1.7x gross outcome roughly a third of the profit goes to the manager\" is the same information in a form a committee can act on.\n\nThis is the same reframing that makes the [[fund-of-funds|fund-of-funds]] fee arithmetic so stark. Nothing about the numbers changes; what changes is whether the reader can weigh them."
+      "body": "**Express fees as a share of expected return, not as a share of assets.** The two framings feel completely different and only one supports a decision.\n\n\"2% and 20%\" sounds like a rate. \"Management fees alone will consume 20% of committed capital over the fund's life, so we need a 1.20x gross multiple to break even, and at a 1.7x gross outcome roughly a third of the profit goes to the manager\" is the same information in a form a committee can act on.\n\nThis is the same reframing that makes the [[fund-of-funds|fund-of-funds]] fee arithmetic so stark. Nothing about the numbers changes; what changes is whether the reader can weigh them.",
+      "heading": "quoting fees as a share of assets"
     },
     {
       "type": "infographic",

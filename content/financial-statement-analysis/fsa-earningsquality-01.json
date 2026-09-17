@@ -25,7 +25,8 @@
     {
       "type": "concept",
       "id": "accruals-mean-revert",
-      "body": "**The central finding of the earnings quality literature, stated plainly: profit that is not backed by cash tends not to persist.**\n\nThe reason is mechanical. An accrual is a timing difference, and timing differences reverse. Revenue recognised before collection either becomes cash or becomes a bad debt. Costs deferred to the balance sheet either prove to be assets or get written off later.\n\nSo a company reporting profit well above its operating cash flow is not necessarily doing anything wrong — but it is reporting profit whose confirmation lies in the future. **On average, and across large samples, high-accrual profits are followed by weaker profits.**\n\nThis gives the most useful single measure in the field: **the accrual ratio, roughly net income less operating cash flow, scaled by total assets.** High and rising is a flag. It is not evidence of anything improper; it is a reason to read the revenue recognition note and the receivables trend.\n\nAnd the reverse case is worth knowing too. **A company whose cash flow persistently exceeds its profit is often conservatively accounted, and conservative accounting is a quiet indicator of a management team that is not managing the number.**"
+      "body": "**The central finding of the earnings quality literature, stated plainly: profit that is not backed by cash tends not to persist.**\n\nThe reason is mechanical. An accrual is a timing difference, and timing differences reverse. Revenue recognised before collection either becomes cash or becomes a bad debt. Costs deferred to the balance sheet either prove to be assets or get written off later.\n\nSo a company reporting profit well above its operating cash flow is not necessarily doing anything wrong — but it is reporting profit whose confirmation lies in the future. **On average, and across large samples, high-accrual profits are followed by weaker profits.**\n\nThis gives the most useful single measure in the field: **the accrual ratio, roughly net income less operating cash flow, scaled by total assets.** High and rising is a flag. It is not evidence of anything improper; it is a reason to read the revenue recognition note and the receivables trend.\n\nAnd the reverse case is worth knowing too. **A company whose cash flow persistently exceeds its profit is often conservatively accounted, and conservative accounting is a quiet indicator of a management team that is not managing the number.**",
+      "heading": "Accruals mean-revert"
     },
     {
       "type": "intuition",
@@ -45,7 +46,8 @@
         "Now scale it up. If the company does this on a growing basis, profit will exceed cash flow every single year — not because anything is wrong, but because the receivable balance keeps rising.",
         "**Read that carefully: a permanent gap between profit and cash can be a completely healthy growing business.** Which is why the diagnostic is not the gap itself, it is whether the gap is *widening relative to revenue*.",
         "Sanity check worth reusing: **express the profit-to-cash gap as a percentage of revenue and track it over five years.** A stable percentage is a business model. A rising percentage is a question — and receivable days will usually answer it."
-      ]
+      ],
+      "heading": "profit now, cash later"
     },
     {
       "type": "table",
@@ -93,7 +95,8 @@
     {
       "type": "pitfall",
       "id": "recurring-revenue",
-      "body": "**\"Recurring revenue\" is three separate claims presented as one, and the differences decide what it is worth.**\n\n*Contracted* — a signed agreement with a remaining term. Verifiable: ask for the weighted average remaining contract length.\n\n*Repeating* — customers habitually come back, without a contract. Real and softer, and it should be evidenced by retention and churn data rather than asserted.\n\n*Recognised over time* — an accounting treatment. It says how revenue is spread across periods, and nothing whatsoever about whether the customer will return.\n\nThe third gets conflated with the first two constantly, because subscription accounting makes revenue *look* recurring in the [[income-statement|income statement]] whether or not the customer renews.\n\n**The question that separates them: what percentage of last year's revenue came from customers who were also customers the year before?** One number, hard to game, and it settles the argument. A business claiming 90% recurring revenue with 60% customer overlap has an accounting pattern rather than a franchise."
+      "body": "**\"Recurring revenue\" is three separate claims presented as one, and the differences decide what it is worth.**\n\n*Contracted* — a signed agreement with a remaining term. Verifiable: ask for the weighted average remaining contract length.\n\n*Repeating* — customers habitually come back, without a contract. Real and softer, and it should be evidenced by retention and churn data rather than asserted.\n\n*Recognised over time* — an accounting treatment. It says how revenue is spread across periods, and nothing whatsoever about whether the customer will return.\n\nThe third gets conflated with the first two constantly, because subscription accounting makes revenue *look* recurring in the [[income-statement|income statement]] whether or not the customer renews.\n\n**The question that separates them: what percentage of last year's revenue came from customers who were also customers the year before?** One number, hard to game, and it settles the argument. A business claiming 90% recurring revenue with 60% customer overlap has an accounting pattern rather than a franchise.",
+      "heading": "taking recurring revenue as one claim"
     },
     {
       "type": "onTheJob",

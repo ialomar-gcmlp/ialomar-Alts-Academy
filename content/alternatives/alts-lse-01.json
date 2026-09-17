@@ -52,7 +52,8 @@
     {
       "type": "concept",
       "id": "exposure-concepts",
-      "body": "You cannot discuss this strategy without two numbers, both expressed as a percentage of the fund's [[net-asset-value]].\n\n**[[net-exposure]]** is longs minus shorts. It answers: how much market am I actually carrying? A fund 130% long and 60% short has 70% net exposure, so it should behave roughly like 70 cents of equity market for every dollar of capital.\n\n**[[gross-exposure]]** is longs plus shorts. It answers: how much total position am I running? That same fund has 190% gross — nearly two dollars of stock working for every dollar of capital.\n\nTwo funds can have identical net exposure and behave nothing alike. A fund at 70% net via 85% long and 15% short is a mildly hedged long-only fund. A fund at 70% net via 130% long and 60% short is doing something far more active, with more ways to be right and more ways to be wrong. **Net tells you about market risk; gross tells you about selection risk and how hard the portfolio is working.**"
+      "body": "You cannot discuss this strategy without two numbers, both expressed as a percentage of the fund's [[net-asset-value]].\n\n**[[net-exposure]]** is longs minus shorts. It answers: how much market am I actually carrying? A fund 130% long and 60% short has 70% net exposure, so it should behave roughly like 70 cents of equity market for every dollar of capital.\n\n**[[gross-exposure]]** is longs plus shorts. It answers: how much total position am I running? That same fund has 190% gross — nearly two dollars of stock working for every dollar of capital.\n\nTwo funds can have identical net exposure and behave nothing alike. A fund at 70% net via 85% long and 15% short is a mildly hedged long-only fund. A fund at 70% net via 130% long and 60% short is doing something far more active, with more ways to be right and more ways to be wrong. **Net tells you about market risk; gross tells you about selection risk and how hard the portfolio is working.**",
+      "heading": "Net and gross exposure"
     },
     {
       "type": "infographic",
@@ -108,12 +109,14 @@
         "**Now split it into market and skill.** With 70% [[net-exposure]] and a market up 10%, roughly 0.70 x 10% = **+7.0%** came simply from being net long. That is [[beta]] — the manager was paid for carrying market risk, which the investor could have bought far more cheaply.",
         "**The residual is selection.** 14.6% - 7.0% = **+7.6%**, which is the candidate for [[alpha]]. Verify it from the other direction: longs beat the market by 4pp on 130% exposure = +5.2%; the shorts rose 6% against a market up 10%, so they lagged by 4pp, and being short something that lagged by 4pp on 60% exposure = +2.4%. Together, 5.2% + 2.4% = **+7.6%**. The two routes agree.",
         "**Read the result properly.** Both legs worked: the longs outperformed and the shorts underperformed. That is a genuinely good period, and note it did *not* require the shorts to fall — they rose 6% and still contributed positively to skill, because they rose less than the market."
-      ]
+      ],
+      "heading": "decomposing a 130/60 fund's return"
     },
     {
       "type": "concept",
       "id": "return-drivers",
-      "body": "Unpack a long/short equity return and you find four things, only one of which you are paying fees for.\n\n1. **Market [[beta]]** — net exposure multiplied by the market's return. Real money, but cheaply replicable with an index fund.\n2. **[[factor-exposure]]** — persistent tilts toward things like small caps, growth, momentum or quality. Also real money, also largely replicable, and often unintentional.\n3. **Stock selection** — the genuine [[alpha]] candidate. Longs beating their comparables and shorts lagging theirs.\n4. **Financing and [[short-rebate]]** — the interest earned on short sale proceeds, minus [[stock-borrow]] costs and margin interest. Small in a low-rate world; meaningful when short rates are high.\n\nThe whole discipline of evaluating one of these managers is separating item 3 from items 1 and 2. A manager who returned 18% in a year the market rose 25% at 70% net exposure has not obviously demonstrated anything."
+      "body": "Unpack a long/short equity return and you find four things, only one of which you are paying fees for.\n\n1. **Market [[beta]]** — net exposure multiplied by the market's return. Real money, but cheaply replicable with an index fund.\n2. **[[factor-exposure]]** — persistent tilts toward things like small caps, growth, momentum or quality. Also real money, also largely replicable, and often unintentional.\n3. **Stock selection** — the genuine [[alpha]] candidate. Longs beating their comparables and shorts lagging theirs.\n4. **Financing and [[short-rebate]]** — the interest earned on short sale proceeds, minus [[stock-borrow]] costs and margin interest. Small in a low-rate world; meaningful when short rates are high.\n\nThe whole discipline of evaluating one of these managers is separating item 3 from items 1 and 2. A manager who returned 18% in a year the market rose 25% at 70% net exposure has not obviously demonstrated anything.",
+      "heading": "The four return components"
     },
     {
       "type": "infographic",
@@ -185,7 +188,8 @@
     {
       "type": "pitfall",
       "id": "not-market-neutral",
-      "body": "**A long/short equity fund is not a market neutral fund.** The names sound similar and the distinction is not cosmetic.\n\n[[equity-market-neutral]] managers deliberately hold net exposure near zero, so their return should be nearly independent of market direction. A typical long/short equity manager runs meaningfully net long — often 30% to 70% — and will therefore make money in rising markets and lose it in falling ones, largely regardless of stock picking.\n\nIf you are told a fund is \"hedged\" and you take that to mean \"protected\", you will be surprised in the first serious selloff. The right question is never \"is it hedged?\" but \"what is the net exposure, and how much does it move?\""
+      "body": "**A long/short equity fund is not a market neutral fund.** The names sound similar and the distinction is not cosmetic.\n\n[[equity-market-neutral]] managers deliberately hold net exposure near zero, so their return should be nearly independent of market direction. A typical long/short equity manager runs meaningfully net long — often 30% to 70% — and will therefore make money in rising markets and lose it in falling ones, largely regardless of stock picking.\n\nIf you are told a fund is \"hedged\" and you take that to mean \"protected\", you will be surprised in the first serious selloff. The right question is never \"is it hedged?\" but \"what is the net exposure, and how much does it move?\"",
+      "heading": "confusing long/short with market neutral"
     },
     {
       "type": "concept",

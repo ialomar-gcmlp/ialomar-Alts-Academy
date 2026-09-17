@@ -25,7 +25,8 @@
     {
       "type": "concept",
       "id": "the-arbitrage",
-      "body": "**[[covered-interest-parity|Covered interest parity]] is the mechanism, and it is a no-arbitrage identity rather than a theory.**\n\nTwo ways to hold euros for a year and end up with dollars:\n\n1. Convert to dollars today at spot, deposit at the dollar rate.\n2. Deposit in euros at the euro rate, and sell the proceeds forward into dollars today at the forward rate.\n\nBoth are riskless and both start with the same euros, so they must end with the same dollars. That equality *defines* the forward rate:\n\n**The currency with the higher interest rate trades at a forward discount.** Exactly enough discount to cancel its rate advantage.\n\nThis is why the phrase \"pick up yield in a higher-rate currency\" is either an unhedged position — you are taking currency risk — or it is nothing at all. Hedged, the rate advantage is precisely offset. There is no third option, and treating a hedged foreign yield as a free pickup is one of the most common analytical errors in cross-border investing."
+      "body": "**[[covered-interest-parity|Covered interest parity]] is the mechanism, and it is a no-arbitrage identity rather than a theory.**\n\nTwo ways to hold euros for a year and end up with dollars:\n\n1. Convert to dollars today at spot, deposit at the dollar rate.\n2. Deposit in euros at the euro rate, and sell the proceeds forward into dollars today at the forward rate.\n\nBoth are riskless and both start with the same euros, so they must end with the same dollars. That equality *defines* the forward rate:\n\n**The currency with the higher interest rate trades at a forward discount.** Exactly enough discount to cancel its rate advantage.\n\nThis is why the phrase \"pick up yield in a higher-rate currency\" is either an unhedged position — you are taking currency risk — or it is nothing at all. Hedged, the rate advantage is precisely offset. There is no third option, and treating a hedged foreign yield as a free pickup is one of the most common analytical errors in cross-border investing.",
+      "heading": "Covered interest parity"
     },
     {
       "type": "intuition",
@@ -69,7 +70,8 @@
         "**Read that carefully: the 200bp dollar yield advantage was handed over entirely in the hedge.** Anything the euro investor earns above 3.25% must come from the asset's spread over the dollar risk-free rate, never from the currency.",
         "On $50m of exposure, the annual cost of hedging is the differential: 50 × (5.25% − 3.25%) = **$1.0m a year**. That is the number to put in front of a committee, not a percentage.",
         "Sanity check worth reusing: **compute the hedged return and confirm it equals your own currency's rate.** If it does not, you have inverted a quote — which is the error, essentially every time."
-      ]
+      ],
+      "heading": "hedging a euro investment"
     },
     {
       "type": "table",
@@ -112,7 +114,8 @@
     {
       "type": "pitfall",
       "id": "hedged-yield-illusion",
-      "body": "**The single most common error in cross-border allocation: treating a higher foreign yield as available after hedging.**\n\nIt appears in a specific and plausible form. \"US [[private-credit|private credit]] yields 11%; European [[direct-lending|direct lending]] yields 9%; we will take the US and hedge the currency.\" Both numbers are real. But for a euro investor the hedge removes the 200bp rate differential, so the comparison becomes 9% against 9% — and the decision has to be made on underwriting quality, covenant packages and default experience instead.\n\nWhich is the point: **once the currency is hedged, the only thing left to compare is the spread over each market's own risk-free rate.** That comparison is harder, slower and the one that actually determines the outcome.\n\nThe tell to listen for: a pitch quoting an unhedged foreign yield to a domestic investor without stating the hedged equivalent. Sometimes it is an oversight; either way, it makes a like-for-like decision impossible, and asking for the hedged number takes one sentence."
+      "body": "**The single most common error in cross-border allocation: treating a higher foreign yield as available after hedging.**\n\nIt appears in a specific and plausible form. \"US [[private-credit|private credit]] yields 11%; European [[direct-lending|direct lending]] yields 9%; we will take the US and hedge the currency.\" Both numbers are real. But for a euro investor the hedge removes the 200bp rate differential, so the comparison becomes 9% against 9% — and the decision has to be made on underwriting quality, covenant packages and default experience instead.\n\nWhich is the point: **once the currency is hedged, the only thing left to compare is the spread over each market's own risk-free rate.** That comparison is harder, slower and the one that actually determines the outcome.\n\nThe tell to listen for: a pitch quoting an unhedged foreign yield to a domestic investor without stating the hedged equivalent. Sometimes it is an oversight; either way, it makes a like-for-like decision impossible, and asking for the hedged number takes one sentence.",
+      "heading": "treating a foreign yield as available"
     },
     {
       "type": "onTheJob",

@@ -61,7 +61,8 @@
         "**So the payoff is asymmetric: win 6.4%, lose 19.1%.** Roughly three times as much at risk as there is to gain.",
         "**What completion probability makes this a fair bet?** Solve p x 6.383% = (1-p) x 19.149%. That gives **p = 75.0%** exactly.",
         "Read that carefully. At these prices the market is implying a 75% chance of completion, and the trade only makes money if the true probability is *higher* than that. The entire skill of the strategy is being better than the market at judging that one number."
-      ]
+      ],
+      "heading": "the $47/$50 deal spread"
     },
     {
       "type": "intuition",
@@ -170,7 +171,8 @@
     {
       "type": "pitfall",
       "id": "annualised-spreads",
-      "body": "**Be careful with annualised spread figures.** A 6.4% spread over three months annualises to 25%, which sounds like a wonderful return and is not a return at all — it is a spread on one position, before any break, before financing, and before the position is diversified down to a sensible size.\n\nWhat actually reaches the investor is that spread multiplied by the probability of completion, minus the break losses that do occur, minus costs, across a book where no position can be large. Headline annualised spreads and realised fund returns differ by a wide margin, and the gap is the risk."
+      "body": "**Be careful with annualised spread figures.** A 6.4% spread over three months annualises to 25%, which sounds like a wonderful return and is not a return at all — it is a spread on one position, before any break, before financing, and before the position is diversified down to a sensible size.\n\nWhat actually reaches the investor is that spread multiplied by the probability of completion, minus the break losses that do occur, minus costs, across a book where no position can be large. Headline annualised spreads and realised fund returns differ by a wide margin, and the gap is the risk.",
+      "heading": "reading annualised spreads as returns"
     },
     {
       "type": "infographic",
