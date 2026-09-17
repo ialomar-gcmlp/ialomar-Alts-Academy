@@ -21,31 +21,86 @@
       "body": "[[fixed-income-relative-value]] trades the price relationships between closely related fixed income instruments, expecting them to converge. Not a view on the level of rates — a view on the *relationship*.\n\nTypical expressions:\n\n- **[[on-the-run|On-the-run]] versus off-the-run.** The newest ten-year government bond trades richer than a nearly identical bond issued months earlier, because it is more liquid. Buy the cheap one, short the rich one, wait for the gap to narrow.\n- **Curve trades.** Positions on the shape of the [[yield-curve]] — a steepener or flattener — rather than on its level.\n- **[[swap-spread|Swap spreads]].** The difference between government bond yields and interest rate swap rates.\n- **Basis trades.** Cash bonds against the futures contracts that reference them.\n\nWhat unites them: the two legs are nearly identical, so the spread between them is small and, crucially, **has a reason to converge**. That distinguishes the strategy from [[global-macro]], where nothing compels a view to come right."
     },
     {
+      "type": "infographic",
+      "id": "typical-expressions",
+      "caption": "Typical expressions — what unites them is that the two legs are nearly identical, so the spread has a reason to converge.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "[[on-the-run|On-the-run]] vs off-the-run",
+            "icon": "docCheck",
+            "detail": "The newest government bond trades richer than a nearly identical one issued months earlier, because it is more liquid. Buy the cheap one, short the rich one, wait for the gap to narrow."
+          },
+          {
+            "label": "Curve trades",
+            "icon": "chartUp",
+            "detail": "Positions on the shape of the [[yield-curve]] — a steepener or flattener — rather than on its level."
+          },
+          {
+            "label": "[[swap-spread|Swap spreads]]",
+            "icon": "arrow",
+            "detail": "The difference between government bond yields and interest rate swap rates."
+          },
+          {
+            "label": "Basis trades",
+            "icon": "layers",
+            "detail": "Cash bonds against the futures contracts that reference them."
+          }
+        ]
+      }
+    },
+    {
       "type": "concept",
       "id": "return-driver",
       "body": "**The return driver is convergence of a small spread, multiplied by a large amount of leverage.**\n\nBoth halves are essential. The spreads are genuinely tiny — a few [[basis-point|basis points]] on positions constructed to be neutral to the direction of rates. Unlevered, the strategy would return almost nothing. Applying twenty or thirty times leverage turns a few basis points into a respectable return.\n\nThe legs are usually matched on **[[duration]]** rather than on notional, because the aim is to be indifferent to the level of rates. To hedge $10m of a 10-year bond (duration 8.5) with a 2-year bond (duration 1.9), you need $10m × 8.5/1.9 = **$44.7m** of the 2-year. Same interest rate sensitivity, wildly different notional amounts — which is why notional exposure figures for this strategy are close to meaningless.\n\nThere is also a genuine economic rationale for the return, not merely an inefficiency: the manager is **providing liquidity and warehousing basis risk** that other participants pay to avoid. That is a real service, and it is paid a real, small fee."
     },
     {
       "type": "infographic",
-      "id": "duration-matching",
-      "caption": "Legs are matched on duration, not notional — which is why notional figures mean little here.",
+      "id": "edge-and-leverage",
+      "caption": "Why leverage is constitutive: without it, the spreads are too small to matter.",
       "spec": {
         "kind": "facts",
         "tiles": [
           {
-            "label": "The 10-year leg",
-            "stat": "$10m",
-            "detail": "Duration 8.5 — the position you want."
+            "label": "Tiny spreads",
+            "icon": "target",
+            "detail": "A few [[basis-point|basis points]], on positions constructed to be neutral to the direction of rates. Unlevered, the strategy would return almost nothing."
           },
           {
-            "label": "The 2-year hedge",
-            "stat": "$44.7m",
-            "detail": "Duration 1.9, so $10m × 8.5 / 1.9 of notional buys the same rate sensitivity."
+            "label": "Large leverage",
+            "icon": "chartUp",
+            "detail": "Twenty or thirty times turns a few basis points into a respectable return."
           },
           {
-            "label": "The same sensitivity",
-            "icon": "gear",
-            "detail": "Wildly different notional amounts, indifferent to the level of rates — the spread is the position."
+            "label": "The economic rationale",
+            "icon": "coins",
+            "detail": "The manager provides liquidity and warehouses basis risk that other participants pay to avoid — a real service, paid a real, small fee."
+          }
+        ]
+      }
+    },
+    {
+      "type": "infographic",
+      "id": "duration-matching",
+      "caption": "Matched on duration, not notional — wildly different notional amounts, the same rate sensitivity, which is why notional figures here are close to meaningless.",
+      "spec": {
+        "kind": "comparison",
+        "columns": [
+          {
+            "title": "The 10-year leg: $10m",
+            "bullets": [
+              "Duration 8.5 — the position you want",
+              "Rate sensitivity: $10m × 8.5 / 10,000 = $8,500 per basis point"
+            ]
+          },
+          {
+            "title": "The 2-year hedge: $44.7m",
+            "bullets": [
+              "Duration 1.9, so $10m × 8.5 / 1.9 of notional",
+              "Rate sensitivity: $44.7m × 1.9 / 10,000 = $8,500 per basis point — matched",
+              "A parallel shift leaves the position roughly flat; only the curve's shape produces P&L"
+            ]
           }
         ]
       }
