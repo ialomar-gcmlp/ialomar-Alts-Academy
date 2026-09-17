@@ -55,6 +55,36 @@
       "body": "GPs and LPs are described as aligned, and mostly they are: the GP earns most of its money from [[carried-interest]], which requires the fund to perform. That is a genuine alignment and it is stronger than in most of finance.\n\nBut **alignment is not identity**, and the gaps are predictable. Learn them as a list, because each one has a term designed to address it.\n\n**Fund size versus returns.** [[management-fee|Management fees]] scale with assets; returns usually do not. A GP raising a fund three times larger earns three times the fees whether or not the larger fund performs. The LP wants the fund sized to the opportunity; the GP has a reason to want it larger.\n\n**Deployment pace.** Fees are often charged on committed capital, so a GP earns whether or not money is working. But an unspent fund also cannot raise the next one — which pushes the other way, toward deploying even when prices are high.\n\n**Timing of exits.** A GP approaching a fundraise has a reason to realise something and show [[dpi|DPI]]. That may or may not be the right moment for the asset.\n\n**Valuation of what is unsold.** The GP marks its own portfolio, and those marks affect its ability to raise the next fund. There is no suggestion of dishonesty in noting that the person being measured is holding the ruler.\n\n**The core insight: every major term in a partnership agreement exists because of one of these gaps.** Read the terms as a list of the ways the two sides' interests diverge, and the document stops being boilerplate."
     },
     {
+      "type": "infographic",
+      "id": "alignment-gaps",
+      "caption": "Alignment is not identity — the gaps are predictable, and every major term exists because of one of them.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Fund size vs returns",
+            "icon": "chartUp",
+            "detail": "Fees scale with assets; returns usually do not. A fund three times larger earns three times the fees either way."
+          },
+          {
+            "label": "Deployment pace",
+            "icon": "clock",
+            "detail": "Fees on committed capital pay the GP whether or not money is working — and an unspent fund cannot raise the next one."
+          },
+          {
+            "label": "Timing of exits",
+            "icon": "arrow",
+            "detail": "A GP approaching a fundraise has a reason to realise something and show [[dpi|DPI]] — which may not be the right moment for the asset."
+          },
+          {
+            "label": "Self-valuation",
+            "icon": "gear",
+            "detail": "The GP marks its own portfolio, and those marks affect its next fundraise. The person being measured is holding the ruler."
+          }
+        ]
+      }
+    },
+    {
       "type": "table",
       "id": "the-terms-map",
       "caption": "Which term addresses which misalignment",

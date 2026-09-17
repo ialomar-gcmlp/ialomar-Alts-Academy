@@ -82,6 +82,36 @@
       "body": "The facility is not free, and the costs sit in three places.\n\n**Interest and fees.** Paid by the fund, so ultimately by LPs. Modest when rates are low; considerably less so when they are not. A facility drawn for a year at a meaningful spread over a short-term rate is a real drag on the fund's absolute return, even as it raises the reported IRR.\n\n**Contingent liability.** LP commitments secure the facility. In an extreme scenario a lender can call on those commitments directly, which means the LP's obligation can be triggered by the facility rather than by an investment decision.\n\n**Lumpy calls.** Fewer, larger calls are operationally simpler and harder to plan around. A single large call arriving in a difficult quarter is a real cash management problem.\n\n**Extended usage.** Facilities were originally bridges of weeks. Where they are used for twelve months or more, the IRR effect grows and so does the interest cost. **The duration of usage is the number that matters, not the existence of the facility.**"
     },
     {
+      "type": "infographic",
+      "id": "facility-costs",
+      "caption": "The facility is not free — and the duration of usage is the number that matters, not the existence of the line.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Interest and fees",
+            "icon": "coins",
+            "detail": "Paid by the fund, so ultimately by LPs — a real drag on absolute return even as reported IRR rises."
+          },
+          {
+            "label": "Contingent liability",
+            "icon": "alert",
+            "detail": "LP commitments secure the facility; in an extreme scenario the lender can call on them directly."
+          },
+          {
+            "label": "Lumpy calls",
+            "icon": "clock",
+            "detail": "Fewer, larger calls are harder to plan around — a single large call in a difficult quarter is a real cash problem."
+          },
+          {
+            "label": "Extended usage",
+            "icon": "chartUp",
+            "detail": "Bridges of weeks have become draws of twelve months or more — the IRR effect and the interest cost grow together."
+          }
+        ]
+      }
+    },
+    {
       "type": "table",
       "id": "what-moves",
       "caption": "What a subscription line does and does not affect",

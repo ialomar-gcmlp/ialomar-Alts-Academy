@@ -109,6 +109,34 @@
       "body": "The strategy looks almost mechanical, and in calm markets it behaves that way. Its danger comes from a specific and repeatedly observed combination.\n\n**Both legs depend on functioning markets, and the position is levered.** Convertible arbitrage runs high [[gross-exposure]] because the mispricing per bond is small. That is fine while the convertible can be valued and the short can be maintained.\n\nIn a credit crisis, three things happen at once:\n\n1. **Convertible bond prices fall** as credit spreads widen — the bond half of the instrument reprices downward.\n2. **The equity short does not offset it**, because the loss is coming from the credit component, which the equity hedge was never designed to cover.\n3. **Financing is withdrawn** exactly then. Prime brokers raise margin, and short borrow can be recalled or restricted.\n\nSo a position that was hedged against share price moves is unhedged against a credit shock, and is forced to deleverage into a market where every other convertible arbitrageur is doing the same. **The hedge addressed the risk that was measured, not the risk that arrived** — a pattern you will now recognise from several strategies."
     },
     {
+      "type": "infographic",
+      "id": "credit-crisis-sequence",
+      "caption": "The characteristic failure: three things happen at once, to a levered book.",
+      "spec": {
+        "kind": "steps",
+        "steps": [
+          {
+            "label": "Credit spreads widen",
+            "icon": "alert",
+            "detail": "Convertible prices fall — the bond half of the instrument reprices downward."
+          },
+          {
+            "label": "The equity short does not offset it",
+            "detail": "The loss comes from the credit component, which the equity hedge was never designed to cover."
+          },
+          {
+            "label": "Financing is withdrawn",
+            "icon": "lock",
+            "detail": "Prime brokers raise margin, and short borrow can be recalled or restricted — exactly then."
+          },
+          {
+            "label": "Forced deleveraging into a crowd",
+            "detail": "Every other convertible arbitrageur holds similar positions and is selling too."
+          }
+        ]
+      }
+    },
+    {
       "type": "table",
       "id": "environments",
       "caption": "What helps and what hurts",
@@ -159,6 +187,41 @@
       "type": "pitfall",
       "id": "delta-neutral-illusion",
       "body": "**\"Delta neutral\" means neutral to small share price moves, and nothing more.** It is not neutral to credit spreads, to a change in [[vega|implied volatility]], to a jump in the share price too large for the linear approximation, to interest rates, or to financing availability.\n\nEach of those is a separate exposure with its own Greek or its own name, and a delta-hedged book carries all of them. When a manager describes the book as hedged, the useful follow-up is: hedged against which variable? The answer is usually one variable out of five."
+    },
+    {
+      "type": "infographic",
+      "id": "five-exposures",
+      "caption": "“Delta neutral” means neutral to small share price moves — and nothing more. A delta-hedged book still carries all five.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Credit spreads",
+            "icon": "alert",
+            "detail": "The bond is a corporate obligation; the equity hedge does not cover a credit shock."
+          },
+          {
+            "label": "[[vega|Implied volatility]]",
+            "icon": "chartUp",
+            "detail": "A change in implied volatility reprices the option component directly."
+          },
+          {
+            "label": "Large jumps",
+            "icon": "bolt",
+            "detail": "A move too large for the linear approximation breaks the hedge ratio."
+          },
+          {
+            "label": "Interest rates",
+            "icon": "coins",
+            "detail": "A separate exposure with its own Greek."
+          },
+          {
+            "label": "Financing availability",
+            "icon": "lock",
+            "detail": "The position cannot exist without maintainable leverage and borrow."
+          }
+        ]
+      }
     },
     {
       "type": "onTheJob",

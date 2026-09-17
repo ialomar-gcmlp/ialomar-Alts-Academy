@@ -52,6 +52,34 @@
       "body": "**Duration is a straight-line approximation of a curved relationship. [[convexity]] is the correction, and it always works in the bondholder's favour.**\n\nThe price-yield relationship for a conventional bond curves upward. So a linear estimate based on duration alone:\n\n**Overstates the loss** when yields rise.\n\n**Understates the gain** when yields fall.\n\nBoth errors favour the holder, which is why convexity is a desirable property rather than a nuisance.\n\nThe size of the effect grows with the size of the yield move. For 25bp, duration alone is fine. For 100bp it is visible. For 300bp, using duration alone will be materially wrong, and in the direction that makes a portfolio look riskier than it is.\n\nTwo places convexity matters practically rather than academically:\n\n**Long bonds have much more of it.** A thirty-year bond's convexity is a large part of its total return profile, and it is why long duration is not simply \"more of the same risk\".\n\n**Negative convexity exists and is unpleasant.** A [[callable-bond|callable bond]] or a mortgage-backed security has an embedded option held by the borrower. When rates fall the bond gets called or the mortgage refinances, so the price stops rising. **You keep the downside curvature and lose the upside — the asymmetry runs the wrong way, and that is what you are paid a higher yield for.**"
     },
     {
+      "type": "infographic",
+      "id": "convexity-two-faces",
+      "caption": "Convexity always favours the conventional bondholder — negative convexity runs the asymmetry the wrong way.",
+      "spec": {
+        "kind": "comparison",
+        "columns": [
+          {
+            "title": "Positive convexity",
+            "mark": "check",
+            "bullets": [
+              "Duration overstates the loss when yields rise and understates the gain when they fall",
+              "Both errors favour the holder",
+              "Long bonds have much more of it"
+            ]
+          },
+          {
+            "title": "Negative convexity",
+            "mark": "cross",
+            "bullets": [
+              "A [[callable-bond|callable bond]] or mortgage security embeds an option held by the borrower",
+              "When rates fall, the bond is called or the mortgage refinances — the price stops rising",
+              "You keep the downside curvature and lose the upside; the higher yield is the payment for that"
+            ]
+          }
+        ]
+      }
+    },
+    {
       "type": "intuition",
       "id": "duration-is-the-risk",
       "body": "**In a portfolio, duration is not a bond property — it is the risk dial, and it is nearly the only interest rate decision that matters.**\n\nThe reason is that duration is additive in the way you would hope: a portfolio's duration is the weighted average of its holdings' durations. So a manager expressing a view on rates does it by moving portfolio duration, and one number summarises the whole position.\n\nThis makes a few things immediately calculable:\n\n**The size of a rate view.** A portfolio at duration 7 against a benchmark at duration 5 gains or loses roughly 2% for every 100bp move, relative to the benchmark. That is the bet, quantified, and it can be compared with the manager's stated conviction.\n\n**The cost of being wrong.** A 200bp surprise against a duration-7 portfolio is roughly 14% of capital. That number belongs in a risk report and often does not appear.\n\n**Liability matching.** A pension fund with obligations of duration 15 and assets of duration 5 is not conservatively positioned — it is short duration against its liabilities, and a fall in rates makes it worse off despite owning safe bonds. **Duration matching is why apparently cautious portfolios can be badly mismatched, and why \"we hold only government bonds\" is not a statement about risk.**"
@@ -115,6 +143,31 @@
         "And compare maturities at the same 100bp rise: the two-year version loses **1.82%**, the ten-year **7.22%**, the thirty-year **12.82%**.",
         "Sanity check worth reusing: **modified duration times the yield move, in percent, is your first estimate — and it is an overstatement of any loss.** If a risk report shows a loss larger than duration times the move, something other than duration is in the position: convexity running the wrong way, or credit."
       ]
+    },
+    {
+      "type": "infographic",
+      "id": "approximation-check",
+      "caption": "The straight line, the curve, and the correction — on the worked bond's 100bp rise.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Duration alone",
+            "stat": "−7.57%",
+            "detail": "The linear estimate — it overstates the loss."
+          },
+          {
+            "label": "Actual repricing",
+            "stat": "−7.22%",
+            "detail": "The bond fell less than the straight line predicted."
+          },
+          {
+            "label": "Duration + convexity",
+            "stat": "−7.21%",
+            "detail": "Adding the convexity term (72.6) recovers the curve almost exactly."
+          }
+        ]
+      }
     },
     {
       "type": "table",

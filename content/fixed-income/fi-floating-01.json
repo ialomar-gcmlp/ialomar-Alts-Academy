@@ -22,6 +22,43 @@
       "body": "A [[floating-rate|floating-rate]] instrument pays a coupon that resets periodically: a **reference rate** plus a fixed **spread**.\n\nA loan at \"reference plus 350\" with the reference at 5.25% pays 8.75% today. If the reference falls to 3.00%, the coupon becomes 6.50%. **The spread is fixed for the life of the loan; the reference is not.**\n\nThe reference rate is an overnight or short-term benchmark — SOFR in dollars, €STR in euros, SONIA in sterling — reset quarterly in most [[private-credit|private credit]] and syndicated loans.\n\nThe consequence for price is direct. Between resets, the instrument is effectively a very short bond: **its [[duration]] is roughly the time until the next reset.** With quarterly resets that is about 0.25 years, so a 100bp move in rates changes the price by about a quarter of a percent.\n\n**Compare that with a five-year fixed-rate bond, where the same 100bp move costs roughly 4.4%.** That difference — seventeen times less price sensitivity — is what people mean when they call floating-rate credit \"low duration\", and it is genuinely true of the instrument."
     },
     {
+      "type": "infographic",
+      "id": "coupon-anatomy",
+      "caption": "The coupon resets; the spread does not.",
+      "spec": {
+        "kind": "equation",
+        "terms": [
+          {
+            "label": "Reference rate",
+            "sublabel": "5.25% today — resets quarterly",
+            "icon": "gear",
+            "bullets": [
+              "SOFR in dollars, €STR in euros, SONIA in sterling"
+            ]
+          },
+          {
+            "label": "Fixed spread",
+            "sublabel": "350bp",
+            "icon": "lock",
+            "bullets": [
+              "Fixed for the life of the loan"
+            ]
+          },
+          {
+            "label": "The coupon",
+            "sublabel": "8.75% today",
+            "bullets": [
+              "At a 3.00% reference it becomes 6.50% — the coupon moves so the price does not have to"
+            ]
+          }
+        ],
+        "operators": [
+          "+",
+          "="
+        ]
+      }
+    },
+    {
       "type": "concept",
       "id": "two-durations",
       "body": "**A floating-rate loan has two durations, and only one of them is short.**\n\n**Interest rate duration** is near zero, for the reason above. The coupon resets, so the price does not need to.\n\n**[[credit-spread|Spread]] duration** is the full remaining life of the loan. If the market's required spread for this borrower rises from 350bp to 550bp, the loan's value falls by roughly the spread change times the years remaining — the same arithmetic as duration, applied to a different rate.\n\nSo a five-year floating loan has an interest rate duration of about 0.25 and a spread duration of about 4. **Calling it \"low duration\" without saying which is a description of one exposure and a silence about the larger one.**\n\nThis matters because of when each one moves. Interest rates rise in expansions and fall in downturns; spreads do the opposite — they are tightest when conditions are benign and widen violently in stress. **The exposure that was removed is the one that would have helped in a downturn, and the exposure that remains is the one that hurts in exactly that scenario.**\n\nWhich is why a fixed-rate government bond and a floating-rate loan behave so differently in a recession: one rallies as rates fall, the other falls as spreads widen. Both are \"bonds\"."
@@ -138,6 +175,32 @@
       "type": "pitfall",
       "id": "the-resilience-illusion",
       "body": "**Floating-rate private credit performed conspicuously well through the last tightening cycle, and there are two explanations for it that are hard to tell apart from the outside.**\n\n**The genuine one.** Coupons reset upward, income rose, and interest rate duration was near zero, so marks held up where fixed-rate bonds fell sharply. All of that is real and it is the strategy working as designed.\n\n**The reporting one.** Private loans are marked quarterly by the manager rather than traded daily. Spread duration is real, and if spreads widen and the mark does not move, the resilience is partly a measurement artefact.\n\nThe two are separable with evidence:\n\n**Compare the manager's marks with traded loan indices over the same period.** A portfolio that never moved while the syndicated market fell several points is making a claim about its holdings that deserves testing.\n\n**Ask what proportion of loans were amended.** An amendment that defers a maturity or capitalises interest avoids a default without improving the credit — and payment-in-kind conversions are a specific thing to count.\n\n**Ask for coverage ratios across the portfolio, by year.** This is the exposure that rose while marks stayed flat, and it is the [[leading-indicator|leading indicator]] for the defaults that follow.\n\n**None of this means the resilience is false.** It means the evidence for it lives in coverage ratios and amendment counts rather than in a stable mark."
+    },
+    {
+      "type": "infographic",
+      "id": "two-explanations",
+      "caption": "Floating-rate credit held up through the tightening cycle — two explanations, hard to tell apart from outside.",
+      "spec": {
+        "kind": "comparison",
+        "columns": [
+          {
+            "title": "The genuine one",
+            "bullets": [
+              "Coupons reset upward and income rose",
+              "Interest rate duration near zero, so marks held where fixed-rate bonds fell",
+              "The strategy working as designed"
+            ]
+          },
+          {
+            "title": "The reporting one",
+            "bullets": [
+              "Private loans are marked quarterly by the manager rather than traded daily",
+              "Spread duration is real — if spreads widen and the mark does not move, the resilience is partly a measurement artefact",
+              "Separable with evidence: traded loan indices, amendment counts, coverage ratios by year"
+            ]
+          }
+        ]
+      }
     },
     {
       "type": "onTheJob",

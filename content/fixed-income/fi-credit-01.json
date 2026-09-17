@@ -98,6 +98,31 @@
       "body": "**The most useful single calculation in credit turns a spread into a default rate you can argue about.**\n\nA spread compensates for expected loss, so the default rate at which you break even is the spread divided by the loss given default:\n\nAt a 4% spread and a 60% loss rate, the breakeven annual default rate is 4% / 60% = **6.67%**.\n\nThat number is far more useful than the spread, because it converts a market price into a testable claim about the world. **Is 6.67% a year a plausible default rate for this kind of borrower?** For investment grade it is enormous. For a portfolio of highly levered small companies in a downturn, it is not.\n\nThree things this reframing does immediately:\n\n**It makes spreads comparable across seniority.** A 4% spread on senior secured debt with 80% recovery implies a 20% breakeven default rate; the same 4% on subordinated debt with 20% recovery implies 5%. Identical spread, completely different bets.\n\n**It exposes optimistic recovery assumptions.** Everything in credit rests on the recovery estimate, and recoveries in asset-light businesses have been consistently disappointing — there is nothing to seize.\n\n**It gives you a question rather than a number.** \"This spread pays us to be wrong about defaults up to 6.67% a year\" is a sentence an investment committee can actually engage with, and \"the spread is 400bp\" is not."
     },
     {
+      "type": "infographic",
+      "id": "breakeven-comparison",
+      "caption": "Breakeven default rate = spread ÷ loss given default. An identical 4% spread, completely different bets.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Senior secured, 80% recovery",
+            "stat": "20%",
+            "detail": "The pool would need a 20% annual default rate before the spread stops covering losses."
+          },
+          {
+            "label": "This loan, 40% recovery",
+            "stat": "6.67%",
+            "detail": "4% ÷ 60% loss given default — the number an investment committee can argue with."
+          },
+          {
+            "label": "Subordinated, 20% recovery",
+            "stat": "5%",
+            "detail": "The same spread with an 80% loss rate is a far more aggressive bet."
+          }
+        ]
+      }
+    },
+    {
       "type": "example",
       "id": "worked-breakeven",
       "body": "A loan pays a spread of 400bp over the risk-free rate. Estimated default probability is 3% a year and recovery in default is expected at 40%.",

@@ -76,9 +76,59 @@
       }
     },
     {
+      "type": "infographic",
+      "id": "why-mispricings-exist",
+      "caption": "Why the mispricings exist — structural reasons, not abstract inefficiency.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Forced selling",
+            "icon": "arrow",
+            "detail": "Index funds must sell a spun-off entity that does not fit their mandate, regardless of its value."
+          },
+          {
+            "label": "Coverage gaps",
+            "icon": "docCheck",
+            "detail": "A newly separated business has no research history and no natural shareholder base for a while."
+          },
+          {
+            "label": "Complexity",
+            "icon": "layers",
+            "detail": "Legal, regulatory and documentation work is avoided by generalists — which reduces competition for it."
+          }
+        ]
+      }
+    },
+    {
       "type": "intuition",
       "id": "idiosyncratic-until-it-isnt",
       "body": "Event driven managers describe their returns as idiosyncratic, and position by position that is true: whether a spin-off completes has nothing to do with the level of the equity market.\n\nBut the description misleads at the portfolio level, for two reasons.\n\n**Events depend on capital markets functioning.** Deals need financing, spin-offs need receptive buyers, activists need a market willing to reprice on news. When credit tightens or equity markets fall sharply, transactions across the entire book slow, get renegotiated, or fail. Positions that were genuinely independent on their fundamentals become correlated through the funding environment.\n\n**Many of these positions are long-biased in substance.** A spin-off position, an activist stake, a post-restructuring equity — most are long risk assets with an event catalyst attached. So the book usually has more equity beta than the \"idiosyncratic\" framing implies, and it shows up in exactly the months you would rather it did not.\n\nThe honest summary: **low correlation on average, materially higher correlation in stress** — the same pattern as most strategies whose diversification is measured rather than structural."
+    },
+    {
+      "type": "infographic",
+      "id": "two-levels",
+      "caption": "Idiosyncratic position by position, correlated as a book — the honest summary.",
+      "spec": {
+        "kind": "comparison",
+        "columns": [
+          {
+            "title": "Position by position",
+            "bullets": [
+              "Whether a spin-off completes has nothing to do with the level of the equity market",
+              "The outcome turns on a date and a decision"
+            ]
+          },
+          {
+            "title": "At the portfolio level",
+            "bullets": [
+              "Events depend on capital markets functioning — deals need financing, activists need a market willing to reprice",
+              "Most positions are long risk assets with a catalyst attached",
+              "Low correlation on average, materially higher correlation in stress"
+            ]
+          }
+        ]
+      }
     },
     {
       "type": "table",

@@ -26,6 +26,30 @@
       "body": "Here is the part that is genuinely underappreciated. **A commitment is a liability with an unknown schedule, and managing it has a cost that never appears in the fund's reported return.**\n\nIf you hold the uncalled amount in cash to be safe, you earn a cash return on money notionally allocated to [[private-equity|private equity]]. That is a drag on your total portfolio that the fund's IRR does not show, because the fund only measures money from the moment it is called.\n\nIf instead you invest the uncalled amount in something liquid to avoid that drag, you must be able to sell it on ten days' notice — including in exactly the conditions where a GP is most likely to call capital, which are often conditions where liquid assets have fallen.\n\nSo the reported return of a private fund systematically overstates what the investor experienced at portfolio level. **A 15% fund IRR earned on capital that was only 60% deployed on average is not a 15% return on the commitment.** Both numbers are true; only one describes your portfolio.\n\nAnd there is a hard edge to this. Failing to meet a capital call is a **default**, and the penalties in most partnership agreements are severe — forfeiture of a large share of your interest is typical. This is one of the few genuinely unforgiving obligations in institutional investing."
     },
     {
+      "type": "infographic",
+      "id": "uncalled-dilemma",
+      "caption": "A commitment is a liability with an unknown schedule — both ways of managing it cost something the fund's return never shows.",
+      "spec": {
+        "kind": "comparison",
+        "columns": [
+          {
+            "title": "Hold the uncalled amount in cash",
+            "bullets": [
+              "A cash return on money notionally allocated to private equity",
+              "A drag on the total portfolio the fund's IRR does not show"
+            ]
+          },
+          {
+            "title": "Invest it in something liquid",
+            "bullets": [
+              "Must be sellable on ten days' notice",
+              "Including in exactly the conditions where a GP is most likely to call — when liquid assets have fallen"
+            ]
+          }
+        ]
+      }
+    },
+    {
       "type": "example",
       "id": "worked-jcurve",
       "body": "A $100m fund in its first year. It calls $20m, charges $2m of fees, and has created no realised value yet — the investments are held at cost.",
@@ -142,6 +166,32 @@
       "type": "pitfall",
       "id": "irr-on-committed",
       "body": "**A fund's IRR is calculated on called capital, not on your commitment.** So it answers \"how did the money perform once it was working?\" and not \"how did this allocation perform?\"\n\nBoth questions are legitimate and the second is the one that determines your portfolio return. Answering it requires tracking the whole commitment — including what the uncalled portion earned while it waited — which almost nobody reports and which is entirely computable.\n\nThe honest framing: **fund IRR measures the manager; commitment-level return measures the allocation.** If you only ever look at the first, you will systematically overestimate what private markets contributed."
+    },
+    {
+      "type": "infographic",
+      "id": "two-questions",
+      "caption": "Two legitimate questions — and only one of them describes your portfolio.",
+      "spec": {
+        "kind": "comparison",
+        "columns": [
+          {
+            "title": "Fund IRR",
+            "bullets": [
+              "Calculated on called capital only",
+              "“How did the money perform once it was working?”",
+              "Measures the manager"
+            ]
+          },
+          {
+            "title": "Commitment-level return",
+            "bullets": [
+              "Tracks the whole commitment, including what the uncalled portion earned while it waited",
+              "“How did this allocation perform?”",
+              "Measures the allocation — almost nobody reports it, and it is entirely computable"
+            ]
+          }
+        ]
+      }
     },
     {
       "type": "onTheJob",

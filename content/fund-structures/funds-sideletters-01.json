@@ -83,6 +83,36 @@
       "body": "[[co-investment|Co-investment]] deserves separate treatment, because it is the most economically significant thing a side letter typically grants.\n\nThe arrangement: the GP finds a deal too large for the fund alone, or wants to reduce concentration, and offers LPs the chance to invest directly in that specific company — usually at **reduced or zero fees and carry**.\n\nThe appeal is obvious. Deploying capital at no fee alongside a manager you have already diligenced materially improves blended returns.\n\nThe complications are less obvious and matter:\n\n**Adverse selection.** What gets offered as co-investment? If a GP offers its best deals to the fund and its marginal ones to co-investors, the co-investment portfolio underperforms the fund. This can also run the other way, so the question is factual rather than presumed: **compare the historical performance of co-investments against the main funds.**\n\n**Speed.** Co-investment decisions typically need making in one to three weeks. An investor without the internal capability to underwrite that fast either declines — losing the benefit — or accepts without proper work, which is worse.\n\n**Concentration.** Co-investing means a much larger position in a single company than the fund's diversification would give you. The fee saving is real and so is the concentration.\n\n**Allocation fairness.** Where several LPs want the same co-investment, how is it allocated? A written policy is the answer you want."
     },
     {
+      "type": "infographic",
+      "id": "coinvest-complications",
+      "caption": "Co-investment is usually the most valuable provision available — and it carries four complications that need testing.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Adverse selection",
+            "icon": "alert",
+            "detail": "What gets offered? Compare the historical performance of co-investments against the main funds — the question is factual."
+          },
+          {
+            "label": "Speed",
+            "icon": "clock",
+            "detail": "Decisions typically need making in one to three weeks. Declining loses the benefit; accepting without proper work is worse."
+          },
+          {
+            "label": "Concentration",
+            "icon": "target",
+            "detail": "A much larger position in a single company than the fund's diversification would give you."
+          },
+          {
+            "label": "Allocation fairness",
+            "icon": "docCheck",
+            "detail": "Where several LPs want the same deal, a written policy is the answer you want."
+          }
+        ]
+      }
+    },
+    {
       "type": "table",
       "id": "what-to-ask-for",
       "caption": "Side letter provisions, by value to the investor",
@@ -133,6 +163,31 @@
       "type": "pitfall",
       "id": "liquidity-side-letters",
       "body": "**In an open-ended fund, a side letter granting another investor better liquidity is not a fee issue — it is a queue position.**\n\nA fee discount to a larger investor costs you nothing directly. Preferential redemption rights cost you a great deal in exactly the scenario that matters: they let that investor exit before the [[gate]] binds, funded by the sale of the best assets, leaving you with the residue.\n\nSo the questions to ask are specific. Does any investor have shorter notice, a shorter [[lockup|lock-up]], or an exemption from the gate? Is the GP obliged to tell me? And does my MFN cover liquidity provisions, or only economic ones — because **many MFNs explicitly carve out liquidity terms**, which is the single most important exclusion to check for."
+    },
+    {
+      "type": "infographic",
+      "id": "fee-vs-liquidity",
+      "caption": "In an open-ended fund, preferential liquidity for another investor is not a fee issue — it is a queue position.",
+      "spec": {
+        "kind": "comparison",
+        "columns": [
+          {
+            "title": "A fee discount for another investor",
+            "bullets": [
+              "Costs you nothing directly",
+              "Ordinary commercial practice — larger cheques buy better terms"
+            ]
+          },
+          {
+            "title": "Preferential liquidity for another investor",
+            "bullets": [
+              "Lets them exit before the [[gate]] binds, funded by the sale of the best assets",
+              "Leaves you with the residue in exactly the scenario that matters",
+              "Many MFNs explicitly carve out liquidity terms — the single most important exclusion to check for"
+            ]
+          }
+        ]
+      }
     },
     {
       "type": "onTheJob",

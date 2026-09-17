@@ -124,6 +124,34 @@
       "body": "**In any fund whose assets are less liquid than its terms, redeeming first is rewarded.** That is not cynicism, it is arithmetic: early redeemers get out at a valuation struck before the illiquid residue is repriced, funded by the sale of the best assets.\n\nWhich creates the incentive that makes runs happen. If you believe others may redeem, redeeming becomes rational regardless of your view on the manager. **Gates exist precisely to break that logic** — by capping what anyone can take, they remove the advantage of going first and make staying a reasonable choice.\n\nSo when you read a gate provision, read it twice: once as a restriction on you, and once as the thing that stops a fund unravelling around you. Whether it is friend or obstacle depends entirely on which side of the queue you are on, and you do not get to choose that in advance."
     },
     {
+      "type": "infographic",
+      "id": "gate-logic",
+      "caption": "Gates exist to break the first-mover logic — whether a gate is friend or obstacle depends on which side of the queue you are on.",
+      "spec": {
+        "kind": "comparison",
+        "columns": [
+          {
+            "title": "Without a gate",
+            "mark": "cross",
+            "bullets": [
+              "Early redeemers exit at a valuation struck before the damage, funded by the sale of the best assets",
+              "Redeeming first is rewarded — arithmetic, not cynicism",
+              "If you believe others may redeem, redeeming becomes rational regardless of your view on the manager"
+            ]
+          },
+          {
+            "title": "With a gate",
+            "mark": "check",
+            "bullets": [
+              "Caps what anyone can take in a period",
+              "Removes the advantage of going first",
+              "Makes staying a reasonable choice — protecting whoever remains"
+            ]
+          }
+        ]
+      }
+    },
+    {
       "type": "onTheJob",
       "id": "on-the-job",
       "body": "**Map the terms against the assets, and look for a mismatch in either direction.** Terms more liquid than the assets is the dangerous case; terms far less liquid than the assets is a question about what the manager is really holding.\n\n**Ask what proportion of the fund could be liquidated in thirty days at a normal price, by the manager's own estimate.** Then compare with the redemption terms. The gap is the risk.\n\n**Ask whether the fund has ever gated, suspended or side-pocketed, and why.** History here is far more informative than the provisions themselves.\n\n**Ask what percentage of the fund is currently side-pocketed and what it was a year ago.** A rising proportion is a leading indicator that deserves an explanation.\n\n**Check the investor concentration.** A fund where three investors hold 60% has a redemption profile driven by three decisions, whatever the terms say. That is a bigger risk than the notice period.\n\n**Establish what happens to your notice if a gate applies.** Whether you re-queue automatically or must re-request determines how long an exit actually takes."

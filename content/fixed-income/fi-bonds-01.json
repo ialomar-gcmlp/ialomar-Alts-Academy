@@ -54,6 +54,31 @@
       "body": "**[[ytm|Yield to maturity]] is a single number standing in for a whole schedule, and it earns that simplicity by making two assumptions people forget.**\n\n**One: you hold to maturity.** Sell earlier and your realised return depends on the price then, which depends on rates then. YTM is not a forecast of your return unless you hold the bond to the end.\n\n**Two: every coupon is reinvested at the YTM itself.** This is the assumption that quietly does most of the work. A 5% bond quoted at a 6% yield only delivers 6% if each coupon can be redeployed at 6% for the remaining life. If rates fall, the coupons reinvest lower and the realised return is below the quoted yield.\n\n**So YTM is a promise conditional on a world that stays still.** For a short bond the reinvestment assumption barely matters; for a thirty-year bond it is most of the return.\n\nTwo practical consequences:\n\n**A zero-coupon bond has no reinvestment risk**, because there are no coupons to reinvest. Its YTM, held to maturity, is exactly its return — which is why zeros are the cleanest instruments for matching a known future liability.\n\n**And comparing two bonds on YTM alone compares two different reinvestment assumptions.** Usually fine; worth knowing when the maturities are far apart."
     },
     {
+      "type": "infographic",
+      "id": "ytm-assumptions",
+      "caption": "YTM is a promise conditional on a world that stays still — two assumptions, and the clean case that avoids them.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "You hold to maturity",
+            "icon": "clock",
+            "detail": "Sell earlier and your realised return depends on the price then, which depends on rates then."
+          },
+          {
+            "label": "Coupons reinvest at the YTM",
+            "icon": "gear",
+            "detail": "The assumption that quietly does most of the work — over thirty years it is most of the return."
+          },
+          {
+            "label": "The clean case: a zero",
+            "icon": "shield",
+            "detail": "No coupons, no reinvestment risk. A zero's YTM, held to maturity, is exactly its return."
+          }
+        ]
+      }
+    },
+    {
       "type": "formula",
       "id": "price-formula",
       "latex": "P = \\sum_{t=1}^{n} \\frac{C}{(1+y)^t} + \\frac{F}{(1+y)^n}",
@@ -90,6 +115,31 @@
         "**Read that carefully: the same 100bp move produced a bigger gain than loss. Bond price responses are asymmetric in the holder's favour**, and that asymmetry has a name — convexity — and its own topic.",
         "Sanity check worth reusing: **before computing anything, check the direction from the coupon against the yield.** Coupon 5%, yield 6%, so the price must be below 100. If a calculation says 104, a sign or a period count is wrong — and that check catches most bond arithmetic errors in one second."
       ]
+    },
+    {
+      "type": "infographic",
+      "id": "price-asymmetry",
+      "caption": "The 5% ten-year bond at four yields — and the asymmetry around 6% that convexity explains.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "At a 5% yield",
+            "stat": "100.00",
+            "detail": "Coupon equals yield, so the bond trades at par. From 92.64, the 100bp fall gained +7.94%."
+          },
+          {
+            "label": "At a 6% yield",
+            "stat": "92.64",
+            "detail": "Yield above coupon — a discount. The reference point for both moves."
+          },
+          {
+            "label": "At a 7% yield",
+            "stat": "85.95",
+            "detail": "The same 100bp, the other way, lost only −7.22%. The gain exceeds the loss."
+          }
+        ]
+      }
     },
     {
       "type": "table",

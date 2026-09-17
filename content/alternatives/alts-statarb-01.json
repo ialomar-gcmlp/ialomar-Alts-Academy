@@ -21,6 +21,30 @@
       "body": "[[statistical-arbitrage]] applies systematic rules to a large universe of securities, taking many small positions where a statistical relationship suggests a mispricing. No view on any individual company — the edge is statistical, expressed across hundreds or thousands of positions.\n\nThe classic form is **pairs trading**. Two historically related securities diverge; short the outperformer, buy the underperformer, expect the relationship to reassert. Entry and exit are usually governed by a [[z-score|z-score]]: enter when the spread is two or more standard deviations from its normal relationship, exit as it reverts.\n\nModern implementations are considerably broader — multi-factor models, short-horizon reversal signals, cross-sectional momentum, machine learning on alternative data — but the architecture is constant:\n\n- **A small edge per position.** [[hit-rate|Hit rates]] barely above 50% are normal and sufficient.\n- **Enormous breadth.** Thousands of positions, so the law of large numbers does the work.\n- **Short holding periods.** Days to weeks, sometimes less.\n- **Tight risk constraints.** Market, sector and factor neutrality are usually imposed explicitly."
     },
     {
+      "type": "infographic",
+      "id": "pairs-trade",
+      "caption": "The classic form: pairs trading, governed by a z-score.",
+      "spec": {
+        "kind": "steps",
+        "steps": [
+          {
+            "label": "Two related securities diverge",
+            "icon": "chartUp",
+            "detail": "Entry when the spread is two or more standard deviations from its normal relationship — the [[z-score|z-score]]."
+          },
+          {
+            "label": "Short the outperformer, buy the underperformer",
+            "detail": "No view on either company — the edge is statistical."
+          },
+          {
+            "label": "The relationship reasserts; exit",
+            "icon": "target",
+            "detail": "Exit as the spread reverts. Days to weeks, sometimes less."
+          }
+        ]
+      }
+    },
+    {
       "type": "concept",
       "id": "return-driver",
       "body": "**The return driver is a small statistical edge applied across a very large number of independent bets.**\n\nThe arithmetic is the appeal. A 52% hit rate on one trade is indistinguishable from noise. The same edge across 5,000 trades is highly reliable — the same logic that makes a casino's small house edge a dependable business.\n\nThat framing makes the two genuine risks obvious:\n\n1. **The edge decays.** Signals stop working as others discover them, as markets change, or as the inefficiency is arbitraged away. A statistical edge is not a law of nature; it is a temporary feature of a market's structure.\n2. **The bets are not as independent as assumed.** Breadth only delivers reliability if outcomes are genuinely unrelated. When positions share a hidden common factor, 5,000 bets behave like one bet, and the arithmetic that made the strategy attractive stops applying.\n\nAlmost every serious statistical arbitrage failure is one of those two, and the second is the one that happens suddenly."
@@ -137,6 +161,34 @@
       "type": "pitfall",
       "id": "backtest",
       "body": "**Treat an in-sample backtest as close to uninformative.** A strategy chosen from a large space of candidates on the basis of historical performance has been selected precisely for having looked good — which is what searching does, whether or not any real edge exists.\n\nThe questions that carry information: what has happened *since* the model was fixed, how many variants were tried before this one, and did the manager keep a genuine holdout period untouched during development? Live out-of-sample record after the strategy was locked down is worth more than any length of backtest, and a manager who understands that will say so before you ask."
+    },
+    {
+      "type": "infographic",
+      "id": "backtest-vs-live",
+      "caption": "What carries information about a quantitative strategy — and what does not.",
+      "spec": {
+        "kind": "comparison",
+        "columns": [
+          {
+            "title": "In-sample backtest",
+            "mark": "cross",
+            "bullets": [
+              "Selected precisely for having looked good — which is what searching does",
+              "With enough variants, something always looks profitable",
+              "Close to uninformative about the future"
+            ]
+          },
+          {
+            "title": "Live record since the model was fixed",
+            "mark": "check",
+            "bullets": [
+              "What has happened since the strategy was locked down",
+              "How many variants were tried before this one",
+              "Whether a genuine holdout period was kept untouched"
+            ]
+          }
+        ]
+      }
     },
     {
       "type": "onTheJob",

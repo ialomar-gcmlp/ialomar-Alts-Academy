@@ -69,9 +69,65 @@
       "body": "That $4m is the whole reason to understand this properly, and the distinction has a name.\n\n**A soft hurdle (with catch-up)** means the preferred return is a *timing* device, not a giveaway. Once the fund clears 8%, the GP catches up and ends with 20% of everything — including the first 8%. The LP got their preferred return earlier, not permanently.\n\n**A hard hurdle (no catch-up)** means the preferred return is genuinely carved out. The GP never earns carry on the first 8%, so its effective share of total profit is permanently below 20%.\n\nIn the worked example: 20% versus 15% of total profit. **The GP's economics differ by a third and both funds can describe themselves as \"8% hurdle, 20% carry\".** Both descriptions are accurate. Neither is complete.\n\nSo the question \"what is the carry?\" is insufficient. The complete question is: **what is the carry, is the hurdle hard or soft, what is the catch-up rate, and is the preferred return compounding?** Four numbers, and the headline figure is only one of them."
     },
     {
+      "type": "infographic",
+      "id": "soft-vs-hard",
+      "caption": "Both funds say “8% hurdle, 20% carry”. In the worked example: $16m against $12m — a third more carry, identical performance.",
+      "spec": {
+        "kind": "comparison",
+        "columns": [
+          {
+            "title": "Soft hurdle (with catch-up)",
+            "bullets": [
+              "The preferred return is a timing device, not a giveaway",
+              "Once the fund clears 8%, the GP catches up and ends with 20% of everything",
+              "Worked example: $16m of carry — 20% of total profit"
+            ]
+          },
+          {
+            "title": "Hard hurdle (no catch-up)",
+            "bullets": [
+              "The preferred return is genuinely carved out",
+              "The GP never earns carry on the first 8%",
+              "Worked example: $12m of carry — 15% of total profit"
+            ]
+          }
+        ]
+      }
+    },
+    {
       "type": "concept",
       "id": "european-vs-american",
       "body": "A second, equally consequential distinction: **is the waterfall applied to the whole fund, or deal by deal?**\n\n**[[european-waterfall|European, or whole-fund]].** No carry is paid until LPs have received all their capital plus the preferred return across the *entire* fund. The GP waits, sometimes many years, and the LP's downside protection is strong because the netting happens before any carry is paid.\n\n**[[american-waterfall|American, or deal-by-deal]].** Carry is paid on each successful exit as it happens, without waiting for the rest of the portfolio. The GP is paid much earlier — which is the point — and the LP now carries a real risk: **carry paid on early winners may turn out to be unjustified once the losers are realised.**\n\nThat risk is why deal-by-deal structures include a [[clawback]]: an obligation to return excess carry at the end of the fund's life. And a clawback is only as good as its enforceability. Ask whether it is joint and several across the GP's individuals, whether it is net of the tax the recipients already paid, whether any of it is escrowed, and whether the entity that owes it will still exist in eight years. **An unsecured, tax-adjusted clawback against a dissolved entity is a sentence in a document rather than a protection.**"
+    },
+    {
+      "type": "infographic",
+      "id": "clawback-tests",
+      "caption": "An unsecured, tax-adjusted clawback against a dissolved entity is a sentence in a document rather than a protection.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Joint and several?",
+            "icon": "docCheck",
+            "detail": "Owed by the GP's individuals, or only by an entity that may not survive."
+          },
+          {
+            "label": "Gross or net of tax?",
+            "icon": "coins",
+            "detail": "A clawback net of tax already paid returns materially less than was overpaid."
+          },
+          {
+            "label": "Escrowed?",
+            "icon": "lock",
+            "detail": "Whether any carry is held back as security, and how much."
+          },
+          {
+            "label": "Will the debtor exist?",
+            "icon": "clock",
+            "detail": "The obligation matures at the end of the fund's life — eight years is a long time for an entity to survive."
+          }
+        ]
+      }
     },
     {
       "type": "table",

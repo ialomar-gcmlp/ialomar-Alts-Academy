@@ -74,9 +74,68 @@
       "body": "**The return driver is revenue and earnings growth, plus whatever multiple the market pays at exit.**\n\nCompare that with the [[buyout]] decomposition. Debt paydown contributes nothing, because there is little debt. So of the three buyout value-creation sources, only two remain, and one of them — [[ev-ebitda|multiple]] change — is outside the manager's control.\n\nThis makes growth equity a purer bet on the business than buyout is, with both the honesty and the fragility that implies. There is no financial engineering to fall back on. If the company grows into its valuation, the return is good; if growth decelerates, there is nothing to cushion it.\n\nIt also means **entry valuation is the dominant risk**. A company growing 40% a year bought at 15x revenue needs years of sustained growth simply to justify the price paid. The same company at 6x has a considerably wider margin for disappointment, with identical operating performance."
     },
     {
+      "type": "infographic",
+      "id": "return-decomposition",
+      "caption": "Remove leverage and control, and the return has to come almost entirely from the company growing.",
+      "spec": {
+        "kind": "equation",
+        "terms": [
+          {
+            "label": "Revenue and earnings growth",
+            "icon": "chartUp",
+            "sublabel": "the only lever the manager backs"
+          },
+          {
+            "label": "Multiple at exit",
+            "icon": "coins",
+            "sublabel": "outside the manager's control"
+          },
+          {
+            "label": "The return",
+            "sublabel": "no financial engineering to fall back on"
+          }
+        ],
+        "operators": [
+          "+",
+          "="
+        ],
+        "result": "Debt paydown contributes nothing — of buyout's three value-creation sources, only two remain."
+      }
+    },
+    {
       "type": "intuition",
       "id": "minority-protections",
       "body": "The interesting question about a minority stake is: what can you actually do if things go wrong?\n\nThe answer is contractual rather than operational. Growth investors negotiate protections into the shareholders' agreement — consent rights over major decisions, board seats, information rights, anti-dilution provisions, liquidation preferences, and rights that force or permit an exit after a period.\n\n**These terms are the substance of the investment**, and this is where a lot of the skill lives. Two funds can buy identical stakes at identical prices with entirely different downside outcomes, because one negotiated a liquidation preference and consent over further fundraising and the other did not.\n\nThere is a specific risk worth naming. A minority holder without protections can be **crammed down** in a later round: the company raises new capital at a lower valuation on terms that dilute or subordinate the existing minority holding. The business may even recover, and the earlier investor still does badly. So in growth equity, reading the term sheet is not a legal formality — it is a large part of the analysis, in the same way documentation is for [[distressed-debt]]."
+    },
+    {
+      "type": "infographic",
+      "id": "protection-kit",
+      "caption": "The protections negotiated into the shareholders' agreement are the substance of the investment.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Consent rights",
+            "icon": "docCheck",
+            "detail": "Approval over major decisions, including further fundraising — the defence against being crammed down."
+          },
+          {
+            "label": "Liquidation preference",
+            "icon": "shield",
+            "detail": "Determines who is paid first if the outcome is poor."
+          },
+          {
+            "label": "Anti-dilution",
+            "icon": "gear",
+            "detail": "Protects the stake against a later round at a lower valuation."
+          },
+          {
+            "label": "Exit rights",
+            "icon": "arrow",
+            "detail": "Rights that force or permit an exit after a period — a minority stake needs someone else to buy it."
+          }
+        ]
+      }
     },
     {
       "type": "table",

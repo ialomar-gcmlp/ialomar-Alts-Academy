@@ -114,6 +114,36 @@
       "body": "**Fund expenses are the least examined and fastest-growing part of the cost.** These are charged to the fund in addition to the management fee, and the list has expanded considerably over time:\n\n- deal costs on transactions that did not complete — **broken deal expenses**\n- legal, audit, tax, administration and regulatory filing costs\n- travel and diligence costs\n- technology, data and subscription costs\n- in some structures, a share of the manager's own compliance and personnel costs\n\nIndividually each is defensible. Collectively they can add a meaningful amount a year on top of the stated fee, and unlike the management fee they are not usually expressed as a percentage anywhere.\n\nThe practical consequence: **the management fee is not the cost of the fund.** Total expense ratio — fee plus fund expenses — is the number that matters, and it requires reading the financial statements rather than the term sheet. A manager who will state an expected total expense ratio, and has historically hit it, is telling you something useful."
     },
     {
+      "type": "infographic",
+      "id": "expense-list",
+      "caption": "The management fee is not the cost of the fund — these are charged on top, and rarely expressed as a percentage anywhere.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Broken deal expenses",
+            "icon": "cross",
+            "detail": "Deal costs on transactions that did not complete."
+          },
+          {
+            "label": "Professional costs",
+            "icon": "docCheck",
+            "detail": "Legal, audit, tax, administration and regulatory filings."
+          },
+          {
+            "label": "Travel and diligence",
+            "icon": "case",
+            "detail": "Plus technology, data and subscription costs."
+          },
+          {
+            "label": "The manager's own costs",
+            "icon": "alert",
+            "detail": "In some structures, a share of the manager's compliance and personnel costs — read the list for it."
+          }
+        ]
+      }
+    },
+    {
       "type": "table",
       "id": "the-five-questions",
       "caption": "The five terms behind \"2 and 20\"",
@@ -159,6 +189,31 @@
       "type": "pitfall",
       "id": "percent-of-return",
       "body": "**Express fees as a share of expected return, not as a share of assets.** The two framings feel completely different and only one supports a decision.\n\n\"2% and 20%\" sounds like a rate. \"Management fees alone will consume 20% of committed capital over the fund's life, so we need a 1.20x gross multiple to break even, and at a 1.7x gross outcome roughly a third of the profit goes to the manager\" is the same information in a form a committee can act on.\n\nThis is the same reframing that makes the [[fund-of-funds|fund-of-funds]] fee arithmetic so stark. Nothing about the numbers changes; what changes is whether the reader can weigh them."
+    },
+    {
+      "type": "infographic",
+      "id": "fees-as-return-share",
+      "caption": "The same “2 and 20”, expressed as a share of return rather than of assets — only this version supports a decision.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Of committed capital",
+            "stat": "20%",
+            "detail": "What management fees alone consume over a ten-year fund's life at 2% a year."
+          },
+          {
+            "label": "Break-even gross multiple",
+            "stat": "1.20x",
+            "detail": "What the fund must return before LPs have made anything."
+          },
+          {
+            "label": "Of profit at 1.7x gross",
+            "stat": "≈⅓",
+            "detail": "Roughly a third of the profit goes to the manager at a middling outcome."
+          }
+        ]
+      }
     },
     {
       "type": "onTheJob",

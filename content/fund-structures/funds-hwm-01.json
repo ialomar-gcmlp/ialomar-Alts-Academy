@@ -61,9 +61,57 @@
       }
     },
     {
+      "type": "infographic",
+      "id": "reset-cost",
+      "caption": "What a reset would have cost on the worked path — triple the fee base, identical performance.",
+      "spec": {
+        "kind": "facts",
+        "tiles": [
+          {
+            "label": "Permanent mark",
+            "stat": "10",
+            "detail": "Fees only on the gain above your previous peak of 100 — the path 100 → 80 → 95 → 110 charges on 10."
+          },
+          {
+            "label": "Reset at the bottom",
+            "stat": "30",
+            "detail": "A mark reset at 80 would charge on the whole recovery to 110 — billing you for getting back to even."
+          }
+        ]
+      }
+    },
+    {
       "type": "intuition",
       "id": "why-it-matters",
       "body": "The high water mark exists because of a genuine asymmetry: **the manager shares the upside and not the downside.**\n\nA performance fee is a call option on the fund's gains, granted by the investor. Options are worth more when the underlying is volatile, so a manager holding one has a structural incentive toward risk that the investor does not share. The high water mark constrains that — it means a manager who loses money has to earn it back before being paid again, which restores some symmetry.\n\nBut notice what it does *not* do, because this is the part people miss. **A high water mark does not make the manager whole for your loss; it merely stops them profiting from the recovery.** If a fund falls 30% and takes three years to recover, you have lost three years and the manager has lost three years of performance fees. Nobody compensates you for the time.\n\nAnd there is a harder problem. A manager deep below their high water mark has a difficult set of incentives: their performance fee is worthless unless the fund recovers substantially, so **taking more risk becomes rational for them and not for you.** Alternatively they close the fund and start a new one with a fresh mark — which is the same outcome as a reset, achieved differently."
+    },
+    {
+      "type": "infographic",
+      "id": "what-hwm-does",
+      "caption": "The mark restores some symmetry — and note what it does not do.",
+      "spec": {
+        "kind": "comparison",
+        "columns": [
+          {
+            "title": "What it does",
+            "mark": "check",
+            "bullets": [
+              "Restricts performance fees to gains above your previous peak",
+              "A manager who loses money must earn it back before being paid again",
+              "Constrains the option-like incentive toward risk"
+            ]
+          },
+          {
+            "title": "What it does not do",
+            "mark": "cross",
+            "bullets": [
+              "Nobody compensates you for the time lost in recovery",
+              "Deep below the mark, taking more risk becomes rational for the manager and not for you",
+              "It cannot stop a close-and-relaunch, which resets the mark completely"
+            ]
+          }
+        ]
+      }
     },
     {
       "type": "concept",

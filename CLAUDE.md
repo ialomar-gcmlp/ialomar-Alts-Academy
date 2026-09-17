@@ -778,14 +778,13 @@ Authoring rules:
   list (unknown → no icon, never a crash). Current pictograms: coins, chartUp,
   docCheck, gear, shield + the original 14.
 
-Coverage as of M10 batch 3: 34 diagrams across 18 topics — the six flagship seeds
+Coverage as of M10 batch 4 (densification, user-requested "more per reading"):
+63 diagrams across 18 topics at 2–4 per reading — the six flagship seeds
 (alts-convert-01, alts-statarb-01, alts-pe-02, alts-event-01, funds-waterfall-01,
-funds-gplp-01), the rest of fund-structures (funds-calls-01, funds-fees-01,
-funds-hwm-01, funds-liquidity-01, funds-sideletters-01, funds-subline-01), and all
-of fixed-income (fi-bonds-01, fi-credit-01, fi-duration-01, fi-floating-01,
-fi-forwards-01, fi-securitisation-01). Both those domains are complete. Remaining
-68 topics are open authoring work, one domain per batch with user review between,
-per the M5 discipline.
+funds-gplp-01), all of fund-structures, and all of fixed-income. Both those domains
+are complete at the new density, which is the going rate for future batches.
+Remaining 68 topics are open authoring work, one domain per batch with user review
+between, per the M5 discipline.
 
 Known cosmetic nit: the stack kind's vertical axis label reports scrollWidth 4px
 over clientWidth (glyph em-box arithmetic on `[writing-mode:vertical-rl]`); no

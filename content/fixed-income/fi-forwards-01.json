@@ -57,6 +57,30 @@
       "body": "**Because forwards are pinned by the spot curve, the curve contains a complete implied path of future short rates. That path is the market's forecast, and it is already in every price.**\n\nThis is the fact that reframes most rates positioning. An upward-sloping curve does not mean \"rates will rise\" is a good trade — it means rates rising is what the curve already assumes. To make money you have to be right about something the curve is wrong about.\n\nSo the useful question is never \"where are rates going?\" It is **\"where do I differ from the forwards, and by how much?\"**\n\nTwo consequences follow directly.\n\n**Every rate view has a breakeven you can compute.** Buying a longer bond rather than rolling short ones wins only if future short rates come in *below* the forwards. That threshold is a number, not an opinion.\n\n**The curve's shape has a portfolio meaning rather than a predictive one.** A steep curve says the market expects meaningful rate rises; a flat one says it does not. Neither tells you what will happen — both tell you what you are being paid to disagree with, which is more useful."
     },
     {
+      "type": "infographic",
+      "id": "curve-to-position",
+      "caption": "From curve to position — the only version of a rate view that can be tested.",
+      "spec": {
+        "kind": "steps",
+        "steps": [
+          {
+            "label": "The spot curve pins the forwards",
+            "icon": "lock",
+            "detail": "Arbitrage forces them — two riskless routes over the same period must return the same."
+          },
+          {
+            "label": "The forwards imply a path of short rates",
+            "detail": "That path is the market's forecast, and it is already in every price."
+          },
+          {
+            "label": "The trade is where you differ",
+            "icon": "target",
+            "detail": "“Where do I differ from the forwards, and by how much?” — stated in basis points, with a computable breakeven."
+          }
+        ]
+      }
+    },
+    {
       "type": "intuition",
       "id": "carry-and-rolldown",
       "body": "**A bond can make money without any rate forecast being right, and the two sources have names worth knowing separately.**\n\n**Carry** is the coupon you collect for holding it. If the coupon exceeds your funding cost, you earn the difference simply by waiting.\n\n**Rolldown** is subtler and often larger. On an upward-sloping curve, a three-year bond becomes a two-year bond after a year — and if the curve has not moved, it is now priced at the *lower* two-year rate. Lower yield means higher price. **You gain without anything changing.**\n\nThe combination is why an upward-sloping curve rewards holding longer bonds even when nobody expects rates to fall. And it is why \"the curve is upward sloping so I should stay short\" is usually wrong: staying short forgoes both carry and rolldown, and you need rates to rise faster than the forwards imply just to break even.\n\n**The honest framing: carry and rolldown are what you earn if you are wrong about nothing. The rate view is what you earn on top of that — or lose.** A strategy whose entire return is carry and rolldown is a legitimate strategy with a specific failure mode, which is a curve that moves against you faster than the accumulated carry can absorb."
